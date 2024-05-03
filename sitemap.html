@@ -130,12 +130,15 @@
             padding: 0;
             background-color: #f4f4f4;
         }
-        header {
-            background: linear-gradient(#000040,#1560bd);
-            color: #fff;
-          
-            text-align: center;
-        }
+		.header1-section {
+			background-color: #f4f4f4;
+			padding: 20px;
+			text-align: center;
+		}
+
+		.content-section {
+			margin-top: 20px;
+		}
         main {
             max-width: 800px;
             margin: 20px auto;
@@ -151,23 +154,47 @@
         }
         li {
             margin-bottom: 10px;
+			
         }
         li a {
             color: #007bff;
             text-decoration: none;
             transition: color 0.3s;
         }
-        li a:hover {
-            color: #0056b3;
-        }
+        
         ul ul {
             margin-left: 20px;
         }
 
-        ul ul li::before {
-            content: '\2192'; /* Unicode for right arrow */
-            margin-right: 5px;
-        }
+
+		/* Custom CSS for arrow list */
+		.arrow-list {
+			list-style: none;
+		  }
+		  .arrow-list > li::before {
+			content: '\2192'; /* Unicode for right arrow */
+			margin-right: 5px;
+		  }
+		  /* Custom CSS for button-like anchor hover */
+		  .arrow-list li a {
+			text-decoration: none; /* Remove underline */
+			color: #5593d2; /* Default text color */
+			transition: all 0.3s; /* Smooth transition */
+			display: inline-block;
+			padding: 0.5rem 1rem;
+			border: 1px solid transparent;
+			border-radius: 0.25rem;
+		  }
+		  .arrow-list li a:hover {
+			color: #0056b3; /* Hover text color */
+			background-color: #e9ecef; /* Hover background color */
+			border-color: #c8ced3; /* Hover border color */
+		  }
+
+		  .custom-list-item {
+			width: 500px; /* Adjust width as needed */
+		  }
+		  
 </style>
 	</head>
 
@@ -340,12 +367,13 @@
 
 				</div>     <!-- End header-wrapper -->
 			</header>	
-<br><br><br>
+<br>
 
 
-<header>
-    <h1>Sitemap</h1>
-</header>
+<div class="container1" style="padding-top: 50px;">
+    <div class="header1-section">
+        <h1 style="color:white;background: linear-gradient(#1560bd,#000040);">Site Map</h1>
+    </div>
 <main>
 
     <div class="container-fluid">
@@ -353,13 +381,13 @@
             <div class="row" style="display:flex">
                 <div class="col-md-6">
       
-    <ul>
+    <ul >
         <li><a href="index.html" style="color: #343a40;">Home</a></li>
         <li>
-			<li><a href="auditing.html" style="color: #343a40;">Auditing</a></li>
+			<li ><a href="auditing.html" style="color: #343a40;">Auditing</a></li>
 
-            <ul>
-                <li><a href="auditing.html">IMS Auditing</a></li>
+            <ul class="arrow-list" >
+                <li><a href="ims.html">IMS Auditing</a></li>
                 <li><a href="safety.html">Safety Audit</a></li>
                 <li><a href="env.html">Environment Audit</a></li>
                 <li><a href="healthandsafety.html">Healthy and Safety Audit </a></li>
@@ -369,7 +397,7 @@
         <li>
 			<li><a href="certification.html" style="color: #343a40;">Certification</a></li>
 
-            <ul>
+            <ul class="arrow-list">
                 <li><a href="certification1.html">ISO 45001:2018</a></li>
                 <li><a href="certification2.html">ISO 14001:2015</a></li>
                 <li><a href="certification3.html">ISO 9001:2015</a></li>
@@ -377,8 +405,8 @@
             </ul>
         </li>
         <li>
-			<li><a href="certification.html" style="color: #343a40;"> Documentation</a></li>
-            <ul>
+			<li><a href="documentation.html" style="color: #343a40;"> Documentation</a></li>
+            <ul class="arrow-list">
                 <li><a href="ohsms.html">OHSMS</a></li>
                 <li><a href="ems.html">EMS</a></li>
 				<li><a href="qms.html">QMS</a></li>
@@ -387,7 +415,7 @@
         </li>
         <li>
 			<li><a href="fireequipments.html" style="color: #343a40;">  Fire Equipments</a></li>
-            <ul>
+            <ul class="arrow-list">
                 <li><a href="fireprotection.html">Fire Protection</a></li>
                 <li><a href="firedetection.html">Fire Detection</a></li>
                 <li><a href="firesuppression.html">Fire Suppression</a></li>
@@ -396,7 +424,7 @@
         </li>
         <li>
 			<li><a href="ppesupply.html" style="color: #343a40;"> PPE's Supply</a></li>
-            <ul>
+            <ul class="arrow-list">
                 <li><a href="covid.html">COVID-19</a></li>
                 <li><a href="aboveneck.html">Above Neck</a></li>
                 <li><a href="footprotection.html">Foot Protection</a></li>
@@ -407,7 +435,7 @@
         </li>
         <li>
 			<li><a href="ehstrainings.html" style="color: #343a40;"> MLC Trainings</a></li>
-            <ul>
+            <ul class="arrow-list">
                 <li><a href="online.html">Online</a></li>
                 <li><a href="classroom.html">Classroom</a></li>
                 <li><a href="corporate.html">Corporate</a></li>
@@ -415,22 +443,25 @@
         </li>
 		<li>
 			<li><a href="services2.html" style="color: #343a40;"> Services</a></li>
-            <ul>
+            <ul class="arrow-list">
                 <li><a href="safetystudies.html">Safety Studies</a></li>
                 <li><a href="powersystem.html">Power system studies</a></li>
                 <li><a href="industrialhygene.html">Industrial hygene</a></li>
-				<li><a href="Pharma.html">Pharma clean room equipments</a></li>
+				<li class="custom-list-item">
+					<a href="Pharma.html">Pharma Clean Room Equipments</a>
+				  </li>
+				  
                 <li><a href="incidentinvestigation.html">Incident Investigation</a></li>
             </ul>
         </li>
 		<li> Comapany</li>
-		<ul>
+		<ul class="arrow-list">
 		<li><a href="about.html"> About Us</a></li>
 		<li><a href="Blog.html">Our Blog </a></li>
 		<li><a href="contact.html"> Contact Us</a></li>
 		</ul>
-		<li> Legal</li>
-		<ul>
+		<li > Legal</li>
+		<ul class="arrow-list">
 		<li><a href="terms.html"> Terms of Use</a></li>
 		<li><a href="sitemap.html">Site Map</a></li>
 		</ul>
