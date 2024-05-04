@@ -1408,3 +1408,13 @@ body.wsactive {
   padding-right: 22px;
 }
 }
+
+
+/* CSS for mobile logo in the specified viewport range */
+        @media (max-width: 478px) {
+          /* Adjust the styles for the mobile logo */
+          .smllogo img {
+              max-width: 40px; /* Adjust the width as needed */
+              height: auto; /* Maintain aspect ratio */
+          }
+      }
