@@ -443,6 +443,8 @@ form .input-box span.details{
 
 }
 
+
+
 </style>
 </head>
 <body>
@@ -623,53 +625,54 @@ form .input-box span.details{
 
 
       <!--Form Section-->
-     <div class="container belowcard">
-    <div class="title">Talk to Our Concern Team</div>
-    <div class="row">
-        <div class="col-lg-8">
-            <div class="content">
+<div class="container belowcard my-4">
+  <div class="title">
+      <h2 class="text-center">Talk to Our Concern Team</h2>
+  </div>
+  <div class="row">
+      <!-- Contact Form Column -->
+      <div class="col-lg-8">
+          <div class="content">
               <form id="contactForm" method="POST" onsubmit="return validateForm(event);">
-                                <div class="user-details">
-        <div class="input-box">
-            <span class="details">First Name</span>
-            <input type="text" placeholder="Enter your First name" name="firstName" required>
-            <div class="error-message" id="first-name-error"></div>
-        </div>
-        <div class="input-box">
-            <span class="details">Last Name</span>
-            <input type="text" placeholder="Enter your Last name" name="lastName" required>
-            <div class="error-message" id="last-name-error"></div>
-        </div>
-        <div class="input-box">
-            <span class="details">Phone Number</span>
-            <input type="text" placeholder="Enter your Phone Number" name="phoneNumber" required>
-            <div class="error-message" id="phone-error"></div>
-        </div>
-        <div class="input-box">
-            <span class="details">Email</span>
-            <input type="text" placeholder="Enter your email" name="email" required>
-            <div class="error-message" id="email-error"></div>
-        </div>
-        <div class="input-box">
-            <span class="details">Message</span>
-            <textarea cols="40" rows="5" placeholder="How can we help you" name="Message" required></textarea>
-            <div class="error-message" id="message-error"></div>
-        </div>
-    </div>
-    <div class="button">
-        <input type="submit" id="submit" value="Submit" name="submit" class="btn btn-info">
-    </div>
-</form>
+                  <div class="form-group">
+                      <label for="firstName"><strong>First Name</strong></label>
+                      <input type="text" class="form-control" id="firstName" placeholder="Enter your First name" name="firstName" required>
+                      <div class="invalid-feedback" id="first-name-error"></div>
+                  </div>
+                  <div class="form-group">
+                      <label for="lastName"><strong>Last Name</strong></label>
+                      <input type="text" class="form-control" id="lastName" placeholder="Enter your Last name" name="lastName" required>
+                      <div class="invalid-feedback" id="last-name-error"></div>
+                  </div>
+                  <div class="form-group">
+                      <label for="phoneNumber"><strong>Phone Number</strong></label>
+                      <input type="text" class="form-control" id="phoneNumber" placeholder="Enter your Phone Number" name="phoneNumber" required>
+                      <div class="invalid-feedback" id="phone-error"></div>
+                  </div>
+                  <div class="form-group">
+                      <label for="email"><strong>Email</strong></label>
+                      <input type="email" class="form-control" id="email" placeholder="Enter your email" name="email" required>
+                      <div class="invalid-feedback" id="email-error"></div>
+                  </div>
+                  <div class="form-group">
+                      <label for="message"><strong>Message</strong></label>
+                      <textarea class="form-control" id="message" rows="5" placeholder="How can we help you" name="Message" required></textarea>
+                      <div class="invalid-feedback" id="message-error"></div>
+                  </div>
+                  <div class="button">
+                    <input type="submit" id="submit" value="Submit" name="submit" class="btn btn-info">
+                </div>
+              </form>
+          </div>
+      </div>
 
-            </div>
-        </div>
+      <!-- Google Maps Column -->
+      <div class="col-lg-4">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3807.9992188832694!2d78.54040247368862!3d17.363770603487986!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb919407ab2c5b%3A0x5aa19ccada9edacf!2sAnutex%20Shopping%20Mall%20-%20Kothapet!5e0!3m2!1sen!2sin!4v1714128825187!5m2!1sen!2sin" width="100%" height="600px" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+  </div>
+</div>
 
-        <div class="col-lg-4">
-          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3807.9992188832694!2d78.54040247368862!3d17.363770603487986!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb919407ab2c5b%3A0x5aa19ccada9edacf!2sAnutex%20Shopping%20Mall%20-%20Kothapet!5e0!3m2!1sen!2sin!4v1714128825187!5m2!1sen!2sin" width="600" height="530" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-        </div>
-    </div>
-</div>
-</div>
 
 <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
 
@@ -731,15 +734,16 @@ form .input-box span.details{
     </div>
     <div class="col-md-4">
       <h2 style="color:#fff">Contact</h2>
-      <p><a href="mailto:yourdomain@mail.com" style="color:#fff;">
+      <p><a href="mailto:info@mlcqehs.com" style="color:#fff;">
         <i class="fas fa-envelope"></i>  info@mlcqehs.com 
 
       </a> <br>
-         Phone: +91 9949845759,7726932023</p>
+         Phone: +91 9949845759<br>+91 7726932023</p>
     </div>
-    <div class="col-md-4">
-      <img src="images/vindus_clients_images/cardlogo.jpg" alt="" class="rounded-circle" height="200px" width="200px">
-    </div>
+    <div class="col-md-4 text-center">
+      <img src="images/vindus_clients_images/cardlogo.jpg" alt="" class="rounded-circle mx-auto d-block" height="200px" width="200px">
+  </div>
+  
   </div>
 </div>
 
@@ -813,12 +817,12 @@ form .input-box span.details{
 
 								<!-- Mail Link -->
 								<p class="footer-mail-link ico-25">
-									<a href="mailto:yourdomain@mail.com" style="color:#fff;">
+									<a href="mailto:info@mlcqehs.com" style="color:#fff;">
 										<i class="fas fa-envelope"></i>  info@mlcqehs.com
 
 									</a>
 									<br><br>
-									<i class="fas fa-mobile-alt"></i> +91 9949845759 , +91 7726932023
+									<i class="fas fa-mobile-alt"></i> +91 9949845759<br>+91 7726932023
 								</p>
 								
 
