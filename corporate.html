@@ -236,7 +236,31 @@
     
   }
 }
+body {
+    -webkit-user-select: none; /* Safari */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* IE10+/Edge */
+    user-select: none; /* Standard */
+}
+	@media (max-width: 767px) {
+    .header-wrapper {
+        background-color: white; /* Set the initial background color */
+        transition: none; /* Remove the transition effect */
+        padding: 10px 0; /* Increase padding to cover the toggle button and logo */
+    }
 
+    .header-wrapper.scrolled {
+        background-color: white; /* Set the background color when scrolled */
+    }
+
+    .navbar-dark .navbar-toggler-icon {
+        background-color: white; /* Change the background color of the toggle button */
+    }
+
+    .navbar-brand img {
+        filter: invert(1); /* Invert the color of the logo */
+    }
+}
 
 
 </style>
