@@ -122,10 +122,12 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 		<!-- BOOTSTRAP CSS -->
 		<link href="css/bootstrap.min.css" rel="stylesheet">
-				
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+			
 		<!-- FONT ICONS -->
 		<link href="css/flaticon.css" rel="stylesheet">
-
+         
 		<!-- PLUGINS STYLESHEET -->
 		<link href="css/menu.css" rel="stylesheet">	
 		<link id="effect" href="css/dropdown-effects/fade-down.css" media="all" rel="stylesheet">
@@ -163,7 +165,154 @@
   background-color: #e8ecf1; /* Change background color on scroll */
 }
 
+			
+			.hero-11-img img{
+				width: auto !important;
+			max-width: 680px !important;
+			}
+			
+			.block-shadow{
+				  box-shadow: 0 4px 12px 5px rgba(0, 0, 0, 0.08); 
+			}
+			.fbox-2 {
+				margin-bottom: 30px;
+			} 
+			 
+			.theme--dark footer.bg-white {
+				--bs-bg-opacity: 0; 
+			} 
+			/* .hero-26-img {
+				position: relative;
+				text-align: center;
+				margin: 0 -90% 0 -60px;
+			}
+				.hero-26-img img {
+					max-width: fit-content;
+					height: 800px;
+				} */
+			.color--white .hero-form h4 {
+				color: rgb(33, 37, 41);
+			}
+			.tra-menu .wsmainfull {
+				backdrop-filter: blur(20px);
+				-webkit-backdrop-filter: blur(20px);
+			}
+			.color--white .newsletter-section .form-control{
+				color: #6c757d;
+			}
+			
+			@media (max-width: 767px) {
+				  .hero-26-img img {
+				max-width: 100% !important;
+			  }
+			
+			  .hero-26-img {
+				margin-top: 0 !important;
+			  }
+			
+			}
+			@media (max-width: 768px) {
+				.elementor-widget-container {
+					margin-top: 20px; /* Adjust the margin-top value for spacing */
+				}
+			}
+			
+			/* .container {
+				margin-top: 50px;
+			} */
+			.image-container {
+					display: flex;
+					justify-content: space-around;
+					margin-top: 50px;
+				}
+				.rounded-circle {
+					border-radius: 50%;
+					animation: fadeIn 1s ease forwards;
+					opacity: 0;
+				}
+				@keyframes fadeIn {
+					from {
+						opacity: 0;
+						transform: translateY(20px);
+					}
+					to {
+						opacity: 1;
+						transform: translateY(0);
+					}
+				}
+				.image-container img{
+					margin: 10px;
+				}
+				.circle-img {
+					width: 150px;
+					height: 150px;
+				}
+			
+				.circle-img img {
+					width: 100%;
+					height: 100%;
+					object-fit: cover;
+				}
+			
+				@media (max-width: 767px) {
+					.circle-img {
+						display: flex;
+						justify-content: center;
+						background-color: #00ca03;
+						margin-left:70px;
+					}
+				}
+				
+			
+			
+						/* WhatsApp Icon Styling */
+			.whatsapp-icon {
+				position: fixed;
+				bottom: 20px;
+				right: 20px;
+				z-index: 9999;
+			}
+			
+			/* WhatsApp Icon Color */
+			.whatsapp-icon i {
+				color: green;
+				font-size: 2.5rem; /* Adjust as needed */
+				transition: color 0.3s;
+			}
+			
+			/* WhatsApp Text Styling */
+			.whatsapp-icon .whatsapp-text {
+				display: none;
+				position: absolute;
+				bottom: -25px;
+				left: -50px; /* Adjust the left position as needed */
+				background-color: rgba(255, 255, 255, 0.8);
+				padding: 5px 10px;
+				border-radius: 5px;
+				font-size: 14px;
+			}
+			
+			/* Show WhatsApp Text on Hover */
+			.whatsapp-icon:hover .whatsapp-text {
+				display: block;
+			}
 
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+      
+ 
 
 .footer li a{
 	color:#fff;
@@ -210,40 +359,7 @@ body {
 }
 
 
-#clients {
-	padding: 60px 0;
-}
 
-#clients .clients-wrap {
-	border-top: 1px solid #d6eaff;
-	border-left: 1px solid #d6eaff;
-	margin-bottom: 30px;
-}
-
-#clients .client-logo {
-	padding: 64px;
-	display: -webkit-box;
-	display: -webkit-flex;
-	display: -ms-flexbox;
-	display: flex;
-	-webkit-box-pack: center;
-	-webkit-justify-content: center;
-	-ms-flex-pack: center;
-	justify-content: center;
-	-webkit-box-align: center;
-	-webkit-align-items: center;
-	-ms-flex-align: center;
-	align-items: center;
-	border-right: 1px solid #d6eaff;
-	border-bottom: 1px solid #d6eaff;
-	overflow: hidden;
-	background: #fff;
-	height: 160px;
-}
-
-#clients img {
-	transition: all 0.4s ease-in-out;
-}
 .section-header h3 {
 	font-size: 36px;
 	color: #283d50;
@@ -251,6 +367,70 @@ body {
 	font-weight: 500;
 	position: relative;
 }
+.marquee {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+.marquee-content {
+    display: flex;
+    animation: marquee 20s linear infinite;
+}
+
+.marquee-content img {
+    width: auto;
+    height: 150px; /* Adjust based on your design */
+	padding: 20px;
+}
+
+@keyframes marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(-100%); }
+}
+/* Modal Styles */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1000; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgba(0,0,0,0.5); /* Black with opacity */
+}
+
+/* Modal Content */
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto; /* 15% from the top and centered */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%; /* Could be more or less, depending on screen size */
+}
+
+/* Close Button */
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.btn-click-effect {
+      transition: all 0.3s ease;
+    }
+    .btn-click-effect:hover {
+      transform: scale(1.1);
+    }
 </style>
 	</head>
 
@@ -258,10 +438,155 @@ body {
 
 
 	<body> 
+<br>
+
+<div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+	<div class="modal-dialog" role="document">
+	  <div class="modal-content">
+		<div class="modal-header">
+		  <h5 class="modal-title" id="exampleModalLongTitle">Enter Your Email</h5>
+		  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+			<span aria-hidden="true">&times;</span>
+		  </button>
+		</div>
+		<div class="modal-body">
+		  <form id="emailForm">
+			<div class="form-group">
+			  <label for="emailInput">Email address</label>
+			  <input type="email" class="form-control" id="emailInput" required>
+			</div>
+			<div class="form-group">
+			  <label for="phoneInput">Phone number</label>
+			  <input type="text" class="form-control" id="phoneInput" required>
+			</div>
+			<button type="submit" class="btn btn-primary">Submit</button>
+		  </form>
+		</div>
+	  </div>
+	</div>
+  </div>
+  
+  <script>
+  $(document).ready(function() {
+	// Close modal when close button is clicked
+	$('.close').click(function() {
+	  $('#exampleModalLong').modal('hide');
+	});
+  
+	// Alternatively, you can also close the modal when the modal backdrop is clicked outside the modal
+	$('#exampleModalLong').on('hidden.bs.modal', function() {
+	  $(this).find('form')[0].reset(); // Reset the form fields when the modal is closed
+	});
+  });
+  </script>
+
+<!-- Bootstrap JS and jQuery -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+
+<script>
+
+// Handle form submission
+$('#emailForm').submit(function(event) {
+  event.preventDefault(); // Prevent default form submission
+  var email = $('#emailInput').val(); // Get the entered email
+  var phone = $('#phoneInput').val(); // Get the entered phone number
+  
+  // Retrieve existing emails from local storage
+  var emails = JSON.parse(localStorage.getItem('customerEmails')) || [];
+
+  // Add the new email to the array
+  emails.push(email);
+
+  // Store the updated array in local storage
+  localStorage.setItem('customerEmails', JSON.stringify(emails));
+  // Store phone number in local storage
+  localStorage.setItem('customerPhone', phone);
+
+  // After storing the data, you can perform further actions such as opening the PDF file
+  window.location.href = 'download/MLC Brochure.pdf';
+});
+
+</script>
 
 
+</body>
+</html>
+
+		<!-- Bootstrap JS and jQuery -->
+		<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+	  
+		<script>
+		  $(document).ready(function() {
+			// Show modal when download button is clicked
+			$('#downloadBtn').click(function() {
+			  $('#exampleModalLong').modal('show');
+			});
+	  
+			// Handle form submission
+			$('#emailForm').submit(function(event) {
+			  event.preventDefault(); // Prevent default form submission
+			  var email = $('#emailInput').val(); // Get the entered email
+			  // Perform email validation here if needed
+	  
+			  // You can send the email to the server for further processing
+			  // For now, let's log it to the console
+			  console.log('Email submitted:', email);
+			  
+			  // Add your PDF download logic here
+	  
+			  // After the email submission, you can close the modal if needed
+			  $('#exampleModalLong').modal('hide');
+			});
+		  });
+		</script>
+<!-- Bootstrap JS and jQuery -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+
+<script>
+  $(document).ready(function() {
+	// Show modal when download button is clicked
+	$('#downloadBtn').click(function() {
+	  $('#exampleModalLong').modal('show');
+	});
+
+	// Handle form submission
+	$('#emailForm').submit(function(event) {
+	  event.preventDefault(); // Prevent default form submission
+	  var email = $('#emailInput').val(); // Get the entered email
+	  // Perform email validation here if needed
+
+	  // You can send the email to the server for further processing
+	  // For now, let's log it to the console
+	  console.log('Email submitted:', email);
+
+	  // Now, initiate the PDF download
+	  // You can use window.location.href to trigger the download
+	  window.location.href = 'download/MLC Brochure.pdf';
+	});
+  });
+</script>
 
 
+  
+  <!-- Bootstrap JS and jQuery -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  
+  <script>
+  // Show the modal after 10 seconds
+  $(document).ready(function() {
+	setTimeout(function() {
+	  $('#exampleModalLong').modal('show');
+	}, 10000); // 10 seconds delay
+  });
+  </script>
+  
+
+			</script>
 
 
 		<!-- PAGE CONTENT
@@ -399,7 +724,7 @@ body {
 									</li>
 
 
-<li class="nl-simple" aria-haspopup="true"><a href="services2.html" class="h-link">Services&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="wsarrow"></span></a>
+<li class="nl-simple" aria-haspopup="true"><a href="services2.html" class="h-link">Services&nbsp;&nbsp;&nbsp;&nbsp;<span class="wsarrow"></span></a>
 									
 										<ul class="sub-menu">
 											<li aria-haspopup="true"><a href="safetystudies.html">Safety Studies </a></li>
@@ -481,109 +806,14 @@ body {
 	
 
 
-		<style id="wp-custom-css">
-			
-.hero-11-img img{
-	width: auto !important;
-max-width: 680px !important;
-}
 
-.block-shadow{
-	  box-shadow: 0 4px 12px 5px rgba(0, 0, 0, 0.08); 
-}
-.fbox-2 {
-	margin-bottom: 30px;
-} 
- 
-.theme--dark footer.bg-white {
-	--bs-bg-opacity: 0; 
-} 
-/* .hero-26-img {
-	position: relative;
-	text-align: center;
-	margin: 0 -90% 0 -60px;
-}
-	.hero-26-img img {
-		max-width: fit-content;
-		height: 800px;
-	} */
-.color--white .hero-form h4 {
-	color: rgb(33, 37, 41);
-}
-.tra-menu .wsmainfull {
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-}
-.color--white .newsletter-section .form-control{
-	color: #6c757d;
-}
 
-@media (max-width: 767px) {
-	  .hero-26-img img {
-    max-width: 100% !important;
-  }
 
-  .hero-26-img {
-    margin-top: 0 !important;
-  }
 
-}
-@media (max-width: 768px) {
-    .elementor-widget-container {
-        margin-top: 20px; /* Adjust the margin-top value for spacing */
-    }
-}
 
-/* .container {
-    margin-top: 50px;
-} */
-.image-container {
-        display: flex;
-        justify-content: space-around;
-        margin-top: 50px;
-    }
-    .rounded-circle {
-        border-radius: 50%;
-        animation: fadeIn 1s ease forwards;
-        opacity: 0;
-    }
-    @keyframes fadeIn {
-        from {
-            opacity: 0;
-            transform: translateY(20px);
-        }
-        to {
-            opacity: 1;
-            transform: translateY(0);
-        }
-    }
-	.image-container img{
-		margin: 10px;
-	}
-	.circle-img {
-        width: 150px;
-        height: 150px;
-    }
-
-    .circle-img img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-    }
-
-	@media (max-width: 767px) {
-        .circle-img {
-            display: flex;
-            justify-content: center;
-			background-color: #00ca03;
-			margin-left:70px;
-        }
-    }
-	
 	</style>
 
 	<!-- PAGE CONTENT  -->
-
 
 
 
@@ -624,29 +854,29 @@ max-width: 680px !important;
                                         </div>
 										<div class="container">
 											<div class="row justify-content-center">
-												<div class="col-md-3 col-sm-6 mb-4">
+												<div class="col-lg-3 col-md-6 mb-4">
 													<div class="rounded-circle overflow-hidden d-flex justify-content-center align-items-center circle-img">
 														<img src="images/vindus_clients_images/qualitybanner.jpg" class="img-fluid" alt="">
 													</div>
 												</div>
-												<div class="col-md-3 col-sm-6 mb-4">
+												<div class="col-lg-3 col-md-6 mb-4">
 													<div class="rounded-circle overflow-hidden d-flex justify-content-center align-items-center circle-img">
 														<img src="images/vindus_clients_images/safetybanner.avif" class="img-fluid" alt="">
 													</div>
 												</div>
-												<div class="col-md-3 col-sm-6 mb-4">
+												<div class="w-100 d-md-none"></div> <!-- Add a clearing div for extra space on small devices -->
+												<div class="col-lg-3 col-md-6 mb-4">
 													<div class="rounded-circle overflow-hidden d-flex justify-content-center align-items-center circle-img">
 														<img src="images/vindus_clients_images/healthbanner1.jpg" class="img-fluid" alt="">
 													</div>
 												</div>
-												<div class="col-md-3 col-sm-6 mb-4">
+												<div class="col-lg-3 col-md-6 mb-4">
 													<div class="rounded-circle overflow-hidden d-flex justify-content-center align-items-center circle-img">
 														<img src="images/vindus_clients_images/Environment.png" class="img-fluid" alt="">
 													</div>
 												</div>
 											</div>
 										</div>
-										
 
                                         <style>
                                             .circle-img {
@@ -687,142 +917,6 @@ max-width: 680px !important;
 			
 					
 				
-
-
-
-
-		
-		<link rel='stylesheet' id='contact-form-7-css' href='https://jthemes.net/themes/wp/martex/wp-content/plugins/contact-form-7/includes/css/styles.css?ver=5.8' media='all' />
-		<style id='woocommerce-inline-inline-css'>
-		.woocommerce form .form-row .required { visibility: visible; }
-		</style>
-		<link rel='stylesheet' id='martex-google-fonts-css' href='https://fonts.googleapis.com/css?family=Plus+Jakarta+Sans%3A400%2C300%2C600%2C700%2C800%7CRubik%3A400%2C300%2C600%2C700%2C800%7CInter%3A400%2C300%2C600%2C700%2C800&#038;ver=1.0' media='all' />
-		<link rel='stylesheet' id='bootstrap-css' href='https://jthemes.net/themes/wp/martex/wp-content/themes/martex/assets/css/bootstrap.min.css?ver=5.3.0' media='all' />
-		<link rel='stylesheet' id='flaticon-css' href='https://jthemes.net/themes/wp/martex/wp-content/themes/martex/assets/css/flaticon.css?ver=1.0.0' media='all' />
-		<link rel='stylesheet' id='menu-css-css' href='https://jthemes.net/themes/wp/martex/wp-content/themes/martex/assets/css/menu.css?ver=1.0.0' media='all' />
-		<link rel='stylesheet' id='dropdown-effects-css' href='https://jthemes.net/themes/wp/martex/wp-content/themes/martex/assets/css/dropdown-effects/fade-down.css?ver=1.0.0' media='all' />
-		<link rel='stylesheet' id='magnific-popup-css' href='https://jthemes.net/themes/wp/martex/wp-content/themes/martex/assets/css/magnific-popup.css?ver=1.0.0' media='all' />
-		<link rel='stylesheet' id='owl-carousel-css' href='https://jthemes.net/themes/wp/martex/wp-content/themes/martex/assets/css/owl.carousel.min.css?ver=2.2.1' media='all' />
-		<link rel='stylesheet' id='owl-theme-css' href='https://jthemes.net/themes/wp/martex/wp-content/themes/martex/assets/css/owl.theme.default.min.css?ver=2.2.1' media='all' />
-		<link rel='stylesheet' id='lunar-css-css' href='https://jthemes.net/themes/wp/martex/wp-content/themes/martex/assets/css/lunar.css?ver=%201.0.0' media='all' />
-		<link rel='stylesheet' id='animate-css-css' href='https://jthemes.net/themes/wp/martex/wp-content/themes/martex/assets/css/animate.css?ver=%203.5.2' media='all' />
-		<link rel='stylesheet' id='martex-theme-css-css' href='https://jthemes.net/themes/wp/martex/wp-content/themes/martex/assets/css/martex-theme.css?ver=%203.5.2' media='all' />
-		<link rel='stylesheet' id='responsive-theme-css-css' href='https://jthemes.net/themes/wp/martex/wp-content/themes/martex/assets/css/responsive.css?ver=%201.0.0' media='all' />
-		<link rel='stylesheet' id='martex-css' href='https://jthemes.net/themes/wp/martex/wp-content/themes/martex/assets/css/martex.css?ver=1.0.0' media='all' />
-		<link rel='stylesheet' id='martex-woocommerce-css' href='https://jthemes.net/themes/wp/martex/wp-content/themes/martex/assets/css/woocommerce.css?ver=1.0.4.4' media='all' />
-		<link rel='stylesheet' id='martex-style-css' href='https://jthemes.net/themes/wp/martex/wp-content/themes/martex/style.css?ver=6.5.2' media='all' />
-		<style id='martex-style-inline-css'>
-		
-			.entry-footer,
-			.wp-block-group__inner-container,
-			.comments-area,
-			.entry-content{
-				--martex-link-color: initial;
-				--martex-link-hover-color: var(--martex-primary);
-				--martex-link-decoration: underline;
-				--martex-link-hover-decoration: underline;
-				
-			}
-		.banner-section{--martex-parallax-opacity: 0.25;--martex-parallax-bg-position: center;}
-		.footer-section{--martex-parallax-opacity: 1;--martex-parallax-bg-position: center;}
-		:root{--martex-body-font-family:Rubik;--martex-headings-font-family:Plus Jakarta Sans;}
-		</style>
-		<link rel='stylesheet' id='subscribe-forms-css-css' href='https://jthemes.net/themes/wp/martex/wp-content/plugins/easy-social-share-buttons3/assets/modules/subscribe-forms.min.css?ver=9.1' media='all' />
-		
-		<link rel='stylesheet' id='elementor-frontend-css' href='https://jthemes.net/themes/wp/martex/wp-content/plugins/elementor/assets/css/frontend-lite.min.css?ver=3.18.0' media='all' />
-		
-		
-		<link rel='stylesheet' id='swiper-css' href='https://jthemes.net/themes/wp/martex/wp-content/plugins/elementor/assets/lib/swiper/v8/css/swiper.min.css?ver=8.4.5' media='all' />
-		<link rel='stylesheet' id='elementor-post-6-css' href='https://jthemes.net/themes/wp/martex/wp-content/uploads/elementor/css/post-6.css?ver=1701772001' media='all' />
-		
-		
-		<script src="https://jthemes.net/themes/wp/martex/wp-includes/js/jquery/jquery.min.js?ver=3.7.1" id="jquery-core-js"></script>
-		<script src="https://jthemes.net/themes/wp/martex/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.4.1" id="jquery-migrate-js"></script>
-		<script src="https://jthemes.net/themes/wp/martex/wp-content/themes/martex/assets/js/modernizr.custom.js?ver=2.6.2" id="modernizr-custom-js"></script>
-		
-			
-		
-		
-				<style id="wp-custom-css">
-					
-		.hero-11-img img{
-			width: auto !important;
-		max-width: 680px !important;
-		}
-		
-		.block-shadow{
-			  box-shadow: 0 4px 12px 5px rgba(0, 0, 0, 0.08); 
-		}
-		.fbox-2 {
-			margin-bottom: 30px;
-		} 
-		 
-		.theme--dark footer.bg-white {
-			--bs-bg-opacity: 0; 
-		} 
-		/* .hero-26-img {
-			position: relative;
-			text-align: center;
-			margin: 0 -90% 0 -60px;
-		}
-			.hero-26-img img {
-				max-width: fit-content;
-				height: 800px;
-			} */
-		.color--white .hero-form h4 {
-			color: rgb(33, 37, 41);
-		}
-		.tra-menu .wsmainfull {
-			backdrop-filter: blur(20px);
-			-webkit-backdrop-filter: blur(20px);
-		}
-		.color--white .newsletter-section .form-control{
-			color: #6c757d;
-		}
-		
-		@media (max-width: 767px) {
-			  .hero-26-img img {
-			max-width: 100% !important;
-		  }
-		
-		  .hero-26-img {
-			margin-top: 0 !important;
-		  }
-		
-		}
-		/* WhatsApp Icon Styling */
-.whatsapp-icon {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    z-index: 9999;
-}
-
-/* WhatsApp Icon Color */
-.whatsapp-icon i {
-    color: green;
-    font-size: 2.5rem; /* Adjust as needed */
-    transition: color 0.3s;
-}
-
-/* WhatsApp Text Styling */
-.whatsapp-icon .whatsapp-text {
-    display: none;
-    position: absolute;
-    bottom: -25px;
-    left: -50px; /* Adjust the left position as needed */
-    background-color: rgba(255, 255, 255, 0.8);
-    padding: 5px 10px;
-    border-radius: 5px;
-    font-size: 14px;
-}
-
-/* Show WhatsApp Text on Hover */
-.whatsapp-icon:hover .whatsapp-text {
-    display: block;
-}
-		
-			</style>
 		
 <div class="container-fluid" style="text-align: justify;">
 	<div class="container">
@@ -1126,154 +1220,10 @@ max-width: 680px !important;
 				
 			
 
-					
-
-<section id="clients" class="section-bg">
-
-	<div class="container">
-
-		<div class="section-header">
-			<h3 style="color: #1560bd; font-weight: bold;">Our Esteemed Clients With Our Associated Partners</h3> <br>
-
-		</div>
-
-		<div class="row no-gutters clients-wrap clearfix wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;">
 
 
-			<div class="col-lg-3 col-md-4 col-xs-6">
-				<div class="client-logo">
-					<img src="images/vindus_clients_images/ACE Tyres LTD.jpg" class="img-fluid" alt="">
-				</div>
-			</div>
 
-			<div class="col-lg-3 col-md-4 col-xs-6">
-				<div class="client-logo">
-					<img src="images/vindus_clients_images/Prime Focus Limited.jpg" class="img-fluid" alt="">
-				</div>
-			</div>
-
-			<div class="col-lg-3 col-md-4 col-xs-6">
-				<div class="client-logo">
-					<img src="images/vindus_clients_images/Exel Rubber.png" class="img-fluid" alt="">
-				</div>
-			</div>
-
-			<div class="col-lg-3 col-md-4 col-xs-6">
-				<div class="client-logo">
-					<img src="images/vindus_clients_images/JSW Cement.png" class="img-fluid" alt="">
-				</div>
-			</div>
-
-			<div class="col-lg-3 col-md-4 col-xs-6">
-				<div class="client-logo">
-					<img src="images/vindus_clients_images/Dominos Pizza.png" class="img-fluid" alt="">
-				</div>
-			</div>
-
-			<div class="col-lg-3 col-md-4 col-xs-6">
-				<div class="client-logo">
-					<img src="images/vindus_clients_images/US Consulate, Hyderabad.jpg" class="img-fluid" alt="">
-				</div>
-			</div>
-
-			<div class="col-lg-3 col-md-4 col-xs-6">
-				<div class="client-logo">
-					<img src="images/vindus_clients_images/8.jpeg" class="img-fluid" alt="">
-				</div>
-			</div>
-			<div class="col-lg-3 col-md-4 col-xs-6">
-				<div class="client-logo">
-					<img src="images/vindus_clients_images/9.jpeg" class="img-fluid" alt="">
-				</div>
-			</div>
-
-			<div class="col-lg-3 col-md-4 col-xs-6">
-				<div class="client-logo">
-					<img src="images/vindus_clients_images/Jalavihar Park, Hyderabad.jpg" class="img-fluid" alt="">
-				</div>
-			</div>
-			<div class="col-lg-3 col-md-4 col-xs-6">
-				<div class="client-logo">
-					<img src="images/vindus_clients_images/Costal Projects Limited.jpg" class="img-fluid" alt="">
-				</div>
-			</div>
-			<div class="col-lg-3 col-md-4 col-xs-6">
-				<div class="client-logo">
-					<img src="images/vindus_clients_images/Devyani International Limited.jpg" class="img-fluid" alt="">
-				</div>
-			</div>
-			<div class="col-lg-3 col-md-4 col-xs-6">
-				<div class="client-logo">
-					<img src="images/vindus_clients_images/GMR Hyd Airport.jpg" class="img-fluid" alt="">
-				</div>
-			</div>
-			<div class="col-lg-3 col-md-4 col-xs-6">
-				<div class="client-logo">
-					<img src="images/vindus_clients_images/Narayana.jpg" class="img-fluid" alt="">
-				</div>
-			</div>
-			<div class="col-lg-3 col-md-4 col-xs-6">
-				<div class="client-logo">
-					<img src="images/vindus_clients_images/JSW Cement.png" class="img-fluid" alt="">
-				</div>
-			</div>
-			<div class="col-lg-3 col-md-4 col-xs-6">
-				<div class="client-logo">
-					<img src="images/vindus_clients_images/Nuziveedu Seeds.jpg" class="img-fluid" alt="">
-				</div>
-			</div>
-			<div class="col-lg-3 col-md-4 col-xs-6">
-				<div class="client-logo">
-					<img src="images/vindus_clients_images/Sidarth Hospital.png" class="img-fluid" alt="">
-				</div>
-			</div>
-			<div class="col-lg-3 col-md-4 col-xs-6">
-				<div class="client-logo">
-					<img src="images/vindus_clients_images/Pachavati Group.jpg" class="img-fluid" alt="">
-				</div>
-			</div>
-			<div class="col-lg-3 col-md-4 col-xs-6">
-				<div class="client-logo">
-					<img src="images/vindus_clients_images/US Consulate, Hyderabad.jpg" class="img-fluid" alt="">
-				</div>
-			</div>
-			<div class="col-lg-3 col-md-4 col-xs-6">
-				<div class="client-logo">
-					<img src="images/vindus_clients_images/UAE Exchange.jpg" class="img-fluid" alt="">
-				</div>
-			</div>
-			<div class="col-lg-3 col-md-4 col-xs-6">
-				<div class="client-logo">
-					<img src="images/vindus_clients_images/CK Birla Group-HIL.png" class="img-fluid" alt="">
-				</div>
-			</div>
-			<div class="col-lg-3 col-md-4 col-xs-6">
-				<div class="client-logo">
-					<img src="images/vindus_clients_images/HTC India Pvt Ltd.jpg" class="img-fluid" alt="">
-				</div>
-			</div>
-			<div class="col-lg-3 col-md-4 col-xs-6">
-				<div class="client-logo">
-					<img src="images/vindus_clients_images/KMV Projects.png" class="img-fluid" alt="">
-				</div>
-			</div>
-			<div class="col-lg-3 col-md-4 col-xs-6">
-				<div class="client-logo">
-					<img src="images/vindus_clients_images/Fortune Towers, Hitech City, Hyderabad.jpg" class="img-fluid" alt="">
-				</div>
-			</div>
-
-			<div class="col-lg-3 col-md-4 col-xs-6">
-				<div class="client-logo">
-					<img src="images/vindus_clients_images/Indian Medical Heritage.png" class="img-fluid" alt="">
-				</div>
-			</div>
-
-		</div>
-
-	</div>
-
-</section>		<div class="elementor-element elementor-element-d60f981 elementor-widget-divider--view-line elementor-widget elementor-widget-divider" data-id="d60f981" data-element_type="widget" data-widget_type="divider.default">
+<div class="elementor-element elementor-element-d60f981 elementor-widget-divider--view-line elementor-widget elementor-widget-divider" data-id="d60f981" data-element_type="widget" data-widget_type="divider.default">
 		<div class="elementor-widget-container">
 			<div class="elementor-divider">
 	<span class="elementor-divider-separator">
@@ -1281,10 +1231,7 @@ max-width: 680px !important;
 </div>
 		</div>
 		</div>
-			</div>
-</div>
-					</div>
-</section>
+			
 
 	
 
@@ -1382,24 +1329,69 @@ max-width: 680px !important;
 		
 			</div> <!-- End container -->
 						 <!-- MORE QUESTIONS LINK -->
-            <div class="row">
-                <div class="col">
-                        <div class="more-questions-txt bg--white-400 r-100" style="margin-left: 480px;">
-                            <p class="p-lg">
-                                <p>Any questions? <a class="color--theme" href="contact.html">Get in Touch</a></p>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
+
+						
+						
+						
+						
+		 <section id="clients" class="section-bg">
+
+							<div class="container">
+						
+								<div class="section-header">
+									<h3 style="color: #1560bd; font-weight: bold;">Our Esteemed Clients With Our Associated Partners</h3> <br>
+						
+								</div>
+						
+						
+						
+								<div class="marquee">
+									<div class="marquee-content">
+										<!-- Your images here -->
+						
+						
+										<img src="images/vindus_clients_images/ACE Tyres LTD.jpg" alt="ACE Tyres LTD" class="logo">
+							<img src="images/vindus_clients_images/Prime Focus Limited.jpg" alt="Prime Focus Limited" class="logo">
+							<img src="images/vindus_clients_images/Exel Rubber.png" alt="Exel Rubber" class="logo">
+							<img src="images/vindus_clients_images/JSW Cement.png" alt="JSW Cement" class="logo">
+							<img src="images/vindus_clients_images/Dominos Pizza.png" alt="pizza" class="logo">
+							<img src="images/vindus_clients_images/US Consulate, Hyderabad.jpg" alt="US" class="logo">
+							<img src="images/vindus_clients_images/Narayana.jpg" alt="Narayana" class="logo">
+							<img src="images/vindus_clients_images/Jalavihar Park, Hyderabad.jpg" alt="Jala" class="logo">
+							<img src="images/vindus_clients_images/Nuziveedu Seeds.jpg" alt="Nuziveedu" class="logo">
+							<img src="images/vindus_clients_images/Costal Projects Limited.jpg" alt="costal" class="logo">
+							<img src="images/vindus_clients_images/Sidarth Hospital.png" alt="Sidarth" class="logo">
+							<img src="images/vindus_clients_images/Devyani International Limited.jpg" alt="Devyani International" class="logo">
+							<img src="images/vindus_clients_images/UAE Exchange.jpg" alt="UAE" class="logo">
+							<img src="images/vindus_clients_images/CK Birla Group-HIL.png" alt="CK" class="logo">
+							<img src="images/vindus_clients_images/HTC India Pvt Ltd.jpg" alt="HTC" class="logo">
+							<img src="images/vindus_clients_images/KMV Projects.png" alt="KVM" class="logo">
+							<img src="images/vindus_clients_images/Fortune Towers, Hitech City, Hyderabad.jpg" alt="Fortune Towers" class="logo">
+							<img src="images/vindus_clients_images/Indian Medical Heritage.png" alt="India" class="logo">
+							<img src="images/vindus_clients_images/Pachavati Group.jpg" alt="Group" class="logo">
+									</div>
+								</div>
+								
+								</div>
+							</div>
+						
+						</section>		
+						
+
+
+
+            <div class="row justify-content-center">
+    <div class="col-auto">
+        <div class="more-questions-txt bg-white r-100">
+            <p class="p-lg">Any questions? <a class="text-primary" href="contact.html">Get in Touch</a></p>
+        </div>
+    </div>
+</div>
+
+           
         
 
-    </div> <!-- End container -->
-</section> <!-- END FAQs-3 -->		</div>
-				</div>
-					</div>
-		</div>
-							</div>
+    
 
 	
 
@@ -1416,6 +1408,27 @@ max-width: 680px !important;
 	</div>
 
 
+
+
+	<a href="#" class="btn btn-primary btn-click-effect" id="downloadBtn">Click here to download more content</a>
+
+	<!-- Bootstrap JS and jQuery -->
+	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+  
+	<script>
+	  // Add click effect
+	  $(document).ready(function() {
+		$('#downloadBtn').click(function() {
+		  // Add your desired click effect here
+		  // For example, you can change the button color temporarily
+		  $(this).addClass('btn-success'); // Change to success color
+		  setTimeout(() => {
+			$(this).removeClass('btn-success'); // Remove success color after a delay
+		  }, 300); // Adjust the delay as needed (in milliseconds)
+		});
+	  });
+	</script>
 
 
 <!-- Modal -->
@@ -1490,8 +1503,9 @@ var essb_settings = {"ajax_url":"https:\/\/jthemes.net\/themes\/wp\/martex\/wp-a
 						<!-- FOOTER LOGO -->
 						<div class="col-xl-3 text-center text-xl-left">
 							<div class="footer-info">
-								<img src="images/vindus_clients_images/cardlogo.jpg" alt="" class="rounded-circle" height="200px" width="200px">
-							</div>
+								<a href="login.html">
+									<img src="images/vindus_clients_images/cardlogo.jpg" alt="Logo" class="rounded-circle" height="200px" width="200px">
+								  </a>							</div>
 						</div>
 						<!-- END FOOTER LOGO -->
 				
