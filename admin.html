@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>User Information</title>
+<style>
+.container {
+  font-family: Arial, sans-serif;
+  background-color: #f0f0f0;
+  padding: 20px;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.email {
+  margin-bottom: 10px;
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+  <h2>Email:</h2>
+  <div id="emailList"></div>
+</div>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Retrieve email and phone number from localStorage
+      var emails = JSON.parse(localStorage.getItem('customerEmails')) || [];
+    
+      // Display each email address individually
+      var emailListElement = document.getElementById('emailList');
+      emails.forEach(function(email, index) {
+        var emailElement = document.createElement('p');
+        emailElement.innerText = (index + 1) + '. ' + email; // Add serial number
+        emailElement.classList.add('email');
+        emailListElement.appendChild(emailElement);
+      });
+    
+      // If no emails are found, display a message
+      if (emails.length === 0) {
+        var noEmailElement = document.createElement('p');
+        noEmailElement.innerText = 'No emails provided';
+        emailListElement.appendChild(noEmailElement);
+      }
+    });
+    </script>
+    
+
+</body>
+</html>
