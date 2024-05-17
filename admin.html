@@ -4,6 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>User Information</title>
+<!-- SweetAlert CDN -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 <style>
 .container {
   font-family: Arial, sans-serif;
@@ -13,40 +15,120 @@
   margin: 0 auto;
 }
 
-.email {
+.details {
   margin-bottom: 10px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+th, td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+th {
+  background-color: #f2f2f2;
+}
+
+.delete-button {
+  background-color: #f44336;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  border-radius: 4px;
+  cursor: pointer;
 }
 </style>
 </head>
 <body>
 
 <div class="container">
-  <h2>Email:</h2>
-  <div id="emailList"></div>
+  <h2>User Details:</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Phone</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody id="detailsList"></tbody>
+  </table>
 </div>
+
 <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      // Retrieve email and phone number from localStorage
-      var emails = JSON.parse(localStorage.getItem('customerEmails')) || [];
-    
-      // Display each email address individually
-      var emailListElement = document.getElementById('emailList');
-      emails.forEach(function(email, index) {
-        var emailElement = document.createElement('p');
-        emailElement.innerText = (index + 1) + '. ' + email; // Add serial number
-        emailElement.classList.add('email');
-        emailListElement.appendChild(emailElement);
-      });
-    
-      // If no emails are found, display a message
-      if (emails.length === 0) {
-        var noEmailElement = document.createElement('p');
-        noEmailElement.innerText = 'No emails provided';
-        emailListElement.appendChild(noEmailElement);
+document.addEventListener('DOMContentLoaded', function() {
+  // Retrieve user details from localStorage
+  var customers = JSON.parse(localStorage.getItem('customers')) || [];
+
+  // Display each user detail individually in table rows
+  var detailsListElement = document.getElementById('detailsList');
+  customers.forEach(function(customer, index) {
+    var row = document.createElement('tr');
+    row.innerHTML = `
+      <td>${customer.name}</td>
+      <td>${customer.email}</td>
+      <td>${customer.phone}</td>
+      <td><button class="delete-button" onclick="openVerificationModal(${index})">Delete</button></td>
+    `;
+    detailsListElement.appendChild(row);
+  });
+
+  // If no details are found, display a message
+  if (customers.length === 0) {
+    var noDetailsRow = document.createElement('tr');
+    noDetailsRow.innerHTML = '<td colspan="4">No details provided</td>';
+    detailsListElement.appendChild(noDetailsRow);
+  }
+});
+
+// Function to open the verification modal
+function openVerificationModal(index) {
+  // Display SweetAlert modal for email and password verification
+  Swal.fire({
+    title: 'Enter Credentials',
+    html:
+      '<label for="swal-input1">Email:</label>' +
+      '<input id="swal-input1" class="swal2-input" placeholder="Enter your email" type="email">' +
+      '<label for="swal-input2">Password:</label>' +
+      '<input id="swal-input2" class="swal2-input" placeholder="Enter your password" type="password">',
+    showCancelButton: true,
+    confirmButtonText: 'Submit',
+    cancelButtonText: 'Cancel',
+    focusConfirm: false,
+    preConfirm: () => {
+      const email = Swal.getPopup().querySelector('#swal-input1').value;
+      const password = Swal.getPopup().querySelector('#swal-input2').value;
+      // Here, you can add your verification logic.
+      // For simplicity, let's assume the email and password are correct
+      if (email === 'contactmlconsultancy@gmail.com' && password === 'mlconsultancy') {
+        deleteRow(index); // Delete the row
+        return true;
+      } else {
+        Swal.showValidationMessage('Incorrect email or password. Please try again.');
+        return false;
       }
-    });
-    </script>
-    
+    }
+  });
+}
+
+// Function to delete row
+function deleteRow(index) {
+  var customers = JSON.parse(localStorage.getItem('customers')) || [];
+  customers.splice(index, 1);
+  localStorage.setItem('customers', JSON.stringify(customers));
+  location.reload(); // Refresh the page to reflect the changes
+}
+</script>
 
 </body>
 </html>
