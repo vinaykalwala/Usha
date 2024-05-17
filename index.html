@@ -431,6 +431,37 @@ body {
     .btn-click-effect:hover {
       transform: scale(1.1);
     }
+	.download {
+    color: #f0ecec; /* Text color on hover */
+    position: absolute;
+    top: 10px; /* Adjust this value to change the vertical position */
+    right: 10px; 
+    text-decoration: none; /* Remove underline */
+    padding: 10px 20px; /* Padding */
+    border: 1px solid black; /* Border */
+    background-color: rgb(250, 249, 249); /* Background color on hover */
+    border-radius: 20px;
+    background-color: rgb(9, 157, 231); /* Background color on hover */
+    transition: background-color 0.3s ease, border-color 0.3s ease; /* Transition effect */
+}
+
+.modal-dialog{
+	max-width: 700px!important;
+}
+.pdf{
+	width:50px;
+	height:50px
+}
+.text{
+	padding:-2px;
+	font-weight: 300; /* Thin font weight */
+
+}
+.btn-content{
+	height:40px;
+	margin:-2px
+}
+
 </style>
 	</head>
 
@@ -441,31 +472,42 @@ body {
 <br>
 
 <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
-	<div class="modal-dialog" role="document">
-	  <div class="modal-content">
-		<div class="modal-header">
-		  <h5 class="modal-title" id="exampleModalLongTitle">Enter Your Details</h5>
-		  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-			<span aria-hidden="true">&times;</span>
-		  </button>
-		</div>
-		<div class="modal-body">
-		  <form id="emailForm">
-			<div class="form-group">
-			  <label for="emailInput">Email address</label>
-			  <input type="email" class="form-control" id="emailInput" required>
-			</div>
-			<div class="form-group">
-			  <label for="phoneInput">Phone number</label>
-			  <input type="text" class="form-control" id="phoneInput" required>
-			</div>
-			<button type="submit" class="btn btn-primary">Submit</button>
-		  </form>
-		</div>
-	  </div>
-	</div>
-  </div>
-  
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+					<h5 class="modal-title" id="exampleModalLongTitle">Enter Your Details</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-6">
+                        <img src="images/vindus_clients_images/qehs-logo.png" alt="Image" class="img-fluid">
+                    </div>
+                    <div class="col-md-6">
+                        <form id="emailForm">
+							<div class="form-group">
+                                <label for="nameInput">Name</label>
+								<input type="text" class="form-control" id="nameInput" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="emailInput">Email address</label>
+                                <input type="email" class="form-control" id="emailInput" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="phoneInput">Phone number</label>
+                                <input type="text" class="form-control" id="phoneInput" required>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
   <script>
   $(document).ready(function() {
 	// Close modal when close button is clicked
@@ -480,67 +522,52 @@ body {
   });
   </script>
 
-<!-- Bootstrap JS and jQuery -->
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
-
 <script>
+    $(document).ready(function() {
+        // Close modal when close button is clicked
+        $('.close').click(function() {
+            $('#exampleModalLong').modal('hide');
+        });
 
-// Handle form submission
-$('#emailForm').submit(function(event) {
-  event.preventDefault(); // Prevent default form submission
-  var email = $('#emailInput').val(); // Get the entered email
-  var phone = $('#phoneInput').val(); // Get the entered phone number
-  
-  // Retrieve existing emails from local storage
-  var emails = JSON.parse(localStorage.getItem('customerEmails')) || [];
+        // Alternatively, you can also close the modal when the modal backdrop is clicked outside the modal
+        $('#exampleModalLong').on('hidden.bs.modal', function() {
+            $(this).find('form')[0].reset(); // Reset the form fields when the modal is closed
+        });
+    });
 
-  // Add the new email to the array
-  emails.push(email);
+    // Handle form submission
+    $('#emailForm').submit(function(event) {
+        event.preventDefault(); // Prevent default form submission
 
-  // Store the updated array in local storage
-  localStorage.setItem('customerEmails', JSON.stringify(emails));
-  // Store phone number in local storage
-  localStorage.setItem('customerPhone', phone);
+        // Get the entered values
+        var name = $('#nameInput').val();
+        var email = $('#emailInput').val();
+        var phone = $('#phoneInput').val();
 
-  // After storing the data, you can perform further actions such as opening the PDF file
-  window.location.href = 'download/MLC Brochure.pdf';
-});
+        // Retrieve existing data from local storage or initialize empty arrays
+        var customers = JSON.parse(localStorage.getItem('customers')) || [];
 
+        // Create a new object with the entered data
+        var customerData = {
+            name: name,
+            email: email,
+            phone: phone
+        };
+
+        // Add the new object to the array
+        customers.push(customerData);
+
+        // Store the updated array in local storage
+        localStorage.setItem('customers', JSON.stringify(customers));
+
+        // Open the brochure in a new tab
+        window.open('download/MLC Brochure.pdf', '_blank');
+
+        // Remove the event listener to prevent multiple submissions
+        $(this).off('submit');
+    });
 </script>
 
-
-</body>
-</html>
-
-		<!-- Bootstrap JS and jQuery -->
-		<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
-	  
-		<script>
-		  $(document).ready(function() {
-			// Show modal when download button is clicked
-			$('#downloadBtn').click(function() {
-			  $('#exampleModalLong').modal('show');
-			});
-	  
-			// Handle form submission
-			$('#emailForm').submit(function(event) {
-			  event.preventDefault(); // Prevent default form submission
-			  var email = $('#emailInput').val(); // Get the entered email
-			  // Perform email validation here if needed
-	  
-			  // You can send the email to the server for further processing
-			  // For now, let's log it to the console
-			  console.log('Email submitted:', email);
-			  
-			  // Add your PDF download logic here
-	  
-			  // After the email submission, you can close the modal if needed
-			  $('#exampleModalLong').modal('hide');
-			});
-		  });
-		</script>
 <!-- Bootstrap JS and jQuery -->
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
@@ -798,6 +825,7 @@ $('#emailForm').submit(function(event) {
 <link rel='stylesheet' id='swiper-css' href='https://jthemes.net/themes/wp/martex/wp-content/plugins/elementor/assets/lib/swiper/v8/css/swiper.min.css?ver=8.4.5' media='all' />
 <link rel='stylesheet' id='elementor-post-6-css' href='https://jthemes.net/themes/wp/martex/wp-content/uploads/elementor/css/post-6.css?ver=1701772001' media='all' />
 
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-39a2sq+zkNyE2e/GkhgL4GLmGVZuZ1uMWYAW7AspFwv10bJF7JAp+wylR/5VzeT2ul1B8tofutBmAsNlX9z1wQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
 <script src="https://jthemes.net/themes/wp/martex/wp-includes/js/jquery/jquery.min.js?ver=3.7.1" id="jquery-core-js"></script>
 <script src="https://jthemes.net/themes/wp/martex/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.4.1" id="jquery-migrate-js"></script>
@@ -841,6 +869,20 @@ $('#emailForm').submit(function(event) {
                                     <div class="elementor-widget-wrap elementor-element-populated">
                                         <div class="hero-1-img elementor-element elementor-element-d914efa elementor-widget elementor-widget-content-image" data-id="d914efa" data-element_type="widget" data-widget_type="content-image.default">
                                             <div class="elementor-widget-container" style="margin-top: 90px;">
+												<a href="#" class="btn btn--theme hover--tra-white download" data-toggle="modal" data-target="#exampleModalLong">
+													<div class="btn-content">
+		<div class="row">
+		<div class="col-md-4">
+        <img src="images/vindus_clients_images/pdfred.png" class="pdf" /></div>
+		<div class="col-md-8">
+
+        <div class="text">Click here for<br>MLC Brochure</div></div>
+    </div>
+</div>
+</a>
+<br>
+												
+												  
                                                 <h2 class="title-element s-30 text-center">We are ML Consultants,<br>
                                                     <h5 class="text-center">
                                                         A Skilled Administrative Support Professional.</h5>
@@ -854,29 +896,29 @@ $('#emailForm').submit(function(event) {
                                         </div>
 										<div class="container">
 											<div class="row justify-content-center">
-												<div class="col-lg-3 col-md-6 mb-4">
+												<div class="col-md-3 col-sm-6 mb-4">
 													<div class="rounded-circle overflow-hidden d-flex justify-content-center align-items-center circle-img">
 														<img src="images/vindus_clients_images/qualitybanner.jpg" class="img-fluid" alt="">
 													</div>
 												</div>
-												<div class="col-lg-3 col-md-6 mb-4">
+												<div class="col-md-3 col-sm-6 mb-4">
 													<div class="rounded-circle overflow-hidden d-flex justify-content-center align-items-center circle-img">
 														<img src="images/vindus_clients_images/safetybanner.avif" class="img-fluid" alt="">
 													</div>
 												</div>
-												<div class="w-100 d-md-none"></div> <!-- Add a clearing div for extra space on small devices -->
-												<div class="col-lg-3 col-md-6 mb-4">
+												<div class="col-md-3 col-sm-6 mb-4">
 													<div class="rounded-circle overflow-hidden d-flex justify-content-center align-items-center circle-img">
 														<img src="images/vindus_clients_images/healthbanner1.jpg" class="img-fluid" alt="">
 													</div>
 												</div>
-												<div class="col-lg-3 col-md-6 mb-4">
+												<div class="col-md-3 col-sm-6 mb-4">
 													<div class="rounded-circle overflow-hidden d-flex justify-content-center align-items-center circle-img">
 														<img src="images/vindus_clients_images/Environment.png" class="img-fluid" alt="">
 													</div>
 												</div>
 											</div>
 										</div>
+										
 
                                         <style>
                                             .circle-img {
@@ -1350,7 +1392,7 @@ $('#emailForm').submit(function(event) {
 										<!-- Your images here -->
 						
 						
-										<img src="images/vindus_clients_images/ACE Tyres LTD.jpg" alt="ACE Tyres LTD" class="logo">
+							<img src="images/vindus_clients_images/ACE Tyres LTD.jpg" alt="ACE Tyres LTD" class="logo">
 							<img src="images/vindus_clients_images/Prime Focus Limited.jpg" alt="Prime Focus Limited" class="logo">
 							<img src="images/vindus_clients_images/Exel Rubber.png" alt="Exel Rubber" class="logo">
 							<img src="images/vindus_clients_images/JSW Cement.png" alt="JSW Cement" class="logo">
@@ -1410,7 +1452,6 @@ $('#emailForm').submit(function(event) {
 
 
 
-	<a href="#" class="btn btn-primary btn-click-effect" id="downloadBtn">Click here to download more content</a>
 
 	<!-- Bootstrap JS and jQuery -->
 	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
@@ -1489,8 +1530,8 @@ var essb_settings = {"ajax_url":"https:\/\/jthemes.net\/themes\/wp\/martex\/wp-a
 <!-- WhatsApp Icon -->
 <!-- WhatsApp Icon -->
 <div id="whatsapp-icon" class="whatsapp-icon">
-    <a href="https://api.whatsapp.com/send?phone=7726932023" target="_blank">
-<img src="images/vindus_clients_images/whate.png" alt="whatsapp" >	
+    <a href="https://api.whatsapp.com/send?phone=9949845759" target="_blank">
+<img src="images/vindus_clients_images/whate.png" alt="whatsapp"	>	
  <span class="whatsapp-text">WhatsApp</span>
     </a>
 </div>
@@ -1724,3 +1765,4 @@ document.addEventListener("DOMContentLoaded", function() {
 
 <!-- Mirrored from dsathemes.com/html/martex_1.1/files/project-details.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 08 Mar 2024 16:40:05 GMT -->
 </html>
+
