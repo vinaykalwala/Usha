@@ -497,21 +497,23 @@ body {
 .modal-dialog{
 	max-width: 700px!important;
 }
-.pdf{
-	width:50px;
-	height:50px
-}
-.text{
-	padding:-2px;
-	font-weight: 300; /* Thin font weight */
-	font-size: 12px;
 
+
+.text {
+    padding: 2px;
+    font-weight: 500;
+    font-size: 14px;
 }
-.btn-content{
-	margin:-10px;
-	
-	padding: 2px;
-}  
+
+.btn-content {
+    margin: -12px; /* Adjust negative margin as needed */
+    padding: 2px;
+}
+
+.btn-content .row {
+    margin-left: -10px; /* Adjust negative margin for row alignment */
+}
+
 
 
 
@@ -564,26 +566,87 @@ body {
 }
 #scroll-to-top {
             position: fixed;
-            bottom: 100px;
-            right: 40px;
+            bottom: 80px;
+            right: 35px;
             cursor: pointer;
-            background-color: rgba(4, 58, 139, 0.5);
             border-radius: 90%;
             padding: 10px;
-            box-shadow: 0 4px 8px rgba(173, 177, 233, 0.2);
             transition: background-color 0.3s;
             display: none;
             /* Initially hide the button */
         }
         
-        #scroll-to-top:hover {
-            background-color: rgba(10, 49, 179, 0.7);
-        }
+       
         
         #scroll-to-top i {
-            color: white;
-            font-size: 24px;
+            color: rgb(3, 116, 214);
+        
          }
+
+		 @keyframes bounceIn {
+    0%, 20%, 40%, 60%, 80%, 100% {
+        animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+    }
+
+    0% {
+        opacity: 0;
+        transform: scale3d(0.3, 0.3, 0.3);
+    }
+
+    20% {
+        transform: scale3d(1.1, 1.1, 1.1);
+    }
+
+    40% {
+        transform: scale3d(0.9, 0.9, 0.9);
+    }
+
+    60% {
+        opacity: 1;
+        transform: scale3d(1.03, 1.03, 1.03);
+    }
+
+    80% {
+        transform: scale3d(0.97, 0.97, 0.97);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale3d(1, 1, 1);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translate3d(0, 40px, 0);
+    }
+    to {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+.animated-block {
+    opacity: 0;
+    animation: fadeInUp 1s ease-in-out forwards, bounceIn 1.5s ease forwards;
+}
+
+.statistic-block {
+    animation-delay: 0.5s;
+}
+
+.statistic-block:nth-child(2) .animated-block {
+    animation-delay: 0.7s;
+}
+
+.statistic-block:nth-child(3) .animated-block {
+    animation-delay: 0.9s;
+}
+
+.slide-in.visible .animated-block {
+    opacity: 1;
+}
 
 </style>
 	<meta name="google-site-verification" content="-ECINhQvyWuPbPMjYWEgrrAwC2ogJCJipBIp3ECVQe0" />
@@ -992,25 +1055,22 @@ body {
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-lg-7 col-md-6 col-sm-12">
+                               <div class="col-lg-7 col-md-6 col-sm-12">
                                     <div class="elementor-widget-wrap elementor-element-populated">
                                         <div class="hero-1-img elementor-element elementor-element-d914efa elementor-widget elementor-widget-content-image" data-id="d914efa" data-element_type="widget" data-widget_type="content-image.default">
 											<div class="elementor-widget-container" style="margin-top: 90px;">
-												<a href="#" class="btn btn--theme hover--tra-white download" data-toggle="modal" data-target="#exampleModalLong" style="background-image: url('images/vindus_clients_images/blue1.gif');">
-													<div class="btn-content">
-														<div class="row align-items-center">
-															<div class="col-md-4">
-																<img src="images/vindus_clients_images/pdfred.png" class="pdf" />
-															</div>
-															<div class="col-md-8">
-																<div class="text">Click here for<br>MLC Brochure</div>
-															</div>
+												<a href="#" class="btn  download" data-toggle="modal" data-target="#exampleModalLong" style="border-radius: 50px;width: 200px;">
+								 					<div class="btn-content">
+														<div class="row align-items-center" >
+															
+															<img src="images/vindus_clients_images/mega1.png" class="pdf" />
 														</div>
+														
+
 													</div>
 												</a>
 											</div>
-											
-<br>
+									
 												
 												  
                                                 <h2 class="title-element s-30 text-center">We are ML Consultants,<br>
@@ -1199,86 +1259,90 @@ body {
 </section>
 
 
-		<section class="elementor-section elementor-top-section elementor-element elementor-element-3e2d6dd elementor-section-content-middle elementor-section-full_width elementor-section-height-default elementor-section-height-default" data-id="3e2d6dd" data-element_type="section">
-				<div class="elementor-container elementor-column-gap-no">
-			<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-0c08852" data-id="0c08852" data-element_type="column">
-	<div class="elementor-widget-wrap elementor-element-populated">
-						<div class="elementor-element elementor-element-f97fdb2 elementor-widget elementor-widget-statistics" data-id="f97fdb2" data-element_type="widget" data-widget_type="statistics.default">
-		<div class="elementor-widget-container">
-<!-- STATISTIC-1 ============================================= -->
-<div id="statistic-1" class="py-100 statistic-section division">
-    <div class="container">
-        <!-- STATISTIC-1 WRAPPER -->
-        <div class="statistic-1-wrapper slide-in">
-            <div class="row justify-content-md-center row-cols-1 row-cols-md-3">
-                <!-- STATISTIC BLOCK #1 -->
-                <div class="col">
-                    <div class="statistic-block">
-                        <!-- Digit -->
-                        <div class="statistic-block-digit text-center">
-                            <h2 class="s-46 statistic-number">
-                                <span class="count-element">89</span>k
-                            </h2>
-                        </div>
-                        <!-- Statistic Text -->
-                        <div class="statistic-block-txt">
-                            <p class="p-md">Tons of carbon emissions reduced annually through sustainable practices.</p>
-                        </div>
-                    </div>
-                </div> <!-- END STATISTIC BLOCK #1 -->
+<section class="elementor-section elementor-top-section elementor-element elementor-element-3e2d6dd elementor-section-content-middle elementor-section-full_width elementor-section-height-default elementor-section-height-default" data-id="3e2d6dd" data-element_type="section">
+    <div class="elementor-container elementor-column-gap-no">
+        <div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-0c08852" data-id="0c08852" data-element_type="column">
+            <div class="elementor-widget-wrap elementor-element-populated">
+                <div class="elementor-element elementor-element-f97fdb2 elementor-widget elementor-widget-statistics" data-id="f97fdb2" data-element_type="widget" data-widget_type="statistics.default">
+                    <div class="elementor-widget-container">
+                        <!-- STATISTIC-1 ============================================= -->
+                        <div id="statistic-1" class="py-100 statistic-section division">
+                            <div class="container">
+                                <!-- STATISTIC-1 WRAPPER -->
+                                <div class="statistic-1-wrapper slide-in">
+                                    <div class="row justify-content-md-center row-cols-1 row-cols-md-3">
+                                        <!-- STATISTIC BLOCK #1 -->
+                                        <div class="col">
+                                            <div class="statistic-block animated-block">
+                                                <!-- Digit -->
+                                                <div class="statistic-block-digit text-center">
+                                                    <h2 class="s-46 statistic-number">
+                                                        <span class="count-element">89</span>k
+                                                    </h2>
+                                                </div>
+                                                <!-- Statistic Text -->
+                                                <div class="statistic-block-txt">
+                                                    <p class="p-md">Tons of carbon emissions reduced annually through sustainable practices.</p>
+                                                </div>
+                                            </div>
+                                        </div> <!-- END STATISTIC BLOCK #1 -->
 
+                                        <!-- STATISTIC BLOCK #2 -->
+                                        <div class="col">
+                                            <div class="statistic-block animated-block">
+                                                <!-- Digit -->
+                                                <div class="statistic-block-digit text-center">
+                                                    <h2 class="s-46 statistic-number">
+                                                        <span class="count-element">4</span>.<span class="count-element">5</span>k
+                                                    </h2>
+                                                </div>
+                                                <!-- Statistic Text -->
+                                                <div class="statistic-block-txt">
+                                                    <p class="p-md">Annual reduction in hazardous waste disposal </p>
+                                                </div>
+                                            </div>
+                                        </div> <!-- END STATISTIC BLOCK #2 -->
 
-				<script>
-					document.addEventListener("DOMContentLoaded", function() {
-						var slideIns = document.querySelectorAll('.slide-in');
-						slideIns.forEach(function(slideIn) {
-							setTimeout(function() {
-								slideIn.classList.add('visible');
-							}, 50); // Delay to start animation
-						});
-					});
-		        </script>
-                <!-- STATISTIC BLOCK #2 -->
-                <div class="col">
-                    <div class="statistic-block">
-                        <!-- Digit -->
-                        <div class="statistic-block-digit text-center">
-                            <h2 class="s-46 statistic-number">
-                                <span class="count-element">4</span>.<span class="count-element">5</span>k
-                            </h2>
+                                        <!-- STATISTIC BLOCK #3 -->
+                                        <div class="col">
+                                            <div class="statistic-block animated-block">
+                                                <!-- Digit -->
+                                                <div class="statistic-block-digit text-center">
+                                                    <h2 class="s-46 statistic-number">
+                                                        <span class="count-element">76</span>%
+                                                    </h2>
+                                                </div>
+                                                <!-- Statistic Text -->
+                                                <div class="statistic-block-txt">
+                                                    <p class="p-md">Percentage of individuals experiencing improved health outcomes</p>
+                                                </div>
+                                            </div>
+                                        </div> <!-- END STATISTIC BLOCK #3 -->
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <!-- Statistic Text -->
-                        <div class="statistic-block-txt">
-                            <p class="p-md">Annual reduction in hazardous waste disposal </p>
-                        </div>
+                        <!-- DIVIDER LINE -->
                     </div>
-                </div> <!-- END STATISTIC BLOCK #2 -->
-
-                <!-- STATISTIC BLOCK #3 -->
-                <div class="col">
-                    <div class="statistic-block">
-                        <!-- Digit -->
-                        <div class="statistic-block-digit text-center">
-                            <h2 class="s-46 statistic-number">
-                                <span class="count-element">76</span>%
-                            </h2>
-                        </div>
-                        <!-- Statistic Text -->
-                        <div class="statistic-block-txt">
-                            <p class="p-md">Percentage of individuals experiencing improved health outcomes</p>
-                        </div>
-                    </div>
-                </div> <!-- END STATISTIC BLOCK #3 -->
+                </div>
             </div>
         </div>
     </div>
-</div>
-
-	
-<!-- DIVIDER LINE -->
-</div>
-</div>
 </section>
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    var slideIns = document.querySelectorAll('.slide-in');
+    function addAnimation() {
+        slideIns.forEach(function(slideIn) {
+            slideIn.classList.toggle('visible');
+        });
+        setTimeout(addAnimation, 5000); // Adjust the delay here (in milliseconds)
+    }
+    addAnimation(); // Initial call to start the animation
+});
+
+
+</script>
 
 
 <section class="container py-4">
@@ -1291,7 +1355,7 @@ body {
         </div>
         <!-- Text Content Column -->
         <div class="col-md-6">
-            <div class="p-4" style="background-image:url('images/vindus_clients_images/blue2.gif');background-size: cover;">
+            <div class="p-4" style="background-image:url('images/vindus_clients_images/blue.jpg');background-size: cover;">
                 <h2 class="fw-bold fs-4 mb-3" style="color: white;">Transforming QEHS</h2>
                 
                 <ul class="list-unstyled" style="color: white;">
@@ -1682,7 +1746,7 @@ var essb_settings = {"ajax_url":"https:\/\/jthemes.net\/themes\/wp\/martex\/wp-a
 </div>
 
 <div id="scroll-to-top" onclick="scrollToTop()">
-	<i class="fa-solid fa-circle-up"></i>
+	<i class="fa-solid fa-circle-up" style="font-size: 30px;"></i>
 </div>
 
 <script>
@@ -1931,6 +1995,4 @@ document.addEventListener("DOMContentLoaded", function() {
 
 <!-- Mirrored from dsathemes.com/html/martex_1.1/files/project-details.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 08 Mar 2024 16:40:05 GMT -->
 </html>
-
-
 
