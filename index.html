@@ -387,6 +387,19 @@ body {
     position: relative;
 }
 
+
+.sub-menu {
+  max-height: 450px; /* Adjust the height as needed */
+  overflow-y: auto; /* Enables vertical scrolling */
+  padding-left: 0; /* Optional: Remove default padding */
+  margin: 0; /* Optional: Remove default margin */
+  list-style: none; /* Optional: Remove default list style */
+}
+
+.sub-menu li {
+  padding: 5px 10px; /* Optional: Add padding for better spacing */
+}
+
 .marquee-content {
     display: flex;
     animation: marquee 20s linear infinite;
@@ -514,7 +527,10 @@ body {
     margin-left: -10px; /* Adjust negative margin for row alignment */
 }
 
-
+.pdf{
+	height:150px ;
+	width: 300px;
+}
 
 
 .text-theme {
@@ -941,7 +957,7 @@ body {
 									</li>
 
 
-<li class="nl-simple" aria-haspopup="true"><a href="services2.html" class="h-link">Services&nbsp;&nbsp;&nbsp;&nbsp;<span class="wsarrow"></span></a>
+<li class="nl-simple" aria-haspopup="true"><a href="services2.html" class="h-link" >Services&nbsp;&nbsp;&nbsp;&nbsp;<span class="wsarrow"></span></a>
 									
 										<ul class="sub-menu">
 											<li aria-haspopup="true"><a href="safetystudies.html">Safety Studies </a></li>
@@ -949,6 +965,16 @@ body {
 											<li aria-haspopup="true"><a href="industrialhygene.html">Industrial<br>hygene</a></li>
 											<li aria-haspopup="true"><a href="Pharma.html">Pharma Clean room equipments</a></li>
 											<li aria-haspopup="true"><a href="incidentinvestigation.html">Incident Investigation</a></li>
+											<li aria-haspopup="true"><a href="Esg.html">ESG End to End Solution </a></li>
+											<li aria-haspopup="true"><a href="british.html">British Safety Council Certification</a></li>
+											<li aria-haspopup="true"><a href="industrialhygene.html">Supplier qualification Audit</a></li>
+											<li aria-haspopup="true"><a href="Pharma.html">Respiratory & Emergency Protection Systems</a></li>
+											<li aria-haspopup="true"><a href="incidentinvestigation.html">Quality Plant Setup & Upgradation</a></li>
+											<li aria-haspopup="true"><a href="safetystudies.html">GMP Quality Consulting</a></li>
+											<li aria-haspopup="true"><a href="powersystem.html">MLC HAC Services</a></li>
+											<li aria-haspopup="true"><a href="industrialhygene.html">Quality Consultation Services</a></li>
+											<li aria-haspopup="true"><a href="Pharma.html">MLC Employee Health Services</a></li>
+											<li aria-haspopup="true"><a href="incidentinvestigation.html">GMP Audit</a></li>
 											
 										   </ul>
 									
@@ -1021,6 +1047,7 @@ body {
 <script src="https://jthemes.net/themes/wp/martex/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.4.1" id="jquery-migrate-js"></script>
 <script src="https://jthemes.net/themes/wp/martex/wp-content/themes/martex/assets/js/modernizr.custom.js?ver=2.6.2" id="modernizr-custom-js"></script>
 
+
 	
 
 
@@ -1063,7 +1090,7 @@ body {
 								 					<div class="btn-content">
 														<div class="row align-items-center" >
 															
-															<img src="images/vindus_clients_images/mega1.png" class="pdf" />
+															<img src="images/vindus_clients_images/Button.png" class="pdf" / >
 														</div>
 														
 
@@ -1329,7 +1356,66 @@ body {
         </div>
     </div>
 </section>
+
+
+
+
+
+
+
+
+
 <script>
+	document.addEventListener('DOMContentLoaded', function() {
+		// Function to animate the counting
+		function animateCount(el, start, end, duration) {
+			let startTime = null;
+	
+			function step(currentTime) {
+				if (!startTime) startTime = currentTime;
+				const progress = Math.min((currentTime - startTime) / duration, 1);
+				el.innerText = Math.floor(progress * (end - start) + start);
+				if (progress < 1) {
+					requestAnimationFrame(step);
+				}
+			}
+			
+			requestAnimationFrame(step);
+		}
+	
+		// Intersection Observer to trigger animation on view
+		const observerOptions = {
+			root: null,
+			rootMargin: '0px',
+			threshold: 0.5
+		};
+	
+		const observerCallback = (entries, observer) => {
+			entries.forEach(entry => {
+				if (entry.isIntersecting) {
+					const countElements = entry.target.querySelectorAll('.count-element');
+					countElements.forEach(el => {
+						const endValue = parseInt(el.textContent.replace(/[^0-9]/g, ''), 10);
+						el.textContent = '0';
+						animateCount(el, 0, endValue, 2000); // 2000ms duration
+					});
+					observer.unobserve(entry.target);
+				}
+			});
+		};
+	
+		const observer = new IntersectionObserver(observerCallback, observerOptions);
+	
+		const statisticSections = document.querySelectorAll('.statistic-section');
+		statisticSections.forEach(section => {
+			observer.observe(section);
+		});
+	});
+	</script>
+	
+
+<!-- <script>
+
   document.addEventListener("DOMContentLoaded", function() {
     var slideIns = document.querySelectorAll('.slide-in');
     function addAnimation() {
@@ -1342,7 +1428,7 @@ body {
 });
 
 
-</script>
+</script> -->
 
 
 <section class="container py-4">
