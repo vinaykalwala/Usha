@@ -22,6 +22,8 @@
 
         <!-- Google Fonts - Open Sans -->
         <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+	<link rel="shortcut icon" href="path/to/favicon.ico" type="image/x-icon">
 
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
@@ -181,6 +183,25 @@
 .sub-menu li {
   padding: 5px 10px; /* Optional: Add padding for better spacing */
 }
+	#scroll-to-top {
+            position: fixed;
+            bottom: 80px;
+            right: 35px;
+            cursor: pointer;
+            border-radius: 90%;
+            padding: 10px;
+            transition: background-color 0.3s;
+            display: none;
+            /* Initially hide the button */
+        }
+        
+       
+        
+        #scroll-to-top i {
+            color: rgb(3, 116, 214);
+        
+         }
+
 </style>
 	</head>
 
@@ -598,7 +619,27 @@
     </a>
 </div>
 
+<div id="scroll-to-top" onclick="scrollToTop()">
+	<i class="fa-solid fa-circle-up" style="font-size: 30px;"></i>
+</div>
 
+<script>
+	function scrollToTop() {
+		window.scrollTo({
+			top: 0,
+			behavior: 'smooth'
+		});
+	}
+
+	window.addEventListener('scroll', function() {
+		const scrollToTopBtn = document.getElementById('scroll-to-top');
+		if (window.scrollY > 200) {
+			scrollToTopBtn.style.display = 'block';
+		} else {
+			scrollToTopBtn.style.display = 'none';
+		}
+	});
+    </script>
 
 <!-- FOOTER-3
 			============================================= -->
