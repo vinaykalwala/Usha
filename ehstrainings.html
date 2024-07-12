@@ -22,6 +22,8 @@
           <!-- Font Awesome CSS -->
           <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
           <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+	<link rel="shortcut icon" href="path/to/favicon.ico" type="image/x-icon">
 
           <!-- Google Fonts - Open Sans -->
           <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
@@ -296,6 +298,25 @@
 .sub-menu li {
   padding: 5px 10px; /* Optional: Add padding for better spacing */
 }
+	  #scroll-to-top {
+            position: fixed;
+            bottom: 80px;
+            right: 35px;
+            cursor: pointer;
+            border-radius: 90%;
+            padding: 10px;
+            transition: background-color 0.3s;
+            display: none;
+            /* Initially hide the button */
+        }
+        
+       
+        
+        #scroll-to-top i {
+            color: rgb(3, 116, 214);
+        
+         }
+
   </style>
 </head>
 <body>
@@ -811,6 +832,27 @@
     </a>
 </div>
 
+	<div id="scroll-to-top" onclick="scrollToTop()">
+	<i class="fa-solid fa-circle-up" style="font-size: 30px;"></i>
+</div>
+
+<script>
+	function scrollToTop() {
+		window.scrollTo({
+			top: 0,
+			behavior: 'smooth'
+		});
+	}
+
+	window.addEventListener('scroll', function() {
+		const scrollToTopBtn = document.getElementById('scroll-to-top');
+		if (window.scrollY > 200) {
+			scrollToTopBtn.style.display = 'block';
+		} else {
+			scrollToTopBtn.style.display = 'none';
+		}
+	});
+    </script>
  <!-- FOOTER-3
 			============================================= -->
 			<footer id="footer-3" class="pt-100 footer">
