@@ -414,10 +414,7 @@
         }
         
         .sub-menu {
-            max-height: 450px;
-            /* Adjust the height as needed */
-            overflow-y: auto;
-            /* Enables vertical scrolling */
+           
             padding-left: 0;
             /* Optional: Remove default padding */
             margin: 0;
@@ -446,6 +443,10 @@
         #scroll-to-top i {
             color: rgb(3, 116, 214);
         }
+	    #services-menu{
+	height: 420px;
+	overflow-y: scroll;
+}
     </style>
 </head>
 
@@ -518,20 +519,37 @@
 
 
 
-                                <li class="nl-simple" aria-haspopup="true"><a href="certification.html" class="h-link">Certification<span class="wsarrow"></span></a>
+                              <li aria-haspopup="true">
+				<a href="certification.html" class="h-link">Certification<span class="wsarrow"></span></a>
+				<ul class="sub-menu">
+					<li aria-haspopup="true">
+						<a href="certification.html">ISO <span class="wsarrow"></span></a>
+						<ul class="sub-menu">
+							<li aria-haspopup="true"><a href="certification1.html">ISO 45001:2018</a></li>
+							<li aria-haspopup="true"><a href="certification2.html">ISO 14001:2015</a></li>
+							<li aria-haspopup="true"><a href="certification3.html">ISO 9001:2015</a></li>
+							<li aria-haspopup="true"><a href="certification4.html">IMS</a></li>
 
-                                    <ul class="sub-menu">
-                                        <li aria-haspopup="true"><a href="certification1.html">ISO 45001 :2018</a></li>
-                                        <li aria-haspopup="true"><a href="certification2.html">ISO 14001 :2015</a></li>
-                                        <li aria-haspopup="true"><a href="certification3.html">ISO 9001 :2015</a></li>
-                                        <li aria-haspopup="true"><a href="certification4.html">IMS</a></li>
-
-
-                                    </ul>
-
-
-
-                                </li>
+						</ul>
+					</li>
+					<li aria-haspopup="true">
+						<a href="british.html">British Safety<br> Counsil Certification<span class="wsarrow"></span></a>
+						<ul class="sub-menu" id="services-menu">
+							<li aria-haspopup="true"><a href="fivestar1.html">Five Star Occupational Health and Safety Audit</a></li>
+							<li aria-haspopup="true"><a href="fivestar2.html">Five Star Environmental Sustainability Audit</a></li>
+							<li aria-haspopup="true"><a href="fivestar3.html">Five Star Integrated Audit</a></li>
+							<li aria-haspopup="true"><a href="fivestar4.html">Five Star Group Audit</a></li>
+							<li aria-haspopup="true"><a href="fivestar5.html">Five Star Wellbeing Audit</a></li>
+							<li aria-haspopup="true"><a href="fivestar6.html">Pre-Audit (Gap Analysis) Services</a></li>
+							<li aria-haspopup="true"><a href="fivestar7.html">ISO 14001 Environmental Audit</a></li>
+							<li aria-haspopup="true"><a href="fivestar8.html">ISO 45001 Health and Safety Management Standard</a></li>
+							<li aria-haspopup="true"><a href="fivestar9.html">Fire Safety Management Audit</a></li>
+						</ul>
+					</li>
+					
+				</ul>
+			</li>
+									
 
 
 
@@ -595,14 +613,13 @@
                                 </li>
                                 <li class="nl-simple" aria-haspopup="true"><a href="services2.html" class="h-link">Services<span class="wsarrow"></span></a>
 
-                                    <ul class="sub-menu">
+										<ul class="sub-menu" id="services-menu" >
                                         <li aria-haspopup="true"><a href="safetystudies.html">Safety Studies </a></li>
                                         <li aria-haspopup="true"><a href="powersystem.html">Power system studies</a></li>
                                         <li aria-haspopup="true"><a href="industrialhygene.html">Industrial<br>hygene</a></li>
                                         <li aria-haspopup="true"><a href="Pharma.html">Pharma Clean room equipments</a></li>
                                         <li aria-haspopup="true"><a href="incidentinvestigation.html">Incident Investigation</a></li>
                                         <li aria-haspopup="true"><a href="Esg.html">ESG End to End Solution </a></li>
-                                        <li aria-haspopup="true"><a href="british.html">British Safety Council Certification</a></li>
                                         <li aria-haspopup="true"><a href="supplierqualificationaudit.html">Supplier qualification Audit</a></li>
                                         <li aria-haspopup="true"><a href="RespiratoryEmergencyProtectionSystems.html">Respiratory & Emergency Protection Systems</a></li>
                                         <li aria-haspopup="true"><a href="PLANTSETUPandUPGRADATION.html">Quality Plant Setup & Upgradation</a></li>
