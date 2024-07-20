@@ -321,40 +321,48 @@
         }
         
         .custom-card {
-            background-color: white;
-            /* Light gray background for cards */
-            padding: 20px;
-            margin-bottom: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            transition: box-shadow 0.3s ease;
-            border: 1px solid rgb(214, 208, 208);
+            border-radius: 15px;
+            border: none;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s, box-shadow 0.3s;
         }
-        
         .custom-card:hover {
-            box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+            transform: scale(1.05);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
         }
-        
-        .custom-card p {
-            margin-bottom: 10px;
+        .card-header {
+            background: linear-gradient(135deg, #000040, #1560bd);
+            color: white;
+            border-bottom: none;
+            border-radius: 15px 15px 0 0;
+            padding: 10px;
         }
-        
-        .custom-card ul,
-        .custom-card ol {
-            margin-bottom: 10px;
+        .card-body {
+            background-color: #f8f9fa;
+            padding: 2rem;
+            overflow-y: scroll;
+            height: 500px;
         }
-        
-        .custom-card li {
-            margin-bottom: 5px;
+        .card-body h3 {
+            font-size: 1.75rem;
         }
-        
-        .container-fluid {
-            padding-right: 15px;
-            padding-left: 15px;
-            margin-right: auto;
-            margin-left: auto;
+        .card-body ul {
+            list-style: none;
+            padding: 0;
         }
-        
+        .card-body ul li {
+            border-bottom: 1px solid #1e5cda;
+            padding: 0.5rem 0;
+        }
+        .card-body ul li:last-child {
+            border-bottom: none;
+        }
+        .card-body p {
+            color: #555;
+        }
+        .custom-section {
+            padding: 3rem 0;
+        }
         .orange-heading:hover {
             color: #FF6347;
             letter-spacing: normal;
@@ -696,62 +704,73 @@
                       
             </div>
 
-            <section style="text-align: justify;">
-
+            <section class="custom-section">
                 <div class="container">
-
                     <div class="row">
-                        <div class="col-md-12">
+                        <!-- Plant Setup Section -->
+                        <div class="col-lg-4 mb-4">
                             <div class="custom-card">
-                                <h3 class="orange-heading" align="center">PLANT SETUP</h3> <br>
-                                <li> Conceptualization</li>
-                                <li> Facility Plan and Design or Layout</li>
-                                <li> Total Engineering Support</li>
-                                <li> Procurement Support</li>
-                                <li> Installation- IQ, OQ, PQ Support</li>
-                                <li> Commissioning and Qualification</li>
-                                <li> Computer System development and Validation</li>
-                                <li> URS, FRS, SAT and FAT support</li>
-                                <li> Vendor Identification and Management</li>
-
-
+                                <div class="card-header text-center">
+                                    <h6 style="color: white;">PLANT SETUP</h6>
+                                </div>
+                                <div class="card-body">
+                                    <ul>
+                                        <li>Conceptualization</li>
+                                        <li>Facility Plan and Design or Layout</li>
+                                        <li>Total Engineering Support</li>
+                                        <li>Procurement Support</li>
+                                        <li>Installation- IQ, OQ, PQ Support</li>
+                                        <li>Commissioning and Qualification</li>
+                                        
+                                        <li>Computer System development and Validation</li>
+                                        <li>URS, FRS, SAT and FAT support</li>
+                                        <li>Vendor Identification and Management</li>
+                                    </ul>
+                                   
+                                </div>
                             </div>
                         </div>
-                        <div class="col-md-12">
+                        <!-- Plant Upgradation Section -->
+                        <div class="col-lg-4 mb-4">
                             <div class="custom-card">
-                                <h3 class="orange-heading" align="center">PLANT UPGRADATION</h3> <br>
-
-                                <p>If you already have the API or Formulation Plant which is approved by the local regulatory authority and if you want to expand your reach to regulated territories like USFDA, EMEA, WHO, MHRA, PIC/S etc. then you May opt
-                                    for Plant Upgradation Service.
-                                </p>
-
-
+                                <div class="card-header text-center">
+                                    <h6 style="color: white;">PLANT UPGRADATION</h6>
+                                </div>
+                                <div class="card-body">
+                                    <p>If you already have the API or Formulation Plant which is approved by the local regulatory authority and if you want to expand your reach to regulated territories like USFDA, EMEA, WHO, MHRA, PIC/S etc. then you may opt for Plant Upgradation Service.</p>
+                                   
+                                </div>
                             </div>
                         </div>
-                        <div class="col-md-12">
+                        <!-- Plant Upgradation Includes Section -->
+                        <div class="col-lg-4 mb-4">
                             <div class="custom-card">
-                                <h3 class="orange-heading">Plant Upgradation Includes following:</h3> <br>
-
-                                <li> Establishment of Proper scope for which regulatory is being targeted.</li>
-                                <li> GAP Audit of Existing Plant (API/Formulation)</li>
-                                <li> Preparation of GAP Audit Report</li>
-                                <li>Preparation of CAPA Plan</li>
-                                <li>Identification of GAPS and making time bound milestones for upgradation</li>
-                                <li> Validation</li>
-                                <li>Changes in Layout and design in required.</li>
-                                <li> SOP and Procedures upgradation</li>
-                                <li> Policies redesign</li>
-                                <li> Training</li>
-                                <li>QMS system establishment/ restructuring as per requirement</li>
-                                <li> Internal Audit System development</li>
-
-
-
+                                <div class="card-header text-center">
+                                    <h6 style="color: white;">Plant Upgradation Includes the Following:</h6>
+                                </div>
+                                <div class="card-body">
+                                    <ul>
+                                        <li>Establishment of Proper scope for which regulatory is being targeted.</li>
+                                        <li>GAP Audit of Existing Plant (API/Formulation)</li>
+                                        <li>Preparation of GAP Audit Report</li>
+                                        <li>Preparation of CAPA Plan</li>
+                                       
+                                        <li>Identification of GAPS and making time bound milestones for upgradation</li>
+                                        <li>Validation</li>
+                                        <li>Changes in Layout and design in required.</li>
+                                     
+                                        <li>SOP and Procedures upgradation</li>
+                                        <li>Policies redesign</li>
+                                        <li>Training</li>
+                                        <li>QMS system establishment/ restructuring as per requirement</li>
+                                        <li>Internal Audit System development</li>
+                                    </ul>
+                                   
+                                </div>
                             </div>
                         </div>
-
-
-
+                    </div>
+                </div>
             </section>
         </Main>
         <!-- WhatsApp Icon -->
