@@ -346,7 +346,69 @@
         .custom-card li {
             margin-bottom: 5px;
         }
-        
+        .custom-section {
+    background: linear-gradient(135deg, #f5f5f5, #e0e0e0); /* Gradient background */
+    border-radius: 10px; /* Rounded corners */
+    padding: 20px; /* Padding around content */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Deep shadow */
+    margin-bottom: 30px; /* Space below section */
+}
+
+.orange-heading {
+    color: #1560bd; /* Orange color for heading */
+    font-size: 2rem; /* Larger font size */
+    font-weight: bold; /* Bold text */
+    margin-bottom: 20px; /* Space below heading */
+}
+
+.elements-list {
+    list-style: none; /* Remove default list styling */
+    padding: 0; /* Remove default padding */
+}
+
+.elements-list li {
+    display: flex; /* Flexbox for aligning items */
+    align-items: center; /* Center items vertically */
+    background: #fff; /* White background for list items */
+    border-radius: 10px; /* Rounded corners for list items */
+    padding: 15px; /* Padding inside list items */
+    margin-bottom: 15px; /* Space between list items */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); /* Soft shadow */
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease; /* Smooth hover effect */
+}
+
+.elements-list li:hover {
+    transform: scale(1.03); /* Slight zoom effect on hover */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
+    background: #f9f9f9; /* Light background change on hover */
+}
+
+.icon {
+    color: #1560bd; /* Orange color for icons */
+    font-size: 2rem; /* Larger icon size */
+    margin-right: 15px; /* Space between icon and text */
+    transition: transform 0.3s ease; /* Smooth transform effect */
+}
+
+.icon:hover {
+    transform: rotate(360deg); /* Rotate icon on hover */
+}
+
+.content {
+    flex: 1; /* Take up remaining space */
+}
+
+.content strong {
+    display: block;
+    font-size: 1.1rem;
+    margin-bottom: 5px; /* Space below strong text */
+}
+
+.content p {
+    margin: 0; /* Remove default margin */
+    color: #555; /* Darker text color for description */
+}
+
         .container-fluid {
             padding-right: 15px;
             padding-left: 15px;
@@ -355,7 +417,6 @@
         }
         
         .orange-heading:hover {
-            color: #FF6347;
             letter-spacing: normal;
             word-spacing: normal;
             /* Change color on hover */
@@ -500,6 +561,7 @@
 	height: 420px;
 	overflow-y: scroll;
 }
+
     </style>
 </head>
 
@@ -707,37 +769,42 @@
 
             <section style="text-align: justify;">
 
-                <div class="container">
+                <div class="container" style="font-family: Arial, sans-serif; padding: 20px; background-color: #019bce; border-radius: 8px;">
 
                     <div class="row">
                         <div class="col-md-12">
-                            <div class="custom-card">
-
-                                <p>Respiratory Protective Equipment (RPE) is a particular type of Personal Protective Equipment (PPE), used to protect the individual wearer against the inhalation of hazardous substances in the workplace air. RPE should only
-                                    be used where adequate control of exposure cannot be achieved by other means, in other words, as a last resort within the hierarchy of control measures: Elimination, Substitution, Engineering Controls, Administrative
-                                    Controls, PPE.</p>
-                                <p>Employers are required to firstly attempt to eliminate the hazard at source. RPE should only be used after all other reasonably practicable control measures have been taken. PPE is considered a last resort because it only
-                                    protects individual workers, is prone to failure or misuse, such as wearing the wrong RPE for the job, and employees wearing RPE may get a false sense of security when using RPE.
-
-
+                            <div class="custom" style="background-color: #ffffff; padding: 20px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1);">
+                
+                
+                                <p style="line-height: 1.6; color: #555;">
+                                    Respiratory Protective Equipment (RPE) is a particular type of Personal Protective Equipment (PPE), used to protect the individual wearer against the inhalation of hazardous substances in the workplace air. RPE should only be used where adequate control of exposure cannot be achieved by other means, in other words, as a last resort within the hierarchy of control measures: Elimination, Substitution, Engineering Controls, Administrative Controls, PPE.
+                                </p>
+                
+                                <p style="line-height: 1.6; color: #555;">
+                                    Employers are required to firstly attempt to eliminate the hazard at source. RPE should only be used after all other reasonably practicable control measures have been taken. PPE is considered a last resort because it only protects individual workers, is prone to failure or misuse, such as wearing the wrong RPE for the job, and employees wearing RPE may get a false sense of security when using RPE.
+                                </p>
+                
                             </div>
                         </div>
-                        <div class="col-md-12">
-                            <div class="custom-card">
-                                <h3 class="orange-heading">Seven Elements of a Respiratory Programme :</h3> <br>
-
-                                <li>A written plan detailing how the programme is managed.</li>
-                                <li>A complete assessment and knowledge of respiratory hazards that will be encountered in the workplace.</li>
-                                <li>Procedures and equipment to control respiratory hazards, including the use of engineering controls and work practices designed to limit or reduce employee exposures to such hazards.</li>
-                                <li>Guidelines for the proper selection of appropriate respiratory protective equipment.</li>
-                                <li>An employee training program covering hazard recognition, the dangers associated with respiratory hazards, and proper care and use of respiratory protective equipment.</li>
-                                <li>Inspection, maintenance, and repair of respiratory protective equipment.</li>
-                                <li>Medical surveillance of employees, where necessary.</li>
-
-
-                            </div>
-                        </div>
-                        <div class="container" style="background-color: rgb(192, 238, 255);padding: 20px;border-radius: 10px;">
+                    </div>
+                </div>
+                <br>
+                <div class="col-md-12">
+                    <div class="custom-section">
+                        <h3 class="orange-heading text-center">Seven Elements of a Respiratory Programme</h3>
+                        <ul class="elements-list">
+                            <li><i class="fa fa-file-alt icon"></i>A written plan detailing how the programme is managed.</li>
+                            <li><i class="fa fa-search icon"></i>A complete assessment and knowledge of respiratory hazards that will be encountered in the workplace.</li>
+                            <li><i class="fa fa-tools icon"></i>Procedures and equipment to control respiratory hazards, including the use of engineering controls and work practices designed to limit or reduce employee exposures to such hazards.</li>
+                            <li><i class="fa fa-shield-alt icon"></i>Guidelines for the proper selection of appropriate respiratory protective equipment.</li>
+                            <li><i class="fa fa-chalkboard-teacher icon"></i>An employee training program covering hazard recognition, the dangers associated with respiratory hazards, and proper care and use of respiratory protective equipment.</li>
+                            <li><i class="fa fa-wrench icon"></i>Inspection, maintenance, and repair of respiratory protective equipment.</li>
+                            <li><i class="fa fa-medkit icon"></i>Medical surveillance of employees, where necessary.</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                        <div class="container" >
                             <div class="row">
                                 <div class="col-md-12">
                                     <!-- This will make each image take half the width on medium and larger screens -->
