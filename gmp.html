@@ -347,7 +347,38 @@
         .custom-card li {
             margin-bottom: 5px;
         }
-        
+        .custom-card {
+                background-color: #fff; /* Clean background */
+                border-radius: 12px; /* Rounded corners */
+                position: relative; /* For positioning decorative elements */
+                overflow: hidden; /* Hide overflowing elements */
+            }
+            
+            .decorative-element {
+                position: absolute;
+                top: -50px;
+                right: -50px;
+                width: 200px;
+                height: 200px;
+                background: radial-gradient(circle, rgba(255, 182, 193, 0.2), transparent);
+                border-radius: 50%;
+                z-index: -1;
+            }
+            
+            .custom-card h2 {
+                font-size: 1.8rem;
+                color: #007bff; /* Primary color for heading */
+            }
+            
+            .custom-card p {
+                font-size: 16px;
+                line-height: 1.6;
+                color: #333; /* Dark text color */
+            }
+            
+            .custom-card p strong {
+                color: #00796b; /* Teal color for emphasis */
+            }
         .container-fluid {
             padding-right: 15px;
             padding-left: 15px;
@@ -456,6 +487,27 @@
             }
         }
         
+        .card {
+            background:linear-gradient(#000040,#1560bd);
+            color: #fff;
+            border-radius: 10px;
+            padding: 15px;
+            margin: 10px 0;
+            text-align: center;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+        .card:hover {
+            background-color: #053b7e;
+            transform: translateY(-2px);
+        }
+        .card:active {
+            background-color: #023777;
+        }
+        .card-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
        .sub-menu {
  
   padding-left: 0; /* Optional: Remove default padding */
@@ -695,108 +747,101 @@ ul{
                 <div class="project-title">
                                                 
                     <!-- Title -->	
-                    <h2 class="s-30 w-700" style="background-image: url('images/vindus_clients_images/gaud.jpg'); background-size: cover; background-position: center; color: #fff; text-align: center; padding: 100px; height: 300px;">
+                    <h2 class="s-30 w-700" style="background-image: url('images/vindus_clients_images/gaud.jpg'); background-size: cover; background-position: center; color: #fff; text-align: center; padding: 100px; height: 300px;border-radius: 10px;">
                         GMP AUDIT SERVICES                    </h2>
                       
             </div>
-            <section style="text-align: justify;">
-
-                <div class="container">
-
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="custom-card">
-                                <p>MLConsultants has been the most credible pattern for GMP Audit Service. Good Manufacturing Practice Audits (GMP audits) are conducted to ensure that products are made in accordance with quality standards and the best industry
-                                    practices. It is to identify if the pharma company has full control over your processes, facility and quality management system (QMS).
+            <section class="py-5">
+                <div class="container" style="background-image: url('images/vindus_clients_images/gmpaud.webp');background-size: cover; ">
+                    <div class="row justify-content-center">
+                        <div class="col-md-10 col-lg-8">
+                            <div class="custom-card p-4 rounded position-relative bg-light shadow-lg">
+                                <div class="decorative-element"></div>
+                                <p class="mb-4">
+                                    <strong>MLConsultants</strong> has been the most credible pattern for GMP Audit Service. Good Manufacturing Practice Audits (GMP audits) are conducted to ensure that products are made in accordance with quality standards and the best industry practices. It is to identify if the pharma company has full control over your processes, facility, and quality management system (QMS).
                                 </p>
-                                <p>MLConsultants has a team of highly experienced GMP Auditors with comprehensive experience in conducting GMP audit services across the globe. Our GMP auditors are highly qualified and have undertaken numerous audits of API,
-                                    Intermediates, Raw Material, Warehouse Facilities, Packaging Material Facilities, R & D /F & D Laboratories and Finished dosage plants.</p>
-                                <p>As regulations continue to tighten, authorities are demanding increased vigilance of the pharmaceutical supply chain and emphasizing the need for on-site audits. Manufacturers are required to conduct GMP audits of suppliers
-                                    or have them conducted on their behalf by appropriately qualified and trained auditors. GMP audit identifies the risk factors that challenge the organizational critical area and further consider their significance.
+                                <p class="mb-4">
+                                    <strong>MLConsultants</strong> has a team of highly experienced GMP Auditors with comprehensive experience in conducting GMP audit services across the globe. Our GMP auditors are highly qualified and have undertaken numerous audits of API, Intermediates, Raw Material, Warehouse Facilities, Packaging Material Facilities, R&D/F&D Laboratories, and Finished dosage plants.
                                 </p>
-                                <p>MLConsultants provides a wide range of audit services to clients as per their specific needs. Having conducted numerous audits, MLConsultants now has a big GMP Audit Report Library with Long Validity of GMP Audit Reports.
+                                <p class="mb-4">
+                                    As regulations continue to tighten, authorities are demanding increased vigilance of the pharmaceutical supply chain and emphasizing the need for on-site audits. Manufacturers are required to conduct GMP audits of suppliers or have them conducted on their behalf by appropriately qualified and trained auditors. GMP audit identifies the risk factors that challenge the organizational critical area and further considers their significance.
                                 </p>
-
-
+                                <p class="mb-0">
+                                    <strong>MLConsultants</strong> provides a wide range of audit services to clients as per their specific needs. Having conducted numerous audits, MLConsultants now has a big GMP Audit Report Library with Long Validity of GMP Audit Reports.
+                                </p>
                             </div>
                         </div>
-                        <div class="col-md-12">
-                            <div class="custom-card">
-                                <h3 class="orange-heading">BELOW ARE THE TYPES OF AUDIT OFFERED</h3> <br>
-                                <p><strong> INDEPENDENT SUPPLIER AUDIT: (GMP SYSTEM AND FACILITY AUDIT)</strong></p>
-                                <p>To evaluate the system and manufacturing facility in compliance to the regulatory expectation and quality standards. To ensure the capability of the facility to manufacture quality medicine. To determine the effectiveness
-                                    of the Quality system implemented and adherence to the specified quality objectives.</p>
-                                <p><strong style="color: #dc3545;">Audit scope incudes (Not limited to):</strong></p>
-                                <ul style="list-style: disc;">
-                                    <li> Organization’s</li>
-                                    <li>Equipment control</li>
-                                    <li>Personal</li>
-                                    <li>Quality policy and Quality Management Systems</li>
-                                    <li>Environment control</li>
-                                    <li>Safety and security</li>
-                                    <li>Material/Component Control</li>
-                                    <li>Operational Control</li>
-                                    <li>Finished Product control</li>
-                                    <li>Good Documentation practice</li>
-                                    <li>Good manufacturing practice</li>
-                                    <li>Inspection history</li>
-                                    <li>Computer system validation</li>
-                                    <li>Data Integrity approach</li>
-                                    <li>Business continuity plan</li>
-
-                                </ul>
-                                <br>
-
-                                <p><strong>REMOTE AUDIT / VIRTUAL AUDIT</strong></p>
-                                <p>
-                                    At MLConsultants, we have been conducting Remote GMP Audits/ Virtual Audits of suppliers for our clients. In the global pandemic situation, there have been many restrictions on travelling and this makes the on-site audit difficult. With the acceptance
-                                    of Remote Audit by various regulatory agencies, many of our clients have suggested performing remote audit / Virtual audit. MLConsultants has well defined SOPs and systems to perform Remote Audits. So far, we have completed
-                                    more than eighty Remote Audits on behalf of our clients.
+                    </div>
+                </div>
+            
+            <br>
+                
+           
+            
+            <div class="container mt-4">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="custom-card">
+                            <h3 class="orange-heading" style="padding: 10px;">BELOW ARE THE TYPES OF AUDIT OFFERED</h3>
+                            <p><strong>INDEPENDENT SUPPLIER AUDIT: (GMP SYSTEM AND FACILITY AUDIT)</strong></p>
+                            <p>To evaluate the system and manufacturing facility in compliance to the regulatory expectation and quality standards. To ensure the capability of the facility to manufacture quality medicine. To determine the effectiveness of the Quality system implemented and adherence to the specified quality objectives.</p>
+                            <p><strong class="highlighted-text">Audit scope includes (Not limited to):</strong></p>
+                            <div class="card-container">
+                                <div class="card">Organizations</div>
+                                <div class="card">Equipment control</div>
+                                <div class="card">Personal</div>
+                                <div class="card">Quality policy and Quality Management Systems</div>
+                                <div class="card">Environment control</div>
+                                <div class="card">Safety and security</div>
+                                <div class="card">Material/Component Control</div>
+                                <div class="card">Operational Control</div>
+                                <div class="card">Finished Product control</div>
+                                <div class="card">Good Documentation practice</div>
+                                <div class="card">Good manufacturing practice</div>
+                                <div class="card">Inspection history</div>
+                                <div class="card">Computer system validation</div>
+                                <div class="card">Data Integrity approach</div>
+                                <div class="card">Business continuity plan</div>
+                            </div>
+                            <br>
+                            <p><strong>REMOTE AUDIT / VIRTUAL AUDIT</strong></p>
+                            <p>At MLConsultants, we have been conducting Remote GMP Audits/ Virtual Audits of suppliers for our clients. In the global pandemic situation, there have been many restrictions on travelling and this makes the on-site audit difficult. With the acceptance of Remote Audit by various regulatory agencies, many of our clients have suggested performing remote audit / Virtual audit. MLConsultants has well defined SOPs and systems to perform Remote Audits. So far, we have completed more than eighty Remote Audits on behalf of our clients.</p>
+                            <br>
+                            <p><strong>GAP AUDIT</strong></p>
+                            <p>MLConsultants has been conducting GMP GAP audits for numerous Pharmaceutical Companies to assess their level of compliance with requirements of Desired Regulatory Agencies.<br>
+                                GMP GAP Audit is conducted to identify any GAP in the system and procedure to meet specific regulatory requirements and to mitigate the GAP with reasonable and logical solutions. A successful gap analysis identifies necessary changes in process, organization, and resources, and maps out a systematic approach with corrective and preventive actions for implementing solutions that effectively minimize risks to the organization.
                                 </p>
-                                <br>
-                                <p><strong> GAP AUDIT</strong></p>
-                                <p>
-                                    MLConsultants has been conducting GMP GAP audits for numerous Pharmaceutical Companies to assess their level of compliance with requirements of Desired Regulatory Agencies.</p>
-                                <p>GMP GAP Audit is conducted to identify any GAP in the system and procedure to meet specific regulatory requirements and to mitigate the GAP with reasonable and logical solutions. A successful gap analysis identifies necessary
-                                    changes in process, organization, and resources, and maps out a systematic approach with corrective and preventive actions for implementing solutions that effectively minimize risks to the organization.
-                                </p> <br>
-                                <p><strong> REGULATORY COMPLIANCE AUDIT</strong></p>
-                                <p>
-                                    A compliance audit is done for a comprehensive review of an organization’s adherence to specific regulatory guidelines & specifications mentioned and to evaluate the strength and thoroughness of compliance preparedness. This audit also focuses on the
-                                    QMS system and any loopholes to work on. Improves the Quality system and in turn compliance to regulatory.
-                                </p> <br>
-                                <p><strong>VENDOR QUALIFICATION/ASSESSMENT AUDIT</strong></p>
-                                <p>To evaluate and qualify the vendors for procurement of the critical supplies like API, excipients, packaging material, contract manufacturer, materials & Goods etc. This vendor qualification audit ensures the vendor reliability
-                                    and quality services/products to avoid any regularity concerns.
-                                </p> <br>
-                                <p><strong style="color: #dc3545;">Audit scope incudes (Not limited to):</strong></p>
-                                <ul style="list-style: disc;">
-                                    <li> Vendor qualification/requalification system</li>
-                                    <li>Vendor Quality management system</li>
-                                    <li>Capabilities to deliver consistence quality</li>
-                                    <li>Supply chain management</li>
-                                    <li>Operation control</li>
-                                    <li>Regulatory adherence</li>
-                                    <li>Business continuity plan and Quality policy
-                                    </li>
-                                </ul> <br>
-                                <p><strong>PRE-INSPECTION AUDIT</strong></p>
-                                <p>This Audit is mainly conducted before any planned or announced regulatory inspection of the facility. This audit covers the complete 360-degree assessment approach to get ready for the regulatory audit.
-
-                                </p>
-                                <div class="container">
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <!-- This will make each image take half the width on medium and larger screens -->
-                                            <img src="images/vindus_clients_images/gmp.jpeg" class="card-img img-fluid" alt="Banner Image" height="300px" width="250px">
-                                        </div>
-
+                            <br>
+                            <p><strong>REGULATORY COMPLIANCE AUDIT</strong></p>
+                            <p>A compliance audit is done for a comprehensive review of an organization’s adherence to specific regulatory guidelines & specifications mentioned and to evaluate the strength and thoroughness of compliance preparedness. This audit also focuses on the QMS system and any loopholes to work on. Improves the Quality system and in turn compliance to regulatory.</p>
+                            <br>
+                            <p><strong>VENDOR QUALIFICATION/ASSESSMENT AUDIT</strong></p>
+                            <p>To evaluate and qualify the vendors for procurement of the critical supplies like API, excipients, packaging material, contract manufacturer, materials & Goods etc. This vendor qualification audit ensures the vendor reliability and quality services/products to avoid any regularity concerns.</p>
+                            <p><strong class="highlighted-text">Audit scope includes (Not limited to):</strong></p><br>
+                            <div class="card-container">                                
+                                <div class="card">Vendor qualification/requalification system</div>
+                                <div class="card">Vendor Quality management system</div>
+                                <div class="card">Capabilities to deliver consistent quality</div>
+                                <div class="card">Supply chain management</div>
+                                <div class="card">Operation control</div>
+                                <div class="card">Regulatory adherence</div>
+                                <div class="card">Business continuity plan and Quality policy</div>
+                            </div>
+                            <br>
+                            <p><strong>PRE-INSPECTION AUDIT</strong></p>
+                            <p>This Audit is mainly conducted before any planned or announced regulatory inspection...</p>
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <img src="images/vindus_clients_images/gmp.jpeg" class="card-img img-fluid" alt="Audit Image" height="300px" width="250px">
                                     </div>
                                 </div>
                             </div>
                         </div>
-
-
+                    </div>
+                </div>
+            </div>
+            
 
 
 
