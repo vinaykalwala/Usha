@@ -488,6 +488,77 @@
 	height: 420px;
 	overflow-y: scroll;
 }
+.custom-card {
+            background-color: #fdfdfd;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            margin-top: 20px;
+        }
+        .orange-heading {
+            color: #053787;
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            font-size: 1.5em;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .card-img {
+            border-radius: 10px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+        .highlighted-text {
+            color: #0b5cd6;
+        }
+        .key-takeaways {
+            background-color: #00d0ff;
+            color: #fff;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+        .key-takeaways ul {
+            list-style: none;
+            padding: 0;
+        }
+        .key-takeaways ul li {
+            padding: 10px 0;
+            border-bottom: 1px solid #fff;
+        }
+        .key-takeaways ul li:last-child {
+            border-bottom: none;
+        }
+        .highlight {
+            background-color: #e9ecef;
+            border-left: 10px solid #0077ff;
+            padding: 15px;
+            border-radius: 5px;
+        }
+        .step-card {
+            background:linear-gradient(#000040,#1560bd);
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            margin: 10px 0;
+            color: white;
+        }
+        .step-title {
+            color: #31049a;
+            font-weight: bold;
+            margin-bottom: 10px;
+            font-size: 20px;
+            background-color: lightskyblue;
+            padding: 20px;
+            border-radius: 30px;
+        }
+        .step-content {
+            font-size: 1em;
+            margin-bottom: 20px;
+        }
+        .collapse {
+            margin-top: 15px;
+        }
     </style>
 </head>
 
@@ -698,119 +769,143 @@
 
             <section style="text-align: justify;">
 
-                <div class="container">
-
+                <div class="container mt-4">
                     <div class="row">
                         <div class="col-md-12">
                             <div class="custom-card">
-                                <h3 class="orange-heading" align="center">Gap Analysis</h3> <br>
-                                <h3 class="orange-heading">What Is a Gap Analysis?</h3> <br>
-                                <p>A gap analysis is the process that companies use to compare their current performance with their desired, expected performance. This analysis is used to determine whether a company is meeting expectations and using its
-                                    resources effectively.
-                                </p>
-                                <p>A gap analysis is the means by which a company can recognize its current state—by measuring time, money, and labor—and compare it with its target state. By defining and analyzing these gaps, the management team can create
-                                    an action plan to move the organization forward and fill in the performance gaps.
-                                </p>
-                                <div class="container">
-                                    <div class="row">
-                                        <div class="col-md-6 offset-md-3">
-                                            <!-- This will make each image take half the width on medium and larger screens -->
-                                            <img src="images/vindus_clients_images/Gap.jpg" class="card-img img-fluid" alt="Banner Image" height="300px" width="250px">
-                                        </div>
-
+                                <h3 class="orange-heading">Gap Analysis</h3>
+                                <h3 class="orange-heading">What Is a Gap Analysis?</h3>
+                                <p>A gap analysis is the process that companies use to compare their current performance with their desired, expected performance. This analysis is used to determine whether a company is meeting expectations and using its resources effectively.</p>
+                                <p>A gap analysis is the means by which a company can recognize its current state—by measuring time, money, and labor—and compare it with its target state. By defining and analyzing these gaps, the management team can create an action plan to move the organization forward and fill in the performance gaps.</p>
+                                <div class="row justify-content-center">
+                                    <div class="col-md-6">
+                                        <img src="images/vindus_clients_images/Gap.jpg" class="card-img img-fluid" alt="Gap Analysis Image">
                                     </div>
                                 </div>
-                                <br>
-                                <p><strong>KEY TAKE AWAYS :</strong></p>
-                                <ul style="list-style: circle;">
-                                    <li>
-                                        Through gap analysis, an organization examines its current performance vs. its target performance.</li>
-                                    <li>A gap analysis can be useful when companies aren’t using their resources, capital, or technology to their full potential.</li>
-                                    <li>By defining the gap, a firm’s management team can create a plan of action to move the organization forward and fill in the performance gaps.</li>
-                                    <li>There are four steps to a gap analysis: defining organizational goals, benchmarking the current state, analyzing the gap data, and compiling a gap report.</li>
-                                    <li>Gap analysis can also be used to assess the difference between rate-sensitive assets and liabilities.
-
-                                    </li>
-                                </ul>
-                                <p><strong>Understanding Gap Analysis</strong></p>
-                                <p>When organizations aren’t making the best use of their resources, capital, and technology, they may not be able to reach their full potential. This is where a gap analysis can help. <br> <br> A gap analysis, which is also
-                                    referred to as a need’s analysis, is important for any type of organizational performance. It allows companies to determine where they are today and where they want to be in the future. Companies can reexamine their
-                                    goals through a gap analysis to figure out whether they are on the right track to accomplishing them. <br> <br>Gap analyses were widely used in the 1980s, typically in tandem with duration analyses. A gap analysis is
-                                    considered harder to use and less widely implemented than a duration analysis, but it can still be used to assess exposure to a variety of term structure movements. <br> <br>There are four steps in a gap analysis, ending
-                                    in a compilation report that identifies areas of improvement and outlines an action plan to achieve increased company performance. <br> <br> The “gap” in a gap analysis is the space between where an organization is
-                                    and where it wants to be in the future.
-                                </p>
-
+                                <div class="key-takeaways">
+                                    <p><strong>KEY TAKE AWAYS:</strong></p>
+                                    <ul>
+                                        <li>Through gap analysis, an organization examines its current performance vs. its target performance.</li>
+                                        <li>A gap analysis can be useful when companies aren’t using their resources, capital, or technology to their full potential.</li>
+                                        <li>By defining the gap, a firm’s management team can create a plan of action to move the organization forward and fill in the performance gaps.</li>
+                                        <li>There are four steps to a gap analysis: defining organizational goals, benchmarking the current state, analyzing the gap data, and compiling a gap report.</li>
+                                        <li>Gap analysis can also be used to assess the difference between rate-sensitive assets and liabilities.</li>
+                                    </ul>
+                                </div>
+                                <div class="highlight">
+                                    <p><strong>Understanding Gap Analysis</strong></p>
+                                    <p>When organizations aren’t making the best use of their resources, capital, and technology, they may not be able to reach their full potential. This is where a gap analysis can help.</p>
+                                    <p>A gap analysis, which is also referred to as a needs analysis, is important for any type of organizational performance. It allows companies to determine where they are today and where they want to be in the future. Companies can reexamine their goals through a gap analysis to figure out whether they are on the right track to accomplishing them.</p>
+                                    <p>Gap analyses were widely used in the 1980s, typically in tandem with duration analyses. A gap analysis is considered harder to use and less widely implemented than a duration analysis, but it can still be used to assess exposure to a variety of term structure movements.</p>
+                                    <p>There are four steps in a gap analysis, ending in a compilation report that identifies areas of improvement and outlines an action plan to achieve increased company performance.</p>
+                                    <p>The “gap” in a gap analysis is the space between where an organization is and where it wants to be in the future.</p>
+                                </div>
                             </div>
                         </div>
+                    </div>
+                </div>
+                <div class="container mt-4">
+                    <div class="row">
                         <div class="col-md-12">
-                            <div class="custom-card">
-                                <h3 class="orange-heading">How to Conduct a Gap Analysis</h3> <br>
-                                <p>Some gap analysis models break the following steps into four processes. Others are a little more elaborate and expand the analysis into a few additional steps. In either case, a gap analysis entails understanding your current
-                                    position, determining where you want to end up, and devising a plan on how to arrive at the desired endpoint.</p>
-                                <p><strong style="color: #dc3545;">Step 1: Identify Your Current State</strong></p>
-                                <p>A gap analysis starts by focusing on where your organization is currently operating at. This includes researching the products it offers, customers it serves, geographical locations it reaches, and benefits it offers to
-                                    its employees. This information can be quantitative (i.e., financial records as part of required filings) or qualitative (i.e., surveys or feedback from key stakeholders).
-
-                                </p>
-                                <p>Often, a company will perform a gap analysis because it is already aware of an issue. For example, customer feedback surveys have generated poor results, and a company wants to investigate why and implement remedies. Before
-                                    it can dream of what it wants to become, it must understand why these errors are happening, when issues are arising, and who the change management leaders must be.</p>
-
-                                <br>
-                                <p><strong style="color: #dc3545;">Step 2: Identify Your Future State</strong></p>
-                                <p>The crux of gap analysis resides in this step, where a company must identify what it wants to become. This stage must be done with great care, as the identity that a company wants to have will dictate the strategic steps
-                                    that it must make to obtain those goals.
-                                </p>
-                                <p>In gap analysis, a company must make specific, measurable goals to yield the greatest long-term success. For example, in the situation above, it would do the company little good to set the goal of “becoming better at customer
-                                    service.” Instead, the company must identify more trackable metrics, such as “achieve customer satisfaction of 90% within 12 months.”
-                                </p>
-                                <p>Another way of identifying the desired outcome is to analyze what competitors or other market participants are doing. It may be easier to identify when another company is doing something well and attempt to emulate that.
-                                </p>
-                                <br>
-
-
-
-                                <p><strong style="color: #dc3545;">Step 3: Identify the Gaps</strong></p>
-                                <p>With the current state and future state defined, it’s time to bridge the two and understand where the most critical differences lie. In our running example, it’s in this stage that a company realizes it may be woefully
-                                    understaffed, has not provided enough staff training, or does not have the technical capability to keep up with customer inquiries.
-                                </p>
-                                <br>
-
-                                <p><strong style="color: #dc3545;">Step 4: Evaluate Solutions</strong></p>
-
-                                <p>Now that a company has defined its deficiencies, it’s time to come up with plans on how it will reach its target state. Sometimes, there may only be one solution; other times, the gap analysis may call for several simultaneous
-                                    changes that must work in tandem.</p>
-                                <p>To gauge whether a solution will work, it must often be quantifiable with ways to measure change. Our example of improving customer service may have an easy metric, such as customer satisfaction percentage. Other gap analysis
-                                    findings such as deficiencies in brand recognition may require more creative, thoughtful solutions that can still be evaluated.
-                                </p>
-                                <br>
-
-                                <p><strong style="color: #dc3545;">Step 5: Implement Change</strong></p>
-                                <p>Once risk control has been implemented, establish a system for monitoring its effectiveness. Quality risk management should be continuously reviewed, especially when:
-                                </p>
-                                <p>This implementation stage often entails following a detailed set of processes at a specific cadence. As part of the gap analysis, the company has a defined outcome, and careful steps must be taken to ensure that more damage
-                                    isn’t caused instead of cured. For example, consider employees feeling overwhelmed and discouraged from laborious training. An effort of making workers more proficient may lead to loss or productivity or decreased morale.
-                                </p>
-                                <br>
-                                <p><strong style="color: #dc3545;">Step 6: Monitor Changes</strong></p>
-                                <p>For this reason, the company must also conclude its gap analysis by monitoring any changes. Sometimes, the company took exactly the right steps. Other times, the gap might have been wider than the company thought or the
-                                    company failed to adequately assess its current position. In any case, gap analysis can be a circular process where after changes have been made, the company can reevaluate its current position and where it compares
-                                    against regarding other future states.</p>
-                                <p>A gap analysis often contains sensitive information; therefore, companies will often not disclose their gap analysis model. In addition, the analysis would tip off competitors about the direction of the company.
-                                </p>
-
-                                <div class="container">
-                                    <div class="row">
-                                        <div class="col-md-6 offset-md-3">
-                                            <!-- This will make each image take half the width on medium and larger screens -->
-                                            <img src="images/vindus_clients_images/q3.jpg" class="card-img img-fluid" alt="Banner Image" height="300px" width="250px">
+                            <h3 class="orange-heading">How to Conduct a Gap Analysis</h3>
+                            <p>Some gap analysis models break the following steps into four processes. Others are a little more elaborate and expand the analysis into a few additional steps. In either case, a gap analysis entails understanding your current
+                                position, determining where you want to end up, and devising a plan on how to arrive at the desired endpoint.</p>
+                
+                            <!-- Step Cards -->
+                            <div class="row">
+                                <div class="col-md-4 mb-3">
+                                    <div class="custom-card" data-toggle="collapse" data-target="#step1">
+                                        <h4 class="step-title">Step 1: Identify Your Current State</h4>
+                                    </div>
+                                    <div id="step1" class="collapse">
+                                        <div class="step-card">
+                                            <p class="step-content">A gap analysis starts by focusing on where your organization is currently operating at. This includes researching the products it offers, customers it serves, geographical locations it reaches, and benefits it offers to
+                                                its employees. This information can be quantitative (i.e., financial records as part of required filings) or qualitative (i.e., surveys or feedback from key stakeholders).</p>
+                                            <p class="step-content">Often, a company will perform a gap analysis because it is already aware of an issue. For example, customer feedback surveys have generated poor results, and a company wants to investigate why and implement remedies. Before
+                                                it can dream of what it wants to become, it must understand why these errors are happening, when issues are arising, and who the change management leaders must be.</p>
                                         </div>
-
+                                    </div>
+                                </div>
+                
+                                <div class="col-md-4 mb-3">
+                                    <div class="custom-card" data-toggle="collapse" data-target="#step2">
+                                        <h4 class="step-title">Step 2: Identify Your Future State</h4>
+                                    </div>
+                                    <div id="step2" class="collapse">
+                                        <div class="step-card">
+                                            <p class="step-content">The crux of gap analysis resides in this step, where a company must identify what it wants to become. This stage must be done with great care, as the identity that a company wants to have will dictate the strategic steps
+                                                that it must make to obtain those goals.</p>
+                                            <p class="step-content">In gap analysis, a company must make specific, measurable goals to yield the greatest long-term success. For example, in the situation above, it would do the company little good to set the goal of “becoming better at customer
+                                                service.” Instead, the company must identify more trackable metrics, such as “achieve customer satisfaction of 90% within 12 months.”</p>
+                                            <p class="step-content">Another way of identifying the desired outcome is to analyze what competitors or other market participants are doing. It may be easier to identify when another company is doing something well and attempt to emulate that.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                
+                                <div class="col-md-4 mb-3">
+                                    <div class="custom-card" data-toggle="collapse" data-target="#step3">
+                                        <h4 class="step-title">Step 3: Identify the Gaps</h4>
+                                    </div>
+                                    <div id="step3" class="collapse">
+                                        <div class="step-card">
+                                            <p class="step-content">With the current state and future state defined, it’s time to bridge the two and understand where the most critical differences lie. In our running example, it’s in this stage that a company realizes it may be woefully
+                                                understaffed, has not provided enough staff training, or does not have the technical capability to keep up with customer inquiries.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                
+                                <div class="col-md-4 mb-3">
+                                    <div class="custom-card" data-toggle="collapse" data-target="#step4">
+                                        <h4 class="step-title">Step 4: Evaluate Solutions</h4>
+                                    </div>
+                                    <div id="step4" class="collapse">
+                                        <div class="step-card">
+                                            <p class="step-content">Now that a company has defined its deficiencies, it’s time to come up with plans on how it will reach its target state. Sometimes, there may only be one solution; other times, the gap analysis may call for several simultaneous
+                                                changes that must work in tandem.</p>
+                                            <p class="step-content">To gauge whether a solution will work, it must often be quantifiable with ways to measure change. Our example of improving customer service may have an easy metric, such as customer satisfaction percentage. Other gap analysis
+                                                findings such as deficiencies in brand recognition may require more creative, thoughtful solutions that can still be evaluated.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                
+                                <div class="col-md-4 mb-3">
+                                    <div class="custom-card" data-toggle="collapse" data-target="#step5">
+                                        <h4 class="step-title">Step 5: Implement Change</h4>
+                                    </div>
+                                    <div id="step5" class="collapse">
+                                        <div class="step-card">
+                                            <p class="step-content">Once risk control has been implemented, establish a system for monitoring its effectiveness. Quality risk management should be continuously reviewed, especially when:</p>
+                                            <p class="step-content">This implementation stage often entails following a detailed set of processes at a specific cadence. As part of the gap analysis, the company has a defined outcome, and careful steps must be taken to ensure that more damage
+                                                isn’t caused instead of cured. For example, consider employees feeling overwhelmed and discouraged from laborious training. An effort of making workers more proficient may lead to loss or productivity or decreased morale.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                
+                                <div class="col-md-4 mb-3">
+                                    <div class="custom-card" data-toggle="collapse" data-target="#step6">
+                                        <h4 class="step-title">Step 6: Monitor Changes</h4>
+                                    </div>
+                                    <div id="step6" class="collapse">
+                                        <div class="step-card">
+                                            <p class="step-content">For this reason, the company must also conclude its gap analysis by monitoring any changes. Sometimes, the company took exactly the right steps. Other times, the gap might have been wider than the company thought or the
+                                                company failed to adequately assess its current position. In any case, gap analysis can be a circular process where after changes have been made, the company can reevaluate its current position and where it compares
+                                                against regarding other future states.</p>
+                                            <p class="step-content">A gap analysis often contains sensitive information; therefore, companies will often not disclose their gap analysis model. In addition, the analysis would tip off competitors about the direction of the company.</p>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
+                
+                            <div class="row">
+                                <div class="col-md-6 offset-md-3">
+                                    <img src="images/vindus_clients_images/q3.jpg" class="step-img img-fluid" alt="Gap Analysis Banner">
+                                </div>
+                            </div>
                         </div>
-
+                    </div>
+                </div>
+                
+                
 
 
                         <div class="col-md-12">
