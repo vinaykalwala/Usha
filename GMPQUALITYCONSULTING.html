@@ -58,6 +58,7 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    
 
     <style>
         .btn.btn--theme {
@@ -130,256 +131,120 @@
             color: #fff;
         }
         
-        .project-preview-container {
-            display: flex;
-            justify-content: center;
-            /* Horizontally center the content */
-            align-items: center;
-            /* Vertically center the content (optional) */
-            height: 100%;
-            /* Adjust the height as needed */
-        }
-        /* Custom CSS for the section */
-        
-        .card-header {
-            background-color: rgb(55, 14, 238);
-            color: white;
-        }
-        
-        .col-md-12 {
-            margin-bottom: 10px;
-        }
-        
-        .section-header h3 {
-            font-size: 36px;
-            color: #283d50;
-            text-align: center;
-            font-weight: 500;
-            position: relative;
-        }
-        
-        .section-header p {
-            text-align: center;
-            margin: auto;
-            font-size: 15px;
-            padding-bottom: 60px;
-            color: #556877;
-            width: 50%;
-        }
-        
-        #clients {
-            padding: 60px 0;
-        }
-        
-        #clients .clients-wrap {
-            border-top: 1px solid #d6eaff;
-            border-left: 1px solid #d6eaff;
-            margin-bottom: 30px;
-        }
-        
-        #clients .client-logo {
-            padding: 64px;
-            display: -webkit-box;
-            display: -webkit-flex;
-            display: -ms-flexbox;
-            display: flex;
-            -webkit-box-pack: center;
-            -webkit-justify-content: center;
-            -ms-flex-pack: center;
-            justify-content: center;
-            -webkit-box-align: center;
-            -webkit-align-items: center;
-            -ms-flex-align: center;
-            align-items: center;
-            border-right: 1px solid #d6eaff;
-            border-bottom: 1px solid #d6eaff;
-            overflow: hidden;
-            background: #fff;
-            height: 160px;
-        }
-        
-        #clients img {
-            transition: all 0.4s ease-in-out;
-        }
-        
-        .container .card .icon {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: #2c73df;
-        }
-        
-        .container .card .icon .fa {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            font-size: 80px;
-            color: #fff;
-        }
-        
-        .container .card .slide {
-            width: 300px;
-            height: 200px;
-            transition: 0.5s;
-        }
-        
-        .container .card .slide.slide1 {
-            position: relative;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 1;
-            transition: .7s;
-            transform: translateY(100px);
-        }
-        
-        .container .card:hover .slide.slide1 {
-            transform: translateY(0px);
-        }
-        
-        .container .card .slide.slide2 {
-            position: relative;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
-            box-sizing: border-box;
-            transition: .8s;
-            transform: translateY(-100px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
-        }
-        
-        .container .card:hover .slide.slide2 {
-            transform: translateY(0);
-        }
-        
-        .container .card .slide.slide2::after {
-            content: "";
-            position: absolute;
-            /* width: 30px; */
-            height: 4px;
-            bottom: 15px;
-            left: 50%;
-            left: 50%;
-            transform: translateX(-50%);
-            background: #2c73df;
-        }
-        
-        .container .card .slide.slide2 .content p {
-            margin: 0;
-            padding: 0;
-            text-align: center;
-            color: #414141;
-        }
-        
-        .container .card .slide.slide2 .content h3 {
-            margin: 0 0 10px 0;
-            padding: 0;
-            font-size: 24px;
-            text-align: center;
-            color: #414141;
-        }
-        
-        .container {
-            /* Adjust the width as needed */
-            margin: 0 auto;
-        }
-        
-        .card {
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            overflow: hidden;
-            /* Ensure content doesn't overflow outside the card */
-        }
-        
-        .slide {
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .content {
-            padding: 20px;
-            height: 200px;
-            /* Adjust the height as needed */
-            overflow-y: auto;
-            /* Enable vertical scrolling */
-        }
-        
-        .card {
-            width: 300px;
+        .custom-card {
+            background-color: #ffffff;
             border: none;
-        }
-        
-        .orange-heading {
-            color: #1916eb;
-            letter-spacing: normal;
-            word-spacing: normal;
-            /* Orange color for headings */
-        }
-        
-      .custom-card {
-            background-color: white;
-            /* Light gray background for cards */
-            padding: 20px;
-            margin-bottom: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            transition: box-shadow 0.3s ease;
-            border: 1px solid rgb(167, 162, 162);
-        }
-        
-        .custom-card:hover {
-            box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
-        }
-        
-        .custom-card p {
-            margin-bottom: 10px;
-        }
-        
-        .custom-card ul,
-        .custom-card ol {
-            margin-bottom: 10px;
-        }
-        
-        .custom-card li {
-            margin-bottom: 5px;
-        }
-        
-        .container-fluid {
-            padding-right: 15px;
-            padding-left: 15px;
-            margin-right: auto;
-            margin-left: auto;
-        }
-        
-        .orange-heading:hover {
-            color: #FF6347;
-            letter-spacing: normal;
-            word-spacing: normal;
-            /* Change color on hover */
-            cursor: pointer;
-        }
-        
-        .why-us-icon {
-            font-size: 36px;
-            color: #007bff;
-            /* Blue color for icons */
-            margin-bottom: 20px;
-        }
-        
-        .why-us-header {
-            background: linear-gradient(#1560bd, #000040);
-            /* Blue background color */
-            color: white;
-            /* White text color */
-            padding: 30px 0;
-            text-align: center;
+            border-radius: 15px;
+            padding: 30px;
             margin-bottom: 30px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        .bubble {
+            position: absolute;
+            border-radius: 50%;
+            background-color: rgba(0, 123, 255, 0.1);
+            z-index: 0;
+            animation: float 6s infinite ease-in-out;
+        }
+        .bubble-1 {
+            top: -50px;
+            left: -50px;
+            width: 150px;
+            height: 150px;
+            animation-duration: 7s;
+        }
+        .bubble-2 {
+            top: 100px;
+            right: -30px;
+            width: 100px;
+            height: 100px;
+            animation-duration: 8s;
+        }
+        .bubble-3 {
+            bottom: -50px;
+            left: 80px;
+            width: 120px;
+            height: 120px;
+            animation-duration: 9s;
+        }
+        .bubble-4 {
+            bottom: -40px;
+            right: -50px;
+            width: 200px;
+            height: 200px;
+            animation-duration: 10s;
+        }
+        .custom-card h3 {
+            color: #007bff;
+            text-align: center;
+            margin-bottom: 20px;
+            z-index: 1;
+            position: relative;
+        }
+        .custom-card p, .custom-card li {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            margin-bottom: 15px;
+            z-index: 1;
+            position: relative;
+        }
+        .custom-card ul {
+            padding-left: 0;
+            list-style: none;
+        }
+        .custom-card li {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+        .custom-card li i {
+            color: #007bff;
+            margin-right: 10px;
+            font-size: 1.3rem;
+        }
+        .custom-bg {
+            background: linear-gradient(135deg, #5e72eb, #3a77ff);
+            border-radius: 15px;
+            color: white;
+            padding: 30px;
+            margin-bottom: 30px;
+            position: relative;
+            overflow: hidden;
+        }
+        .custom-bg .bubble {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+        .custom-bg h3 {
+            color: #ffffff;
+            z-index: 1;
+            position: relative;
+        }
+        .custom-bg p, .custom-bg li {
+            color: #ffffff;
+            z-index: 1;
+            position: relative;
+        }
+        .divider {
+            width: 60px;
+            height: 5px;
+            background-color: #007bff;
+            margin: 20px auto;
+            border-radius: 5px;
         }
         
+        @keyframes float {
+            0% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+            100% {
+                transform: translateY(0);
+            }
+        }
         body {
             -webkit-user-select: none;
             /* Safari */
@@ -695,57 +560,62 @@
                       
             </div>
 
-            <section style="text-align: justify;">
-
-                <div class="container">
-
+            <section>
+                <div class="container mt-5">
                     <div class="row">
                         <div class="col-md-12">
-                            <div class="custom-card">
-
-                                <p>MLConsultants has been the most preferred GMP Consultant for Pharma Companies Globally.</p>
+                            <div class="custom-bg">
+                                <div class="bubble bubble-1"></div>
+                                <div class="bubble bubble-2"></div>
+                                <div class="bubble bubble-3"></div>
+                                <div class="bubble bubble-4"></div>
+                                <h3>About MLConsultants</h3>
+                                <div class="divider1"></div>
+                                <p>MLConsultants has been the most preferred <span class="highlight">GMP Consultant</span> for Pharma Companies Globally.</p>
                                 <p>With a wide range of GMP Consulting Service, MLConsultants Provide, most convenient platform to Pharma companies to rely on.</p>
-                                <p>It is very essential to identify and select a reliable GMP Consultant who can guide in the most scientific way while ensuring the cost-effectiveness of the exercise.
-                                </p>
+                                <p>It is very essential to identify and select a reliable GMP Consultant who can guide in the most scientific way while ensuring the cost-effectiveness of the exercise.</p>
                                 <p>MLConsultants has highly evolved SOPs, documentation and expert team which make our GMP Consulting Services the most efficient and effective.</p>
                             </div>
                         </div>
                         <div class="col-md-12">
                             <div class="custom-card">
-                                <h3 class="orange-heading">Our GMP Consulting Services Includes the following:</h3> <br>
-
-                                <p>Complete Quality System Assessment which includes following:
-                                </p>
-                                <li>Designing of Procedures and SOPs, WI, Policies, Forms, Formats </li>
-                                <li>GAP Review of Quality System and Support in Improving the Documentation System</li>
-                                <li>Root Cause Investigation</li>
-                                <li>OOS Procedure Optimization</li>
-                                <li>Change Control</li>
-                                <li>Training</li>
-                                <li>Outsourcing Management with Resource Optimization and Quality output in time bound manner.</li>
-                                <li>CAPA Plan and Management</li>
-
-
+                                <div class="bubble bubble-1"></div>
+                                <div class="bubble bubble-2"></div>
+                                <div class="bubble bubble-3"></div>
+                                <div class="bubble bubble-4"></div>
+                                <h3>Our GMP Consulting Services Include:</h3>
+                                <div class="divider"></div>
+                                <ul class="list-unstyled mt-4">
+                                    <li><i class="fas fa-cogs"></i>Designing of Procedures and SOPs, WI, Policies, Forms, Formats</li>
+                                    <li><i class="fas fa-search"></i>GAP Review of Quality System and Support in Improving the Documentation System</li>
+                                    <li><i class="fas fa-wrench"></i>Root Cause Investigation</li>
+                                    <li><i class="fas fa-stream"></i>OOS Procedure Optimization</li>
+                                    <li><i class="fas fa-sync"></i>Change Control</li>
+                                    <li><i class="fas fa-chalkboard-teacher"></i>Training</li>
+                                    <li><i class="fas fa-tasks"></i>Outsourcing Management with Resource Optimization and Quality output in time bound manner.</li>
+                                    <li><i class="fas fa-clipboard-check"></i>CAPA Plan and Management</li>
+                                </ul>
                             </div>
                         </div>
                         <div class="col-md-12">
                             <div class="custom-card">
-                                <h3 class="orange-heading">MLC ADVANTAGES:</h3> <br>
-
-                                <li> Highly Experience GMP Experts </li>
-                                <li>Thorough knowledge and Understating on Quality and Compliance System. </li>
-                                <li> Risk Based and Solution based Approach. </li>
-                                <li>High Credibility in Industry </li>
-                                <li>Strong Value system
-                                </li>
-
-
+                                <div class="bubble bubble-1"></div>
+                                <div class="bubble bubble-2"></div>
+                                <div class="bubble bubble-3"></div>
+                                <div class="bubble bubble-4"></div>
+                                <h3>MLC Advantages:</h3>
+                                <div class="divider"></div>
+                                <ul class="list-unstyled mt-4">
+                                    <li><i class="fas fa-users"></i>Highly Experienced GMP Experts</li>
+                                    <li><i class="fas fa-clipboard-list"></i>Thorough Knowledge and Understanding of Quality and Compliance System</li>
+                                    <li><i class="fas fa-lightbulb"></i>Risk-Based and Solution-Based Approach</li>
+                                    <li><i class="fas fa-check-circle"></i>High Credibility in Industry</li>
+                                    <li><i class="fas fa-star"></i>Strong Value System</li>
+                                </ul>
                             </div>
                         </div>
-
-
-
-
+                    </div>
+                </div>
             </section>
         </Main>
         <!-- WhatsApp Icon -->
