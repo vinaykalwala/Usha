@@ -35,6 +35,9 @@
   clear: both;
 }
 
+.para{
+  color:rgb(64, 173, 241);
+}
 .wsmenu img {
   border: 0 none;
   max-width: 100%;
@@ -123,6 +126,7 @@
   padding: 0;
   margin: 0;
   float: left;
+  color:#fff;
 }
 
 .wsmenu > .wsmenu-list > li > a {
@@ -135,6 +139,7 @@
   line-height: 50px;
   text-decoration: none;
   position: relative;
+
 }
 
 .wsmenu > .wsmenu-list > li > a.last-link {
@@ -815,6 +820,7 @@ body.wsactive {
   position: relative;
   white-space: inherit;
   clear: right;
+  color:black;
 }
 
 @supports (-webkit-overflow-scrolling: touch) {
