@@ -42,7 +42,21 @@
   border: 0 none;
   max-width: 100%;
 }
+#scroll-to-top {
+  position: fixed;
+  bottom: 80px;
+  right: 35px;
+  cursor: pointer;
+  border-radius: 90%;
+  padding: 10px;
+  transition: background-color 0.3s;
+  display: none;
+  z-index: 9999; /* Added z-index property */
+}
 
+#scroll-to-top i {
+  color: rgb(3, 116, 214);
+}
 .wsmenu a:focus {
   outline: none;
 }
