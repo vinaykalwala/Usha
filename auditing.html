@@ -232,6 +232,29 @@ li{
 	height: 420px;
 	overflow-y: scroll;
 }
+.banner {
+      position: relative;
+      text-align: center;
+      color: white;
+      width: 100%;
+      height: 450px;
+      overflow: hidden;
+	  
+    }
+    .banner img {
+      width: 100%;
+      height: 450px;
+    }
+    .banner-heading {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: rgba(7, 85, 254, 0.7); /* Blue transparent background */
+      padding: 20px;
+      border-radius: 10px;
+      color: white;
+    }
     </style>
 </head>
 <body>
@@ -437,8 +460,12 @@ li{
 			</header>	<!-- END HEADER -->
 
 <br>
+<br><br>
 
-
+<div class="banner">
+    <img src="images/vindus_clients_images/Audit.gif" alt="Banner Image">
+    <h1 class="banner-heading">Auditing</h1>
+  </div>
 
 
     <section class="container-fluid my-5 p-5 bg-custom rounded shadow-custom">
