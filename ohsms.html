@@ -191,24 +191,7 @@ body {
 .sub-menu li {
   padding: 5px 10px; /* Optional: Add padding for better spacing */
 }
-	#scroll-to-top {
-            position: fixed;
-            bottom: 80px;
-            right: 35px;
-            cursor: pointer;
-            border-radius: 90%;
-            padding: 10px;
-            transition: background-color 0.3s;
-            display: none;
-            /* Initially hide the button */
-        }
-        
-       
-        
-        #scroll-to-top i {
-            color: rgb(3, 116, 214);
-        
-         }
+	
 #services-menu{
 	height: 420px;
 	overflow-y: scroll;
@@ -518,26 +501,29 @@ body {
     </a>
 </div>
 
-<div id="scroll-to-top" onclick="scrollToTop()">
-	<i class="fa-solid fa-circle-up" style="font-size: 30px;"></i>
-</div>
+<button id="scrollToTopBtn" class="btn" style="display: block;">
+    <i class="fa-solid fa-circle-up" style="font-size: 30px;color: #0275b3;"></i>
+</button>
 
+<!-- jQuery and Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 <script>
-	function scrollToTop() {
-		window.scrollTo({
-			top: 0,
-			behavior: 'smooth'
-		});
-	}
+    // Show or hide the button based on scroll position
+    $(window).scroll(function() {
+        if ($(this).scrollTop() > 100) {
+            $('#scrollToTopBtn').fadeIn();
+        } else {
+            $('#scrollToTopBtn').fadeOut();
+        }
+    });
 
-	window.addEventListener('scroll', function() {
-		const scrollToTopBtn = document.getElementById('scroll-to-top');
-		if (window.scrollY > 200) {
-			scrollToTopBtn.style.display = 'block';
-		} else {
-			scrollToTopBtn.style.display = 'none';
-		}
-	});
+    // Smooth scroll to top
+    $('#scrollToTopBtn').click(function() {
+        $('html, body').animate({ scrollTop: 0 }, 600);
+        return false;
+    });
     </script>
 <!-- FOOTER-3
 			============================================= -->
