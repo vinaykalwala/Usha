@@ -69,7 +69,6 @@
             padding: 20px;
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-			margin-top:40px;
 			
         }
         h2 {
@@ -178,6 +177,28 @@
 	height: 420px;
 	overflow-y: scroll;
 }
+.banner {
+      position: relative;
+      text-align: center;
+      color: white;
+      width: 100%;
+      overflow: hidden;
+	  
+    }
+    .banner img {
+      width: 100%;
+	  border-radius: 20px;
+    }
+    .banner-heading {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: rgba(7, 85, 254, 0.7); /* Blue transparent background */
+      padding: 20px;
+      border-radius: 10px;
+      color: white;
+    }
         </style>
     </head>
     <body>
@@ -371,10 +392,14 @@
 
 				</div>     <!-- End header-wrapper -->
 			</header>	<!-- END HEADER -->
-<br>
+<br><br>
 
+<div class="banner" style="padding: 30px;">
+    <img src="images/vindus_clients_images/aboveneck.gif" alt="Banner Image" height="300px" width="500px">
+    <h4 class="banner-heading">Above Neck</h4>
+  </div>
 <div class="imge" style="background-image: url(images/vindus_clients_images/fall2.jpg);">
-<h1 style="color: rgb(251, 248, 248); text-align: center; margin-top: 70px;">Above neck PPE:</h1>
+<h1 style="color: rgb(251, 248, 248); text-align: center;">Above neck PPE:</h1>
 <div class="container1">
     <h2>Head Protection:</h2>
     <p>Here are some common types being used in different occupations:</p>
@@ -463,7 +488,7 @@
  <span class="whatsapp-text">WhatsApp</span>
     </a>
 </div>
-	   <button id="scrollToTopBtn" class="btn" style="display: block;">
+	   <button id="scrollToTopBtn" class="btn" style="display: block;bottom: 18%;">
     <i class="fa-solid fa-circle-up" style="font-size: 30px;color: #0275b3;"></i>
 </button>
 
