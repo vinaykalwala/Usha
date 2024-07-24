@@ -532,6 +532,28 @@ body {
 	height: 420px;
 	overflow-y: scroll;
 }
+.banner {
+      position: relative;
+      text-align: center;
+      color: white;
+      width: 100%;
+      overflow: hidden;
+	  
+    }
+    .banner img {
+      width: 100%;
+	  border-radius: 20px;
+    }
+    .banner-heading {
+      position: absolute;
+      top: 75%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: rgba(7, 85, 254, 0.7); /* Blue transparent background */
+      padding: 20px;
+      border-radius: 10px;
+      color: white;
+    }
 </style>
 	</head>
 
@@ -745,9 +767,10 @@ body {
         <div class="container">
             <div class="card mb-3">
                 <div class="row no-gutters">
-                    <div class="col-md-12">
-                        <img src="images/vindus_clients_images/certificationbanner.jpg" class="card-img" alt="Banner Image" width="500px">
-                    </div>
+                    <div class="banner" style="padding: 30px;">
+						<img src="images/vindus_clients_images/certification.gif" alt="Banner Image" height="350px" width="500px">
+						<h4 class="banner-heading">ML Consultants PPE Suppliers</h4>
+					  </div>
                 </div>
             </div>
             <div class="row">
