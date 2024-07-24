@@ -196,7 +196,6 @@ li{
 
 
 .jumbotron {
-    background-image: url('images/vindus_clients_images/incident3.JPG'); /* Replace with actual image URL */
     background-size: cover;
 	width: 100%; /* Set the width to 100% of its container */
     height: 400px; /* Set the height to 400 pixels */
@@ -228,6 +227,28 @@ li{
 	height: 420px;
 	overflow-y: scroll;
 }
+.banner {
+      position: relative;
+      text-align: center;
+      color: white;
+      width: 100%;
+      overflow: hidden;
+	  
+    }
+    .banner img {
+      width: 100%;
+	  border-radius: 20px;
+    }
+    .banner-heading {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: rgba(7, 85, 254, 0.7); /* Blue transparent background */
+      padding: 20px;
+      border-radius: 10px;
+      color: white;
+    }
 </style>
 	</head>
 
@@ -438,7 +459,10 @@ li{
 
 
 <div class="container mt-5">
-	<div class="jumbotron display-4" style="margin-top: 75px;">
+        <div class="banner" style="padding: 30px;">
+            <img src="images/vindus_clients_images/Incident Investigation .gif" alt="Banner Image" height="350px" width="500px">
+            <h4 class="banner-heading">Incident Investigation</h4>
+          </div>
     </div>
 
 
