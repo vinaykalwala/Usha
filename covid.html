@@ -279,6 +279,28 @@
 	height: 420px;
 	overflow-y: scroll;
 }
+.banner {
+      position: relative;
+      text-align: center;
+      color: white;
+      width: 100%;
+      overflow: hidden;
+	  
+    }
+    .banner img {
+      width: 100%;
+	  border-radius: 20px;
+    }
+    .banner-heading {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: rgba(7, 85, 254, 0.7); /* Blue transparent background */
+      padding: 20px;
+      border-radius: 10px;
+      color: white;
+    }
 </style>
 	</head>
 
@@ -486,9 +508,13 @@
                     </div>     <!-- End header-wrapper -->
                 </header>	
 
-<br>
+<br><br><br>
 
-<div class="products-section" style="margin-top: 100px;">
+<div class="banner" style="padding: 30px;">
+  <img src="images/vindus_clients_images/covid19.gif" alt="Banner Image" height="350px" width="500px">
+  <h4 class="banner-heading">COVID-19</h4>
+</div>
+<div class="products-section" >
     <div class="container">
           <h2 class="text-center mb-4" style="font-size: 30px;">Covid Essential PPE's:</h2>
           
