@@ -544,7 +544,28 @@
 	height: 420px;
 	overflow-y: scroll;
 }
-
+.banner {
+      position: relative;
+      text-align: center;
+      color: white;
+      width: 100%;
+      overflow: hidden;
+	  
+    }
+    .banner img {
+      width: 100%;
+	  border-radius: 20px;
+    }
+    .banner-heading {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: rgba(7, 85, 254, 0.5); /* Blue transparent background */
+      padding: 20px;
+      border-radius: 10px;
+      color: white;
+    }
     </style>
 </head>
 
@@ -750,13 +771,10 @@
 <br>
         <Main>
             <div class="container-fluid mt-90">
-                <div class="project-title">
-                                                
-                    <!-- Title -->	
-                    <h2 class="s-30 w-700" style="background-image: url('images/vindus_clients_images/respi.avif');  background-position: center; color: #ffffff; text-align: center; padding: 100px; height: 300px;border-radius: 10px;">
-                        Respiratory & Emergency Protection Systems                  </h2>
-                      
-            </div>
+                <div class="banner" style="padding: 30px;">
+    <img src="images/vindus_clients_images/Respiratory.gif" alt="Banner Image" height="350px" width="500px">
+    <h4 class="banner-heading">  Respiratory & Emergency Protection Systems  </h4>
+  </div>
 
             <section style="text-align: justify;">
 
