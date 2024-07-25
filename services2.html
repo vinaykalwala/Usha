@@ -240,6 +240,23 @@
 	height: 420px;
 	overflow-y: scroll;
 }
+
+.animated-image {
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
     </style>
 </head>
 
@@ -459,10 +476,11 @@
                     <div class="card mb-3">
                         <div class="row no-gutters">
                             <div class="col-md-12">
-                                <img src="images/vindus_clients_images/services.jpg" class="card-img" alt="Banner Image" height="200px">
+                                <img src="images/vindus_clients_images/services.jpg" class="card-img animated-image" alt="Banner Image" height="200px">
                             </div>
                         </div>
                     </div>
+                    
                     <div class="row">
                         <div class="col-md-12">
                             <div class="service-card card">
