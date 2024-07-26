@@ -496,6 +496,19 @@ ul{
       border-radius: 10px;
       color: white;
     }
+    @media (max-width: 768px) {
+    .banner-heading {
+        font-size: 1rem; /* Adjust font size for smaller screens */
+        padding: 10px; /* Reduce padding */
+        width: 90%; /* Ensure it doesn't go outside the image */
+        left: 50%; /* Center horizontally */
+        transform: translate(-50%, -50%); /* Keep it centered */
+       
+    }
+    .banner{
+        padding: 2px;
+    }
+}
     </style>
 </head>
 
@@ -701,8 +714,8 @@ ul{
 
         <Main>
             <div class="container-fluid mt-90">
-                <div class="banner" style="padding: 30px;">
-                    <img src="images/vindus_clients_images/MLC Employee Health Services .gif" alt="Banner Image" height="350px" width="500px">
+                <div class="banner" style="padding:10px;padding-bottom: 25px;">
+                    <img src="images/vindus_clients_images/MLC Employee Health Services .gif " alt="Banner Image" height="350px" width="500px">
                     <h4 class="banner-heading">Employee Health Services</h4>
                   </div>
             </div>
