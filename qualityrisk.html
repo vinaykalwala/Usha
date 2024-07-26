@@ -542,6 +542,44 @@
         .collapse {
             margin-top: 15px;
         }
+        .banner {
+  position: relative;
+  overflow: hidden;
+  background-color: #f0f0f0; /* Optional: to show the banner area */
+  height: 350px; /* Set height to match image height */
+}
+
+.banner-images {
+  display: flex;
+  width: calc(800px * 12 + 15px * 11); /* Total width of all images including gaps */
+  animation: scroll 50s linear infinite;
+  gap: 10px;
+
+}
+
+.banner-images img {
+  width: 800px;
+  height: 350px;
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-800px * 6 - 15px * 5)); /* Adjust the total width to scroll */
+  }
+}
+
+.banner-heading {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  color: white; /* Adjust color for visibility */
+  background-color: rgba(13, 75, 208, 0.8); /* Optional: background for readability */
+  padding: 5px 10px;
+  font-size: 24px; /* Adjust font size as needed */
+}
     </style>
 </head>
 
@@ -744,18 +782,28 @@
             <!-- End header-wrapper -->
         </header>
         <!-- END HEADER -->
-<br>
+<br><br>
+<div class="banner">
+    <div class="banner-images">
+      <img src="images/vindus_clients_images/qualityrisk-1.jpg" alt="Banner Image 1">
+      <img src="images/vindus_clients_images/qualityrisk-2.webp" alt="Banner Image 2">
+      <img src="images/vindus_clients_images/qualityrisk-3.jpg" alt="Banner Image 3">
+      <img src="images/vindus_clients_images/qualityrisk-1.jpg" alt="Banner Image 1">
+      <img src="images/vindus_clients_images/qualityrisk-2.webp" alt="Banner Image 2">
+      <img src="images/vindus_clients_images/qualityrisk-3.jpg" alt="Banner Image 3">
+      <!-- Duplicate set of images for continuous scroll -->
+      <img src="images/vindus_clients_images/qualityrisk-1.jpg" alt="Banner Image 1">
+      <img src="images/vindus_clients_images/qualityrisk-2.webp" alt="Banner Image 2">
+      <img src="images/vindus_clients_images/qualityrisk-3.jpg" alt="Banner Image 3">
+      <img src="images/vindus_clients_images/qualityrisk-1.jpg" alt="Banner Image 1">
+      <img src="images/vindus_clients_images/qualityrisk-2.webp" alt="Banner Image 2">
+      <img src="images/vindus_clients_images/qualityrisk-3.jpg" alt="Banner Image 3">
+    </div>
+    <h1 class="banner-heading"> MLC Quality Consultation Services</h1>
+  </div>
 
         <Main>
-           <div class="container-fluid mt-90">
-                <div class="project-title">
-                                                
-                    <!-- Title -->	
-                    <h2 class="s-30 w-700" style="background-image: url('images/vindus_clients_images/quality.jpg'); background-size: cover; background-position: center; color: #fff; text-align: center; padding: 100px; height: 300px;">
-                        MLC Quality Consultation Services
-                      </h2>
-                      
-            </div>
+                
 
             <section style="text-align: justify;">
 
