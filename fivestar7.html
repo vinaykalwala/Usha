@@ -387,7 +387,7 @@
         }
         
         .esg-section1 {
-            background: url('images/vindus_clients_images/tree6.gif');
+            background: linear-gradient(#000040,#1560bd);
             color: white;
             padding: 50px 20px;
             border-radius: 10px;
@@ -395,23 +395,7 @@
             background-size: cover;
         }
         
-        .esg-section2 {
-            background: url('images/vindus_clients_images/safe.jpeg');
-            color: white;
-            padding: 50px 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(253, 253, 253, 0.3);
-            background-size: cover;
-        }
-        
-        .esg-section3 {
-            background: url('images/vindus_clients_images/last.png');
-            color: white;
-            padding: 50px 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(253, 253, 253, 0.3);
-            background-size: cover;
-        }
+     
         
         .sub-menu {
          
@@ -434,6 +418,45 @@
 	height: 420px;
 	overflow-y: scroll;
 }
+.banner {
+  position: relative;
+  overflow: hidden;
+  background-color: #f0f0f0; /* Optional: to show the banner area */
+  height: 350px; /* Set height to match image height */
+}
+
+.banner-images {
+  display: flex;
+  width: calc(800px * 12 + 15px * 11); /* Total width of all images including gaps */
+  animation: scroll 50s linear infinite;
+  gap: 10px;
+
+}
+
+.banner-images img {
+  width: 800px;
+  height: 350px;
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-800px * 6 - 15px * 5)); /* Adjust the total width to scroll */
+  }
+}
+
+.banner-heading {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  color: white; /* Adjust color for visibility */
+  background-color: rgba(13, 75, 208, 0.8); /* Optional: background for readability */
+  padding: 5px 10px;
+  font-size: 24px; /* Adjust font size as needed */
+}
+
     </style>
 </head>
 
@@ -639,15 +662,31 @@
             </div>
             <!-- End header-wrapper -->
         </header>
-        <br><br><br><br>
-
-
+        <br><br><br>
+        <div class="banner">
+            <div class="banner-images">
+              <img src="images/vindus_clients_images/envron-1.jpg" alt="Banner Image 1">
+              <img src="images/vindus_clients_images/envron-2.jpg!sw800" alt="Banner Image 2">
+              <img src="images/vindus_clients_images/environ-3.webp" alt="Banner Image 3">
+              <img src="images/vindus_clients_images/envron-1.jpg" alt="Banner Image 1">
+              <img src="images/vindus_clients_images/envron-2.jpg!sw800" alt="Banner Image 2">
+              <img src="images/vindus_clients_images/environ-3.webp" alt="Banner Image 3">
+              <!-- Duplicate set of images for continuous scroll -->
+              <img src="images/vindus_clients_images/envron-1.jpg" alt="Banner Image 1">
+              <img src="images/vindus_clients_images/envron-2.jpg!sw800" alt="Banner Image 2">
+              <img src="images/vindus_clients_images/environ-3.webp" alt="Banner Image 3">
+              <img src="images/vindus_clients_images/envron-1.jpg" alt="Banner Image 1">
+              <img src="images/vindus_clients_images/envron-2.jpg!sw800" alt="Banner Image 2">
+              <img src="images/vindus_clients_images/environ-3.webp" alt="Banner Image 3">
+            </div>
+            <h1 class="banner-heading">ISO 14001 Environmental Audit</h1>
+          </div>
+<br>
         <div class="container esg-section1">
             <div class="row">
                 <div class="col-md-6 offset-md-3">
                     <div class="card esg-card">
                         <div class="card-body">
-                            <h3 class="esg-header" style="color: #0404c6;">ISO 14001 Environmental Audit</h3>
 
                             <p class="card-text">BS EN ISO 14001:2015 is the world’s most recognized standard used to assess the status of an organization’s environmental management system against defined requirements.</p>
                         </div>
