@@ -386,26 +386,11 @@
             transform: scale(1.05);
         }
         
-        .esg-section1 {
-            background: url('images/vindus_clients_images/tree6.gif');
-            color: white;
-            padding: 50px 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(253, 253, 253, 0.3);
-            background-size: cover;
-        }
-        
-        .esg-section2 {
-            background: url('images/vindus_clients_images/safe.jpeg');
-            color: white;
-            padding: 50px 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(253, 253, 253, 0.3);
-            background-size: cover;
-        }
+       
+       
         
         .esg-section3 {
-            background: url('images/vindus_clients_images/last.png');
+            background: linear-gradient(#000040,#1560bd);
             color: white;
             padding: 50px 20px;
             border-radius: 10px;
@@ -434,7 +419,46 @@
 	    #services-menu{
 	height: 420px;
 	overflow-y: scroll;
+}      
+.banner {
+  position: relative;
+  overflow: hidden;
+  background-color: #f0f0f0; /* Optional: to show the banner area */
+  height: 350px; /* Set height to match image height */
 }
+
+.banner-images {
+  display: flex;
+  width: calc(800px * 12 + 15px * 11); /* Total width of all images including gaps */
+  animation: scroll 50s linear infinite;
+  gap: 10px;
+
+}
+
+.banner-images img {
+  width: 800px;
+  height: 350px;
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-800px * 6 - 15px * 5)); /* Adjust the total width to scroll */
+  }
+}
+
+.banner-heading {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  color: white; /* Adjust color for visibility */
+  background-color: rgba(13, 75, 208, 0.8); /* Optional: background for readability */
+  padding: 5px 10px;
+  font-size: 24px; /* Adjust font size as needed */
+}
+
     </style>
 </head>
 
@@ -644,20 +668,35 @@
             </div>
             <!-- End header-wrapper -->
         </header>
-        <br><br><br><br>
+        <br><br><br>
 
 
 
+        <div class="banner">
+            <div class="banner-images">
+              <img src="images/vindus_clients_images/last.png" alt="Banner Image 1">
+              <img src="images/vindus_clients_images/fireing-1.jpg" alt="Banner Image 2">
+              <img src="images/vindus_clients_images/fireing-2.jpeg" alt="Banner Image 3">
+              <img src="images/vindus_clients_images/fireing-3.jpeg" alt="Banner Image 1">
+              <img src="images/vindus_clients_images/last.png" alt="Banner Image 1">
+              <img src="images/vindus_clients_images/fireing-1.jpg" alt="Banner Image 2">
+              <img src="images/vindus_clients_images/fireing-2.jpeg" alt="Banner Image 3">
+              <img src="images/vindus_clients_images/fireing-3.jpeg" alt="Banner Image 1">
+              <img src="images/vindus_clients_images/last.png" alt="Banner Image 1">
+              <img src="images/vindus_clients_images/fireing-1.jpg" alt="Banner Image 2">
+              <img src="images/vindus_clients_images/fireing-2.jpeg" alt="Banner Image 3">
+              <img src="images/vindus_clients_images/fireing-3.jpeg" alt="Banner Image 1">
+            </div>
+            <h1 class="banner-heading">Fire Safety Management Audit</h1>
+          </div>
 
 
-
-
+<br>
         <div class="container esg-section3">
             <div class="row">
                 <div class="col-md-6 offset-md-3">
                     <div class="card esg-card">
                         <div class="card-body">
-                            <h3 class="esg-header" style="color: #0404c6;">Fire Safety Management Audit</h3>
 
                             <p class="card-text">Current legislative requirements place the emphasis on the employer / landlord to effectively identify, control and mitigate the risk of fire within any premises in which they are deemed to be the responsible person. It is
                                 therefore essential from a moral, legal and financial perspective that fire safety management arrangements are effectively implemented, reviewed and continually improved.</p>
