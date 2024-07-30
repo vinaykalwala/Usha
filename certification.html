@@ -533,27 +533,43 @@ body {
 	overflow-y: scroll;
 }
 .banner {
-      position: relative;
-      text-align: center;
-      color: white;
-      width: 100%;
-      overflow: hidden;
-	  
-    }
-    .banner img {
-      width: 100%;
-	  border-radius: 20px;
-    }
-    .banner-heading {
-      position: absolute;
-      top: 75%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      background-color: rgba(7, 85, 254, 0.7); /* Blue transparent background */
-      padding: 20px;
-      border-radius: 10px;
-      color: white;
-    }
+  position: relative;
+  overflow: hidden;
+  background-color: #f0f0f0; /* Optional: to show the banner area */
+  height: 350px; /* Set height to match image height */
+}
+
+.banner-images {
+  display: flex;
+  width: calc(400px * 12 + 15px * 11); /* Total width of all images including gaps */
+  animation: scroll 50s linear infinite;
+  gap: 10px;
+
+}
+
+.banner-images img {
+  width: 550px;
+  height: 350px;
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-800px * 6 - 15px * 5)); /* Adjust the total width to scroll */
+  }
+}
+
+.banner-heading {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  color: white; /* Adjust color for visibility */
+  background-color: rgba(13, 75, 208, 0.8); /* Optional: background for readability */
+  padding: 5px 10px;
+  font-size: 24px; /* Adjust font size as needed */
+}
 </style>
 	</head>
 
@@ -758,19 +774,44 @@ body {
 			</header>	
 
 <br>
-<br>
+<br><br><br>
 
 
-
+<div class="banner">
+    <div class="banner-images">
+      <img src="images/vindus_clients_images/certi-1.jpg" alt="Banner Image 1">
+      <img src="images/vindus_clients_images/certi-2.jpg" alt="Banner Image 2">
+      <img src="images/vindus_clients_images/certi-3.webp" alt="Banner Image 3">
+      <img src="images/vindus_clients_images/certi-4.webp" alt="Banner Image 1">
+      <img src="images/vindus_clients_images/certi-1.jpg" alt="Banner Image 1">
+      <img src="images/vindus_clients_images/certi-2.jpg" alt="Banner Image 2">
+      <img src="images/vindus_clients_images/certi-3.webp" alt="Banner Image 3">
+      <img src="images/vindus_clients_images/certi-4.webp" alt="Banner Image 1">
+	  <img src="images/vindus_clients_images/certi-1.jpg" alt="Banner Image 1">
+      <img src="images/vindus_clients_images/certi-2.jpg" alt="Banner Image 2">
+      <img src="images/vindus_clients_images/certi-3.webp" alt="Banner Image 3">
+      <img src="images/vindus_clients_images/certi-4.webp" alt="Banner Image 1">
+	  <img src="images/vindus_clients_images/certi-1.jpg" alt="Banner Image 1">
+      <img src="images/vindus_clients_images/certi-2.jpg" alt="Banner Image 2">
+      <img src="images/vindus_clients_images/certi-3.webp" alt="Banner Image 3">
+      <img src="images/vindus_clients_images/certi-4.webp" alt="Banner Image 1">
+      <img src="images/vindus_clients_images/certi-1.jpg" alt="Banner Image 1">
+      <img src="images/vindus_clients_images/certi-2.jpg" alt="Banner Image 2">
+      <img src="images/vindus_clients_images/certi-3.webp" alt="Banner Image 3">
+      <img src="images/vindus_clients_images/certi-4.webp" alt="Banner Image 1">
+	  <img src="images/vindus_clients_images/certi-1.jpg" alt="Banner Image 1">
+      <img src="images/vindus_clients_images/certi-2.jpg" alt="Banner Image 2">
+      <img src="images/vindus_clients_images/certi-3.webp" alt="Banner Image 3">
+      <img src="images/vindus_clients_images/certi-4.webp" alt="Banner Image 1">
+    </div>
+    <h1 class="banner-heading">Certification</h1>
+  </div>
 <Main>
-    <section style="margin-top: 55px;">
+    <section >
         <div class="container">
             <div class="card mb-3">
                 <div class="row no-gutters">
-                    <div class="banner" style="padding: 30px;">
-						<img src="images/vindus_clients_images/certification.gif" alt="Banner Image" height="350px" width="500px">
-						<h4 class="banner-heading">ML Consultants PPE Suppliers</h4>
-					  </div>
+                  
                 </div>
             </div>
             <div class="row">
