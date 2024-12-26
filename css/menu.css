@@ -182,6 +182,7 @@
 .aqua-menu .wsmenu > .wsmenu-list > li > a,
 .blue-menu .wsmenu > .wsmenu-list > li > a {
   color: #fff;
+  font-size: medium;
 }
 
 .white-menu .wsmenu > .wsmenu-list > li > a {
