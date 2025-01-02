@@ -78,7 +78,9 @@
 /*------------------------------------------*/
 /*  Desktop Main Menu CSS
 --------------------------------------------*/
-
+#mlc-logo{
+  margin-left: 10px;
+}
 .wsmenucontainer {
   background-size: cover;
   overflow: hidden;
@@ -182,7 +184,7 @@
 .aqua-menu .wsmenu > .wsmenu-list > li > a,
 .blue-menu .wsmenu > .wsmenu-list > li > a {
   color: #fff;
-  font-size: medium;
+  font-size:14px;
 }
 
 .white-menu .wsmenu > .wsmenu-list > li > a {
