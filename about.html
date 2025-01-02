@@ -83,37 +83,107 @@
   box-sizing: border-box;
   font-family: 'Poppins', sans-serif;
 }
-.about-us{
-
+.about-section {
   width: 100%;
   padding: 90px 0;
-  background: #ddd;
+  background: rgb(222, 239, 244);
+  box-sizing: border-box;
 }
-.pic{
-  height: auto;
-  width:  302px;
-}
-.about{
-  width: 1130px;
-  max-width: 85%;
+
+.about-container {
+  max-width: 1200px;
   margin: 0 auto;
+  padding: 0 70px;
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: space-around;
 }
-.text{
-  width: 540px;
+
+.about-content {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-around;
+  width: 100%;
 }
-.text h2{
-  font-size: 90px;
-  font-weight: 600;
+
+.about-text {
+  flex: 1 1 50%;
+  padding-right: 20px;
+  box-sizing: border-box;
+}
+
+.about-text h2 {
+  font-size: 2.5rem;
   margin-bottom: 10px;
+  color: #1560bd;
 }
-.text h5{
-  font-size: 22px;
-  font-weight: 500;
+
+.about-text h5 {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+  line-height: 1.6;
+}
+
+.about-description {
+  font-size: 1rem;
+  line-height: 1.6;
   margin-bottom: 20px;
 }
+
+.about-data .about-btn {
+  display: inline-block;
+  padding: 10px 20px;
+  background:linear-gradient(#000040,#1560bd);
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  transition: background 0.3s;
+}
+
+.about-data .about-btn:hover {
+  background: #0056b3;
+}
+
+.about-image {
+  flex: 1 1 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30px;
+}
+
+.about-image img {
+  max-width: 100%;
+  height: 400px;
+}
+
+@media (max-width: 768px) {
+  .about-content {
+    flex-direction: column;
+  }
+
+  .about-text, .about-image {
+    flex: 1 1 100%;
+    text-align: center;
+    padding: 0;
+  }
+
+  .about-text {
+    margin-bottom: 20px;
+  }
+
+  .about-text h2 {
+    font-size: 2rem;
+  }
+
+  .about-text h5 {
+    font-size: 1rem;
+  }
+}
+
 span{
   color: #4070f4;
 }
@@ -264,168 +334,232 @@ span{
 	height: 420px;
 	overflow-y: scroll;
 }
+#services-sub-menu {
+            overflow-y: scroll;
+            padding-left: 0;
+            margin: 0;
+            list-style: none;
+            height: 420px;
+            min-width: 20px;
+        }
 </style>
 	</head>
 
-<!-- PAGE CONTENT
-		============================================= -->	
+  <!-- PAGE CONTENT
+		============================================= -->
 		<div id="page" class="page font--jakarta">
 
 			<!-- HEADER
-			============================================= -->
-			<header class="tra-menu navbar-dark "  >
-				<div class="header-wrapper" style="background:linear-gradient(#010166,#1560bd);">
-
-
+				============================================= -->
+			<header id="header" class="tra-menu navbar-dark " style="background:linear-gradient(#010166,#1560bd,#1560bd);">
+				<div class="header-wrapper" style="background:linear-gradient(#010166,#1560bd,#1560bd);">
+	
+	
 					<!-- MOBILE HEADER -->
-				    <div class="wsmobileheader " style="background:linear-gradient(#1560bd,#1560bd);">	  	
-				    	<span class="smllogo">                                                <img src="images/vindus_clients_images/cardlogo.jpg" alt="" class="rounded-circle" height="100px" width="100px">
-						</span>
-				    	<a id="wsnavtoggle" class="wsanimated-arrow"><span></span></a>	
-				 	</div>
-
-
-				 	<!-- NAVIGATION MENU -->
-				  	<div class="wsmainfull menu clearfix" >
-	    				<div class="wsmainwp clearfix" >
-
-
-	    					<!-- HEADER BLACK LOGO -->
-	    					<div class="desktoplogo" >
-	    						<a href="#" class="">
-									<img src="images/vindus_clients_images/cardlogo.jpg" alt="" class="rounded-circle" height="100px" width="100px">
-	    						</a>
-	    					</div>
-	    					
-
-	    					<!-- HEADER WHITE LOGO -->
-	    					<div class="desktoplogo">
-	    						<a href="#" class="logo-white">                                                <img src="images/vindus_clients_images/cardlogo.jpg" alt="" class="rounded-circle" height="100px" width="100px">
+					<div class="wsmobileheader clearfix" style="background:linear-gradient(#010166,#1560bd,#1560bd);">
+						<span class="smllogo">                                                <img src="images/vindus_clients_images/cardlogo.jpg" alt="" class="rounded-circle" height="100px" width="100px">
+							</span>
+						<a id="wsnavtoggle" class="wsanimated-arrow"><span></span></a>
+					</div>
+	
+	
+					<!-- NAVIGATION MENU -->
+					<div class="wsmainfull menu clearfix">
+						<div class="d-flex clearfix">
+	
+	
+							<!-- HEADER BLACK LOGO -->
+							<div class="desktoplogo">
+								<a href="#" class="">
+									<img src="images/vindus_clients_images/cardlogo.jpg" alt="" class="rounded-circle" height="100px" width="100px" id="mlc-logo">
 								</a>
-	    					</div>
-	<!-- MAIN MENU -->
-	<nav class="wsmenu clearfix">
-		<ul class="wsmenu-list nav-theme">
-
-			<li class="nl-simple" aria-haspopup="true"><a href="index.html" class="h-link">Home</a></li>
-
-
-			<!-- SIMPLE NAVIGATION LINK -->
-			<li aria-haspopup="true"><a href="auditing.html" class="h-link">Auditing<span class="wsarrow"></span></a>
-				<ul class="sub-menu">
-					<li aria-haspopup="true"><a href="ims.html">IMS Auditing</a></li>
-					<li aria-haspopup="true"><a href="safety.html">Safety Audit</a></li>
-					<li aria-haspopup="true"><a href="env.html">Environment Audit</a></li>
-					<li aria-haspopup="true"><a href="healthandsafety.html">Healthy and safety Audit </a></li>
-					<li aria-haspopup="true"><a href="survelliance.html">Survelliance Audit</a></li>	
-				   </ul>
-			</li>
-
-
-
-
-
-			
-							    	<li aria-haspopup="true">
-				<a href="certification.html" class="h-link" >Certification<span class="wsarrow"></span></a>
-				<ul class="sub-menu">
-					<li aria-haspopup="true">
-						<p class="para">ISO <span class="wsarrow"></span></p>
-						<ul class="sub-menu">
-							<li aria-haspopup="true"><a href="certification1.html">ISO 45001:2018</a></li>
-							<li aria-haspopup="true"><a href="certification2.html">ISO 14001:2015</a></li>
-							<li aria-haspopup="true"><a href="certification3.html">ISO 9001:2015</a></li>
-							<li aria-haspopup="true"><a href="certification4.html">IMS</a></li>
-
-						</ul>
-					</li>
-					<li aria-haspopup="true">
-						<p class="para">British Safety<br> Counsil Certification<span class="wsarrow"></span></p>
-						<ul class="sub-menu" id="services-menu">
-							<li aria-haspopup="true"><a href="fivestar1.html">Five Star Occupational Health and Safety Audit</a></li>
-							<li aria-haspopup="true"><a href="fivestar2.html">Five Star Environmental Sustainability Audit</a></li>
-							<li aria-haspopup="true"><a href="fivestar3.html">Five Star Integrated Audit</a></li>
-							<li aria-haspopup="true"><a href="fivestar4.html">Five Star Group Audit</a></li>
-							<li aria-haspopup="true"><a href="fivestar5.html">Five Star Wellbeing Audit</a></li>
-							<li aria-haspopup="true"><a href="fivestar6.html">Pre-Audit (Gap Analysis) Services</a></li>
-							<li aria-haspopup="true"><a href="fivestar7.html">ISO 14001 Environmental Audit</a></li>
-							<li aria-haspopup="true"><a href="fivestar8.html">ISO 45001 Health and Safety Management Standard</a></li>
-							<li aria-haspopup="true"><a href="fivestar9.html">Fire Safety Management Audit</a></li>
-						</ul>
-					</li>
-					
-				</ul>
-			</li>
-									
-
-
-									
-
-
-
-
-			<!-- SIMPLE NAVIGATION LINK -->
-			<li class="nl-simple" aria-haspopup="true"><a href="documentation.html" class="h-link">Documentation<span class="wsarrow"></span></a>
-			<ul class="sub-menu">
-				<li aria-haspopup="true"><a href="ohsms.html">OHSMS</a></li>
-				<li aria-haspopup="true"><a href="ems.html">EMS</a></li>
-				<li aria-haspopup="true"><a href="qms.html">QMS</a></li>
-			
-					
-					   </ul>
-					</li>
-
-
-				<!-- DROPDOWN SUB MENU -->
-				<li aria-haspopup="true"><a href="fireequipments.html" class="h-link">Fire Equipments<span class="wsarrow"></span></a>
-					<ul class="sub-menu">
-						
-						<li aria-haspopup="true"><a href="fireprotection.html">Fire Protection</a></li>
-						<li aria-haspopup="true"><a href="firedetection.html">Fire Detection</a></li>
-						<li aria-haspopup="true"><a href="firesuppression.html">Fire Supression</a></li>
-						<li aria-haspopup="true"><a href="mlcfiresystemservices.html">MLC Fire System Services</a></li>
-							
-					   </ul>
-				</li>
-
-
-
-			<!-- SIMPLE NAVIGATION LINK -->
-
-			<li class="nl-simple" aria-haspopup="true"><a href="ppesupply.html" class="h-link">PPE's Supply<span class="wsarrow"></span></a>
-				<ul class="sub-menu">
-					<li aria-haspopup="true"><a href="covid.html">COVID-19</a></li>
-					<li aria-haspopup="true"><a href="aboveneck.html">Above Neck</a></li>
-					<li aria-haspopup="true"><a href="footprotection.html">Foot Protection</a></li>
-					<li aria-haspopup="true"><a href="handprotection.html">Hand Protection</a></li>
-					<li aria-haspopup="true"><a href="fallprotection.html">Fall Protection</a></li>
-					<li aria-haspopup="true"><a href="bodyprotection.html">Body Protection</a></li>
-						
-				   </ul>
-			
-			
-			
-			</li>
-
-
-			<!-- SIMPLE NAVIGATION LINK -->
-			<li class="nl-simple" aria-haspopup="true"><a href="ehstrainings.html" class="h-link">MLC Trainings<span class="wsarrow"></span></a>
-			
-				<ul class="sub-menu">
-					<li aria-haspopup="true"><a href="online.html">Online </a></li>
-					<li aria-haspopup="true"><a href="classroom.html">Class room</a></li>
-					<li aria-haspopup="true"><a href="corporate.html">Corporate</a></li>
-					
-				   </ul>
-			
-			
-			
-			</li>
-			<li class="nl-simple" aria-haspopup="true"><a href="services2.html" class="h-link">Services<span class="wsarrow"></span></a>
-			
-										<ul class="sub-menu" id="services-menu" >
+							</div>
+	
+	
+							<!-- MAIN MENU -->
+							<nav class="wsmenu clearfix">
+								<ul class="wsmenu-list nav-theme">
+	
+									<li class="nl-simple" aria-haspopup="true"><a href="index.html" class="h-link">Home</a></li>
+	
+									<li aria-haspopup="true">
+										<a href="" class="h-link">Statutory Compliance<span class="wsarrow"></span></a>
+										<ul class="sub-menu">
+											<li aria-haspopup="true">
+												<p class="para">Commercial Compliance <span class="wsarrow"></span></p>
+												<ul class="sub-menu">
+													<li aria-haspopup="true"><a href="professionaltax.html">Professional Tax</a></li>
+												</ul>
+											</li>
+											<li aria-haspopup="true">
+												<p class="para">Electrical Approvals<span class="wsarrow"></span></p>
+												<ul class="sub-menu">
+													<li aria-haspopup="true"><a href="ceigapproval.html">CEIG Approval</a></li>
+												</ul>
+											</li>
+											<li aria-haspopup="true">
+												<p class="para">Environmental Compliance<span class="wsarrow"></span></p>
+												<ul class="sub-menu" id="services-menu">
+													<li aria-haspopup="true"><a href="cfe.html">CFE</a></li>
+													<li aria-haspopup="true"><a href="cfo.html">CFO</a></li>
+													<li aria-haspopup="true"><a href="emp.html">EMP</a></li>
+													<li aria-haspopup="true"><a href="envclearance.html">Environmental Clearance </a></li>
+													<li aria-haspopup="true"><a href="enviauditing.html">Environmental Auditing</a></li>
+													<li aria-haspopup="true"><a href="envcompliancemonitoring.html">Environmental compliance monitoring</a></li>
+												</ul>
+											</li>
+											<li aria-haspopup="true">
+												<p class="para">Factory Compliance<span class="wsarrow"></span></p>
+												<ul class="sub-menu">
+													<li aria-haspopup="true"><a href="factorylicence.html">Factory Licence</a></li>
+												</ul>
+											</li>
+											<li aria-haspopup="true">
+												<p class="para">Fire Compliance<span class="wsarrow"></span></p>
+												<ul class="sub-menu">
+													<li aria-haspopup="true"><a href="firenoc.html">Fire NOC</a></li>
+												</ul>
+											</li>
+											<li aria-haspopup="true">
+												<p class="para">Labor Compliance<span class="wsarrow"></span></p>
+												<ul class="sub-menu" id="services-menu">
+													<li aria-haspopup="true"><a href="bocw.html">BOCW</a></li>
+													<li aria-haspopup="true"><a href="clra.html">CLRA</a></li>
+													<li aria-haspopup="true"><a href="ismw.html">ISMW </a></li>
+													<li aria-haspopup="true"><a href="lwf.html">LWF </a></li>
+												</ul>
+											</li>
+											<li aria-haspopup="true">
+												<p class="para">S&E Compliance<span class="wsarrow"></span></p>
+												<ul class="sub-menu">
+													<li aria-haspopup="true"><a href="s&eregistration.html">S&E Registration</a></li>
+												</ul>
+											</li>
+											<li aria-haspopup="true">
+												<p class="para">Vendor Auditing<span class="wsarrow"></span></p>
+												<ul class="sub-menu">
+													<li aria-haspopup="true"><a href="vendorauditguidelines.html">Vendor Audit Guidelines</a></li>
+												</ul>
+											</li>
+										</ul>
+									</li>
+	
+									<!-- SIMPLE NAVIGATION LINK -->
+									<li aria-haspopup="true"><a href="auditing.html" class="h-link">Auditing<span class="wsarrow"></span></a>
+										<ul class="sub-menu">
+											<li aria-haspopup="true"><a href="ims.html">IMS Auditing</a></li>
+											<li aria-haspopup="true"><a href="safety.html">Safety Audit</a></li>
+											<li aria-haspopup="true"><a href="env.html">Environment Audit</a></li>
+											<li aria-haspopup="true"><a href="healthandsafety.html">Healthy and safety Audit </a></li>
+											<li aria-haspopup="true"><a href="survelliance.html">Survelliance Audit</a></li>
+										</ul>
+									</li>
+	
+	
+	
+	
+	
+	
+	
+									<li aria-haspopup="true">
+										<a href="certification.html" class="h-link">Certification<span class="wsarrow"></span></a>
+										<ul class="sub-menu">
+											<li aria-haspopup="true">
+												<p class="para">ISO <span class="wsarrow"></span></p>
+												<ul class="sub-menu">
+													<li aria-haspopup="true"><a href="certification1.html">ISO 45001:2018</a></li>
+													<li aria-haspopup="true"><a href="certification2.html">ISO 14001:2015</a></li>
+													<li aria-haspopup="true"><a href="certification3.html">ISO 9001:2015</a></li>
+													<li aria-haspopup="true"><a href="certification4.html">IMS</a></li>
+	
+												</ul>
+											</li>
+											<li aria-haspopup="true">
+												<p class="para">British Safety<br> Counsil Certification<span class="wsarrow"></span></p>
+												<ul class="sub-menu" id="services-menu">
+													<li aria-haspopup="true"><a href="fivestar1.html">Five Star Occupational Health and Safety Audit</a></li>
+													<li aria-haspopup="true"><a href="fivestar2.html">Five Star Environmental Sustainability Audit</a></li>
+													<li aria-haspopup="true"><a href="fivestar3.html">Five Star Integrated Audit</a></li>
+													<li aria-haspopup="true"><a href="fivestar4.html">Five Star Group Audit</a></li>
+													<li aria-haspopup="true"><a href="fivestar5.html">Five Star Wellbeing Audit</a></li>
+													<li aria-haspopup="true"><a href="fivestar6.html">Pre-Audit (Gap Analysis) Services</a></li>
+													<li aria-haspopup="true"><a href="fivestar7.html">ISO 14001 Environmental Audit</a></li>
+													<li aria-haspopup="true"><a href="fivestar8.html">ISO 45001 Health and Safety Management Standard</a></li>
+													<li aria-haspopup="true"><a href="fivestar9.html">Fire Safety Management Audit</a></li>
+												</ul>
+											</li>
+	
+										</ul>
+									</li>
+	
+	
+	
+	
+	
+	
+	
+	
+									<!-- SIMPLE NAVIGATION LINK -->
+									<li class="nl-simple" aria-haspopup="true"><a href="documentation.html" class="h-link">Documentation<span class="wsarrow"></span></a>
+										<ul class="sub-menu">
+											<li aria-haspopup="true"><a href="ohsms.html">OHSMS</a></li>
+											<li aria-haspopup="true"><a href="ems.html">EMS</a></li>
+											<li aria-haspopup="true"><a href="qms.html">QMS</a></li>
+	
+	
+										</ul>
+									</li>
+	
+	
+									<!-- DROPDOWN SUB MENU -->
+									<li aria-haspopup="true"><a href="fireequipments.html" class="h-link">Fire Equipments<span class="wsarrow"></span></a>
+										<ul class="sub-menu">
+	
+											<li aria-haspopup="true"><a href="fireprotection.html">Fire Protection</a></li>
+											<li aria-haspopup="true"><a href="firedetection.html">Fire Detection</a></li>
+											<li aria-haspopup="true"><a href="firesuppression.html">Fire Supression</a></li>
+											<li aria-haspopup="true"><a href="mlcfiresystemservices.html">MLC Fire System Services</a></li>
+	
+										</ul>
+									</li>
+	
+	
+	
+									<!-- SIMPLE NAVIGATION LINK -->
+	
+									<li class="nl-simple" aria-haspopup="true"><a href="ppesupply.html" class="h-link">PPE's Supply<span class="wsarrow"></span></a>
+										<ul class="sub-menu">
+											<li aria-haspopup="true"><a href="covid.html">COVID-19</a></li>
+											<li aria-haspopup="true"><a href="aboveneck.html">Above Neck</a></li>
+											<li aria-haspopup="true"><a href="footprotection.html">Foot Protection</a></li>
+											<li aria-haspopup="true"><a href="handprotection.html">Hand Protection</a></li>
+											<li aria-haspopup="true"><a href="fallprotection.html">Fall Protection</a></li>
+											<li aria-haspopup="true"><a href="bodyprotection.html">Body Protection</a></li>
+	
+										</ul>
+	
+	
+	
+									</li>
+	
+	
+									<!-- SIMPLE NAVIGATION LINK -->
+									<li class="nl-simple" aria-haspopup="true"><a href="ehstrainings.html" class="h-link">MLC Trainings<span class="wsarrow"></span></a>
+	
+										<ul class="sub-menu">
+											<li aria-haspopup="true"><a href="online.html">Online </a></li>
+											<li aria-haspopup="true"><a href="classroom.html">Class room</a></li>
+											<li aria-haspopup="true"><a href="corporate.html">Corporate</a></li>
+	
+										</ul>
+	
+	
+	
+									</li>
+									<li aria-haspopup="true"><a href="services2.html" class="h-link">Services &nbsp;&nbsp;&nbsp; <span class="wsarrow"></span></a>
+										<ul id="services-sub-menu" class="sub-menu">
 											<li aria-haspopup="true"><a href="employeehs.html"> Employee Health Services</a></li>
-
+	
 											<li aria-haspopup="true"><a href="Esg.html">ESG End to End Solution </a></li>
 											<li aria-haspopup="true"><a href="gmp.html">GMP Audit</a></li>
 											<li aria-haspopup="true"><a href="GMPQUALITYCONSULTING.html">GMP Quality Consulting</a></li>
@@ -437,26 +571,30 @@ span{
 											<li aria-haspopup="true"><a href="qualityrisk.html">Quality Consultation Services</a></li>
 											<li aria-haspopup="true"><a href="PLANTSETUPandUPGRADATION.html">Quality Plant Setup & Upgradation</a></li>
 											<li aria-haspopup="true"><a href="RespiratoryEmergencyProtectionSystems.html">Respiratory & Emergency Protection Systems</a></li>
-
+	
 											<li aria-haspopup="true"><a href="safetystudies.html">Safety Studies </a></li>
 											<li aria-haspopup="true"><a href="supplierqualificationaudit.html">Supplier qualification Audit</a></li>
-											
-										   </ul>
-			
-			
-			</li>
-		</ul>
-
-
-	</nav>	<!-- END MAIN MENU -->
-
-
-	    				</div>
-	    			</div>	<!-- END NAVIGATION MENU -->
-
-
-				</div>     <!-- End header-wrapper -->
-			</header>	<!-- END HEADER -->
+	
+										</ul>
+									</li>
+								</ul>
+	
+	
+	
+							</nav>
+							<!-- END MAIN MENU -->
+	
+	
+						</div>
+					</div>
+					<!-- END NAVIGATION MENU -->
+	
+	
+				</div>
+				<!-- End header-wrapper -->
+			</header>
+	
+	
 
 <br>
 
@@ -479,24 +617,24 @@ span{
 
 
 
-	<section class="about-us mt-5">
-		<div class="container ml-lg-5">
-			<div class="row">
-			<div class="col-md-6 text">
+	<section class="about-section">
+		<div class="about-container">
+		  <div class="about-content">
+			<div class="about-text">
 			  <h2>About Us</h2>
 			  <h5>Virtual Assistant at your Service,<br> All QEHS services at one place</h5>
-			  <p class="lead  text-md-left">Skilled Administrative Support Professional with 23 years' experience in  (EHS).</p>
-
-			  <div class="data">
-				<a href="contact.html" class="btn btn-primary hire">Connect with me!</a>
+			  <p class="about-description">Skilled Administrative Support Professional with 23 years' experience in (EHS).</p>
+			  <div class="about-data">
+				<a href="contact.html" class="about-btn">Connect with me!</a>
 			  </div>
 			</div>
-			<div class="col-md-6 pic">
-			  <img src="images/vindus_clients_images/client.png" class="img-fluid rounded-circle" alt="Client Image">
+			<div class="about-image">
+			  <img src="images/vindus_clients_images/bharath.jpg" alt="Client Image">
 			</div>
 		  </div>
 		</div>
 	  </section>
+	  
 	  
 <br>
 
@@ -549,7 +687,7 @@ span{
 			  </div>
 			</div>
 		  </div>
-		  
+		  <br>
         <h3 style="color: #1560bd;">Experience:</h3><br>
         <p style="text-align: justify;">Mr. Ghanta Bharat is having 23 years of Experience in EHS Domain, in that  Construction in Green Field Projects & Running Projects, O&M of Thermal Power Plants, Manufacturing of Solar Modules, Steel Fabrication Industry, Chemical Industry and Pharma Industry.      </p>
 
