@@ -55,7 +55,6 @@
 <link rel='stylesheet' id='martex-google-fonts-css' href='https://fonts.googleapis.com/css?family=Plus+Jakarta+Sans%3A400%2C300%2C600%2C700%2C800%7CRubik%3A400%2C300%2C600%2C700%2C800%7CInter%3A400%2C300%2C600%2C700%2C800&#038;ver=1.0' media='all' />
 <link rel='stylesheet' id='bootstrap-css' href='https://jthemes.net/themes/wp/martex/wp-content/themes/martex/assets/css/bootstrap.min.css?ver=5.3.0' media='all' />
 <link rel='stylesheet' id='flaticon-css' href='https://jthemes.net/themes/wp/martex/wp-content/themes/martex/assets/css/flaticon.css?ver=1.0.0' media='all' />
-<link rel='stylesheet' id='menu-css-css' href='https://jthemes.net/themes/wp/martex/wp-content/themes/martex/assets/css/menu.css?ver=1.0.0' media='all' />
 <link rel='stylesheet' id='dropdown-effects-css' href='https://jthemes.net/themes/wp/martex/wp-content/themes/martex/assets/css/dropdown-effects/fade-down.css?ver=1.0.0' media='all' />
 <link rel='stylesheet' id='magnific-popup-css' href='https://jthemes.net/themes/wp/martex/wp-content/themes/martex/assets/css/magnific-popup.css?ver=1.0.0' media='all' />
 <link rel='stylesheet' id='owl-carousel-css' href='https://jthemes.net/themes/wp/martex/wp-content/themes/martex/assets/css/owl.carousel.min.css?ver=2.2.1' media='all' />
@@ -355,6 +354,14 @@ body {
   padding: 5px 10px;
   font-size: 24px; /* Adjust font size as needed */
 }
+#services-sub-menu {
+            overflow-y: scroll;
+            padding-left: 0;
+            margin: 0;
+            list-style: none;
+            height: 420px;
+            min-width: 20px;
+        }
 </style>
 	</head>
 
@@ -385,7 +392,7 @@ body {
 
 				 	<!-- NAVIGATION MENU -->
 				  	<div class="wsmainfull menu clearfix" >
-	    				<div class="wsmainwp clearfix" >
+	    				<div class="d-flex clearfix" >
 
 
 	    					<!-- HEADER BLACK LOGO -->
@@ -406,7 +413,68 @@ body {
 								<ul class="wsmenu-list nav-theme">
 			  
 							  <li class="nl-simple" aria-haspopup="true"><a href="index.html" class="h-link">Home</a></li>
-			  
+							  <li aria-haspopup="true">
+								<a href="" class="h-link">Statutory Compliance<span class="wsarrow"></span></a>
+								<ul class="sub-menu">
+									<li aria-haspopup="true">
+										<p class="para">Commercial Compliance <span class="wsarrow"></span></p>
+										<ul class="sub-menu">
+											<li aria-haspopup="true"><a href="professionaltax.html">Professional Tax</a></li>
+										</ul>
+									</li>
+									<li aria-haspopup="true">
+										<p class="para">Electrical Approvals<span class="wsarrow"></span></p>
+										<ul class="sub-menu">
+											<li aria-haspopup="true"><a href="ceigapproval.html">CEIG Approval</a></li>
+										</ul>
+									</li>
+									<li aria-haspopup="true">
+										<p class="para">Environmental Compliance<span class="wsarrow"></span></p>
+										<ul class="sub-menu" id="services-menu">
+											<li aria-haspopup="true"><a href="cfe.html">CFE</a></li>
+											<li aria-haspopup="true"><a href="cfo.html">CFO</a></li>
+											<li aria-haspopup="true"><a href="emp.html">EMP</a></li>
+											<li aria-haspopup="true"><a href="envclearance.html">Environmental Clearance </a></li>
+											<li aria-haspopup="true"><a href="enviauditing.html">Environmental Auditing</a></li>
+											<li aria-haspopup="true"><a href="envcompliancemonitoring.html">Environmental compliance monitoring</a></li>
+										
+										</ul>
+									</li>
+									<li aria-haspopup="true">
+										<p class="para">Factory Compliance<span class="wsarrow"></span></p>
+										<ul class="sub-menu">
+											<li aria-haspopup="true"><a href="factorylicence.html">Factory Licence</a></li>
+										</ul>
+									</li>
+									<li aria-haspopup="true">
+										<p class="para">Fire Compliance<span class="wsarrow"></span></p>
+										<ul class="sub-menu">
+											<li aria-haspopup="true"><a href="firenoc.html">Fire NOC</a></li>
+										</ul>
+									</li>
+									<li aria-haspopup="true">
+										<p class="para">Labor Compliance<span class="wsarrow"></span></p>
+										<ul class="sub-menu" id="services-menu">
+											<li aria-haspopup="true"><a href="bocw.html">BOCW</a></li>
+											<li aria-haspopup="true"><a href="clra.html">CLRA</a></li>
+											<li aria-haspopup="true"><a href="ismw.html">ISMW </a></li>
+											<li aria-haspopup="true"><a href="lwf.html">LWF </a></li>
+										</ul>
+									</li>
+									<li aria-haspopup="true">
+										<p class="para">S&E Compliance<span class="wsarrow"></span></p>
+										<ul class="sub-menu">
+											<li aria-haspopup="true"><a href="s&eregistration.html">S&E Registration</a></li>
+										</ul>
+									</li>
+									<li aria-haspopup="true">
+										<p class="para">Vendor Auditing<span class="wsarrow"></span></p>
+										<ul class="sub-menu">
+											<li aria-haspopup="true"><a href="vendorauditguidelines.html">Vendor Audit Guidelines</a></li>
+										</ul>
+									</li>
+								</ul>
+							</li>
 			  
 								<!-- SIMPLE NAVIGATION LINK -->
 								<li aria-haspopup="true"><a href="auditing.html" class="h-link">Auditing<span class="wsarrow"></span></a>
@@ -522,7 +590,7 @@ body {
 							  </li>
 							  <li class="nl-simple" aria-haspopup="true"><a href="services2.html" class="h-link">Services&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="wsarrow"></span></a>
 							  
-										<ul class="sub-menu" id="services-menu" >
+										<ul class="sub-menu" id="services-sub-menu" >
 											<li aria-haspopup="true"><a href="employeehs.html"> Employee Health<br> Services</a></li>
 
 											<li aria-haspopup="true"><a href="Esg.html">ESG End to<br> End Solution </a></li>
@@ -539,6 +607,8 @@ body {
 
 											<li aria-haspopup="true"><a href="safetystudies.html">Safety Studies </a></li>
 											<li aria-haspopup="true"><a href="supplierqualificationaudit.html">Supplier qualification Audit</a></li>
+											<li aria-haspopup="true"><a href="developmentservice.html">Development Services</a></li>
+
 											
 										   </ul>
 							  
