@@ -196,7 +196,7 @@
         
         .section-title {
             color: #1350bd;
-            margin-bottom: 1rem;
+            margin-bottom: 1.3rem;
         }
         
         .card {
@@ -215,7 +215,7 @@
         
         .card-title {
             font-weight: bold;
-            color: #dc3545;
+            color: #1560bd;
         }
         
         ul {
@@ -247,6 +247,60 @@
             font-weight: bold;
             text-align: justify;
         }
+        .table-wrapper {
+  
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center the content inside the wrapper */
+}
+
+.table-title {
+    text-align: center;
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: #1560bd;
+}
+
+.table-container {
+    width: 100%; 
+    max-width: 60%; 
+    overflow-y: scroll;
+    height: 450px;
+    justify-content: center; 
+}
+
+.custom-table {
+    width: 100%; 
+    max-width: 100%; 
+    border-collapse: collapse;
+    text-align: left;
+}
+
+.custom-table th,
+.custom-table td {
+    border: 1px solid rgb(186, 182, 182);
+    padding: 8px 12px;
+}
+
+.custom-table th {
+    text-align: center;
+    font-weight: bold;
+    background-color: #1560bd;
+    color: #fff;
+}
+
+@media (max-width: 768px) {
+    .table-container {
+        max-width: 100%; 
+    }
+
+    .custom-table {
+        width: 100%; 
+        min-width: 300px; 
+    }
+}
+
     </style>
 </head>
 
@@ -286,7 +340,7 @@
                         <!-- HEADER BLACK LOGO -->
                         <div class="desktoplogo">
                             <a href="#" class="">
-                                <img src="images/vindus_clients_images/cardlogo.jpg" alt="" class="rounded-circle" height="100px" width="100px" id="mlc-logo">
+                                <img src="images/vindus_clients_images/cardlogo.jpg" alt="" class="rounded-circle" height="100px" width="100px">
                             </a>
                         </div>
 
@@ -515,17 +569,17 @@
 
         <div class="banner">
             <div class="banner-images">
-                <img src="images/vindus_clients_images/pt1.png" alt="Banner Image 1">
+                <img src="images/vindus_clients_images/Professional tax.jpg" alt="Banner Image 1">
                 <img src="images/vindus_clients_images/PT.png" alt="Banner Image 2">
-                <img src="images/vindus_clients_images/pt2.png" alt="Banner Image 3">
+                <img src="images/vindus_clients_images/Professional-Tax-Registration-Process.png" alt="Banner Image 3">
                 <img src="images/vindus_clients_images/Professional-Tax-Registration.jpg" alt="Banner Image 1">
-                <img src="images/vindus_clients_images/pt3.png" alt="Banner Image 2">
+                <img src="images/vindus_clients_images/Professional_Tax_Registration_Corpseed.png" alt="Banner Image 2">
                 <!-- Duplicate set of images for continuous scroll -->
-                <img src="images/vindus_clients_images/pt1.png" alt="Banner Image 1">
+                <img src="images/vindus_clients_images/Professional tax.jpg" alt="Banner Image 1">
                 <img src="images/vindus_clients_images/PT.png" alt="Banner Image 2">
-                <img src="images/vindus_clients_images/pt2.png" alt="Banner Image 3">
+                <img src="images/vindus_clients_images/Professional-Tax-Registration-Process.png" alt="Banner Image 3">
                 <img src="images/vindus_clients_images/Professional-Tax-Registration.jpg" alt="Banner Image 1">
-                <img src="images/vindus_clients_images/pt3.png" alt="Banner Image 2">
+                <img src="images/vindus_clients_images/Professional_Tax_Registration_Corpseed.png" alt="Banner Image 2">
             </div>
             <h1 class="banner-heading">Professional Tax</h1>
         </div>
@@ -567,59 +621,108 @@
                     </div>
                 </div>
 
-                <div class="col-md-12">
-                    <div class="card">
-                        <div class="card-body">
-                            <h5 class="card-title text-center">Professional Tax Applicable States Across India</h5>
-                            <p>The states which impose professional tax in India are:</p>
-                            <p class="highlight">Applicable States:</p>
-                            <ul style="list-style: disc;">
-                                <li>Andhra Pradesh</li>
-                                <li>Assam</li>
-                                <li>Bihar</li>
-                                <li>Gujarat</li>
-                                <li>Jharkhand</li>
-                                <li>Karnataka</li>
-                                <li>Kerala</li>
-                                <li>Madhya Pradesh</li>
-                                <li>Maharashtra</li>
-                                <li>Manipur</li>
-                                <li>Meghalaya</li>
-                                <li>Mizoram</li>
-                                <li>Nagaland</li>
-                                <li>Odisha</li>
-                                <li>Puducherry</li>
-                                <li>Punjab</li>
-                                <li>Sikkim</li>
-                                <li>Tamil Nadu</li>
-                                <li>Telangana</li>
-                                <li>Tripura</li>
-                                <li>West Bengal</li>
-                            </ul>
-                            <p class="highlight">Not Applicable States:</p>
-                            <ul style="list-style: disc;">
-                                <li>Central</li>
-                                <li>Andaman and Nicobar Islands</li>
-                                <li>Arunachal Pradesh</li>
-                                <li>Chandigarh</li>
-                                <li>Chhattisgarh</li>
-                                <li>Dadra and Nagar Haveli</li>
-                                <li>Daman and Diu</li>
-                                <li>Delhi</li>
-                                <li>Goa</li>
-                                <li>Haryana</li>
-                                <li>Himachal Pradesh</li>
-                                <li>Jammu and Kashmir</li>
-                                <li>Ladakh</li>
-                                <li>Lakshadweep</li>
-                                <li>Rajasthan</li>
-                                <li>Uttar Pradesh</li>
-                                <li>Uttarakhand</li>
-
-                            </ul>
-                        </div>
+                <div class="table-wrapper">
+                    <h5 class="table-title">Professional Tax Applicable States Across India</h5>
+                    <p>The states which impose professional tax in India are:</p>
+                    <div class="table-container">
+                        <table class="custom-table">
+                            <thead>
+                                <tr>
+                                    <th>Applicable States</th>
+                                    <th>Not Applicable States</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Andhra Pradesh</td>
+                                    <td>Central</td>
+                                </tr>
+                                <tr>
+                                    <td>Assam</td>
+                                    <td>Andaman and Nicobar Islands</td>
+                                </tr>
+                                <tr>
+                                    <td>Bihar</td>
+                                    <td>Arunachal Pradesh</td>
+                                </tr>
+                                <tr>
+                                    <td>Gujarat</td>
+                                    <td>Chandigarh</td>
+                                </tr>
+                                <tr>
+                                    <td>Jharkhand</td>
+                                    <td>Chhattisgarh</td>
+                                </tr>
+                                <tr>
+                                    <td>Karnataka</td>
+                                    <td>Dadra and Nagar Haveli</td>
+                                </tr>
+                                <tr>
+                                    <td>Kerala</td>
+                                    <td>Daman and Diu</td>
+                                </tr>
+                                <tr>
+                                    <td>Madhya Pradesh</td>
+                                    <td>Delhi</td>
+                                </tr>
+                                <tr>
+                                    <td>Maharashtra</td>
+                                    <td>Goa</td>
+                                </tr>
+                                <tr>
+                                    <td>Manipur</td>
+                                    <td>Haryana</td>
+                                </tr>
+                                <tr>
+                                    <td>Meghalaya</td>
+                                    <td>Himachal Pradesh</td>
+                                </tr>
+                                <tr>
+                                    <td>Mizoram</td>
+                                    <td>Jammu and Kashmir</td>
+                                </tr>
+                                <tr>
+                                    <td>Nagaland</td>
+                                    <td>Ladakh</td>
+                                </tr>
+                                <tr>
+                                    <td>Odisha</td>
+                                    <td>Lakshadweep</td>
+                                </tr>
+                                <tr>
+                                    <td>Puducherry</td>
+                                    <td>Rajasthan</td>
+                                </tr>
+                                <tr>
+                                    <td>Punjab</td>
+                                    <td>Uttar Pradesh</td>
+                                </tr>
+                                <tr>
+                                    <td>Sikkim</td>
+                                    <td>Uttarakhand</td>
+                                </tr>
+                                <tr>
+                                    <td>Tamil Nadu</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>Telangana</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>Tripura</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>West Bengal</td>
+                                    <td></td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </div>
                 </div>
+                
+                <img src="images/vindus_clients_images/map.jpg" alt="Banner Image 2">
 
                 <div class="col-md-12">
                     <div class="card">
