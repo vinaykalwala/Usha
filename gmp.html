@@ -21,8 +21,8 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <!-- Font Awesome CSS -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-	<link rel="shortcut icon" href="path/to/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="shortcut icon" href="path/to/favicon.ico" type="image/x-icon">
 
     <!-- Google Fonts - Open Sans -->
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
@@ -60,6 +60,18 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
     <style>
+        #services-sub-menu {
+            overflow-y: scroll;
+            padding-left: 0;
+            /* Optional: Remove default padding */
+            margin: 0;
+            /* Optional: Remove default margin */
+            list-style: none;
+            /* Optional: Remove default list style */
+            height: 420px;
+            min-width: 20px;
+        }
+        
         .btn.btn--theme {
             background-color: #dc3545;
             /* Default button color (dark red) */
@@ -347,38 +359,47 @@
         .custom-card li {
             margin-bottom: 5px;
         }
+        
         .custom-card {
-                background-color: #fff; /* Clean background */
-                border-radius: 12px; /* Rounded corners */
-                position: relative; /* For positioning decorative elements */
-                overflow: hidden; /* Hide overflowing elements */
-            }
-            
-            .decorative-element {
-                position: absolute;
-                top: -50px;
-                right: -50px;
-                width: 200px;
-                height: 200px;
-                background: radial-gradient(circle, rgba(255, 182, 193, 0.2), transparent);
-                border-radius: 50%;
-                z-index: -1;
-            }
-            
-            .custom-card h2 {
-                font-size: 1.8rem;
-                color: #007bff; /* Primary color for heading */
-            }
-            
-            .custom-card p {
-                font-size: 16px;
-                line-height: 1.6;
-                color: #333; /* Dark text color */
-            }
-            
-            .custom-card p strong {
-                color: #00796b; /* Teal color for emphasis */
-            }
+            background-color: #fff;
+            /* Clean background */
+            border-radius: 12px;
+            /* Rounded corners */
+            position: relative;
+            /* For positioning decorative elements */
+            overflow: hidden;
+            /* Hide overflowing elements */
+        }
+        
+        .decorative-element {
+            position: absolute;
+            top: -50px;
+            right: -50px;
+            width: 200px;
+            height: 200px;
+            background: radial-gradient(circle, rgba(255, 182, 193, 0.2), transparent);
+            border-radius: 50%;
+            z-index: -1;
+        }
+        
+        .custom-card h2 {
+            font-size: 1.8rem;
+            color: #007bff;
+            /* Primary color for heading */
+        }
+        
+        .custom-card p {
+            font-size: 16px;
+            line-height: 1.6;
+            color: #333;
+            /* Dark text color */
+        }
+        
+        .custom-card p strong {
+            color: #00796b;
+            /* Teal color for emphasis */
+        }
+        
         .container-fluid {
             padding-right: 15px;
             padding-left: 15px;
@@ -488,7 +509,7 @@
         }
         
         .card {
-            background:linear-gradient(#000040,#1560bd);
+            background: linear-gradient(#000040, #1560bd);
             color: #fff;
             border-radius: 10px;
             padding: 15px;
@@ -496,74 +517,89 @@
             text-align: center;
             transition: background-color 0.3s, transform 0.3s;
         }
+        
         .card:hover {
             background-color: #053b7e;
             transform: translateY(-2px);
         }
+        
         .card:active {
             background-color: #023777;
         }
+        
         .card-container {
             display: flex;
             flex-wrap: wrap;
             justify-content: space-between;
         }
-       .sub-menu {
- 
-  padding-left: 0; /* Optional: Remove default padding */
-  margin: 0; /* Optional: Remove default margin */
-  list-style: none; /* Optional: Remove default list style */
-}
-
-.sub-menu li {
-  padding: 5px 10px; /* Optional: Add padding for better spacing */
-}
-	   
-#services-menu{
-	height: 420px;
-	overflow-y: scroll;
-}
-ul{
-    padding-left: 20px;
-}
-.banner {
-  position: relative;
-  overflow: hidden;
-  background-color: #f0f0f0; /* Optional: to show the banner area */
-  height: 350px; /* Set height to match image height */
-}
-
-.banner-images {
-  display: flex;
-  width: calc(800px * 12 + 15px * 11); /* Total width of all images including gaps */
-  animation: scroll 50s linear infinite;
-  gap: 10px;
-
-}
-
-.banner-images img {
-  width: 800px;
-  height: 350px;
-}
-
-@keyframes scroll {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(calc(-800px * 6 - 15px * 5)); /* Adjust the total width to scroll */
-  }
-}
-
-.banner-heading {
-  position: absolute;
-  bottom: 10px;
-  left: 10px;
-  color: white; /* Adjust color for visibility */
-  background-color: rgba(13, 75, 208, 0.8); /* Optional: background for readability */
-  padding: 5px 10px;
-  font-size: 24px; /* Adjust font size as needed */
-}
+        
+        .sub-menu {
+            padding-left: 0;
+            /* Optional: Remove default padding */
+            margin: 0;
+            /* Optional: Remove default margin */
+            list-style: none;
+            /* Optional: Remove default list style */
+        }
+        
+        .sub-menu li {
+            padding: 5px 10px;
+            /* Optional: Add padding for better spacing */
+        }
+        
+        #services-menu {
+            height: 420px;
+            overflow-y: scroll;
+        }
+        
+        ul {
+            padding-left: 20px;
+        }
+        
+        .banner {
+            position: relative;
+            overflow: hidden;
+            background-color: #f0f0f0;
+            /* Optional: to show the banner area */
+            height: 350px;
+            /* Set height to match image height */
+        }
+        
+        .banner-images {
+            display: flex;
+            width: calc(800px * 12 + 15px * 11);
+            /* Total width of all images including gaps */
+            animation: scroll 50s linear infinite;
+            gap: 10px;
+        }
+        
+        .banner-images img {
+            width: 800px;
+            height: 350px;
+        }
+        
+        @keyframes scroll {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(calc(-800px * 6 - 15px * 5));
+                /* Adjust the total width to scroll */
+            }
+        }
+        
+        .banner-heading {
+            position: absolute;
+            bottom: 10px;
+            left: 10px;
+            color: white;
+            /* Adjust color for visibility */
+            background-color: rgba(13, 75, 208, 0.8);
+            /* Optional: background for readability */
+            padding: 5px 10px;
+            font-size: 24px;
+            /* Adjust font size as needed */
+        }
     </style>
 </head>
 
@@ -575,42 +611,104 @@ ul{
 		============================================= -->
     <div id="page" class="page font--jakarta">
 
-      <header class="tra-menu navbar-dark "  >
-				<div class="header-wrapper" style="background:linear-gradient(#010166,#1560bd);">
+        <header class="tra-menu navbar-dark ">
+            <div class="header-wrapper" style="background:linear-gradient(#010166,#1560bd);">
 
 
-					<!-- MOBILE HEADER -->
-				    <div class="wsmobileheader " style="background:linear-gradient(#1560bd,#1560bd);">	  	
-				    	<span class="smllogo">                                                <img src="images/vindus_clients_images/cardlogo.jpg" alt="" class="rounded-circle" height="100px" width="100px">
+                <!-- MOBILE HEADER -->
+                <div class="wsmobileheader " style="background:linear-gradient(#1560bd,#1560bd);">
+                    <span class="smllogo">                                                <img src="images/vindus_clients_images/cardlogo.jpg" alt="" class="rounded-circle" height="100px" width="100px">
 						</span>
-				    	<a id="wsnavtoggle" class="wsanimated-arrow"><span></span></a>	
-				 	</div>
+                    <a id="wsnavtoggle" class="wsanimated-arrow"><span></span></a>
+                </div>
 
 
-				 	<!-- NAVIGATION MENU -->
-				  	<div class="wsmainfull menu clearfix" >
-	    				<div class="wsmainwp clearfix" >
+                <!-- NAVIGATION MENU -->
+                <div class="wsmainfull menu clearfix">
+                    <div class="d-flex clearfix">
 
 
-	    					<!-- HEADER BLACK LOGO -->
-	    					<div class="desktoplogo" >
-	    						<a href="#" class="">
-									<img src="images/vindus_clients_images/cardlogo.jpg" alt="" class="rounded-circle" height="100px" width="100px">
-	    						</a>
-	    					</div>
-	    					
+                        <!-- HEADER BLACK LOGO -->
+                        <div class="desktoplogo">
+                            <a href="#" class="">
+                                <img src="images/vindus_clients_images/cardlogo.jpg" alt="" class="rounded-circle" height="100px" width="100px">
+                            </a>
+                        </div>
 
-	    					<!-- HEADER WHITE LOGO -->
-	    					<div class="desktoplogo">
-	    						<a href="#" class="logo-white">                                                <img src="images/vindus_clients_images/cardlogo.jpg" alt="" class="rounded-circle" height="100px" width="100px">
-								</a>
-	    					</div>
+
+                        <!-- HEADER WHITE LOGO -->
+                        <div class="desktoplogo">
+                            <a href="#" class="logo-white"> <img src="images/vindus_clients_images/cardlogo.jpg" alt="" class="rounded-circle" height="100px" width="100px">
+                            </a>
+                        </div>
 
                         <!-- MAIN MENU -->
                         <nav class="wsmenu clearfix">
                             <ul class="wsmenu-list nav-theme">
 
                                 <li class="nl-simple" aria-haspopup="true"><a href="index.html" class="h-link">Home</a></li>
+                                <li aria-haspopup="true">
+                                    <a href="" class="h-link">Statutory Compliance<span class="wsarrow"></span></a>
+                                    <ul class="sub-menu">
+                                        <li aria-haspopup="true">
+                                            <p class="para">Commercial Compliance <span class="wsarrow"></span></p>
+                                            <ul class="sub-menu">
+                                                <li aria-haspopup="true"><a href="professionaltax.html">Professional Tax</a></li>
+                                            </ul>
+                                        </li>
+                                        <li aria-haspopup="true">
+                                            <p class="para">Electrical Approvals<span class="wsarrow"></span></p>
+                                            <ul class="sub-menu">
+                                                <li aria-haspopup="true"><a href="ceigapproval.html">CEIG Approval</a></li>
+                                            </ul>
+                                        </li>
+                                        <li aria-haspopup="true">
+                                            <p class="para">Environmental Compliance<span class="wsarrow"></span></p>
+                                            <ul class="sub-menu" id="services-menu">
+                                                <li aria-haspopup="true"><a href="cfe.html">CFE</a></li>
+                                                <li aria-haspopup="true"><a href="cfo.html">CFO</a></li>
+                                                <li aria-haspopup="true"><a href="emp.html">EMP</a></li>
+                                                <li aria-haspopup="true"><a href="envclearance.html">Environmental Clearance </a></li>
+                                                <li aria-haspopup="true"><a href="enviauditing.html">Environmental Auditing</a></li>
+                                                <li aria-haspopup="true"><a href="envcompliancemonitoring.html">Environmental compliance monitoring</a></li>
+                                            </ul>
+                                        </li>
+                                        <li aria-haspopup="true">
+                                            <p class="para">Factory Compliance<span class="wsarrow"></span></p>
+                                            <ul class="sub-menu">
+                                                <li aria-haspopup="true"><a href="factorylicence.html">Factory Licence</a></li>
+                                            </ul>
+                                        </li>
+                                        <li aria-haspopup="true">
+                                            <p class="para">Fire Compliance<span class="wsarrow"></span></p>
+                                            <ul class="sub-menu">
+                                                <li aria-haspopup="true"><a href="firenoc.html">Fire NOC</a></li>
+                                            </ul>
+                                        </li>
+                                        <li aria-haspopup="true">
+                                            <p class="para">Labor Compliance<span class="wsarrow"></span></p>
+                                            <ul class="sub-menu" id="services-menu">
+                                                <li aria-haspopup="true"><a href="bocw.html">BOCW</a></li>
+                                                <li aria-haspopup="true"><a href="clra.html">CLRA</a></li>
+                                                <li aria-haspopup="true"><a href="ismw.html">ISMW </a></li>
+                                                <li aria-haspopup="true"><a href="lwf.html">LWF </a></li>
+                                            </ul>
+                                        </li>
+                                        <li aria-haspopup="true">
+                                            <p class="para">S&E Compliance<span class="wsarrow"></span></p>
+                                            <ul class="sub-menu">
+                                                <li aria-haspopup="true"><a href="s&eregistration.html">S&E Registration</a></li>
+                                            </ul>
+                                        </li>
+                                        <li aria-haspopup="true">
+                                            <p class="para">Vendor Auditing<span class="wsarrow"></span></p>
+                                            <ul class="sub-menu">
+                                                <li aria-haspopup="true"><a href="vendorauditguidelines.html">Vendor Audit Guidelines</a></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+
 
 
                                 <!-- SIMPLE NAVIGATION LINK -->
@@ -628,43 +726,43 @@ ul{
 
 
 
-                             
-							    	<li aria-haspopup="true">
-				<a href="certification.html" class="h-link" >Certification<span class="wsarrow"></span></a>
-				<ul class="sub-menu">
-					<li aria-haspopup="true">
-						<p class="para">ISO <span class="wsarrow"></span></p>
-						<ul class="sub-menu">
-							<li aria-haspopup="true"><a href="certification1.html">ISO 45001:2018</a></li>
-							<li aria-haspopup="true"><a href="certification2.html">ISO 14001:2015</a></li>
-							<li aria-haspopup="true"><a href="certification3.html">ISO 9001:2015</a></li>
-							<li aria-haspopup="true"><a href="certification4.html">IMS</a></li>
 
-						</ul>
-					</li>
-					<li aria-haspopup="true">
-						<p class="para">British Safety<br> Counsil Certification<span class="wsarrow"></span></p>
-						<ul class="sub-menu" id="services-menu">
-							<li aria-haspopup="true"><a href="fivestar1.html">Five Star Occupational Health and Safety Audit</a></li>
-							<li aria-haspopup="true"><a href="fivestar2.html">Five Star Environmental Sustainability Audit</a></li>
-							<li aria-haspopup="true"><a href="fivestar3.html">Five Star Integrated Audit</a></li>
-							<li aria-haspopup="true"><a href="fivestar4.html">Five Star Group Audit</a></li>
-							<li aria-haspopup="true"><a href="fivestar5.html">Five Star Wellbeing Audit</a></li>
-							<li aria-haspopup="true"><a href="fivestar6.html">Pre-Audit (Gap Analysis) Services</a></li>
-							<li aria-haspopup="true"><a href="fivestar7.html">ISO 14001 Environmental Audit</a></li>
-							<li aria-haspopup="true"><a href="fivestar8.html">ISO 45001 Health and Safety Management Standard</a></li>
-							<li aria-haspopup="true"><a href="fivestar9.html">Fire Safety Management Audit</a></li>
-						</ul>
-					</li>
-					
-				</ul>
-			</li>
-									
+                                <li aria-haspopup="true">
+                                    <a href="certification.html" class="h-link">Certification<span class="wsarrow"></span></a>
+                                    <ul class="sub-menu">
+                                        <li aria-haspopup="true">
+                                            <p class="para">ISO <span class="wsarrow"></span></p>
+                                            <ul class="sub-menu">
+                                                <li aria-haspopup="true"><a href="certification1.html">ISO 45001:2018</a></li>
+                                                <li aria-haspopup="true"><a href="certification2.html">ISO 14001:2015</a></li>
+                                                <li aria-haspopup="true"><a href="certification3.html">ISO 9001:2015</a></li>
+                                                <li aria-haspopup="true"><a href="certification4.html">IMS</a></li>
+
+                                            </ul>
+                                        </li>
+                                        <li aria-haspopup="true">
+                                            <p class="para">British Safety<br> Counsil Certification<span class="wsarrow"></span></p>
+                                            <ul class="sub-menu" id="services-menu">
+                                                <li aria-haspopup="true"><a href="fivestar1.html">Five Star Occupational Health and Safety Audit</a></li>
+                                                <li aria-haspopup="true"><a href="fivestar2.html">Five Star Environmental Sustainability Audit</a></li>
+                                                <li aria-haspopup="true"><a href="fivestar3.html">Five Star Integrated Audit</a></li>
+                                                <li aria-haspopup="true"><a href="fivestar4.html">Five Star Group Audit</a></li>
+                                                <li aria-haspopup="true"><a href="fivestar5.html">Five Star Wellbeing Audit</a></li>
+                                                <li aria-haspopup="true"><a href="fivestar6.html">Pre-Audit (Gap Analysis) Services</a></li>
+                                                <li aria-haspopup="true"><a href="fivestar7.html">ISO 14001 Environmental Audit</a></li>
+                                                <li aria-haspopup="true"><a href="fivestar8.html">ISO 45001 Health and Safety Management Standard</a></li>
+                                                <li aria-haspopup="true"><a href="fivestar9.html">Fire Safety Management Audit</a></li>
+                                            </ul>
+                                        </li>
+
+                                    </ul>
+                                </li>
 
 
-									
 
-		
+
+
+
 
 
 
@@ -727,25 +825,27 @@ ul{
 
                                 </li>
                                 <li class="nl-simple" aria-haspopup="true"><a href="services2.html" class="h-link">Services<span class="wsarrow"></span></a>
-										<ul class="sub-menu" id="services-menu" >
-											<li aria-haspopup="true"><a href="employeehs.html"> Employee Health Services</a></li>
+                                    <ul class="sub-menu" id="services-sub-menu">
+                                        <li aria-haspopup="true"><a href="employeehs.html"> Employee Health Services</a></li>
 
-											<li aria-haspopup="true"><a href="Esg.html">ESG End to End Solution </a></li>
-											<li aria-haspopup="true"><a href="gmp.html">GMP Audit</a></li>
-											<li aria-haspopup="true"><a href="GMPQUALITYCONSULTING.html">GMP Quality Consulting</a></li>
-											<li aria-haspopup="true"><a href="hac.html">HAC Services</a></li>
-											<li aria-haspopup="true"><a href="incidentinvestigation.html">Incident Investigation</a></li>
-											<li aria-haspopup="true"><a href="industrialhygene.html">Industrial<br>hygene</a></li>
-											<li aria-haspopup="true"><a href="Pharma.html">Pharma Clean room equipments</a></li>
-											<li aria-haspopup="true"><a href="powersystem.html">Power system studies</a></li>
-											<li aria-haspopup="true"><a href="qualityrisk.html">Quality Consultation Services</a></li>
-											<li aria-haspopup="true"><a href="PLANTSETUPandUPGRADATION.html">Quality Plant Setup & Upgradation</a></li>
-											<li aria-haspopup="true"><a href="RespiratoryEmergencyProtectionSystems.html">Respiratory & Emergency Protection Systems</a></li>
+                                        <li aria-haspopup="true"><a href="Esg.html">ESG End to End Solution </a></li>
+                                        <li aria-haspopup="true"><a href="gmp.html">GMP Audit</a></li>
+                                        <li aria-haspopup="true"><a href="GMPQUALITYCONSULTING.html">GMP Quality Consulting</a></li>
+                                        <li aria-haspopup="true"><a href="hac.html">HAC Services</a></li>
+                                        <li aria-haspopup="true"><a href="incidentinvestigation.html">Incident Investigation</a></li>
+                                        <li aria-haspopup="true"><a href="industrialhygene.html">Industrial<br>hygene</a></li>
+                                        <li aria-haspopup="true"><a href="Pharma.html">Pharma Clean room equipments</a></li>
+                                        <li aria-haspopup="true"><a href="powersystem.html">Power system studies</a></li>
+                                        <li aria-haspopup="true"><a href="qualityrisk.html">Quality Consultation Services</a></li>
+                                        <li aria-haspopup="true"><a href="PLANTSETUPandUPGRADATION.html">Quality Plant Setup & Upgradation</a></li>
+                                        <li aria-haspopup="true"><a href="RespiratoryEmergencyProtectionSystems.html">Respiratory & Emergency Protection Systems</a></li>
 
-											<li aria-haspopup="true"><a href="safetystudies.html">Safety Studies </a></li>
-											<li aria-haspopup="true"><a href="supplierqualificationaudit.html">Supplier qualification Audit</a></li>
-											
-										   </ul>
+                                        <li aria-haspopup="true"><a href="safetystudies.html">Safety Studies </a></li>
+                                        <li aria-haspopup="true"><a href="supplierqualificationaudit.html">Supplier qualification Audit</a></li>
+                                        <li aria-haspopup="true"><a href="developmentservice.html">Development Services</a></li>
+
+
+                                    </ul>
 
 
 
@@ -767,29 +867,29 @@ ul{
             <!-- End header-wrapper -->
         </header>
         <!-- END HEADER -->
-	    <br>
-	   <br>
-       <br>
+        <br>
+        <br>
+        <br>
         <div class="banner">
             <div class="banner-images">
-              <img src="images/vindus_clients_images/gmp-1.jpg" alt="Banner Image 1">
-              <img src="images/vindus_clients_images/GMP-2.jpg" alt="Banner Image 2">
-              <img src="images/vindus_clients_images/GMP-3.jpg" alt="Banner Image 3">
-              <img src="images/vindus_clients_images/gmp-1.jpg" alt="Banner Image 1">
-              <img src="images/vindus_clients_images/GMP-2.jpg" alt="Banner Image 2">
-              <img src="images/vindus_clients_images/GMP-3.jpg" alt="Banner Image 3">
-              <!-- Duplicate set of images for continuous scroll -->
-              <img src="images/vindus_clients_images/gmp-1.jpg" alt="Banner Image 1">
-              <img src="images/vindus_clients_images/GMP-2.jpg" alt="Banner Image 2">
-              <img src="images/vindus_clients_images/GMP-3.jpg" alt="Banner Image 3">
-              <img src="images/vindus_clients_images/gmp-1.jpg" alt="Banner Image 1">
-              <img src="images/vindus_clients_images/GMP-2.jpg" alt="Banner Image 2">
-              <img src="images/vindus_clients_images/GMP-3.jpg" alt="Banner Image 3">
+                <img src="images/vindus_clients_images/gmp-1.jpg" alt="Banner Image 1">
+                <img src="images/vindus_clients_images/GMP-2.jpg" alt="Banner Image 2">
+                <img src="images/vindus_clients_images/GMP-3.jpg" alt="Banner Image 3">
+                <img src="images/vindus_clients_images/gmp-1.jpg" alt="Banner Image 1">
+                <img src="images/vindus_clients_images/GMP-2.jpg" alt="Banner Image 2">
+                <img src="images/vindus_clients_images/GMP-3.jpg" alt="Banner Image 3">
+                <!-- Duplicate set of images for continuous scroll -->
+                <img src="images/vindus_clients_images/gmp-1.jpg" alt="Banner Image 1">
+                <img src="images/vindus_clients_images/GMP-2.jpg" alt="Banner Image 2">
+                <img src="images/vindus_clients_images/GMP-3.jpg" alt="Banner Image 3">
+                <img src="images/vindus_clients_images/gmp-1.jpg" alt="Banner Image 1">
+                <img src="images/vindus_clients_images/GMP-2.jpg" alt="Banner Image 2">
+                <img src="images/vindus_clients_images/GMP-3.jpg" alt="Banner Image 3">
             </div>
-            <h1 class="banner-heading">  GMP AUDIT SERVICES </h1>
-          </div>
+            <h1 class="banner-heading"> GMP AUDIT SERVICES </h1>
+        </div>
         <Main>
-              
+
             <section class="py-5">
                 <div class="container" style="background-image: url('images/vindus_clients_images/gmpaud.webp');background-size: cover; ">
                     <div class="row justify-content-center">
@@ -797,90 +897,100 @@ ul{
                             <div class="custom-card p-4 rounded position-relative bg-light shadow-lg">
                                 <div class="decorative-element"></div>
                                 <p class="mb-4">
-                                    <strong>MLConsultants</strong> has been the most credible pattern for GMP Audit Service. Good Manufacturing Practice Audits (GMP audits) are conducted to ensure that products are made in accordance with quality standards and the best industry practices. It is to identify if the pharma company has full control over your processes, facility, and quality management system (QMS).
+                                    <strong>MLConsultants</strong> has been the most credible pattern for GMP Audit Service. Good Manufacturing Practice Audits (GMP audits) are conducted to ensure that products are made in accordance with quality standards
+                                    and the best industry practices. It is to identify if the pharma company has full control over your processes, facility, and quality management system (QMS).
                                 </p>
                                 <p class="mb-4">
-                                    <strong>MLConsultants</strong> has a team of highly experienced GMP Auditors with comprehensive experience in conducting GMP audit services across the globe. Our GMP auditors are highly qualified and have undertaken numerous audits of API, Intermediates, Raw Material, Warehouse Facilities, Packaging Material Facilities, R&D/F&D Laboratories, and Finished dosage plants.
+                                    <strong>MLConsultants</strong> has a team of highly experienced GMP Auditors with comprehensive experience in conducting GMP audit services across the globe. Our GMP auditors are highly qualified and have undertaken
+                                    numerous audits of API, Intermediates, Raw Material, Warehouse Facilities, Packaging Material Facilities, R&D/F&D Laboratories, and Finished dosage plants.
                                 </p>
                                 <p class="mb-4">
-                                    As regulations continue to tighten, authorities are demanding increased vigilance of the pharmaceutical supply chain and emphasizing the need for on-site audits. Manufacturers are required to conduct GMP audits of suppliers or have them conducted on their behalf by appropriately qualified and trained auditors. GMP audit identifies the risk factors that challenge the organizational critical area and further considers their significance.
+                                    As regulations continue to tighten, authorities are demanding increased vigilance of the pharmaceutical supply chain and emphasizing the need for on-site audits. Manufacturers are required to conduct GMP audits of suppliers or have them conducted on their
+                                    behalf by appropriately qualified and trained auditors. GMP audit identifies the risk factors that challenge the organizational critical area and further considers their significance.
                                 </p>
                                 <p class="mb-0">
-                                    <strong>MLConsultants</strong> provides a wide range of audit services to clients as per their specific needs. Having conducted numerous audits, MLConsultants now has a big GMP Audit Report Library with Long Validity of GMP Audit Reports.
+                                    <strong>MLConsultants</strong> provides a wide range of audit services to clients as per their specific needs. Having conducted numerous audits, MLConsultants now has a big GMP Audit Report Library with Long Validity
+                                    of GMP Audit Reports.
                                 </p>
                             </div>
                         </div>
                     </div>
                 </div>
-            
-            <br>
-                
-           
-            
-            <div class="container mt-4">
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="custom-card">
-                            <h3 class="orange-heading" style="padding: 10px;">BELOW ARE THE TYPES OF AUDIT OFFERED</h3>
-                            <p><strong>INDEPENDENT SUPPLIER AUDIT: (GMP SYSTEM AND FACILITY AUDIT)</strong></p>
-                            <p>To evaluate the system and manufacturing facility in compliance to the regulatory expectation and quality standards. To ensure the capability of the facility to manufacture quality medicine. To determine the effectiveness of the Quality system implemented and adherence to the specified quality objectives.</p>
-                            <p><strong class="highlighted-text">Audit scope includes (Not limited to):</strong></p>
-                            <div class="card-container">
-                                <div class="card">Organizations</div>
-                                <div class="card">Equipment control</div>
-                                <div class="card">Personal</div>
-                                <div class="card">Quality policy and Quality Management Systems</div>
-                                <div class="card">Environment control</div>
-                                <div class="card">Safety and security</div>
-                                <div class="card">Material/Component Control</div>
-                                <div class="card">Operational Control</div>
-                                <div class="card">Finished Product control</div>
-                                <div class="card">Good Documentation practice</div>
-                                <div class="card">Good manufacturing practice</div>
-                                <div class="card">Inspection history</div>
-                                <div class="card">Computer system validation</div>
-                                <div class="card">Data Integrity approach</div>
-                                <div class="card">Business continuity plan</div>
-                            </div>
-                            <br>
-                            <p><strong>REMOTE AUDIT / VIRTUAL AUDIT</strong></p>
-                            <p>At MLConsultants, we have been conducting Remote GMP Audits/ Virtual Audits of suppliers for our clients. In the global pandemic situation, there have been many restrictions on travelling and this makes the on-site audit difficult. With the acceptance of Remote Audit by various regulatory agencies, many of our clients have suggested performing remote audit / Virtual audit. MLConsultants has well defined SOPs and systems to perform Remote Audits. So far, we have completed more than eighty Remote Audits on behalf of our clients.</p>
-                            <br>
-                            <p><strong>GAP AUDIT</strong></p>
-                            <p>MLConsultants has been conducting GMP GAP audits for numerous Pharmaceutical Companies to assess their level of compliance with requirements of Desired Regulatory Agencies.<br>
-                                GMP GAP Audit is conducted to identify any GAP in the system and procedure to meet specific regulatory requirements and to mitigate the GAP with reasonable and logical solutions. A successful gap analysis identifies necessary changes in process, organization, and resources, and maps out a systematic approach with corrective and preventive actions for implementing solutions that effectively minimize risks to the organization.
+
+                <br>
+
+
+
+                <div class="container mt-4">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="custom-card">
+                                <h3 class="orange-heading" style="padding: 10px;">BELOW ARE THE TYPES OF AUDIT OFFERED</h3>
+                                <p><strong>INDEPENDENT SUPPLIER AUDIT: (GMP SYSTEM AND FACILITY AUDIT)</strong></p>
+                                <p>To evaluate the system and manufacturing facility in compliance to the regulatory expectation and quality standards. To ensure the capability of the facility to manufacture quality medicine. To determine the effectiveness
+                                    of the Quality system implemented and adherence to the specified quality objectives.</p>
+                                <p><strong class="highlighted-text">Audit scope includes (Not limited to):</strong></p>
+                                <div class="card-container">
+                                    <div class="card">Organizations</div>
+                                    <div class="card">Equipment control</div>
+                                    <div class="card">Personal</div>
+                                    <div class="card">Quality policy and Quality Management Systems</div>
+                                    <div class="card">Environment control</div>
+                                    <div class="card">Safety and security</div>
+                                    <div class="card">Material/Component Control</div>
+                                    <div class="card">Operational Control</div>
+                                    <div class="card">Finished Product control</div>
+                                    <div class="card">Good Documentation practice</div>
+                                    <div class="card">Good manufacturing practice</div>
+                                    <div class="card">Inspection history</div>
+                                    <div class="card">Computer system validation</div>
+                                    <div class="card">Data Integrity approach</div>
+                                    <div class="card">Business continuity plan</div>
+                                </div>
+                                <br>
+                                <p><strong>REMOTE AUDIT / VIRTUAL AUDIT</strong></p>
+                                <p>At MLConsultants, we have been conducting Remote GMP Audits/ Virtual Audits of suppliers for our clients. In the global pandemic situation, there have been many restrictions on travelling and this makes the on-site audit
+                                    difficult. With the acceptance of Remote Audit by various regulatory agencies, many of our clients have suggested performing remote audit / Virtual audit. MLConsultants has well defined SOPs and systems to perform Remote
+                                    Audits. So far, we have completed more than eighty Remote Audits on behalf of our clients.</p>
+                                <br>
+                                <p><strong>GAP AUDIT</strong></p>
+                                <p>MLConsultants has been conducting GMP GAP audits for numerous Pharmaceutical Companies to assess their level of compliance with requirements of Desired Regulatory Agencies.<br> GMP GAP Audit is conducted to identify any
+                                    GAP in the system and procedure to meet specific regulatory requirements and to mitigate the GAP with reasonable and logical solutions. A successful gap analysis identifies necessary changes in process, organization,
+                                    and resources, and maps out a systematic approach with corrective and preventive actions for implementing solutions that effectively minimize risks to the organization.
                                 </p>
-                            <br>
-                            <p><strong>REGULATORY COMPLIANCE AUDIT</strong></p>
-                            <p>A compliance audit is done for a comprehensive review of an organization’s adherence to specific regulatory guidelines & specifications mentioned and to evaluate the strength and thoroughness of compliance preparedness. This audit also focuses on the QMS system and any loopholes to work on. Improves the Quality system and in turn compliance to regulatory.</p>
-                            <br>
-                            <p><strong>VENDOR QUALIFICATION/ASSESSMENT AUDIT</strong></p>
-                            <p>To evaluate and qualify the vendors for procurement of the critical supplies like API, excipients, packaging material, contract manufacturer, materials & Goods etc. This vendor qualification audit ensures the vendor reliability and quality services/products to avoid any regularity concerns.</p>
-                            <p><strong class="highlighted-text">Audit scope includes (Not limited to):</strong></p><br>
-                            <div class="card-container">                                
-                                <div class="card">Vendor qualification/requalification system</div>
-                                <div class="card">Vendor Quality management system</div>
-                                <div class="card">Capabilities to deliver consistent quality</div>
-                                <div class="card">Supply chain management</div>
-                                <div class="card">Operation control</div>
-                                <div class="card">Regulatory adherence</div>
-                                <div class="card">Business continuity plan and Quality policy</div>
-                            </div>
-                            <br>
-                            <p><strong>PRE-INSPECTION AUDIT</strong></p>
-                            <p>This Audit is mainly conducted before any planned or announced regulatory inspection...</p>
-                            <div class="container">
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <img src="images/vindus_clients_images/gmp.jpeg" class="card-img img-fluid" alt="Audit Image" height="300px" width="250px">
+                                <br>
+                                <p><strong>REGULATORY COMPLIANCE AUDIT</strong></p>
+                                <p>A compliance audit is done for a comprehensive review of an organization’s adherence to specific regulatory guidelines & specifications mentioned and to evaluate the strength and thoroughness of compliance preparedness.
+                                    This audit also focuses on the QMS system and any loopholes to work on. Improves the Quality system and in turn compliance to regulatory.</p>
+                                <br>
+                                <p><strong>VENDOR QUALIFICATION/ASSESSMENT AUDIT</strong></p>
+                                <p>To evaluate and qualify the vendors for procurement of the critical supplies like API, excipients, packaging material, contract manufacturer, materials & Goods etc. This vendor qualification audit ensures the vendor reliability
+                                    and quality services/products to avoid any regularity concerns.</p>
+                                <p><strong class="highlighted-text">Audit scope includes (Not limited to):</strong></p><br>
+                                <div class="card-container">
+                                    <div class="card">Vendor qualification/requalification system</div>
+                                    <div class="card">Vendor Quality management system</div>
+                                    <div class="card">Capabilities to deliver consistent quality</div>
+                                    <div class="card">Supply chain management</div>
+                                    <div class="card">Operation control</div>
+                                    <div class="card">Regulatory adherence</div>
+                                    <div class="card">Business continuity plan and Quality policy</div>
+                                </div>
+                                <br>
+                                <p><strong>PRE-INSPECTION AUDIT</strong></p>
+                                <p>This Audit is mainly conducted before any planned or announced regulatory inspection...</p>
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <img src="images/vindus_clients_images/gmp.jpeg" class="card-img img-fluid" alt="Audit Image" height="300px" width="250px">
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            
+
 
 
 
@@ -894,30 +1004,32 @@ ul{
                 <span class="whatsapp-text">WhatsApp</span>
             </a>
         </div>
-<button id="scrollToTopBtn" class="btn" style="display: block;">
+        <button id="scrollToTopBtn" class="btn" style="display: block;">
     <i class="fa-solid fa-circle-up" style="font-size: 30px;color: #0275b3;"></i>
 </button>
 
-<!-- jQuery and Bootstrap JS -->
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-<script>
-    // Show or hide the button based on scroll position
-    $(window).scroll(function() {
-        if ($(this).scrollTop() > 100) {
-            $('#scrollToTopBtn').fadeIn();
-        } else {
-            $('#scrollToTopBtn').fadeOut();
-        }
-    });
+        <!-- jQuery and Bootstrap JS -->
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        <script>
+            // Show or hide the button based on scroll position
+            $(window).scroll(function() {
+                if ($(this).scrollTop() > 100) {
+                    $('#scrollToTopBtn').fadeIn();
+                } else {
+                    $('#scrollToTopBtn').fadeOut();
+                }
+            });
 
-    // Smooth scroll to top
-    $('#scrollToTopBtn').click(function() {
-        $('html, body').animate({ scrollTop: 0 }, 600);
-        return false;
-    });
-    </script>
+            // Smooth scroll to top
+            $('#scrollToTopBtn').click(function() {
+                $('html, body').animate({
+                    scrollTop: 0
+                }, 600);
+                return false;
+            });
+        </script>
         <!-- FOOTER-3
 			============================================= -->
         <footer id="footer-3" class="pt-100 footer">
@@ -970,8 +1082,8 @@ ul{
                                     <p><a href="terms.html">Terms of Use</a></p>
                                 </li>
                                 <li>
-                            <p><a href="privacypolicy.html">Privacy Policy</a></p>
-                        </li>
+                                    <p><a href="privacypolicy.html">Privacy Policy</a></p>
+                                </li>
                                 <li>
                                     <p><a href="sitemap.html">Site Map</a></p>
                                 </li>
@@ -990,17 +1102,16 @@ ul{
                             <h6 class="s-17 w-700" style="color:#fff;">Connect With Us</h6>
 
                             <!-- Mail Link -->
-                           <p class="footer-mail-link ico-25">
-									<a href="mailto:info@mlcqehs.com" style="color:#fff;">
-                    <i class="fas fa-envelope"></i>&nbsp;Email :<br>
-                      info@mlcqehs.com
+                            <p class="footer-mail-link ico-25">
+                                <a href="mailto:info@mlcqehs.com" style="color:#fff;">
+                                    <i class="fas fa-envelope"></i>&nbsp;Email :<br> info@mlcqehs.com
 
-									</a>
-                 
-                  <a href="mailto:contactmlconsultancy@gmail.com" style="color:#fff;">contactmlconsultancy@gmail.com</a>
-									<br><br>
-									<i class="fas fa-mobile-alt"></i> +91&nbsp; 99498&nbsp;45759<br><i class="fas fa-mobile-alt"></i>&nbsp;+91 &nbsp;77269&nbsp;32023
-								</p>
+                                </a>
+
+                                <a href="mailto:contactmlconsultancy@gmail.com" style="color:#fff;">contactmlconsultancy@gmail.com</a>
+                                <br><br>
+                                <i class="fas fa-mobile-alt"></i> +91&nbsp; 99498&nbsp;45759<br><i class="fas fa-mobile-alt"></i>&nbsp;+91 &nbsp;77269&nbsp;32023
+                            </p>
 
 
                             <!-- Social Links -->
@@ -1044,9 +1155,11 @@ ul{
 
 
                         <!-- FOOTER COPYRIGHT -->
-                      <div class="col">
-								<div class="footer-copyright"><p class="p-sm">&copy; 2024 <a href="http://vindusenvironment.in" target="_blank" style="color:antiquewhite;">Vindus</a>. <span>All Rights Reserved</span></p></div>
-							</div>
+                        <div class="col">
+                            <div class="footer-copyright">
+                                <p class="p-sm">&copy; 2024 <a href="http://vindusenvironment.in" target="_blank" style="color:antiquewhite;">Vindus</a>. <span>All Rights Reserved</span></p>
+                            </div>
+                        </div>
 
 
                         <!-- FOOTER SECONDARY LINK -->
@@ -1060,41 +1173,41 @@ ul{
             <!-- END BOTTOM FOOTER -->
 
 
-            </div>
-            <!-- End container -->
-        </footer>
-        <!-- END FOOTER-3 -->
+    </div>
+    <!-- End container -->
+    </footer>
+    <!-- END FOOTER-3 -->
 
 
-        </div>
-        <!-- END PAGE CONTENT -->
+    </div>
+    <!-- END PAGE CONTENT -->
 
 
 
 
-        <!-- EXTERNAL SCRIPTS
+    <!-- EXTERNAL SCRIPTS
 		============================================= -->
-        <script src="js/jquery-3.7.0.min.js"></script>
-        <script src="js/bootstrap.min.js"></script>
-        <script src="js/modernizr.custom.js"></script>
-        <script src="js/jquery.easing.js"></script>
-        <script src="js/jquery.appear.js"></script>
-        <script src="js/menu.js"></script>
-        <script src="js/owl.carousel.min.js"></script>
-        <script src="js/pricing-toggle.js"></script>
-        <script src="js/jquery.magnific-popup.min.js"></script>
-        <script src="js/request-form.js"></script>
-        <script src="js/jquery.validate.min.js"></script>
-        <script src="js/jquery.ajaxchimp.min.js"></script>
-        <script src="js/popper.min.js"></script>
-        <script src="js/lunar.js"></script>
-        <script src="js/wow.js"></script>
+    <script src="js/jquery-3.7.0.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/modernizr.custom.js"></script>
+    <script src="js/jquery.easing.js"></script>
+    <script src="js/jquery.appear.js"></script>
+    <script src="js/menu.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+    <script src="js/pricing-toggle.js"></script>
+    <script src="js/jquery.magnific-popup.min.js"></script>
+    <script src="js/request-form.js"></script>
+    <script src="js/jquery.validate.min.js"></script>
+    <script src="js/jquery.ajaxchimp.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/lunar.js"></script>
+    <script src="js/wow.js"></script>
 
-        <!-- Custom Script -->
-        <script src="js/custom.js"></script>
+    <!-- Custom Script -->
+    <script src="js/custom.js"></script>
 
 
-        <!-- <script>
+    <!-- <script>
 			$(function() {
 			  $(".switch").click(function() {
 			    $("body").toggleClass("theme--dark");
@@ -1117,8 +1230,8 @@ ul{
 	        });
 		</script> -->
 
-        <!-- Google Analytics: Change UA-XXXXX-X to be your site's ID. Go to http://www.google.com/analytics/ for more information. -->
-        <!--
+    <!-- Google Analytics: Change UA-XXXXX-X to be your site's ID. Go to http://www.google.com/analytics/ for more information. -->
+    <!--
 		<script>
 			var _gaq = _gaq || [];
 			_gaq.push(['_setAccount', 'UA-XXXXX-X']);
@@ -1132,34 +1245,34 @@ ul{
 		</script>
 		-->
 
-        <script src="js/changer.js"></script>
-        <script defer src="js/styleswitch.js"></script>
+    <script src="js/changer.js"></script>
+    <script defer src="js/styleswitch.js"></script>
 
 
 
 
-        <script>
-            // JavaScript to handle header scroll effect
-            document.addEventListener("DOMContentLoaded", function() {
-                var header = document.getElementById("header");
-                var headerWrapper = document.querySelector(".header-wrapper");
+    <script>
+        // JavaScript to handle header scroll effect
+        document.addEventListener("DOMContentLoaded", function() {
+            var header = document.getElementById("header");
+            var headerWrapper = document.querySelector(".header-wrapper");
 
-                // Function to handle scroll event
-                function handleScroll() {
-                    var scrollPosition = window.scrollY || document.documentElement.scrollTop;
+            // Function to handle scroll event
+            function handleScroll() {
+                var scrollPosition = window.scrollY || document.documentElement.scrollTop;
 
-                    // Add a class to the header when scrolled
-                    if (scrollPosition > 0) {
-                        headerWrapper.classList.add("scrolled");
-                    } else {
-                        headerWrapper.classList.remove("scrolled");
-                    }
+                // Add a class to the header when scrolled
+                if (scrollPosition > 0) {
+                    headerWrapper.classList.add("scrolled");
+                } else {
+                    headerWrapper.classList.remove("scrolled");
                 }
+            }
 
-                // Event listener for scroll event
-                window.addEventListener("scroll", handleScroll);
-            });
-        </script>
+            // Event listener for scroll event
+            window.addEventListener("scroll", handleScroll);
+        });
+    </script>
 
 </body>
 
