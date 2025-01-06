@@ -457,7 +457,15 @@
   padding: 5px 10px;
   font-size: 24px; /* Adjust font size as needed */
 }
-
+#services-sub-menu {
+            overflow-y: scroll;
+            padding-left: 0;
+            margin: 0;
+            list-style: none;
+            height: 420px;
+            min-width: 20px;
+        }
+        
     </style>
 </head>
 
@@ -491,7 +499,7 @@
 
 				 	<!-- NAVIGATION MENU -->
 				  	<div class="wsmainfull menu clearfix" >
-	    				<div class="wsmainwp clearfix" >
+	    				<div class="d-flex clearfix" >
 
 
 	    					<!-- HEADER BLACK LOGO -->
@@ -512,7 +520,67 @@
                             <ul class="wsmenu-list nav-theme">
 
                                 <li class="nl-simple" aria-haspopup="true"><a href="index.html" class="h-link">Home</a></li>
-
+                                <li aria-haspopup="true">
+                                    <a href="" class="h-link">Statutory Compliance<span class="wsarrow"></span></a>
+                                    <ul class="sub-menu">
+                                        <li aria-haspopup="true">
+                                            <p class="para">Commercial Compliance <span class="wsarrow"></span></p>
+                                            <ul class="sub-menu">
+                                                <li aria-haspopup="true"><a href="professionaltax.html">Professional Tax</a></li>
+                                            </ul>
+                                        </li>
+                                        <li aria-haspopup="true">
+                                            <p class="para">Electrical Approvals<span class="wsarrow"></span></p>
+                                            <ul class="sub-menu">
+                                                <li aria-haspopup="true"><a href="ceigapproval.html">CEIG Approval</a></li>
+                                            </ul>
+                                        </li>
+                                        <li aria-haspopup="true">
+                                            <p class="para">Environmental Compliance<span class="wsarrow"></span></p>
+                                            <ul class="sub-menu" id="services-menu">
+                                                <li aria-haspopup="true"><a href="cfe.html">CFE</a></li>
+                                                <li aria-haspopup="true"><a href="cfo.html">CFO</a></li>
+                                                <li aria-haspopup="true"><a href="emp.html">EMP</a></li>
+                                                <li aria-haspopup="true"><a href="envclearance.html">Environmental Clearance </a></li>
+                                                <li aria-haspopup="true"><a href="enviauditing.html">Environmental Auditing</a></li>
+                                                <li aria-haspopup="true"><a href="envcompliancemonitoring.html">Environmental compliance monitoring</a></li>
+                                            </ul>
+                                        </li>
+                                        <li aria-haspopup="true">
+                                            <p class="para">Factory Compliance<span class="wsarrow"></span></p>
+                                            <ul class="sub-menu">
+                                                <li aria-haspopup="true"><a href="factorylicence.html">Factory Licence</a></li>
+                                            </ul>
+                                        </li>
+                                        <li aria-haspopup="true">
+                                            <p class="para">Fire Compliance<span class="wsarrow"></span></p>
+                                            <ul class="sub-menu">
+                                                <li aria-haspopup="true"><a href="firenoc.html">Fire NOC</a></li>
+                                            </ul>
+                                        </li>
+                                        <li aria-haspopup="true">
+                                            <p class="para">Labor Compliance<span class="wsarrow"></span></p>
+                                            <ul class="sub-menu" id="services-menu">
+                                                <li aria-haspopup="true"><a href="bocw.html">BOCW</a></li>
+                                                <li aria-haspopup="true"><a href="clra.html">CLRA</a></li>
+                                                <li aria-haspopup="true"><a href="ismw.html">ISMW </a></li>
+                                                <li aria-haspopup="true"><a href="lwf.html">LWF </a></li>
+                                            </ul>
+                                        </li>
+                                        <li aria-haspopup="true">
+                                            <p class="para">S&E Compliance<span class="wsarrow"></span></p>
+                                            <ul class="sub-menu">
+                                                <li aria-haspopup="true"><a href="s&eregistration.html">S&E Registration</a></li>
+                                            </ul>
+                                        </li>
+                                        <li aria-haspopup="true">
+                                            <p class="para">Vendor Auditing<span class="wsarrow"></span></p>
+                                            <ul class="sub-menu">
+                                                <li aria-haspopup="true"><a href="vendorauditguidelines.html">Vendor Audit Guidelines</a></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
 
                                 <!-- SIMPLE NAVIGATION LINK -->
                                 <li aria-haspopup="true"><a href="auditing.html" class="h-link">Auditing<span class="wsarrow"></span></a>
@@ -625,7 +693,7 @@
                                 </li>
                                 <li class="nl-simple" aria-haspopup="true"><a href="services2.html" class="h-link">Services<span class="wsarrow"></span></a>
 
-										<ul class="sub-menu" id="services-menu" >
+										<ul class="sub-menu" id="services-sub-menu" >
 											<li aria-haspopup="true"><a href="employeehs.html"> Employee Health Services</a></li>
 
 											<li aria-haspopup="true"><a href="Esg.html">ESG End to End Solution </a></li>
@@ -642,6 +710,8 @@
 
 											<li aria-haspopup="true"><a href="safetystudies.html">Safety Studies </a></li>
 											<li aria-haspopup="true"><a href="supplierqualificationaudit.html">Supplier qualification Audit</a></li>
+                                            <li aria-haspopup="true"><a href="developmentservice.html">Development Services</a></li>
+
 											
 										   </ul>
 
