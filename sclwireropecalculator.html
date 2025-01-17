@@ -204,9 +204,10 @@
             width: 100%;
             padding: 10px;
             font-size: 1rem;
-            border: 1px solid #ddd;
+            border: 1px solid #ccc;
             border-radius: 5px;
             outline: none;
+            background-color: rgb(223, 241, 247);
         }
         .form-input:focus {
             border-color: #007bff;
@@ -249,6 +250,36 @@
     .calculator-container {
         margin: 10px 10px; /* Even smaller margin for very small screens */
         padding: 10px; /* Even smaller padding */
+    }
+}
+.note-container {
+            margin:20px auto;
+    padding: 15px;
+    background-color: #eef3f7;
+    border: 1px solid #1560bd;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    font-size: 16px;
+    line-height: 1.5;
+    color: #333;
+    max-width: 1000px;
+    margin-bottom: 15px;
+}
+
+.note-container h3 {
+    margin-top: 0;
+    color: #007bff;
+    font-size: 18px;
+}
+
+.note-container p {
+    margin-top: 15px;
+    text-align: justify;
+}
+@media (max-width: 768px) {
+    .note-container {
+        margin: 15px; 
+        padding: 10px; 
     }
 }
 </style>
@@ -543,6 +574,16 @@
             <span class="result-text" id="resultText"></span>
         </div>
     </div>
+    <div class="note-container">
+        <h3>note:</h3>
+        <p>
+            Use this calculator to find the Safe Working Load (SWL) of a wire rope.<br> 
+            The SWL tells you the maximum weight the rope can safely handle. 
+            Knowing this is important for lifting and rigging tasks to avoid accidents. 
+            Just enter the wire rope diameter (in millimeters) and click "Calculate" to see the SWL.
+        </p>
+    </div>
+    
 
     <script>
         function calculateSWL() {

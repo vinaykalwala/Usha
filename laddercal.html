@@ -209,6 +209,8 @@ label {
     border: 1px solid #ccc;
     border-radius: 4px;
     margin-top: 5px;
+    background-color: rgb(223, 241, 247);
+
 }
 
 .calculate-button {
@@ -256,6 +258,39 @@ p {
         margin: 10px 10px; 
         padding: 10px; 
     }
+}
+.note-container {
+            margin:20px auto;
+    padding: 15px;
+    background-color: #eef3f7;
+    border: 1px solid #1560bd;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    font-size: 16px;
+    line-height: 1.5;
+    color: #333;
+    max-width: 1000px;
+    margin-bottom: 15px;
+}
+
+.note-container h3 {
+    margin-top: 0;
+    color: #007bff;
+    font-size: 18px;
+}
+
+.note-container p {
+    margin-top: 15px;
+    text-align: justify;
+}
+@media (max-width: 768px) {
+    .note-container {
+        margin: 15px; 
+        padding: 10px; 
+    }
+}
+strong{
+    color: #0265cf;
 }
 </style>
 	</head>
@@ -542,6 +577,23 @@ p {
     <button class="calculate-button" onclick="calculateLadderLength()">Calculate Ladder Length</button>
     
     <div class="result-section" id="result"></div>
+</div>
+<div class="note-container">
+    <h3>note:</h3>
+    <p>
+        This calculator helps determine the ideal length of a ladder needed for a given vertical height. 
+        Proper ladder length is essential for ensuring safety and maintaining the recommended setup angle.
+        To use this calculator:
+    </p>
+    <ul>
+        <li><strong>Vertical Height (VH):</strong> Enter the height you need to reach, measured from the ground to the point of support (in meters).</li>
+        <li>The calculator applies the <strong>4:1 rule</strong>, which means for every 4 meters of height, the ladder base should be 1 meter away from the wall.</li>
+        <li>It uses the <strong>Pythagorean theorem</strong> to calculate the actual ladder length and includes a safety margin of 1 meter.</li>
+    </ul>
+    <p>
+        After entering the vertical height, click <strong>Calculate Ladder Length</strong>. 
+        The results will display the base distance, ladder length without a safety margin, and the total ladder length with the safety margin.
+    </p>
 </div>
 
 <script>

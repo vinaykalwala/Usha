@@ -177,7 +177,7 @@
       background-color: #f5f5f5;
     }
     .calculator-container {
-      max-width: 800px;
+      max-width: 1000px;
       margin: 20px auto;
       padding: 20px;
       background: #ffffff;
@@ -206,6 +206,8 @@
       padding: 8px;
       border: 1px solid #ccc;
       border-radius: 4px;
+      background-color: rgb(223, 241, 247);
+
     
     }
     .cal-btn {
@@ -240,6 +242,39 @@
     .calculator-container {
         margin: 10px 10px; 
         padding: 10px;
+    }
+}
+.note-container {
+            margin:20px auto;
+    padding: 15px;
+    background-color: #eef3f7;
+    border: 1px solid #1560bd;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    font-size: 16px;
+    line-height: 1.5;
+    color: #333;
+    max-width: 1200px;
+    margin-bottom: 15px;
+}
+
+.note-container h3 {
+    margin-top: 0;
+    color: #007bff;
+    font-size: 18px;
+}
+
+.note-container p {
+    margin-top: 15px;
+    text-align: justify;
+}
+strong{
+    color: #0056b3;
+}
+@media (max-width: 768px) {
+    .note-container {
+        margin: 15px; 
+        padding: 10px; 
     }
 }
 </style>
@@ -540,7 +575,25 @@
     <button class="cal-btn" onclick="calculateFallClearance()">Calculate Fall Clearance</button>
     <div class="result" id="result"></div>
   </div>
-  
+  <div class="note-container">
+    <h3>note:</h3>
+    <p>
+        This calculator helps determine the minimum fall clearance required to safely stop a worker in case of a fall. 
+        Fall clearance is the total distance needed to prevent a worker from hitting the ground during a fall.
+        To calculate this, enter the following:
+    </p>
+    <ul>
+        <li><strong>Lanyard Length (LL):</strong> The length of the lanyard used (in feet).</li>
+        <li><strong>Deceleration Distance (DD):</strong> The distance required to stop the fall after the lanyard engages (in feet).</li>
+        <li><strong>Height of Suspended Worker (HH):</strong> The worker's height (in feet).</li>
+        <li><strong>Safety Factor (C):</strong> An additional buffer for safety, typically recommended by standards (in feet).</li>
+    </ul>
+    <p>
+        After entering these values, click the <strong>Calculate Fall Clearance</strong> button. 
+        The result will show the total fall clearance required to ensure safety.
+    </p>
+</div>
+
   <script>
     function calculateFallClearance() {
       const LL = parseFloat(document.getElementById('lanyardLength').value);

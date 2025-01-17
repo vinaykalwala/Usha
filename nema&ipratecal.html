@@ -122,18 +122,7 @@
 .whatsapp-icon:hover .whatsapp-text {
     display: block;
 }
-        .project-preview-container {
-            display: flex;
-            justify-content: center;
-            /* Horizontally center the content */
-            align-items: center;
-            /* Vertically center the content (optional) */
-            height: 100%;
-            /* Adjust the height as needed */
-        }
-        /* Custom CSS for the section */
-        
-      
+       
     body {
     -webkit-user-select: none; /* Safari */
     -moz-user-select: none; /* Firefox */
@@ -182,17 +171,17 @@
             height: 420px;
             min-width: 20px;
         }
+       
         .note-container {
             margin:20px auto;
     padding: 15px;
-    background-color: #d5e5f4;
-    border: 1px solid #1560bd;
+    background-color: rgb(241, 250, 255);
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     font-size: 16px;
     line-height: 1.5;
     color: #333;
-    max-width: 1000px;
+    max-width: 1200px;
     margin-bottom: 15px;
 }
 
@@ -212,92 +201,84 @@
         padding: 10px; 
     }
 }
+.unique-container {
+      max-width: 900px;
+      margin: 30px auto;
+      background-color: rgb(235, 246, 250);
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      border: 8px solid transparent; /* Transparent border for gradient */
+    border-image: linear-gradient(to right, #1560bd, #000040, #1560bd,#000040, #1560bd, #000040,#1560bd) 1; /* Apply the gradient */
 
-/* Basic Reset */
-
-
-/* Container */
-.calculator-container {
-  
-  
-    width: 100%;
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: #ffff;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    font-family: 'Arial', sans-serif;
-    border: 2px dotted #1560bd;
-
+    }
+    @media (max-width: 768px) {
+        .unique-container {
+        margin: 20px 15px; 
+        padding: 15px; 
+    }
 }
 
-
-
-.calculator-title {
-    font-size: 1.8rem;
-    font-weight: bold;
-    color: #1560bd;
-    margin-bottom: 20px;
-    text-align: center;
+@media (max-width: 480px) {
+    .unique-container{
+        margin: 10px 10px; 
+        padding: 10px; 
+    }
 }
+    .unique-header {
+      text-align: center;
+      font-size: 1.8rem;
+      color: #1560bd;
+    }
 
-/* Label */
-.zone-label, .time-label {
-    display: block;
-    margin-bottom: 10px;
-    font-size: 16px;
-    color: #333;
-    font-weight: bold;
-}
+    .unique-select-label {
+      font-size: 16px;
+      margin-bottom: 8px;
+      display: block;
+      color: #555;
+    
+      margin-top: 10px;
+    }
 
-/* Select Fields */
-.zone-select, .time-select {
-    width: 100%;
-    padding: 10px;
-    font-size: 16px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-    margin-bottom: 15px;
-    background-color: rgb(223, 241, 247);
+    .unique-select-dropdown, .unique-get-definition-btn {
+      padding: 12px;
+      margin: 12px 0;
+      width: 100%;
+      font-size: 18px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      box-sizing: border-box;
+      color: #333;
 
-}
+    }
 
-/* Button */
-.calculate-button {
-    width: 100%;
-    padding: 10px;
-    background-color: #1560bd;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    font-size: 16px;
-    cursor: pointer;
-}
+    .unique-get-definition-btn {
+      background-color: #007BFF;
+      color: white;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background-color 0.3s ease;
+    }
 
-.calculate-button:hover {
-    background-color: #357ABD;
-}
+    .unique-get-definition-btn:hover {
+      background-color: #0056b3;
+    }
 
-/* Result Display */
-.result-container {
-    margin-top: 20px;
-    font-size: 18px;
-    color: #333;
-    font-weight: bold;
-}
+    .unique-result {
+    
+      margin-top: 25px;
+      border-radius: 8px;
+      font-size: 16px;
+      color: #1560bd;
+    }
 
-/* Note */
-.note {
-    margin-top: 10px;
-    font-size: 14px;
-    color: #888;
-}
-
-/* Responsive */
-
-
-
+    .unique-select-dropdown {
+      font-size: 16px;
+      padding: 12px;
+    }
+    strong{
+        color: #1560bd;
+    }
 </style>
 	</head>
 
@@ -573,96 +554,112 @@
 
 <br><br><br><br>
 
-<div class="calculator-container">
-    <div class="form-container">
-        <h2 class="calculator-title">Ambient Noise Level Calculator</h2>
 
-        <!-- Category of Area / Zone -->
-        <label for="zone" class="zone-label">Category of Area / Zone:</label>
-        <select id="zone" class="zone-select">
-            <option value="industrial">Industrial Area</option>
-            <option value="residential">Residential Area</option>
-            <option value="commercial">Commercial Area</option>
-            <option value="silence">Silence Zone</option>
-        </select>
 
-        <!-- Time of Day -->
-        <label for="timeOfDay" class="time-label">Time of Day:</label>
-        <select id="timeOfDay" class="time-select">
-            <option value="day">Day Time</option>
-            <option value="night">Night Time</option>
-        </select>
-
-        <!-- Calculate Button -->
-        <button type="button" class="calculate-button" id="calculateBtn">Calculate Ambient Noise Level</button>
-
-        <!-- Result Display -->
-        <div id="result" class="result-container"></div>
-
-        <!-- Dynamic Note -->
-        <div id="note" class="note"></div>
+<div class="unique-container">
+    <h2 class="unique-header">NEMA and IP Ratings Calculator</h2>
+    
+    <label for="ratingType" class="unique-select-label">Select Input Type:</label>
+    <select id="ratingType" class="unique-select-dropdown">
+      <option value="nema">NEMA Rating</option>
+      <option value="ip">IP Rating</option>
+    </select>
+  
+    <label for="ratingSelect" class="unique-select-label">Select Rating:</label>
+    <select id="ratingSelect" class="unique-select-dropdown">
+      <!-- Ratings will be populated dynamically -->
+    </select>
+  
+    <button onclick="getDefinition()" class="unique-get-definition-btn">Get Definition</button>
+  
+    <div class="unique-result" id="result">
+      <!-- Definition will be displayed here -->
     </div>
-</div>
-<div class="note-container">
-    <h3>Important Note</h3>
-    <p>
-        1. Day time shall mean from 6.00 a.m. to 10.00 p.m.<br>
-        2. Night time shall mean from 10.00 p.m. to 6.00 a.m.<br>
-        3. Silence zone is an area comprising not less than 100 metres around hospitals, educational institutions, courts, religious places or any other area which is declared as such by the competent authority.<br>
-        4. Mixed categories of areas may be declared as one of the four above-mentioned categories by the competent authority.<br>
-        <strong>* dB(A) Leq</strong> denotes the time-weighted average of the level of sound in decibels on scale A, which is relatable to human hearing.
-    </p>
-
-    <h3>Disclaimer</h3>
-    <p>This calculator is for educational purposes only. Always refer to The Noise Pollution (Regulation and Control) Rules, 2000 for accurate and legal guidelines.</p>
-</div>
-</div>
-</div>
-
-<script>
-    document.getElementById('calculateBtn').addEventListener('click', function() {
-      let zone = document.getElementById('zone').value;
-      let timeOfDay = document.getElementById('timeOfDay').value;
-      
-      let noiseLevelLimit;
-      let noiseLevelCategory;
+  </div>
+  <div class="note-container">
+    <p><strong>Note:</strong></p>
+    <p>NEMA and IP ratings are both used to measure the protection of electrical enclosures, but they differ in some ways.</p>
+    <ul>
+      <li><strong>NEMA Ratings:</strong> Used mainly in North America. They consider protection against water, solid objects, corrosion, gases, and hazardous environments.</li>
+      <li><strong>IP Ratings:</strong> Used worldwide. They only focus on protection against water and solid objects.</li>
+    </ul>
+    <p><em>This calculator is for educational purposes only. It helps compare NEMA and IP ratings but does not provide a direct conversion between them.</em></p>
+  </div>
   
-      if (zone === "industrial") {
-          if (timeOfDay === "day") {
-              noiseLevelLimit = 75;
-          } else {
-              noiseLevelLimit = 70;
-          }
-      } else if (zone === "residential") {
-          if (timeOfDay === "day") {
-              noiseLevelLimit = 55;
-          } else {
-              noiseLevelLimit = 45;
-          }
-      } else if (zone === "commercial") {
-          if (timeOfDay === "day") {
-              noiseLevelLimit = 65;
-          } else {
-              noiseLevelLimit = 60;
-          }
-      } else if (zone === "silence") {
-          noiseLevelLimit = 40;
-      }
+  <script>
+    const nemaRatings = {
+      "NEMA 1": "Enclosures constructed for indoor use to provide a degree of protection to personnel against incidental contact with the enclosed equipment and to provide a degree of protection against falling dirt.",
+      "NEMA 2": "Enclosures constructed for indoor use to provide a degree of protection to personnel against incidental contact with the enclosed equipment.",
+      "NEMA 3": "Enclosures constructed for outdoor use to provide protection against rain, sleet, and snow.",
+      "NEMA 4": "Enclosures constructed for indoor or outdoor use to provide protection against rain, sleet, snow, and hose-directed water.",
+      "NEMA 6": "Enclosures constructed for indoor or outdoor use to provide protection against hose-directed water and entry of water during occasional temporary immersion.",
+      "NEMA 12": "Enclosures constructed for indoor use to provide protection against dust, dirt, and dripping non-corrosive liquids.",
+      "NEMA 13": "Enclosures constructed for indoor use to provide protection against dust, dirt, and spraying water.",
+      "NEMA 3R": "Enclosures constructed for outdoor use to provide protection against rain, sleet, and snow, but not hose-directed water.",
+      "NEMA 3S": "Similar to NEMA 3R but designed with a swing-out door.",
+      "NEMA 4X": "Enclosures constructed for indoor or outdoor use to provide protection against rain, sleet, snow, and hose-directed water, and are resistant to corrosion.",
+      "NEMA 5P12K": "Enclosures designed to resist corrosive agents and provide protection against dust, dirt, and dripping non-corrosive liquids."
+    };
   
-      if (noiseLevelLimit <= 45) {
-          noiseLevelCategory = "Low";
-      } else if (noiseLevelLimit <= 65) {
-          noiseLevelCategory = "Moderate";
+    const ipRatings = {
+      "IP10": "No protection against solid objects or liquids.",
+      "IP11": "Protection against solid objects larger than 50mm, and protected against vertical drops of water.",
+      "IP54": "Protection against dust and water splashes from all directions.",
+      "IP56": "Protection against dust and strong water jets from any direction.",
+      "IP52": "Protection against dust and dripping water.",
+      "IP67": "Protection against dust and immersion in water up to 1 meter depth.",
+      "IP52": "Protection against dust and dripping water.",
+      "IP54": "Protection against dust and water splashes.",
+      "IP14": "Protection against solid objects larger than 1mm, not protected against water.",
+      "IP56": "Protection against dust and water jets from all directions.",
+      "IP67": "Protection against dust and immersion in water up to 1 meter depth."
+    };
+  
+    function populateRatings() {
+      const ratingType = document.getElementById('ratingType').value;
+      const ratingSelect = document.getElementById('ratingSelect');
+      ratingSelect.innerHTML = ''; // Clear previous options
+  
+      let options = [];
+      if (ratingType === 'nema') {
+        options = Object.keys(nemaRatings);
       } else {
-          noiseLevelCategory = "High";
+        options = Object.keys(ipRatings);
       }
   
-      document.getElementById('result').innerHTML = `Ambient Noise Level Limit: ${noiseLevelLimit} dB(A) - <strong>${noiseLevelCategory}</strong> noise level.`;
-      document.getElementById('note').innerHTML = `<p>The ambient noise level limit for the selected zone is ${noiseLevelLimit} dB(A), which is considered a <strong>${noiseLevelCategory}</strong> noise level.</p>`;
-  });
+      options.forEach(rating => {
+        const option = document.createElement('option');
+        option.value = rating;
+        option.textContent = rating;
+        ratingSelect.appendChild(option);
+      });
+    }
+  
+    function getDefinition() {
+      const ratingType = document.getElementById('ratingType').value;
+      const selectedRating = document.getElementById('ratingSelect').value;
+      const result = document.getElementById('result');
+      
+      if (ratingType === 'nema') {
+        result.innerHTML = `<strong>NEMA Rating:</strong> ${selectedRating}<br><strong>NEMA Definition:</strong> ${nemaRatings[selectedRating]}`;
+      } else {
+        result.innerHTML = `<strong>IP Rating:</strong> ${selectedRating}<br><strong>IP Definition:</strong> ${ipRatings[selectedRating]}`;
+      }
+    }
+  
+    // Initialize rating options
+    populateRatings();
+  
+    // Listen for changes in rating type
+    document.getElementById('ratingType').addEventListener('change', function() {
+      populateRatings();
+    });
   </script>
   
-
+      
+    
+<body>
+   
 
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>

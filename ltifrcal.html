@@ -192,7 +192,7 @@
     font-size: 16px;
     line-height: 1.5;
     color: #333;
-    max-width: 1000px;
+    max-width: 1200px;
     margin-bottom: 15px;
 }
 
@@ -212,92 +212,69 @@
         padding: 10px; 
     }
 }
+strong{
+    color: #007bff;
+}
 
-/* Basic Reset */
 
-
-/* Container */
-.calculator-container {
-  
-  
-    width: 100%;
+        .ltifr-calculator {
+            width: 100%;
     max-width: 800px;
-    margin: 0 auto;
+    margin: 30px auto;
     padding: 20px;
     background-color: #ffff;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     font-family: 'Arial', sans-serif;
     border: 2px dotted #1560bd;
-
 }
-
-
-
-.calculator-title {
-    font-size: 1.8rem;
-    font-weight: bold;
-    color: #1560bd;
-    margin-bottom: 20px;
-    text-align: center;
-}
-
-/* Label */
-.zone-label, .time-label {
-    display: block;
-    margin-bottom: 10px;
-    font-size: 16px;
-    color: #333;
-    font-weight: bold;
-}
-
-/* Select Fields */
-.zone-select, .time-select {
-    width: 100%;
+       
+        .ltifr-calculator h2{
+            text-align: center;
+            font-size: 1.8rem;
+            color: #1560bd;
+            padding: 10px;
+        }
+        .ltifr-input {
+            width: 100%;
     padding: 10px;
     font-size: 16px;
-    border-radius: 5px;
     border: 1px solid #ccc;
-    margin-bottom: 15px;
+    border-radius: 4px;
+    margin-top: 5px;
     background-color: rgb(223, 241, 247);
 
-}
+        }
 
-/* Button */
-.calculate-button {
-    width: 100%;
-    padding: 10px;
-    background-color: #1560bd;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    font-size: 16px;
-    cursor: pointer;
-}
+        .ltifr-button {
+            padding: 10px;
+            background-color: #1560bd;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 20px;
+        }
 
-.calculate-button:hover {
-    background-color: #357ABD;
-}
+        .ltifr-button:hover {
+            background-color: #1676c4;
+        }
 
-/* Result Display */
-.result-container {
-    margin-top: 20px;
-    font-size: 18px;
-    color: #333;
-    font-weight: bold;
-}
+        .ltifr-result {
+            margin-top: 10px;
+            font-size: 18px;
+            font-weight: bold;
+        }
 
-/* Note */
-.note {
-    margin-top: 10px;
-    font-size: 14px;
-    color: #888;
-}
-
-/* Responsive */
-
-
-
+        .ltifr-explanation {
+            margin-top: 10px;
+            font-size: 16px;
+            color: #888;
+        }
+      label{
+        font-weight: bold;
+      }
 </style>
 	</head>
 
@@ -573,95 +550,66 @@
 
 <br><br><br><br>
 
-<div class="calculator-container">
-    <div class="form-container">
-        <h2 class="calculator-title">Ambient Noise Level Calculator</h2>
 
-        <!-- Category of Area / Zone -->
-        <label for="zone" class="zone-label">Category of Area / Zone:</label>
-        <select id="zone" class="zone-select">
-            <option value="industrial">Industrial Area</option>
-            <option value="residential">Residential Area</option>
-            <option value="commercial">Commercial Area</option>
-            <option value="silence">Silence Zone</option>
-        </select>
 
-        <!-- Time of Day -->
-        <label for="timeOfDay" class="time-label">Time of Day:</label>
-        <select id="timeOfDay" class="time-select">
-            <option value="day">Day Time</option>
-            <option value="night">Night Time</option>
-        </select>
-
-        <!-- Calculate Button -->
-        <button type="button" class="calculate-button" id="calculateBtn">Calculate Ambient Noise Level</button>
-
-        <!-- Result Display -->
-        <div id="result" class="result-container"></div>
-
-        <!-- Dynamic Note -->
-        <div id="note" class="note"></div>
+<div class="ltifr-container">
+        <div class="ltifr-calculator">
+            <h2>LTIFR Calculator</h2>
+            <div>
+            <label for="injuries">Number of Lost Time Injuries:</label>
+        </div>
+            <input type="number" id="injuries" class="ltifr-input" placeholder="Enter injuries">
+            <div style="margin-top: 8px;">
+            <label for="hours">Total Hours Worked:</label>
+        </div>
+            <input type="number" id="hours" class="ltifr-input" placeholder="Enter hours worked">
+            <button class="ltifr-button" onclick="calculateLTIFR()">Calculate LTIFR</button>
+            <div id="result" class="ltifr-result"></div>
+            <div id="explanation" class="ltifr-explanation"></div>
+        </div>
     </div>
-</div>
-<div class="note-container">
-    <h3>Important Note</h3>
-    <p>
-        1. Day time shall mean from 6.00 a.m. to 10.00 p.m.<br>
-        2. Night time shall mean from 10.00 p.m. to 6.00 a.m.<br>
-        3. Silence zone is an area comprising not less than 100 metres around hospitals, educational institutions, courts, religious places or any other area which is declared as such by the competent authority.<br>
-        4. Mixed categories of areas may be declared as one of the four above-mentioned categories by the competent authority.<br>
-        <strong>* dB(A) Leq</strong> denotes the time-weighted average of the level of sound in decibels on scale A, which is relatable to human hearing.
-    </p>
 
-    <h3>Disclaimer</h3>
-    <p>This calculator is for educational purposes only. Always refer to The Noise Pollution (Regulation and Control) Rules, 2000 for accurate and legal guidelines.</p>
-</div>
-</div>
-</div>
+    <div class="note-container">
+        <h3>note:</h3>
+        <p>
+            This calculator helps you calculate the Lost Time Injury Frequency Rate (LTIFR) based on the number of lost time injuries and the total hours worked. The LTIFR is calculated by multiplying the number of injuries by 1,000,000 and then dividing by the total hours worked. 
+            The result helps evaluate the safety performance in an organization:
+            <ul>
+                <li><strong>High LTIFR</strong> indicates poor safety performance and a need for improvement.</li>
+                <li><strong>Moderate LTIFR</strong> suggests room for safety improvements.</li>
+                <li><strong>Low LTIFR</strong> is good, but safety measures should continue to improve.</li>
+            </ul>
+        </p>
+    </div>
+    
+    
+    <script>
+        function calculateLTIFR() {
+            var injuries = document.getElementById('injuries').value;
+            var hours = document.getElementById('hours').value;
 
-<script>
-    document.getElementById('calculateBtn').addEventListener('click', function() {
-      let zone = document.getElementById('zone').value;
-      let timeOfDay = document.getElementById('timeOfDay').value;
-      
-      let noiseLevelLimit;
-      let noiseLevelCategory;
-  
-      if (zone === "industrial") {
-          if (timeOfDay === "day") {
-              noiseLevelLimit = 75;
-          } else {
-              noiseLevelLimit = 70;
-          }
-      } else if (zone === "residential") {
-          if (timeOfDay === "day") {
-              noiseLevelLimit = 55;
-          } else {
-              noiseLevelLimit = 45;
-          }
-      } else if (zone === "commercial") {
-          if (timeOfDay === "day") {
-              noiseLevelLimit = 65;
-          } else {
-              noiseLevelLimit = 60;
-          }
-      } else if (zone === "silence") {
-          noiseLevelLimit = 40;
-      }
-  
-      if (noiseLevelLimit <= 45) {
-          noiseLevelCategory = "Low";
-      } else if (noiseLevelLimit <= 65) {
-          noiseLevelCategory = "Moderate";
-      } else {
-          noiseLevelCategory = "High";
-      }
-  
-      document.getElementById('result').innerHTML = `Ambient Noise Level Limit: ${noiseLevelLimit} dB(A) - <strong>${noiseLevelCategory}</strong> noise level.`;
-      document.getElementById('note').innerHTML = `<p>The ambient noise level limit for the selected zone is ${noiseLevelLimit} dB(A), which is considered a <strong>${noiseLevelCategory}</strong> noise level.</p>`;
-  });
-  </script>
-  
+            if (injuries && hours) {
+                var ltifr = (injuries * 1000000) / hours;
+                document.getElementById('result').innerHTML = 'Lost Time Injury Frequency Rate: ' + ltifr.toFixed(2);
+
+                // Explanation
+                var explanation = '';
+                if (ltifr > 1000) {
+                    explanation = 'The LTIFR in this case is very high, indicating a very poor safety performance. The organization should focus on improving safety measures and minimizing injuries.';
+                } else if (ltifr > 100) {
+                    explanation = 'The LTIFR in this case is moderate, indicating some safety concerns. There is room for improvement in reducing injuries.';
+                } else {
+                    explanation = 'The LTIFR in this case is low, indicating good safety performance, but it\'s always good to continue improving safety measures.';
+                }
+
+                document.getElementById('explanation').innerHTML = explanation;
+            } else {
+                document.getElementById('result').innerHTML = 'Please enter both values.';
+                document.getElementById('explanation').innerHTML = '';
+            }
+        }
+    </script>
+
 
 
 

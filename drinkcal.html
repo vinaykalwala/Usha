@@ -204,6 +204,7 @@ h1 {
 .form-group {
     margin-bottom: 20px;
     text-align: left;
+
 }
 
 label {
@@ -218,8 +219,13 @@ select {
     border: 1px solid #d3e0f0;
     border-radius: 5px;
     font-size: 1rem;
-}
+    background-color: rgb(235, 243, 246);
 
+}
+input{
+    background-color: rgb(223, 241, 247);
+
+}
 #calculateBtn {
     width: 100%;
     padding: 15px;
@@ -263,6 +269,7 @@ select {
 
 .note-container p {
     margin-top: 15px;
+    text-align: justify;
 }
 @media (max-width: 768px) {
     .note-container {
@@ -565,7 +572,7 @@ select {
     
     <div class="form-group">
         <label for="lifeStage">Select Your Life Stage:</label>
-        <select id="lifeStage">
+        <select id="lifeStage" class="input-field">
             <option value="infant">Infant</option>
             <option value="child">Child</option>
             <option value="adult">Adult</option>

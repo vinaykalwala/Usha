@@ -122,18 +122,7 @@
 .whatsapp-icon:hover .whatsapp-text {
     display: block;
 }
-        .project-preview-container {
-            display: flex;
-            justify-content: center;
-            /* Horizontally center the content */
-            align-items: center;
-            /* Vertically center the content (optional) */
-            height: 100%;
-            /* Adjust the height as needed */
-        }
-        /* Custom CSS for the section */
-        
-      
+       
     body {
     -webkit-user-select: none; /* Safari */
     -moz-user-select: none; /* Firefox */
@@ -182,11 +171,11 @@
             height: 420px;
             min-width: 20px;
         }
+       
         .note-container {
             margin:20px auto;
     padding: 15px;
     background-color: #d5e5f4;
-    border: 1px solid #1560bd;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     font-size: 16px;
@@ -212,92 +201,115 @@
         padding: 10px; 
     }
 }
+.dart-calculator-container {
+            max-width: 700px;
+            margin:30px auto;
+            padding: 20px;
+            background-color: rgb(238, 248, 251);
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            border-width: 8px;
+            border-style: solid;
+            border-image: linear-gradient(to right, #1560bd, #000040) 1;
+           
+        }
+        @media (max-width: 768px) {
+            .dart-calculator-container {
+        margin: 20px 15px; 
+        padding: 15px; 
+    }
+}
 
-/* Basic Reset */
-
-
-/* Container */
-.calculator-container {
-  
-  
-    width: 100%;
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: #ffff;
+@media (max-width: 480px) {
+    .dart-calculator-container {
+        margin: 10px 10px; 
+        padding: 10px; 
+    }
+}
+        .dart-title {
+            text-align: center;
+            color: #1560bd;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        .dart-form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        .input-label {
+            font-size: 16px;
+            color: #333;
+        }
+        .input-field {
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            font-size: 16px;
+        }
+        .calculate-btn {
+            background-color: #1560bd;
+            color: white;
+            padding: 10px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .calculate-btn:hover {
+            background-color: #0f4e88;
+        }
+        .result-container {
+            margin-top: 20px;
+            text-align: center;
+            font-size: 18px;
+        }
+        .result-message {
+            font-weight: bold;
+        }
+        .suggestions {
+            color: #888;
+            margin-top: 10px;
+        }
+        .result-bad {
+            color: red;
+        }
+        .result-good {
+            color: green;
+        }
+        .note-container {
+            margin:20px auto;
+    padding: 15px;
+    background-color: rgb(241, 250, 255);
     border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    font-family: 'Arial', sans-serif;
-    border: 2px dotted #1560bd;
-
-}
-
-
-
-.calculator-title {
-    font-size: 1.8rem;
-    font-weight: bold;
-    color: #1560bd;
-    margin-bottom: 20px;
-    text-align: center;
-}
-
-/* Label */
-.zone-label, .time-label {
-    display: block;
-    margin-bottom: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     font-size: 16px;
+    line-height: 1.5;
     color: #333;
-    font-weight: bold;
-}
-
-/* Select Fields */
-.zone-select, .time-select {
-    width: 100%;
-    padding: 10px;
-    font-size: 16px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
+    max-width: 1200px;
     margin-bottom: 15px;
-    background-color: rgb(223, 241, 247);
-
 }
 
-/* Button */
-.calculate-button {
-    width: 100%;
-    padding: 10px;
-    background-color: #1560bd;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    font-size: 16px;
-    cursor: pointer;
-}
-
-.calculate-button:hover {
-    background-color: #357ABD;
-}
-
-/* Result Display */
-.result-container {
-    margin-top: 20px;
+.note-container h3 {
+    margin-top: 0;
+    color: #007bff;
     font-size: 18px;
-    color: #333;
-    font-weight: bold;
 }
 
-/* Note */
-.note {
-    margin-top: 10px;
-    font-size: 14px;
-    color: #888;
+.note-container p {
+    margin-top: 15px;
+    text-align: justify;
 }
-
-/* Responsive */
-
-
-
+@media (max-width: 768px) {
+    .note-container {
+        margin: 15px; 
+        padding: 10px; 
+    }
+}
+strong{
+    color: #007bff;
+}
 </style>
 	</head>
 
@@ -573,96 +585,82 @@
 
 <br><br><br><br>
 
-<div class="calculator-container">
-    <div class="form-container">
-        <h2 class="calculator-title">Ambient Noise Level Calculator</h2>
 
-        <!-- Category of Area / Zone -->
-        <label for="zone" class="zone-label">Category of Area / Zone:</label>
-        <select id="zone" class="zone-select">
-            <option value="industrial">Industrial Area</option>
-            <option value="residential">Residential Area</option>
-            <option value="commercial">Commercial Area</option>
-            <option value="silence">Silence Zone</option>
-        </select>
 
-        <!-- Time of Day -->
-        <label for="timeOfDay" class="time-label">Time of Day:</label>
-        <select id="timeOfDay" class="time-select">
-            <option value="day">Day Time</option>
-            <option value="night">Night Time</option>
-        </select>
+<div class="dart-calculator-container">
+    <h1 class="dart-title">OSHA DART Rate Calculator</h1>
+    
+    <div class="dart-form">
+        <label class="input-label" for="dartIncidents">Number of DART Incidents:</label>
+        <input type="number" id="dartIncidents" class="input-field" placeholder="Enter number of DART incidents" required>
 
-        <!-- Calculate Button -->
-        <button type="button" class="calculate-button" id="calculateBtn">Calculate Ambient Noise Level</button>
+        <label class="input-label" for="employeeHours">Total Employee Hours Worked:</label>
+        <input type="number" id="employeeHours" class="input-field" placeholder="Enter total hours worked" required>
 
-        <!-- Result Display -->
-        <div id="result" class="result-container"></div>
-
-        <!-- Dynamic Note -->
-        <div id="note" class="note"></div>
+        <button class="calculate-btn" onclick="calculateDART()">Calculate DART Rate</button>
     </div>
+
+    <div id="result" class="result-container"></div>
 </div>
 <div class="note-container">
-    <h3>Important Note</h3>
+    <h3>note:</h3>
     <p>
-        1. Day time shall mean from 6.00 a.m. to 10.00 p.m.<br>
-        2. Night time shall mean from 10.00 p.m. to 6.00 a.m.<br>
-        3. Silence zone is an area comprising not less than 100 metres around hospitals, educational institutions, courts, religious places or any other area which is declared as such by the competent authority.<br>
-        4. Mixed categories of areas may be declared as one of the four above-mentioned categories by the competent authority.<br>
-        <strong>* dB(A) Leq</strong> denotes the time-weighted average of the level of sound in decibels on scale A, which is relatable to human hearing.
+        This calculator helps you calculate the OSHA DART (Days Away, Restricted, or Transferred) Rate, which is used to measure the severity of injuries and illnesses in the workplace. 
+        The DART Rate is calculated by multiplying the number of DART incidents by 200,000 (a standard multiplier) and dividing by the total employee hours worked.
+        The result helps evaluate the workplace's safety record:
+        <ul>
+            <li><strong>Good DART Rate (≤ 1)</strong>: Indicates that the workplace has a low incident rate and safety practices are effective.</li>
+            <li><strong>Acceptable DART Rate (1 - 3)</strong>: Indicates that the rate is acceptable but there’s still room for improvement.</li>
+            <li><strong>Bad DART Rate (> 3)</strong>: Indicates a higher-than-expected rate, signaling the need for immediate action to enhance safety and reduce incidents.</li>
+        </ul>
     </p>
-
-    <h3>Disclaimer</h3>
-    <p>This calculator is for educational purposes only. Always refer to The Noise Pollution (Regulation and Control) Rules, 2000 for accurate and legal guidelines.</p>
 </div>
-</div>
-</div>
-
 <script>
-    document.getElementById('calculateBtn').addEventListener('click', function() {
-      let zone = document.getElementById('zone').value;
-      let timeOfDay = document.getElementById('timeOfDay').value;
-      
-      let noiseLevelLimit;
-      let noiseLevelCategory;
-  
-      if (zone === "industrial") {
-          if (timeOfDay === "day") {
-              noiseLevelLimit = 75;
-          } else {
-              noiseLevelLimit = 70;
-          }
-      } else if (zone === "residential") {
-          if (timeOfDay === "day") {
-              noiseLevelLimit = 55;
-          } else {
-              noiseLevelLimit = 45;
-          }
-      } else if (zone === "commercial") {
-          if (timeOfDay === "day") {
-              noiseLevelLimit = 65;
-          } else {
-              noiseLevelLimit = 60;
-          }
-      } else if (zone === "silence") {
-          noiseLevelLimit = 40;
-      }
-  
-      if (noiseLevelLimit <= 45) {
-          noiseLevelCategory = "Low";
-      } else if (noiseLevelLimit <= 65) {
-          noiseLevelCategory = "Moderate";
-      } else {
-          noiseLevelCategory = "High";
-      }
-  
-      document.getElementById('result').innerHTML = `Ambient Noise Level Limit: ${noiseLevelLimit} dB(A) - <strong>${noiseLevelCategory}</strong> noise level.`;
-      document.getElementById('note').innerHTML = `<p>The ambient noise level limit for the selected zone is ${noiseLevelLimit} dB(A), which is considered a <strong>${noiseLevelCategory}</strong> noise level.</p>`;
-  });
-  </script>
-  
+    function calculateDART() {
+        const dartIncidents = parseInt(document.getElementById('dartIncidents').value);
+        const employeeHours = parseInt(document.getElementById('employeeHours').value);
 
+        if (isNaN(dartIncidents) || isNaN(employeeHours) || dartIncidents < 0 || employeeHours <= 0) {
+            alert('Please enter valid numbers.');
+            return;
+        }
+
+        const dartRate = (dartIncidents * 200000) / employeeHours;
+        const resultContainer = document.getElementById('result');
+
+        let resultMessage = '';
+        let suggestions = '';
+
+        // Adjusted condition for DART Rate values
+        if (dartRate <= 1) {
+            resultMessage = `DART Rate: ${dartRate.toFixed(2)} (Good)`;
+            suggestions = 'Your workplace has a relatively low DART rate. Keep up the good safety practices!';
+            resultContainer.classList.add('result-good');
+            resultContainer.classList.remove('result-bad');
+        } else if (dartRate > 1 && dartRate <= 3) {
+            resultMessage = `DART Rate: ${dartRate.toFixed(2)} (Acceptable)`;
+            suggestions = 'The rate is acceptable but there is room for improvement. Review safety protocols and training.';
+            resultContainer.classList.add('result-good');
+            resultContainer.classList.remove('result-bad');
+        } else {
+            resultMessage = `DART Rate: ${dartRate.toFixed(2)} (Bad)`;
+            suggestions = 'The rate is higher than average. Take immediate action to improve safety and reduce incidents.';
+            resultContainer.classList.add('result-bad');
+            resultContainer.classList.remove('result-good');
+        }
+
+        resultContainer.innerHTML = `
+            <p class="result-message">${resultMessage}</p>
+            <p class="suggestions">${suggestions}</p>
+        `;
+    }
+</script>
+
+
+      
+    
+<body>
+   
 
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>

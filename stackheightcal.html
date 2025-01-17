@@ -122,18 +122,7 @@
 .whatsapp-icon:hover .whatsapp-text {
     display: block;
 }
-        .project-preview-container {
-            display: flex;
-            justify-content: center;
-            /* Horizontally center the content */
-            align-items: center;
-            /* Vertically center the content (optional) */
-            height: 100%;
-            /* Adjust the height as needed */
-        }
-        /* Custom CSS for the section */
-        
-      
+       
     body {
     -webkit-user-select: none; /* Safari */
     -moz-user-select: none; /* Firefox */
@@ -182,7 +171,104 @@
             height: 420px;
             min-width: 20px;
         }
-        .note-container {
+        .stack-calculator {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    border: 2px dotted #1560bd;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    background-color: #ffff;
+}
+@media (max-width: 768px) {
+    .stack-calculator {
+        margin: 20px 15px; 
+        padding: 15px; 
+    }
+}
+
+@media (max-width: 480px) {
+    .stack-calculator {
+        margin: 10px 10px; 
+        padding: 10px; 
+    }
+}
+.stack-calculator__title {
+    text-align: center;
+    font-size: 1.8em;
+    color: #1560bd;
+    margin-bottom: 20px;
+}
+
+.stack-calculator__field {
+    margin-bottom: 15px;
+}
+
+.stack-calculator__label {
+    font-size: 1em;
+    color: #555;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.stack-calculator__input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1em;
+    box-sizing: border-box;
+    background-color: rgb(223, 241, 247);
+
+}
+
+.stack-calculator__button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #1560bd;
+    color: #fff;
+    font-size: 1em;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.stack-calculator__button:hover {
+    background-color: #68a4ed;
+}
+
+.stack-calculator__result {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.stack-calculator__result-title {
+    font-size: 1.5em;
+    color: #333;
+}
+
+.stack-calculator__result-value {
+    font-size: 1.2em;
+    color: #007bff;
+}
+
+/* Responsive Styles */
+@media (max-width: 480px) {
+    .stack-calculator {
+        padding: 15px;
+    }
+
+    .stack-calculator__title {
+        font-size: 1.5em;
+    }
+
+    .stack-calculator__button {
+        font-size: 0.9em;
+    }
+}
+.note-container {
             margin:20px auto;
     padding: 15px;
     background-color: #d5e5f4;
@@ -192,7 +278,7 @@
     font-size: 16px;
     line-height: 1.5;
     color: #333;
-    max-width: 1000px;
+    max-width: 1200px;
     margin-bottom: 15px;
 }
 
@@ -212,92 +298,9 @@
         padding: 10px; 
     }
 }
-
-/* Basic Reset */
-
-
-/* Container */
-.calculator-container {
-  
-  
-    width: 100%;
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: #ffff;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    font-family: 'Arial', sans-serif;
-    border: 2px dotted #1560bd;
-
+strong{
+    color: #035c8d;
 }
-
-
-
-.calculator-title {
-    font-size: 1.8rem;
-    font-weight: bold;
-    color: #1560bd;
-    margin-bottom: 20px;
-    text-align: center;
-}
-
-/* Label */
-.zone-label, .time-label {
-    display: block;
-    margin-bottom: 10px;
-    font-size: 16px;
-    color: #333;
-    font-weight: bold;
-}
-
-/* Select Fields */
-.zone-select, .time-select {
-    width: 100%;
-    padding: 10px;
-    font-size: 16px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-    margin-bottom: 15px;
-    background-color: rgb(223, 241, 247);
-
-}
-
-/* Button */
-.calculate-button {
-    width: 100%;
-    padding: 10px;
-    background-color: #1560bd;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    font-size: 16px;
-    cursor: pointer;
-}
-
-.calculate-button:hover {
-    background-color: #357ABD;
-}
-
-/* Result Display */
-.result-container {
-    margin-top: 20px;
-    font-size: 18px;
-    color: #333;
-    font-weight: bold;
-}
-
-/* Note */
-.note {
-    margin-top: 10px;
-    font-size: 14px;
-    color: #888;
-}
-
-/* Responsive */
-
-
-
 </style>
 	</head>
 
@@ -573,95 +576,88 @@
 
 <br><br><br><br>
 
-<div class="calculator-container">
-    <div class="form-container">
-        <h2 class="calculator-title">Ambient Noise Level Calculator</h2>
 
-        <!-- Category of Area / Zone -->
-        <label for="zone" class="zone-label">Category of Area / Zone:</label>
-        <select id="zone" class="zone-select">
-            <option value="industrial">Industrial Area</option>
-            <option value="residential">Residential Area</option>
-            <option value="commercial">Commercial Area</option>
-            <option value="silence">Silence Zone</option>
-        </select>
-
-        <!-- Time of Day -->
-        <label for="timeOfDay" class="time-label">Time of Day:</label>
-        <select id="timeOfDay" class="time-select">
-            <option value="day">Day Time</option>
-            <option value="night">Night Time</option>
-        </select>
-
-        <!-- Calculate Button -->
-        <button type="button" class="calculate-button" id="calculateBtn">Calculate Ambient Noise Level</button>
-
-        <!-- Result Display -->
-        <div id="result" class="result-container"></div>
-
-        <!-- Dynamic Note -->
-        <div id="note" class="note"></div>
+<div class="stack-calculator">
+    <h1 class="stack-calculator__title">Stack Height Calculator</h1>
+    <form class="stack-calculator__form" id="stackForm">
+        <div class="stack-calculator__field">
+            <label for="buildingHeight" class="stack-calculator__label">
+                Height of the Building (h) in metres:
+            </label>
+            <input
+                type="number"
+                id="buildingHeight"
+                class="stack-calculator__input"
+                placeholder="Enter building height"
+                required
+            >
+        </div>
+        <div class="stack-calculator__field">
+            <label for="generatorCapacity" class="stack-calculator__label">
+                Total Generator Capacity (KVA):
+            </label>
+            <input
+                type="number"
+                id="generatorCapacity"
+                class="stack-calculator__input"
+                placeholder="Enter generator capacity"
+                required
+            >
+        </div>
+        <button
+            type="button"
+            class="stack-calculator__button"
+            onclick="calculateStackHeight()"
+        >
+            Calculate Stack Height
+        </button>
+    </form>
+    <div class="stack-calculator__result" id="result" style="display: none;">
+        <h2 class="stack-calculator__result-title">Total Height of Stack (H):</h2>
+        <p id="stackHeight" class="stack-calculator__result-value"></p>
     </div>
 </div>
-<div class="note-container">
-    <h3>Important Note</h3>
-    <p>
-        1. Day time shall mean from 6.00 a.m. to 10.00 p.m.<br>
-        2. Night time shall mean from 10.00 p.m. to 6.00 a.m.<br>
-        3. Silence zone is an area comprising not less than 100 metres around hospitals, educational institutions, courts, religious places or any other area which is declared as such by the competent authority.<br>
-        4. Mixed categories of areas may be declared as one of the four above-mentioned categories by the competent authority.<br>
-        <strong>* dB(A) Leq</strong> denotes the time-weighted average of the level of sound in decibels on scale A, which is relatable to human hearing.
-    </p>
 
-    <h3>Disclaimer</h3>
-    <p>This calculator is for educational purposes only. Always refer to The Noise Pollution (Regulation and Control) Rules, 2000 for accurate and legal guidelines.</p>
+<div class="note-container">
+    <h3>How the Stack Height Calculator Works:</h3>
+    <p>This tool helps you estimate the total height of the exhaust stack needed for a generator based on the height of the building and the generator's power capacity.</p>
+    <p>The calculation is based on two main inputs:</p>
+    <ul>
+        <li><strong>Height of the Building (h):</strong> The height of the building where the generator is installed.</li>
+        <li><strong>Total Generator Capacity (KVA):</strong> The total power output of the generator, measured in kilovolt-amperes (KVA).</li>
+    </ul>
+    <p>To calculate the required stack height, the formula combines both values:</p>
+    <ul>
+        <li>The height of the building is added to an additional height based on the generator's capacity.</li>
+        <li>The generator's capacity is used to calculate an additional height of <strong>0.2 times the square root of the KVA value</strong>. This helps ensure proper dispersion of exhaust gases.</li>
+    </ul>
+    <p>This results in an estimated total stack height that ensures safe and effective exhaust dispersion for the generator.</p>
+    <p><strong>Note:</strong> While the calculator gives a general estimate, always consult with an engineer or regulatory body for precise calculations and to ensure compliance with environmental standards.</p>
 </div>
-</div>
-</div>
+
 
 <script>
-    document.getElementById('calculateBtn').addEventListener('click', function() {
-      let zone = document.getElementById('zone').value;
-      let timeOfDay = document.getElementById('timeOfDay').value;
-      
-      let noiseLevelLimit;
-      let noiseLevelCategory;
-  
-      if (zone === "industrial") {
-          if (timeOfDay === "day") {
-              noiseLevelLimit = 75;
-          } else {
-              noiseLevelLimit = 70;
-          }
-      } else if (zone === "residential") {
-          if (timeOfDay === "day") {
-              noiseLevelLimit = 55;
-          } else {
-              noiseLevelLimit = 45;
-          }
-      } else if (zone === "commercial") {
-          if (timeOfDay === "day") {
-              noiseLevelLimit = 65;
-          } else {
-              noiseLevelLimit = 60;
-          }
-      } else if (zone === "silence") {
-          noiseLevelLimit = 40;
-      }
-  
-      if (noiseLevelLimit <= 45) {
-          noiseLevelCategory = "Low";
-      } else if (noiseLevelLimit <= 65) {
-          noiseLevelCategory = "Moderate";
-      } else {
-          noiseLevelCategory = "High";
-      }
-  
-      document.getElementById('result').innerHTML = `Ambient Noise Level Limit: ${noiseLevelLimit} dB(A) - <strong>${noiseLevelCategory}</strong> noise level.`;
-      document.getElementById('note').innerHTML = `<p>The ambient noise level limit for the selected zone is ${noiseLevelLimit} dB(A), which is considered a <strong>${noiseLevelCategory}</strong> noise level.</p>`;
-  });
-  </script>
-  
+    function calculateStackHeight() {
+    const buildingHeight = parseFloat(document.getElementById("buildingHeight").value);
+    const generatorCapacity = parseFloat(document.getElementById("generatorCapacity").value);
+
+    if (!buildingHeight || !generatorCapacity) {
+        alert("Please fill out both fields!");
+        return;
+    }
+
+    // Correct formula: H = h + 0.2 × √(KVA)
+    const stackHeight = buildingHeight + 0.2 * Math.sqrt(generatorCapacity);
+
+    // Display result
+    const resultDiv = document.getElementById("result");
+    const stackHeightDisplay = document.getElementById("stackHeight");
+
+    stackHeightDisplay.textContent = `${stackHeight.toFixed(2)} metres`;
+    resultDiv.style.display = "block";
+}
+
+</script>
 
 
 

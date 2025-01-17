@@ -122,18 +122,7 @@
 .whatsapp-icon:hover .whatsapp-text {
     display: block;
 }
-        .project-preview-container {
-            display: flex;
-            justify-content: center;
-            /* Horizontally center the content */
-            align-items: center;
-            /* Vertically center the content (optional) */
-            height: 100%;
-            /* Adjust the height as needed */
-        }
-        /* Custom CSS for the section */
-        
-      
+       
     body {
     -webkit-user-select: none; /* Safari */
     -moz-user-select: none; /* Firefox */
@@ -182,6 +171,7 @@
             height: 420px;
             min-width: 20px;
         }
+       
         .note-container {
             margin:20px auto;
     padding: 15px;
@@ -192,14 +182,14 @@
     font-size: 16px;
     line-height: 1.5;
     color: #333;
-    max-width: 1000px;
+    max-width: 1200px;
     margin-bottom: 15px;
 }
 
 .note-container h3 {
-    margin-top: 0;
-    color: #007bff;
-    font-size: 18px;
+    margin-bottom: 10px;
+    color: #1560bd;
+    font-size: 2rem;
 }
 
 .note-container p {
@@ -212,92 +202,121 @@
         padding: 10px; 
     }
 }
-
-/* Basic Reset */
-
-
-/* Container */
-.calculator-container {
-  
-  
-    width: 100%;
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: #ffff;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    font-family: 'Arial', sans-serif;
-    border: 2px dotted #1560bd;
-
+.ex-note {
+    margin-bottom: 25px;
 }
 
-
-
-.calculator-title {
-    font-size: 1.8rem;
-    font-weight: bold;
+.ex-note h4 {
+    font-size: 1.4em;
     color: #1560bd;
-    margin-bottom: 20px;
-    text-align: center;
-}
-
-/* Label */
-.zone-label, .time-label {
-    display: block;
     margin-bottom: 10px;
-    font-size: 16px;
-    color: #333;
-    font-weight: bold;
 }
 
-/* Select Fields */
-.zone-select, .time-select {
-    width: 100%;
-    padding: 10px;
-    font-size: 16px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-    margin-bottom: 15px;
-    background-color: rgb(223, 241, 247);
-
+.ex-note p, .ex-note ul {
+    font-size: 1em;
+    color: #555;
+    line-height: 1.6;
 }
 
-/* Button */
-.calculate-button {
-    width: 100%;
-    padding: 10px;
-    background-color: #1560bd;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    font-size: 16px;
-    cursor: pointer;
+.ex-note ul {
+    padding-left: 20px;
 }
 
-.calculate-button:hover {
-    background-color: #357ABD;
+.ex-note ul li {
+    list-style-type: disc;
 }
 
-/* Result Display */
-.result-container {
-    margin-top: 20px;
-    font-size: 18px;
-    color: #333;
-    font-weight: bold;
+.ex-note strong {
+    color: #1560bd;
 }
 
-/* Note */
-.note {
-    margin-top: 10px;
-    font-size: 14px;
-    color: #888;
+        .ex-calculator-container {
+            max-width: 1000px;
+            margin: 40px auto;
+            background: #fff;
+            border-radius: 8px;
+            padding: 25px;
+            box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
+            border: 2px dotted #1560bd;
+        }
+        @media (max-width: 768px) {
+            .ex-calculator-container {
+        margin: 20px 15px; 
+        padding: 15px; 
+    }
 }
 
-/* Responsive */
+@media (max-width: 480px) {
+    .ex-calculator-container {
+        margin: 10px 10px; 
+        padding: 10px; 
+    }
+}
+        .ex-calculator-title {
+            text-align: center;
+            color: #1560bd;
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+        }
 
+        .ex-calculator-label {
+            color: #5d5c5c;
+        }
 
+        .ex-calculator-select,
+        .ex-calculator-input,
+        .ex-calculator-button {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            font-size: 1em;
+            background-color: rgb(223, 241, 247);
 
+        }
+
+        .ex-calculator-select:focus,
+        .ex-calculator-input:focus {
+            border-color: #1560bd;
+            outline: none;
+        }
+
+        .ex-calculator-button {
+            background-color: #1560bd;
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .ex-calculator-button:hover {
+            background-color: #0f4f8f;
+        }
+
+        .ex-result-container {
+            margin-top: 20px;
+            background: #f1f8ff;
+            padding: 15px;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+        }
+
+        .ex-result-container p {
+            font-size: 1.1em;
+            margin: 8px 0;
+        }
+
+        .ex-result-container span {
+            color: #1560bd;
+            font-weight: bold;
+        }
+
+        .ex-soil-description {
+            font-style: italic;
+            color: #777;
+            margin-top: 15px;
+        }
 </style>
 	</head>
 
@@ -571,98 +590,157 @@
                     </div>     <!-- End header-wrapper -->
                 </header>	
 
-<br><br><br><br>
+<br><br><br>
 
-<div class="calculator-container">
-    <div class="form-container">
-        <h2 class="calculator-title">Ambient Noise Level Calculator</h2>
 
-        <!-- Category of Area / Zone -->
-        <label for="zone" class="zone-label">Category of Area / Zone:</label>
-        <select id="zone" class="zone-select">
-            <option value="industrial">Industrial Area</option>
-            <option value="residential">Residential Area</option>
-            <option value="commercial">Commercial Area</option>
-            <option value="silence">Silence Zone</option>
-        </select>
 
-        <!-- Time of Day -->
-        <label for="timeOfDay" class="time-label">Time of Day:</label>
-        <select id="timeOfDay" class="time-select">
-            <option value="day">Day Time</option>
-            <option value="night">Night Time</option>
-        </select>
+<div class="ex-calculator-container">
+    <h2 class="ex-calculator-title">Excavation Slope Calculator</h2>
+    
+    <label class="ex-calculator-label" for="soil-type">Select Soil Type:</label>
+    <select id="soil-type" class="ex-calculator-select">
+        <option value="">-- Select Soil Type --</option>
+        <option value="a">Type A Soil</option>
+        <option value="b">Type B Soil</option>
+        <option value="c">Type C Soil</option>
+        <option value="d">Stable Rock</option>
+    </select>
 
-        <!-- Calculate Button -->
-        <button type="button" class="calculate-button" id="calculateBtn">Calculate Ambient Noise Level</button>
+    <label class="ex-calculator-label" for="height">Enter Height of Excavation (in meters):</label>
+    <input type="number" id="height" class="ex-calculator-input" max="6" placeholder="Enter height in meters (Maximum - 6 m)">
 
-        <!-- Result Display -->
-        <div id="result" class="result-container"></div>
+    <label class="ex-calculator-label" for="width">Enter Width of Excavation (in meters):</label>
+    <input type="number" id="width" class="ex-calculator-input" max="6" placeholder="Enter width in meters (Maximum - 6 m)">
 
-        <!-- Dynamic Note -->
-        <div id="note" class="note"></div>
-    </div>
+    <button class="ex-calculator-button" onclick="calculateSlope()">Calculate Excavation Slope Requirement</button>
+
+    <div class="ex-result-container" id="result"></div>
+    <div class="ex-soil-description" id="soil-description"></div>
 </div>
+
+<!-- Note Container Section -->
 <div class="note-container">
-    <h3>Important Note</h3>
-    <p>
-        1. Day time shall mean from 6.00 a.m. to 10.00 p.m.<br>
-        2. Night time shall mean from 10.00 p.m. to 6.00 a.m.<br>
-        3. Silence zone is an area comprising not less than 100 metres around hospitals, educational institutions, courts, religious places or any other area which is declared as such by the competent authority.<br>
-        4. Mixed categories of areas may be declared as one of the four above-mentioned categories by the competent authority.<br>
-        <strong>* dB(A) Leq</strong> denotes the time-weighted average of the level of sound in decibels on scale A, which is relatable to human hearing.
-    </p>
+    <h3>Soil Types and Characteristics</h3>
+    <div class="ex-note">
+        <h4>Type A Soil:</h4>
+        <p><strong>Description:</strong> Cohesive soils with an unconfined compressive strength of 1.5 ton per square foot (144 kPa) or greater.</p>
+        <p><strong>Examples:</strong> Clay, silty clay, sandy clay, clay loam, silty clay loam, sandy clay loam, cemented soils such as caliche and hardpan.</p>
+        <p><strong>Exceptions:</strong> No soil is Type A if:</p>
+        <ul>
+            <li>The soil is fissured;</li>
+            <li>The soil is subject to vibration from heavy traffic, pile driving, or similar effects;</li>
+            <li>The soil has been previously disturbed;</li>
+            <li>The soil is part of a sloped, layered system with a slope of 4H:1V or greater;</li>
+            <li>Other factors that make it less stable.</li>
+        </ul>
+    </div>
 
-    <h3>Disclaimer</h3>
-    <p>This calculator is for educational purposes only. Always refer to The Noise Pollution (Regulation and Control) Rules, 2000 for accurate and legal guidelines.</p>
-</div>
-</div>
+    <div class="ex-note">
+        <h4>Type B Soil:</h4>
+        <p><strong>Description:</strong> Cohesive soils with an unconfined compressive strength greater than 0.5 tsf but less than 1.5 tsf. Granular cohesionless soils like angular gravel, silt, sandy loam, etc.</p>
+        <p><strong>Examples:</strong> Angular gravel, silt, silt loam, sandy loam, silty clay loam, sandy clay loam.</p>
+        <p><strong>Exceptions:</strong> No soil is Type B if:</p>
+        <ul>
+            <li>The soil is fissured or subject to vibration;</li>
+            <li>The soil is previously disturbed;</li>
+            <li>The soil meets Type A requirements but is fissured or vibrated;</li>
+            <li>The material is part of a sloped, layered system with a slope less steep than 4H:1V.</li>
+        </ul>
+    </div>
+
+    <div class="ex-note">
+        <h4>Type C Soil:</h4>
+        <p><strong>Description:</strong> Cohesive soils with an unconfined compressive strength of 0.5 tsf or less, or granular soils such as gravel, sand, loamy sand.</p>
+        <p><strong>Examples:</strong> Gravel, sand, loamy sand, submerged soil, or soil from which water is freely seeping.</p>
+        <p><strong>Exceptions:</strong> No soil is Type C if:</p>
+        <ul>
+            <li>The soil is stable rock;</li>
+            <li>The material is part of a sloped, layered system with a slope of 4H:1V or steeper.</li>
+        </ul>
+    </div>
+
+    <div class="ex-note">
+        <h4>Stable Rock:</h4>
+        <p><strong>Description:</strong> Stable rock has a vertical height-to-depth ratio with a 90° slope angle. No specific slope is required since it's stable.</p>
+        <p><strong>Examples:</strong> Bedrock, unfractured rock.</p>
+        <p><strong>Exceptions:</strong> No soil is considered stable rock if it is fractured or easily disturbed.</p>
+    </div>
 </div>
 
 <script>
-    document.getElementById('calculateBtn').addEventListener('click', function() {
-      let zone = document.getElementById('zone').value;
-      let timeOfDay = document.getElementById('timeOfDay').value;
-      
-      let noiseLevelLimit;
-      let noiseLevelCategory;
-  
-      if (zone === "industrial") {
-          if (timeOfDay === "day") {
-              noiseLevelLimit = 75;
-          } else {
-              noiseLevelLimit = 70;
-          }
-      } else if (zone === "residential") {
-          if (timeOfDay === "day") {
-              noiseLevelLimit = 55;
-          } else {
-              noiseLevelLimit = 45;
-          }
-      } else if (zone === "commercial") {
-          if (timeOfDay === "day") {
-              noiseLevelLimit = 65;
-          } else {
-              noiseLevelLimit = 60;
-          }
-      } else if (zone === "silence") {
-          noiseLevelLimit = 40;
-      }
-  
-      if (noiseLevelLimit <= 45) {
-          noiseLevelCategory = "Low";
-      } else if (noiseLevelLimit <= 65) {
-          noiseLevelCategory = "Moderate";
-      } else {
-          noiseLevelCategory = "High";
-      }
-  
-      document.getElementById('result').innerHTML = `Ambient Noise Level Limit: ${noiseLevelLimit} dB(A) - <strong>${noiseLevelCategory}</strong> noise level.`;
-      document.getElementById('note').innerHTML = `<p>The ambient noise level limit for the selected zone is ${noiseLevelLimit} dB(A), which is considered a <strong>${noiseLevelCategory}</strong> noise level.</p>`;
-  });
-  </script>
-  
+    function calculateSlope() {
+        // Get values from input fields
+        const soilType = document.getElementById("soil-type").value;
+        const height = parseFloat(document.getElementById("height").value);
+        const width = parseFloat(document.getElementById("width").value);
 
+        // Check for valid inputs
+        if (!soilType || isNaN(height) || isNaN(width)) {
+            alert("Please fill in all fields with valid values.");
+            return;
+        }
+
+        if (height > 6 || width > 6) {
+            alert("Maximum allowed height and width is 6 meters.");
+            return;
+        }
+
+        let slopeFactor;
+        let slopeAngle;
+        let slopeRatio;
+        let soilDescription;
+
+        // Set slope ratio, angle, and description based on soil type
+        switch (soilType) {
+            case "a":
+                slopeRatio = 0.75; // Type A Soil (53° angle)
+                slopeAngle = 53;
+                soilDescription = "Type A Soil: Cohesive soils with unconfined compressive strength of 1.5 tsf or greater.";
+                break;
+            case "b":
+                slopeRatio = 1; // Type B Soil (45° angle)
+                slopeAngle = 45;
+                soilDescription = "Type B Soil: Cohesive soil with unconfined compressive strength greater than 0.5 tsf but less than 1.5 tsf.";
+                break;
+            case "c":
+                slopeRatio = 1.5; // Type C Soil (34° angle)
+                slopeAngle = 34;
+                soilDescription = "Type C Soil: Cohesive soil with unconfined compressive strength of 0.5 tsf or less.";
+                break;
+            case "d":
+                // Stable Rock: No slope, slope ratio is 0:1, top width same as given
+                slopeRatio = 0; // No slope
+                slopeAngle = 90; // 90° angle (vertical)
+                soilDescription = "Stable Rock: Vertical height-to-depth ratio with a 90° slope angle.";
+                document.getElementById("result").innerHTML = `
+                    <p><span>Soil Type:</span> Stable Rock</p>
+                    <p><span>Slope Angle:</span> 90° (No slope calculation needed)</p>
+                    <p><span>Recommended Slope Ratio:</span> 0 : 1</p>
+                    <p><span>Top Width:</span> ${width} meters</p>
+                `;
+                document.getElementById("soil-description").innerHTML = soilDescription;
+                return;
+            default:
+                alert("Please select a valid soil type.");
+                return;
+        }
+
+        // Calculate the slope requirement based on height and soil type
+        const requiredSlope = height * slopeRatio;
+        const topWidth = 2 * height * slopeRatio + width;
+
+        // Display result in a structured way
+        document.getElementById("result").innerHTML = `
+            <p><span>Soil Type:</span> ${soilType.toUpperCase()}</p>
+            <p><span>Recommended Slope Ratio:</span> ${slopeRatio} : 1</p>
+            <p><span>Top Width:</span> ${topWidth.toFixed(2)} meters</p>
+            <p><span>Slope Angle:</span> ${slopeAngle}°</p>
+        `;
+
+        // Display soil type description
+        document.getElementById("soil-description").innerHTML = soilDescription;
+    }
+</script>
 
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>

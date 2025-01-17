@@ -122,18 +122,7 @@
 .whatsapp-icon:hover .whatsapp-text {
     display: block;
 }
-        .project-preview-container {
-            display: flex;
-            justify-content: center;
-            /* Horizontally center the content */
-            align-items: center;
-            /* Vertically center the content (optional) */
-            height: 100%;
-            /* Adjust the height as needed */
-        }
-        /* Custom CSS for the section */
-        
-      
+       
     body {
     -webkit-user-select: none; /* Safari */
     -moz-user-select: none; /* Firefox */
@@ -182,6 +171,80 @@
             height: 420px;
             min-width: 20px;
         }
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+        }
+        .calculator-container {
+            max-width: 700px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #ffff;
+            border-radius: 10px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+            border: 2px dotted #1560bd;
+
+        }
+        @media (max-width: 768px) {
+            .calculator-container {
+        margin: 20px 15px; 
+        padding: 15px; 
+    }
+}
+
+@media (max-width: 480px) {
+    .calculator-container {
+        margin: 10px 10px; 
+        padding: 10px; 
+    }
+}
+        .calculator-header {
+            font-size: 1.8rem;
+            color: #1560bd;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .input-field {
+            margin-bottom: 20px;
+        }
+        .input-field label {
+            font-size: 1.1rem;
+            font-weight: bold;
+            display: block;
+            margin-bottom: 5px;
+        }
+        .input-field input {
+            padding: 12px;
+            width: 100%;
+            font-size: 1rem;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            background-color: rgb(223, 241, 247);
+
+        }
+        .calculate-btn {
+            width: 100%;
+            padding: 12px;
+            background-color: #1560bd;
+            color: white;
+            font-size: 1.2rem;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .calculate-btn:hover {
+            background-color: #7ea9de;
+        }
+        .result {
+            margin-top: 20px;
+            font-size: 1rem;
+            font-weight: bold;
+            color: #000040;
+            text-align: center;
+        }
         .note-container {
             margin:20px auto;
     padding: 15px;
@@ -204,7 +267,6 @@
 
 .note-container p {
     margin-top: 15px;
-    text-align: justify;
 }
 @media (max-width: 768px) {
     .note-container {
@@ -212,92 +274,9 @@
         padding: 10px; 
     }
 }
-
-/* Basic Reset */
-
-
-/* Container */
-.calculator-container {
-  
-  
-    width: 100%;
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: #ffff;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    font-family: 'Arial', sans-serif;
-    border: 2px dotted #1560bd;
-
+strong{
+    color: #0082ca;
 }
-
-
-
-.calculator-title {
-    font-size: 1.8rem;
-    font-weight: bold;
-    color: #1560bd;
-    margin-bottom: 20px;
-    text-align: center;
-}
-
-/* Label */
-.zone-label, .time-label {
-    display: block;
-    margin-bottom: 10px;
-    font-size: 16px;
-    color: #333;
-    font-weight: bold;
-}
-
-/* Select Fields */
-.zone-select, .time-select {
-    width: 100%;
-    padding: 10px;
-    font-size: 16px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-    margin-bottom: 15px;
-    background-color: rgb(223, 241, 247);
-
-}
-
-/* Button */
-.calculate-button {
-    width: 100%;
-    padding: 10px;
-    background-color: #1560bd;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    font-size: 16px;
-    cursor: pointer;
-}
-
-.calculate-button:hover {
-    background-color: #357ABD;
-}
-
-/* Result Display */
-.result-container {
-    margin-top: 20px;
-    font-size: 18px;
-    color: #333;
-    font-weight: bold;
-}
-
-/* Note */
-.note {
-    margin-top: 10px;
-    font-size: 14px;
-    color: #888;
-}
-
-/* Responsive */
-
-
-
 </style>
 	</head>
 
@@ -573,96 +552,78 @@
 
 <br><br><br><br>
 
+
 <div class="calculator-container">
-    <div class="form-container">
-        <h2 class="calculator-title">Ambient Noise Level Calculator</h2>
+    <h2 class="calculator-header">Bulldog Grip Calculator</h2>
 
-        <!-- Category of Area / Zone -->
-        <label for="zone" class="zone-label">Category of Area / Zone:</label>
-        <select id="zone" class="zone-select">
-            <option value="industrial">Industrial Area</option>
-            <option value="residential">Residential Area</option>
-            <option value="commercial">Commercial Area</option>
-            <option value="silence">Silence Zone</option>
-        </select>
-
-        <!-- Time of Day -->
-        <label for="timeOfDay" class="time-label">Time of Day:</label>
-        <select id="timeOfDay" class="time-select">
-            <option value="day">Day Time</option>
-            <option value="night">Night Time</option>
-        </select>
-
-        <!-- Calculate Button -->
-        <button type="button" class="calculate-button" id="calculateBtn">Calculate Ambient Noise Level</button>
-
-        <!-- Result Display -->
-        <div id="result" class="result-container"></div>
-
-        <!-- Dynamic Note -->
-        <div id="note" class="note"></div>
+    <div class="input-field">
+        <label for="ropeSizeInput">Size of Wire Rope (mm):</label>
+        <input type="number" id="ropeSizeInput" placeholder="Enter the size of wire rope in mm" min="1" max="70">
     </div>
+
+    <button class="calculate-btn" onclick="calculateBulldogGrips()">Calculate</button>
+
+    <div class="result" id="resultOutput"></div>
+
+    
 </div>
 <div class="note-container">
-    <h3>Important Note</h3>
-    <p>
-        1. Day time shall mean from 6.00 a.m. to 10.00 p.m.<br>
-        2. Night time shall mean from 10.00 p.m. to 6.00 a.m.<br>
-        3. Silence zone is an area comprising not less than 100 metres around hospitals, educational institutions, courts, religious places or any other area which is declared as such by the competent authority.<br>
-        4. Mixed categories of areas may be declared as one of the four above-mentioned categories by the competent authority.<br>
-        <strong>* dB(A) Leq</strong> denotes the time-weighted average of the level of sound in decibels on scale A, which is relatable to human hearing.
-    </p>
-
-    <h3>Disclaimer</h3>
-    <p>This calculator is for educational purposes only. Always refer to The Noise Pollution (Regulation and Control) Rules, 2000 for accurate and legal guidelines.</p>
+    <p>Note: Bulldog grips are used to form an eye or a loop at the end of a wire rope. Proper placement and number of grips ensure the safety and efficiency of the wire rope connection.</p>
+    <p><strong>Spacing:</strong> Bulldog grips should be spaced at a distance of approximately six times the rope diameter for optimal grip strength.</p>
+    <p><strong>Calculation:</strong></p>
+    <ul>
+        <li>For wire rope up to and including 20 mm: 3 grips</li>
+        <li>For wire rope over 20 mm and up to 32 mm: 4 grips</li>
+        <li>For wire rope over 32 mm and up to 38 mm: 5 grips</li>
+        <li>For wire rope 41 mm: 6 grips</li>
+        <li>For wire rope over 41 mm and up to 50 mm: 7 grips</li>
+        <li>For wire rope over 50 mm and up to 60 mm: 8 grips</li>
+        <li>For wire rope over 60 mm and up to 70 mm: 9 grips</li>
+    </ul>
 </div>
-</div>
-</div>
-
 <script>
-    document.getElementById('calculateBtn').addEventListener('click', function() {
-      let zone = document.getElementById('zone').value;
-      let timeOfDay = document.getElementById('timeOfDay').value;
-      
-      let noiseLevelLimit;
-      let noiseLevelCategory;
-  
-      if (zone === "industrial") {
-          if (timeOfDay === "day") {
-              noiseLevelLimit = 75;
-          } else {
-              noiseLevelLimit = 70;
-          }
-      } else if (zone === "residential") {
-          if (timeOfDay === "day") {
-              noiseLevelLimit = 55;
-          } else {
-              noiseLevelLimit = 45;
-          }
-      } else if (zone === "commercial") {
-          if (timeOfDay === "day") {
-              noiseLevelLimit = 65;
-          } else {
-              noiseLevelLimit = 60;
-          }
-      } else if (zone === "silence") {
-          noiseLevelLimit = 40;
-      }
-  
-      if (noiseLevelLimit <= 45) {
-          noiseLevelCategory = "Low";
-      } else if (noiseLevelLimit <= 65) {
-          noiseLevelCategory = "Moderate";
-      } else {
-          noiseLevelCategory = "High";
-      }
-  
-      document.getElementById('result').innerHTML = `Ambient Noise Level Limit: ${noiseLevelLimit} dB(A) - <strong>${noiseLevelCategory}</strong> noise level.`;
-      document.getElementById('note').innerHTML = `<p>The ambient noise level limit for the selected zone is ${noiseLevelLimit} dB(A), which is considered a <strong>${noiseLevelCategory}</strong> noise level.</p>`;
-  });
-  </script>
-  
+    function calculateBulldogGrips() {
+        const ropeSize = parseInt(document.getElementById('ropeSizeInput').value);
 
+        // Validate input
+        if (isNaN(ropeSize) || ropeSize <= 0 || ropeSize > 70) {
+            document.getElementById('resultOutput').innerHTML = "Please enter a valid rope size (1-70 mm).";
+        } else {
+            // Calculate the number of Bulldog grips required based on rope size
+            let numberOfGrips = 0;
+
+            if (ropeSize <= 20) {
+                numberOfGrips = 3;
+            } else if (ropeSize <= 32) {
+                numberOfGrips = 4;
+            } else if (ropeSize <= 38) {
+                numberOfGrips = 5;
+            } else if (ropeSize === 41) {
+                numberOfGrips = 6;
+            } else if (ropeSize <= 50) {
+                numberOfGrips = 7;
+            } else if (ropeSize <= 60) {
+                numberOfGrips = 8;
+            } else if (ropeSize <= 70) {
+                numberOfGrips = 9;
+            }
+
+            // Recommended spacing (based on rope size, e.g., 6 times the rope size)
+            const recommendedSpacing = ropeSize * 6; // Spacing 6 times the rope size
+
+            // Display the result
+            document.getElementById('resultOutput').innerHTML = `
+                Number of Bulldog Grips Required: ${numberOfGrips}<br>
+                Recommended Spacing Between Grips: ${recommendedSpacing} mm
+            `;
+        }
+    }
+</script>
+
+      
+    
+<body>
+   
 
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
