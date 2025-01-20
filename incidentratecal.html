@@ -619,13 +619,16 @@ strong{
 <div class="note-container">
     <h3>Note:</h3>
     <p>
-        The Incidence Rate Calculator helps measure workplace safety by calculating the number of injuries per 100 employees. 
+        The Incidence Rate Calculator helps measure workplace safety by calculating the number of injuries per 1,000 employees.
     </p>
     <p>
         Enter the total number of workplace injuries and the average number of employees to calculate the incidence rate.
     </p>
     <p>
-        A lower incidence rate means fewer injuries and better workplace safety.
+        A result greater than 1,000 indicates that the number of injuries is higher than the average number of employees, which can happen if injuries are frequent relative to the workforce size. This is mathematically valid and reflects the rate's proportionality to 1,000 employees.
+    </p>
+    <p>
+        A lower incidence rate indicates fewer injuries and better workplace safety. Use this metric to evaluate and improve workplace safety conditions.
     </p>
 </div>
 
@@ -639,15 +642,16 @@ strong{
             return;
         }
 
-        // Calculate Incidence Rate per 100 employees
-        const incidenceRate = (lostTimeInjuries / averageEmployees) * 100;
+        // Calculate Incidence Rate per 1,000 employees
+        const incidenceRate = (lostTimeInjuries / averageEmployees) * 1000;
         const roundedRate = incidenceRate.toFixed(2);
 
         // Update the result display
-        document.getElementById("incidenceRateValue").innerText = `Incidence Rate: ${roundedRate} lost time injuries per 100 employees.`;
+        document.getElementById("incidenceRateValue").innerText = `Incidence Rate: ${roundedRate} lost time injuries per 1,000 employees.`;
         document.getElementById("resultExplanation").innerText = 
-            `This incidence rate means that for every 100 employees, there were ${roundedRate} lost time injuries. ` +
-            `This is a widely used metric to assess workplace safety performance.`;
+            `This incidence rate means that for every 1,000 employees, there were ${roundedRate} lost time injuries. ` +
+            `If the result is greater than 1,000, it indicates that injuries are frequent relative to the workforce size. ` +
+            `This metric is commonly used to assess workplace safety performance and compare safety records across industries.`;
         
         document.getElementById("result").style.display = "block";
     }
