@@ -118,7 +118,7 @@
   margin:0;
   float: left;
   line-height: 70px;
-  margin-left: 8px;
+  margin-left: 10px;
 
 }
 
@@ -134,13 +134,11 @@
 }
 #services-sub-menu {
   overflow-y: scroll;
-  overflow-x: scroll;
     padding-left: 0; 
     margin: 10px 0; 
     list-style: none; 
     height: 420px;
     min-width: 20px;
-    
   }
 .wsmenu > .wsmenu-list {
   text-align: left;
@@ -256,8 +254,7 @@
   border-right: none;
 }
 .d-flex {
-  justify-content: space-between; 
-  align-items: center;           
+  align-items: center;        
 }
 .wsmenu > .wsmenu-list > li.rightmenu a i {
   font-size: 15px;
