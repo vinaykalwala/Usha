@@ -118,7 +118,7 @@
   margin:0;
   float: left;
   line-height: 70px;
-  margin-left: 10px;
+  margin-left: 8px;
 
 }
 
@@ -254,6 +254,7 @@
   border-right: none;
 }
 .d-flex {
+  justify-content: space-between; 
   align-items: center;        
 }
 .wsmenu > .wsmenu-list > li.rightmenu a i {
