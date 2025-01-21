@@ -414,7 +414,6 @@
         }
         
         .sub-menu {
-          
             padding-left: 0;
             /* Optional: Remove default padding */
             margin: 0;
@@ -428,60 +427,55 @@
             /* Optional: Add padding for better spacing */
         }
         
-       
-        
-       
-	    #services-menu{
-	height: 420px;
-	overflow-y: scroll;
-}
-.banner {
-  position: relative;
-  overflow: hidden;
-  background-color: #f0f0f0; /* Optional: to show the banner area */
-  height: 350px; /* Set height to match image height */
-}
-
-.banner-images {
-  display: flex;
-  width: calc(800px * 12 + 15px * 11); /* Total width of all images including gaps */
-  animation: scroll 50s linear infinite;
-  gap: 10px;
-
-}
-
-.banner-images img {
-  width: 800px;
-  height: 350px;
-}
-
-@keyframes scroll {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(calc(-800px * 6 - 15px * 5)); /* Adjust the total width to scroll */
-  }
-}
-
-.banner-heading {
-  position: absolute;
-  bottom: 10px;
-  left: 10px;
-  color: white; /* Adjust color for visibility */
-  background-color: rgba(13, 75, 208, 0.8); /* Optional: background for readability */
-  padding: 5px 10px;
-  font-size: 24px; /* Adjust font size as needed */
-}
-#services-sub-menu {
-            overflow-y: scroll;
-            padding-left: 0;
-            margin: 0;
-            list-style: none;
+        #services-menu {
             height: 420px;
-            min-width: 20px;
+            overflow-y: scroll;
         }
         
+        .banner {
+            position: relative;
+            overflow: hidden;
+            background-color: #f0f0f0;
+            /* Optional: to show the banner area */
+            height: 350px;
+            /* Set height to match image height */
+        }
+        
+        .banner-images {
+            display: flex;
+            width: calc(800px * 12 + 15px * 11);
+            /* Total width of all images including gaps */
+            animation: scroll 50s linear infinite;
+            gap: 10px;
+        }
+        
+        .banner-images img {
+            width: 800px;
+            height: 350px;
+        }
+        
+        @keyframes scroll {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(calc(-800px * 6 - 15px * 5));
+                /* Adjust the total width to scroll */
+            }
+        }
+        
+        .banner-heading {
+            position: absolute;
+            bottom: 10px;
+            left: 10px;
+            color: white;
+            /* Adjust color for visibility */
+            background-color: rgba(13, 75, 208, 0.8);
+            /* Optional: background for readability */
+            padding: 5px 10px;
+            font-size: 24px;
+            /* Adjust font size as needed */
+        }
     </style>
 </head>
 
@@ -501,36 +495,36 @@
 
         <!-- HEADER
 			============================================= -->
-     	<header id="header" class="tra-menu navbar-dark " style="background:linear-gradient(#010166,#1560bd,#1560bd);">
-				<div class="header-wrapper" style="background:linear-gradient(#010166,#1560bd,#1560bd);">
+        <header id="header" class="tra-menu navbar-dark " style="background:linear-gradient(#010166,#1560bd,#1560bd);">
+            <div class="header-wrapper" style="background:linear-gradient(#010166,#1560bd,#1560bd);">
 
 
-					<!-- MOBILE HEADER -->
-				    <div class="wsmobileheader clearfix" style="background:linear-gradient(#010166,#1560bd,#1560bd);">	  	
-				    	<span class="smllogo">                                                <img src="images/vindus_clients_images/cardlogo.jpg" alt="" class="rounded-circle" height="100px" width="100px">
+                <!-- MOBILE HEADER -->
+                <div class="wsmobileheader clearfix" style="background:linear-gradient(#010166,#1560bd,#1560bd);">
+                    <span class="smllogo">                                                <img src="images/vindus_clients_images/cardlogo.jpg" alt="" class="rounded-circle" height="100px" width="100px">
 						</span>
-				    	<a id="wsnavtoggle" class="wsanimated-arrow"><span></span></a>	
-				 	</div>
+                    <a id="wsnavtoggle" class="wsanimated-arrow"><span></span></a>
+                </div>
 
 
-				 	<!-- NAVIGATION MENU -->
-				  	<div class="wsmainfull menu clearfix" >
-	    				<div class="d-flex clearfix" >
+                <!-- NAVIGATION MENU -->
+                <div class="wsmainfull menu clearfix">
+                    <div class="d-flex clearfix">
 
 
-	    					<!-- HEADER BLACK LOGO -->
-	    					<div class="desktoplogo" >
-	    						<a href="#" class="">
-									<img src="images/vindus_clients_images/cardlogo.jpg" alt="" class="rounded-circle" height="100px" width="100px">
-	    						</a>
-	    					</div>
-	    					
+                        <!-- HEADER BLACK LOGO -->
+                        <div class="desktoplogo">
+                            <a href="#" class="">
+                                <img src="images/vindus_clients_images/cardlogo.jpg" alt="" class="rounded-circle" height="100px" width="100px">
+                            </a>
+                        </div>
 
-	    					<!-- HEADER WHITE LOGO -->
-	    					<div class="desktoplogo">
-	    						<a href="#" class="logo-white">                                                <img src="images/vindus_clients_images/cardlogo.jpg" alt="" class="rounded-circle" height="100px" width="100px">
-								</a>
-	    					</div>
+
+                        <!-- HEADER WHITE LOGO -->
+                        <div class="desktoplogo">
+                            <a href="#" class="logo-white"> <img src="images/vindus_clients_images/cardlogo.jpg" alt="" class="rounded-circle" height="100px" width="100px">
+                            </a>
+                        </div>
                         <!-- MAIN MENU -->
                         <nav class="wsmenu clearfix">
                             <ul class="wsmenu-list nav-theme">
@@ -613,38 +607,38 @@
 
 
 
-                          
-							    	<li aria-haspopup="true">
-				<a href="certification.html" class="h-link" >Certification<span class="wsarrow"></span></a>
-				<ul class="sub-menu">
-					<li aria-haspopup="true">
-						<p class="para">ISO <span class="wsarrow"></span></p>
-						<ul class="sub-menu">
-							<li aria-haspopup="true"><a href="certification1.html">ISO 45001:2018</a></li>
-							<li aria-haspopup="true"><a href="certification2.html">ISO 14001:2015</a></li>
-							<li aria-haspopup="true"><a href="certification3.html">ISO 9001:2015</a></li>
-							<li aria-haspopup="true"><a href="certification4.html">IMS</a></li>
 
-						</ul>
-					</li>
-					<li aria-haspopup="true">
-						<p class="para">British Safety<br> Counsil Certification<span class="wsarrow"></span></p>
-						<ul class="sub-menu" id="services-menu">
-							<li aria-haspopup="true"><a href="fivestar1.html">Five Star Occupational Health and Safety Audit</a></li>
-							<li aria-haspopup="true"><a href="fivestar2.html">Five Star Environmental Sustainability Audit</a></li>
-							<li aria-haspopup="true"><a href="fivestar3.html">Five Star Integrated Audit</a></li>
-							<li aria-haspopup="true"><a href="fivestar4.html">Five Star Group Audit</a></li>
-							<li aria-haspopup="true"><a href="fivestar5.html">Five Star Wellbeing Audit</a></li>
-							<li aria-haspopup="true"><a href="fivestar6.html">Pre-Audit (Gap Analysis) Services</a></li>
-							<li aria-haspopup="true"><a href="fivestar7.html">ISO 14001 Environmental Audit</a></li>
-							<li aria-haspopup="true"><a href="fivestar8.html">ISO 45001 Health and Safety Management Standard</a></li>
-							<li aria-haspopup="true"><a href="fivestar9.html">Fire Safety Management Audit</a></li>
-						</ul>
-					</li>
-					
-				</ul>
-			</li>
-									
+                                <li aria-haspopup="true">
+                                    <a href="certification.html" class="h-link">Certification<span class="wsarrow"></span></a>
+                                    <ul class="sub-menu">
+                                        <li aria-haspopup="true">
+                                            <p class="para">ISO <span class="wsarrow"></span></p>
+                                            <ul class="sub-menu">
+                                                <li aria-haspopup="true"><a href="certification1.html">ISO 45001:2018</a></li>
+                                                <li aria-haspopup="true"><a href="certification2.html">ISO 14001:2015</a></li>
+                                                <li aria-haspopup="true"><a href="certification3.html">ISO 9001:2015</a></li>
+                                                <li aria-haspopup="true"><a href="certification4.html">IMS</a></li>
+
+                                            </ul>
+                                        </li>
+                                        <li aria-haspopup="true">
+                                            <p class="para">British Safety<br> Counsil Certification<span class="wsarrow"></span></p>
+                                            <ul class="sub-menu" id="services-menu">
+                                                <li aria-haspopup="true"><a href="fivestar1.html">Five Star Occupational Health and Safety Audit</a></li>
+                                                <li aria-haspopup="true"><a href="fivestar2.html">Five Star Environmental Sustainability Audit</a></li>
+                                                <li aria-haspopup="true"><a href="fivestar3.html">Five Star Integrated Audit</a></li>
+                                                <li aria-haspopup="true"><a href="fivestar4.html">Five Star Group Audit</a></li>
+                                                <li aria-haspopup="true"><a href="fivestar5.html">Five Star Wellbeing Audit</a></li>
+                                                <li aria-haspopup="true"><a href="fivestar6.html">Pre-Audit (Gap Analysis) Services</a></li>
+                                                <li aria-haspopup="true"><a href="fivestar7.html">ISO 14001 Environmental Audit</a></li>
+                                                <li aria-haspopup="true"><a href="fivestar8.html">ISO 45001 Health and Safety Management Standard</a></li>
+                                                <li aria-haspopup="true"><a href="fivestar9.html">Fire Safety Management Audit</a></li>
+                                            </ul>
+                                        </li>
+
+                                    </ul>
+                                </li>
+
 
 
 
@@ -708,27 +702,27 @@
                                 </li>
                                 <li class="nl-simple" aria-haspopup="true"><a href="services2.html" class="h-link">Services<span class="wsarrow"></span></a>
 
-										<ul class="sub-menu" id="services-sub-menu" >
-											<li aria-haspopup="true"><a href="employeehs.html"> Employee Health Services</a></li>
+                                    <ul class="sub-menu" id="services-sub-menu">
+                                        <li aria-haspopup="true"><a href="employeehs.html"> Employee Health Services</a></li>
 
-											<li aria-haspopup="true"><a href="Esg.html">ESG End to End Solution </a></li>
-											<li aria-haspopup="true"><a href="gmp.html">GMP Audit</a></li>
-											<li aria-haspopup="true"><a href="GMPQUALITYCONSULTING.html">GMP Quality Consulting</a></li>
-											<li aria-haspopup="true"><a href="hac.html">HAC Services</a></li>
-											<li aria-haspopup="true"><a href="incidentinvestigation.html">Incident Investigation</a></li>
-											<li aria-haspopup="true"><a href="industrialhygene.html">Industrial<br>hygene</a></li>
-											<li aria-haspopup="true"><a href="Pharma.html">Pharma Clean room equipments</a></li>
-											<li aria-haspopup="true"><a href="powersystem.html">Power system studies</a></li>
-											<li aria-haspopup="true"><a href="qualityrisk.html">Quality Consultation Services</a></li>
-											<li aria-haspopup="true"><a href="PLANTSETUPandUPGRADATION.html">Quality Plant Setup & Upgradation</a></li>
-											<li aria-haspopup="true"><a href="RespiratoryEmergencyProtectionSystems.html">Respiratory & Emergency Protection Systems</a></li>
+                                        <li aria-haspopup="true"><a href="Esg.html">ESG End to End Solution </a></li>
+                                        <li aria-haspopup="true"><a href="gmp.html">GMP Audit</a></li>
+                                        <li aria-haspopup="true"><a href="GMPQUALITYCONSULTING.html">GMP Quality Consulting</a></li>
+                                        <li aria-haspopup="true"><a href="hac.html">HAC Services</a></li>
+                                        <li aria-haspopup="true"><a href="incidentinvestigation.html">Incident Investigation</a></li>
+                                        <li aria-haspopup="true"><a href="industrialhygene.html">Industrial<br>hygene</a></li>
+                                        <li aria-haspopup="true"><a href="Pharma.html">Pharma Clean room equipments</a></li>
+                                        <li aria-haspopup="true"><a href="powersystem.html">Power system studies</a></li>
+                                        <li aria-haspopup="true"><a href="qualityrisk.html">Quality Consultation Services</a></li>
+                                        <li aria-haspopup="true"><a href="PLANTSETUPandUPGRADATION.html">Quality Plant Setup & Upgradation</a></li>
+                                        <li aria-haspopup="true"><a href="RespiratoryEmergencyProtectionSystems.html">Respiratory & Emergency Protection Systems</a></li>
 
-											<li aria-haspopup="true"><a href="safetystudies.html">Safety Studies </a></li>
-											<li aria-haspopup="true"><a href="supplierqualificationaudit.html">Supplier qualification Audit</a></li>
-                                            <li aria-haspopup="true"><a href="developmentservice.html">Development Services</a></li>
+                                        <li aria-haspopup="true"><a href="safetystudies.html">Safety Studies </a></li>
+                                        <li aria-haspopup="true"><a href="supplierqualificationaudit.html">Supplier qualification Audit</a></li>
+                                        <li aria-haspopup="true"><a href="developmentservice.html">Development Services</a></li>
 
-											
-										   </ul>
+
+                                    </ul>
 
 
 
@@ -751,161 +745,161 @@
         <br><br><br>
         <div class="banner">
             <div class="banner-images">
-              <img src="images/vindus_clients_images/webel-1.jpg" alt="Banner Image 1">
-              <img src="images/vindus_clients_images/webel-2.png" alt="Banner Image 2">
-              <img src="images/vindus_clients_images/webel-3.webp" alt="Banner Image 3">
-              <img src="images/vindus_clients_images/webel-1.jpg" alt="Banner Image 1">
-              <img src="images/vindus_clients_images/webel-2.png" alt="Banner Image 2">
-              <img src="images/vindus_clients_images/webel-3.webp" alt="Banner Image 3">
-              <!-- Duplicate set of images for continuous scroll -->
-              <img src="images/vindus_clients_images/webel-1.jpg" alt="Banner Image 1">
-              <img src="images/vindus_clients_images/webel-2.png" alt="Banner Image 2">
-              <img src="images/vindus_clients_images/webel-3.webp" alt="Banner Image 3">
-              <img src="images/vindus_clients_images/webel-1.jpg" alt="Banner Image 1">
-              <img src="images/vindus_clients_images/webel-2.png" alt="Banner Image 2">
-              <img src="images/vindus_clients_images/webel-3.webp" alt="Banner Image 3">
+                <img src="images/vindus_clients_images/webel-1.jpg" alt="Banner Image 1">
+                <img src="images/vindus_clients_images/webel-2.png" alt="Banner Image 2">
+                <img src="images/vindus_clients_images/webel-3.webp" alt="Banner Image 3">
+                <img src="images/vindus_clients_images/webel-1.jpg" alt="Banner Image 1">
+                <img src="images/vindus_clients_images/webel-2.png" alt="Banner Image 2">
+                <img src="images/vindus_clients_images/webel-3.webp" alt="Banner Image 3">
+                <!-- Duplicate set of images for continuous scroll -->
+                <img src="images/vindus_clients_images/webel-1.jpg" alt="Banner Image 1">
+                <img src="images/vindus_clients_images/webel-2.png" alt="Banner Image 2">
+                <img src="images/vindus_clients_images/webel-3.webp" alt="Banner Image 3">
+                <img src="images/vindus_clients_images/webel-1.jpg" alt="Banner Image 1">
+                <img src="images/vindus_clients_images/webel-2.png" alt="Banner Image 2">
+                <img src="images/vindus_clients_images/webel-3.webp" alt="Banner Image 3">
             </div>
             <h1 class="banner-heading">Five Star Wellbeing Audit</h1>
-          </div>
+        </div>
 
-       <div class="container my-4">
+        <div class="container my-4">
             <div class="accordion" id="accordionWellbeing">
                 <div class="container my-4">
                     <div class="card-header">
                         <div class="card-title">
                         </div>
                     </div>
-        
-                 
-                <!-- Section 1: Introduction -->
-                <div class="accordion-item">
-                   
-                    <div class="accordion-body">
-                        The Five Star Wellbeing Audit is an independent, comprehensive and holistic review of an organization’s wellbeing management protocols and associated arrangements against current best practice technique within the wellbeing field.
-                    </div>
-                </div>
 
-                <!-- Section 2: What is it? -->
-                <div class="accordion-item">
-                    <h2 class="accordion-header" id="headingTwo">
-                        <button class="accordion-button collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+
+                    <!-- Section 1: Introduction -->
+                    <div class="accordion-item">
+
+                        <div class="accordion-body">
+                            The Five Star Wellbeing Audit is an independent, comprehensive and holistic review of an organization’s wellbeing management protocols and associated arrangements against current best practice technique within the wellbeing field.
+                        </div>
+                    </div>
+
+                    <!-- Section 2: What is it? -->
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingTwo">
+                            <button class="accordion-button collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
                   What is it?
                 </button>
-                    </h2>
-                    <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-parent="#accordionWellbeing">
-                        <div class="accordion-body" style="text-align: justify;">
-                            The audit process forms an integral part of our overall wellbeing programme of audit, training and digital learning services within the Being Well Together programme.<br> The audit structure and model are aligned with the structure
-                            of our suite of best practice audit products, which include health and safety management, environmental management and sustainability, process safety management and fire safety management.<br> Utilizing relevant expertise,
-                            experience and acknowledging aspects of internationally recognized wellbeing performance standards (including ISO 45003, CIPD model, etc.) we have developed a unique Five Star Wellbeing Audit model that objectively evaluates
-                            wellbeing policies, protocols and arrangements against current best practice techniques.<br> The audit model is reflective of the recognized PLAN – DO – CHECK – ACT management cycle. The audit focuses on the key aspects of
-                            an organization’s wellbeing performance and offers a structured path for continual improvement towards best practice status.<br> The audit examines key aspects of health, safety and wellbeing and provides evidence-based outcomes
-                            for organizations to develop their overall approach to wellbeing across the business. The audit is designed primarily for low safety risk organizations and focuses on wellbeing performance. Health and safety risks in every
-                            organization and can impact wellbeing performance. The audit will therefore examine the key aspects of an organization’s integration of health, safety and wellbeing and offer a structured path for continual improvement towards
-                            best practice status. For medium to higher risk safety organizations who also want to look at their wellbeing performance, we offer a Five Star Wellbeing Supplementary Audit to complement our Five Star Occupational Health and
-                            Safety Audit, which will ensure the organization’s health, safety and wellbeing structure and arrangements are comprehensively reviewed.
+                        </h2>
+                        <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-parent="#accordionWellbeing">
+                            <div class="accordion-body" style="text-align: justify;">
+                                The audit process forms an integral part of our overall wellbeing programme of audit, training and digital learning services within the Being Well Together programme.<br> The audit structure and model are aligned with the
+                                structure of our suite of best practice audit products, which include health and safety management, environmental management and sustainability, process safety management and fire safety management.<br> Utilizing relevant
+                                expertise, experience and acknowledging aspects of internationally recognized wellbeing performance standards (including ISO 45003, CIPD model, etc.) we have developed a unique Five Star Wellbeing Audit model that objectively
+                                evaluates wellbeing policies, protocols and arrangements against current best practice techniques.<br> The audit model is reflective of the recognized PLAN – DO – CHECK – ACT management cycle. The audit focuses on the key
+                                aspects of an organization’s wellbeing performance and offers a structured path for continual improvement towards best practice status.<br> The audit examines key aspects of health, safety and wellbeing and provides evidence-based
+                                outcomes for organizations to develop their overall approach to wellbeing across the business. The audit is designed primarily for low safety risk organizations and focuses on wellbeing performance. Health and safety risks
+                                in every organization and can impact wellbeing performance. The audit will therefore examine the key aspects of an organization’s integration of health, safety and wellbeing and offer a structured path for continual improvement
+                                towards best practice status. For medium to higher risk safety organizations who also want to look at their wellbeing performance, we offer a Five Star Wellbeing Supplementary Audit to complement our Five Star Occupational
+                                Health and Safety Audit, which will ensure the organization’s health, safety and wellbeing structure and arrangements are comprehensively reviewed.
 
+                            </div>
                         </div>
                     </div>
-                </div>
 
 
-                <!-- Section 5: What does the Wellbeing Audit include -->
-                <div class="accordion-item">
-                    <h2 class="accordion-header" id="headingFive">
-                        <button class="accordion-button collapsed" type="button" data-toggle="collapse" data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                    <!-- Section 5: What does the Wellbeing Audit include -->
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingFive">
+                            <button class="accordion-button collapsed" type="button" data-toggle="collapse" data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
                   What does the Wellbeing Audit include and how is it carried out?
                 </button>
-                    </h2>
-                    <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive" data-parent="#accordionWellbeing">
-                        <div class="accordion-body">
-                            The Five Star Wellbeing Audit is undertaken using the following process of objective verification. The auditor will review all aspects of the organization’s wellbeing management processes and supportive arrangements against the requirements of the Five
-                            Star Wellbeing Audit specification. The auditor will also assess the effectiveness of implementation of these arrangements through observation of relevant agreed site(s) and sampling of operational activities. During the audit
-                            process, management, staff, and relevant stakeholders will be interviewed (as agreed) informally and formally, to discuss aspects of wellbeing management performance relevant to their roles and responsibilities. After the interviews,
-                            a consolidation and verification exercise will be undertaken to enable organizations to respond the auditor’s questions, queries and provide additional documentation if required. A subsequent report is produced identifying
-                            the strengths and areas for improvement within the organization’s wellbeing management arrangements, focusing on key outcomes, observations and recommendations for continual improvement.
-                            <p><strong>Wellbeing Audit 2022: Audit delivery process step</strong></p>
+                        </h2>
+                        <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive" data-parent="#accordionWellbeing">
+                            <div class="accordion-body">
+                                The Five Star Wellbeing Audit is undertaken using the following process of objective verification. The auditor will review all aspects of the organization’s wellbeing management processes and supportive arrangements against the requirements of the Five
+                                Star Wellbeing Audit specification. The auditor will also assess the effectiveness of implementation of these arrangements through observation of relevant agreed site(s) and sampling of operational activities. During the
+                                audit process, management, staff, and relevant stakeholders will be interviewed (as agreed) informally and formally, to discuss aspects of wellbeing management performance relevant to their roles and responsibilities. After
+                                the interviews, a consolidation and verification exercise will be undertaken to enable organizations to respond the auditor’s questions, queries and provide additional documentation if required. A subsequent report is produced
+                                identifying the strengths and areas for improvement within the organization’s wellbeing management arrangements, focusing on key outcomes, observations and recommendations for continual improvement.
+                                <p><strong>Wellbeing Audit 2022: Audit delivery process step</strong></p>
 
-                            <div class="text-center" style="padding: 20px 0px;">
-                                <img src="images/vindus_clients_images/fivestar2.jpg" class="img-fluid" alt="image">
+                                <div class="text-center" style="padding: 20px 0px;">
+                                    <img src="images/vindus_clients_images/fivestar2.jpg" class="img-fluid" alt="image">
+                                </div>
+                                <p>The audit model is based upon the recognized Plan – Do – Check – Act (PDCA) management cycle and is aligned with our Five Star suite of best practice audit products.<br> The four sections of the audit (leadership, commitment
+                                    and planning / implementation / performance monitoring / evaluation and continual improvement) are based upon the PDCA component elements and are also inclusive of the recognized five domains of wellbeing, namely:
+                                </p>
+                                <li>Health</li>
+                                <li>Good Work</li>
+                                <li>Values and Beliefs</li>
+                                <li>Relationships and Voice</li>
+                                <li>Personal Growth</li>
+                                <p>Each section is made up of a number of individual component elements relative to the overall theme of the section.<br> The recommendations arising from the audit against the criteria requirements of the Five Star Wellbeing
+                                    Audit, are presented within the audit report. The report identifies the strengths and areas for improvement within the organization’s health, safety and wellbeing management systems. The report also includes observations
+                                    and recommendations, together with action planning, for consideration, together with a quantified (graded) outcome.
+                                </p>
+
                             </div>
-                            <p>The audit model is based upon the recognized Plan – Do – Check – Act (PDCA) management cycle and is aligned with our Five Star suite of best practice audit products.<br> The four sections of the audit (leadership, commitment
-                                and planning / implementation / performance monitoring / evaluation and continual improvement) are based upon the PDCA component elements and are also inclusive of the recognized five domains of wellbeing, namely:
-                            </p>
-                            <li>Health</li>
-                            <li>Good Work</li>
-                            <li>Values and Beliefs</li>
-                            <li>Relationships and Voice</li>
-                            <li>Personal Growth</li>
-                            <p>Each section is made up of a number of individual component elements relative to the overall theme of the section.<br> The recommendations arising from the audit against the criteria requirements of the Five Star Wellbeing
-                                Audit, are presented within the audit report. The report identifies the strengths and areas for improvement within the organization’s health, safety and wellbeing management systems. The report also includes observations
-                                and recommendations, together with action planning, for consideration, together with a quantified (graded) outcome.
-                            </p>
-
                         </div>
                     </div>
-                </div>
 
 
 
-                <!-- Section 7: What are the outcomes of the audit -->
-                <div class="accordion-item">
-                    <h2 class="accordion-header" id="headingSeven">
-                        <button class="accordion-button collapsed" type="button" data-toggle="collapse" data-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
+                    <!-- Section 7: What are the outcomes of the audit -->
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingSeven">
+                            <button class="accordion-button collapsed" type="button" data-toggle="collapse" data-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
                   What are the outcomes of the audit and is further support available?
                 </button>
-                    </h2>
-                    <div id="collapseSeven" class="accordion-collapse collapse" aria-labelledby="headingSeven" data-parent="#accordionWellbeing">
-                        <div class="accordion-body">
-                            It is becoming increasingly recognized that poor employee wellbeing not only results directly in increased costs to an organization, through increased working days lost, having a less engaged and therefore a less productive workforce, and having increased
-                            levels of presenteeism, but also increases the risk of accident or injury. The business benefits of implementing wellbeing programmes are also becoming clearer. Deloitte’s research suggests an average Return on Investment (ROI)
-                            of 4:1 from such programmes and Anglian Water recently reported an ROI of 8:1 from their wellbeing programme.<br> The issue of employee wellbeing has quickly moved from being an internal HR function
-                            to a priority issue for top management within organizations.<br> The Five Star Wellbeing Audit offers organizations an independent benchmark analysis of their current status relating to wellbeing management and associated arrangements.
-                            The audit will provide a structured route toward best practice in this aspect of management and will enable an organization to prioritize resources accordingly.<br> The audit outcome will also provide stakeholders (both internal
-                            and external) with confirmation of the organization’s commitment toward employee wellbeing and business improvement overall. Achieving a five-star rating gives you the opportunity to apply for the prestigious Shield of Honour
-                            award and be recognized as the ‘best of the best’.
+                        </h2>
+                        <div id="collapseSeven" class="accordion-collapse collapse" aria-labelledby="headingSeven" data-parent="#accordionWellbeing">
+                            <div class="accordion-body">
+                                It is becoming increasingly recognized that poor employee wellbeing not only results directly in increased costs to an organization, through increased working days lost, having a less engaged and therefore a less productive workforce, and having increased
+                                levels of presenteeism, but also increases the risk of accident or injury. The business benefits of implementing wellbeing programmes are also becoming clearer. Deloitte’s research suggests an average Return on Investment
+                                (ROI) of 4:1 from such programmes and Anglian Water recently reported an ROI of 8:1 from their wellbeing programme.<br> The issue of employee wellbeing has quickly moved from being an internal
+                                HR function to a priority issue for top management within organizations.<br> The Five Star Wellbeing Audit offers organizations an independent benchmark analysis of their current status relating to wellbeing management
+                                and associated arrangements. The audit will provide a structured route toward best practice in this aspect of management and will enable an organization to prioritize resources accordingly.<br> The audit outcome will also
+                                provide stakeholders (both internal and external) with confirmation of the organization’s commitment toward employee wellbeing and business improvement overall. Achieving a five-star rating gives you the opportunity to
+                                apply for the prestigious Shield of Honour award and be recognized as the ‘best of the best’.
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <!-- Section 8: Why choose us? -->
-                <div class="accordion-item">
-                    <h2 class="accordion-header" id="headingEight">
-                        <button class="accordion-button collapsed" type="button" data-toggle="collapse" data-target="#collapseEight" aria-expanded="false" aria-controls="collapseEight">
+                    <!-- Section 8: Why choose us? -->
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingEight">
+                            <button class="accordion-button collapsed" type="button" data-toggle="collapse" data-target="#collapseEight" aria-expanded="false" aria-controls="collapseEight">
                   Why choose us?
                 </button>
-                    </h2>
-                    <div id="collapseEight" class="accordion-collapse collapse" aria-labelledby="headingEight" data-parent="#accordionWellbeing">
-                        <div class="accordion-body">
-                            Our audit and consultancy services are internationally recognized and are the best way to ensure your wellbeing systems (and associated arrangements) are suitable for your business requirements, promote continual improvement and are effectively implemented.<br>
-                            <strong> As part of our own quality control processes, we ensure:</strong>
+                        </h2>
+                        <div id="collapseEight" class="accordion-collapse collapse" aria-labelledby="headingEight" data-parent="#accordionWellbeing">
+                            <div class="accordion-body">
+                                Our audit and consultancy services are internationally recognized and are the best way to ensure your wellbeing systems (and associated arrangements) are suitable for your business requirements, promote continual improvement and are effectively implemented.<br>
+                                <strong> As part of our own quality control processes, we ensure:</strong>
 
-                            <ul>
-                                <li> <img src="images/vindus_clients_images/british1.jpg" alt="Image 5" class="list-image">
-                                    <div> Our audit and consultancy products are regularly reviewed to meet customer needs, expectations and sector best practice</div>
-                                </li>
-                                <li> <img src="images/vindus_clients_images/british2.jpg" alt="Image 5" class="list-image">
-                                    <div>Consistently high standards of service are achieved through a robust quality assurance process including auditor standardization, training and performance monitoring</div>
-                                </li>
-                                <li> <img src="images/vindus_clients_images/british3.jpg" alt="Image 5" class="list-image">
-                                    <div>Our technical specialists serve on strategic committees for occupational health, safety, environmental and wellbeing standards</div>
-                                </li>
-                                <li> <img src="images/vindus_clients_images/british4.jpg" alt="Image 5" class="list-image">
-                                    <div>We have a unique internationally recognized best practice (Five Star) audit process</div>
-                                </li>
-                                <li> <img src="images/vindus_clients_images/british5.jpg" alt="Image 5" class="list-image">
-                                    <div>Industry recognition from awards such as the prestigious Shield, Sword or Globe of Honour.</div>
-                                </li>
-
-
-                            </ul>
+                                <ul>
+                                    <li> <img src="images/vindus_clients_images/british1.jpg" alt="Image 5" class="list-image">
+                                        <div> Our audit and consultancy products are regularly reviewed to meet customer needs, expectations and sector best practice</div>
+                                    </li>
+                                    <li> <img src="images/vindus_clients_images/british2.jpg" alt="Image 5" class="list-image">
+                                        <div>Consistently high standards of service are achieved through a robust quality assurance process including auditor standardization, training and performance monitoring</div>
+                                    </li>
+                                    <li> <img src="images/vindus_clients_images/british3.jpg" alt="Image 5" class="list-image">
+                                        <div>Our technical specialists serve on strategic committees for occupational health, safety, environmental and wellbeing standards</div>
+                                    </li>
+                                    <li> <img src="images/vindus_clients_images/british4.jpg" alt="Image 5" class="list-image">
+                                        <div>We have a unique internationally recognized best practice (Five Star) audit process</div>
+                                    </li>
+                                    <li> <img src="images/vindus_clients_images/british5.jpg" alt="Image 5" class="list-image">
+                                        <div>Industry recognition from awards such as the prestigious Shield, Sword or Globe of Honour.</div>
+                                    </li>
 
 
+                                </ul>
+
+
+                            </div>
                         </div>
                     </div>
-                </div>
 
+                </div>
             </div>
-        </div>
 
         </div>
 
@@ -926,30 +920,32 @@
             </a>
         </div>
 
-       <button id="scrollToTopBtn" class="btn" style="display: block;">
+        <button id="scrollToTopBtn" class="btn" style="display: block;">
     <i class="fa-solid fa-circle-up" style="font-size: 30px;color: #0275b3;"></i>
 </button>
 
-<!-- jQuery and Bootstrap JS -->
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-<script>
-    // Show or hide the button based on scroll position
-    $(window).scroll(function() {
-        if ($(this).scrollTop() > 100) {
-            $('#scrollToTopBtn').fadeIn();
-        } else {
-            $('#scrollToTopBtn').fadeOut();
-        }
-    });
+        <!-- jQuery and Bootstrap JS -->
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        <script>
+            // Show or hide the button based on scroll position
+            $(window).scroll(function() {
+                if ($(this).scrollTop() > 100) {
+                    $('#scrollToTopBtn').fadeIn();
+                } else {
+                    $('#scrollToTopBtn').fadeOut();
+                }
+            });
 
-    // Smooth scroll to top
-    $('#scrollToTopBtn').click(function() {
-        $('html, body').animate({ scrollTop: 0 }, 600);
-        return false;
-    });
-    </script>
+            // Smooth scroll to top
+            $('#scrollToTopBtn').click(function() {
+                $('html, body').animate({
+                    scrollTop: 0
+                }, 600);
+                return false;
+            });
+        </script>
         <!-- FOOTER-3
 			============================================= -->
         <footer id="footer-3" class="pt-100 footer">
@@ -1002,9 +998,9 @@
                                     <p><a href="terms.html">Terms of Use</a></p>
                                 </li>
                                 <li>
-                            <p><a href="privacypolicy.html">Privacy Policy</a></p>
-                        </li>
-                                    <p><a href="sitemap.html" style="color:#fff;">Site Map</a></p>
+                                    <p><a href="privacypolicy.html">Privacy Policy</a></p>
+                                </li>
+                                <p><a href="sitemap.html" style="color:#fff;">Site Map</a></p>
                                 </li>
                             </ul>
 
@@ -1021,17 +1017,16 @@
                             <h6 class="s-17 w-700" style="color:#fff;">Connect With Us</h6>
 
                             <!-- Mail Link -->
-                          <p class="footer-mail-link ico-25">
-									<a href="mailto:info@mlcqehs.com" style="color:#fff;">
-                    <i class="fas fa-envelope"></i>&nbsp;Email :<br>
-                      info@mlcqehs.com
+                            <p class="footer-mail-link ico-25">
+                                <a href="mailto:info@mlcqehs.com" style="color:#fff;">
+                                    <i class="fas fa-envelope"></i>&nbsp;Email :<br> info@mlcqehs.com
 
-									</a>
-                 
-                  <a href="mailto:contactmlconsultancy@gmail.com" style="color:#fff;">contactmlconsultancy@gmail.com</a>
-									<br><br>
-									<i class="fas fa-mobile-alt"></i> +91&nbsp; 99498&nbsp;45759<br><i class="fas fa-mobile-alt"></i>&nbsp;+91 &nbsp;77269&nbsp;32023
-								</p>
+                                </a>
+
+                                <a href="mailto:contactmlconsultancy@gmail.com" style="color:#fff;">contactmlconsultancy@gmail.com</a>
+                                <br><br>
+                                <i class="fas fa-mobile-alt"></i> +91&nbsp; 99498&nbsp;45759<br><i class="fas fa-mobile-alt"></i>&nbsp;+91 &nbsp;77269&nbsp;32023
+                            </p>
 
 
                             <!-- Social Links -->
@@ -1075,9 +1070,11 @@
 
 
                         <!-- FOOTER COPYRIGHT -->
-                     <div class="col">
-								<div class="footer-copyright"><p class="p-sm">&copy; 2024 <a href="http://vindusenvironment.in" target="_blank" style="color:antiquewhite;">Vindus</a>. <span>All Rights Reserved</span></p></div>
-							</div>
+                        <div class="col">
+                            <div class="footer-copyright">
+                                <p class="p-sm">&copy; 2024 <a href="http://vindusenvironment.in" target="_blank" style="color:antiquewhite;">Vindus</a>. <span>All Rights Reserved</span></p>
+                            </div>
+                        </div>
 
 
                         <!-- FOOTER SECONDARY LINK -->

@@ -414,7 +414,6 @@
         }
         
         .sub-menu {
-         
             padding-left: 0;
             /* Optional: Remove default padding */
             margin: 0;
@@ -428,58 +427,55 @@
             /* Optional: Add padding for better spacing */
         }
         
-       
-	    #services-menu{
-	height: 420px;
-	overflow-y: scroll;
-}
-.banner {
-  position: relative;
-  overflow: hidden;
-  background-color: #f0f0f0; /* Optional: to show the banner area */
-  height: 350px; /* Set height to match image height */
-}
-
-.banner-images {
-  display: flex;
-  width: calc(800px * 12 + 15px * 11); /* Total width of all images including gaps */
-  animation: scroll 50s linear infinite;
-  gap: 10px;
-
-}
-
-.banner-images img {
-  width: 800px;
-  height: 350px;
-}
-
-@keyframes scroll {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(calc(-800px * 6 - 15px * 5)); /* Adjust the total width to scroll */
-  }
-}
-
-.banner-heading {
-  position: absolute;
-  bottom: 10px;
-  left: 10px;
-  color: white; /* Adjust color for visibility */
-  background-color: rgba(13, 75, 208, 0.8); /* Optional: background for readability */
-  padding: 5px 10px;
-  font-size: 24px; /* Adjust font size as needed */
-}
-#services-sub-menu {
-            overflow-y: scroll;
-            padding-left: 0;
-            margin: 0;
-            list-style: none;
+        #services-menu {
             height: 420px;
-            min-width: 20px;
+            overflow-y: scroll;
         }
         
+        .banner {
+            position: relative;
+            overflow: hidden;
+            background-color: #f0f0f0;
+            /* Optional: to show the banner area */
+            height: 350px;
+            /* Set height to match image height */
+        }
+        
+        .banner-images {
+            display: flex;
+            width: calc(800px * 12 + 15px * 11);
+            /* Total width of all images including gaps */
+            animation: scroll 50s linear infinite;
+            gap: 10px;
+        }
+        
+        .banner-images img {
+            width: 800px;
+            height: 350px;
+        }
+        
+        @keyframes scroll {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(calc(-800px * 6 - 15px * 5));
+                /* Adjust the total width to scroll */
+            }
+        }
+        
+        .banner-heading {
+            position: absolute;
+            bottom: 10px;
+            left: 10px;
+            color: white;
+            /* Adjust color for visibility */
+            background-color: rgba(13, 75, 208, 0.8);
+            /* Optional: background for readability */
+            padding: 5px 10px;
+            font-size: 24px;
+            /* Adjust font size as needed */
+        }
     </style>
 </head>
 
@@ -499,35 +495,35 @@
 
         <!-- HEADER
 			============================================= -->
-     	<header id="header" class="tra-menu navbar-dark " style="background:linear-gradient(#010166,#1560bd,#1560bd);">
-				<div class="header-wrapper" style="background:linear-gradient(#010166,#1560bd,#1560bd);">
+        <header id="header" class="tra-menu navbar-dark " style="background:linear-gradient(#010166,#1560bd,#1560bd);">
+            <div class="header-wrapper" style="background:linear-gradient(#010166,#1560bd,#1560bd);">
 
 
-					<!-- MOBILE HEADER -->
-				    <div class="wsmobileheader clearfix" style="background:linear-gradient(#010166,#1560bd,#1560bd);">	  	
-				    	<span class="smllogo">                                                <img src="images/vindus_clients_images/cardlogo.jpg" alt="" class="rounded-circle" height="100px" width="100px">
+                <!-- MOBILE HEADER -->
+                <div class="wsmobileheader clearfix" style="background:linear-gradient(#010166,#1560bd,#1560bd);">
+                    <span class="smllogo">                                                <img src="images/vindus_clients_images/cardlogo.jpg" alt="" class="rounded-circle" height="100px" width="100px">
 						</span>
-				    	<a id="wsnavtoggle" class="wsanimated-arrow"><span></span></a>	
-				 	</div>
+                    <a id="wsnavtoggle" class="wsanimated-arrow"><span></span></a>
+                </div>
 
-				 	<!-- NAVIGATION MENU -->
-				  	<div class="wsmainfull menu clearfix" >
-	    				<div class="d-flex clearfix" >
+                <!-- NAVIGATION MENU -->
+                <div class="wsmainfull menu clearfix">
+                    <div class="d-flex clearfix">
 
 
-	    					<!-- HEADER BLACK LOGO -->
-	    					<div class="desktoplogo" >
-	    						<a href="#" class="">
-									<img src="images/vindus_clients_images/cardlogo.jpg" alt="" class="rounded-circle" height="100px" width="100px">
-	    						</a>
-	    					</div>
-	    					
+                        <!-- HEADER BLACK LOGO -->
+                        <div class="desktoplogo">
+                            <a href="#" class="">
+                                <img src="images/vindus_clients_images/cardlogo.jpg" alt="" class="rounded-circle" height="100px" width="100px">
+                            </a>
+                        </div>
 
-	    					<!-- HEADER WHITE LOGO -->
-	    					<div class="desktoplogo">
-	    						<a href="#" class="logo-white">                                                <img src="images/vindus_clients_images/cardlogo.jpg" alt="" class="rounded-circle" height="100px" width="100px">
-								</a>
-	    					</div>
+
+                        <!-- HEADER WHITE LOGO -->
+                        <div class="desktoplogo">
+                            <a href="#" class="logo-white"> <img src="images/vindus_clients_images/cardlogo.jpg" alt="" class="rounded-circle" height="100px" width="100px">
+                            </a>
+                        </div>
 
                         <!-- MAIN MENU -->
                         <nav class="wsmenu clearfix">
@@ -611,39 +607,39 @@
 
 
 
-							    	<li aria-haspopup="true">
-				<a href="certification.html" class="h-link" >Certification<span class="wsarrow"></span></a>
-				<ul class="sub-menu">
-					<li aria-haspopup="true">
-						<p class="para">ISO <span class="wsarrow"></span></p>
-						<ul class="sub-menu">
-							<li aria-haspopup="true"><a href="certification1.html">ISO 45001:2018</a></li>
-							<li aria-haspopup="true"><a href="certification2.html">ISO 14001:2015</a></li>
-							<li aria-haspopup="true"><a href="certification3.html">ISO 9001:2015</a></li>
-							<li aria-haspopup="true"><a href="certification4.html">IMS</a></li>
+                                <li aria-haspopup="true">
+                                    <a href="certification.html" class="h-link">Certification<span class="wsarrow"></span></a>
+                                    <ul class="sub-menu">
+                                        <li aria-haspopup="true">
+                                            <p class="para">ISO <span class="wsarrow"></span></p>
+                                            <ul class="sub-menu">
+                                                <li aria-haspopup="true"><a href="certification1.html">ISO 45001:2018</a></li>
+                                                <li aria-haspopup="true"><a href="certification2.html">ISO 14001:2015</a></li>
+                                                <li aria-haspopup="true"><a href="certification3.html">ISO 9001:2015</a></li>
+                                                <li aria-haspopup="true"><a href="certification4.html">IMS</a></li>
 
-						</ul>
-					</li>
-					<li aria-haspopup="true">
-						<p class="para">British Safety<br> Counsil Certification<span class="wsarrow"></span></p>
-						<ul class="sub-menu" id="services-menu">
-							<li aria-haspopup="true"><a href="fivestar1.html">Five Star Occupational Health and Safety Audit</a></li>
-							<li aria-haspopup="true"><a href="fivestar2.html">Five Star Environmental Sustainability Audit</a></li>
-							<li aria-haspopup="true"><a href="fivestar3.html">Five Star Integrated Audit</a></li>
-							<li aria-haspopup="true"><a href="fivestar4.html">Five Star Group Audit</a></li>
-							<li aria-haspopup="true"><a href="fivestar5.html">Five Star Wellbeing Audit</a></li>
-							<li aria-haspopup="true"><a href="fivestar6.html">Pre-Audit (Gap Analysis) Services</a></li>
-							<li aria-haspopup="true"><a href="fivestar7.html">ISO 14001 Environmental Audit</a></li>
-							<li aria-haspopup="true"><a href="fivestar8.html">ISO 45001 Health and Safety Management Standard</a></li>
-							<li aria-haspopup="true"><a href="fivestar9.html">Fire Safety Management Audit</a></li>
-						</ul>
-					</li>
-					
-				</ul>
-			</li>
-									
+                                            </ul>
+                                        </li>
+                                        <li aria-haspopup="true">
+                                            <p class="para">British Safety<br> Counsil Certification<span class="wsarrow"></span></p>
+                                            <ul class="sub-menu" id="services-menu">
+                                                <li aria-haspopup="true"><a href="fivestar1.html">Five Star Occupational Health and Safety Audit</a></li>
+                                                <li aria-haspopup="true"><a href="fivestar2.html">Five Star Environmental Sustainability Audit</a></li>
+                                                <li aria-haspopup="true"><a href="fivestar3.html">Five Star Integrated Audit</a></li>
+                                                <li aria-haspopup="true"><a href="fivestar4.html">Five Star Group Audit</a></li>
+                                                <li aria-haspopup="true"><a href="fivestar5.html">Five Star Wellbeing Audit</a></li>
+                                                <li aria-haspopup="true"><a href="fivestar6.html">Pre-Audit (Gap Analysis) Services</a></li>
+                                                <li aria-haspopup="true"><a href="fivestar7.html">ISO 14001 Environmental Audit</a></li>
+                                                <li aria-haspopup="true"><a href="fivestar8.html">ISO 45001 Health and Safety Management Standard</a></li>
+                                                <li aria-haspopup="true"><a href="fivestar9.html">Fire Safety Management Audit</a></li>
+                                            </ul>
+                                        </li>
 
-		
+                                    </ul>
+                                </li>
+
+
+
 
 
 
@@ -706,27 +702,27 @@
                                 </li>
                                 <li class="nl-simple" aria-haspopup="true"><a href="services2.html" class="h-link">Services<span class="wsarrow"></span></a>
 
-										<ul class="sub-menu" id="services-sub-menu" >
-											<li aria-haspopup="true"><a href="employeehs.html"> Employee Health Services</a></li>
+                                    <ul class="sub-menu" id="services-sub-menu">
+                                        <li aria-haspopup="true"><a href="employeehs.html"> Employee Health Services</a></li>
 
-											<li aria-haspopup="true"><a href="Esg.html">ESG End to End Solution </a></li>
-											<li aria-haspopup="true"><a href="gmp.html">GMP Audit</a></li>
-											<li aria-haspopup="true"><a href="GMPQUALITYCONSULTING.html">GMP Quality Consulting</a></li>
-											<li aria-haspopup="true"><a href="hac.html">HAC Services</a></li>
-											<li aria-haspopup="true"><a href="incidentinvestigation.html">Incident Investigation</a></li>
-											<li aria-haspopup="true"><a href="industrialhygene.html">Industrial<br>hygene</a></li>
-											<li aria-haspopup="true"><a href="Pharma.html">Pharma Clean room equipments</a></li>
-											<li aria-haspopup="true"><a href="powersystem.html">Power system studies</a></li>
-											<li aria-haspopup="true"><a href="qualityrisk.html">Quality Consultation Services</a></li>
-											<li aria-haspopup="true"><a href="PLANTSETUPandUPGRADATION.html">Quality Plant Setup & Upgradation</a></li>
-											<li aria-haspopup="true"><a href="RespiratoryEmergencyProtectionSystems.html">Respiratory & Emergency Protection Systems</a></li>
+                                        <li aria-haspopup="true"><a href="Esg.html">ESG End to End Solution </a></li>
+                                        <li aria-haspopup="true"><a href="gmp.html">GMP Audit</a></li>
+                                        <li aria-haspopup="true"><a href="GMPQUALITYCONSULTING.html">GMP Quality Consulting</a></li>
+                                        <li aria-haspopup="true"><a href="hac.html">HAC Services</a></li>
+                                        <li aria-haspopup="true"><a href="incidentinvestigation.html">Incident Investigation</a></li>
+                                        <li aria-haspopup="true"><a href="industrialhygene.html">Industrial<br>hygene</a></li>
+                                        <li aria-haspopup="true"><a href="Pharma.html">Pharma Clean room equipments</a></li>
+                                        <li aria-haspopup="true"><a href="powersystem.html">Power system studies</a></li>
+                                        <li aria-haspopup="true"><a href="qualityrisk.html">Quality Consultation Services</a></li>
+                                        <li aria-haspopup="true"><a href="PLANTSETUPandUPGRADATION.html">Quality Plant Setup & Upgradation</a></li>
+                                        <li aria-haspopup="true"><a href="RespiratoryEmergencyProtectionSystems.html">Respiratory & Emergency Protection Systems</a></li>
 
-											<li aria-haspopup="true"><a href="safetystudies.html">Safety Studies </a></li>
-											<li aria-haspopup="true"><a href="supplierqualificationaudit.html">Supplier qualification Audit</a></li>
-                                            <li aria-haspopup="true"><a href="developmentservice.html">Development Services</a></li>
+                                        <li aria-haspopup="true"><a href="safetystudies.html">Safety Studies </a></li>
+                                        <li aria-haspopup="true"><a href="supplierqualificationaudit.html">Supplier qualification Audit</a></li>
+                                        <li aria-haspopup="true"><a href="developmentservice.html">Development Services</a></li>
 
-											
-										   </ul>
+
+                                    </ul>
 
 
 
@@ -751,25 +747,25 @@
 
         <div class="banner">
             <div class="banner-images">
-              <img src="images/vindus_clients_images/pre-1.jpg" alt="Banner Image 1">
-              <img src="images/vindus_clients_images/pre-2.webp" alt="Banner Image 2">
-              <img src="images/vindus_clients_images/pre-3.jpeg" alt="Banner Image 3">
-              <img src="images/vindus_clients_images/pre-1.jpg" alt="Banner Image 1">
-              <img src="images/vindus_clients_images/pre-2.webp" alt="Banner Image 2">
-              <img src="images/vindus_clients_images/pre-3.jpeg" alt="Banner Image 3">
-              <!-- Duplicate set of images for continuous scroll -->
-              <img src="images/vindus_clients_images/pre-1.jpg" alt="Banner Image 1">
-              <img src="images/vindus_clients_images/pre-2.webp" alt="Banner Image 2">
-              <img src="images/vindus_clients_images/pre-3.jpeg" alt="Banner Image 3">
-              <img src="images/vindus_clients_images/pre-1.jpg" alt="Banner Image 1">
-              <img src="images/vindus_clients_images/pre-2.webp" alt="Banner Image 2">
-              <img src="images/vindus_clients_images/pre-3.jpeg" alt="Banner Image 3">
+                <img src="images/vindus_clients_images/pre-1.jpg" alt="Banner Image 1">
+                <img src="images/vindus_clients_images/pre-2.webp" alt="Banner Image 2">
+                <img src="images/vindus_clients_images/pre-3.jpeg" alt="Banner Image 3">
+                <img src="images/vindus_clients_images/pre-1.jpg" alt="Banner Image 1">
+                <img src="images/vindus_clients_images/pre-2.webp" alt="Banner Image 2">
+                <img src="images/vindus_clients_images/pre-3.jpeg" alt="Banner Image 3">
+                <!-- Duplicate set of images for continuous scroll -->
+                <img src="images/vindus_clients_images/pre-1.jpg" alt="Banner Image 1">
+                <img src="images/vindus_clients_images/pre-2.webp" alt="Banner Image 2">
+                <img src="images/vindus_clients_images/pre-3.jpeg" alt="Banner Image 3">
+                <img src="images/vindus_clients_images/pre-1.jpg" alt="Banner Image 1">
+                <img src="images/vindus_clients_images/pre-2.webp" alt="Banner Image 2">
+                <img src="images/vindus_clients_images/pre-3.jpeg" alt="Banner Image 3">
             </div>
             <h1 class="banner-heading">Pre-audit (gap analysis) services</h1>
-          </div>
-<br>
-        
-      
+        </div>
+        <br>
+
+
         <div class="container esg-section">
             <div class="row">
                 <div class="col-md-6 offset-md-3">
@@ -964,30 +960,32 @@
             </a>
         </div>
 
-     <button id="scrollToTopBtn" class="btn" style="display: block;">
+        <button id="scrollToTopBtn" class="btn" style="display: block;">
     <i class="fa-solid fa-circle-up" style="font-size: 30px;color: #0275b3;"></i>
 </button>
 
-<!-- jQuery and Bootstrap JS -->
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-<script>
-    // Show or hide the button based on scroll position
-    $(window).scroll(function() {
-        if ($(this).scrollTop() > 100) {
-            $('#scrollToTopBtn').fadeIn();
-        } else {
-            $('#scrollToTopBtn').fadeOut();
-        }
-    });
+        <!-- jQuery and Bootstrap JS -->
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        <script>
+            // Show or hide the button based on scroll position
+            $(window).scroll(function() {
+                if ($(this).scrollTop() > 100) {
+                    $('#scrollToTopBtn').fadeIn();
+                } else {
+                    $('#scrollToTopBtn').fadeOut();
+                }
+            });
 
-    // Smooth scroll to top
-    $('#scrollToTopBtn').click(function() {
-        $('html, body').animate({ scrollTop: 0 }, 600);
-        return false;
-    });
-    </script>
+            // Smooth scroll to top
+            $('#scrollToTopBtn').click(function() {
+                $('html, body').animate({
+                    scrollTop: 0
+                }, 600);
+                return false;
+            });
+        </script>
         <!-- FOOTER-3
 			============================================= -->
         <footer id="footer-3" class="pt-100 footer">
@@ -1040,8 +1038,8 @@
                                     <p><a href="terms.html">Terms of Use</a></p>
                                 </li>
                                 <li>
-                            <p><a href="privacypolicy.html">Privacy Policy</a></p>
-                        </li>
+                                    <p><a href="privacypolicy.html">Privacy Policy</a></p>
+                                </li>
                                 <li>
                                     <p><a href="sitemap.html">Site Map</a></p>
                                 </li>
@@ -1060,17 +1058,16 @@
                             <h6 class="s-17 w-700" style="color:#fff;">Connect With Us</h6>
 
                             <!-- Mail Link -->
-                          <p class="footer-mail-link ico-25">
-									<a href="mailto:info@mlcqehs.com" style="color:#fff;">
-                    <i class="fas fa-envelope"></i>&nbsp;Email :<br>
-                      info@mlcqehs.com
+                            <p class="footer-mail-link ico-25">
+                                <a href="mailto:info@mlcqehs.com" style="color:#fff;">
+                                    <i class="fas fa-envelope"></i>&nbsp;Email :<br> info@mlcqehs.com
 
-									</a>
-                 
-                  <a href="mailto:contactmlconsultancy@gmail.com" style="color:#fff;">contactmlconsultancy@gmail.com</a>
-									<br><br>
-									<i class="fas fa-mobile-alt"></i> +91&nbsp; 99498&nbsp;45759<br><i class="fas fa-mobile-alt"></i>&nbsp;+91 &nbsp;77269&nbsp;32023
-								</p>
+                                </a>
+
+                                <a href="mailto:contactmlconsultancy@gmail.com" style="color:#fff;">contactmlconsultancy@gmail.com</a>
+                                <br><br>
+                                <i class="fas fa-mobile-alt"></i> +91&nbsp; 99498&nbsp;45759<br><i class="fas fa-mobile-alt"></i>&nbsp;+91 &nbsp;77269&nbsp;32023
+                            </p>
 
 
                             <!-- Social Links -->
@@ -1114,9 +1111,11 @@
 
 
                         <!-- FOOTER COPYRIGHT -->
-                      <div class="col">
-								<div class="footer-copyright"><p class="p-sm">&copy; 2024 <a href="http://vindusenvironment.in" target="_blank" style="color:antiquewhite;">Vindus</a>. <span>All Rights Reserved</span></p></div>
-							</div>
+                        <div class="col">
+                            <div class="footer-copyright">
+                                <p class="p-sm">&copy; 2024 <a href="http://vindusenvironment.in" target="_blank" style="color:antiquewhite;">Vindus</a>. <span>All Rights Reserved</span></p>
+                            </div>
+                        </div>
 
 
                         <!-- FOOTER SECONDARY LINK -->
