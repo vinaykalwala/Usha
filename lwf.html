@@ -55,25 +55,19 @@
     <!-- RESPONSIVE CSS -->
     <link href="css/responsive.css" rel="stylesheet">
     <style>
-        #services-sub-menu {
-            overflow-y: scroll;
-            padding-left: 0;
-            margin: 0;
-            list-style: none;
-            height: 420px;
-            min-width: 20px;
+        header {
+            margin-bottom: 20px;
         }
         
-        header{
-                margin-bottom: 20px;
-            }
-            .footer{
-                background:linear-gradient(#000040,#1560bd,#000040);
-                color:#fff;
-            }
-            a:hover {
-                text-decoration: none;
-            }
+        .footer {
+            background: linear-gradient(#000040, #1560bd, #000040);
+            color: #fff;
+        }
+        
+        a:hover {
+            text-decoration: none;
+        }
+        
         .whatsapp-icon {
             position: fixed;
             bottom: 20px;
@@ -111,10 +105,6 @@
             color: #fff;
         }
         
-      
-        
-      
-       
         body {
             -webkit-user-select: none;
             /* Safari */
@@ -125,8 +115,6 @@
             user-select: none;
             /* Standard */
         }
-        
-       
         
         .sub-menu {
             padding-left: 0;
@@ -190,253 +178,255 @@
             font-size: 24px;
             /* Adjust font size as needed */
         }
+        
         .content-container {
-      max-width: 1150px;
-      margin: 20px auto;
-      padding: 20px;
-      border: 15px solid #e6f6fc;
-      border-radius: 10px;
-      font-family: Arial, sans-serif;
-      line-height: 1.6;
-      background-color: #ffff;
-      box-shadow: 10px 10px 8px rgba(0, 0, 0, 0.1); 
-    }
-
-    .content-container h1, 
-    .content-container h2 {
-      color: #1560bd;
-      margin-bottom: 10px;
-    }
-
-    .content-container h1 {
-      font-size: 1.8rem;
-      text-align: center;
-      margin-bottom: 20px;
-    }
-
-    .content-container h2 {
-      font-size: 1.5rem;
-    }
-
-    .content-container p {
-      margin-bottom: 15px;
-      text-align: justify;
-      color: #333;
-    }
-    .scope-container {
-      display: flex;
-      flex-wrap: wrap;
-      border: 15px solid #e6f6fc;
-      border-radius: 10px;
-      overflow: hidden;
-      max-width: 1000px;
-      margin: 20px auto;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    }
-
-    .scope-image,
-    .scope-text {
-      flex: 1;
-      min-width: 50%;
-    }
-
-    .scope-image img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      padding: 20px;
-    }
-
-    .scope-text {
-      padding: 20px;
-      background-color: #ffff;
-      font-family: Arial, sans-serif;
-      color: #333;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .scope-text h2 {
-      color: #1560bd;
-      margin-bottom: 10px;
-      font-size: 1.5rem;
-    }
-
-    .scope-text p {
-      line-height: 1.6;
-      text-align: justify;
-    }
-    @media (max-width: 768px) {
-  .scope-container {
-    flex-direction: column; 
-    max-width: 100%;
-    padding: 15px;
-  }
-
-  .scope-image,
-  .scope-text {
-    min-width: 100%;
-    height: auto;
-  }
-
-  .scope-text h2 {
-    font-size: 1.3rem; 
-  }
-
-  .scope-text p {
-    font-size: 1rem; 
-  }
-}
-
-@media (max-width: 480px) {
-  .scope-container {
-    padding: 10px; 
-  }
-
-  .scope-text h2 {
-    font-size: 1.1rem; 
-  }
-
-  .scope-text p {
-    font-size: 0.9rem; 
-  }
-}
-.applicability-container {
-      padding: 20px;
-      font-family: Arial, sans-serif;
-      text-align: center;
-    }
-    .applicability-container p {
-     
-      text-align: justify;
-    }
-
-    h2 {
-      color: #1560bd;
-      margin-bottom: 20px;
-    }
-
-    .flex-container {
-      display: flex;
-      justify-content: space-between;
-      align-items: stretch; 
-      gap: 20px;
-    }
-
-    .table-container {
-      flex: 1; 
-      max-width: 50%; 
-      height: 500px; 
-      overflow: hidden; 
-      overflow-y: auto; 
-
-    }
-
-    .table-container table {
-      width: 100%;
-      height: 100%;
-      border-collapse: collapse;
-      table-layout: fixed; /* Ensures the table takes up the full height */
-    }
-
-    .table-container th, .table-container td {
-      padding: 10px;
-      text-align: left;
-      border: 1px solid #ddd; /* Add borders to table cells */
-      vertical-align: middle; /* Center text vertically */
-    }
-
-    .table-container th {
-      background-color: #1560bd;
-      color: white;
-    }
-
-    .table-body {
-      display: block;
-      height: 400px; 
-    }
-
-    .map-container {
-      flex: 1; 
-      height: 500px; 
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-
-    .map-container img {
-      max-width: 100%;
-      height: 100%; 
-      object-fit: cover; 
-    }
-
-    @media (max-width: 768px) {
-      .flex-container {
-        flex-direction: column;
-      }
-
-      .table-container, .map-container {
-        max-width: 100%;
-        height: auto; 
-      }
-    }
-    .lw-container {
-      padding: 40px;
-      margin: auto;
-      border-radius: 10px;
-   }
-
-    .lw-heading {
-      color: #1560bd;
-      font-size: 32px;
-      margin-bottom: 20px;
-      text-align: center;
-    }
-
-    .lw-paragraph {
-      font-size: 18px;
-      margin-bottom: 20px;
-      color: #555;
-      text-align: justify;
-    }
-
-    .lw-expenditure-title {
-      font-size: 24px;
-      color: #1560bd;
-      margin-top: 30px;
-      margin-bottom: 15px;
-    }
-
-    .lw-expenditure-list {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 20px;
-    }
-
-    .lw-expenditure-item {
-      background-color: #e6f2ff;
-      padding: 20px;
-      border-radius: 8px;
-      border: 1px solid #ddd;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-      font-size: 18px;
-      color: #333;
-      transition: transform 0.3s ease-in-out;
-      align-content: center;
-    }
-
-    .lw-expenditure-item:hover {
-      transform: translateY(-10px);
-    }
-
-    /* Responsive Design */
-    @media (max-width: 768px) {
-      .lw-expenditure-list {
-        grid-template-columns: 1fr;
-      }
-    }
-
+            max-width: 1150px;
+            margin: 20px auto;
+            padding: 20px;
+            border: 15px solid #e6f6fc;
+            border-radius: 10px;
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #ffff;
+            box-shadow: 10px 10px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .content-container h1,
+        .content-container h2 {
+            color: #1560bd;
+            margin-bottom: 10px;
+        }
+        
+        .content-container h1 {
+            font-size: 1.8rem;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        .content-container h2 {
+            font-size: 1.5rem;
+        }
+        
+        .content-container p {
+            margin-bottom: 15px;
+            text-align: justify;
+            color: #333;
+        }
+        
+        .scope-container {
+            display: flex;
+            flex-wrap: wrap;
+            border: 15px solid #e6f6fc;
+            border-radius: 10px;
+            overflow: hidden;
+            max-width: 1000px;
+            margin: 20px auto;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .scope-image,
+        .scope-text {
+            flex: 1;
+            min-width: 50%;
+        }
+        
+        .scope-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            padding: 20px;
+        }
+        
+        .scope-text {
+            padding: 20px;
+            background-color: #ffff;
+            font-family: Arial, sans-serif;
+            color: #333;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .scope-text h2 {
+            color: #1560bd;
+            margin-bottom: 10px;
+            font-size: 1.5rem;
+        }
+        
+        .scope-text p {
+            line-height: 1.6;
+            text-align: justify;
+        }
+        
+        @media (max-width: 768px) {
+            .scope-container {
+                flex-direction: column;
+                max-width: 100%;
+                padding: 15px;
+            }
+            .scope-image,
+            .scope-text {
+                min-width: 100%;
+                height: auto;
+            }
+            .scope-text h2 {
+                font-size: 1.3rem;
+            }
+            .scope-text p {
+                font-size: 1rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .scope-container {
+                padding: 10px;
+            }
+            .scope-text h2 {
+                font-size: 1.1rem;
+            }
+            .scope-text p {
+                font-size: 0.9rem;
+            }
+        }
+        
+        .applicability-container {
+            padding: 20px;
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        
+        .applicability-container p {
+            text-align: justify;
+        }
+        
+        h2 {
+            color: #1560bd;
+            margin-bottom: 20px;
+        }
+        
+        .flex-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: stretch;
+            gap: 20px;
+        }
+        
+        .table-container {
+            flex: 1;
+            max-width: 50%;
+            height: 500px;
+            overflow: hidden;
+            overflow-y: auto;
+        }
+        
+        .table-container table {
+            width: 100%;
+            height: 100%;
+            border-collapse: collapse;
+            table-layout: fixed;
+            /* Ensures the table takes up the full height */
+        }
+        
+        .table-container th,
+        .table-container td {
+            padding: 10px;
+            text-align: left;
+            border: 1px solid #ddd;
+            /* Add borders to table cells */
+            vertical-align: middle;
+            /* Center text vertically */
+        }
+        
+        .table-container th {
+            background-color: #1560bd;
+            color: white;
+        }
+        
+        .table-body {
+            display: block;
+            height: 400px;
+        }
+        
+        .map-container {
+            flex: 1;
+            height: 500px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .map-container img {
+            max-width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        @media (max-width: 768px) {
+            .flex-container {
+                flex-direction: column;
+            }
+            .table-container,
+            .map-container {
+                max-width: 100%;
+                height: auto;
+            }
+        }
+        
+        .lw-container {
+            padding: 40px;
+            margin: auto;
+            border-radius: 10px;
+        }
+        
+        .lw-heading {
+            color: #1560bd;
+            font-size: 32px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .lw-paragraph {
+            font-size: 18px;
+            margin-bottom: 20px;
+            color: #555;
+            text-align: justify;
+        }
+        
+        .lw-expenditure-title {
+            font-size: 24px;
+            color: #1560bd;
+            margin-top: 30px;
+            margin-bottom: 15px;
+        }
+        
+        .lw-expenditure-list {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+        
+        .lw-expenditure-item {
+            background-color: #e6f2ff;
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            font-size: 18px;
+            color: #333;
+            transition: transform 0.3s ease-in-out;
+            align-content: center;
+        }
+        
+        .lw-expenditure-item:hover {
+            transform: translateY(-10px);
+        }
+        /* Responsive Design */
+        
+        @media (max-width: 768px) {
+            .lw-expenditure-list {
+                grid-template-columns: 1fr;
+            }
+        }
     </style>
 </head>
 
@@ -726,368 +716,357 @@
         <div class="content-container">
             <h1>Labour Welfare Fund</h1>
             <p>
-              Labour welfare fund is a statutory contribution managed by individual state authorities. 
-              The state labour welfare board determines the amount and frequency of the contribution. 
-              The contribution and periodicity of remittance differs with every state. In some states 
-              the periodicity is annual (Andhra Pradesh, Haryana, Karnataka, Tamil Nadu etc) and in 
-              some states it is to be contributed during the month of June & December (Gujarat, 
-              Madhya Pradesh, Maharashtra etc).
+                Labour welfare fund is a statutory contribution managed by individual state authorities. The state labour welfare board determines the amount and frequency of the contribution. The contribution and periodicity of remittance differs with every state. In
+                some states the periodicity is annual (Andhra Pradesh, Haryana, Karnataka, Tamil Nadu etc) and in some states it is to be contributed during the month of June & December (Gujarat, Madhya Pradesh, Maharashtra etc).
             </p>
-        
+
             <h2>What is Labour Welfare Fund?</h2>
             <p>
-              Labour welfare is an aid in the form of money or necessities for those in need. It provides 
-              facilities to labourers in order to improve their working conditions, provide social security, 
-              and raise their standard of living.
+                Labour welfare is an aid in the form of money or necessities for those in need. It provides facilities to labourers in order to improve their working conditions, provide social security, and raise their standard of living.
             </p>
             <p>
-              To justify the above statement, various state legislatures have enacted an Act exclusively 
-              focusing on welfare of the workers, known as the Labour Welfare Fund Act. The Labour 
-              Welfare Fund Act incorporates various services, benefits and facilities offered to the 
-              employee by the employer. Such facilities are offered by the means of contribution from 
-              the employer and the employee. However, the rate of contribution may differ from one 
-              state to another.
+                To justify the above statement, various state legislatures have enacted an Act exclusively focusing on welfare of the workers, known as the Labour Welfare Fund Act. The Labour Welfare Fund Act incorporates various services, benefits and facilities offered
+                to the employee by the employer. Such facilities are offered by the means of contribution from the employer and the employee. However, the rate of contribution may differ from one state to another.
             </p>
-          </div>
-        
-          <div class="scope-container">
-            <div class="scope-image">
-              <img src="images/vindus_clients_images/lwf6.png" alt="Labour Welfare Image">
-            </div>
-            <div class="scope-text">
-              <div>
-                <h2>Scope of Labour Welfare Fund Act</h2>
-                <p>
-                  The scope of this Act is extended to housing, family care & worker's health service by 
-                  providing medical examination, clinic for general treatment, infant welfare, women’s 
-                  general education, workers activity facilities, marriage, education, funeral etc. State-specific 
-                  Labour Welfare Funds are funded by contributions from the employer, employee, and in 
-                  a few states, the government also.
-                </p>
-              </div>
-            </div>
-          </div>
-          <div class="applicability-container">
-            <h2>Applicability of the Act</h2>
-            <p>In order to provide social security to workers, the government has introduced the Labour
-                Welfare Fund Act. This act has been implemented only in 16 states out of 37 states
-                including union territories.</p>
-                <p>The below table depicts the states in which the Act has been implemented and not
-                implemented:</p>
-        
-            <div class="flex-container">
-              <!-- Table for Applicable and Not Applicable States -->
-              <div class="table-container">
-                <table>
-                  <thead>
-                    <tr>
-                      <th>Applicable States</th>
-                      <th>Not Applicable States</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>Andhra Pradesh</td>
-                      <td>Central</td>
-                    </tr>
-                    <tr>
-                      <td>Chandigarh</td>
-                      <td>Andaman and Nicobar Islands</td>
-                    </tr>
-                    <tr>
-                      <td>Chhattisgarh</td>
-                      <td>Arunachal Pradesh</td>
-                    </tr>
-                    <tr>
-                      <td>Delhi</td>
-                      <td>Assam</td>
-                    </tr>
-                    <tr>
-                      <td>Goa</td>
-                      <td>Bihar</td>
-                    </tr>
-                    <tr>
-                      <td>Gujarat</td>
-                      <td>Dadra and Nagar Haveli</td>
-                    </tr>
-                    <tr>
-                      <td>Haryana</td>
-                      <td>Daman and Diu</td>
-                    </tr>
-                    <tr>
-                      <td>Karnataka</td>
-                      <td>Himachal Pradesh</td>
-                    </tr>
-                    <tr>
-                      <td>Kerala</td>
-                      <td>Jammu and Kashmir</td>
-                    </tr>
-                    <tr>
-                      <td>Madhya Pradesh</td>
-                      <td>Jharkhand</td>
-                    </tr>
-                    <tr>
-                      <td>Maharashtra</td>
-                      <td>Ladakh</td>
-                    </tr>
-                    <tr>
-                      <td>Odisha</td>
-                      <td>Lakshadweep</td>
-                    </tr>
-                    <tr>
-                      <td>Punjab</td>
-                      <td>Manipur</td>
-                    </tr>
-                    <tr>
-                      <td>Tamil Nadu</td>
-                      <td>Meghalaya</td>
-                    </tr>
-                    <tr>
-                      <td>Telangana</td>
-                      <td>Mizoram</td>
-                    </tr>
-                    <tr>
-                      <td>West Bengal</td>
-                      <td>Nagaland</td>
-                    </tr>
-                    <tr>
-                        <td></td>
-                        <td>Puducherry
-                            </td>
-                      </tr> <tr>
-                        <td></td>
-                        <td>Rajasthan
-                            </td>
-                      </tr> <tr>
-                        <td></td>
-                        <td>Sikkim</td>
-                      </tr> <tr>
-                        <td></td>
-                        <td>Tripura</td>
-                      </tr>
-                  </tbody>
-                </table>
-              </div>
-        
-              <!-- Map Image Spanning Both Columns -->
-              <div class="map-container">
-                <img src="images/vindus_clients_images/lwf.png" alt="Map of Applicable States">
-              </div>
-            </div>
-          </div>
-          </div>
-          <br>
-          <div class="lw-container">
-            <h2 class="lw-heading">How Does the Process Work?</h2>
-            <p class="lw-paragraph">The contribution in the Labour Welfare Fund may be made annually, half yearly or monthly. The frequency may differ depending upon the state-specific Act. If the frequency is half yearly, the period of deduction shall be divided into two consecutive periods as per the date mentioned in the state-specific Act. The employer needs to make the deduction from the salary of the employee and submit the same to the Labour Welfare Fund board in the prescribed form before the due date.</p>
-        
-            <h3 class="lw-expenditure-title">Labour Welfare Fund Expenditure</h3>
-            <p class="lw-paragraph">The money in the Fund may be utilized by the Board to defray expenditure on the following:</p>
-        
-            <div class="lw-expenditure-list">
-              <div class="lw-expenditure-item">Educational facilities for the children of the workers.</div>
-              <div class="lw-expenditure-item">Transport facilities to the workers for commuting to work.</div>
-
-              <div class="lw-expenditure-item">Medical facilities for both private and public-sector employers to efficiently provide comprehensive medical facilities for their workers and their families.</div>
-              <div class="lw-expenditure-item">Recreational facilities in form of music, dance, drama, games, sports, paintings, etc. are usually offered to the employees to build a wholesome working environment.</div>
-              <div class="lw-expenditure-item">Housing facilities under this scheme offer loans to industrial workers for constructing houses at concessional rates.</div>
-              <div class="lw-expenditure-item">Home industries and subsidiary occupations for women and unemployed persons.</div>
-              <div class="lw-expenditure-item">Excursions, tours and holiday homes.</div>
-
-              <div class="lw-expenditure-item">Reading rooms and libraries.</div>
-              <div class="lw-expenditure-item">Vocational training.</div>
-              <div class="lw-expenditure-item">Nutritious food to children of employees.</div>
-            </div>
-          </div>
-        
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
-
-
-    
-
-
-
-
-        <!-- WhatsApp Icon -->
-        <!-- WhatsApp Icon -->
-        <div id="whatsapp-icon" class="whatsapp-icon">
-            <a href="https://api.whatsapp.com/send?phone=7726932023" target="_blank">
-                <img src="images/vindus_clients_images/whate.png" alt="whatsapp">
-                <span class="whatsapp-text">WhatsApp</span>
-            </a>
         </div>
 
-        <button id="scrollToTopBtn" class="btn" style="display: block;">
+        <div class="scope-container">
+            <div class="scope-image">
+                <img src="images/vindus_clients_images/lwf6.png" alt="Labour Welfare Image">
+            </div>
+            <div class="scope-text">
+                <div>
+                    <h2>Scope of Labour Welfare Fund Act</h2>
+                    <p>
+                        The scope of this Act is extended to housing, family care & worker's health service by providing medical examination, clinic for general treatment, infant welfare, women’s general education, workers activity facilities, marriage, education, funeral etc.
+                        State-specific Labour Welfare Funds are funded by contributions from the employer, employee, and in a few states, the government also.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="applicability-container">
+            <h2>Applicability of the Act</h2>
+            <p>In order to provide social security to workers, the government has introduced the Labour Welfare Fund Act. This act has been implemented only in 16 states out of 37 states including union territories.</p>
+            <p>The below table depicts the states in which the Act has been implemented and not implemented:
+            </p>
+
+            <div class="flex-container">
+                <!-- Table for Applicable and Not Applicable States -->
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Applicable States</th>
+                                <th>Not Applicable States</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Andhra Pradesh</td>
+                                <td>Central</td>
+                            </tr>
+                            <tr>
+                                <td>Chandigarh</td>
+                                <td>Andaman and Nicobar Islands</td>
+                            </tr>
+                            <tr>
+                                <td>Chhattisgarh</td>
+                                <td>Arunachal Pradesh</td>
+                            </tr>
+                            <tr>
+                                <td>Delhi</td>
+                                <td>Assam</td>
+                            </tr>
+                            <tr>
+                                <td>Goa</td>
+                                <td>Bihar</td>
+                            </tr>
+                            <tr>
+                                <td>Gujarat</td>
+                                <td>Dadra and Nagar Haveli</td>
+                            </tr>
+                            <tr>
+                                <td>Haryana</td>
+                                <td>Daman and Diu</td>
+                            </tr>
+                            <tr>
+                                <td>Karnataka</td>
+                                <td>Himachal Pradesh</td>
+                            </tr>
+                            <tr>
+                                <td>Kerala</td>
+                                <td>Jammu and Kashmir</td>
+                            </tr>
+                            <tr>
+                                <td>Madhya Pradesh</td>
+                                <td>Jharkhand</td>
+                            </tr>
+                            <tr>
+                                <td>Maharashtra</td>
+                                <td>Ladakh</td>
+                            </tr>
+                            <tr>
+                                <td>Odisha</td>
+                                <td>Lakshadweep</td>
+                            </tr>
+                            <tr>
+                                <td>Punjab</td>
+                                <td>Manipur</td>
+                            </tr>
+                            <tr>
+                                <td>Tamil Nadu</td>
+                                <td>Meghalaya</td>
+                            </tr>
+                            <tr>
+                                <td>Telangana</td>
+                                <td>Mizoram</td>
+                            </tr>
+                            <tr>
+                                <td>West Bengal</td>
+                                <td>Nagaland</td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td>Puducherry
+                                </td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td>Rajasthan
+                                </td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td>Sikkim</td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td>Tripura</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Map Image Spanning Both Columns -->
+                <div class="map-container">
+                    <img src="images/vindus_clients_images/lwf.png" alt="Map of Applicable States">
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
+    <div class="lw-container">
+        <h2 class="lw-heading">How Does the Process Work?</h2>
+        <p class="lw-paragraph">The contribution in the Labour Welfare Fund may be made annually, half yearly or monthly. The frequency may differ depending upon the state-specific Act. If the frequency is half yearly, the period of deduction shall be divided into two consecutive
+            periods as per the date mentioned in the state-specific Act. The employer needs to make the deduction from the salary of the employee and submit the same to the Labour Welfare Fund board in the prescribed form before the due date.</p>
+
+        <h3 class="lw-expenditure-title">Labour Welfare Fund Expenditure</h3>
+        <p class="lw-paragraph">The money in the Fund may be utilized by the Board to defray expenditure on the following:</p>
+
+        <div class="lw-expenditure-list">
+            <div class="lw-expenditure-item">Educational facilities for the children of the workers.</div>
+            <div class="lw-expenditure-item">Transport facilities to the workers for commuting to work.</div>
+
+            <div class="lw-expenditure-item">Medical facilities for both private and public-sector employers to efficiently provide comprehensive medical facilities for their workers and their families.</div>
+            <div class="lw-expenditure-item">Recreational facilities in form of music, dance, drama, games, sports, paintings, etc. are usually offered to the employees to build a wholesome working environment.</div>
+            <div class="lw-expenditure-item">Housing facilities under this scheme offer loans to industrial workers for constructing houses at concessional rates.</div>
+            <div class="lw-expenditure-item">Home industries and subsidiary occupations for women and unemployed persons.</div>
+            <div class="lw-expenditure-item">Excursions, tours and holiday homes.</div>
+
+            <div class="lw-expenditure-item">Reading rooms and libraries.</div>
+            <div class="lw-expenditure-item">Vocational training.</div>
+            <div class="lw-expenditure-item">Nutritious food to children of employees.</div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+
+
+
+
+
+
+
+    <!-- WhatsApp Icon -->
+    <!-- WhatsApp Icon -->
+    <div id="whatsapp-icon" class="whatsapp-icon">
+        <a href="https://api.whatsapp.com/send?phone=7726932023" target="_blank">
+            <img src="images/vindus_clients_images/whate.png" alt="whatsapp">
+            <span class="whatsapp-text">WhatsApp</span>
+        </a>
+    </div>
+
+    <button id="scrollToTopBtn" class="btn" style="display: block;">
     <i class="fa-solid fa-circle-up" style="font-size: 30px;color: #0275b3;"></i>
 </button>
 
-        <!-- jQuery and Bootstrap JS -->
-        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-        <script>
-            // Show or hide the button based on scroll position
-            $(window).scroll(function() {
-                if ($(this).scrollTop() > 100) {
-                    $('#scrollToTopBtn').fadeIn();
-                } else {
-                    $('#scrollToTopBtn').fadeOut();
-                }
-            });
+    <!-- jQuery and Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        // Show or hide the button based on scroll position
+        $(window).scroll(function() {
+            if ($(this).scrollTop() > 100) {
+                $('#scrollToTopBtn').fadeIn();
+            } else {
+                $('#scrollToTopBtn').fadeOut();
+            }
+        });
 
-            // Smooth scroll to top
-            $('#scrollToTopBtn').click(function() {
-                $('html, body').animate({
-                    scrollTop: 0
-                }, 600);
-                return false;
-            });
-        </script>
+        // Smooth scroll to top
+        $('#scrollToTopBtn').click(function() {
+            $('html, body').animate({
+                scrollTop: 0
+            }, 600);
+            return false;
+        });
+    </script>
 
-        <!-- FOOTER-3
+    <!-- FOOTER-3
 			============================================= -->
-        <footer id="footer-3" class="pt-100 footer">
-            <div class="container">
-                <div class="row">
-                    <!-- FOOTER LOGO -->
-                    <div class="col-xl-3 text-center text-xl-left">
-                        <div class="footer-info">
-                            <img src="images/vindus_clients_images/cardlogo.jpg" alt="" class="rounded-circle" height="200px" width="200px">
-                        </div>
+    <footer id="footer-3" class="pt-100 footer">
+        <div class="container">
+            <div class="row">
+                <!-- FOOTER LOGO -->
+                <div class="col-xl-3 text-center text-xl-left">
+                    <div class="footer-info">
+                        <img src="images/vindus_clients_images/cardlogo.jpg" alt="" class="rounded-circle" height="200px" width="200px">
                     </div>
-                    <!-- END FOOTER LOGO -->
-
-                    <!-- FOOTER LINKS -->
-                    <div class="col-sm-4 col-md-3 col-xl-2">
-                        <div class="footer-links fl-1">
-                            <!-- Title -->
-                            <h6 class="s-17 w-700" style="color:#fff;">Company</h6>
-                            <!-- Links -->
-                            <ul class="foo-links clearfix">
-                                <li>
-                                    <p><a href="about.html">About Us</a></p>
-                                </li>
-                                <li>
-                                    <p><a href="Blog.html">Our Blog</a></p>
-                                </li>
-                                <li>
-                                    <p><a href="contact.html">Contact Us</a></p>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <!-- END FOOTER LINKS -->
-
-
-                    <!-- FOOTER LINKS -->
-
-
-
-                    <!-- FOOTER LINKS -->
-                    <div class="col-sm-4 col-md-3 col-xl-2">
-                        <div class="footer-links fl-3">
-
-                            <!-- Title -->
-                            <h6 class="s-17 w-700" style="color:#fff;">Legal</h6>
-
-                            <!-- Links -->
-                            <ul class="foo-links clearfix">
-                                <li>
-                                    <p><a href="terms.html">Terms of Use</a></p>
-                                </li>
-                                <li>
-                                    <p><a href="privacypolicy.html">Privacy Policy</a></p>
-                                </li>
-                                <li>
-                                    <p><a href="sitemap.html">Site Map</a></p>
-                                </li>
-                            </ul>
-
-                        </div>
-                    </div>
-                    <!-- END FOOTER LINKS -->
-
-
-                    <!-- FOOTER LINKS -->
-                    <div class="col-sm-6 col-md-4">
-                        <div class="footer-links fl-4">
-
-                            <!-- Title -->
-                            <h6 class="s-17 w-700" style="color:#fff;">Connect With Us</h6>
-
-                            <!-- Mail Link -->
-                            <p class="footer-mail-link ico-25">
-                                <a href="mailto:info@mlcqehs.com" style="color:#fff;">
-                                    <i class="fas fa-envelope"></i>&nbsp;Email :<br> info@mlcqehs.com
-
-                                </a>
-
-                                <a href="mailto:contactmlconsultancy@gmail.com" style="color:#fff;">contactmlconsultancy@gmail.com</a>
-                                <br><br>
-                                <i class="fas fa-mobile-alt"></i> +91&nbsp; 99498&nbsp;45759<br><i class="fas fa-mobile-alt"></i>&nbsp;+91 &nbsp;77269&nbsp;32023
-                            </p>
-
-                            <!-- Social Links -->
-
-
-                        </div>
-                    </div>
-                    <!-- END FOOTER LINKS -->
-
-
                 </div>
-                <!-- END FOOTER CONTENT -->
+                <!-- END FOOTER LOGO -->
 
-
-                <hr>
-                <!-- FOOTER DIVIDER LINE -->
-
-                <div class="container p-4 pb-0">
-                    <!-- Section: Social media -->
-                    <section class="mb-4">
-                        <!-- Social media links -->
-                        <!-- Facebook -->
-                        <a data-mdb-ripple-init class="btn text-white btn-floating m-1" style="background-color: #3b5998;" href="https://www.facebook.com/people/Ghanta-Bharat/pfbid02E5p4iNHonymCDq917efmb1mu44dTg8gLaJtYmWX1H4uo7ekoPVZ1UfoeGDbX8Ltml/" role="button"><i class="fab fa-facebook-f"></i></a>
-                        <!-- Twitter -->
-                        <a data-mdb-ripple-init class="btn text-white btn-floating m-1" style="background-color: #55acee;" href="https://twitter.com/mlcqehs" role="button"><i class="fab fa-twitter"></i></a>
-                        <!-- youtube -->
-                        <a data-mdb-ripple-init class="btn text-white btn-floating m-1" style="background-color: red;" href="https://www.youtube.com/channel/UC0XU71NpgQlK-9K3lJU9vtQ" role="button"><i class="fab fa-youtube"></i></a>
-
-                        <!-- Instagram -->
-                        <a data-mdb-ripple-init class="btn text-white btn-floating m-1" style="background-color: #ac2bac;" href="https://www.instagram.com/mlcqehsgb/" role="button"><i class="fab fa-instagram"></i></a>
-                        <!-- Linkedin -->
-                        <!-- LinkedIn -->
-                        <a data-mdb-ripple-init class="btn text-white btn-floating m-1" style="background-color: #0082ca;" href="https://www.linkedin.com/company/maha-laxmi-consultancy/" role="button"><i class="fab fa-linkedin-in"></i></a>
-                        <!-- Github -->
-                    </section>
-                    <!-- Section: Social media -->
+                <!-- FOOTER LINKS -->
+                <div class="col-sm-4 col-md-3 col-xl-2">
+                    <div class="footer-links fl-1">
+                        <!-- Title -->
+                        <h6 class="s-17 w-700" style="color:#fff;">Company</h6>
+                        <!-- Links -->
+                        <ul class="foo-links clearfix">
+                            <li>
+                                <p><a href="about.html">About Us</a></p>
+                            </li>
+                            <li>
+                                <p><a href="Blog.html">Our Blog</a></p>
+                            </li>
+                            <li>
+                                <p><a href="contact.html">Contact Us</a></p>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
-                <!-- BOTTOM FOOTER -->
-                <div class="bottom-footer">
-                    <div class="row row-cols-1 row-cols-md-2 d-flex align-items-center">
+                <!-- END FOOTER LINKS -->
 
 
-                        <!-- FOOTER COPYRIGHT -->
-                        <div class="col">
-                            <div class="footer-copyright">
-                                <p class="p-sm">&copy; 2024 <a href="http://vindusenvironment.in" target="_blank" style="color:antiquewhite;">Vindus</a>. <span>All Rights Reserved</span></p>
-                            </div>
-                        </div>
+                <!-- FOOTER LINKS -->
 
 
-                        <!-- FOOTER SECONDARY LINK -->
+
+                <!-- FOOTER LINKS -->
+                <div class="col-sm-4 col-md-3 col-xl-2">
+                    <div class="footer-links fl-3">
+
+                        <!-- Title -->
+                        <h6 class="s-17 w-700" style="color:#fff;">Legal</h6>
+
+                        <!-- Links -->
+                        <ul class="foo-links clearfix">
+                            <li>
+                                <p><a href="terms.html">Terms of Use</a></p>
+                            </li>
+                            <li>
+                                <p><a href="privacypolicy.html">Privacy Policy</a></p>
+                            </li>
+                            <li>
+                                <p><a href="sitemap.html">Site Map</a></p>
+                            </li>
+                        </ul>
 
                     </div>
-
-
                 </div>
-                <!-- End row -->
+                <!-- END FOOTER LINKS -->
+
+
+                <!-- FOOTER LINKS -->
+                <div class="col-sm-6 col-md-4">
+                    <div class="footer-links fl-4">
+
+                        <!-- Title -->
+                        <h6 class="s-17 w-700" style="color:#fff;">Connect With Us</h6>
+
+                        <!-- Mail Link -->
+                        <p class="footer-mail-link ico-25">
+                            <a href="mailto:info@mlcqehs.com" style="color:#fff;">
+                                <i class="fas fa-envelope"></i>&nbsp;Email :<br> info@mlcqehs.com
+
+                            </a>
+
+                            <a href="mailto:contactmlconsultancy@gmail.com" style="color:#fff;">contactmlconsultancy@gmail.com</a>
+                            <br><br>
+                            <i class="fas fa-mobile-alt"></i> +91&nbsp; 99498&nbsp;45759<br><i class="fas fa-mobile-alt"></i>&nbsp;+91 &nbsp;77269&nbsp;32023
+                        </p>
+
+                        <!-- Social Links -->
+
+
+                    </div>
+                </div>
+                <!-- END FOOTER LINKS -->
+
+
             </div>
-            <!-- END BOTTOM FOOTER -->
+            <!-- END FOOTER CONTENT -->
 
 
-    </div>
-    <!-- End container -->
+            <hr>
+            <!-- FOOTER DIVIDER LINE -->
+
+            <div class="container p-4 pb-0">
+                <!-- Section: Social media -->
+                <section class="mb-4">
+                    <!-- Social media links -->
+                    <!-- Facebook -->
+                    <a data-mdb-ripple-init class="btn text-white btn-floating m-1" style="background-color: #3b5998;" href="https://www.facebook.com/people/Ghanta-Bharat/pfbid02E5p4iNHonymCDq917efmb1mu44dTg8gLaJtYmWX1H4uo7ekoPVZ1UfoeGDbX8Ltml/" role="button"><i class="fab fa-facebook-f"></i></a>
+                    <!-- Twitter -->
+                    <a data-mdb-ripple-init class="btn text-white btn-floating m-1" style="background-color: #55acee;" href="https://twitter.com/mlcqehs" role="button"><i class="fab fa-twitter"></i></a>
+                    <!-- youtube -->
+                    <a data-mdb-ripple-init class="btn text-white btn-floating m-1" style="background-color: red;" href="https://www.youtube.com/channel/UC0XU71NpgQlK-9K3lJU9vtQ" role="button"><i class="fab fa-youtube"></i></a>
+
+                    <!-- Instagram -->
+                    <a data-mdb-ripple-init class="btn text-white btn-floating m-1" style="background-color: #ac2bac;" href="https://www.instagram.com/mlcqehsgb/" role="button"><i class="fab fa-instagram"></i></a>
+                    <!-- Linkedin -->
+                    <!-- LinkedIn -->
+                    <a data-mdb-ripple-init class="btn text-white btn-floating m-1" style="background-color: #0082ca;" href="https://www.linkedin.com/company/maha-laxmi-consultancy/" role="button"><i class="fab fa-linkedin-in"></i></a>
+                    <!-- Github -->
+                </section>
+                <!-- Section: Social media -->
+            </div>
+            <!-- BOTTOM FOOTER -->
+            <div class="bottom-footer">
+                <div class="row row-cols-1 row-cols-md-2 d-flex align-items-center">
+
+
+                    <!-- FOOTER COPYRIGHT -->
+                    <div class="col">
+                        <div class="footer-copyright">
+                            <p class="p-sm">&copy; 2024 <a href="http://vindusenvironment.in" target="_blank" style="color:antiquewhite;">Vindus</a>. <span>All Rights Reserved</span></p>
+                        </div>
+                    </div>
+
+
+                    <!-- FOOTER SECONDARY LINK -->
+
+                </div>
+
+
+            </div>
+            <!-- End row -->
+        </div>
+        <!-- END BOTTOM FOOTER -->
+
+
+        </div>
+        <!-- End container -->
     </footer>
     <!-- END FOOTER-3 -->
 
@@ -1120,7 +1099,7 @@
     <script src="js/custom.js"></script>
 
 
-   
+
 
     <script src="js/changer.js"></script>
     <script defer src="js/styleswitch.js"></script>

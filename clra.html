@@ -55,25 +55,19 @@
     <!-- RESPONSIVE CSS -->
     <link href="css/responsive.css" rel="stylesheet">
     <style>
-        #services-sub-menu {
-            overflow-y: scroll;
-            padding-left: 0;
-            margin: 0;
-            list-style: none;
-            height: 420px;
-            min-width: 20px;
+        header {
+            margin-bottom: 20px;
         }
         
-        header{
-                margin-bottom: 20px;
-            }
-            .footer{
-                background:linear-gradient(#000040,#1560bd,#000040);
-                color:#fff;
-            }
-            a:hover {
-                text-decoration: none;
-            }
+        .footer {
+            background: linear-gradient(#000040, #1560bd, #000040);
+            color: #fff;
+        }
+        
+        a:hover {
+            text-decoration: none;
+        }
+        
         .whatsapp-icon {
             position: fixed;
             bottom: 20px;
@@ -111,10 +105,6 @@
             color: #fff;
         }
         
-      
-        
-      
-       
         body {
             -webkit-user-select: none;
             /* Safari */
@@ -125,8 +115,6 @@
             user-select: none;
             /* Standard */
         }
-        
-       
         
         .sub-menu {
             padding-left: 0;
@@ -191,355 +179,368 @@
             font-size: 24px;
             /* Adjust font size as needed */
         }
+        
         .content-container {
-      max-width: 1150px;
-      margin: 20px auto;
-      padding: 20px;
-      border: 15px solid #e6f6fc;
-      border-radius: 10px;
-      font-family: Arial, sans-serif;
-      line-height: 1.6;
-      background-color: #ffff;
-      box-shadow: 10px 10px 8px rgba(0, 0, 0, 0.1); 
-    }
-
-    .content-container h1, 
-    .content-container h2 {
-      color: #1560bd;
-      margin-bottom: 10px;
-    }
-
-    .content-container h1 {
-      font-size: 1.8rem;
-      text-align: center;
-      margin-bottom: 20px;
-    }
-
-    .content-container h2 {
-      font-size: 1.5rem;
-    }
-
-    .content-container p {
-      margin-bottom: 15px;
-      text-align: justify;
-      color: #333;
-    }
-    .lw-container {
-      padding: 40px;
-      margin: auto;
-      border-radius: 10px;
-   }
-
-    .lw-heading {
-      color: #1560bd;
-      font-size: 32px;
-      margin-bottom: 20px;
-      text-align: center;
-    }
-
-    .lw-paragraph {
-      font-size: 18px;
-      margin-bottom: 20px;
-      color: #555;
-      text-align: justify;
-    }
-
-    .lw-expenditure-title {
-      font-size: 24px;
-      color: #1560bd;
-      margin-top: 30px;
-      margin-bottom: 15px;
-    }
-
-    .lw-expenditure-list {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 20px;
-    }
-
-    .lw-expenditure-item {
-      background-color: #e6f2ff;
-      padding: 20px;
-      border-radius: 8px;
-      border: 1px solid #ddd;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-      font-size: 18px;
-      color: #333;
-      transition: transform 0.3s ease-in-out;
-    }
-
-    .lw-expenditure-item:hover {
-      transform: translateY(-10px);
-    }
-
-    /* Responsive Design */
-    @media (max-width: 768px) {
-      .lw-expenditure-list {
-        grid-template-columns: 1fr;
-      }
-    }
-    strong{
-        color: #000040;
-    }
-    .clra-container {
-      max-width: 1200px;
-      margin: auto;
-      padding: 30px;
-      border-radius: 10px;
-    }
-
-    .clra-heading {
-      font-size: 28px;
-      color: #1560bd;
-      margin-bottom: 20px;
-      text-align: center;
-    }
-
-    .clra-paragraph {
-      font-size: 18px;
-      line-height: 1.8;
-      color: #555;
-      margin-bottom: 20px;
-      text-align: justify;
-    }
-
-    .clra-list {
-      list-style-type: decimal;
-      padding-left: 20px;
-      margin-bottom: 20px;
-    }
-
-    .clra-list-item {
-      margin-bottom: 15px;
-      color: #333;
-      font-size: 18px;
-      line-height: 1.6;
-    }
-
-    .clra-subheading {
-      font-weight: bold;
-      color: #1560bd;
-    }
-
-    .clra-highlight {
-      color: #000040;
-    }
-
-    .clra-italic {
-      font-style: italic;
-    }
-
-    /* Responsive Design */
-    @media (max-width: 768px) {
-      .clra-container {
-        padding: 20px;
-      }
-      .clra-heading {
-        font-size: 24px;
-      }
-      .clra-paragraph, .clra-list-item {
-        font-size: 16px;
-      }
-    }
-    .compliance-container {
-      max-width: 1200px;
-      margin: 20px auto;
-      padding: 30px;
-      background-color: #e6f6fc;
-      border: 2px solid #ddd;      border-radius: 10px;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    }
-
-    .compliance-heading {
-      font-size: 28px;
-      color: #1560bd;
-      margin-bottom: 20px;
-      text-align: center;
-    }
-
-    .compliance-paragraph {
-      font-size: 18px;
-      line-height: 1.8;
-      color: #333;
-      margin-bottom: 20px;
-    }
-
-    .compliance-list {
-      list-style-type: decimal;
-      padding-left: 20px;
-      margin-bottom: 20px;
-    }
-
-    .compliance-list-item {
-      margin-bottom: 20px;
-      color: #333;
-      font-size: 18px;
-      line-height: 1.6;
-    }
-
-    .compliance-subheading {
-      font-weight: bold;
-      color: #1560bd;
-    }
-
-    .compliance-highlight {
-      color: #000040;
-    }
-
-    .compliance-register-list {
-      list-style-type: square;
-      margin-left: 30px;
-      margin-top: 10px;
-    }
-
-    .compliance-register-item {
-      font-size: 16px;
-      line-height: 1.5;
-      margin-bottom: 10px;
-      color: #555;
-    }
-
-    /* Responsive Design */
-    @media (max-width: 768px) {
-      .compliance-container {
-        padding: 20px;
-      }
-      .compliance-heading {
-        font-size: 24px;
-      }
-      .compliance-paragraph, .compliance-list-item, .compliance-register-item {
-        font-size: 16px;
-      }
-    }
-    .definitions-container {
-      max-width: 1200px;
-      margin: auto;
-      padding: 30px;
-     border-radius: 10px;
-    }
-    .definitions-container p{
-     text-align: justify;
-    }
-    .definitions-heading {
-      text-align: center;
-      font-size: 28px;
-      color: #1560bd;
-      margin-bottom: 20px;
-    }
-    
-    .definition-cards-container {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 20px;
-    }
-
-    .definition-card {
-      background-color: #e6f6fc;
-      border-radius: 8px;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-      padding: 20px;
-      width: 30%;
-      min-width: 250px;
-      box-sizing: border-box;
-    }
-
-    .definition-card h3 {
-      color: #1560bd;
-      font-size: 20px;
-      margin-bottom: 15px;
-    }
-
-    .definition-card p {
-      font-size: 16px;
-      line-height: 1.7;
-      color: #333;
-      text-align: justify;
-
-    }
-
-    .definition-card .highlight {
-      font-weight: bold;
-    }
-
-    /* Responsive design */
-    @media (max-width: 768px) {
-      .definition-card {
-        width: 100%;
-      }
-    }
-    /* Container for the content */
-.clra-container1 {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 30px;
-  border-radius: 10px;
-}
-
-/* Heading styles */
-.clra-heading1 {
-  text-align: center;
-  color: #1560bd;
-  font-size: 32px;
-  margin-bottom: 30px;
-}
-
-/* Section heading styles */
-.clra-subheading1 {
-  font-size: 24px;
-  color: #333;
-  margin-bottom: 20px;
-}
-
-/* Description paragraph */
-.clra-description {
-  font-size: 16px;
-  color: #555;
-  margin-bottom: 20px;
-}
-
-/* Table styles */
-.clra-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-bottom: 40px;
-}
-
-.clra-table-header {
-  background-color: #1560bd;
-  color: white;
-  text-align: left;
-  padding: 15px;
-}
-
-.clra-table-cell {
-  padding: 15px;
-  border: 1px solid #ddd;
-  text-align: left;
-  font-size: 16px;
-}
-
-/* Style for lists in table cells */
-.clra-table-cell ul {
-  margin: 0;
-  padding-left: 20px;
-}
-
-.clra-table-cell ul li {
-  margin-bottom: 5px;
-}
-.violation-container {
-  max-width: 1150px;
-      margin: 10px auto;
-      padding: 20px;
-      border: 15px solid #e6f6fc;
-      border-radius: 10px;
-      font-family: Arial, sans-serif;
-      line-height: 1.6;
-      background-color: #ffff;
-      box-shadow: 10px 10px 8px rgba(0, 0, 0, 0.1); 
+            max-width: 1150px;
+            margin: 20px auto;
+            padding: 20px;
+            border: 15px solid #e6f6fc;
+            border-radius: 10px;
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #ffff;
+            box-shadow: 10px 10px 8px rgba(0, 0, 0, 0.1);
         }
-
+        
+        .content-container h1,
+        .content-container h2 {
+            color: #1560bd;
+            margin-bottom: 10px;
+        }
+        
+        .content-container h1 {
+            font-size: 1.8rem;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        .content-container h2 {
+            font-size: 1.5rem;
+        }
+        
+        .content-container p {
+            margin-bottom: 15px;
+            text-align: justify;
+            color: #333;
+        }
+        
+        .lw-container {
+            padding: 40px;
+            margin: auto;
+            border-radius: 10px;
+        }
+        
+        .lw-heading {
+            color: #1560bd;
+            font-size: 32px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .lw-paragraph {
+            font-size: 18px;
+            margin-bottom: 20px;
+            color: #555;
+            text-align: justify;
+        }
+        
+        .lw-expenditure-title {
+            font-size: 24px;
+            color: #1560bd;
+            margin-top: 30px;
+            margin-bottom: 15px;
+        }
+        
+        .lw-expenditure-list {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+        
+        .lw-expenditure-item {
+            background-color: #e6f2ff;
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            font-size: 18px;
+            color: #333;
+            transition: transform 0.3s ease-in-out;
+        }
+        
+        .lw-expenditure-item:hover {
+            transform: translateY(-10px);
+        }
+        /* Responsive Design */
+        
+        @media (max-width: 768px) {
+            .lw-expenditure-list {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        strong {
+            color: #000040;
+        }
+        
+        .clra-container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 30px;
+            border-radius: 10px;
+        }
+        
+        .clra-heading {
+            font-size: 28px;
+            color: #1560bd;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .clra-paragraph {
+            font-size: 18px;
+            line-height: 1.8;
+            color: #555;
+            margin-bottom: 20px;
+            text-align: justify;
+        }
+        
+        .clra-list {
+            list-style-type: decimal;
+            padding-left: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .clra-list-item {
+            margin-bottom: 15px;
+            color: #333;
+            font-size: 18px;
+            line-height: 1.6;
+        }
+        
+        .clra-subheading {
+            font-weight: bold;
+            color: #1560bd;
+        }
+        
+        .clra-highlight {
+            color: #000040;
+        }
+        
+        .clra-italic {
+            font-style: italic;
+        }
+        /* Responsive Design */
+        
+        @media (max-width: 768px) {
+            .clra-container {
+                padding: 20px;
+            }
+            .clra-heading {
+                font-size: 24px;
+            }
+            .clra-paragraph,
+            .clra-list-item {
+                font-size: 16px;
+            }
+        }
+        
+        .compliance-container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 30px;
+            background-color: #e6f6fc;
+            border: 2px solid #ddd;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .compliance-heading {
+            font-size: 28px;
+            color: #1560bd;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .compliance-paragraph {
+            font-size: 18px;
+            line-height: 1.8;
+            color: #333;
+            margin-bottom: 20px;
+        }
+        
+        .compliance-list {
+            list-style-type: decimal;
+            padding-left: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .compliance-list-item {
+            margin-bottom: 20px;
+            color: #333;
+            font-size: 18px;
+            line-height: 1.6;
+        }
+        
+        .compliance-subheading {
+            font-weight: bold;
+            color: #1560bd;
+        }
+        
+        .compliance-highlight {
+            color: #000040;
+        }
+        
+        .compliance-register-list {
+            list-style-type: square;
+            margin-left: 30px;
+            margin-top: 10px;
+        }
+        
+        .compliance-register-item {
+            font-size: 16px;
+            line-height: 1.5;
+            margin-bottom: 10px;
+            color: #555;
+        }
+        /* Responsive Design */
+        
+        @media (max-width: 768px) {
+            .compliance-container {
+                padding: 20px;
+            }
+            .compliance-heading {
+                font-size: 24px;
+            }
+            .compliance-paragraph,
+            .compliance-list-item,
+            .compliance-register-item {
+                font-size: 16px;
+            }
+        }
+        
+        .definitions-container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 30px;
+            border-radius: 10px;
+        }
+        
+        .definitions-container p {
+            text-align: justify;
+        }
+        
+        .definitions-heading {
+            text-align: center;
+            font-size: 28px;
+            color: #1560bd;
+            margin-bottom: 20px;
+        }
+        
+        .definition-cards-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        
+        .definition-card {
+            background-color: #e6f6fc;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            width: 30%;
+            min-width: 250px;
+            box-sizing: border-box;
+        }
+        
+        .definition-card h3 {
+            color: #1560bd;
+            font-size: 20px;
+            margin-bottom: 15px;
+        }
+        
+        .definition-card p {
+            font-size: 16px;
+            line-height: 1.7;
+            color: #333;
+            text-align: justify;
+        }
+        
+        .definition-card .highlight {
+            font-weight: bold;
+        }
+        /* Responsive design */
+        
+        @media (max-width: 768px) {
+            .definition-card {
+                width: 100%;
+            }
+        }
+        /* Container for the content */
+        
+        .clra-container1 {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 30px;
+            border-radius: 10px;
+        }
+        /* Heading styles */
+        
+        .clra-heading1 {
+            text-align: center;
+            color: #1560bd;
+            font-size: 32px;
+            margin-bottom: 30px;
+        }
+        /* Section heading styles */
+        
+        .clra-subheading1 {
+            font-size: 24px;
+            color: #333;
+            margin-bottom: 20px;
+        }
+        /* Description paragraph */
+        
+        .clra-description {
+            font-size: 16px;
+            color: #555;
+            margin-bottom: 20px;
+        }
+        /* Table styles */
+        
+        .clra-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 40px;
+        }
+        
+        .clra-table-header {
+            background-color: #1560bd;
+            color: white;
+            text-align: left;
+            padding: 15px;
+        }
+        
+        .clra-table-cell {
+            padding: 15px;
+            border: 1px solid #ddd;
+            text-align: left;
+            font-size: 16px;
+        }
+        /* Style for lists in table cells */
+        
+        .clra-table-cell ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+        
+        .clra-table-cell ul li {
+            margin-bottom: 5px;
+        }
+        
+        .violation-container {
+            max-width: 1150px;
+            margin: 10px auto;
+            padding: 20px;
+            border: 15px solid #e6f6fc;
+            border-radius: 10px;
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #ffff;
+            box-shadow: 10px 10px 8px rgba(0, 0, 0, 0.1);
+        }
+        
         .violation-header {
             font-size: 1.8em;
             font-weight: bold;
@@ -547,34 +548,34 @@
             text-align: center;
             margin-bottom: 15px;
         }
-
+        
         .violation-section {
             margin-bottom: 20px;
         }
-
+        
         .violation-section-title {
             font-size: 1.5em;
             font-weight: 600;
             color: #1560bd;
             margin-bottom: 10px;
         }
-
+        
         .violation-text {
             font-size: 1.1em;
             line-height: 1.6;
             color: #424242;
             text-align: justify;
-
         }
-
+        
         .violation-list {
             margin: 10px 0;
             padding-left: 20px;
         }
-
+        
         .violation-list-item {
             margin-bottom: 8px;
         }
+        
         .startupfino-container {
             display: flex;
             flex-wrap: wrap;
@@ -584,282 +585,279 @@
             padding: 20px;
             border-radius: 10px;
         }
-
+        
         .startupfino-image {
             flex: 1;
             max-width: 45%;
             margin: 10px;
         }
-
+        
         .startupfino-image img {
             width: 100%;
             height: auto;
             border-radius: 10px;
             box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
         }
-
+        
         .startupfino-content {
             flex: 1;
             max-width: 50%;
             margin: 10px;
             padding: 10px;
         }
-
+        
         .startupfino-header {
             font-size: 1.8em;
             color: #0d47a1;
             margin-bottom: 15px;
         }
-
+        
         .startupfino-text {
             font-size: 1.1em;
             line-height: 1.6;
             color: #424242;
             margin-bottom: 10px;
             text-align: justify;
-
         }
+        
         .principle-section {
-  padding: 20px;
-  font-family: Arial, sans-serif;
-}
-
-.principle-wrapper {
-  max-width: 1200px;
-  margin: 0 auto;
-  background-color: #ffffff;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  padding: 20px;
-}
-
-.principle-title {
-  font-size: 1.8rem;
-  font-weight: bold;
-  color: #1560bd;
-  text-align: center;
-  margin-bottom: 15px;
-}
-
-.principle-introduction {
-  font-size: 16px;
-  color: #555555;
-  line-height: 1.6;
-  margin-bottom: 20px;
-  text-align: justify;
-}
-
-.principle-definition {
-  margin-bottom: 20px;
-}
-
-.principle-subheading {
-  font-size: 20px;
-  font-weight: bold;
-  color: #007acc;
-  margin-bottom: 10px;
-  border-left: 4px solid #007acc;
-  padding-left: 10px;
-}
-
-.principle-text {
-  font-size: 16px;
-  color: #333333;
-  line-height: 1.6;
-  margin-bottom: 10px;
-  text-align: justify;
-
-}
-
-.principle-list,
-.principle-exclusion-list {
-  list-style-type: disc;
-  padding-left: 20px;
-  margin-bottom: 15px;
-}
-
-.principle-list li,
-.principle-exclusion-list li {
-  font-size: 16px;
-  color: #555555;
-  line-height: 1.6;
-  margin-bottom: 10px;
-}
-
-.principle-list li strong,
-.principle-exclusion-list li strong {
-  color: #333333;
-}
-
-.principle-exclusion-title {
-  font-size: 16px;
-  font-weight: bold;
-  color: #333333;
-  margin-top: 10px;
-  margin-bottom: 10px;
-}
-/* Section styling */
-.licencing-section {
-  padding: 20px;
-  border-radius: 8px;
-  font-family: Arial, sans-serif;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-/* Heading styling */
-.licencing-heading {
-  font-size: 28px;
-  text-align: center;
-  color: #1560bd;
-  margin-bottom: 20px;
-}
-
-/* Table styling */
-.licencing-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-top: 20px;
-}
-
-.licencing-table th {
-  background-color: #1560bd;
-  color: #fff;
-  padding: 10px;
-  text-align: left;
-  font-size: 18px;
-}
-
-.licencing-table td {
-  padding: 15px;
-  border: 1px solid #ddd;
-  font-size: 16px;
-  color: #000040;
-}
-
-/* Styling for the title of each point */
-.licence-point-title {
-  font-weight: bold;
-  color: #1560bd;
-}
-
-/* Bullet point styling within table */
-.licencing-table ul {
-  margin: 0;
-  padding-left: 20px;
-
-}
-
-.licencing-table li {
-  margin-bottom: 8px;
-  font-size: 15px;
-  color: #000040;
-}
-
-/* Row hover effect */
-.licencing-table tr:hover {
-  background-color: #e0f1ff;
-}
-
-/* Responsive styling */
-@media (max-width: 768px) {
-  .licencing-heading {
-    font-size: 24px;
-  }
-
-  .licencing-table th, .licencing-table td {
-    font-size: 14px;
-    padding: 10px;
-  }
-}
-/* General Styling for Registration Section */
-.registration-documents {
-  padding: 20px;
-  background-color: #f4f9ff;
-  border-radius: 10px;
-  font-family: 'Arial', sans-serif;
-  max-width: 1200px;
-  margin: 0 auto;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-  margin: 30px auto;
-}
-
-/* Section Heading */
-.registration-heading {
-  font-size: 28px;
-  color: #1560bd;
-  text-align: center;
-  margin-bottom: 20px;
-  font-weight: bold;
-}
-
-/* Subheading */
-.registration-subheading {
-  font-size: 22px;
-  color: #000040;
-  margin-bottom: 15px;
-  font-weight: bold;
-  border-bottom: 2px solid #1560bd;
-  padding-bottom: 5px;
-}
-
-/* Introduction Text */
-.registration-intro {
-  font-size: 16px;
-  color: #333;
-  margin-bottom: 20px;
-  line-height: 1.6;
-  text-align: justify;
-}
-
-/* Document List */
-.registration-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.registration-list li {
-  padding: 10px 0;
-  border-bottom: 1px solid #ddd;
-  font-size: 16px;
-  color: #333;
-  line-height: 1.5;
-}
-
-.registration-list li:last-child {
-  border-bottom: none;
-}
-
-/* Document Titles */
-.registration-title {
-  font-weight: bold;
-  color: #1560bd;
-}
-
-/* Hover Effect */
-.registration-list li:hover {
-  background-color: #e6f0ff;
-  border-left: 4px solid #1560bd;
-  padding-left: 10px;
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-  .registration-heading {
-    font-size: 24px;
-  }
-
-  .registration-subheading {
-    font-size: 20px;
-  }
-
-  .registration-list li {
-    font-size: 14px;
-  }
-}
-
+            padding: 20px;
+            font-family: Arial, sans-serif;
+        }
+        
+        .principle-wrapper {
+            max-width: 1200px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+        }
+        
+        .principle-title {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #1560bd;
+            text-align: center;
+            margin-bottom: 15px;
+        }
+        
+        .principle-introduction {
+            font-size: 16px;
+            color: #555555;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            text-align: justify;
+        }
+        
+        .principle-definition {
+            margin-bottom: 20px;
+        }
+        
+        .principle-subheading {
+            font-size: 20px;
+            font-weight: bold;
+            color: #007acc;
+            margin-bottom: 10px;
+            border-left: 4px solid #007acc;
+            padding-left: 10px;
+        }
+        
+        .principle-text {
+            font-size: 16px;
+            color: #333333;
+            line-height: 1.6;
+            margin-bottom: 10px;
+            text-align: justify;
+        }
+        
+        .principle-list,
+        .principle-exclusion-list {
+            list-style-type: disc;
+            padding-left: 20px;
+            margin-bottom: 15px;
+        }
+        
+        .principle-list li,
+        .principle-exclusion-list li {
+            font-size: 16px;
+            color: #555555;
+            line-height: 1.6;
+            margin-bottom: 10px;
+        }
+        
+        .principle-list li strong,
+        .principle-exclusion-list li strong {
+            color: #333333;
+        }
+        
+        .principle-exclusion-title {
+            font-size: 16px;
+            font-weight: bold;
+            color: #333333;
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+        /* Section styling */
+        
+        .licencing-section {
+            padding: 20px;
+            border-radius: 8px;
+            font-family: Arial, sans-serif;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        /* Heading styling */
+        
+        .licencing-heading {
+            font-size: 28px;
+            text-align: center;
+            color: #1560bd;
+            margin-bottom: 20px;
+        }
+        /* Table styling */
+        
+        .licencing-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        
+        .licencing-table th {
+            background-color: #1560bd;
+            color: #fff;
+            padding: 10px;
+            text-align: left;
+            font-size: 18px;
+        }
+        
+        .licencing-table td {
+            padding: 15px;
+            border: 1px solid #ddd;
+            font-size: 16px;
+            color: #000040;
+        }
+        /* Styling for the title of each point */
+        
+        .licence-point-title {
+            font-weight: bold;
+            color: #1560bd;
+        }
+        /* Bullet point styling within table */
+        
+        .licencing-table ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+        
+        .licencing-table li {
+            margin-bottom: 8px;
+            font-size: 15px;
+            color: #000040;
+        }
+        /* Row hover effect */
+        
+        .licencing-table tr:hover {
+            background-color: #e0f1ff;
+        }
+        /* Responsive styling */
+        
+        @media (max-width: 768px) {
+            .licencing-heading {
+                font-size: 24px;
+            }
+            .licencing-table th,
+            .licencing-table td {
+                font-size: 14px;
+                padding: 10px;
+            }
+        }
+        /* General Styling for Registration Section */
+        
+        .registration-documents {
+            padding: 20px;
+            background-color: #f4f9ff;
+            border-radius: 10px;
+            font-family: 'Arial', sans-serif;
+            max-width: 1200px;
+            margin: 0 auto;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            margin: 30px auto;
+        }
+        /* Section Heading */
+        
+        .registration-heading {
+            font-size: 28px;
+            color: #1560bd;
+            text-align: center;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+        /* Subheading */
+        
+        .registration-subheading {
+            font-size: 22px;
+            color: #000040;
+            margin-bottom: 15px;
+            font-weight: bold;
+            border-bottom: 2px solid #1560bd;
+            padding-bottom: 5px;
+        }
+        /* Introduction Text */
+        
+        .registration-intro {
+            font-size: 16px;
+            color: #333;
+            margin-bottom: 20px;
+            line-height: 1.6;
+            text-align: justify;
+        }
+        /* Document List */
+        
+        .registration-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .registration-list li {
+            padding: 10px 0;
+            border-bottom: 1px solid #ddd;
+            font-size: 16px;
+            color: #333;
+            line-height: 1.5;
+        }
+        
+        .registration-list li:last-child {
+            border-bottom: none;
+        }
+        /* Document Titles */
+        
+        .registration-title {
+            font-weight: bold;
+            color: #1560bd;
+        }
+        /* Hover Effect */
+        
+        .registration-list li:hover {
+            background-color: #e6f0ff;
+            border-left: 4px solid #1560bd;
+            padding-left: 10px;
+        }
+        /* Responsive Design */
+        
+        @media (max-width: 768px) {
+            .registration-heading {
+                font-size: 24px;
+            }
+            .registration-subheading {
+                font-size: 20px;
+            }
+            .registration-list li {
+                font-size: 14px;
+            }
+        }
     </style>
 </head>
 
@@ -1149,522 +1147,496 @@
         <div class="content-container">
             <h1>Overview of the CLRA Registration and Licencing</h1>
             <p>
-                The Contract Labour (Regulation and Abolition) Act of 1970, commonly referred to as CLRA,
-                was established in India with the main goal of overseeing and managing the employment of
-                contract labour. Its purpose is to improve working conditions and prevent the exploitation of
-                contract labourers. In this context, it is essential to understand the key provisions and
-                applicability criteria of the Act as well as basic services required for CLRA Registration and
-                Licencing in India.
+                The Contract Labour (Regulation and Abolition) Act of 1970, commonly referred to as CLRA, was established in India with the main goal of overseeing and managing the employment of contract labour. Its purpose is to improve working conditions and prevent
+                the exploitation of contract labourers. In this context, it is essential to understand the key provisions and applicability criteria of the Act as well as basic services required for CLRA Registration and Licencing in India.
             </p>
-        
-           
-          </div>
-          <div class="content-container">
-            <h1>Applicability of the Contract Labour (Regulation and Abolition) Act
-                1970</h1>
+
+
+        </div>
+        <div class="content-container">
+            <h1>Applicability of the Contract Labour (Regulation and Abolition) Act 1970
+            </h1>
             <p>
-                For CLRA Registration and Licencing, the CLRA Act applies to specific categories of
-establishments and contractors, including:
+                For CLRA Registration and Licencing, the CLRA Act applies to specific categories of establishments and contractors, including:
             </p>
-             <p>
-               <strong>1. Establishments Covered by the Act</strong> 
-                <P>The law applies to businesses that hire twenty or more workers as contract labour at any point
-                    during the financial year.</P>
-             </p>
-             <p>
-                <strong>2. Contractors Falling Under the Act</strong> 
-                 <P>Along with these establishments stated above, contractors who hire twenty or more
-                    workers at any time during the financial year must follow the CLRA Act&#39;s regulations.</P>
-              </p>
-          </div>
+            <p>
+                <strong>1. Establishments Covered by the Act</strong>
+                <P>The law applies to businesses that hire twenty or more workers as contract labour at any point during the financial year.</P>
+            </p>
+            <p>
+                <strong>2. Contractors Falling Under the Act</strong>
+                <P>Along with these establishments stated above, contractors who hire twenty or more workers at any time during the financial year must follow the CLRA Act&#39;s regulations.</P>
+            </p>
+        </div>
 
 
-          <div class="lw-container">
+        <div class="lw-container">
             <h2 class="lw-heading">Exemptions from the CLRA 1970</h2>
-            <p class="lw-paragraph">For CLRA Registration and Licencing, while the CLRA Act covers a wide range of establishments
-                and contractors, certain exemptions exist. The Act exempts the following from its jurisdiction:</p>
-      
+            <p class="lw-paragraph">For CLRA Registration and Licencing, while the CLRA Act covers a wide range of establishments and contractors, certain exemptions exist. The Act exempts the following from its jurisdiction:</p>
+
             <div class="lw-expenditure-list">
-              <div class="lw-expenditure-item"><p><strong>1. Intermittent Nature of Work</strong></p><p>Establishments engaged in work of an intermittent nature, where employment is not
-                continuous, are exempt from the Act&#39;s provisions.</p></div>
-              <div class="lw-expenditure-item">
-                <p><strong>2. Inactivity for Over 21 Days</strong></p>
-                <p>Establishments that have not engaged in any work for more than 21 days within a year are not
-                    subject to the Act&#39;s regulations.</p>
-              </div>
-              <div class="lw-expenditure-item">
-                <p><strong>3. Special Economic Zones</strong></p>
-                <p>Establishments located within Special Economic Zones are exempt from the CLRA Act.</p>
-            </div>
-              <div class="lw-expenditure-item">
-                <P><strong>
+                <div class="lw-expenditure-item">
+                    <p><strong>1. Intermittent Nature of Work</strong></p>
+                    <p>Establishments engaged in work of an intermittent nature, where employment is not continuous, are exempt from the Act&#39;s provisions.</p>
+                </div>
+                <div class="lw-expenditure-item">
+                    <p><strong>2. Inactivity for Over 21 Days</strong></p>
+                    <p>Establishments that have not engaged in any work for more than 21 days within a year are not subject to the Act&#39;s regulations.</p>
+                </div>
+                <div class="lw-expenditure-item">
+                    <p><strong>3. Special Economic Zones</strong></p>
+                    <p>Establishments located within Special Economic Zones are exempt from the CLRA Act.</p>
+                </div>
+                <div class="lw-expenditure-item">
+                    <P><strong>
                     4. Seasonal Work Less Than 60 Days
                 </strong></P>
-                <p>Establishments involved in work of seasonal nature for less than sixty days in a year are not
-                    bound by the Act&#39;s requirements.</p>
-              </div>
-             
-            </div>
-          </div>
+                    <p>Establishments involved in work of seasonal nature for less than sixty days in a year are not bound by the Act&#39;s requirements.</p>
+                </div>
 
-          <div class="clra-container1">
+            </div>
+        </div>
+
+        <div class="clra-container1">
             <h1 class="clra-heading1">Types of CLRA Registration and Licencing</h1>
             <p class="clra-paragraph1">
-              Under the <span class="clra-highlight">Contract Labour (Regulation and Abolition) Act 1970</span>, various types of CLRA Registration and Licencing are essential for compliance. These different types of CLRA Registration and Licencing serve different purposes and are categorised as follows:
+                Under the <span class="clra-highlight">Contract Labour (Regulation and Abolition) Act 1970</span>, various types of CLRA Registration and Licencing are essential for compliance. These different types of CLRA Registration and Licencing
+                serve different purposes and are categorised as follows:
             </p>
-        
+
             <ol class="clra-list">
-              <li class="clra-list-item">
-                <span class="clra-subheading">Registration of Principal Employer of the Establishment:</span>
-                <p class="clra-paragraph">
-                  This type of registration is required for the principal employer of an establishment. The principal employer is the entity responsible for engaging contract labourers. Registering the principal employer is a key step in ensuring compliance with the Act.
-                </p>
-              </li>
-              <li class="clra-list-item">
-                <span class="clra-subheading">Licencing of Contractors (Valid for 12 months):</span>
-                <p class="clra-paragraph">
-                  Contractors who employ contract labourers must obtain a contractor licence, which is valid for a period of <span class="clra-highlight">12 months</span>.
-                </p>
-              </li>
-              <li class="clra-list-item">
-                <span class="clra-subheading">Renewal of Contractor Licence:</span>
-                <p class="clra-paragraph">
-                  To maintain compliance, contractors must renew their licences before they expire. An application for licence renewal should be made in <span class="clra-highlight clra-italic">Form VII</span>, and this application must be submitted <span class="clra-highlight">not less than 30 days</span> before the current licence's expiry date.
-                </p>
-              </li>
-              <li class="clra-list-item">
-                <span class="clra-subheading">Temporary Certificate of Registration and Licence:</span>
-                <p class="clra-paragraph">
-                  In certain situations where the employment of contract labour is short-term, a temporary certificate of CLRA Registration and Licencing may be issued. This is applicable when the engagement of contract labourers is for a duration <span class="clra-highlight">not exceeding 15 days</span>.
-                </p>
-                <p class="clra-paragraph">
-                  To obtain a temporary certificate of registration, an application must be submitted in <span class="clra-highlight clra-italic">Form VIII</span>. Similarly, for a temporary licence, the application should be made using <span class="clra-highlight clra-italic">Form X</span>. These applications typically require an accompanying affidavit.
-                </p>
-              </li>
+                <li class="clra-list-item">
+                    <span class="clra-subheading">Registration of Principal Employer of the Establishment:</span>
+                    <p class="clra-paragraph">
+                        This type of registration is required for the principal employer of an establishment. The principal employer is the entity responsible for engaging contract labourers. Registering the principal employer is a key step in ensuring compliance with the Act.
+                    </p>
+                </li>
+                <li class="clra-list-item">
+                    <span class="clra-subheading">Licencing of Contractors (Valid for 12 months):</span>
+                    <p class="clra-paragraph">
+                        Contractors who employ contract labourers must obtain a contractor licence, which is valid for a period of <span class="clra-highlight">12 months</span>.
+                    </p>
+                </li>
+                <li class="clra-list-item">
+                    <span class="clra-subheading">Renewal of Contractor Licence:</span>
+                    <p class="clra-paragraph">
+                        To maintain compliance, contractors must renew their licences before they expire. An application for licence renewal should be made in <span class="clra-highlight clra-italic">Form VII</span>, and this application must be submitted
+                        <span class="clra-highlight">not less than 30 days</span> before the current licence's expiry date.
+                    </p>
+                </li>
+                <li class="clra-list-item">
+                    <span class="clra-subheading">Temporary Certificate of Registration and Licence:</span>
+                    <p class="clra-paragraph">
+                        In certain situations where the employment of contract labour is short-term, a temporary certificate of CLRA Registration and Licencing may be issued. This is applicable when the engagement of contract labourers is for a duration
+                        <span
+                            class="clra-highlight">not exceeding 15 days</span>.
+                    </p>
+                    <p class="clra-paragraph">
+                        To obtain a temporary certificate of registration, an application must be submitted in <span class="clra-highlight clra-italic">Form VIII</span>. Similarly, for a temporary licence, the application should be made using <span class="clra-highlight clra-italic">Form X</span>.
+                        These applications typically require an accompanying affidavit.
+                    </p>
+                </li>
             </ol>
-          </div>
-        
-          <div class="compliance-container">
+        </div>
+
+        <div class="compliance-container">
             <h1 class="compliance-heading">Compliance Requirements for CLRA Registration and Licencing</h1>
             <p class="compliance-paragraph">
-              Compliance with the <span class="compliance-highlight">Contract Labour (Regulation and Abolition) Act 1970</span> involves various obligations, including the maintenance of records, registers, and submission of specific returns. The key compliance requirements for CLRA Registration and Licencing are as follows:
+                Compliance with the <span class="compliance-highlight">Contract Labour (Regulation and Abolition) Act 1970</span> involves various obligations, including the maintenance of records, registers, and submission of specific returns. The key
+                compliance requirements for CLRA Registration and Licencing are as follows:
             </p>
-        
+
             <ol class="compliance-list">
-              <li class="compliance-list-item">
-                <span class="compliance-subheading">Notice of Commencement/Completion of Contract Work (Form VI-B):</span>
-                <p class="compliance-paragraph">
-                  The principal employer or contractor is required to submit a notice in <span class="compliance-highlight">Form VI-B</span> to inform the appropriate authority about the commencement or completion of contract work. This notice helps in tracking the engagement of contract labour at a particular establishment or industry with CLRA Registration and Licencing.
-                </p>
-              </li>
-        
-              <li class="compliance-list-item">
-                <span class="compliance-subheading">Maintenance of Registers and Records:</span>
-                <p class="compliance-paragraph">
-                  Compliance under the CLRA Act necessitates the maintenance of several registers and records, which include:
-                </p>
-                <ul class="compliance-register-list">
-                  <li class="compliance-register-item"><strong>Register of Contractor (Form XII):</strong> A record of contractors engaged in contract work at the establishment.</li>
-                  <li class="compliance-register-item"><strong>Register of Persons Employed (Form XIII):</strong> This register contains details of all individuals employed as contract labour, including their personal information and employment terms.</li>
-                  <li class="compliance-register-item"><strong>Employment Card (Form XIV):</strong> Every worker employed as contract labour should receive an employment card within <span class="compliance-highlight">three days</span> of their employment, which is maintained as part of the compliance records.</li>
-                  <li class="compliance-register-item"><strong>Service Certificate on Termination (Form XV):</strong> When a worker's contract is terminated, a service certificate in Form XV should be provided to them, outlining their service details.</li>
-                  <li class="compliance-register-item"><strong>Muster Roll (Form XVI):</strong> This record maintains attendance and details of daily wages of contract labourers.</li>
-                  <li class="compliance-register-item"><strong>Register of Wages (Form XVII):</strong> The register of wages records the wages paid to contract labourers and related information.</li>
-                </ul>
-              </li>
-        
-              <li class="compliance-list-item">
-                <span class="compliance-subheading">Submission of Returns:</span>
-                <p class="compliance-paragraph">
-                  To meet CLRA compliance, specific returns must be submitted:
-                </p>
-                <ul class="compliance-register-list">
-                  <li class="compliance-register-item"><strong>Half-Yearly Return (Form XXIV) by the Contractor:</strong> Contractors are required to file a half-yearly return in <span class="compliance-highlight">Form XXIV</span>, which provides an overview of contract labour engagement during the specified period.</li>
-                  <li class="compliance-register-item"><strong>Annual Return Filed by Principal Employer:</strong> The main employer must submit a yearly report using <span class="compliance-highlight">Form XXV</span>. This report outlines the engagement of contract labour throughout the year.</li>
-                </ul>
-              </li>
+                <li class="compliance-list-item">
+                    <span class="compliance-subheading">Notice of Commencement/Completion of Contract Work (Form VI-B):</span>
+                    <p class="compliance-paragraph">
+                        The principal employer or contractor is required to submit a notice in <span class="compliance-highlight">Form VI-B</span> to inform the appropriate authority about the commencement or completion of contract work. This notice helps
+                        in tracking the engagement of contract labour at a particular establishment or industry with CLRA Registration and Licencing.
+                    </p>
+                </li>
+
+                <li class="compliance-list-item">
+                    <span class="compliance-subheading">Maintenance of Registers and Records:</span>
+                    <p class="compliance-paragraph">
+                        Compliance under the CLRA Act necessitates the maintenance of several registers and records, which include:
+                    </p>
+                    <ul class="compliance-register-list">
+                        <li class="compliance-register-item"><strong>Register of Contractor (Form XII):</strong> A record of contractors engaged in contract work at the establishment.</li>
+                        <li class="compliance-register-item"><strong>Register of Persons Employed (Form XIII):</strong> This register contains details of all individuals employed as contract labour, including their personal information and employment terms.</li>
+                        <li class="compliance-register-item"><strong>Employment Card (Form XIV):</strong> Every worker employed as contract labour should receive an employment card within <span class="compliance-highlight">three days</span> of their employment, which is maintained as part
+                            of the compliance records.</li>
+                        <li class="compliance-register-item"><strong>Service Certificate on Termination (Form XV):</strong> When a worker's contract is terminated, a service certificate in Form XV should be provided to them, outlining their service details.</li>
+                        <li class="compliance-register-item"><strong>Muster Roll (Form XVI):</strong> This record maintains attendance and details of daily wages of contract labourers.</li>
+                        <li class="compliance-register-item"><strong>Register of Wages (Form XVII):</strong> The register of wages records the wages paid to contract labourers and related information.</li>
+                    </ul>
+                </li>
+
+                <li class="compliance-list-item">
+                    <span class="compliance-subheading">Submission of Returns:</span>
+                    <p class="compliance-paragraph">
+                        To meet CLRA compliance, specific returns must be submitted:
+                    </p>
+                    <ul class="compliance-register-list">
+                        <li class="compliance-register-item"><strong>Half-Yearly Return (Form XXIV) by the Contractor:</strong> Contractors are required to file a half-yearly return in <span class="compliance-highlight">Form XXIV</span>, which provides an overview of contract labour engagement
+                            during the specified period.</li>
+                        <li class="compliance-register-item"><strong>Annual Return Filed by Principal Employer:</strong> The main employer must submit a yearly report using <span class="compliance-highlight">Form XXV</span>. This report outlines the engagement of contract labour throughout
+                            the year.</li>
+                    </ul>
+                </li>
             </ol>
-          </div>
+        </div>
 
-          <div class="definitions-container">
+        <div class="definitions-container">
             <h1 class="definitions-heading">Definitions Under the Contract Labour (Regulation and Abolition) Act 1970</h1>
-             <p>In the context of the Contract Labour (Regulation and Abolition) Act 1970, certain key
-                definitions are essential for a clear understanding of the legal framework and its application.
-                These definitions include:</p>
+            <p>In the context of the Contract Labour (Regulation and Abolition) Act 1970, certain key definitions are essential for a clear understanding of the legal framework and its application. These definitions include:</p>
             <div class="definition-cards-container">
-              <div class="definition-card">
-                <h3>Contract Labour</h3>
-                <p>
-                  A <span class="highlight">contract labourer</span> is an individual engaged and employed to work within or in connection with the operations of an establishment. This employment is facilitated through or by a contractor. The engagement can occur either with or without the knowledge of the principal employer.
-                </p>
-              </div>
-        
-              <div class="definition-card">
-                <h3>Contractor</h3>
-                <p>
-                  In the context of an establishment, a <span class="highlight">contractor</span> is a person who provides goods or manufactured articles to the establishment using contract labour or supplies contract labour for various tasks. The contractor commits to delivering a specified outcome or result for the establishment, including the use of sub-contractors.
-                </p>
-              </div>
-        
-              <div class="definition-card">
-                <h3>Establishment</h3>
-                <p>
-                  An <span class="highlight">establishment</span> refers to any office, industrial, manufacturing, trade, or business entity, including government offices or local authority setups. It is a location where various activities happen and must comply with the regulations of the <span class="highlight">CLRA 1970</span>.
-                </p>
-              </div>
-            </div>
-          </div>
+                <div class="definition-card">
+                    <h3>Contract Labour</h3>
+                    <p>
+                        A <span class="highlight">contract labourer</span> is an individual engaged and employed to work within or in connection with the operations of an establishment. This employment is facilitated through or by a contractor. The engagement
+                        can occur either with or without the knowledge of the principal employer.
+                    </p>
+                </div>
 
-          <section class="principle-section">
-            <div class="principle-wrapper">
-              <h2 class="principle-title">Principal Employer and Workman Definitions Under CLRA Act</h2>
-              <p class="principle-introduction">
-                The <strong>Contract Labour (Regulation and Abolition) Act</strong> provides specific definitions for the terms 
-                "Principal Employer" and "Workman." These definitions are essential in determining the roles and responsibilities 
-                of various individuals within the scope of the Act.
-              </p>
-          
-              <div class="principle-definition">
-                <h3 class="principle-subheading">Principal Employer</h3>
-                <p class="principle-text">
-                  Principal employer definition under CLRA Registration and Licencing includes:
-                </p>
-                <ul class="principle-list">
-                  <li>
-                    <strong>In an office or department:</strong> The Principal Employer is defined as the head of the office or 
-                    department or any other officer designated by the Government or local authority. The Principal Employer is 
-                    responsible for compliance with the Act within the context of the office or department.
-                  </li>
-                  <li>
-                    <strong>In a factory:</strong> The Principal Employer is the occupier or owner of the factory or the manager as 
-                    designated under the Factories Act. The Principal Employer within a factory setting is accountable for ensuring 
-                    Act compliance.
-                  </li>
-                  <li>
-                    <strong>In a mine:</strong> The Principal Employer is the agent or owner of the mine or any person designated 
-                    as the manager. This individual is responsible for ensuring compliance with the Act's provisions within a mining 
-                    operation.
-                  </li>
-                  <li>
-                    <strong>In other Establishments:</strong> The Principal Employer is any person who holds responsibility for the 
-                    supervision and control of the establishment. This designation ensures that someone is accountable for Act 
-                    compliance within the specific establishment.
-                  </li>
-                </ul>
-              </div>
-          
-              <div class="principle-definition">
-                <h3 class="principle-subheading">Workman</h3>
-                <p class="principle-text">
-                  A "Workman" within the context of the CLRA Registration and Licencing refers to any individual employed within an 
-                  establishment or in connection with it to perform tasks that may be skilled, semi-skilled or unskilled, including 
-                  manual, technical, supervisory or clerical work, under an express or implied employment agreement.
-                </p>
-                <p class="principle-exclusion-title">The definition of a Workman excludes the following:</p>
-                <ul class="principle-exclusion-list">
-                  <li>Individuals employed in managerial or administrative roles.</li>
-                  <li>
-                    Individuals employed in supervisory roles but earning a monthly income exceeding <strong>Rs. 500</strong> or 
-                    primarily performing managerial tasks.
-                  </li>
-                  <li>
-                    Out workers, defined as individuals to whom materials or articles are provided by or on behalf of the Principal 
-                    Employer for various processing or finishing tasks. These tasks are typically done outside the direct control 
-                    and management of the Principal Employer, either in the out worker's home or in another location.
-                  </li>
-                </ul>
-              </div>
+                <div class="definition-card">
+                    <h3>Contractor</h3>
+                    <p>
+                        In the context of an establishment, a <span class="highlight">contractor</span> is a person who provides goods or manufactured articles to the establishment using contract labour or supplies contract labour for various tasks. The
+                        contractor commits to delivering a specified outcome or result for the establishment, including the use of sub-contractors.
+                    </p>
+                </div>
+
+                <div class="definition-card">
+                    <h3>Establishment</h3>
+                    <p>
+                        An <span class="highlight">establishment</span> refers to any office, industrial, manufacturing, trade, or business entity, including government offices or local authority setups. It is a location where various activities happen
+                        and must comply with the regulations of the <span class="highlight">CLRA 1970</span>.
+                    </p>
+                </div>
             </div>
-          </section>
-          
-          <div class="compliance-container">
+        </div>
+
+        <section class="principle-section">
+            <div class="principle-wrapper">
+                <h2 class="principle-title">Principal Employer and Workman Definitions Under CLRA Act</h2>
+                <p class="principle-introduction">
+                    The <strong>Contract Labour (Regulation and Abolition) Act</strong> provides specific definitions for the terms "Principal Employer" and "Workman." These definitions are essential in determining the roles and responsibilities of various
+                    individuals within the scope of the Act.
+                </p>
+
+                <div class="principle-definition">
+                    <h3 class="principle-subheading">Principal Employer</h3>
+                    <p class="principle-text">
+                        Principal employer definition under CLRA Registration and Licencing includes:
+                    </p>
+                    <ul class="principle-list">
+                        <li>
+                            <strong>In an office or department:</strong> The Principal Employer is defined as the head of the office or department or any other officer designated by the Government or local authority. The Principal Employer is responsible
+                            for compliance with the Act within the context of the office or department.
+                        </li>
+                        <li>
+                            <strong>In a factory:</strong> The Principal Employer is the occupier or owner of the factory or the manager as designated under the Factories Act. The Principal Employer within a factory setting is accountable for ensuring
+                            Act compliance.
+                        </li>
+                        <li>
+                            <strong>In a mine:</strong> The Principal Employer is the agent or owner of the mine or any person designated as the manager. This individual is responsible for ensuring compliance with the Act's provisions within a mining
+                            operation.
+                        </li>
+                        <li>
+                            <strong>In other Establishments:</strong> The Principal Employer is any person who holds responsibility for the supervision and control of the establishment. This designation ensures that someone is accountable for Act compliance
+                            within the specific establishment.
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="principle-definition">
+                    <h3 class="principle-subheading">Workman</h3>
+                    <p class="principle-text">
+                        A "Workman" within the context of the CLRA Registration and Licencing refers to any individual employed within an establishment or in connection with it to perform tasks that may be skilled, semi-skilled or unskilled, including manual, technical, supervisory
+                        or clerical work, under an express or implied employment agreement.
+                    </p>
+                    <p class="principle-exclusion-title">The definition of a Workman excludes the following:</p>
+                    <ul class="principle-exclusion-list">
+                        <li>Individuals employed in managerial or administrative roles.</li>
+                        <li>
+                            Individuals employed in supervisory roles but earning a monthly income exceeding <strong>Rs. 500</strong> or primarily performing managerial tasks.
+                        </li>
+                        <li>
+                            Out workers, defined as individuals to whom materials or articles are provided by or on behalf of the Principal Employer for various processing or finishing tasks. These tasks are typically done outside the direct control and management of the Principal
+                            Employer, either in the out worker's home or in another location.
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <div class="compliance-container">
             <h1 class="compliance-heading">Registration of Establishment under the Contract Labour Act</h1>
             <p class="compliance-paragraph">
-              The process of registering an establishment under the <span class="compliance-highlight"> Contract Labour (Regulation and
+                The process of registering an establishment under the <span class="compliance-highlight"> Contract Labour (Regulation and
                 Abolition) Act, 1970</span> involves specific steps and procedure as has been given below:
             </p>
-        
-            <ol class="compliance-list">
-              <li class="compliance-list-item">
-                <span class="compliance-subheading">Application by the Principal Employer:</span>
-                <p class="compliance-paragraph">
-                  The principal employer of an establishment initiates the registration process. The principal
-                  employer is the entity responsible for hiring and overseeing contract labourers within the
-                  establishment.                </p>
-              </li>
-        
-              <li class="compliance-list-item">
-                <span class="compliance-subheading">Role of Registering Officer:</span>
-                <p class="compliance-paragraph">
-                  A registering officer, appointed by the appropriate Government as prescribed by the Act, is
-                  responsible for handling the registration process. This officer plays a vital role in evaluating the
-                  application for registration and ensuring compliance with the Act&#39;s provisions.                </p>
-              </li>
-              <li class="compliance-list-item">
-                <span class="compliance-subheading">Application Timing:</span>
-                <p class="compliance-paragraph">
-                  The application for registration must be submitted within the timeframe specified by the
-                  appropriate Government. The Act provides guidelines for the application period.                </p>
-                  <p>The registering officer has the authority to consider an application even after the specified
-                    period if they are convinced that a legitimate reason prevented the applicant from submitting
-                    the application within the given timeframe.</p>
-              </li>
-              <li class="compliance-list-item">
-                <span class="compliance-subheading">Verification and Approval:</span>
-                <p class="compliance-paragraph">
-                  When an application is submitted, the registering officer carefully reviews it and only if he finds
-                  that everything is in order, he then proceeds with the registration process.          </p>
-              </li>
-              <li class="compliance-list-item">
-                <span class="compliance-subheading">Revocation of Registration:</span>
-                <p class="compliance-paragraph">
-                  If the registering officer finds that an establishment obtained its registration through
-                  misrepresentation or by hiding important facts or if the registration becomes ineffective for
-                  any reason, the officer can start the process of revoking the registration.            </p>
-                  <p>Revoking the registration requires approval from the appropriate Government beforehand.
-                    The principal employer has the chance to present their case and voice their perspective in this
-                    matter.</p>
-              </li>
-            </ol>
-          </div>
 
-          <section class="licencing-section">
+            <ol class="compliance-list">
+                <li class="compliance-list-item">
+                    <span class="compliance-subheading">Application by the Principal Employer:</span>
+                    <p class="compliance-paragraph">
+                        The principal employer of an establishment initiates the registration process. The principal employer is the entity responsible for hiring and overseeing contract labourers within the establishment. </p>
+                </li>
+
+                <li class="compliance-list-item">
+                    <span class="compliance-subheading">Role of Registering Officer:</span>
+                    <p class="compliance-paragraph">
+                        A registering officer, appointed by the appropriate Government as prescribed by the Act, is responsible for handling the registration process. This officer plays a vital role in evaluating the application for registration and ensuring compliance with
+                        the Act&#39;s provisions. </p>
+                </li>
+                <li class="compliance-list-item">
+                    <span class="compliance-subheading">Application Timing:</span>
+                    <p class="compliance-paragraph">
+                        The application for registration must be submitted within the timeframe specified by the appropriate Government. The Act provides guidelines for the application period. </p>
+                    <p>The registering officer has the authority to consider an application even after the specified period if they are convinced that a legitimate reason prevented the applicant from submitting the application within the given timeframe.</p>
+                </li>
+                <li class="compliance-list-item">
+                    <span class="compliance-subheading">Verification and Approval:</span>
+                    <p class="compliance-paragraph">
+                        When an application is submitted, the registering officer carefully reviews it and only if he finds that everything is in order, he then proceeds with the registration process. </p>
+                </li>
+                <li class="compliance-list-item">
+                    <span class="compliance-subheading">Revocation of Registration:</span>
+                    <p class="compliance-paragraph">
+                        If the registering officer finds that an establishment obtained its registration through misrepresentation or by hiding important facts or if the registration becomes ineffective for any reason, the officer can start the process of revoking the registration.
+                        </p>
+                    <p>Revoking the registration requires approval from the appropriate Government beforehand. The principal employer has the chance to present their case and voice their perspective in this matter.
+                    </p>
+                </li>
+            </ol>
+        </div>
+
+        <section class="licencing-section">
             <h2 class="licencing-heading">Licencing of Contractors Under the Contract Labour Act</h2>
             <div class="licencing-content">
-              <p>The licencing of contractors under the CLRA, 1970 is an important aspect of ensuring the regulation and compliance of contract labour employment. Given below is the process of licencing and the associated conditions:</p>
-              
-              <table class="licencing-table">
-                <thead>
-                  <tr>
-                    <th colspan="2">Licencing Process and Conditions</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td class="licence-point-title">1. Licence Requirement:</td>
-                    <td>
-                      Contractors are legally obligated not to undertake or execute any work involving contract labour without obtaining valid CLRA registration and licencing. This licence is issued by the licencing officer, appointed by the appropriate Government as specified by the Contract Labour Regulation Act.
-                    </td>
-                  </tr>
-                  <tr>
-                    <td class="licence-point-title">2. Licence Conditions:</td>
-                    <td>
-                      The licence granted to a contractor is subject to specific conditions, including:
-                      <ul>
-                        <li>Conditions related to the hours of work for contract labour.</li>
-                        <li>Fixation of wages for contract labour in accordance with applicable regulations.</li>
-                        <li>Provision of essential amenities and facilities for the welfare of contract labourers.</li>
-                      </ul>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td class="licence-point-title">3. Application for Licence:</td>
-                    <td>
-                      The contractor must submit an application that provides the following particulars:
-                      <ul>
-                        <li>The location of the establishment where contract labour will be employed.</li>
-                        <li>A description of the nature of the process, operation, or work for which contract labour is intended to be employed.</li>
-                        <li>Any other particulars prescribed by the relevant authorities.</li>
-                      </ul>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td class="licence-point-title">4. Revocation, Suspension, or Forfeiture:</td>
-                    <td>
-                      If the licencing officer believes that a licence was obtained through misrepresentation or by hiding important facts, or if the licence holder fails to comply with the conditions mentioned in the licence, the licencing officer has the authority to take corrective actions, such as:
-                      <ul>
-                        <li>Revoking or suspending the licence.</li>
-                        <li>Confiscating all or a part of the security deposit held by the licence holder.</li>
-                      </ul>
-                      The licencing officer must grant the licence holder a chance to explain their situation before taking these measures.
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
+                <p>The licencing of contractors under the CLRA, 1970 is an important aspect of ensuring the regulation and compliance of contract labour employment. Given below is the process of licencing and the associated conditions:</p>
+
+                <table class="licencing-table">
+                    <thead>
+                        <tr>
+                            <th colspan="2">Licencing Process and Conditions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="licence-point-title">1. Licence Requirement:</td>
+                            <td>
+                                Contractors are legally obligated not to undertake or execute any work involving contract labour without obtaining valid CLRA registration and licencing. This licence is issued by the licencing officer, appointed by the appropriate Government as specified
+                                by the Contract Labour Regulation Act.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="licence-point-title">2. Licence Conditions:</td>
+                            <td>
+                                The licence granted to a contractor is subject to specific conditions, including:
+                                <ul>
+                                    <li>Conditions related to the hours of work for contract labour.</li>
+                                    <li>Fixation of wages for contract labour in accordance with applicable regulations.</li>
+                                    <li>Provision of essential amenities and facilities for the welfare of contract labourers.</li>
+                                </ul>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="licence-point-title">3. Application for Licence:</td>
+                            <td>
+                                The contractor must submit an application that provides the following particulars:
+                                <ul>
+                                    <li>The location of the establishment where contract labour will be employed.</li>
+                                    <li>A description of the nature of the process, operation, or work for which contract labour is intended to be employed.</li>
+                                    <li>Any other particulars prescribed by the relevant authorities.</li>
+                                </ul>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="licence-point-title">4. Revocation, Suspension, or Forfeiture:</td>
+                            <td>
+                                If the licencing officer believes that a licence was obtained through misrepresentation or by hiding important facts, or if the licence holder fails to comply with the conditions mentioned in the licence, the licencing officer has the authority to take
+                                corrective actions, such as:
+                                <ul>
+                                    <li>Revoking or suspending the licence.</li>
+                                    <li>Confiscating all or a part of the security deposit held by the licence holder.</li>
+                                </ul>
+                                The licencing officer must grant the licence holder a chance to explain their situation before taking these measures.
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
-          </section>
-          
-          <section class="registration-documents">
+        </section>
+
+        <section class="registration-documents">
             <h2 class="registration-heading">
-              Documents Required for Registration of Principal Employer and Licencing of Contractors
+                Documents Required for Registration of Principal Employer and Licencing of Contractors
             </h2>
             <p class="registration-intro">
-              The Contract Labour (Regulation and Abolition) Act mandates specific documentation for the
-              registration of Principal Employers and the licencing of Contractors. Given below is a list of the
-              essential documents required for each process:
+                The Contract Labour (Regulation and Abolition) Act mandates specific documentation for the registration of Principal Employers and the licencing of Contractors. Given below is a list of the essential documents required for each process:
             </p>
-          
+
             <div class="registration-principal-employer">
-              <h3 class="registration-subheading">Documents Required for Registration of Principal Employers</h3>
-              <ul class="registration-list">
-                <li>
-                  <span class="registration-title">Valid Trade Licence:</span> A copy of the trade licence indicating
-                  that the establishment is legally permitted to conduct its business activities.
-                </li>
-                <li>
-                  <span class="registration-title">Articles of Association and Memorandum of Association or Partnership Deed:</span>
-                  These legal documents, depending on the type of entity, provide details about the establishment's
-                  structure, ownership, and governance.
-                </li>
-                <li>
-                  <span class="registration-title">Factory Licence:</span> If applicable to the establishment, a valid
-                  factory licence that allows specific manufacturing or production activities.
-                </li>
-                <li>
-                  <span class="registration-title">Additional Certificates of Registration:</span> If the establishment
-                  represents a different entity type, apart from being a company, proprietorship, or partnership firm,
-                  relevant certificates of registration specific to that entity must be furnished.
-                </li>
-                <li>
-                  <span class="registration-title">Supplementary Documents as Required:</span> The registering authority
-                  might have specific demands necessitating additional documents to finalise the registration procedure.
-                </li>
-              </ul>
+                <h3 class="registration-subheading">Documents Required for Registration of Principal Employers</h3>
+                <ul class="registration-list">
+                    <li>
+                        <span class="registration-title">Valid Trade Licence:</span> A copy of the trade licence indicating that the establishment is legally permitted to conduct its business activities.
+                    </li>
+                    <li>
+                        <span class="registration-title">Articles of Association and Memorandum of Association or Partnership Deed:</span> These legal documents, depending on the type of entity, provide details about the establishment's structure, ownership,
+                        and governance.
+                    </li>
+                    <li>
+                        <span class="registration-title">Factory Licence:</span> If applicable to the establishment, a valid factory licence that allows specific manufacturing or production activities.
+                    </li>
+                    <li>
+                        <span class="registration-title">Additional Certificates of Registration:</span> If the establishment represents a different entity type, apart from being a company, proprietorship, or partnership firm, relevant certificates of
+                        registration specific to that entity must be furnished.
+                    </li>
+                    <li>
+                        <span class="registration-title">Supplementary Documents as Required:</span> The registering authority might have specific demands necessitating additional documents to finalise the registration procedure.
+                    </li>
+                </ul>
             </div>
-          
+
             <div class="registration-contractors">
-              <h3 class="registration-subheading">Documents Required for Licencing of Contractors</h3>
-              <ul class="registration-list">
-                <li>
-                  <span class="registration-title">Form V:</span> The application form for the grant of a contractor's
-                  licence, typically provided by the relevant authorities.
-                </li>
-                <li>
-                  <span class="registration-title">Valid Work Order:</span> A copy of the work order that specifies the
-                  nature of the work for which contract labour is employed. This work order is an important document
-                  in demonstrating the need for a contractor's licence.
-                </li>
-                <li>
-                  <span class="registration-title">Trade Licence:</span> A valid trade licence is often a standard
-                  requirement for licencing contractors, ensuring they are authorised to operate their business.
-                </li>
-                <li>
-                  <span class="registration-title">Supplementary Documents as Necessary:</span> As per the specific rules
-                  and directives in the relevant jurisdiction, additional documents might be required for the contractor's
-                  licence application.
-                </li>
-              </ul>
+                <h3 class="registration-subheading">Documents Required for Licencing of Contractors</h3>
+                <ul class="registration-list">
+                    <li>
+                        <span class="registration-title">Form V:</span> The application form for the grant of a contractor's licence, typically provided by the relevant authorities.
+                    </li>
+                    <li>
+                        <span class="registration-title">Valid Work Order:</span> A copy of the work order that specifies the nature of the work for which contract labour is employed. This work order is an important document in demonstrating the need
+                        for a contractor's licence.
+                    </li>
+                    <li>
+                        <span class="registration-title">Trade Licence:</span> A valid trade licence is often a standard requirement for licencing contractors, ensuring they are authorised to operate their business.
+                    </li>
+                    <li>
+                        <span class="registration-title">Supplementary Documents as Necessary:</span> As per the specific rules and directives in the relevant jurisdiction, additional documents might be required for the contractor's licence application.
+                    </li>
+                </ul>
             </div>
-          </section>
-          
-          <div class="clra-container">
+        </section>
+
+        <div class="clra-container">
             <h1 class="clra-heading">CLRA Registration Procedure</h1>
-        
+
             <!-- Procedure for Principal Employers -->
             <section class="clra-section">
-              <h2 class="clra-subheading1">Procedure for Registration of Principal Employers under the Contract Labour Act</h2>
-              <p class="clra-description">The registration process for Principal Employers under the Contract Labour (Regulation and Abolition) Act involves several steps, as given below:</p>
-              <table class="clra-table">
-                <thead>
-                  <tr>
-                    <th class="clra-table-header">Step</th>
-                    <th class="clra-table-header">Details</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td class="clra-table-cell">1. Registration with Unified Shram Suvidha</td>
-                    <td class="clra-table-cell">The applicant begins by registering on the Unified Shram Suvidha platform. This registration requires the provision of basic details such as name, email, mobile number and other necessary information.</td>
-                  </tr>
-                  <tr>
-                    <td class="clra-table-cell">2. Filing the Application</td>
-                    <td class="clra-table-cell">After successful registration, the applicant proceeds to file the application using the appropriate Form, ensuring that all required details and information are provided accurately.</td>
-                  </tr>
-                  <tr>
-                    <td class="clra-table-cell">3. Details Required in the Application Form</td>
-                    <td class="clra-table-cell">
-                      <ul>
-                        <li><strong>Principal Employer Details:</strong> Name of the Principal Employer, Address, Designation, Gender, Email, Mobile Number, Father/husband name, Establishment Name, Contract Type, Maximum number of contract labour employed on any day.</li>
-                        <li><strong>Registration Fee:</strong> 
-                          <ul>
-                            <li>Up to 20 workers: Rs. 60</li>
-                            <li>Exceeds 20 but does not exceed 50 workers: Rs. 150</li>
-                            <li>Exceeds 50 but does not exceed 100 workers: Rs. 300</li>
-                            <li>Exceeds 100 but does not exceed 200 workers: Rs. 600</li>
-                            <li>Exceeds 200 but does not exceed 400 workers: Rs. 1200</li>
-                            <li>Exceeds 400 workers: Rs. 1500</li>
-                          </ul>
-                        </li>
-                        <li><strong>Establishment Details:</strong> Name of Establishment, Location, Ownership type/sector, Activity as per National Industrial Classification, NIC Code, Nature of work, Identifiers of Establishment.</li>
-                        <li><strong>Manager Details:</strong> Name of Manager, Address, Email Address, Mobile Number, Contract Type.</li>
-                        <li><strong>Contractor Details:</strong> Name, Maximum number of contract labour employed, Address, Email Address, Mobile Number, Contract Type.</li>
-                        <li><strong>Contract Work Details:</strong> Location, Contractor, Estimated commencement and completion dates, NIC Code, Nature of work, Details of contract work.</li>
-                      </ul>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td class="clra-table-cell">4. Payment and Submission</td>
-                    <td class="clra-table-cell">After completing all the necessary details in the application form, the applicant is required to make the payment and then submit the application.</td>
-                  </tr>
-                  <tr>
-                    <td class="clra-table-cell">5. Application Approval</td>
-                    <td class="clra-table-cell">The relevant authority reviews the application and, if satisfied, approves it.</td>
-                  </tr>
-                  <tr>
-                    <td class="clra-table-cell">6. Issuance of CLRA Registration and Licencing Certificate</td>
-                    <td class="clra-table-cell">Upon approval, the authority issues the CLRA Registration and Licencing Certificate to the Principal Employer.</td>
-                  </tr>
-                </tbody>
-              </table>
+                <h2 class="clra-subheading1">Procedure for Registration of Principal Employers under the Contract Labour Act</h2>
+                <p class="clra-description">The registration process for Principal Employers under the Contract Labour (Regulation and Abolition) Act involves several steps, as given below:</p>
+                <table class="clra-table">
+                    <thead>
+                        <tr>
+                            <th class="clra-table-header">Step</th>
+                            <th class="clra-table-header">Details</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="clra-table-cell">1. Registration with Unified Shram Suvidha</td>
+                            <td class="clra-table-cell">The applicant begins by registering on the Unified Shram Suvidha platform. This registration requires the provision of basic details such as name, email, mobile number and other necessary information.</td>
+                        </tr>
+                        <tr>
+                            <td class="clra-table-cell">2. Filing the Application</td>
+                            <td class="clra-table-cell">After successful registration, the applicant proceeds to file the application using the appropriate Form, ensuring that all required details and information are provided accurately.</td>
+                        </tr>
+                        <tr>
+                            <td class="clra-table-cell">3. Details Required in the Application Form</td>
+                            <td class="clra-table-cell">
+                                <ul>
+                                    <li><strong>Principal Employer Details:</strong> Name of the Principal Employer, Address, Designation, Gender, Email, Mobile Number, Father/husband name, Establishment Name, Contract Type, Maximum number of contract labour
+                                        employed on any day.</li>
+                                    <li><strong>Registration Fee:</strong>
+                                        <ul>
+                                            <li>Up to 20 workers: Rs. 60</li>
+                                            <li>Exceeds 20 but does not exceed 50 workers: Rs. 150</li>
+                                            <li>Exceeds 50 but does not exceed 100 workers: Rs. 300</li>
+                                            <li>Exceeds 100 but does not exceed 200 workers: Rs. 600</li>
+                                            <li>Exceeds 200 but does not exceed 400 workers: Rs. 1200</li>
+                                            <li>Exceeds 400 workers: Rs. 1500</li>
+                                        </ul>
+                                    </li>
+                                    <li><strong>Establishment Details:</strong> Name of Establishment, Location, Ownership type/sector, Activity as per National Industrial Classification, NIC Code, Nature of work, Identifiers of Establishment.</li>
+                                    <li><strong>Manager Details:</strong> Name of Manager, Address, Email Address, Mobile Number, Contract Type.</li>
+                                    <li><strong>Contractor Details:</strong> Name, Maximum number of contract labour employed, Address, Email Address, Mobile Number, Contract Type.</li>
+                                    <li><strong>Contract Work Details:</strong> Location, Contractor, Estimated commencement and completion dates, NIC Code, Nature of work, Details of contract work.</li>
+                                </ul>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="clra-table-cell">4. Payment and Submission</td>
+                            <td class="clra-table-cell">After completing all the necessary details in the application form, the applicant is required to make the payment and then submit the application.</td>
+                        </tr>
+                        <tr>
+                            <td class="clra-table-cell">5. Application Approval</td>
+                            <td class="clra-table-cell">The relevant authority reviews the application and, if satisfied, approves it.</td>
+                        </tr>
+                        <tr>
+                            <td class="clra-table-cell">6. Issuance of CLRA Registration and Licencing Certificate</td>
+                            <td class="clra-table-cell">Upon approval, the authority issues the CLRA Registration and Licencing Certificate to the Principal Employer.</td>
+                        </tr>
+                    </tbody>
+                </table>
             </section>
-        
+
             <!-- Procedure for Contractors -->
             <section class="clra-section">
-              <h2 class="clra-subheading1">Procedure for Registration of Contractors under CLRA</h2>
-              <p class="clra-description">The process for obtaining a CLRA licence for contractors involves several steps, ensuring that contractors adhere to the legal requirements for employing contract labour. Given below is the detailed procedure:</p>
-              <table class="clra-table">
-                <thead>
-                  <tr>
-                    <th class="clra-table-header">Step</th>
-                    <th class="clra-table-header">Details</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td class="clra-table-cell">1. Application Submission</td>
-                    <td class="clra-table-cell">The applicant initiates the process by submitting an application on the Shram Suvidha platform provided by the Ministry of Labour & Employment.</td>
-                  </tr>
-                  <tr>
-                    <td class="clra-table-cell">2. Application Form Details</td>
-                    <td class="clra-table-cell">
-                      <ul>
-                        <li><strong>Contractor Details:</strong> Name of Contractor, Name and Designation of Representative, Address of Contractor, PAN, PAN Card details, Mobile number of Representative, Contract type.</li>
-                        <li><strong>Establishment/Principal Employer Details:</strong> Registration Certificate number, Name of Establishment, Principal Employer details, Registration Date, Address, Email, Mobile Number.</li>
-                        <li><strong>Contract Work Details:</strong> Name and nature of work, Estimated commencement and completion dates, Agent/Manager details, Work location, NIC Code, Maximum number of labourers to be employed.</li>
-                        <li><strong>Certificate by Principal Employer:</strong> Security Fee and Licence Fee as per the number of workers.</li>
-                      </ul>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td class="clra-table-cell">3. Attach Required Documents</td>
-                    <td class="clra-table-cell">The applicant must attach other necessary documents as specified in the application, ensuring all required documentation is complete.</td>
-                  </tr>
-                  <tr>
-                    <td class="clra-table-cell">4. Payment and Submission</td>
-                    <td class="clra-table-cell">After providing all the necessary details and attaching the required documents, the applicant proceeds to make the relevant payment and submits the Licence Application.</td>
-                  </tr>
-                  <tr>
-                    <td class="clra-table-cell">5. Licence Issuance</td>
-                    <td class="clra-table-cell">Upon approval and review by the relevant authority, the CLRA Licence is issued to the contractor, authorising them to employ contract labour as per the Act's provisions.</td>
-                  </tr>
-                </tbody>
-              </table>
+                <h2 class="clra-subheading1">Procedure for Registration of Contractors under CLRA</h2>
+                <p class="clra-description">The process for obtaining a CLRA licence for contractors involves several steps, ensuring that contractors adhere to the legal requirements for employing contract labour. Given below is the detailed procedure:</p>
+                <table class="clra-table">
+                    <thead>
+                        <tr>
+                            <th class="clra-table-header">Step</th>
+                            <th class="clra-table-header">Details</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="clra-table-cell">1. Application Submission</td>
+                            <td class="clra-table-cell">The applicant initiates the process by submitting an application on the Shram Suvidha platform provided by the Ministry of Labour & Employment.</td>
+                        </tr>
+                        <tr>
+                            <td class="clra-table-cell">2. Application Form Details</td>
+                            <td class="clra-table-cell">
+                                <ul>
+                                    <li><strong>Contractor Details:</strong> Name of Contractor, Name and Designation of Representative, Address of Contractor, PAN, PAN Card details, Mobile number of Representative, Contract type.</li>
+                                    <li><strong>Establishment/Principal Employer Details:</strong> Registration Certificate number, Name of Establishment, Principal Employer details, Registration Date, Address, Email, Mobile Number.</li>
+                                    <li><strong>Contract Work Details:</strong> Name and nature of work, Estimated commencement and completion dates, Agent/Manager details, Work location, NIC Code, Maximum number of labourers to be employed.</li>
+                                    <li><strong>Certificate by Principal Employer:</strong> Security Fee and Licence Fee as per the number of workers.</li>
+                                </ul>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="clra-table-cell">3. Attach Required Documents</td>
+                            <td class="clra-table-cell">The applicant must attach other necessary documents as specified in the application, ensuring all required documentation is complete.</td>
+                        </tr>
+                        <tr>
+                            <td class="clra-table-cell">4. Payment and Submission</td>
+                            <td class="clra-table-cell">After providing all the necessary details and attaching the required documents, the applicant proceeds to make the relevant payment and submits the Licence Application.</td>
+                        </tr>
+                        <tr>
+                            <td class="clra-table-cell">5. Licence Issuance</td>
+                            <td class="clra-table-cell">Upon approval and review by the relevant authority, the CLRA Licence is issued to the contractor, authorising them to employ contract labour as per the Act's provisions.</td>
+                        </tr>
+                    </tbody>
+                </table>
             </section>
-          </div>
-          <div class="violation-container">
+        </div>
+        <div class="violation-container">
             <div class="violation-header">Violation of CLRA Act and Penalties
-             
+
             </div>
-            <p class="violation-text">Under the Contract Labour (Regulation and Abolition) Act, the employment of contract labour
-              is subject to certain regulations and compliance requirements. Violation of these provisions
-              
-              can lead to penalties for the parties involved. The specific violation and its associated penalty
-              are as given below:</p>
+            <p class="violation-text">Under the Contract Labour (Regulation and Abolition) Act, the employment of contract labour is subject to certain regulations and compliance requirements. Violation of these provisions can lead to penalties for the parties involved. The specific
+                violation and its associated penalty are as given below:</p>
             <div class="violation-section">
                 <div class="violation-section-title">Violation:</div>
                 <p class="violation-text">A principal employer is not permitted to hire contract workers unless they have obtained CLRA Registration and Licencing with the appropriate department.</p>
             </div>
-    
+
             <div class="violation-section">
                 <div class="violation-section-title">Penalties:</div>
                 <p class="violation-text">Section 23 of the CLRA Act stipulates penalties for violations. In the event of a violation of this provision, the principal employer may face penalties including:</p>
@@ -1674,19 +1646,22 @@ establishments and contractors, including:
                     <li class="violation-list-item">Or, potentially both a jail term and a fine.</li>
                 </ul>
             </div>
-    
-            <p class="violation-text">These penalties are imposed to ensure that principal employers comply with the requirements of CLRA Registration and Licencing and refrain from engaging contract labour without the necessary registration, promoting the welfare and regulation of contract labourers in accordance with the law.</p>
+
+            <p class="violation-text">These penalties are imposed to ensure that principal employers comply with the requirements of CLRA Registration and Licencing and refrain from engaging contract labour without the necessary registration, promoting the welfare and regulation
+                of contract labourers in accordance with the law.</p>
         </div>
         <div class="startupfino-container">
-          <div class="startupfino-image">
-              <img src="images/vindus_clients_images/clra5.jpg" alt="StartupFino CLRA Services">
-          </div>
-          <div class="startupfino-content">
-              <div class="startupfino-header">Why Choose ML Consultant for CLRA Registration and Licencing in India?</div>
-              <p class="startupfino-text">ML  is a Consultant that specialises in offering complete services for CLRA registration and licencing. We can help you with everything from providing advice in the initial phase to ensuring that you meet all the necessary requirements and compliances for your CLRA registration and licencing.</p>
-              <p class="startupfino-text">The registration of establishments under the Contract Labour Act is an important step to ensure proper regulation and oversight of the employment of contract labourers. The process involves cooperation between the principal employer, the registering officer and the appropriate Government to uphold the Act's provisions and maintain compliance.</p>
-          </div>
-      </div>
+            <div class="startupfino-image">
+                <img src="images/vindus_clients_images/clra5.jpg" alt="StartupFino CLRA Services">
+            </div>
+            <div class="startupfino-content">
+                <div class="startupfino-header">Why Choose ML Consultant for CLRA Registration and Licencing in India?</div>
+                <p class="startupfino-text">ML is a Consultant that specialises in offering complete services for CLRA registration and licencing. We can help you with everything from providing advice in the initial phase to ensuring that you meet all the necessary requirements
+                    and compliances for your CLRA registration and licencing.</p>
+                <p class="startupfino-text">The registration of establishments under the Contract Labour Act is an important step to ensure proper regulation and oversight of the employment of contract labourers. The process involves cooperation between the principal employer, the
+                    registering officer and the appropriate Government to uphold the Act's provisions and maintain compliance.</p>
+            </div>
+        </div>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
 
 
@@ -1907,7 +1882,7 @@ establishments and contractors, including:
     <script src="js/custom.js"></script>
 
 
-   
+
 
     <script src="js/changer.js"></script>
     <script defer src="js/styleswitch.js"></script>

@@ -414,7 +414,6 @@
         }
         
         .sub-menu {
-           
             padding-left: 0;
             /* Optional: Remove default padding */
             margin: 0;
@@ -428,58 +427,55 @@
             /* Optional: Add padding for better spacing */
         }
         
-       
-	    #services-menu{
-	height: 420px;
-	overflow-y: scroll;
-}
-.banner {
-  position: relative;
-  overflow: hidden;
-  background-color: #f0f0f0; /* Optional: to show the banner area */
-  height: 350px; /* Set height to match image height */
-}
-
-.banner-images {
-  display: flex;
-  width: calc(800px * 12 + 15px * 11); /* Total width of all images including gaps */
-  animation: scroll 50s linear infinite;
-  gap: 10px;
-
-}
-
-.banner-images img {
-  width: 800px;
-  height: 350px;
-}
-
-@keyframes scroll {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(calc(-800px * 6 - 15px * 5)); /* Adjust the total width to scroll */
-  }
-}
-
-.banner-heading {
-  position: absolute;
-  bottom: 10px;
-  left: 10px;
-  color: white; /* Adjust color for visibility */
-  background-color: rgba(13, 75, 208, 0.8); /* Optional: background for readability */
-  padding: 5px 10px;
-  font-size: 24px; /* Adjust font size as needed */
-}
-#services-sub-menu {
-            overflow-y: scroll;
-            padding-left: 0;
-            margin: 0;
-            list-style: none;
+        #services-menu {
             height: 420px;
-            min-width: 20px;
+            overflow-y: scroll;
         }
         
+        .banner {
+            position: relative;
+            overflow: hidden;
+            background-color: #f0f0f0;
+            /* Optional: to show the banner area */
+            height: 350px;
+            /* Set height to match image height */
+        }
+        
+        .banner-images {
+            display: flex;
+            width: calc(800px * 12 + 15px * 11);
+            /* Total width of all images including gaps */
+            animation: scroll 50s linear infinite;
+            gap: 10px;
+        }
+        
+        .banner-images img {
+            width: 800px;
+            height: 350px;
+        }
+        
+        @keyframes scroll {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(calc(-800px * 6 - 15px * 5));
+                /* Adjust the total width to scroll */
+            }
+        }
+        
+        .banner-heading {
+            position: absolute;
+            bottom: 10px;
+            left: 10px;
+            color: white;
+            /* Adjust color for visibility */
+            background-color: rgba(13, 75, 208, 0.8);
+            /* Optional: background for readability */
+            padding: 5px 10px;
+            font-size: 24px;
+            /* Adjust font size as needed */
+        }
     </style>
 </head>
 
@@ -499,36 +495,36 @@
 
         <!-- HEADER
 			============================================= -->
-      	<header id="header" class="tra-menu navbar-dark " style="background:linear-gradient(#010166,#1560bd,#1560bd);">
-				<div class="header-wrapper" style="background:linear-gradient(#010166,#1560bd,#1560bd);">
+        <header id="header" class="tra-menu navbar-dark " style="background:linear-gradient(#010166,#1560bd,#1560bd);">
+            <div class="header-wrapper" style="background:linear-gradient(#010166,#1560bd,#1560bd);">
 
 
-					<!-- MOBILE HEADER -->
-				    <div class="wsmobileheader clearfix" style="background:linear-gradient(#010166,#1560bd,#1560bd);">	  	
-				    	<span class="smllogo">                                                <img src="images/vindus_clients_images/cardlogo.jpg" alt="" class="rounded-circle" height="100px" width="100px">
+                <!-- MOBILE HEADER -->
+                <div class="wsmobileheader clearfix" style="background:linear-gradient(#010166,#1560bd,#1560bd);">
+                    <span class="smllogo">                                                <img src="images/vindus_clients_images/cardlogo.jpg" alt="" class="rounded-circle" height="100px" width="100px">
 						</span>
-				    	<a id="wsnavtoggle" class="wsanimated-arrow"><span></span></a>	
-				 	</div>
+                    <a id="wsnavtoggle" class="wsanimated-arrow"><span></span></a>
+                </div>
 
 
-				 	<!-- NAVIGATION MENU -->
-				  	<div class="wsmainfull menu clearfix" >
-	    				<div class="d-flex clearfix" >
+                <!-- NAVIGATION MENU -->
+                <div class="wsmainfull menu clearfix">
+                    <div class="d-flex clearfix">
 
 
-	    					<!-- HEADER BLACK LOGO -->
-	    					<div class="desktoplogo" >
-	    						<a href="#" class="">
-									<img src="images/vindus_clients_images/cardlogo.jpg" alt="" class="rounded-circle" height="100px" width="100px">
-	    						</a>
-	    					</div>
-	    					
+                        <!-- HEADER BLACK LOGO -->
+                        <div class="desktoplogo">
+                            <a href="#" class="">
+                                <img src="images/vindus_clients_images/cardlogo.jpg" alt="" class="rounded-circle" height="100px" width="100px">
+                            </a>
+                        </div>
 
-	    					<!-- HEADER WHITE LOGO -->
-	    					<div class="desktoplogo">
-	    						<a href="#" class="logo-white">                                                <img src="images/vindus_clients_images/cardlogo.jpg" alt="" class="rounded-circle" height="100px" width="100px">
-								</a>
-	    					</div>
+
+                        <!-- HEADER WHITE LOGO -->
+                        <div class="desktoplogo">
+                            <a href="#" class="logo-white"> <img src="images/vindus_clients_images/cardlogo.jpg" alt="" class="rounded-circle" height="100px" width="100px">
+                            </a>
+                        </div>
                         <!-- MAIN MENU -->
                         <nav class="wsmenu clearfix">
                             <ul class="wsmenu-list nav-theme">
@@ -611,40 +607,40 @@
 
 
 
-                            
-							    	<li aria-haspopup="true">
-				<a href="certification.html" class="h-link" >Certification<span class="wsarrow"></span></a>
-				<ul class="sub-menu">
-					<li aria-haspopup="true">
-						<p class="para">ISO <span class="wsarrow"></span></p>
-						<ul class="sub-menu">
-							<li aria-haspopup="true"><a href="certification1.html">ISO 45001:2018</a></li>
-							<li aria-haspopup="true"><a href="certification2.html">ISO 14001:2015</a></li>
-							<li aria-haspopup="true"><a href="certification3.html">ISO 9001:2015</a></li>
-							<li aria-haspopup="true"><a href="certification4.html">IMS</a></li>
 
-						</ul>
-					</li>
-					<li aria-haspopup="true">
-						<p class="para">British Safety<br> Counsil Certification<span class="wsarrow"></span></p>
-						<ul class="sub-menu" id="services-menu">
-							<li aria-haspopup="true"><a href="fivestar1.html">Five Star Occupational Health and Safety Audit</a></li>
-							<li aria-haspopup="true"><a href="fivestar2.html">Five Star Environmental Sustainability Audit</a></li>
-							<li aria-haspopup="true"><a href="fivestar3.html">Five Star Integrated Audit</a></li>
-							<li aria-haspopup="true"><a href="fivestar4.html">Five Star Group Audit</a></li>
-							<li aria-haspopup="true"><a href="fivestar5.html">Five Star Wellbeing Audit</a></li>
-							<li aria-haspopup="true"><a href="fivestar6.html">Pre-Audit (Gap Analysis) Services</a></li>
-							<li aria-haspopup="true"><a href="fivestar7.html">ISO 14001 Environmental Audit</a></li>
-							<li aria-haspopup="true"><a href="fivestar8.html">ISO 45001 Health and Safety Management Standard</a></li>
-							<li aria-haspopup="true"><a href="fivestar9.html">Fire Safety Management Audit</a></li>
-						</ul>
-					</li>
-					
-				</ul>
-			</li>
-									
+                                <li aria-haspopup="true">
+                                    <a href="certification.html" class="h-link">Certification<span class="wsarrow"></span></a>
+                                    <ul class="sub-menu">
+                                        <li aria-haspopup="true">
+                                            <p class="para">ISO <span class="wsarrow"></span></p>
+                                            <ul class="sub-menu">
+                                                <li aria-haspopup="true"><a href="certification1.html">ISO 45001:2018</a></li>
+                                                <li aria-haspopup="true"><a href="certification2.html">ISO 14001:2015</a></li>
+                                                <li aria-haspopup="true"><a href="certification3.html">ISO 9001:2015</a></li>
+                                                <li aria-haspopup="true"><a href="certification4.html">IMS</a></li>
 
-			
+                                            </ul>
+                                        </li>
+                                        <li aria-haspopup="true">
+                                            <p class="para">British Safety<br> Counsil Certification<span class="wsarrow"></span></p>
+                                            <ul class="sub-menu" id="services-menu">
+                                                <li aria-haspopup="true"><a href="fivestar1.html">Five Star Occupational Health and Safety Audit</a></li>
+                                                <li aria-haspopup="true"><a href="fivestar2.html">Five Star Environmental Sustainability Audit</a></li>
+                                                <li aria-haspopup="true"><a href="fivestar3.html">Five Star Integrated Audit</a></li>
+                                                <li aria-haspopup="true"><a href="fivestar4.html">Five Star Group Audit</a></li>
+                                                <li aria-haspopup="true"><a href="fivestar5.html">Five Star Wellbeing Audit</a></li>
+                                                <li aria-haspopup="true"><a href="fivestar6.html">Pre-Audit (Gap Analysis) Services</a></li>
+                                                <li aria-haspopup="true"><a href="fivestar7.html">ISO 14001 Environmental Audit</a></li>
+                                                <li aria-haspopup="true"><a href="fivestar8.html">ISO 45001 Health and Safety Management Standard</a></li>
+                                                <li aria-haspopup="true"><a href="fivestar9.html">Fire Safety Management Audit</a></li>
+                                            </ul>
+                                        </li>
+
+                                    </ul>
+                                </li>
+
+
+
 
 
 
@@ -708,27 +704,27 @@
                                 </li>
                                 <li class="nl-simple" aria-haspopup="true"><a href="services2.html" class="h-link">Services<span class="wsarrow"></span></a>
 
-										<ul class="sub-menu" id="services-menu" >
-											<li aria-haspopup="true"><a href="employeehs.html"> Employee Health Services</a></li>
+                                    <ul class="sub-menu" id="services-menu">
+                                        <li aria-haspopup="true"><a href="employeehs.html"> Employee Health Services</a></li>
 
-											<li aria-haspopup="true"><a href="Esg.html">ESG End to End Solution </a></li>
-											<li aria-haspopup="true"><a href="gmp.html">GMP Audit</a></li>
-											<li aria-haspopup="true"><a href="GMPQUALITYCONSULTING.html">GMP Quality Consulting</a></li>
-											<li aria-haspopup="true"><a href="hac.html">HAC Services</a></li>
-											<li aria-haspopup="true"><a href="incidentinvestigation.html">Incident Investigation</a></li>
-											<li aria-haspopup="true"><a href="industrialhygene.html">Industrial<br>hygene</a></li>
-											<li aria-haspopup="true"><a href="Pharma.html">Pharma Clean room equipments</a></li>
-											<li aria-haspopup="true"><a href="powersystem.html">Power system studies</a></li>
-											<li aria-haspopup="true"><a href="qualityrisk.html">Quality Consultation Services</a></li>
-											<li aria-haspopup="true"><a href="PLANTSETUPandUPGRADATION.html">Quality Plant Setup & Upgradation</a></li>
-											<li aria-haspopup="true"><a href="RespiratoryEmergencyProtectionSystems.html">Respiratory & Emergency Protection Systems</a></li>
+                                        <li aria-haspopup="true"><a href="Esg.html">ESG End to End Solution </a></li>
+                                        <li aria-haspopup="true"><a href="gmp.html">GMP Audit</a></li>
+                                        <li aria-haspopup="true"><a href="GMPQUALITYCONSULTING.html">GMP Quality Consulting</a></li>
+                                        <li aria-haspopup="true"><a href="hac.html">HAC Services</a></li>
+                                        <li aria-haspopup="true"><a href="incidentinvestigation.html">Incident Investigation</a></li>
+                                        <li aria-haspopup="true"><a href="industrialhygene.html">Industrial<br>hygene</a></li>
+                                        <li aria-haspopup="true"><a href="Pharma.html">Pharma Clean room equipments</a></li>
+                                        <li aria-haspopup="true"><a href="powersystem.html">Power system studies</a></li>
+                                        <li aria-haspopup="true"><a href="qualityrisk.html">Quality Consultation Services</a></li>
+                                        <li aria-haspopup="true"><a href="PLANTSETUPandUPGRADATION.html">Quality Plant Setup & Upgradation</a></li>
+                                        <li aria-haspopup="true"><a href="RespiratoryEmergencyProtectionSystems.html">Respiratory & Emergency Protection Systems</a></li>
 
-											<li aria-haspopup="true"><a href="safetystudies.html">Safety Studies </a></li>
-											<li aria-haspopup="true"><a href="supplierqualificationaudit.html">Supplier qualification Audit</a></li>
-                                            <li aria-haspopup="true"><a href="developmentservice.html">Development Services</a></li>
+                                        <li aria-haspopup="true"><a href="safetystudies.html">Safety Studies </a></li>
+                                        <li aria-haspopup="true"><a href="supplierqualificationaudit.html">Supplier qualification Audit</a></li>
+                                        <li aria-haspopup="true"><a href="developmentservice.html">Development Services</a></li>
 
-											
-										   </ul>
+
+                                    </ul>
 
 
 
@@ -752,25 +748,25 @@
 
         <div class="banner">
             <div class="banner-images">
-              <img src="images/vindus_clients_images/sustainable-1.jpg" alt="Banner Image 1">
-              <img src="images/vindus_clients_images/sustainable-2.jpg" alt="Banner Image 2">
-              <img src="images/vindus_clients_images/sustainable-3.jpeg" alt="Banner Image 3">
-              <img src="images/vindus_clients_images/sustainable-1.jpg" alt="Banner Image 1">
-              <img src="images/vindus_clients_images/sustainable-2.jpg" alt="Banner Image 2">
-              <img src="images/vindus_clients_images/sustainable-3.jpeg" alt="Banner Image 3">
-              <!-- Duplicate set of images for continuous scroll -->
-              <img src="images/vindus_clients_images/sustainable-1.jpg" alt="Banner Image 1">
-              <img src="images/vindus_clients_images/sustainable-2.jpg" alt="Banner Image 2">
-              <img src="images/vindus_clients_images/sustainable-3.jpeg" alt="Banner Image 3">
-              <img src="images/vindus_clients_images/sustainable-1.jpg" alt="Banner Image 1">
-              <img src="images/vindus_clients_images/sustainable-2.jpg" alt="Banner Image 2">
-              <img src="images/vindus_clients_images/sustainable-3.jpeg" alt="Banner Image 3">
+                <img src="images/vindus_clients_images/sustainable-1.jpg" alt="Banner Image 1">
+                <img src="images/vindus_clients_images/sustainable-2.jpg" alt="Banner Image 2">
+                <img src="images/vindus_clients_images/sustainable-3.jpeg" alt="Banner Image 3">
+                <img src="images/vindus_clients_images/sustainable-1.jpg" alt="Banner Image 1">
+                <img src="images/vindus_clients_images/sustainable-2.jpg" alt="Banner Image 2">
+                <img src="images/vindus_clients_images/sustainable-3.jpeg" alt="Banner Image 3">
+                <!-- Duplicate set of images for continuous scroll -->
+                <img src="images/vindus_clients_images/sustainable-1.jpg" alt="Banner Image 1">
+                <img src="images/vindus_clients_images/sustainable-2.jpg" alt="Banner Image 2">
+                <img src="images/vindus_clients_images/sustainable-3.jpeg" alt="Banner Image 3">
+                <img src="images/vindus_clients_images/sustainable-1.jpg" alt="Banner Image 1">
+                <img src="images/vindus_clients_images/sustainable-2.jpg" alt="Banner Image 2">
+                <img src="images/vindus_clients_images/sustainable-3.jpeg" alt="Banner Image 3">
             </div>
             <h1 class="banner-heading">Five Star Environmental Sustainability Audit</h1>
-          </div>
+        </div>
 
 
-          <div class="container my-4">
+        <div class="container my-4">
             <div class="card-header">
                 <div class="card-title">
                 </div>
@@ -780,9 +776,9 @@
 
                 <!-- Section 1: Introduction -->
                 <div class="accordion-item">
-                    
+
                     <div class="accordion-body">
-                        The Five Star Environmental Sustainability Audit aims to support and improve the environmental sustainability performance of your business by examining your policies, processes and practices and recommending improvements.                    </div>
+                        The Five Star Environmental Sustainability Audit aims to support and improve the environmental sustainability performance of your business by examining your policies, processes and practices and recommending improvements. </div>
                 </div>
 
                 <!-- Section 2: Who is the audit for? -->
@@ -793,9 +789,9 @@
                     </h2>
                     <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-parent="#accordionAudit">
                         <div class="accordion-body">
-                            An in-depth examination of an organization’s entire environmental sustainability policies, procedures and associated arrangements against best practice and recommending improvements.<br> 
-                            The audit goes beyond the requirements of traditional environmental management systems such as ISO 14001:2015. The audit will help you demonstrate your environmental sustainability credentials to your stakeholders including customers, supply chain and other stakeholders. 
-                            
+                            An in-depth examination of an organization’s entire environmental sustainability policies, procedures and associated arrangements against best practice and recommending improvements.<br> The audit goes beyond the requirements
+                            of traditional environmental management systems such as ISO 14001:2015. The audit will help you demonstrate your environmental sustainability credentials to your stakeholders including customers, supply chain and other stakeholders.
+
                         </div>
                     </div>
                 </div>
@@ -810,13 +806,14 @@
                         <div class="accordion-body">
                             <ul>
                                 <li>Organization’s within any sector (of any size) who:</li>
-                                <li>a.	require a status assessment of their current environmental sustainability policies, processes and practices against best practice.</li>
-                                <li>b.	require a structured route toward implementing environmental sustainability within the organization</li>
+                                <li>a. require a status assessment of their current environmental sustainability policies, processes and practices against best practice.</li>
+                                <li>b. require a structured route toward implementing environmental sustainability within the organization</li>
                             </ul>
                             <br>
-                            <p>The audit can be undertaken by any organization of any size whatever stage of the environmental management journey they are on. For organizations starting out on their journey of implementing environmental management, the audit can be used as a road map for both short and long-term plans for environmental performance improvement.<br> 
-                                For organizations with a long-standing commitment to environmental management, the audit provides a robust third-party validation of your organization’s current policies, processes and practices. It includes recommendations aligned with best practice that allow you to continually improve. 
-                                </p>
+                            <p>The audit can be undertaken by any organization of any size whatever stage of the environmental management journey they are on. For organizations starting out on their journey of implementing environmental management, the audit
+                                can be used as a road map for both short and long-term plans for environmental performance improvement.<br> For organizations with a long-standing commitment to environmental management, the audit provides a robust third-party
+                                validation of your organization’s current policies, processes and practices. It includes recommendations aligned with best practice that allow you to continually improve.
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -830,16 +827,16 @@
                     <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-parent="#accordionAudit">
                         <div class="accordion-body">
                             <ul>
-                                <li>•	External recognition of Environmental Management Systems to best practice standards</li>
-                                <li>•	Demonstration to stakeholders and other interested parties (including regulatory bodies) of commitment toward environmental responsibility</li>
-                                <li>•	Structured route toward continual improvement and best practice standards</li>
-                                <li>•	Monitor current and changing environmental legislation</li>
-                                <li>•	Improve your environmental management systems</li>
-                                <li>•	Improve resource efficiency</li>
-                                <li>•	Assess your current systems allowing you to action plan to meet the revised ISO 14001:2015 standard</li>
-                                <li>•	Demonstrate your commitment to customers, employees, suppliers, shareholders and the local community</li>
-                                <li>•	The exclusive certificate and logo can be used to demonstrate your success</li>
-                               
+                                <li>• External recognition of Environmental Management Systems to best practice standards</li>
+                                <li>• Demonstration to stakeholders and other interested parties (including regulatory bodies) of commitment toward environmental responsibility</li>
+                                <li>• Structured route toward continual improvement and best practice standards</li>
+                                <li>• Monitor current and changing environmental legislation</li>
+                                <li>• Improve your environmental management systems</li>
+                                <li>• Improve resource efficiency</li>
+                                <li>• Assess your current systems allowing you to action plan to meet the revised ISO 14001:2015 standard</li>
+                                <li>• Demonstrate your commitment to customers, employees, suppliers, shareholders and the local community</li>
+                                <li>• The exclusive certificate and logo can be used to demonstrate your success</li>
+
 
                             </ul>
                         </div>
@@ -950,183 +947,186 @@
 
 
 
-    <!-- WhatsApp Icon -->
-    <!-- WhatsApp Icon -->
-    <div id="whatsapp-icon" class="whatsapp-icon">
-        <a href="https://api.whatsapp.com/send?phone=7726932023" target="_blank">
-            <img src="images/vindus_clients_images/whate.png" alt="whatsapp">
-            <span class="whatsapp-text">WhatsApp</span>
-        </a>
-    </div>
+        <!-- WhatsApp Icon -->
+        <!-- WhatsApp Icon -->
+        <div id="whatsapp-icon" class="whatsapp-icon">
+            <a href="https://api.whatsapp.com/send?phone=7726932023" target="_blank">
+                <img src="images/vindus_clients_images/whate.png" alt="whatsapp">
+                <span class="whatsapp-text">WhatsApp</span>
+            </a>
+        </div>
 
-  <button id="scrollToTopBtn" class="btn" style="display: block;">
+        <button id="scrollToTopBtn" class="btn" style="display: block;">
     <i class="fa-solid fa-circle-up" style="font-size: 30px;color: #0275b3;"></i>
 </button>
 
-<!-- jQuery and Bootstrap JS -->
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-<script>
-    // Show or hide the button based on scroll position
-    $(window).scroll(function() {
-        if ($(this).scrollTop() > 100) {
-            $('#scrollToTopBtn').fadeIn();
-        } else {
-            $('#scrollToTopBtn').fadeOut();
-        }
-    });
+        <!-- jQuery and Bootstrap JS -->
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        <script>
+            // Show or hide the button based on scroll position
+            $(window).scroll(function() {
+                if ($(this).scrollTop() > 100) {
+                    $('#scrollToTopBtn').fadeIn();
+                } else {
+                    $('#scrollToTopBtn').fadeOut();
+                }
+            });
 
-    // Smooth scroll to top
-    $('#scrollToTopBtn').click(function() {
-        $('html, body').animate({ scrollTop: 0 }, 600);
-        return false;
-    });
-    </script>
-    <!-- FOOTER-3
+            // Smooth scroll to top
+            $('#scrollToTopBtn').click(function() {
+                $('html, body').animate({
+                    scrollTop: 0
+                }, 600);
+                return false;
+            });
+        </script>
+        <!-- FOOTER-3
 			============================================= -->
-    <footer id="footer-3" class="pt-100 footer">
-        <div class="container">
-            <div class="row">
-                <!-- FOOTER LOGO -->
-                <div class="col-xl-3 text-center text-xl-left">
-                    <div class="footer-info">
-                        <img src="images/vindus_clients_images/cardlogo.jpg" alt="" class="rounded-circle" height="200px" width="200px">
+        <footer id="footer-3" class="pt-100 footer">
+            <div class="container">
+                <div class="row">
+                    <!-- FOOTER LOGO -->
+                    <div class="col-xl-3 text-center text-xl-left">
+                        <div class="footer-info">
+                            <img src="images/vindus_clients_images/cardlogo.jpg" alt="" class="rounded-circle" height="200px" width="200px">
+                        </div>
                     </div>
-                </div>
-                <!-- END FOOTER LOGO -->
+                    <!-- END FOOTER LOGO -->
 
-                <!-- FOOTER LINKS -->
-                <div class="col-sm-4 col-md-3 col-xl-2">
-                    <div class="footer-links fl-1">
-                        <!-- Title -->
-                        <h6 class="s-17 w-700" style="color:#fff;">Company</h6>
-                        <!-- Links -->
-                        <ul class="foo-links clearfix">
-                            <li>
-                                <p><a href="about.html">About Us</a></p>
-                            </li>
-                            <li>
-                                <p><a href="Blog.html">Our Blog</a></p>
-                            </li>
-                            <li>
-                                <p><a href="contact.html">Contact Us</a></p>
-                            </li>
-                        </ul>
+                    <!-- FOOTER LINKS -->
+                    <div class="col-sm-4 col-md-3 col-xl-2">
+                        <div class="footer-links fl-1">
+                            <!-- Title -->
+                            <h6 class="s-17 w-700" style="color:#fff;">Company</h6>
+                            <!-- Links -->
+                            <ul class="foo-links clearfix">
+                                <li>
+                                    <p><a href="about.html">About Us</a></p>
+                                </li>
+                                <li>
+                                    <p><a href="Blog.html">Our Blog</a></p>
+                                </li>
+                                <li>
+                                    <p><a href="contact.html">Contact Us</a></p>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
+                    <!-- END FOOTER LINKS -->
+
+
+                    <!-- FOOTER LINKS -->
+
+
+
+                    <!-- FOOTER LINKS -->
+                    <div class="col-sm-4 col-md-3 col-xl-2">
+                        <div class="footer-links fl-3">
+
+                            <!-- Title -->
+                            <h6 class="s-17 w-700" style="color:#fff;">Legal</h6>
+
+                            <!-- Links -->
+                            <ul class="foo-links clearfix">
+                                <li>
+                                    <p><a href="terms.html">Terms of Use</a></p>
+                                </li>
+                                <li>
+                                    <p><a href="privacypolicy.html">Privacy Policy</a></p>
+                                </li>
+                                <li>
+                                    <p><a href="sitemap.html">Site Map</a></p>
+                                </li>
+                            </ul>
+
+                        </div>
+                    </div>
+                    <!-- END FOOTER LINKS -->
+
+
+                    <!-- FOOTER LINKS -->
+                    <div class="col-sm-6 col-md-4">
+                        <div class="footer-links fl-4">
+
+                            <!-- Title -->
+                            <h6 class="s-17 w-700" style="color:#fff;">Connect With Us</h6>
+
+                            <!-- Mail Link -->
+                            <p class="footer-mail-link ico-25">
+                                <a href="mailto:info@mlcqehs.com" style="color:#fff;">
+                                    <i class="fas fa-envelope"></i>&nbsp;Email :<br> info@mlcqehs.com
+
+                                </a>
+
+                                <a href="mailto:contactmlconsultancy@gmail.com" style="color:#fff;">contactmlconsultancy@gmail.com</a>
+                                <br><br>
+                                <i class="fas fa-mobile-alt"></i> +91&nbsp; 99498&nbsp;45759<br><i class="fas fa-mobile-alt"></i>&nbsp;+91 &nbsp;77269&nbsp;32023
+                            </p>
+
+
+                            <!-- Social Links -->
+
+
+                        </div>
+                    </div>
+                    <!-- END FOOTER LINKS -->
+
+
                 </div>
-                <!-- END FOOTER LINKS -->
+                <!-- END FOOTER CONTENT -->
 
 
-                <!-- FOOTER LINKS -->
+                <hr>
+                <!-- FOOTER DIVIDER LINE -->
+
+                <div class="container p-4 pb-0">
+                    <!-- Section: Social media -->
+                    <section class="mb-4">
+                        <!-- Social media links -->
+                        <!-- Facebook -->
+                        <a data-mdb-ripple-init class="btn text-white btn-floating m-1" style="background-color: #3b5998;" href="https://www.facebook.com/people/Ghanta-Bharat/pfbid02E5p4iNHonymCDq917efmb1mu44dTg8gLaJtYmWX1H4uo7ekoPVZ1UfoeGDbX8Ltml/" role="button"><i class="fab fa-facebook-f"></i></a>
+                        <!-- Twitter -->
+                        <a data-mdb-ripple-init class="btn text-white btn-floating m-1" style="background-color: #55acee;" href="https://twitter.com/mlcqehs" role="button"><i class="fab fa-twitter"></i></a>
+                        <!-- youtube -->
+                        <a data-mdb-ripple-init class="btn text-white btn-floating m-1" style="background-color: red;" href="https://www.youtube.com/channel/UC0XU71NpgQlK-9K3lJU9vtQ" role="button"><i class="fab fa-youtube"></i></a>
+
+                        <!-- Instagram -->
+                        <a data-mdb-ripple-init class="btn text-white btn-floating m-1" style="background-color: #ac2bac;" href="https://www.instagram.com/mlcqehsgb/" role="button"><i class="fab fa-instagram"></i></a>
+                        <!-- Linkedin -->
+                        <!-- LinkedIn -->
+                        <a data-mdb-ripple-init class="btn text-white btn-floating m-1" style="background-color: #0082ca;" href="https://www.linkedin.com/company/maha-laxmi-consultancy/" role="button"><i class="fab fa-linkedin-in"></i></a>
+                        <!-- Github -->
+                    </section>
+                    <!-- Section: Social media -->
+                </div>
+                <!-- BOTTOM FOOTER -->
+                <div class="bottom-footer">
+                    <div class="row row-cols-1 row-cols-md-2 d-flex align-items-center">
 
 
+                        <!-- FOOTER COPYRIGHT -->
+                        <div class="col">
+                            <div class="footer-copyright">
+                                <p class="p-sm">&copy; 2024 <a href="http://vindusenvironment.in" target="_blank" style="color:antiquewhite;">Vindus</a>. <span>All Rights Reserved</span></p>
+                            </div>
+                        </div>
 
-                <!-- FOOTER LINKS -->
-                <div class="col-sm-4 col-md-3 col-xl-2">
-                    <div class="footer-links fl-3">
 
-                        <!-- Title -->
-                        <h6 class="s-17 w-700" style="color:#fff;">Legal</h6>
-
-                        <!-- Links -->
-                        <ul class="foo-links clearfix">
-                            <li>
-                                <p><a href="terms.html">Terms of Use</a></p>
-                            </li>
-                            <li>
-                            <p><a href="privacypolicy.html">Privacy Policy</a></p>
-                        </li>
-                            <li>
-                                <p><a href="sitemap.html">Site Map</a></p>
-                            </li>
-                        </ul>
+                        <!-- FOOTER SECONDARY LINK -->
 
                     </div>
+
+
                 </div>
-                <!-- END FOOTER LINKS -->
-
-
-                <!-- FOOTER LINKS -->
-                <div class="col-sm-6 col-md-4">
-                    <div class="footer-links fl-4">
-
-                        <!-- Title -->
-                        <h6 class="s-17 w-700" style="color:#fff;">Connect With Us</h6>
-
-                        <!-- Mail Link -->
-                      <p class="footer-mail-link ico-25">
-									<a href="mailto:info@mlcqehs.com" style="color:#fff;">
-                    <i class="fas fa-envelope"></i>&nbsp;Email :<br>
-                      info@mlcqehs.com
-
-									</a>
-                 
-                  <a href="mailto:contactmlconsultancy@gmail.com" style="color:#fff;">contactmlconsultancy@gmail.com</a>
-									<br><br>
-									<i class="fas fa-mobile-alt"></i> +91&nbsp; 99498&nbsp;45759<br><i class="fas fa-mobile-alt"></i>&nbsp;+91 &nbsp;77269&nbsp;32023
-								</p>
-
-
-                        <!-- Social Links -->
-
-
-                    </div>
-                </div>
-                <!-- END FOOTER LINKS -->
-
-
+                <!-- End row -->
             </div>
-            <!-- END FOOTER CONTENT -->
+            <!-- END BOTTOM FOOTER -->
 
 
-            <hr>
-            <!-- FOOTER DIVIDER LINE -->
-
-            <div class="container p-4 pb-0">
-                <!-- Section: Social media -->
-                <section class="mb-4">
-                    <!-- Social media links -->
-                    <!-- Facebook -->
-                    <a data-mdb-ripple-init class="btn text-white btn-floating m-1" style="background-color: #3b5998;" href="https://www.facebook.com/people/Ghanta-Bharat/pfbid02E5p4iNHonymCDq917efmb1mu44dTg8gLaJtYmWX1H4uo7ekoPVZ1UfoeGDbX8Ltml/" role="button"><i class="fab fa-facebook-f"></i></a>
-                    <!-- Twitter -->
-                    <a data-mdb-ripple-init class="btn text-white btn-floating m-1" style="background-color: #55acee;" href="https://twitter.com/mlcqehs" role="button"><i class="fab fa-twitter"></i></a>
-                    <!-- youtube -->
-                    <a data-mdb-ripple-init class="btn text-white btn-floating m-1" style="background-color: red;" href="https://www.youtube.com/channel/UC0XU71NpgQlK-9K3lJU9vtQ" role="button"><i class="fab fa-youtube"></i></a>
-
-                    <!-- Instagram -->
-                    <a data-mdb-ripple-init class="btn text-white btn-floating m-1" style="background-color: #ac2bac;" href="https://www.instagram.com/mlcqehsgb/" role="button"><i class="fab fa-instagram"></i></a>
-                    <!-- Linkedin -->
-                    <!-- LinkedIn -->
-                    <a data-mdb-ripple-init class="btn text-white btn-floating m-1" style="background-color: #0082ca;" href="https://www.linkedin.com/company/maha-laxmi-consultancy/" role="button"><i class="fab fa-linkedin-in"></i></a>
-                    <!-- Github -->
-                </section>
-                <!-- Section: Social media -->
-            </div>
-            <!-- BOTTOM FOOTER -->
-            <div class="bottom-footer">
-                <div class="row row-cols-1 row-cols-md-2 d-flex align-items-center">
-
-
-                    <!-- FOOTER COPYRIGHT -->
-                   <div class="col">
-								<div class="footer-copyright"><p class="p-sm">&copy; 2024 <a href="http://vindusenvironment.in" target="_blank" style="color:antiquewhite;">Vindus</a>. <span>All Rights Reserved</span></p></div>
-							</div>
-
-
-                    <!-- FOOTER SECONDARY LINK -->
-
-                </div>
-
-
-            </div>
-            <!-- End row -->
-        </div>
-        <!-- END BOTTOM FOOTER -->
-
-
-        </div>
-        <!-- End container -->
+    </div>
+    <!-- End container -->
     </footer>
     <!-- END FOOTER-3 -->
 
