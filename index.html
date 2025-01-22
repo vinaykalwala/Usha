@@ -507,7 +507,30 @@ body {
     font-weight: 500;
     font-size: 14px;
 }
+@media (max-width: 768px) {
+   
+    .marquee-content {
+        animation: marquee 10s linear infinite;  /* Adjust time for better flow on smaller screens */
+    }
 
+    .marquee-content img {
+        height: 120px;  /* Adjust height for better fit */
+        padding: 10px;  /* Adjust padding for space efficiency */
+    }
+}
+
+/* Extra Small Mobile View Adjustments */
+@media (max-width: 576px) {
+    
+    .marquee-content {
+        animation: marquee 15s linear infinite;  /* Slow down the animation even more for smaller screens */
+    }
+
+    .marquee-content img {
+        height: 100px;  /* Adjust height for better fit */
+        padding: 8px;  /* Adjust padding for better space efficiency */
+    }
+}
 .btn-content {
     margin: -12px; /* Adjust negative margin as needed */
     padding: 2px;
