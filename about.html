@@ -334,7 +334,47 @@ span{
 	height: 420px;
 	overflow-y: scroll;
 }
+.section-header h3 {
+	font-size: 36px;
+	color: #283d50;
+	text-align: center;
+	font-weight: 500;
+	position: relative;
+}
+.marquee {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+}
 
+
+
+
+.marquee-content {
+    display: flex;
+    animation: marquee 20s linear infinite;
+}
+
+.marquee-content img {
+    width: auto;
+    height: 150px; /* Adjust based on your design */
+	padding: 20px;
+}
+@keyframes marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(-100%); }
+}
+@media (max-width: 768px) {
+	.section-header h3 {
+        font-size: 1.5rem; /* Smaller font size for tablets */
+    }
+}
+
+@media (max-width: 576px) {
+    .section-header h3 {
+        font-size: 1.2rem; /* Smaller font size for mobile devices */
+    }
+}
 </style>
 	</head>
 
@@ -700,25 +740,64 @@ span{
 		<p>PSV PVT Ltd.</p>
         <h3 style="color: #1560bd;">Background in developing www.mlcqehs.com:</h3><br><br>
 </div>
-<div class="row">
-
-        <div class="col-md-6">
-        <p style="text-align: justify;">As on now a days implementing & maintaining QEHS is found very difficult due to many reasons such as Change in Standards & Laws frequently, Management not knowing the benefits in implementing QEHS, Employers not having enough knowledge in QEHS, Employees not having required knowledge in QEHS, neglecting QEHS for the sake of reaching targets by the middle management, Governing bodies not working up to the standards, Workforce not having sufficient knowledge in QEHS... etc. So www.mlcqehs.com is formed to enhance the QEHS Profession by providing knowledge to QEHS Professionals irrespective of experience to implement QEHS in their respective industry.</p></div>
-
-        <div class="col-md-6">
-            <img src="images/vindus_clients_images/website_logo_solid_background.png">
-        </div>
+<div class="row align-items-center">
+    <div class="col-md-6">
+        <p style="text-align: justify;">
+            As on now a days implementing & maintaining QEHS is found very difficult due to many reasons such as Change in Standards & Laws frequently, Management not knowing the benefits in implementing QEHS, Employers not having enough knowledge in QEHS, Employees not having required knowledge in QEHS, neglecting QEHS for the sake of reaching targets by the middle management, Governing bodies not working up to the standards, Workforce not having sufficient knowledge in QEHS... etc. So www.mlcqehs.com is formed to enhance the QEHS Profession by providing knowledge to QEHS Professionals irrespective of experience to implement QEHS in their respective industry.
+        </p>
+    </div>
+    <div class="col-md-6 text-center">
+        <img src="images/vindus_clients_images/website_logo_solid_background.png" class="img-fluid" alt="Website Logo">
     </div>
 </div>
 
 
 </div>
 </div>
+<br>
+
+<section id="clients" class="section-bg">
+
+	<div class="container">
+
+		<div class="section-header">
+			<h3 style="color: #1560bd; font-weight: bold;">Valuable Experience from Top Companies</h3> <br>
+
+		</div>
 
 
 
+		<div class="marquee">
+			<div class="marquee-content">
+				<!-- Your images here -->
 
 
+	<img src="images/vindus_clients_images/clientlogo-1.jpg" alt="ACE Tyres LTD" class="logo">
+	<img src="images/vindus_clients_images/clientlogo-2.jpg" alt="Prime Focus Limited" class="logo">
+	<img src="images/vindus_clients_images/clientlogo-3.jpg" alt="Exel Rubber" class="logo">
+	<img src="images/vindus_clients_images/clientlogo-4.jpg" alt="JSW Cement" class="logo">
+	<img src="images/vindus_clients_images/clientlogo-5.jpg" alt="pizza" class="logo">
+	<img src="images/vindus_clients_images/clientlogo-6.jpg" alt="US" class="logo">
+	<img src="images/vindus_clients_images/clientlogo-7.jpg" alt="Narayana" class="logo">
+	<img src="images/vindus_clients_images/clientlogo-8.jpg" alt="Jala" class="logo">
+	<img src="images/vindus_clients_images/clientlogo-1.jpg" alt="ACE Tyres LTD" class="logo">
+	<img src="images/vindus_clients_images/clientlogo-2.jpg" alt="Prime Focus Limited" class="logo">
+	<img src="images/vindus_clients_images/clientlogo-3.jpg" alt="Exel Rubber" class="logo">
+	<img src="images/vindus_clients_images/clientlogo-4.jpg" alt="JSW Cement" class="logo">
+	<img src="images/vindus_clients_images/clientlogo-5.jpg" alt="pizza" class="logo">
+	<img src="images/vindus_clients_images/clientlogo-6.jpg" alt="US" class="logo">
+	<img src="images/vindus_clients_images/clientlogo-7.jpg" alt="Narayana" class="logo">
+	<img src="images/vindus_clients_images/clientlogo-8.jpg" alt="Jala" class="logo">
+			</div>
+		</div>
+		
+		</div>
+	</div>
+
+</section>		
+
+
+<br><br>
 
 
 
