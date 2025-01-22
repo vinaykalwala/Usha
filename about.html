@@ -335,44 +335,74 @@ span{
 	overflow-y: scroll;
 }
 .section-header h3 {
-	font-size: 36px;
-	color: #283d50;
-	text-align: center;
-	font-weight: 500;
-	position: relative;
+    font-size: 36px;
+    color: #283d50;
+    text-align: center;
+    font-weight: 500;
+    position: relative;
 }
+
 .marquee {
     width: 100%;
     overflow: hidden;
     position: relative;
 }
 
-
-
-
 .marquee-content {
     display: flex;
-    animation: marquee 20s linear infinite;
+    animation: marquee 20s linear infinite;  /* Adjust the time to make it slower or faster */
 }
 
 .marquee-content img {
     width: auto;
     height: 150px; /* Adjust based on your design */
-	padding: 20px;
+    padding: 20px;
 }
+
 @keyframes marquee {
-    from { transform: translateX(0); }
-    to { transform: translateX(-100%); }
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(-100%);  /* Ensure it moves the full width of the container */
+    }
 }
+
 @media (max-width: 768px) {
-	.section-header h3 {
-        font-size: 1.5rem; /* Smaller font size for tablets */
+    .section-header h3 {
+        font-size: 1.8rem; /* Smaller font size for tablets */
     }
 }
 
 @media (max-width: 576px) {
     .section-header h3 {
-        font-size: 1.2rem; /* Smaller font size for mobile devices */
+        font-size: 1.8rem; /* Smaller font size for mobile devices */
+    }
+}
+@media (max-width: 768px) {
+   
+
+    .marquee-content {
+        animation: marquee 15s linear infinite;  /* Adjust time for better flow on smaller screens */
+    }
+
+    .marquee-content img {
+        height: 120px;  /* Adjust height for better fit */
+        padding: 10px;  /* Adjust padding for space efficiency */
+    }
+}
+
+/* Extra Small Mobile View Adjustments */
+@media (max-width: 576px) {
+   
+
+    .marquee-content {
+        animation: marquee 15s linear infinite;  /* Slow down the animation even more for smaller screens */
+    }
+
+    .marquee-content img {
+        height: 100px;  /* Adjust height for better fit */
+        padding: 8px;  /* Adjust padding for better space efficiency */
     }
 }
 </style>
@@ -769,26 +799,25 @@ span{
 
 		<div class="marquee">
 			<div class="marquee-content">
-				<!-- Your images here -->
-
-
-	<img src="images/vindus_clients_images/clientlogo-1.jpg" alt="ACE Tyres LTD" class="logo">
-	<img src="images/vindus_clients_images/clientlogo-2.jpg" alt="Prime Focus Limited" class="logo">
-	<img src="images/vindus_clients_images/clientlogo-3.jpg" alt="Exel Rubber" class="logo">
-	<img src="images/vindus_clients_images/clientlogo-4.jpg" alt="JSW Cement" class="logo">
-	<img src="images/vindus_clients_images/clientlogo-5.jpg" alt="pizza" class="logo">
-	<img src="images/vindus_clients_images/clientlogo-6.jpg" alt="US" class="logo">
-	<img src="images/vindus_clients_images/clientlogo-7.jpg" alt="Narayana" class="logo">
-	<img src="images/vindus_clients_images/clientlogo-8.jpg" alt="Jala" class="logo">
-	<img src="images/vindus_clients_images/clientlogo-1.jpg" alt="ACE Tyres LTD" class="logo">
-	<img src="images/vindus_clients_images/clientlogo-2.jpg" alt="Prime Focus Limited" class="logo">
-	<img src="images/vindus_clients_images/clientlogo-3.jpg" alt="Exel Rubber" class="logo">
-	<img src="images/vindus_clients_images/clientlogo-4.jpg" alt="JSW Cement" class="logo">
-	<img src="images/vindus_clients_images/clientlogo-5.jpg" alt="pizza" class="logo">
-	<img src="images/vindus_clients_images/clientlogo-6.jpg" alt="US" class="logo">
-	<img src="images/vindus_clients_images/clientlogo-7.jpg" alt="Narayana" class="logo">
-	<img src="images/vindus_clients_images/clientlogo-8.jpg" alt="Jala" class="logo">
+				<img src="images/vindus_clients_images/clientlogo-1.jpg" alt="ACE Tyres LTD" class="logo">
+				<img src="images/vindus_clients_images/clientlogo-2.jpg" alt="Prime Focus Limited" class="logo">
+				<img src="images/vindus_clients_images/clientlogo-3.jpg" alt="Exel Rubber" class="logo">
+				<img src="images/vindus_clients_images/clientlogo-4.jpg" alt="JSW Cement" class="logo">
+				<img src="images/vindus_clients_images/clientlogo-5.jpg" alt="pizza" class="logo">
+				<img src="images/vindus_clients_images/clientlogo-6.jpg" alt="US" class="logo">
+				<img src="images/vindus_clients_images/clientlogo-7.jpg" alt="Narayana" class="logo">
+				<img src="images/vindus_clients_images/clientlogo-8.jpg" alt="Jala" class="logo">
+				<!-- Duplicate logos -->
+				<img src="images/vindus_clients_images/clientlogo-1.jpg" alt="ACE Tyres LTD" class="logo">
+				<img src="images/vindus_clients_images/clientlogo-2.jpg" alt="Prime Focus Limited" class="logo">
+				<img src="images/vindus_clients_images/clientlogo-3.jpg" alt="Exel Rubber" class="logo">
+				<img src="images/vindus_clients_images/clientlogo-4.jpg" alt="JSW Cement" class="logo">
+				<img src="images/vindus_clients_images/clientlogo-5.jpg" alt="pizza" class="logo">
+				<img src="images/vindus_clients_images/clientlogo-6.jpg" alt="US" class="logo">
+				<img src="images/vindus_clients_images/clientlogo-7.jpg" alt="Narayana" class="logo">
+				<img src="images/vindus_clients_images/clientlogo-8.jpg" alt="Jala" class="logo">
 			</div>
+			
 		</div>
 		
 		</div>
