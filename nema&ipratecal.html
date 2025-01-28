@@ -176,6 +176,10 @@
     color: #333;
     max-width: 1200px;
     margin-bottom: 15px;
+    border: 1px solid #1560bd;
+
+    
+  
 }
 
 .note-container h3 {
@@ -197,13 +201,14 @@
 .unique-container {
       max-width: 900px;
       margin: 30px auto;
-      background-color: rgb(238, 248, 251);
+      background-color: #fff;
       padding: 20px;
       border-radius: 8px;
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
       border: 8px solid transparent; /* Transparent border for gradient */
-    border-image: linear-gradient(to right, #1560bd, #000040, #1560bd,#000040, #1560bd, #000040,#1560bd) 1; /* Apply the gradient */
-
+      width: 100%;
+    border: 2px dotted #1560bd;
+   
     }
     @media (max-width: 768px) {
         .unique-container {
@@ -229,7 +234,7 @@
       margin-bottom: 8px;
       display: block;
       color: #555;
-    
+     
       margin-top: 10px;
     }
 
@@ -246,7 +251,7 @@
     }
 
     .unique-get-definition-btn {
-      background-color: #007BFF;
+      background-color: #1560bd;
       color: white;
       cursor: pointer;
       font-weight: bold;
@@ -553,13 +558,13 @@
     <h2 class="unique-header">NEMA and IP Ratings Calculator</h2>
     
     <label for="ratingType" class="unique-select-label">Select Input Type:</label>
-    <select id="ratingType" class="unique-select-dropdown">
+    <select id="ratingType" class="unique-select-dropdown" style="background-color:rgb(223, 241, 247);">
       <option value="nema">NEMA Rating</option>
       <option value="ip">IP Rating</option>
     </select>
   
     <label for="ratingSelect" class="unique-select-label">Select Rating:</label>
-    <select id="ratingSelect" class="unique-select-dropdown">
+    <select id="ratingSelect" class="unique-select-dropdown" style="background-color:rgb(223, 241, 247);">
       <!-- Ratings will be populated dynamically -->
     </select>
   
