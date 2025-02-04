@@ -195,219 +195,155 @@
 
 /* Styling for the main content */
 
-
-.main-content {
-            padding: 0px 10%;
-            text-align: center;
-        }
-
-        /* Main Category Buttons - Vertical Layout */
-        .button-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 15px;
-        }
-
-        .calculatorqehs-btn {
-            width: 60%;
-            background: linear-gradient(#000040, #1560bd);
-            color: white;
-            text-align: center;
-            padding: 15px;
-            font-size: 1rem;
-            text-decoration: none;
-            border-radius: 10px;
-            border: 2px solid #1560bd;
-            cursor: pointer;
-            transition: background 0.3s;
-        }
-
-        .calculatorqehs-btn:hover {
-            background: linear-gradient(#1560bd,#000040);    
-        }
-
-        /* Sub-Calculator Buttons - Grid Layout (2 in a row) */
-        .subcalculator-container {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 15px;
-            justify-content: center;
-            margin-top: 30px;
-            margin-bottom: 50px;
-        }
-
-        .calculator-btn {
-            width: 100%;
-            background: linear-gradient(#000040, #1560bd);
-            color: white;
-            text-align: center;
-            padding: 15px;
-            font-size: 1rem;
-            text-decoration: none;
-            border-radius: 10px;
-            border: 2px solid #1560bd;
-            transition: background 0.3s;
-        }
-
-        .calculator-btn:hover {
-            background: linear-gradient(#1560bd,#000040);    
-        }
-
-        /* Hide Calculator Sections Initially */
-        .calculator-section {
-            display: none;
-        }
-
-        /* Subheading Styling */
-        .sub-heading {
-            margin-bottom: 20px;
-            color: #1560bd;
-            font-size: 1.8rem;
-        }
-        .back-btn {
-    background: #1560bd;
-    color: white;
-    padding: 8px 12px;
-    border-radius: 5px;
-    border: none;
-    cursor: pointer;
-    font-size: 0.9rem; 
-    margin: 10px auto; 
-    display: block;
-    margin-bottom: 25px;
+/* Main Calculator Section */
+.environmental-calculator-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 50px 0;
+    background-color: #f8f9fa;
 }
 
-.back-btn:hover {
-    background: #000040;
-}
-
-@media (max-width: 768px) {
-    .button-container {
-        flex-direction: column;
-        width: 100%;
-    }
-
-    .calculatorqehs-btn {
-        width: 90%;
-        font-size: 1rem;
-        padding: 12px;
-    }
-
-   
-    .calculator-btn {
-        width: 90%;
-        font-size: 1rem;
-        padding: 12px;
-    }
-
-    .sub-heading {
-        font-size: 1.5rem;
-    }
-
-  
-}
-@media (max-width: 768px) {
-    .subcalculator-container {
-        grid-template-columns: repeat(1, 1fr);
-        justify-items: center; /* Center the items horizontally */
-        width: 100%;
-    }
-}
-@media (max-width: 768px) {
-    .back-btn {
-        padding: 6px 10px;  
-        font-size: 1rem;  
-        position: static;    
-        margin: 15px auto;   
-        display: inline-block;
-    }
-}
-
-@media (max-width: 480px) {
-    .back-btn {
-        padding: 6px 10px;  
-        font-size: 1rem;   
-        width: auto;        
-        margin: 10px auto;  
-    }
-}
-.category-card {
-    position: relative;
-    border-radius: 20px;
-    overflow: hidden;
-    cursor: pointer;
-    text-align: center;
-    padding: 20px;
-    border: 1px solid #1560bd; /* Border color instead of background */
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-    transition: all 0.4s ease-in-out;
-    height: 100%; /* Ensures same height for all cards */
-}
-
-.category-card:hover {
-    transform: translateY(-1px);
-    box-shadow: 0 12px 30px rgba(0, 123, 255, 0.5);
-   
-}
-
-.category-img {
+.calculator-box {
+    display: flex;
+    align-items: center;
+    max-width: 1200px;
     width: 100%;
-    height: 200px;
-    object-fit: cover;
-    border-radius: 15px;
-    transition: transform 0.4s ease-in-out;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    background-color: #ffffff;
+    border-radius: 12px;
+    padding: 30px;
+    margin-bottom: 40px; /* Spacing between calculator and note section */
 }
 
-.category-card:hover .category-img {
-    transform: scale(1.08);
-    filter: brightness(1.2);
+.calculator-left {
+    width: 50%;
+    padding: 30px;
+    border: 2px dotted #1560bd; /* Green theme for environmental focus */
 }
 
-.category-title {
-    margin-top: 15px;
-    font-size: 1rem;
-    font-weight: bold;
+.calculator-title {
+    font-size: 1.5rem;
     color: #1560bd;
-    transition: color 0.3s ease-in-out;
-    border: 0.1rem dotted #1560bd;
-    padding: 5px;
-    border-radius: 5px;
+    margin-bottom: 20px;
+    text-align: center;
 }
-.btn-custom {
-            background:linear-gradient(#000040,#1560bd);
-            color: white;
-            padding: 10px 20px;
-            text-align: center;
-            border-radius: 5px;
-            display: inline-block;
-            text-decoration: none;
-            margin-top: 10px;
-            font-size:medium;
-        }
-        
-        .btn-custom:hover {
-            background-color: #1560bd;
-            color: white;
-        }
 
+.input-group {
+    margin-bottom: 20px;
+}
 
-/* Mobile Optimized */
+.input-label {
+    font-size: 1rem;
+    color: #000040;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.input-field {
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    border: 2px solid #ddd;
+    border-radius: 6px;
+    outline: none;
+    background-color: #d8ebf5;
+}
+
+.input-field:focus {
+    border-color: #1560bd;
+}
+
+.calculate-btn {
+    background-color: #1560bd;
+    color: white;
+    padding: 12px 25px;
+    font-size: 1.1rem;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    width: 100%;
+    transition: background-color 0.3s ease;
+}
+
+.calculate-btn:hover {
+    background-color: #316cd8;
+}
+
+.result-text {
+    margin-top: 15px;
+    font-size: 1.2rem;
+    color: #000040;
+}
+
+/* Right Image Section */
+.calculator-right {
+    width: 50%;
+    text-align: center;
+}
+
+.calculator-image {
+    width: 100%;
+    max-width: 500px;
+    height: 440px;
+    border-radius: 12px;
+}
+
+/* Note Section */
+.note-container {
+    background-color: #e6f0fc;
+    border-radius: 12px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    width: 100%;
+    max-width: 1200px;
+}
+
+.note-title {
+    font-size: 1.5rem;
+    color: #1560bd;
+    margin-bottom: 20px;
+}
+
+.note-container p {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 15px;
+}
+
+.note-container strong {
+    color: #1560bd;
+}
+
+/* Mobile View - Stack Calculator and Note Section */
 @media (max-width: 768px) {
-    .category-card {
-        padding: 15px;
-        border-radius: 15px;
+    .calculator-box {
+        flex-direction: column;
+        gap: 20px;
     }
 
-    .category-title {
-        font-size: 20px;
+    .calculator-left,
+    .calculator-right {
+        width: 100%;
     }
 
-    .category-img {
-        height: 180px;
+    .calculator-image {
+        max-width: 100%;
+        height: auto;
+    }
+
+    .note-container {
+        padding: 20px;
+    }
+
+    .note-title {
+        font-size: 1.2rem;
+    }
+
+    .note-container p {
+        font-size: 0.9rem;
     }
 }
-
 
 
 </style>
@@ -687,146 +623,70 @@
 
 
     <div class="main-header">
-        <h1>World's No.1 QEHS Calculator</h1>
-        <p>Your trusted tool ✔️ for Quality, Environment, Health, Safety & Fire Calculations</p>
+        <h1>World's No.1 Environmental Compliance Calculator</h1>
+        <p>Your trusted tool ✔️ for Measures adherence to environmental regulations and best practices. This tool helps you track how well your actions align with environmental standards, ensuring a commitment to sustainability and compliance.</p>
     </div>
-    <div class="main-content">
-        <!-- Main Categories -->
-      <!-- Main Categories with Images -->
-      <section class="category-section container py-5">
-        <div class="row text-center justify-content-center">
-            <!-- First Row - 3 Cards -->
-            <div class="col-md-4 mb-4">
-                <div class="category-card" data-target="quality">
-                    <img src="images/vindus_clients_images/calquality.jpg" class="category-img" alt="Quality Calculators">
-                    <h3 class="category-title">Quality Calculators</h3>
-                    <a href="qualitycalculator.html" class="btn btn-custom">Try Quality Caculator</a>
+  
+
+    <section class="environmental-calculator-container">
+        <div class="calculator-box">
+            <div class="calculator-left">
+                <h3 class="calculator-title">Environmental Compliance Calculator</h3>
+    
+                <!-- User Inputs -->
+                <div class="input-group">
+                    <label for="compliantActions" class="input-label">Compliant Actions</label>
+                    <input type="number" id="compliantActions" class="input-field" placeholder="Enter the number of compliant actions" />
                 </div>
+                <div class="input-group">
+                    <label for="totalActions" class="input-label">Total Environmental Actions</label>
+                    <input type="number" id="totalActions" class="input-field" placeholder="Enter the total number of environmental actions" />
+                </div>
+    
+                <!-- Calculate Button -->
+                <button class="calculate-btn" onclick="calculateCompliance()">Calculate Environmental Compliance</button>
+    
+                <!-- Result Display -->
+                <p class="result-text" id="resultText"></p>
             </div>
-            <div class="col-md-4 mb-4">
-                <div class="category-card" data-target="environment">
-                    <img src="images/vindus_clients_images/calenv.jpg" class="category-img" alt="Environment Calculators">
-                    <h3 class="category-title">Environment Calculators</h3>
-                    <a href="envcalculator.html" class="btn btn-custom">Try Environmental Caculator</a>
-                </div>
-            </div>
-            <div class="col-md-4 mb-4">
-                <div class="category-card" data-target="health">
-                    <img src="images/vindus_clients_images/calhealth.jpg" class="category-img" alt="Health Calculators">
-                    <h3 class="category-title">Health Calculators</h3>
-                    <a href="healthcalculator.html" class="btn btn-custom">Try Health Caculator</a>
-                </div>
+    
+            <div class="calculator-right">
+                <img src="images/vindus_clients_images/calenv.jpg" alt="Environmental Impact Image" class="calculator-image" />
             </div>
         </div>
     
-        <!-- Second Row - 2 Centered Cards -->
-        <div class="row justify-content-center">
-            <div class="col-md-4 mb-4">
-                <div class="category-card" data-target="safety">
-                    <img src="images/vindus_clients_images/calsafety.jpg" class="category-img" alt="Safety Calculators">
-                    <h3 class="category-title">Safety Calculators</h3>
-                    <a href="#safetycalculate" class="btn btn-custom">Try Safety Caculator</a>
-                </div>
-            </div>
-            <div class="col-md-4 mb-4">
-                <div class="category-card" data-target="fire">
-                    <img src="images/vindus_clients_images/calfire.jpg" class="category-img" alt="Fire Calculators">
-                    <h3 class="category-title">Fire Calculators</h3>
-                    <a href="#firecalculate" class="btn btn-custom">Try Fire Safety Caculator</a>
-                </div>
-            </div>
+        <!-- Note Section -->
+        <div class="note-container">
+            <h4 class="note-title">How It Works</h4>
+            <p><strong>Compliant Actions:</strong> This refers to the number of actions that adhere to environmental regulations and best practices.</p>
+            <p><strong>Total Environmental Actions:</strong> This refers to the total number of environmental actions undertaken, including both compliant and non-compliant actions.</p>
+            <p><strong>Environmental Compliance:</strong> This calculation measures the percentage of actions that are compliant with environmental regulations, giving you an idea of the organization's environmental adherence.</p>
         </div>
     </section>
     
-   
-    
-        <!-- Fire Calculators -->
-        <section class="calculator-section" id="fire">
-            <h2 class="sub-heading">Fire Calculators</h2>
-            <div class="subcalculator-container">
-                <a href="fireloadercal.html" class="calculator-btn">Fire Load Calculator</a>
-                <a href="fireextinguishercal.html" class="calculator-btn">Fire Extinguisher Placement Calculator</a>
-            </div>
-        </section>
-
-        <!-- Quality Calculators -->
-        <section class="calculator-section" id="quality">
-            <h2 class="sub-heading">Quality Calculators</h2>
-            <div class="subcalculator-container">
-               
-            </div>
-        </section>
-
-        <!-- Environment Calculators -->
-        <section class="calculator-section" id="environment">
-            <h2 class="sub-heading">Environment Calculators</h2>
-            <div class="subcalculator-container">
-                <a href="ambientnoisecal.html" class="calculator-btn">Ambient Noise Level Calculator</a>
-            </div>
-        </section>
-
-        <!-- Health Calculators -->
-        <section class="calculator-section" id="health">
-            <h2 class="sub-heading">Health Calculators</h2>
-            <div class="subcalculator-container">
-                <a href="drinkcal.html" class="calculator-btn">Daily Drinking Water Intake Calculator</a>
-                <a href="anxietyassessment.html" class="calculator-btn">Generalized Anxiety Disorder Assessment</a>
-            </div>
-        </section>
-
-        <!-- Safety Calculators -->
-        <section class="calculator-section" id="safety">
-            <h2 class="sub-heading">Safety Calculators</h2>
-            <div class="subcalculator-container">
-                <a href="excavationslopecal.html" class="calculator-btn">Excavation Slope Calculator</a>
-                <a href="fallcal.html" class="calculator-btn">Fall Clearance Calculator</a>
-                <a href="incidentratecal.html" class="calculator-btn">Incidence Rate Calculator</a>
-                <a href="ipchecker.html" class="calculator-btn">IP Rating Checker</a>
-                <a href="laddercal.html" class="calculator-btn">Ladder Length Calculator</a>
-                <a href="ltifrcal.html" class="calculator-btn">Lost Time Injury Frequency Rate Calculator</a>
-                <a href="nema&ipratecal.html" class="calculator-btn">NEMA and IP Ratings Calculator</a>
-                <a href="trir.html" class="calculator-btn">OSHA Total Recordable Incident Rate Calculator</a>
-                <a href="dartcal.html" class="calculator-btn">OSHA DART Rate Calculator</a>
-                <a href="severitycal.html" class="calculator-btn">Severity Rate Calculator</a>
-                <a href="sclwireropecalculator.html" class="calculator-btn">SWL of Wire Rope Calculator</a>
-                <a href="stackheightcal.html" class="calculator-btn">Stack Height Calculator</a>
-                <a href="wireropecal.html" class="calculator-btn">Wire Rope Grips Calculator</a>
-                
-
-            </div>
-        </section>
-    </div>
-
     <script>
-       $(document).ready(function() {
-    $(".category-card").click(function() {
-        var target = $(this).data("target");
-        $(".category-section").hide();
-        $(".calculator-section").hide();
-
-        var section = $("#" + target);
-        section.fadeIn();
-        
-        // Remove existing back button to avoid duplication
-        section.find(".back-btn").remove();
-        
-        // Check if the section has any calculator buttons
-        if (section.find(".subcalculator-container a").length === 0) {
-            section.find(".subcalculator-container").html('<p class="no-calculators">No calculators available for this category at the moment.</p>');
+        function calculateCompliance() {
+            const compliantActions = document.getElementById('compliantActions').value;
+            const totalActions = document.getElementById('totalActions').value;
+    
+            if (compliantActions && totalActions && totalActions > 0) {
+                const complianceScore = (compliantActions / totalActions) * 100;
+                let complianceStatus = '';
+    
+                if (complianceScore >= 80) {
+                    complianceStatus = 'Excellent';
+                } else if (complianceScore >= 50) {
+                    complianceStatus = 'Good';
+                } else {
+                    complianceStatus = 'Needs Improvement';
+                }
+    
+                document.getElementById('resultText').innerHTML = `Your Environmental Compliance Score: ${complianceScore.toFixed(2)}% (${complianceStatus})`;
+            } else {
+                document.getElementById('resultText').innerHTML = 'Please enter valid numbers for both fields.';
+            }
         }
-        
-        // Append back button
-        section.prepend('<button class="back-btn btn btn-primary mt-3">⬅ Back to all calculators</button>');
-    });
-
-    $(document).on("click", ".back-btn", function() {
-        $(".calculator-section").hide();
-        $(".category-section").fadeIn();
-    });
-});
-
     </script>
-
     
 
 
