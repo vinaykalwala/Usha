@@ -595,23 +595,28 @@ strong{
      let feedback = "";
  
      if (kelvin < 200) {
-         feedback = "This is an extremely low temperature, found in cryogenic applications or outer space.";
+         feedback = "This is an extremely low temperature, typically found in cryogenic applications or deep space.";
      } else if (kelvin >= 200 && kelvin < 273.15) {
-         feedback = "This is below the freezing point of water, similar to polar regions or industrial cold storage.";
-     } else if (kelvin >= 273.15 && kelvin < 318.15) {
-         feedback = "This is a warm temperature, typically found in hot climates.";
-     } else if (kelvin >= 318.15 && kelvin <= 373.15) {
-         feedback = "This is within the range of hot temperatures, found in tropical regions or heatwaves.";
+         feedback = "This temperature is below the freezing point of water, similar to conditions found in polar regions or industrial cold storage.";
+     } else if (kelvin >= 273.15 && kelvin < 300) {
+         feedback = "This is a cool to mild temperature, typical of comfortable room temperatures or slightly chilly weather.";
+     } else if (kelvin >= 300 && kelvin < 315) {
+         feedback = "This is a mild to warm temperature, like pleasant weather or a warm room.";
+     } else if (kelvin >= 315 && kelvin < 373.15) {
+         feedback = "This temperature range is warm to hot, typically found in tropical climates or during heatwaves.";
+     } else if (kelvin === 373.15) {
+         feedback = "This is the boiling point of water at standard pressure (100°C).";
      } else if (kelvin > 373.15 && kelvin <= 1000) {
-         feedback = "This is a high temperature, found in industrial furnaces, metalworking, or volcanic environments.";
+         feedback = "This is a high temperature, typically found in industrial processes such as metalworking, furnaces, or volcanic environments.";
      } else {
-         feedback = "This is an extremely high temperature, found in plasma physics, welding, or space re-entry conditions.";
+         feedback = "This is an extremely high temperature, encountered in plasma physics, welding, or during space re-entry.";
      }
  
      document.getElementById('kelvinResult').innerText = `Equivalent Temperature: ${kelvin.toFixed(2)} K. ${feedback}`;
  }
  </script>
  
+
 
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
