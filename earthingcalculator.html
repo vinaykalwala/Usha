@@ -203,6 +203,16 @@
 
     
     }
+    select {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #d3e0f0;
+    border-radius: 5px;
+    font-size: 1rem;
+    background-color: rgb(223, 241, 247);
+
+}
     .cal-btn {
       width: 100%;
       padding: 10px;
@@ -252,7 +262,7 @@
 }
 
 .note-container h3 {
-    margin-top: 0;
+    margin:15px auto;
     color: #007bff;
     font-size: 18px;
 }
@@ -263,6 +273,7 @@
 }
 strong{
     color: #0056b3;
+    font-size: 16px;
 }
 @media (max-width: 768px) {
     .note-container {
@@ -550,33 +561,40 @@ strong{
 <div class="calculator-container">
     <h2>Earthing System Calculator</h2>
   
-    <!-- Step 1: Calculate Total Area of Plate Electrode -->
     <div class="form-group">
       <label for="faultCurrent">Fault Current (I) (kA):</label>
       <input type="number" id="faultCurrent" placeholder="Enter Fault Current (I)">
     </div>
+  
     <div class="form-group">
-      <label for="currentDensity">Permissible Current Density (A/m²):</label>
-      <input type="number" id="currentDensity" placeholder="Enter Permissible Current Density">
+      <label for="soilResistivity">Soil Resistivity (ρ) (ohm-m):</label>
+      <input type="number" id="soilResistivity" placeholder="Enter Soil Resistivity">
     </div>
+  
+    <div class="form-group">
+      <label for="faultDuration">Fault Duration (t) (seconds):</label>
+      <input type="number" id="faultDuration" placeholder="Enter Fault Duration">
+    </div>
+  
+    <div class="form-group">
+      <label for="material">Conductor Material:</label>
+      <select id="material">
+        <option value="copper">Copper</option>
+        <option value="aluminum">Aluminum</option>
+        <option value="steel">Steel (GI)</option>
+      </select>
+    </div>
+  
     <div class="form-group">
       <label for="plateArea">Area of Plate Electrode (m²):</label>
       <input type="number" id="plateArea" placeholder="Enter Area of Plate Electrode">
     </div>
   
-    <!-- Step 2: Number of Plate Electrodes Required -->
-    <div class="form-group">
-      <label for="electrodeArea">Area of Electrode (m²):</label>
-      <input type="number" id="electrodeArea" placeholder="Enter Area of Electrode">
-    </div>
-  
-    <!-- Step 3: Earthing Conductor Size Calculation for HT Side -->
     <div class="form-group">
       <label for="htCurrent">HT Side Fault Current (kA):</label>
       <input type="number" id="htCurrent" placeholder="Enter HT Side Fault Current">
     </div>
     
-    <!-- Step 4: Earthing Conductor Size Calculation for LT Side -->
     <div class="form-group">
       <label for="ltCurrent">LT Side Fault Current (kA):</label>
       <input type="number" id="ltCurrent" placeholder="Enter LT Side Fault Current">
@@ -585,95 +603,135 @@ strong{
     <button class="cal-btn" onclick="calculateEarthingSystem()">Calculate Earthing System</button>
   
     <div class="result" id="result"></div>
-  </div>
-  <div class="note-container">
-    <h3>How to Use the Earthing System Calculator:</h3>
-    <p>The earthing system calculator is used in electrical safety to ensure that the fault current is safely dissipated through the grounding system, preventing damage to equipment and reducing the risk of electric shock or fire hazards.</p>
-    <p>This calculator helps you determine the size of the earthing system based on the fault current values and other parameters. Here’s a breakdown of the steps:</p>
-    
-    <ul>
-        <li>
-            <strong>Step 1: Fault Current (I) (kA)</strong> – Enter the fault current in kilovolts (kA) that flows through the system. This is typically provided by your system specifications.
-        </li>
-        <li>
-            <strong>Step 2: Permissible Current Density (A/m²)</strong> – Enter the permissible current density for the material being used for the electrode. This is often provided in technical documentation or standards for earthing systems.
-        </li>
-        <li>
-            <strong>Step 3: Area of Plate Electrode (m²)</strong> – Enter the area of the plate electrode (m²). If you do not know this value, it can typically be calculated based on the dimensions of the electrode plate or based on standard electrode sizes.
-        </li>
-        <li>
-            <strong>Step 4: Area of Electrode (m²)</strong> – This refers to the area of a single electrode plate. You can calculate this based on the physical dimensions (length x width) of the plate.
-        </li>
-        <li>
-            <strong>Step 5: HT Side Fault Current (kA)</strong> – Enter the fault current on the High Tension (HT) side of the system. This value is crucial for determining the size of the conductor on the HT side.
-        </li>
-        <li>
-            <strong>Step 6: LT Side Fault Current (kA)</strong> – Enter the fault current on the Low Tension (LT) side of the system. This value helps to calculate the required size of the conductor on the LT side.
-        </li>
-    </ul>
-    
-    <h3>Results Explained:</h3>
-    <p>
-        After you enter the required values, the calculator will show:
-    </p>
-    <ul>
-        <li><strong>Total Area of Plate Electrode:</strong> This tells you the total area of electrode plates needed for safe fault current dissipation. If the calculated area exceeds the area of a single plate, multiple electrodes will be needed.</li>
-        <li><strong>Number of Plate Electrodes:</strong> This shows how many plates are required to meet the fault current dissipation standards based on the available plate area.</li>
-        <li><strong>HT Side Conductor Size:</strong> This tells you the size of the conductor needed on the HT side. You can choose the appropriate conductor size from standard recommendations (e.g., copper strips of specific dimensions).</li>
-        <li><strong>LT Side Conductor Size:</strong> Similarly, this shows the size of the conductor for the LT side based on the fault current and permissible current density.</li>
-    </ul>
-    <p>
-        If you’re unsure about any of the values or how to calculate them, consult with an electrical engineer or refer to the relevant standards and guidelines for earthing system design.
-    </p>
 </div>
+<div class="note-container">
+    <h3>Note:</h3>
+    <p>
+        This calculator helps determine the required **earthing system** to safely dissipate fault currents and protect electrical equipment.  
+        Proper earthing prevents **electric shocks, equipment damage, and fire hazards** while ensuring compliance with safety standards.  
+        To calculate this, enter the following:
+    </p>
+    
+    <ul>
+        <li><strong>Fault Current (I):</strong> The maximum fault current that flows during a short circuit, typically measured in kiloamperes (kA). A higher fault current requires a more robust earthing system to ensure safety.</li>
+        <li><strong>Soil Resistivity (ρ):</strong> A measure of how well the soil conducts electricity, expressed in ohm-meters (Ω·m). Lower soil resistivity improves grounding efficiency, while higher resistivity may require additional grounding electrodes or treatment.</li>
+        <li><strong>Fault Duration (t):</strong> The time taken for the fault to be cleared by protective devices, measured in seconds. A longer fault duration increases thermal and mechanical stress on the grounding system.</li>
+        <li><strong>Conductor Material:</strong> The type of material used for earthing, such as Copper, Aluminum, or Steel. Copper is preferred for its high conductivity and corrosion resistance, whereas Aluminum and Steel are cost-effective alternatives.</li>
+        <li><strong>Plate Electrode Area:</strong> The size of the earthing plate buried in the ground, measured in square meters (m²). A larger electrode area improves ground contact and reduces overall resistance.</li>
+        <li><strong>HT Side Fault Current:</strong> The fault current on the high-voltage (HT) side of the electrical system, measured in kA. Proper grounding on the HT side is critical to preventing insulation breakdown and equipment damage.</li>
+        <li><strong>LT Side Fault Current:</strong> The fault current on the low-voltage (LT) side, measured in kA. An effective LT grounding system enhances electrical safety by minimizing voltage fluctuations and ensuring proper fault clearance.</li>
+    </ul>
+    
+    
+    <h3> Understanding the Result</h3>
+    <p>
+        After entering the values, clicking <strong>Calculate Earthing System</strong> will give the following results:
+    </p>
+    
+    <ul>
+        <li><strong>Total Area Required:</strong> The minimum earthing plate area needed to safely dissipate fault current.</li>
+        <li><strong>Number of Plate Electrodes:</strong> The number of plates required based on the given area.</li>
+        <li><strong>HT Side Earthing Conductor Size:</strong> The required conductor size to handle high-voltage faults.</li>
+        <li><strong>LT Side Earthing Conductor Size:</strong> The required conductor size to handle low-voltage faults.</li>
+    </ul>
 
-  <script>
+    <h3> Permissible Current Density Values</h3>
+    <p>
+        The conductor material is selected based on how much **current per mm²** it can safely carry for **3 seconds** (typical fault duration).
+    </p>
+    
+    <ul>
+        <li><strong>Copper:</strong> **118 A/mm²** for 3 seconds.</li>
+        <li><strong>Aluminum:</strong> **73 A/mm²** for 3 seconds.</li>
+        <li><strong>Steel (GI):</strong> **46 A/mm²** for 3 seconds.</li>
+    </ul>
+    
+   
+
+    <p>
+        By ensuring a properly designed earthing system, we **protect human lives, prevent equipment failure, and reduce electrical risks**.  
+    </p>
+    <p>
+        If you are unsure about any of the values or how to calculate them, consult with an electrical engineer or refer to the relevant standards and guidelines for earthing system design.
+    </p>
+    </div>
+
+<script>
     function calculateEarthingSystem() {
       const I = parseFloat(document.getElementById('faultCurrent').value) * 1000; // Convert to A
-      const currentDensity = parseFloat(document.getElementById('currentDensity').value);
-      const electrodeArea = parseFloat(document.getElementById('electrodeArea').value);
-  
+      const rho = parseFloat(document.getElementById('soilResistivity').value); // Soil resistivity in ohm-m
+      const t = parseFloat(document.getElementById('faultDuration').value); // Fault duration in seconds
+      const material = document.getElementById('material').value; // Get selected material
+      const plateArea = parseFloat(document.getElementById('plateArea').value); // Area of one plate in m²
       const htCurrent = parseFloat(document.getElementById('htCurrent').value) * 1000; // Convert to A
       const ltCurrent = parseFloat(document.getElementById('ltCurrent').value) * 1000; // Convert to A
-  
-      if (isNaN(I) || isNaN(currentDensity) || isNaN(electrodeArea) || isNaN(htCurrent) || isNaN(ltCurrent)) {
+
+      // Fixed permissible current density for conductors based on material
+      let permissibleCurrentDensityConductor;
+      switch (material) {
+        case 'copper':
+          permissibleCurrentDensityConductor = 118; // A/mm²
+          break;
+        case 'aluminum':
+          permissibleCurrentDensityConductor = 73; // A/mm²
+          break;
+        case 'steel':
+          permissibleCurrentDensityConductor = 46; // A/mm²
+          break;
+        default:
+          permissibleCurrentDensityConductor = 118; // Default to copper
+      }
+
+      const permissibleCurrentDensityElectrode = (7.57 * Math.pow(10, 3)) / Math.sqrt(rho * t); // A/m²
+
+      if (isNaN(I) || isNaN(rho) || isNaN(t) || isNaN(plateArea) || isNaN(htCurrent) || isNaN(ltCurrent)) {
         document.getElementById('result').innerText = "Please fill in all fields with valid numbers.";
         return;
       }
-  
+
       // Step 1: Calculate Total Area of Plate Electrode
-      const totalAreaRequired = I / currentDensity;
-      
+      const totalAreaRequired = I / permissibleCurrentDensityElectrode; // Total area in m²
+
       // Step 2: Number of Plate Electrodes Required
-      const numberOfPlates = Math.ceil(totalAreaRequired / electrodeArea);
-  
+      const numberOfPlates = Math.ceil(totalAreaRequired / plateArea);
+
       // Step 3: Earthing Conductor Size Calculation for HT Side
-      const htConductorSize = htCurrent / currentDensity;
-  
+      const htConductorSize = htCurrent / permissibleCurrentDensityConductor; // Conductor size in mm²
+
       // Step 4: Earthing Conductor Size Calculation for LT Side
-      const ltConductorSize = ltCurrent / currentDensity;
-  
+      const ltConductorSize = ltCurrent / permissibleCurrentDensityConductor; // Conductor size in mm²
+
+      // Function to calculate conductor dimensions (width x thickness)
+      const calculateConductorDimensions = (area) => {
+        const thickness = 3; // Fixed thickness of 3 mm
+        const width = Math.ceil(area / thickness); // Calculate width based on area and thickness
+        return `${width} mm x ${thickness} mm`;
+      };
+
+      // Calculate conductor dimensions for HT and LT sides
+      const htConductorDimensions = calculateConductorDimensions(htConductorSize);
+      const ltConductorDimensions = calculateConductorDimensions(ltConductorSize);
+
       // Display results
       document.getElementById('result').innerHTML = `
         <h3>Calculation Results:</h3>
-        <p><strong>Step 1: Total Area of Plate Electrode</strong><br>
+        <p><strong>Total Area Required:</strong><br>
           Total Area Required = ${totalAreaRequired.toFixed(2)} m² (approx).
         </p>
-        <p><strong>Step 2: Number of Plate Electrodes Required</strong><br>
+        <p><strong>Number of Plates Required:</strong><br>
           Number of Plates = ${numberOfPlates} (approx).
         </p>
-        <p><strong>Step 3: Earthing Conductor Size Calculation for HT Side</strong><br>
-          HT Side Earthing Conductor Size = ${htConductorSize.toFixed(2)} A/m².<br>
-          Suggested Earthing Conductor = 25 mm × 3 mm copper strip.
+        <p><strong>HT Side Earthing Conductor Size:</strong><br>
+          HT Side Conductor Size = ${htConductorSize.toFixed(2)} mm².<br>
+          Suggested Earthing Conductor = ${htConductorDimensions} ${material} strip.
         </p>
-        <p><strong>Step 4: Earthing Conductor Size Calculation for LT Side</strong><br>
-          LT Side Earthing Conductor Size = ${ltConductorSize.toFixed(2)} A/m².<br>
-          Suggested Earthing Conductor = 31 mm × 3 mm copper strip.
+        <p><strong>LT Side Earthing Conductor Size:</strong><br>
+          LT Side Conductor Size = ${ltConductorSize.toFixed(2)} mm².<br>
+          Suggested Earthing Conductor = ${ltConductorDimensions} ${material} strip.
         </p>
       `;
     }
-  </script>
-  
+</script>
 
 
 
