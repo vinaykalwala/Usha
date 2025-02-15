@@ -286,15 +286,18 @@ strong{
             height: auto;
         }
         @media (max-width: 800px) {
-            .container5 {
-                flex-direction: column;
-            }
-            .image-content {
-                padding-left: 40px;
-                padding-top: 20px;
-                
-            }
-        }
+    .container5 {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+    .image-content {
+        padding-left: 0; /* Remove left padding */
+        padding-top: 20px; /* Retain or adjust top padding as needed */
+    }
+}
+
 </style>
 	</head>
 
