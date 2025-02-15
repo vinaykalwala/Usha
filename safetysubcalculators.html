@@ -320,7 +320,32 @@
         padding: 10px 20px;
     }
 }
+.custom-search {
+        width: 100%;
+        max-width: 600px;
+        margin: 0 auto;
+        padding: 10px 15px;
+        border: 1px solid #1560bd;
+        border-radius: 8px;
+        font-size: 16px;
+        background-color:rgb(213, 241, 252);
+        color: white;
+        transition: all 0.3s ease-in-out;
+    }
 
+    .custom-search::placeholder {
+        color: #807e7e;
+    }
+
+  
+
+    /* Responsive */
+    @media (max-width: 576px) {
+        .custom-search {
+            font-size: 14px;
+            padding: 8px 12px;
+        }
+    }
 </style>
 	</head>
 
@@ -609,60 +634,69 @@
             <a href="calculatorqehs.html" class="btn btn-back-to-all"> &#x21A9; Back to All Calculators</a>
         </div>
         <h2 class="sub-heading">Safety Calculators</h2>
-        <div class="button-container">
 
+        <div class="text-center mb-4">
+            <input type="text" id="searchBar" class="form-control custom-search" placeholder="🔍 Search Calculator..." onkeyup="filterCalculators()">
+        </div>
+        
+
+        <div class="button-container" id="calculatorList">
+            <a href="bitwearefficiencycal.html" class="calculator-btn">Bit Wear and Efficiency Calculator</a>
             <a href="changeinentropycal.html" class="calculator-btn">Change in Entropy Calculator</a>
             <a href="costofaccident.html" class="calculator-btn">Cost of Accident Calculator</a>
-
-
+          
             <a href="densityofmaterial.html" class="calculator-btn">Density of a material Calculator</a>
             <a href="earthingcalculator.html" class="calculator-btn">Earthing System Calculator</a>
             <a href="energytransformcal.html" class="calculator-btn">Energy Transfer Calculator</a>
             <a href="ergonomicriskfactor.html" class="calculator-btn">Ergonomic Risk Score Calculator</a>
-
-
-            <a href="emergencydrillrate.html" class="calculator-btn">Emergency drill success rate calculator</a>
-
+            <a href="emergencydrillrate.html" class="calculator-btn">Emergency Drill Success Rate Calculator</a>
             <a href="excavationslopecal.html" class="calculator-btn">Excavation Slope Calculator</a>
             <a href="fallcal.html" class="calculator-btn">Fall Clearance Calculator</a>
             <a href="incidentratecal.html" class="calculator-btn">Incidence Rate Calculator</a>
             <a href="ipchecker.html" class="calculator-btn">IP Rating Checker</a>
             <a href="laddercal.html" class="calculator-btn">Ladder Length Calculator</a>
             <a href="ltifrcal.html" class="calculator-btn">Lost Time Injury Frequency Rate Calculator</a>
-            <a href="liveloadcal.html" class="calculator-btn"> Live Load Calculation (LL)</a>
+            <a href="liveloadcal.html" class="calculator-btn">Live Load Calculation (LL)</a>
             <a href="loadperlegcal.html" class="calculator-btn">Load Distribution Per Leg</a>
             <a href="leadingsafetyindicator.html" class="calculator-btn">Leading Safety Indicators</a>
-
             <a href="nema&ipratecal.html" class="calculator-btn">NEMA and IP Ratings Calculator</a>
             <a href="trir.html" class="calculator-btn">OSHA Total Recordable Incident Rate Calculator</a>
             <a href="dartcal.html" class="calculator-btn">OSHA DART Rate Calculator</a>
-            <a href="ppecomplianceratecal.html" class="calculator-btn"> PPE Compliance Rate</a>
-
-            <a href="risklevelassessment.html" class="calculator-btn"> Risk Level Assessment</a>
+            <a href="ppecomplianceratecal.html" class="calculator-btn">PPE Compliance Rate</a>
+            <a href="risklevelassessment.html" class="calculator-btn">Risk Level Assessment</a>
+            <a href="rop.html" class="calculator-btn">Rate of Penetration (ROP) Calculator</a>
             <a href="severitycal.html" class="calculator-btn">Severity Rate Calculator</a>
             <a href="sclwireropecalculator.html" class="calculator-btn">SWL of Wire Rope Calculator</a>
             <a href="stackheightcal.html" class="calculator-btn">Stack Height Calculator</a>
-            <a href="specificgravitycal.html" class="calculator-btn">Specific Gravity Calculator</a>
+            <a href="specificgravitycal.html" class="calculator-btn">Specific Gravity Calculator</a>
             <a href="safetyfactor.html" class="calculator-btn">Safety Factor Calculator</a>
-
-
             <a href="traininghourcal.html" class="calculator-btn">Training Hour Calculation</a>
             <a href="deadloadcal.html" class="calculator-btn">Total Dead Load Calculation (DL)</a>
             <a href="totalintendload.html" class="calculator-btn">Total Intended Load (TIL)</a>
             <a href="totalenthalapycal.html" class="calculator-btn">Total Enthalpy of Steam Calculator</a>
             <a href="totalfalldistanceofobject.html" class="calculator-btn">Total Fall Distance Calculator</a>
-
             <a href="tensionperlegcalcualtor.html" class="calculator-btn">Tension Per Leg Calculator</a>
-
-             
             <a href="wireropecal.html" class="calculator-btn">Wire Rope Grips Calculator</a>
-           
-
         </div>
     </section>
-
 </div>
-    
+
+<script>
+    function filterCalculators() {
+        let input = document.getElementById("searchBar").value.toLowerCase();
+        let buttons = document.querySelectorAll(".calculator-btn");
+
+        buttons.forEach(btn => {
+            let text = btn.innerText.toLowerCase();
+            if (text.includes(input)) {
+                btn.style.display = "inline-block";
+            } else {
+                btn.style.display = "none";
+            }
+        });
+    }
+</script>
+
 
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
