@@ -270,6 +270,30 @@ strong{
         padding: 10px; 
     }
 }
+.note-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 20px;
+    gap: 80px;
+}
+
+.content, .image-content {
+    flex: 1 1 300px;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.image-content img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+@media (max-width: 600px) {
+    .note-container {
+        gap: 0; /* Remove gap */
+    }
+}
 </style>
 	</head>
 
@@ -569,26 +593,29 @@ strong{
     <div class="result" id="result"></div>
   </div>
   <div class="note-container">
-    <h3>Note:</h3>
-    <p>
-        This calculator helps determine the minimum fall clearance required to safely stop a worker in case of a fall. 
-        Fall clearance is the total distance needed to prevent a worker from hitting the ground during a fall.
-        To calculate this, enter the following:
-    </p>
-    <ul>
-        <li><strong>Lanyard Length (LL):</strong> The length of the lanyard used (in feet).</li>
-        <li><strong>Deceleration Distance (DD):</strong> The distance required to stop the fall after the lanyard engages (in feet).</li>
-        <li><strong>Height of Suspended Worker (HH):</strong> The worker's height (in feet).</li>
-        <li><strong>Safety Factor (C):</strong> An additional buffer for safety, typically recommended by standards (in feet).</li>
-    </ul>
-    <p>
-        After entering these values, click the <strong>Calculate Fall Clearance</strong> button. 
-        The result will show the total fall clearance required to ensure safety.
-    </p>
-    <div class="image-content" style="text-align: center;">
-        <img src="images/vindus_clients_images/fallcal4.jpg" alt="Diagram illustrating fall distance calculation" height="300" width="300">
+    <div class="content">
+        <h3>Note:</h3>
+        <p>
+            This calculator helps determine the minimum fall clearance required to safely stop a worker in case of a fall. 
+            Fall clearance is the total distance needed to prevent a worker from hitting the ground during a fall.
+            To calculate this, enter the following:
+        </p>
+        <ul>
+            <li><strong>Lanyard Length (LL):</strong> The length of the lanyard used (in feet).</li>
+            <li><strong>Deceleration Distance (DD):</strong> The distance required to stop the fall after the lanyard engages (in feet).</li>
+            <li><strong>Height of Suspended Worker (HH):</strong> The worker's height (in feet).</li>
+            <li><strong>Safety Factor (C):</strong> An additional buffer for safety, typically recommended by standards (in feet).</li>
+        </ul>
+        <p>
+            After entering these values, click the <strong>Calculate Fall Clearance</strong> button. 
+            The result will show the total fall clearance required to ensure safety.
+        </p>
+    </div>
+    <div class="image-content">
+        <img src="images/vindus_clients_images/fallcal4.jpg" alt="Diagram illustrating fall distance calculation">
     </div>
 </div>
+
 
   <script>
     function calculateFallClearance() {
