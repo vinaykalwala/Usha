@@ -319,7 +319,32 @@
         padding: 10px 20px;
     }
 }
+.custom-search {
+        width: 100%;
+        max-width: 600px;
+        margin: 0 auto;
+        padding: 10px 15px;
+        border: 1px solid #1560bd;
+        border-radius: 8px;
+        font-size: 16px;
+        background-color:rgb(213, 241, 252);
+        color: white;
+        transition: all 0.3s ease-in-out;
+    }
 
+    .custom-search::placeholder {
+        color: #807e7e;
+    }
+
+  
+
+    /* Responsive */
+    @media (max-width: 576px) {
+        .custom-search {
+            font-size: 14px;
+            padding: 8px 12px;
+        }
+    }
 </style>
 	</head>
 
@@ -608,8 +633,11 @@
             <a href="calculatorqehs.html" class="btn btn-back-to-all"> &#x21A9; Back to All Calculators</a>
         </div>
         <h2 class="sub-heading">Health Calculators</h2>
-        <div class="button-container">
-            <a href="bmicalculator.html" class="calculator-btn">BMI Calculator</a>
+        <div class="text-center mb-4">
+            <input type="text" id="searchBar" class="form-control custom-search" placeholder="🔍 Search Calculator..." onkeyup="filterCalculators()">
+        </div>
+        <div class="button-container" id="calculatorList">
+                        <a href="bmicalculator.html" class="calculator-btn">BMI Calculator</a>
 
             <a href="drinkcal.html" class="calculator-btn">Daily Drinking Water Intake Calculator</a>
 
@@ -629,7 +657,23 @@
 
 </div>
     
-    
+<script>
+    function filterCalculators() {
+        let input = document.getElementById("searchBar").value.toLowerCase();
+        let buttons = document.querySelectorAll(".calculator-btn");
+
+        buttons.forEach(btn => {
+            let text = btn.innerText.toLowerCase();
+            if (text.includes(input)) {
+                btn.style.display = "inline-block";
+            } else {
+                btn.style.display = "none";
+            }
+        });
+    }
+</script>
+
+
 
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
