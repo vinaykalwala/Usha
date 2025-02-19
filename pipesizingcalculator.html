@@ -270,7 +270,16 @@ strong{
         padding: 10px; 
     }
 }
+select {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #d3e0f0;
+    border-radius: 5px;
+    font-size: 1rem;
+    background-color: rgb(223, 241, 247);
 
+}
 </style>
 	</head>
 
@@ -550,7 +559,7 @@ strong{
 
 <div class="calculator-container">
     <h2>FM-200 / NOVEC 1230 - Pipe Sizing Calculator</h2>
-    
+
     <div class="form-group">
         <label for="flowRate">Flow Rate (kg/sec):</label>
         <input type="number" id="flowRate" placeholder="Enter agent flow rate">
@@ -560,18 +569,20 @@ strong{
         <input type="number" id="velocity" placeholder="Enter velocity">
     </div>
     <div class="form-group">
-        <label for="coefficient">Pipe Friction Coefficient:</label>
-        <input type="number" id="coefficient" placeholder="Enter manufacturer-specified coefficient">
+        <label for="agentType">Agent Type:</label>
+        <select id="agentType">
+            <option value="FM200">FM-200</option>
+            <option value="NOVEC">NOVEC 1230</option>
+        </select>
     </div>
 
     <button class="cal-btn" onclick="calculatePipeSize()">Calculate Pipe Size</button>
     <div class="result" id="result"></div>
 </div>
-
 <div class="note-container">
     <h3>Note:</h3>
     <p>
-        This calculator determines the **optimal pipe diameter** for FM-200 / NOVEC 1230 fire suppression systems, ensuring **proper agent distribution**.
+        This calculator determines the <strong>optimal pipe diameter</strong> for FM-200 / NOVEC 1230 fire suppression systems, ensuring <strong>proper agent distribution</strong>.
     </p>
 
     <h3>Why is Pipe Sizing Important?</h3>
@@ -586,12 +597,12 @@ strong{
     <ul>
         <li><strong>Flow Rate (Q):</strong> The amount of FM-200 or NOVEC 1230 released per second (kg/sec).</li>
         <li><strong>Velocity (V):</strong> The recommended speed of the agent inside the pipe (m/s).</li>
-        <li><strong>Pipe Friction Coefficient (C):</strong> A manufacturer-provided value accounting for resistance inside the pipe.</li>
+        <li><strong>Agent Type:</strong> The suppression agent used, which affects density and flow calculations.</li>
     </ul>
 
     <h3>What does the result mean?</h3>
     <p>
-        The result provides the **minimum pipe diameter required** to handle the suppression agent efficiently without exceeding pressure limits.
+        The result provides the <strong>minimum pipe diameter required</strong> to handle the suppression agent efficiently without exceeding pressure limits.
     </p>
 </div>
 
@@ -599,18 +610,24 @@ strong{
     function calculatePipeSize() {
         const Q = parseFloat(document.getElementById('flowRate').value);
         const V = parseFloat(document.getElementById('velocity').value);
-        const C = parseFloat(document.getElementById('coefficient').value);
+        const agentType = document.getElementById('agentType').value;
         const resultElement = document.getElementById('result');
 
-        if (isNaN(Q) || Q <= 0 || isNaN(V) || V <= 0 || isNaN(C) || C <= 0) {
+        if (isNaN(Q) || Q <= 0 || isNaN(V) || V <= 0) {
             resultElement.innerHTML = "<span style='color: red;'>Please enter valid positive numbers for all fields.</span>";
             return;
         }
 
-        // Pipe Sizing Formula: D = sqrt(Q / (V × C))
-        const D = Math.sqrt(Q / (V * C)).toFixed(2);
+        // Select appropriate density
+        const density = agentType === "FM200" ? 1400 : 1600; // FM-200 (1400 kg/m³), NOVEC 1230 (1600 kg/m³)
 
-        resultElement.innerHTML = `The minimum required pipe diameter is <strong>${D} cm</strong> to ensure proper agent flow and distribution.`;
+        // Convert mass flow rate to volumetric flow rate
+        const Qv = Q / density; // (m³/s)
+
+        // Corrected Pipe Sizing Formula: D = sqrt(4 * Qv / (π * V))
+        const D = Math.sqrt((4 * Qv) / (Math.PI * V)) * 100; // Convert meters to cm
+
+        resultElement.innerHTML = `The minimum required pipe diameter is <strong>${D.toFixed(2)} cm</strong> for ${agentType} to ensure proper agent flow.`;
     }
 </script>
 
