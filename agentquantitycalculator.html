@@ -270,7 +270,6 @@ strong{
         padding: 10px; 
     }
 }
-
 </style>
 	</head>
 
@@ -549,73 +548,101 @@ strong{
 
 
 <div class="calculator-container">
-    <h2>Heat Detector Response Time Calculator</h2>
+    <h2>FM-200 / NOVEC 1230 - Agent Quantity Calculator</h2>
     <div class="form-group">
-        <label for="rti">Response Time Index (RTI) (m½/s):</label>
-        <input type="number" id="rti" placeholder="Enter RTI value">
+        <label for="volume">Net Hazard Volume (m³):</label>
+        <input type="number" id="volume" placeholder="Enter net hazard volume">
     </div>
     <div class="form-group">
-        <label for="velocity">Hot Gas Velocity (V) (m/s):</label>
-        <input type="number" id="velocity" placeholder="Enter velocity of hot gases">
+        <label for="concentration">Design Concentration (%):</label>
+        <input type="number" id="concentration" placeholder="Enter design concentration">
     </div>
-    <button class="cal-btn" onclick="calculateHeatDetectorResponseTime()">Calculate Response Time</button>
+    <div class="form-group">
+        <label for="specificVolume">Specific Vapor Volume (m³/kg):</label>
+        <input type="number" id="specificVolume" placeholder="Enter specific vapor volume">
+    </div>
+    <button class="cal-btn" onclick="calculateAgentQuantity()">Calculate Agent Quantity</button>
     <div class="result" id="result"></div>
 </div>
 
 <div class="note-container">
     <h3>Note:</h3>
     <p>
-        This calculator helps determine how quickly a heat detector will respond to a fire. 
-        The response time is influenced by the detector's design and the movement of hot gases.
+        This calculator determines the **required amount of FM-200 or NOVEC 1230** fire suppression agent.  
+        The correct agent quantity is essential for ensuring effective fire suppression while optimizing costs.
     </p>
 
-    <h3>Understanding the Parameters:</h3>
+    <h3>Where is this used?</h3>
+    <p>
+        The agent quantity calculation is a key step in fire suppression system design.  
+        It is used in commercial buildings, data centers, control rooms, and other high-value asset areas where fire suppression is required.  
+        This calculation ensures that enough FM-200 or NOVEC 1230 is released to suppress a fire without being excessive or insufficient.
+    </p>
+
+    <h3>Why do we need this calculation?</h3>
     <ul>
-        <li><strong>Response Time Index (RTI):</strong> A measure of how fast the heat detector responds to temperature changes. Higher values indicate slower response times.</li>
-        <li><strong>Hot Gas Velocity (V):</strong> The speed at which hot gases move in the environment, affecting how quickly the detector activates.</li>
+        <li><strong>Ensures Fire Suppression Effectiveness:</strong> The right amount of agent is needed to fully suppress a fire.</li>
+        <li><strong>Regulatory Compliance:</strong> NFPA 2001 and ISO 14520 require accurate agent quantity calculations.</li>
+        <li><strong>Optimizes Costs:</strong> Using the right amount avoids unnecessary expenses on excess agent.</li>
+        <li><strong>Prevents Damage:</strong> Too much agent can cause over-pressurization, while too little may fail to extinguish the fire.</li>
     </ul>
 
-    <h3>How the Calculation Works:</h3>
+    <h3>Understanding the Parameters:</h3>
+    <p>The agent quantity calculation is based on three key factors:</p>
+    <ul>
+        <li><strong>Net Hazard Volume (V):</strong> The total volume of the protected space where the suppression system will be used. This is measured in cubic meters (m³).</li>
+        <li><strong>Design Concentration (C):</strong> The percentage of FM-200 or NOVEC 1230 required to suppress a fire effectively. It varies based on the type of hazard being protected (e.g., electronics, flammable liquids).</li>
+        <li><strong>Specific Vapor Volume (S):</strong> The volume occupied by 1 kg of the suppression agent at a given temperature. This value is provided by the manufacturer and ensures accurate agent calculation.</li>
+    </ul>
+
+    <h3>What does the result mean?</h3>
     <p>
-        The response time of a heat detector depends on its RTI and the velocity of the hot gases. 
-        A higher gas velocity results in a faster response time, while a higher RTI indicates a slower response.
+        The result indicates the **total weight of FM-200 or NOVEC 1230 (in kg) required** for fire suppression in the given space.  
+        This value helps determine the number and size of cylinders needed in the fire suppression system.
     </p>
 
-    <p>
-        Enter the **RTI value** and **hot gas velocity** to calculate how quickly the heat detector will activate in case of a fire.
-    </p>
+   
+
+    <p>If you need assistance calculating the Net Hazard Volume, please use the following link:</p>
+    <ul style="display: flex;">
+        <li style="margin: 20px auto;">
+            <a href="nethazardcalculator.html" style="background-color: #1560bd; padding: 10px; color: white; border-radius: 10px;">FM-200 / NOVEC 1230 - Net Hazard Volume Calculator</a>
+        </li>
+    </ul>
 </div>
 
+
 <script>
-   function calculateHeatDetectorResponseTime() {
-    const RTI = parseFloat(document.getElementById('rti').value);
-    const V = parseFloat(document.getElementById('velocity').value);
-    const resultElement = document.getElementById('result');
+    function calculateAgentQuantity() {
+        const V = parseFloat(document.getElementById('volume').value);
+        const C = parseFloat(document.getElementById('concentration').value);
+        const S = parseFloat(document.getElementById('specificVolume').value);
+        const resultElement = document.getElementById('result');
 
-    if (isNaN(RTI) || RTI <= 0 || isNaN(V) || V <= 0) {
-        resultElement.innerHTML = "<span style='color: red;'>Please enter valid positive numbers for all fields.</span>";
-        return;
+        if (isNaN(V) || V <= 0 || isNaN(C) || C <= 0 || isNaN(S) || S <= 0) {
+            resultElement.innerHTML = "<span style='color: red;'>Please enter valid positive numbers for all fields.</span>";
+            return;
+        }
+
+        const W = (V / S) * (C / (100 - C));
+        let feedback = "";
+        let color = "";
+
+        if (W < 50) {
+            feedback = "The required agent quantity is relatively **low**. Ensure that the calculation meets minimum fire suppression requirements.";
+            color = "green";
+        } else if (W >= 50 && W <= 100) {
+            feedback = "The required agent quantity is **moderate**. This is a typical range for standard fire suppression applications.";
+            color = "orange";
+        } else {
+            feedback = "The required agent quantity is **high**. Verify if the space volume and design concentration are correctly inputted to avoid overuse.";
+            color = "red";
+        }
+
+        resultElement.innerHTML = `The required agent quantity for this space is <strong style="color:blue;">${W.toFixed(2)}</strong> kg.<br><span style="color: ${color};">${feedback}</span>`;
     }
-
-    const t = RTI / Math.sqrt(V);
-    let feedback = "";
-    let color = "";
-
-    if (t < 30) {
-        feedback = "This is a <strong>fast response time</strong>, ideal for high-risk areas where rapid fire detection is crucial.";
-        color = "green";
-    } else if (t >= 30 && t <= 90) {
-        feedback = "This is a <strong>moderate response time</strong>, suitable for general fire protection but may require additional detection measures in critical areas.";
-        color = "orange";
-    } else {
-        feedback = "This is a <strong>slow response time</strong>, which may delay fire detection. Consider using a heat detector with a lower RTI or improving airflow conditions.";
-        color = "red";
-    }
-
-    resultElement.innerHTML = `The estimated response time of the heat detector is <strong style="color:blue;">${t.toFixed(2)}</strong> seconds.<br><span style="color: ${color};">${feedback}</span>`;
-}
-
 </script>
+
 
 
 

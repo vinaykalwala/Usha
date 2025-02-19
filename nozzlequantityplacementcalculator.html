@@ -270,7 +270,6 @@ strong{
         padding: 10px; 
     }
 }
-
 </style>
 	</head>
 
@@ -549,73 +548,97 @@ strong{
 
 
 <div class="calculator-container">
-    <h2>Heat Detector Response Time Calculator</h2>
+    <h2>FM-200 / NOVEC 1230 - Nozzle Quantity Calculator</h2>
     <div class="form-group">
-        <label for="rti">Response Time Index (RTI) (m½/s):</label>
-        <input type="number" id="rti" placeholder="Enter RTI value">
+        <label for="volume">Net Hazard Volume (m³):</label>
+        <input type="number" id="volume" placeholder="Enter net hazard volume">
     </div>
     <div class="form-group">
-        <label for="velocity">Hot Gas Velocity (V) (m/s):</label>
-        <input type="number" id="velocity" placeholder="Enter velocity of hot gases">
+        <label for="coverage">Nozzle Coverage Area (m³ per nozzle):</label>
+        <input type="number" id="coverage" placeholder="Enter coverage per nozzle">
     </div>
-    <button class="cal-btn" onclick="calculateHeatDetectorResponseTime()">Calculate Response Time</button>
+    <button class="cal-btn" onclick="calculateNozzleQuantity()">Calculate Nozzle Quantity</button>
     <div class="result" id="result"></div>
 </div>
 
 <div class="note-container">
     <h3>Note:</h3>
     <p>
-        This calculator helps determine how quickly a heat detector will respond to a fire. 
-        The response time is influenced by the detector's design and the movement of hot gases.
+        This calculator determines the **required number of FM-200 or NOVEC 1230 nozzles** based on the total hazard volume and the coverage capacity of each nozzle.  
+        Proper nozzle placement is essential to ensure even distribution of the suppression agent.
     </p>
+    <h3>What is a Nozzle?</h3>
+    <p>
+        A **nozzle** is a discharge device that releases FM-200 or NOVEC 1230 into the protected area.  
+        Nozzles ensure **even distribution** of the agent, helping to quickly suppress a fire.
+    </p>
+
+    <h3>Why are Nozzles Important?</h3>
+    <ul>
+        <li><strong>Controlled Discharge:</strong> Regulates the flow and velocity of the agent.</li>
+        <li><strong>Even Coverage:</strong> Ensures the entire area receives proper protection.</li>
+        <li><strong>Compliance:</strong> Follows NFPA 2001 and ISO 14520 fire safety standards.</li>
+    </ul>
+    <h3>Where is this used?</h3>
+    <p>
+        This calculation is used in designing fire suppression systems for **server rooms, data centers, control rooms, industrial spaces,** and other enclosed areas where FM-200 or NOVEC 1230 systems are installed.  
+        Nozzles must be properly spaced to ensure the agent reaches all areas efficiently.
+    </p>
+
+    <h3>Why do we need this calculation?</h3>
+    <ul>
+        <li><strong>Ensures Proper Agent Distribution:</strong> Helps determine the optimal number of nozzles required for full coverage.</li>
+        <li><strong>Regulatory Compliance:</strong> Meets NFPA 2001 and ISO 14520 fire safety standards.</li>
+        <li><strong>Prevents Dead Zones:</strong> Ensures no areas are left unprotected.</li>
+        <li><strong>Optimizes Costs:</strong> Helps avoid unnecessary overuse of nozzles, reducing installation costs.</li>
+    </ul>
 
     <h3>Understanding the Parameters:</h3>
     <ul>
-        <li><strong>Response Time Index (RTI):</strong> A measure of how fast the heat detector responds to temperature changes. Higher values indicate slower response times.</li>
-        <li><strong>Hot Gas Velocity (V):</strong> The speed at which hot gases move in the environment, affecting how quickly the detector activates.</li>
+        <li><strong>Net Hazard Volume (V):</strong> The total volume of the protected space where fire suppression is required (measured in cubic meters).</li>
+        <li><strong>Nozzle Coverage Area (N):</strong> The volume that a single nozzle can effectively cover, provided by the manufacturer (measured in cubic meters per nozzle).</li>
     </ul>
 
-    <h3>How the Calculation Works:</h3>
+    <h3>What does the result mean?</h3>
     <p>
-        The response time of a heat detector depends on its RTI and the velocity of the hot gases. 
-        A higher gas velocity results in a faster response time, while a higher RTI indicates a slower response.
+        The result indicates the **total number of nozzles required** to ensure proper distribution of the suppression agent.  
+        More nozzles are needed for **larger hazard volumes** or **low-coverage nozzles**, while fewer nozzles are required for **high-coverage nozzles**.
     </p>
-
-    <p>
-        Enter the **RTI value** and **hot gas velocity** to calculate how quickly the heat detector will activate in case of a fire.
-    </p>
+    <p>If you need assistance calculating the Net Hazard Volume, please use the following link:</p>
+    <ul style="display: flex;">
+        <li style="margin: 20px auto;">
+            <a href="nethazardcalculator.html" style="background-color: #1560bd; padding: 10px; color: white; border-radius: 10px;">FM-200 / NOVEC 1230 - Net Hazard Volume Calculator</a>
+        </li>
+    </ul>
 </div>
 
 <script>
-   function calculateHeatDetectorResponseTime() {
-    const RTI = parseFloat(document.getElementById('rti').value);
-    const V = parseFloat(document.getElementById('velocity').value);
+   function calculateNozzleQuantity() {
+    const V = parseFloat(document.getElementById('volume').value);
+    const N = parseFloat(document.getElementById('coverage').value);
     const resultElement = document.getElementById('result');
 
-    if (isNaN(RTI) || RTI <= 0 || isNaN(V) || V <= 0) {
+    if (!V || !N) {
+        resultElement.innerHTML = "<span style='color: red;'>All fields are required.</span>";
+        return;
+    }
+
+    if (!Number.isFinite(V) || V <= 0 || !Number.isFinite(N) || N <= 0) {
         resultElement.innerHTML = "<span style='color: red;'>Please enter valid positive numbers for all fields.</span>";
         return;
     }
 
-    const t = RTI / Math.sqrt(V);
-    let feedback = "";
-    let color = "";
+    const nozzleCount = Math.ceil(V / N);
 
-    if (t < 30) {
-        feedback = "This is a <strong>fast response time</strong>, ideal for high-risk areas where rapid fire detection is crucial.";
-        color = "green";
-    } else if (t >= 30 && t <= 90) {
-        feedback = "This is a <strong>moderate response time</strong>, suitable for general fire protection but may require additional detection measures in critical areas.";
-        color = "orange";
-    } else {
-        feedback = "This is a <strong>slow response time</strong>, which may delay fire detection. Consider using a heat detector with a lower RTI or improving airflow conditions.";
-        color = "red";
-    }
-
-    resultElement.innerHTML = `The estimated response time of the heat detector is <strong style="color:blue;">${t.toFixed(2)}</strong> seconds.<br><span style="color: ${color};">${feedback}</span>`;
+    // Update result with an image
+    resultElement.innerHTML = `
+        <p>The required number of nozzles for this space is <strong>${nozzleCount}</strong>.</p>
+        <img src="https://meech.com/wp-content/uploads/2020/08/Meech_Energy_Saving_Safety_Nozzles.jpg" alt="Nozzle Image" style="width: 100px; height: auto; margin-top: 10px;">
+    `;
 }
 
 </script>
+
 
 
 
