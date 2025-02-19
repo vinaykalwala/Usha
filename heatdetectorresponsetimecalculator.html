@@ -587,13 +587,13 @@ strong{
 </div>
 
 <script>
-   function calculateHeatDetectorResponseTime() {
+  function calculateHeatDetectorResponseTime() {
     const RTI = parseFloat(document.getElementById('rti').value);
     const V = parseFloat(document.getElementById('velocity').value);
     const resultElement = document.getElementById('result');
 
     if (isNaN(RTI) || RTI <= 0 || isNaN(V) || V <= 0) {
-        resultElement.innerHTML = "<span style='color: red;'>Please enter valid positive numbers for all fields.</span>";
+        resultElement.innerHTML = "<span class='error'>Please enter valid positive numbers for all fields.</span>";
         return;
     }
 
@@ -612,8 +612,12 @@ strong{
         color = "red";
     }
 
-    resultElement.innerHTML = `The estimated response time of the heat detector is <strong style="color:blue;">${t.toFixed(2)}</strong> seconds.<br><span style="color: ${color};">${feedback}</span>`;
+    resultElement.innerHTML = `
+        The estimated response time of the heat detector is <strong style="color:blue;">${t.toFixed(2)}</strong> seconds.<br>
+        <span style="color: ${color};">${feedback}</span>
+    `;
 }
+
 
 </script>
 

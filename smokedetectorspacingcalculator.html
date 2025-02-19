@@ -586,16 +586,20 @@ strong{
         const D = parseFloat(document.getElementById('maxSpacing').value);
         const resultElement = document.getElementById('result');
 
-        if (isNaN(D) || D <= 0) {
-            resultElement.innerText = "Please enter a valid positive number.";
+        if (isNaN(D) || D <= 0 || D > 100) {
+            resultElement.innerHTML = "<span class='error'>Please enter a valid spacing value between 1 and 100 meters.</span>";
             return;
         }
 
         const S = 0.7 * D;
-        resultElement.innerHTML = `The recommended spacing between smoke detectors is <strong>${S.toFixed(2)}</strong> meters for optimal coverage.`;
+        resultElement.innerHTML = `
+            <p style="color:blue; font-size:18px;">
+                The recommended spacing between smoke detectors is <strong>${S.toFixed(2)}</strong> meters.
+            </p>
+            <p style="color:green;">This ensures optimal smoke detection coverage based on industry standards.</p>
+        `;
     }
 </script>
-
 
 
 
