@@ -610,20 +610,28 @@ select {
 </div>
 
 <script>
-    function calculateSmokeDetectorQuantity() {
-        const S = parseFloat(document.getElementById('area').value);
-        const A = parseFloat(document.getElementById('coverage').value);
-        const K = parseFloat(document.getElementById('coefficient').value);
-        const resultElement = document.getElementById('result');
+  function calculateSmokeDetectorQuantity() {
+    const S = parseFloat(document.getElementById('area').value);
+    const A = parseFloat(document.getElementById('coverage').value);
+    const K = parseFloat(document.getElementById('coefficient').value);
+    const resultElement = document.getElementById('result');
 
-        if (isNaN(S) || S <= 0 || isNaN(A) || A <= 0 || isNaN(K) || K <= 0) {
-            resultElement.innerText = "Please enter valid positive numbers for all fields.";
-            return;
-        }
-
-        const N = S / (K * A);
-        resultElement.innerHTML = `The minimum number of smoke detectors required is <strong>${Math.ceil(N)}</strong> to ensure proper coverage.`;
+    // Validate input fields
+    if (isNaN(S) || S <= 0 || isNaN(A) || A <= 0 || isNaN(K) || K <= 0) {
+        resultElement.innerHTML = "<span style='color: red;'>Please enter valid positive numbers for all fields.</span>";
+        return;
     }
+
+    // Calculate required detectors
+    const N = S / (K * A);
+    const detectorsRequired = Math.ceil(N); // Round up to ensure full coverage
+
+    resultElement.innerHTML = `
+        <p>The minimum number of smoke detectors required is 
+        <strong style="color: blue;">${detectorsRequired}</strong> 
+        to ensure proper coverage.</p>`;
+}
+
 </script>
 
 
