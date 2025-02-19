@@ -584,48 +584,7 @@ strong{
     <p>
         In real-world applications, the calculated burst pressure gives an estimate of how much internal pressure a casing can withstand before failing. This is crucial in industries like oil and gas, where casing failure can result in severe consequences like well blowouts, safety hazards, and significant financial losses. A higher burst pressure indicates a stronger casing, but it’s important to note that this formula assumes ideal conditions and doesn’t account for factors like material defects, pressure cycling, or temperature variations, all of which can influence real-life performance.
     </p>
-    <div class="calculator-container">
-        <h2>Casing Burst Pressure Calculator</h2>
-        <div class="form-group">
-            <label for="tensileStrength">Tensile Strength (S<sub>t</sub>) (psi):</label>
-            <input type="number" id="tensileStrength" placeholder="Enter Tensile Strength">
-        </div>
-        <div class="form-group">
-            <label for="outerDiameter">Outer Diameter (D<sub>o</sub>) (inches):</label>
-            <input type="number" id="outerDiameter" placeholder="Enter Outer Diameter">
-        </div>
-        <div class="form-group">
-            <label for="wallThickness">Wall Thickness (t) (inches):</label>
-            <input type="number" id="wallThickness" placeholder="Enter Wall Thickness">
-        </div>
-        <button class="cal-btn" onclick="calculateBurstPressure()">Calculate Burst Pressure</button>
-        <div class="result" id="result"></div>
-    </div>
-    
-    <div class="note-container">
-        <h3>Note:</h3>
-        <p>
-            The <strong>Casing Burst Pressure (P<sub>b</sub>)</strong> is calculated using Barlow's formula, which is a widely used method for calculating the burst pressure of thin-walled cylindrical structures. This formula assumes uniform material properties and is based on a simplified model of the casing. 
-        </p>
-       
-        <ul>
-            <li><strong>P<sub>b</sub> (Burst Pressure):</strong> The pressure at which the casing is likely to rupture, measured in psi.</li>
-            <li><strong>S<sub>t</sub> (Tensile Strength):</strong> The material's tensile strength, indicating how much pressure the material can withstand before breaking, measured in psi.</li>
-            <li><strong>D<sub>o</sub> (Outer Diameter):</strong> The outer diameter of the casing, measured in inches.</li>
-            <li><strong>t (Wall Thickness):</strong> The thickness of the casing wall, measured in inches.</li>
-        </ul>
-        <p>
-            <strong>Note about psi:</strong> PSI stands for "Pounds per Square Inch" and is a unit of pressure commonly used in the United States to measure the intensity of force applied over an area. One psi is the pressure resulting from a force of one pound-force applied to an area of one square inch. In the context of casing burst pressure, psi measures how much pressure the casing can handle before failure.
-        </p>
-        <p>
-            In real-world applications, the calculated burst pressure gives an estimate of how much internal pressure a casing can withstand before failing. This is crucial in industries like oil and gas, where casing failure can result in severe consequences like well blowouts, safety hazards, and significant financial losses. A higher burst pressure indicates a stronger casing, but it’s important to note that this formula assumes ideal conditions and doesn’t account for factors like material defects, pressure cycling, or temperature variations, all of which can influence real-life performance.
-        </p>
-        <p>
-            <strong>Why this calculator is necessary for safety:</strong> 
-            Calculating the casing burst pressure helps ensure the integrity of the casing in high-pressure environments. In industries like oil and gas, where casing failure can cause catastrophic accidents, knowing the burst pressure limits is vital for selecting materials that can withstand internal pressures. This calculator allows engineers to predict when a casing might rupture and prevent potential disasters by ensuring the casing can handle the operational pressures. By ensuring that the casing is strong enough for the pressures it will face, this tool plays a critical role in protecting workers, the environment, and equipment from unsafe conditions.
-        </p>
-    </div>
-    
+   
     <script>
         function calculateBurstPressure() {
             const tensileStrength = parseFloat(document.getElementById('tensileStrength').value);
@@ -648,26 +607,6 @@ strong{
     </script>
 </div>
 
-<script>
-    function calculateBurstPressure() {
-        const tensileStrength = parseFloat(document.getElementById('tensileStrength').value);
-        const outerDiameter = parseFloat(document.getElementById('outerDiameter').value);
-        const wallThickness = parseFloat(document.getElementById('wallThickness').value);
-
-        if (isNaN(tensileStrength) || isNaN(outerDiameter) || isNaN(wallThickness) || 
-            wallThickness <= 0 || outerDiameter <= 0 || tensileStrength <= 0) {
-            document.getElementById('result').innerText = "Please enter valid numbers, and all values must be greater than zero.";
-            return;
-        }
-
-        const burstPressure = (2 * tensileStrength * wallThickness) / outerDiameter;
-        let resultText = `<strong>Burst Pressure: ${burstPressure.toFixed(2)} psi</strong>`;
-        if (burstPressure > 100000) { // Example threshold
-            resultText += `<br><span style="color: red;">Warning: Burst pressure exceeds typical safe limits for many materials.</span>`;
-        }
-        document.getElementById('result').innerHTML = resultText;
-    }
-</script>
 
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
