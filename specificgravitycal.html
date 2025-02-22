@@ -578,6 +578,7 @@ strong{
     <ul>
         <li><strong>Density of Substance (Ds):</strong> The density of the substance you’re testing, typically measured in **grams per cubic centimeter (g/cm³)**.</li>
         <li><strong>Density of Water (Dw):</strong> The density of water, which is usually **1 g/cm³** at **4°C** (this value is constant under normal conditions). You can use this value unless you are working with water at a different temperature or a specific liquid like seawater.</li>
+         <li>If density = 0, it would mean either mass is 0 (which means the object doesn’t exist) or volume is infinite (which is impossible).</li>
     </ul>
     <p>
         After entering these values, simply click the <strong>Calculate Specific Gravity</strong> button. The calculator will then divide the **density of the substance (Ds)** by the **density of water (Dw)** to give you the **specific gravity**.
@@ -592,19 +593,28 @@ strong{
 
 <script>
     function calculateSpecificGravity() {
-      const Ds = parseFloat(document.getElementById('substanceDensity').value);
-      const Dw = parseFloat(document.getElementById('waterDensity').value);
-  
-      if (isNaN(Ds) || isNaN(Dw)) {
-        document.getElementById('result').innerText = "Please fill in both fields with valid numbers.";
-        return;
-      }
-  
-      const specificGravity = Ds / Dw;
-      let feedback = specificGravity < 1 ? "The substance will float." : "The substance will sink.";
-      document.getElementById('result').innerText = `Specific Gravity: ${specificGravity.toFixed(2)}. ${feedback}`;
+        const Ds = parseFloat(document.getElementById('substanceDensity').value.trim());
+        const Dw = parseFloat(document.getElementById('waterDensity').value.trim());
+    
+        // Validate inputs
+        if (isNaN(Ds) || Ds <= 0) {
+            document.getElementById('result').innerText = "Please enter a valid positive number for the Density of Substance.";
+            return;
+        }
+        if (isNaN(Dw) || Dw <= 0) {
+            document.getElementById('result').innerText = "Please enter a valid positive number for the Density of Water (Dw must be greater than zero).";
+            return;
+        }
+    
+        // Calculate Specific Gravity
+        const specificGravity = Ds / Dw;
+        let feedback = specificGravity < 1 ? "The substance will float." : "The substance will sink.";
+    
+        // Display result
+        document.getElementById('result').innerText = `Specific Gravity: ${specificGravity.toFixed(2)}. ${feedback}`;
     }
-</script>
+    </script>
+    
 
 
 

@@ -252,9 +252,9 @@
 }
 
 .note-container h3 {
-    margin-top: 0;
+    margin:15px 0;
     color: #007bff;
-    font-size: 18px;
+    font-size: 20px;
 }
 
 .note-container p {
@@ -589,19 +589,42 @@ select {
 <div class="note-container">
     <h3>Note:</h3>
     <p>
-        This calculator helps measure leading safety indicators by calculating the **proactive safety rate** over a given time period. 
-        Leading safety indicators are proactive measures that help prevent incidents before they happen.
+        This calculator helps measure leading safety indicators by calculating the **Proactive Safety Rate (PSR)** over a given time period. 
+        Leading safety indicators are **preventive measures** that help identify and mitigate potential hazards **before** an incident occurs.
     </p>
+    
+    <h3>How to Use This Calculator:</h3>
     <ul>
-        <li><strong>Select Indicator Type:</strong> Choose from **inspections, trainings, or hazard reports**.</li>
-        <li><strong>Enter Number of Actions:</strong> Input the total number of safety actions taken.</li>
-        <li><strong>Choose Time Period:</strong> Select whether the period is in **days, months, or years**.</li>
-        <li><strong>Click "Calculate Safety Rate":</strong> The result will show the **rate of actions per selected time period**.</li>
+        <li><strong>Select Indicator Type:</strong> Choose from **inspections, trainings, or hazard reports**. These indicators reflect the proactive steps taken to ensure workplace safety.</li>
+        <li><strong>Enter Number of Actions:</strong> Input the total number of safety-related actions performed during the selected period (e.g., number of inspections completed, trainings conducted, or hazards reported).</li>
+        <li><strong>Choose Time Period:</strong> Select whether the time frame is measured in **days, months, or years**. This helps normalize the data for better analysis.</li>
+        <li><strong>Click "Calculate Safety Rate":</strong> The result will show the **rate of safety actions per selected time period**, allowing organizations to assess and improve their proactive safety efforts.</li>
     </ul>
+
+    <h3>Why Tracking Leading Safety Indicators is Important:</h3>
+    <ul>
+        <li>Helps prevent accidents and injuries by identifying potential hazards **before** they lead to incidents.</li>
+        <li>Encourages a **proactive safety culture** rather than a reactive approach.</li>
+        <li>Provides **measurable data** that can be used for improving safety programs and compliance.</li>
+        <li>Enhances **employee engagement** by showing a commitment to workplace safety.</li>
+        <li>Reduces costs associated with workplace injuries, insurance claims, and lost productivity.</li>
+    </ul>
+
+    <h3>Examples of Leading Safety Indicators:</h3>
+    <ul>
+        <li>Number of **safety inspections** conducted per month.</li>
+        <li>Number of **employees trained** in safety procedures.</li>
+        <li>Number of **hazards reported** and addressed before incidents occur.</li>
+        <li>Frequency of **safety meetings and toolbox talks**.</li>
+        <li>Percentage of **corrective actions completed on time**.</li>
+    </ul>
+
     <p>
-        This information helps organizations track and improve workplace safety proactively.
+        **Tracking and improving these indicators** ensures a safer, more efficient workplace while reducing risks and liabilities. 
+        Consistent monitoring allows organizations to take corrective actions **before** safety issues become critical.
     </p>
 </div>
+
 <script>
     function updateFields() {
         const indicatorType = document.getElementById('indicatorType').value;

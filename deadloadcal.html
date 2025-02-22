@@ -654,7 +654,7 @@ strong {
 
 
 <script>
-    function calculateDeadLoad() {
+   function calculateDeadLoad() {
     const standards = parseFloat(document.getElementById('standards').value);
     const standardsQty = parseInt(document.getElementById('standardsQty').value);
     const ledgers = parseFloat(document.getElementById('ledgers').value);
@@ -666,10 +666,19 @@ strong {
     const accessories = parseFloat(document.getElementById('accessories').value);
     const accessoriesQty = parseInt(document.getElementById('accessoriesQty').value);
 
+    // Validate inputs
     if (isNaN(standards) || isNaN(standardsQty) || isNaN(ledgers) || isNaN(ledgersQty) ||
         isNaN(transoms) || isNaN(transomsQty) || isNaN(platforms) || isNaN(platformsQty) ||
         isNaN(accessories) || isNaN(accessoriesQty)) {
-        document.getElementById('result').innerText = "Please fill in all fields with valid numbers.";
+        document.getElementById('result').innerHTML = "<span style='color: red;'>Please fill in all fields with valid numbers.</span>";
+        return;
+    }
+
+    // Ensure no negative values
+    if (standards < 0 || standardsQty < 0 || ledgers < 0 || ledgersQty < 0 ||
+        transoms < 0 || transomsQty < 0 || platforms < 0 || platformsQty < 0 ||
+        accessories < 0 || accessoriesQty < 0) {
+        document.getElementById('result').innerHTML = "<span style='color: red;'>Values must be zero or positive. Negative values are not allowed.</span>";
         return;
     }
 
@@ -677,8 +686,9 @@ strong {
                           (transoms * transomsQty) + (platforms * platformsQty) +
                           (accessories * accessoriesQty);
 
-    document.getElementById('result').innerText = `Total Dead Load: ${totalDeadLoad.toFixed(2)} kg.`;
+    document.getElementById('result').innerHTML = `<span style='color: green; font-weight: bold;'>Total Dead Load: ${totalDeadLoad.toFixed(2)} kg.</span>`;
 }
+
 
 </script>
 

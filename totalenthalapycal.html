@@ -570,9 +570,10 @@ strong{
     </p>
     <h3>Understanding h<sub>f</sub> and h<sub>fg</sub>:</h3>
     <ul>
-        <li><strong>Sensible Heat (h<sub>f</sub>)</strong>: The heat energy required to raise the temperature of water to its boiling point without phase change.</li>
-        <li><strong>Latent Heat of Vaporization (h<sub>fg</sub>)</strong>: The additional heat energy required to convert water at its boiling point into steam without further temperature rise.</li>
+        <li><strong>Sensible Heat (h<sub>f</sub>)</strong>: The heat energy required to raise the temperature of water to its boiling point without phase change. <br> Sensible Heat (hₙ) > 0</li>
+        <li><strong>Latent Heat of Vaporization (h<sub>fg</sub>)</strong>: The additional heat energy required to convert water at its boiling point into steam without further temperature rise.<br>Latent Heat (hₓg) > 0</li>
     </ul>
+    
     <h3>How It Contributes to Safety:</h3>
     <ul>
         <li>Prevents <strong>overheating and pressure buildup</strong> in steam boilers.</li>
@@ -590,29 +591,37 @@ strong{
     </p>
 </div>
 <script>
-    function calculateEnthalpy() {
-        const hf = parseFloat(document.getElementById('hf').value);
-        const hfg = parseFloat(document.getElementById('hfg').value);
+   function calculateEnthalpy() {
+    const hf = parseFloat(document.getElementById('hf').value);
+    const hfg = parseFloat(document.getElementById('hfg').value);
+    const resultElement = document.getElementById('result');
 
-        if (isNaN(hf) || isNaN(hfg)) {
-            document.getElementById('result').innerText = "Please enter valid numbers for both fields.";
-            return;
-        }
-
-        const hg = hf + hfg;
-        let feedbackMessage = `Total Enthalpy of Steam: ${hg.toFixed(2)} kJ/kg.`;
-
-        // Provide feedback based on the result
-        if (hg < 2000) {
-            feedbackMessage += " This is considered low enthalpy, indicating that the steam is in the saturated liquid phase or just beginning to vaporize. It suggests that the steam has not yet absorbed much energy.";
-        } else if (hg >= 2000 && hg <= 2800) {
-            feedbackMessage += " This is within the typical range for industrial steam at moderate pressures and temperatures.";
-        } else {
-            feedbackMessage += " This indicates high enthalpy, often associated with high pressure and superheated steam, useful in advanced power generation systems.";
-        }
-
-        document.getElementById('result').innerText = feedbackMessage;
+    // Validate input
+    if (isNaN(hf) || isNaN(hfg)) {
+        resultElement.innerHTML = "<span style='color: red;'>Please enter valid numbers for both fields.</span>";
+        return;
     }
+
+    if (hf <= 0 || hfg <= 0) {
+        resultElement.innerHTML = "<span style='color: red;'>Values must be greater than zero. Steam cannot have zero enthalpy.</span>";
+        return;
+    }
+
+    const hg = hf + hfg;
+    let feedbackMessage = `<span style='color: green; font-weight: bold;'>Total Enthalpy of Steam: ${hg.toFixed(2)} kJ/kg.</span>`;
+
+    // Provide feedback based on enthalpy range
+    if (hg < 2000) {
+        feedbackMessage += " This is considered low enthalpy, indicating that the steam is in the saturated liquid phase or just beginning to vaporize.";
+    } else if (hg >= 2000 && hg <= 2800) {
+        feedbackMessage += " This is within the typical range for industrial steam at moderate pressures and temperatures.";
+    } else {
+        feedbackMessage += " This indicates high enthalpy, often associated with high pressure and superheated steam.";
+    }
+
+    resultElement.innerHTML = feedbackMessage;
+}
+
 </script>
 
 

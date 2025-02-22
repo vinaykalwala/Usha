@@ -643,20 +643,29 @@ strong{
   
   
   <script>
-    function calculateTIL() {
-      const DL = parseFloat(document.getElementById('deadLoad').value);
-      const LL = parseFloat(document.getElementById('liveLoad').value);
-  
-      if (isNaN(DL) || isNaN(LL)) {
-        document.getElementById('result').innerText = "Please fill in all fields with valid numbers.";
+  function calculateTIL() {
+    const DL = parseFloat(document.getElementById('deadLoad').value);
+    const LL = parseFloat(document.getElementById('liveLoad').value);
+    const resultElement = document.getElementById('result');
+
+    // Validate inputs
+    if (isNaN(DL) || isNaN(LL)) {
+        resultElement.innerHTML = "<span style='color: red;'>Please enter valid numeric values for both fields.</span>";
         return;
-      }
-  
-      const TIL_KG = DL + LL; // Total Intended Load in kg
-      const TIL_LB = TIL_KG * 2.20462; // Convert to pounds (1 kg = 2.20462 lbs)
-      
-      document.getElementById('result').innerHTML = `Total Intended Load (TIL): ${TIL_KG.toFixed(2)} kg (or ${TIL_LB.toFixed(2)} lbs).`;
     }
+
+    if (DL < 0 || LL < 0) {
+        resultElement.innerHTML = "<span style='color: red;'>Load values must be zero or positive. Negative values are not allowed.</span>";
+        return;
+    }
+
+    // Calculate Total Intended Load (TIL)
+    const TIL_KG = DL + LL;
+    const TIL_LB = TIL_KG * 2.20462; // Convert to pounds
+
+    resultElement.innerHTML = `<span style='color: green; font-weight: bold;'>Total Intended Load (TIL): ${TIL_KG.toFixed(2)} kg (or ${TIL_LB.toFixed(2)} lbs).</span>`;
+}
+
   </script>
   
 

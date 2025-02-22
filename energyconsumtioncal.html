@@ -583,33 +583,38 @@ strong{
 function calculateEnergyConsumption() {
     const deviceWattage = parseFloat(document.getElementById('deviceWattage').value);
     const hoursPerDay = parseFloat(document.getElementById('hoursPerDay').value);
+    const resultElement = document.getElementById('result');
+    const feedbackElement = document.getElementById('feedback');
 
-    if (isNaN(deviceWattage) || isNaN(hoursPerDay) || deviceWattage <= 0 || hoursPerDay <= 0) {
-        document.getElementById('result').innerText = "Please enter valid positive numbers.";
+    // If invalid input, clear previous results and show error message
+    if (isNaN(deviceWattage) || isNaN(hoursPerDay) || deviceWattage <= 0 || hoursPerDay <= 0 || hoursPerDay > 24) {
+        resultElement.innerText = "";
+        feedbackElement.innerText = "";
+        resultElement.innerText = "Please enter valid positive numbers.";
         return;
     }
 
     // Convert device wattage from watts to kilowatts
-    const deviceWattageKW = deviceWattage / 1000;  // Convert wattage to kilowatts (1 kW = 1000 W)
+    const deviceWattageKW = deviceWattage / 1000; // Convert wattage to kilowatts (1 kW = 1000 W)
 
     // Total energy consumed in kilowatt-hours (kWh) per day
     const totalEnergyKWh = deviceWattageKW * hoursPerDay;
 
-    document.getElementById('result').innerText = 
-        `Total Energy Consumption: ${totalEnergyKWh.toFixed(2)} kWh per day`;
+    resultElement.innerText = `Total Energy Consumption: ${totalEnergyKWh.toFixed(2)} kWh per day`;
 
     // Provide feedback
-    let feedback = '';
+    let feedback = "";
     if (totalEnergyKWh < 1) {
-        feedback = "This is low energy consumption. Great job!";
+        feedback = "✅ This is low energy consumption. Great job!";
     } else if (totalEnergyKWh >= 1 && totalEnergyKWh <= 5) {
-        feedback = "This is moderate energy consumption. You might want to consider reducing usage to save energy.";
+        feedback = "⚡ This is moderate energy consumption. Consider reducing usage to save energy.";
     } else {
-        feedback = "This is high energy consumption. Consider using energy-efficient devices or reducing usage.";
+        feedback = "❗ This is high energy consumption. Consider using energy-efficient devices or reducing usage.";
     }
 
-    document.getElementById('feedback').innerText = feedback;
+    feedbackElement.innerText = feedback;
 }
+
 </script>
 
 

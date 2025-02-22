@@ -636,10 +636,10 @@ strong{
   const electronics = parseFloat(document.getElementById('electronics').value) || 0;
 
   // Validate if values are numbers and positive
-  if (isNaN(mixedPaper) || isNaN(commingledMaterials) || isNaN(scrapMetal) || isNaN(electronics)) {
-    alert("Please enter valid numbers for all fields.");
-    return;
-  }
+  if (mixedPaper < 0 || commingledMaterials < 0 || scrapMetal < 0 || electronics < 0) {
+        alert("Please enter only non-negative values.");
+        return;
+    }
 
   // Impact values per pound (these are sample values, you can adjust them as needed)
   const energySavedPaper = 0.10; // kWh per lb of mixed paper

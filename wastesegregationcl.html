@@ -586,18 +586,23 @@ strong{
 function calculateEfficiency() {
     const segregatedWaste = parseFloat(document.getElementById('segregatedWaste').value);
     const totalWaste = parseFloat(document.getElementById('totalWaste').value);
+    const resultElement = document.getElementById('result');
 
-    if (isNaN(segregatedWaste) || isNaN(totalWaste) || totalWaste <= 0) {
-        document.getElementById('result').innerText = "Please enter valid positive numbers.";
+    // Clear previous result on invalid input
+    resultElement.innerText = "";
+
+    // Validate inputs
+    if (isNaN(segregatedWaste) || isNaN(totalWaste) || segregatedWaste < 0 || totalWaste <= 0 || segregatedWaste > totalWaste) {
+        resultElement.innerText = "Please enter valid numbers. Segregated waste cannot be negative or greater than total waste.";
         return;
     }
 
     // Calculate waste segregation efficiency
     const efficiency = (segregatedWaste / totalWaste) * 100;
 
-    document.getElementById('result').innerText = 
-        `Waste Segregation Efficiency: ${efficiency.toFixed(2)}%`;
+    resultElement.innerText = `Waste Segregation Efficiency: ${efficiency.toFixed(2)}%`;
 }
+
 </script>
 
 

@@ -572,8 +572,8 @@ strong{
     </p>
     <p><strong>How to use this calculator:</strong></p>
     <ul>
-        <li><strong>Velocity (m/s):</strong> Enter the speed at which air is moving.</li>
-        <li><strong>Area (m²):</strong> Enter the cross-sectional area through which air flows.</li>
+        <li><strong>Velocity (m/s):</strong> Enter the speed at which air is moving.<br>A velocity of 0 means no air is moving, so no flow rate exists.</li>
+        <li><strong>Area (m²):</strong> Enter the cross-sectional area through which air flows.<br>An area of 0 means there is no opening for air to pass through, making flow impossible.</li>
     </ul>
     <p>
         Click the <strong>Calculate Air Flow Rate</strong> button to compute the result.
@@ -585,8 +585,8 @@ strong{
         const velocity = parseFloat(document.getElementById('velocity').value);
         const area = parseFloat(document.getElementById('area').value);
 
-        if (isNaN(velocity) || isNaN(area) || velocity < 0 || area < 0) {
-            document.getElementById('result').innerText = "Please enter valid positive numbers.";
+        if (isNaN(velocity) || isNaN(area) || velocity <= 0 || area <= 0) {
+            document.getElementById('result').innerText = "Please enter valid Positive and Valid numbers.";
             return;
         }
 

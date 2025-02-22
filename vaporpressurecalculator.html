@@ -562,7 +562,7 @@ strong{
         <input type="number" id="C" placeholder="Enter Constant C">
     </div>
     <div class="form-group">
-        <label for="T">Temperature (T):</label>
+        <label for="T">Temperature (T, °C):</label>
         <input type="number" id="T" placeholder="Enter Temperature">
     </div>
     <button class="cal-btn" onclick="calculateVaporPressure()">Calculate Vapor Pressure</button>
@@ -578,7 +578,7 @@ strong{
       
         <ul>
             <li><strong>A</strong>, <strong>B</strong>, and <strong>C</strong> are substance-specific constants that are experimentally determined for each chemical compound. These constants vary depending on the substance and the temperature range being studied.</li>
-            <li><strong>T</strong> is the temperature at which the vapor pressure is being calculated. The units of temperature must match the units used in the constants (typically in Celsius or Kelvin).</li>
+            <li><strong>T</strong> is the temperature at which the vapor pressure is being calculated. The units of temperature must match the units used in the constants (typically in Celsius (°C) or Kelvin (K), with Kelvin being the standard in thermodynamic calculations).</li>
         </ul>
     </p>
     <p>
@@ -608,17 +608,40 @@ strong{
         const B = parseFloat(document.getElementById('B').value);
         const C = parseFloat(document.getElementById('C').value);
         const T = parseFloat(document.getElementById('T').value);
+        const resultElement = document.getElementById('result');
 
+        // Clear previous results
+        resultElement.style.color = "black";
+
+        // Basic Validation: Check if inputs are numbers
         if (isNaN(A) || isNaN(B) || isNaN(C) || isNaN(T)) {
-            document.getElementById('result').innerText = "Please enter valid numbers for all fields.";
+            resultElement.innerText = "⚠️ Please enter valid numeric values for all fields.";
             return;
         }
 
-        const vaporPressure = A - (B / (C + T));
-        document.getElementById('result').innerText = `Vapor Pressure: ${vaporPressure.toFixed(2)}`;
+        // Ensure temperature (T) is within a valid range
+        if (T <= -273.15) {  // Absolute zero in Celsius
+            resultElement.innerText = "⚠️ Temperature (T) must be above absolute zero (-273.15°C or 0 K).";
+            return;
+        }
+
+        // Ensure denominator is not zero
+        if (C + T === 0) {
+            resultElement.innerText = "⚠️ Invalid calculation: (C + T) results in division by zero. This happens because the denominator in the equation cannot be zero, as division by zero is undefined in mathematics. Please ensure that (C + T) is not equal to zero by choosing valid input values.";
+            return;
+        }
+
+        // Calculate vapor pressure using the Antoine equation
+        const logP = A - (B / (C + T)); // Logarithm of vapor pressure (base 10)
+        const vaporPressure = Math.pow(10, logP); // Convert to actual vapor pressure
+
+        // Display Result
+        resultElement.innerHTML = `
+            <p style="color: green;"><strong>Vapor Pressure:</strong> ${vaporPressure.toFixed(2)} mmHg</p>
+            <p><em>Note: Vapor pressure is calculated in mmHg (millimeters of mercury).</em></p>
+        `;
     }
 </script>
-
 
 
 

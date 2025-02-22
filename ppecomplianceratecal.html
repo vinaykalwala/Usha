@@ -574,18 +574,25 @@ strong{
 </div>
 
 <script>
-    function calculatePPECompliance() {
-        const compliantEmployees = parseFloat(document.getElementById('compliantEmployees').value);
-        const totalEmployees = parseFloat(document.getElementById('totalEmployees').value);
+   function calculatePPECompliance() {
+    const compliantEmployees = parseFloat(document.getElementById('compliantEmployees').value);
+    const totalEmployees = parseFloat(document.getElementById('totalEmployees').value);
+    const resultElement = document.getElementById('result');
 
-        if (isNaN(compliantEmployees) || isNaN(totalEmployees) || totalEmployees === 0) {
-            document.getElementById('result').innerText = "Please enter valid numbers (Total employees must be greater than 0).";
-            return;
-        }
-
-        const complianceRate = (compliantEmployees / totalEmployees) * 100;
-        document.getElementById('result').innerText = `PPE Compliance Rate: ${complianceRate.toFixed(2)}%`;
+    if (isNaN(compliantEmployees) || isNaN(totalEmployees) || totalEmployees <= 0) {
+        resultElement.innerText = "Please enter valid positive numbers (Total employees must be greater than 0).";
+        return;
     }
+
+    if (compliantEmployees < 0 || compliantEmployees > totalEmployees) {
+        resultElement.innerText = "Compliant employees cannot be negative or greater than total employees.";
+        return;
+    }
+
+    const complianceRate = (compliantEmployees / totalEmployees) * 100;
+    resultElement.innerText = `PPE Compliance Rate: ${complianceRate.toFixed(2)}%`;
+}
+
 </script>
 
 

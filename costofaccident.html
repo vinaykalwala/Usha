@@ -599,10 +599,11 @@ strong{
         const directCost = parseFloat(document.getElementById('directCost').value);
         const indirectCost = parseFloat(document.getElementById('indirectCost').value);
 
-        if (isNaN(directCost) || isNaN(indirectCost)) {
-            document.getElementById('result').innerText = "⚠️ Please enter valid numbers for both costs.";
-            return;
-        }
+        if (isNaN(directCost) || isNaN(indirectCost) || directCost < 0 || indirectCost < 0) {
+    document.getElementById('result').innerText = "⚠️ Please enter valid positive numbers for both costs.";
+    return;
+}
+
 
         const totalCost = directCost + indirectCost;
         let feedback = "";

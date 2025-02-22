@@ -593,18 +593,28 @@ strong{
 
 <script>
     function calculateSafetyFactor() {
-      const ultimateStress = parseFloat(document.getElementById('ultimateStress').value);
-      const allowableStress = parseFloat(document.getElementById('allowableStress').value);
-  
-      if (isNaN(ultimateStress) || isNaN(allowableStress) || allowableStress <= 0) {
-        document.getElementById('result').innerText = "Please enter valid positive numbers.";
-        return;
-      }
-  
-      const safetyFactor = ultimateStress / allowableStress;
-      document.getElementById('result').innerText = `Safety Factor: ${safetyFactor.toFixed(2)}`;
+        const ultimateStress = parseFloat(document.getElementById('ultimateStress').value);
+        const allowableStress = parseFloat(document.getElementById('allowableStress').value);
+        const resultElement = document.getElementById('result');
+
+        // Validation: Ensure inputs are valid numbers and non-negative
+        if (isNaN(ultimateStress) || isNaN(allowableStress)) {
+            resultElement.innerText = "Please enter valid numeric values.";
+            return;
+        }
+
+        // Validation: Prevent negative or zero values
+        if (ultimateStress < 0 || allowableStress <= 0) {
+            resultElement.innerText = "Values must be positive. Allowable stress cannot be zero.";
+            return;
+        }
+
+        // Calculate Safety Factor
+        const safetyFactor = ultimateStress / allowableStress;
+        resultElement.innerText = `Safety Factor: ${safetyFactor.toFixed(2)}`;
     }
 </script>
+
 
 
 

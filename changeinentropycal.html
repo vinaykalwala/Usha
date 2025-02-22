@@ -567,7 +567,7 @@ strong{
         This calculator helps determine the change in entropy for a thermodynamic process. Entropy is a measure of the disorder or randomness in a system, which reflects how energy is dispersed or spread within the system. The concept of entropy is central to the second law of thermodynamics, which states that the total entropy of an isolated system can never decrease over time.
     </p>
     <ul>
-        <li><strong>Heat Added (Q) (Change in Enthalpy):</strong> The amount of heat added to the system (in Joules). This is the energy transferred into the system, typically as heat, and represents the change in enthalpy.</li>
+        <li><strong>Heat Added (Q) (Change in Enthalpy):</strong> The amount of heat added to the system (in Joules). This is the energy transferred into the system, typically as heat, and represents the change in enthalpy. Q can be negative if heat is removed from the system.</li>
         <li><strong>Temperature (T) (Average Absolute Temperature):</strong> The average absolute temperature of the system during the process (in Kelvin). This is the temperature at which the heat transfer occurs, and it should always be in Kelvin, the absolute scale.</li>
     </ul>
     <p>
@@ -585,22 +585,37 @@ strong{
 </div>
 
 <script>
-    function calculateEntropyChange() {
-        const Q = parseFloat(document.getElementById('heatAdded').value);
-        const T = parseFloat(document.getElementById('temperature').value);
+   function calculateEntropyChange() {
+    const Q = parseFloat(document.getElementById('heatAdded').value);
+    const T = parseFloat(document.getElementById('temperature').value);
+    const resultElement = document.getElementById('result'); // Define the result element
 
-        if (isNaN(Q) || isNaN(T) || T <= 0) {
-            document.getElementById('result').innerText = "Please fill in all fields with valid numbers.";
-            return;
-        }
-
-        const entropyChange = Q / T;
-        document.getElementById('result').innerText = `Change in Entropy: ${entropyChange.toFixed(2)} J/K. 
-The result indicates how much the disorder or randomness in the system has changed due to the heat transfer. 
-A positive value suggests an increase in disorder, while a negative value indicates a decrease in disorder.`;
+    if (isNaN(Q) || isNaN(T)) {
+        resultElement.innerText = "⚠️ Please enter valid numeric values.";
+        return;
     }
-</script>
 
+    if (T <= 0) {
+        resultElement.innerText = "⚠️ Temperature (T) must be greater than 0 Kelvin.";
+        return;
+    }
+
+    // Calculate entropy change
+    const entropyChange = Q / T;
+
+    // Interpret result
+    let explanation = entropyChange > 0 
+        ? "Entropy increased: More disorder in the system." 
+        : "Entropy decreased: System lost heat, becoming more ordered.";
+
+    // Display result
+    resultElement.innerHTML = `
+        <p style="color: green;"><strong>Change in Entropy:</strong> ${entropyChange.toFixed(2)} J/K</p>
+        <p>${explanation}</p>
+    `;
+}
+
+</script>
 
 
 

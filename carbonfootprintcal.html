@@ -616,7 +616,7 @@ function calculateCarbonFootprint() {
     const miles = parseFloat(document.getElementById('miles').value);
     const emissionFactor = parseFloat(document.getElementById('emissionFactor').value);
 
-    if (isNaN(miles) || isNaN(emissionFactor) || miles <= 0 || emissionFactor <= 0) {
+    if (isNaN(miles) || isNaN(emissionFactor) || miles <= 0 || emissionFactor < 0) {
         document.getElementById('result').innerText = "Please enter valid positive numbers.";
         document.getElementById('feedback').innerText = "";
         return;
