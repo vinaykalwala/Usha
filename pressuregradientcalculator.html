@@ -122,12 +122,7 @@
 .whatsapp-icon:hover .whatsapp-text {
     display: block;
 }
-        
-        body {
-            background-color: #f8f9fa;
-            font-family: Arial, sans-serif;
-        }
-      
+       
     body {
     -webkit-user-select: none; /* Safari */
     -moz-user-select: none; /* Firefox */
@@ -169,183 +164,112 @@
 	overflow-y: scroll;
 }
 
-
-/* General Reset */
-
-
-/* Styling for the header section */
-.main-header {
-    text-align: center;
-    background-image:url('images/vindus_clients_images/blue4.jpg');  /* Blue */
-    color: #1560bd;
-    padding: 40px 20px;
-    background-size: cover;
-}
-
-.main-header h1 {
-    font-size: 2rem;
-    margin-bottom: 15px;
-    color: #012756;
-}
-
-.main-header p {
-    font-size: 1.2rem;
-    margin-bottom: 5px;
-}
-
-/* Styling for the main content */
-
-
-.main-content {
-            padding: 0px 10%;
-            text-align: center;
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
         }
+        .calculator-container {
+            max-width: 900px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #ffff;
+            border-radius: 10px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+            border: 2px dotted #1560bd;
 
-       /* General Reset */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-/* Styling for the header section */
-.main-header {
-    text-align: center;
-    background-image:url('images/vindus_clients_images/blue4.jpg');  /* Blue */
-    color: #1560bd;
-    padding: 40px 20px;
-    background-size: cover;
-}
-
-.main-header h1 {
-    font-size: 2rem;
-    margin-bottom: 15px;
-    color: #012756;
-}
-
-.main-header p {
-    font-size: 1.2rem;
-    margin-bottom: 5px;
-}
-
-/* Styling for the main content */
-.main-content {
-    padding: 50px 10%;
-    color: white;
-}
-
-/* Calculator Section Styling */
-.calculator-section {
-    margin-bottom: 20px;
-    text-align: center;
-}
-
-.calculator-section h2 {
-    font-size: 2rem;
-    margin-bottom: 30px;
-    color: #1560bd;
-}
-
-/* Button Container */
-.button-container {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr); /* Two buttons per row */
-    gap: 20px;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-/* Calculator Button Styling */
-.calculator-btn {
-    display: block;
-    background:linear-gradient(#000040,#1560bd);  /* Dark Navy */
-    color: white;
-    text-align: center;
-    padding: 15px;
-    font-size: 0.9rem;
-    text-decoration: none;
-    border-radius: 10px;
-    border: 2px solid #1560bd;  /* Blue Border */
-}
-
-.calculator-btn:hover {
-    background-color: #1560bd;  /* Blue on hover */
-    color: white;
-}
-
-.calculator-btn:active {
-    background-color: #104c85;  /* Darker blue on active */
-}
-
-/* Responsive Styling */
-@media (max-width: 768px) {
-    .button-container {
-        grid-template-columns: 1fr;  /* One button per row for smaller screens */
-    }
-}
-/* Styling for the Back to All Calculators button */
-.btn-back-to-all {
-    background-color: #1560bd; /* Light blue */
-    color: white;
-    padding: 10px 20px;
-    font-size: 16px;
-    font-weight: bold;
-    text-decoration: none;
-    border-radius: 5px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: background-color 0.3s, transform 0.3s;
-}
-
-.btn-back-to-all:hover {
-    background-color: #1560bd; /* Dark blue */
-    transform: translateY(-2px);
-}
-
-.btn-back-to-all:active {
-    background-color: #1560bd; /* Dark blue */
-    transform: translateY(2px);
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-    .btn-back-to-all {
-        font-size: 14px;
-        padding: 12px 25px;
+        }
+        @media (max-width: 768px) {
+            .calculator-container {
+        margin: 20px 15px; 
+        padding: 15px; 
     }
 }
 
 @media (max-width: 480px) {
-    .btn-back-to-all {
-        font-size: 12px;
-        padding: 10px 20px;
+    .calculator-container {
+        margin: 10px 10px; 
+        padding: 10px; 
     }
 }
-.custom-search {
-        width: 100%;
-        max-width: 600px;
-        margin: 0 auto;
-        padding: 10px 15px;
-        border: 1px solid #1560bd;
-        border-radius: 8px;
-        font-size: 16px;
-        background-color:rgb(213, 241, 252);
-        color: white;
-        transition: all 0.3s ease-in-out;
-    }
-
-    .custom-search::placeholder {
-        color: #807e7e;
-    }
-
-  
-
-    /* Responsive */
-    @media (max-width: 576px) {
-        .custom-search {
-            font-size: 14px;
-            padding: 8px 12px;
+        .calculator-header {
+            font-size: 1.8rem;
+            color: #1560bd;
+            text-align: center;
+            margin-bottom: 20px;
         }
+        .input-field {
+            margin-bottom: 20px;
+        }
+        .input-field label {
+            font-size: 1.1rem;
+            font-weight: bold;
+            display: block;
+            margin-bottom: 5px;
+        }
+        .input-field input {
+            padding: 12px;
+            width: 100%;
+            font-size: 1rem;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            background-color: rgb(223, 241, 247);
+
+        }
+        .calculate-btn {
+            width: 100%;
+            padding: 12px;
+            background-color: #1560bd;
+            color: white;
+            font-size: 1.2rem;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .calculate-btn:hover {
+            background-color: #7ea9de;
+        }
+        .result {
+            margin-top: 20px;
+            font-size: 1rem;
+            font-weight: bold;
+            color: #000040;
+            text-align: center;
+        }
+        .note-container {
+            margin:20px auto;
+    padding: 15px;
+    background-color: rgb(223, 241, 247);
+    border: 1px solid #1560bd;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    font-size: 16px;
+    line-height: 1.5;
+    color: #333;
+    max-width: 1200px;
+    margin-bottom: 15px;
+}
+
+.note-container h3 {
+    margin: 15px 0;
+    color: #007bff;
+    font-size: 20px;
+}
+
+.note-container p {
+    margin-top: 15px;
+}
+@media (max-width: 768px) {
+    .note-container {
+        margin: 15px; 
+        padding: 10px; 
     }
+}
+strong{
+    color: #0082ca;
+}
 </style>
 	</head>
 
@@ -622,136 +546,68 @@
 <br><br><br><br>
 
 
-<div class="main-header">
-    <h1>World's No.1 QEHS Calculator</h1>
-    <p>Your trusted tool ✔️ for Quality, Environment, Health, Safety & Fire Calculations</p>
+<div class="calculator-container">
+    <h2 class="calculator-header">Pressure Gradient Calculator</h2>
+
+    <div class="input-field">
+        <label for="pressure">Pressure (psi):</label>
+        <input type="number" id="pressure" placeholder="Enter pressure in psi">
+    </div>
+    <div class="input-field">
+        <label for="depth">Depth (feet):</label>
+        <input type="number" id="depth" placeholder="Enter depth in feet">
+    </div>
+
+    <button class="calculate-btn" onclick="calculatePressureGradient()">Calculate PG</button>
+
+    <div class="result" id="resultOutput"></div>
+
+    
+</div>
+<div class="note-container">
+    <h3>Note:</h3>
+    <p>The <strong>Pressure Gradient (PG)</strong> formula helps determine how pressure changes with depth in a fluid or gas-filled system. The formula is: This equation expresses the rate at which pressure changes per unit of depth, typically measured in <strong>psi per foot (psi/ft)</strong>. It is a crucial calculation in fluid mechanics, geophysics, fire suppression systems, and oil & gas industries.</p>
+
+    <h3>Explanation of Parameters</h3>
+    <p>Each term in the formula has a specific meaning:</p>
+    <ul>
+        <li><strong>PG (Pressure Gradient)</strong>: The rate of pressure change with depth, measured in psi/ft. A higher PG indicates a steeper pressure change.</li>
+        <li><strong>P (Pressure)</strong>: The total pressure at a given point, measured in pounds per square inch (psi).</li>
+        <li><strong>D (Depth)</strong>: The vertical depth from the surface, measured in feet. This represents how deep the pressure is being measured.</li>
+    </ul>
+    <p><strong>Important Note:</strong> The depth (D) must always be a positive number greater than zero to avoid division errors.</p>
+
+    <h3> Real-Life Applications of Pressure Gradient Calculation</h3>
+    <p>The pressure gradient formula is widely used in various industries, including:</p>
+    <ul>
+        <li><strong>Oil & Gas Industry</strong>: Determines wellbore pressure to prevent blowouts and optimize drilling operations.</li>
+        <li><strong>Fire Safety Systems</strong>: Helps in designing fire suppression systems, ensuring proper water pressure distribution.</li>
+        <li><strong>Pipeline Engineering</strong>: Ensures pipelines handle appropriate pressure changes across different depths.</li>
+        <li><strong>Environmental Safety</strong>: Used in underground storage tanks and gas reservoirs to monitor pressure variations.</li>
+        <li><strong>Hydraulic Engineering</strong>: Determines the required pressure for fluid movement in dams, canals, and irrigation systems.</li>
+    </ul>
+
+    <p>The <strong>Pressure Gradient Calculator</strong> is a vital tool for engineers and safety professionals. It helps in making informed decisions regarding pipeline safety, fire suppression systems, and wellbore integrity. By understanding and applying the formula correctly, industries can improve efficiency, ensure safety, and prevent structural failures due to incorrect pressure estimations.</p>
 </div>
 
-<div class="main-content">
-    <!-- Indian Standards Section -->
-    <section class="calculator-section">
-        <div class="text-center mb-4">
-            <a href="calculatorqehs.html" class="btn btn-back-to-all"> &#x21A9; Back to All Calculators</a>
-        </div>
-        <h2 class="sub-heading">Safety Calculators</h2>
-
-        <div class="text-center mb-4">
-            <input type="text" id="searchBar" class="form-control custom-search" placeholder="🔍 Search Calculator..." onkeyup="filterCalculators()">
-        </div>
-        
-
-        <div class="button-container" id="calculatorList">
-            <a href="accidentrate.html" class="calculator-btn">Accident Rate Calculator</a>
-            <a href="averageresolutiontimecalculator.html" class="calculator-btn">Average Resolution Time (ART) Calculator</a>
-
-
-            <a href="bitwearefficiencycal.html" class="calculator-btn">Bit Wear and Efficiency Calculator</a>
-            <a href="changeinentropycal.html" class="calculator-btn">Change in Entropy Calculator</a>
-            <a href="costofaccident.html" class="calculator-btn">Cost of Accident Calculator</a>
-            <a href="casingburstpressurecalculator.html" class="calculator-btn">Casing Burst Pressure Calculator</a>
-            <a href="casingcolapsepresurecal.html" class="calculator-btn">Casing Collapse Pressure Calculator</a>
-            <a href="cementvolume.html" class="calculator-btn">cement-volume-calculator</a>
-            <a href="cementslurrydensity.html" class="calculator-btn">cement-slurry-density-calculator</a>
-
-
-            <!-- <a href="drillingcostestimator.html" class="calculator-btn">Drilling Cost Estimator Calculator</a> -->
-
-          
-            <a href="densityofmaterial.html" class="calculator-btn">Density of a material Calculator</a>
-            <a href="daltonslawofpartialpressures.html" class="calculator-btn">Dalton's Law of Partial Pressures Calculator</a>
-            
-            <a href="earthingcalculator.html" class="calculator-btn">Earthing System Calculator</a>
-            <a href="energytransformcal.html" class="calculator-btn">Energy Transfer Calculator</a>
-            <a href="ergonomicriskfactor.html" class="calculator-btn">Ergonomic Risk Score Calculator</a>
-            <a href="emergencydrillrate.html" class="calculator-btn">Emergency Drill Success Rate Calculator</a>
-            <a href="excavationslopecal.html" class="calculator-btn">Excavation Slope Calculator</a>
-            <a href="equivalentcirculatingdensity.html" class="calculator-btn">Equivalent Circulating Density (ECD) Calculator</a>
-            <a href="energyrequirementforaflowtype.html" class="calculator-btn">Energy Requirement for a Flow-Type Application Calculator</a>
-
-            <a href="fluidlosscalculator.html" class="calculator-btn">Fluid Loss Calculator for Drilling</a>
-            <a href="fracturegradientcalculator.html" class="calculator-btn">Fracture Gradient Calculator</a>
-
-
-
-            <a href="fallcal.html" class="calculator-btn">Fall Clearance Calculator</a>
-
-            <a href="incidentratecal.html" class="calculator-btn">Incidence Rate Calculator</a>
-            <a href="incidentfrequentrate.html" class="calculator-btn">Incident Frequency Rate (IFR) Calculator</a>
-            <a href="Incidentsnearmissescalculator.html" class="calculator-btn">Incidents & Near Misses Calculator</a>
-
-
-            <a href="ipchecker.html" class="calculator-btn">IP Rating Checker</a>
-            <a href="kicktolerancecalculator.html" class="calculator-btn">Kick Tolerance Calculator</a>
-            <a href="thekineticenergyinsteam.html" class="calculator-btn"> Kinetic Energy In Steam</a>
-
-
-           
-            <a href="laddercal.html" class="calculator-btn">Ladder Length Calculator</a>
-            <a href="ltifrcal.html" class="calculator-btn">Lost Time Injury Frequency Rate (LTIR) Calculator</a>
-            <a href="liveloadcal.html" class="calculator-btn">Live Load Calculation (LL)</a>
-            <a href="loadperlegcal.html" class="calculator-btn">Load Distribution Per Leg</a>
-            <a href="leadingsafetyindicator.html" class="calculator-btn">Leading Safety Indicators</a>
-            <a href="mudweightcalcualtor.html" class="calculator-btn">Mud Weight (Density) Calculator</a>
-            <a href="mudpumpoutputcalculator.html" class="calculator-btn">Mud Pump Output Calculator</a>
-            <a href="marshfunnelviscositycalculator.html" class="calculator-btn">Marsh Funnel Viscosity Calculator</a>
-            <a href="massandheatbalanceforsteaminjectionintoatank.html" class="calculator-btn">Mass And Heat Balance For Steam Injection Into A Tank Calculator</a>
-
-
-            <a href="nema&ipratecal.html" class="calculator-btn">NEMA and IP Ratings Calculator</a>
-            <a href="trir.html" class="calculator-btn">OSHA Total Recordable Incident Rate (TRIR) Calculator</a>
-            <a href="dartcal.html" class="calculator-btn">OSHA DART Rate Calculator</a>
-            <a href="ppecomplianceratecal.html" class="calculator-btn">PPE Compliance Rate</a>
-            <a href="pressuregradientcalculator.html" class="calculator-btn">Pressure Gradient Calculator</a>
-            <a href="risklevelassessment.html" class="calculator-btn">Risk Level Assessment</a>
-            <a href="riskprioritynumber.html" class="calculator-btn">Risk Priority Number (RPN) Calculator</a>
-
-            <a href="rop.html" class="calculator-btn">Rate of Penetration (ROP) Calculator</a>
-            <a href="rheologyviscositycalculator.html" class="calculator-btn">Rheology (Viscosity) Calculator</a>
-
-            <a href="severitycal.html" class="calculator-btn">Severity Rate Calculator</a>
-            <a href="sclwireropecalculator.html" class="calculator-btn">SWL of Wire Rope Calculator</a>
-            <a href="stackheightcal.html" class="calculator-btn">Stack Height Calculator</a>
-            <a href="specificgravitycal.html" class="calculator-btn">Specific Gravity Calculator</a>
-            <a href="safetyfactor.html" class="calculator-btn">Safety Factor Calculator</a>
-            <a href="steamconsumptiontoprovidetankheatlosses.html" class="calculator-btn">Steam Consumption To Provide Tank Heat Losses Calculator</a>
-            <a href="steamconsumptionbyinjection.html"  class="calculator-btn">Steam Consumption by Injection into a Tank caluculator</a>
-            <a href="steamstart-uploadtobringsteampipework.html" class="calculator-btn">Steam Start-Up Load to bring steam pipework Calculator</a>
-            <a href="stressinaboilershellresultingfromboilerpressure.html" class="calculator-btn">Stress In A Boiler Shell Resulting From Boiler Pressure Calculator</a>
-
-            <a href="traininghourcal.html" class="calculator-btn">Training Hour Calculation</a>
-            <a href="deadloadcal.html" class="calculator-btn">Total Dead Load Calculation (DL)</a>
-            <a href="totalintendload.html" class="calculator-btn">Total Intended Load (TIL)</a>
-            <a href="totalenthalapycal.html" class="calculator-btn">Total Enthalpy of Steam Calculator</a>
-            <a href="totalfalldistanceofobject.html" class="calculator-btn">Total Fall Distance Calculator</a>
-            <a href="tensionperlegcalcualtor.html" class="calculator-btn">Tension Per Leg Calculator</a>
-            <a href="trifr.html" class="calculator-btn">Total Recordable Incident Frequency Rate (TRIFR) Calculator</a>
-            <a href="totallosshourscalculator.html" class="calculator-btn">Total Loss Hours Calculator</a>
-
-            <a href="requiredsteamflowratefromakw.html" class="calculator-btn">To Determine The Required Steam Flowrate From A kW Rating Calculator</a>
-            <a href="velocity of steam passingthroughanorifice.html" class="calculator-btn">Velocity of Steam Passing Through an Orifice Calculator (1)</a>
-            <a href="velocityofsteampassingthroughoriface2.html" class="calculator-btn">Velocity of Steam Passing Through an Orifice Calculator (2)</a>
-            <a href="wireropecal.html" class="calculator-btn">Wire Rope Grips Calculator</a>
-            <a href="wellcontrolkillmudwidget.html" class="calculator-btn">Well Control (Kill Mud Weight) Calculator </a>
-        </div>
-    </section>
-</div>
 
 <script>
-    function filterCalculators() {
-        let input = document.getElementById("searchBar").value.toLowerCase();
-        let buttons = document.querySelectorAll(".calculator-btn");
+    function calculatePressureGradient() {
+        let P = parseFloat(document.getElementById("pressure").value);
+        let D = parseFloat(document.getElementById("depth").value);
 
-        buttons.forEach(btn => {
-            let text = btn.innerText.toLowerCase();
-            if (text.includes(input)) {
-                btn.style.display = "inline-block";
-            } else {
-                btn.style.display = "none";
-            }
-        });
+        if (isNaN(P) || isNaN(D) || D <= 0) {
+            alert("Please enter valid positive numbers for pressure and depth.");
+            return;
+        }
+
+        let PG = P / D;
+        document.getElementById("resultOutput").innerHTML = "<strong>Pressure Gradient:</strong> " + PG.toFixed(4) + " psi/ft";
+
     }
 </script>
 
+   
 
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
