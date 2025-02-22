@@ -546,62 +546,90 @@ strong{
 
 
 <div class="ltifr-container">
-        <div class="ltifr-calculator">
-            <h2>LTIFR Calculator</h2>
-            <div>
+    <div class="ltifr-calculator">
+        <h2>LTIFR Calculator</h2>
+        <div>
             <label for="injuries">Number of Lost Time Injuries:</label>
         </div>
-            <input type="number" id="injuries" class="ltifr-input" placeholder="Enter injuries">
-            <div style="margin-top: 8px;">
+        <input type="number" id="injuries" class="ltifr-input" placeholder="Enter injuries">
+        <div style="margin-top: 8px;">
             <label for="hours">Total Hours Worked:</label>
         </div>
-            <input type="number" id="hours" class="ltifr-input" placeholder="Enter hours worked">
-            <button class="ltifr-button" onclick="calculateLTIFR()">Calculate LTIFR</button>
-            <div id="result" class="ltifr-result"></div>
-            <div id="explanation" class="ltifr-explanation"></div>
-        </div>
+        <input type="number" id="hours" class="ltifr-input" placeholder="Enter hours worked">
+        <button class="ltifr-button" onclick="calculateLTIFR()">Calculate LTIFR</button>
+        <div id="result" class="ltifr-result"></div>
+        <div id="explanation" class="ltifr-explanation"></div>
     </div>
+</div>
 
-    <div class="note-container">
-        <h3>Note:</h3>
-        <p>
-            This calculator helps you calculate the Lost Time Injury Frequency Rate (LTIFR) based on the number of lost time injuries and the total hours worked. The LTIFR is calculated by multiplying the number of injuries by 1,000,000 and then dividing by the total hours worked. 
-            The result helps evaluate the safety performance in an organization:
-            <ul>
-                <li><strong>High LTIFR</strong> indicates poor safety performance and a need for improvement.</li>
-                <li><strong>Moderate LTIFR</strong> suggests room for safety improvements.</li>
-                <li><strong>Low LTIFR</strong> is good, but safety measures should continue to improve.</li>
-            </ul>
-        </p>
-    </div>
-    
-    
-    <script>
-        function calculateLTIFR() {
-            var injuries = document.getElementById('injuries').value;
-            var hours = document.getElementById('hours').value;
+<div class="note-container">
+    <h3>Note:</h3>
+    <p>
+        This calculator helps you calculate the Lost Time Injury Frequency Rate (LTIFR) based on the number of lost time injuries and the total hours worked. The LTIFR is calculated by multiplying the number of injuries by 1,000,000 and then dividing by the total hours worked. 
+        The result helps evaluate the safety performance in an organization:
+        <ul>
+            <li><strong>High LTIFR</strong> indicates poor safety performance and a need for improvement.</li>
+            <li><strong>Moderate LTIFR</strong> suggests room for safety improvements.</li>
+            <li><strong>Low LTIFR</strong> is good, but safety measures should continue to improve.</li>
+        </ul>
+    </p>
+</div>
 
-            if (injuries && hours) {
-                var ltifr = (injuries * 1000000) / hours;
-                document.getElementById('result').innerHTML = 'Lost Time Injury Frequency Rate: ' + ltifr.toFixed(2);
+<script>
+    function calculateLTIFR() {
+        var injuries = document.getElementById('injuries').value;
+        var hours = document.getElementById('hours').value;
 
-                // Explanation
-                var explanation = '';
-                if (ltifr > 1000) {
-                    explanation = 'The LTIFR in this case is very high, indicating a very poor safety performance. The organization should focus on improving safety measures and minimizing injuries.';
-                } else if (ltifr > 100) {
-                    explanation = 'The LTIFR in this case is moderate, indicating some safety concerns. There is room for improvement in reducing injuries.';
-                } else {
-                    explanation = 'The LTIFR in this case is low, indicating good safety performance, but it\'s always good to continue improving safety measures.';
-                }
-
-                document.getElementById('explanation').innerHTML = explanation;
-            } else {
-                document.getElementById('result').innerHTML = 'Please enter both values.';
-                document.getElementById('explanation').innerHTML = '';
-            }
+        // Input validation
+        if (!injuries || !hours) {
+            document.getElementById('result').innerHTML = 'Please enter both values.';
+            document.getElementById('explanation').innerHTML = '';
+            return;
         }
-    </script>
+
+        if (isNaN(injuries)) {
+
+
+            document.getElementById('result').innerHTML = 'Number of injuries must be a valid number.';
+            document.getElementById('explanation').innerHTML = '';
+            return;
+        }
+
+        if (isNaN(hours)) {
+            document.getElementById('result').innerHTML = 'Total hours worked must be a valid number.';
+            document.getElementById('explanation').innerHTML = '';
+            return;
+        }
+
+        if (injuries < 0) {
+            document.getElementById('result').innerHTML = 'Number of injuries cannot be negative.';
+            document.getElementById('explanation').innerHTML = '';
+            return;
+        }
+
+        if (hours <= 0) {
+            document.getElementById('result').innerHTML = 'Total hours worked must be greater than zero.';
+            document.getElementById('explanation').innerHTML = '';
+            return;
+        }
+
+        // Calculate LTIFR
+        var ltifr = (injuries * 1000000) / hours;
+        document.getElementById('result').innerHTML = 'Lost Time Injury Frequency Rate: ' + ltifr.toFixed(2);
+
+        // Explanation
+        var explanation = '';
+        if (ltifr > 1000) {
+            explanation = 'The LTIFR in this case is very high, indicating a very poor safety performance. The organization should focus on improving safety measures and minimizing injuries.';
+        } else if (ltifr > 100) {
+            explanation = 'The LTIFR in this case is moderate, indicating some safety concerns. There is room for improvement in reducing injuries.';
+        } else {
+            explanation = 'The LTIFR in this case is low, indicating good safety performance, but it\'s always good to continue improving safety measures.';
+        }
+
+        document.getElementById('explanation').innerHTML = explanation;
+    }
+</script>
 
 
 

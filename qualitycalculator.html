@@ -667,28 +667,42 @@ p{
     
     <script>
         function calculateQuality() {
-            const goodUnits = document.getElementById('goodUnits').value;
-            const totalOutput = document.getElementById('totalOutput').value;
+            const goodUnits = parseFloat(document.getElementById('goodUnits').value);
+            const totalOutput = parseFloat(document.getElementById('totalOutput').value);
+            const resultText = document.getElementById('resultText');
     
-            if (goodUnits && totalOutput && totalOutput > 0) {
-                const qualityScore = (goodUnits / totalOutput) * 100;
-                let qualityMessage = '';
-    
-                // Classifying the quality based on percentage
-                if (qualityScore >= 90) {
-                    qualityMessage = 'Excellent Quality!';
-                } else if (qualityScore >= 70) {
-                    qualityMessage = 'Good Quality';
-                } else if (qualityScore >= 50) {
-                    qualityMessage = 'Average Quality';
-                } else {
-                    qualityMessage = 'Poor Quality';
-                }
-    
-                document.getElementById('resultText').innerHTML = `Your Quality Score: ${qualityScore.toFixed(2)}% - ${qualityMessage}`;
-            } else {
-                document.getElementById('resultText').innerHTML = 'Please enter valid numbers for both fields.';
+            // Validation Checks
+            if (isNaN(goodUnits) || isNaN(totalOutput)) {
+                resultText.innerHTML = 'Please enter valid numbers.';
+                return;
             }
+    
+            if (goodUnits < 0 || totalOutput <= 0) {
+                resultText.innerHTML = 'Values must be positive. Total output must be greater than zero.';
+                return;
+            }
+    
+            if (goodUnits > totalOutput) {
+                resultText.innerHTML = 'Good units cannot exceed total output.';
+                return;
+            }
+    
+            // Calculate Quality Score
+            const qualityScore = (goodUnits / totalOutput) * 100;
+            let qualityMessage = '';
+    
+            // Classifying the quality based on percentage
+            if (qualityScore >= 90) {
+                qualityMessage = 'Excellent Quality!';
+            } else if (qualityScore >= 70) {
+                qualityMessage = 'Good Quality';
+            } else if (qualityScore >= 50) {
+                qualityMessage = 'Average Quality';
+            } else {
+                qualityMessage = 'Poor Quality';
+            }
+    
+            resultText.innerHTML = `Your Quality Score: ${qualityScore.toFixed(2)}% - ${qualityMessage}`;
         }
     </script>
     

@@ -767,42 +767,64 @@ tr:hover {
 </div>
 
 <script>
-    function calculateBMI() {
-        const age = parseInt(document.getElementById('age').value);
-        const gender = document.getElementById('gender').value;
-        const weight = parseFloat(document.getElementById('weight').value);
-        const height = parseFloat(document.getElementById('height').value) / 100; // converting to meters
-  
-        if (isNaN(age) || isNaN(weight) || isNaN(height) || height <= 0 || weight <= 0) {
-            document.getElementById('result').innerText = "Please fill in all fields with valid numbers.";
-            return;
-        }
-  
-        const bmi = weight / (height * height); // BMI formula (kg/m²)
-        const bmiPrime = bmi / 25; // BMI prime calculation
-  
-        let category = '';
-  
-        if (bmi < 16) {
-            category = 'Severe Thinness';
-        } else if (bmi >= 16 && bmi < 17) {
-            category = 'Moderate Thinness';
-        } else if (bmi >= 17 && bmi < 18.5) {
-            category = 'Mild Thinness';
-        } else if (bmi >= 18.5 && bmi < 25) {
-            category = 'Normal';
-        } else if (bmi >= 25 && bmi < 30) {
-            category = 'Overweight';
-        } else if (bmi >= 30 && bmi < 35) {
-            category = 'Obese Class I';
-        } else if (bmi >= 35 && bmi < 40) {
-            category = 'Obese Class II';
-        } else {
-            category = 'Obese Class III';
-        }
-  
-        document.getElementById('result').innerText = `Your BMI: ${bmi.toFixed(2)}\nCategory: ${category}\nBMI Prime: ${bmiPrime.toFixed(2)}`;
+  function calculateBMI() {
+    const age = parseInt(document.getElementById('age').value);
+    const gender = document.getElementById('gender').value;
+    const weight = parseFloat(document.getElementById('weight').value);
+    const height = parseFloat(document.getElementById('height').value) / 100; // Convert cm to meters
+
+    const resultElement = document.getElementById('result');
+
+    // Validate Inputs
+    if (isNaN(age) || age <= 0) {
+        resultElement.innerText = "Please enter a valid age.";
+        resultElement.style.color = "red";
+        return;
     }
+    if (isNaN(weight) || weight <= 0) {
+        resultElement.innerText = "Please enter a valid weight.";
+        resultElement.style.color = "red";
+        return;
+    }
+    if (isNaN(height) || height <= 0) {
+        resultElement.innerText = "Please enter a valid height.";
+        resultElement.style.color = "red";
+        return;
+    }
+
+    // Calculate BMI
+    const bmi = weight / (height * height);
+    const bmiPrime = bmi / 25;
+
+    let category = '';
+
+    if (bmi < 16) {
+        category = 'Severe Thinness';
+    } else if (bmi < 17) {
+        category = 'Moderate Thinness';
+    } else if (bmi < 18.5) {
+        category = 'Mild Thinness';
+    } else if (bmi < 25) {
+        category = 'Normal';
+    } else if (bmi < 30) {
+        category = 'Overweight';
+    } else if (bmi < 35) {
+        category = 'Obese Class I';
+    } else if (bmi < 40) {
+        category = 'Obese Class II';
+    } else {
+        category = 'Obese Class III';
+    }
+
+    // Display Result
+    resultElement.innerHTML = `
+        <p><strong>Your BMI:</strong> ${bmi.toFixed(2)}kg/m²</p>
+        <p><strong>Category:</strong> ${category}</p>
+        <p><strong>BMI Prime:</strong> ${bmiPrime.toFixed(2)}</p>
+    `;
+    resultElement.style.color = "black"; // Reset color in case of previous error
+}
+
 </script>
 
 

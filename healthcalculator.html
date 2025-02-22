@@ -669,16 +669,31 @@ p{
     
     <script>
         function calculateHealthPerformance() {
-            const healthyEmployees = document.getElementById('healthyEmployees').value;
-            const totalEmployees = document.getElementById('totalEmployees').value;
+            const healthyEmployees = parseFloat(document.getElementById('healthyEmployees').value);
+            const totalEmployees = parseFloat(document.getElementById('totalEmployees').value);
+            const resultText = document.getElementById('healthResultText');
     
-            if (healthyEmployees && totalEmployees && totalEmployees > 0) {
-                const healthScore = (healthyEmployees / totalEmployees) * 100;
-                let healthStatus = healthScore >= 75 ? 'Good' : healthScore >= 50 ? 'Average' : 'Poor';
-                document.getElementById('healthResultText').innerHTML = `Your Health Performance Score: ${healthScore.toFixed(2)}% (${healthStatus})`;
-            } else {
-                document.getElementById('healthResultText').innerHTML = 'Please enter valid numbers for both fields.';
+            // Validation Checks
+            if (isNaN(healthyEmployees) || isNaN(totalEmployees)) {
+                resultText.innerHTML = 'Please enter valid numbers.';
+                return;
             }
+    
+            if (healthyEmployees < 0 || totalEmployees <= 0) {
+                resultText.innerHTML = 'Values must be positive. Total employees must be greater than zero.';
+                return;
+            }
+    
+            if (healthyEmployees > totalEmployees) {
+                resultText.innerHTML = 'Healthy employees cannot exceed total employees.';
+                return;
+            }
+    
+            // Calculate Health Score
+            const healthScore = (healthyEmployees / totalEmployees) * 100;
+            let healthStatus = healthScore >= 75 ? 'Good' : healthScore >= 50 ? 'Average' : 'Poor';
+    
+            resultText.innerHTML = `Your Health Performance Score: ${healthScore.toFixed(2)}% (${healthStatus})`;
         }
     </script>
     

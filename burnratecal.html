@@ -599,33 +599,51 @@ strong{
 
 
 <script>
-    function calculateBurnRate() {
-        const releaseRate = parseFloat(document.getElementById('releaseRate').value);
-        const spaceVolume = parseFloat(document.getElementById('spaceVolume').value);
-        const resultElement = document.getElementById('result');
-        const warningElement = document.getElementById('warningMessage');
+   function calculateBurnRate() {
+    const releaseRateInput = document.getElementById('releaseRate').value.trim();
+    const spaceVolumeInput = document.getElementById('spaceVolume').value.trim();
+    const resultElement = document.getElementById('result');
+    const warningElement = document.getElementById('warningMessage');
 
-        if (isNaN(releaseRate) || releaseRate <= 0 || isNaN(spaceVolume) || spaceVolume <= 0) {
-            resultElement.innerText = "Please enter valid positive numbers for both fields.";
-            warningElement.innerText = "";
-            return;
-        }
-
-        const burnRate = releaseRate / spaceVolume;
-        resultElement.innerText = `Burn Rate: ${burnRate.toFixed(4)} kg/m³ per hour.`;
-
-        // Updated warning system
-        if (burnRate < 0.01) {
-            warningElement.innerHTML = "✅ <strong>Low Burn Rate:</strong> The concentration of the substance in the air is relatively low.<br><strong>Feedback:</strong> This indicates a lower risk of fire, explosion, or toxic exposure. However, ensure proper ventilation and monitoring to maintain safe conditions, especially if the substance is hazardous over prolonged exposure.";
-            warningElement.style.color = "green";
-        } else if (burnRate >= 0.01 && burnRate <= 0.1) {
-            warningElement.innerHTML = "⚠️ <strong>Moderate Burn Rate:</strong> The concentration of the substance is moderate and may pose a risk if not managed properly.<br><strong>Feedback:</strong> This level requires attention. Implement safety measures such as improved ventilation, air filtration, or controlled release mechanisms. Regularly monitor the environment and ensure compliance with safety regulations.";
-            warningElement.style.color = "orange";
-        } else {
-            warningElement.innerHTML = "🚨 <strong>High Burn Rate:</strong> The concentration of the substance is high, significantly increasing the risk of fire, explosion, or toxic exposure.<br><strong>Feedback:</strong> Immediate action is required. Review and reduce the rate of release, increase ventilation, or evacuate the area if necessary. Consult fire safety and hazardous material experts to mitigate risks and ensure compliance.";
-            warningElement.style.color = "red";
-        }
+    // Ensure the fields are not empty and are valid positive numbers
+    if (releaseRateInput === "" || spaceVolumeInput === "") {
+        resultElement.innerText = "⚠️ Please fill in both fields.";
+        warningElement.innerText = "";
+        return;
     }
+
+    const releaseRate = parseFloat(releaseRateInput);
+    const spaceVolume = parseFloat(spaceVolumeInput);
+
+    if (isNaN(releaseRate) || releaseRate <= 0) {
+        resultElement.innerText = "⚠️ Please enter a valid positive number for Rate of Release (kg/hr).";
+        warningElement.innerText = "";
+        return;
+    }
+
+    if (isNaN(spaceVolume) || spaceVolume <= 0) {
+        resultElement.innerText = "⚠️ Please enter a valid positive number for Volume of Space (m³).";
+        warningElement.innerText = "";
+        return;
+    }
+
+    // Perform Burn Rate Calculation
+    const burnRate = releaseRate / spaceVolume;
+    resultElement.innerText = `Burn Rate: ${burnRate.toFixed(4)} kg/m³ per hour.`;
+
+    // Keep original burn rate logic
+    if (burnRate < 0.01) {
+        warningElement.innerHTML = "✅ <strong>Low Burn Rate:</strong> The concentration of the substance in the air is relatively low.<br><strong>Feedback:</strong> This indicates a lower risk of fire, explosion, or toxic exposure. However, ensure proper ventilation and monitoring to maintain safe conditions, especially if the substance is hazardous over prolonged exposure.";
+        warningElement.style.color = "green";
+    } else if (burnRate >= 0.01 && burnRate <= 0.1) {
+        warningElement.innerHTML = "⚠️ <strong>Moderate Burn Rate:</strong> The concentration of the substance is moderate and may pose a risk if not managed properly.<br><strong>Feedback:</strong> This level requires attention. Implement safety measures such as improved ventilation, air filtration, or controlled release mechanisms. Regularly monitor the environment and ensure compliance with safety regulations.";
+        warningElement.style.color = "orange";
+    } else {
+        warningElement.innerHTML = "🚨 <strong>High Burn Rate:</strong> The concentration of the substance is high, significantly increasing the risk of fire, explosion, or toxic exposure.<br><strong>Feedback:</strong> Immediate action is required. Review and reduce the rate of release, increase ventilation, or evacuate the area if necessary. Consult fire safety and hazardous material experts to mitigate risks and ensure compliance.";
+        warningElement.style.color = "red";
+    }
+}
+
 </script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
 

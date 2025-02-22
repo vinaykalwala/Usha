@@ -685,7 +685,7 @@ tr:nth-child(even) {
 
     // Validate input
     if (isNaN(concentration) || isNaN(time) || concentration < 0 || time <= 0) {
-        document.getElementById('result').innerText = "Please enter valid positive numbers for concentration and time.";
+        document.getElementById('result').innerText = "Please enter valid positive numbers for concentration and time (greater than 0).";
         return;
     }
 

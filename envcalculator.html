@@ -668,25 +668,37 @@ p{
     
     <script>
         function calculateCompliance() {
-            const compliantActions = document.getElementById('compliantActions').value;
-            const totalActions = document.getElementById('totalActions').value;
+            const compliantActions = parseFloat(document.getElementById('compliantActions').value);
+            const totalActions = parseFloat(document.getElementById('totalActions').value);
+            const resultText = document.getElementById('resultText');
     
-            if (compliantActions && totalActions && totalActions > 0) {
-                const complianceScore = (compliantActions / totalActions) * 100;
-                let complianceStatus = '';
-    
-                if (complianceScore >= 80) {
-                    complianceStatus = 'Excellent';
-                } else if (complianceScore >= 50) {
-                    complianceStatus = 'Good';
-                } else {
-                    complianceStatus = 'Needs Improvement';
-                }
-    
-                document.getElementById('resultText').innerHTML = `Your Environmental Compliance Score: ${complianceScore.toFixed(2)}% (${complianceStatus})`;
-            } else {
-                document.getElementById('resultText').innerHTML = 'Please enter valid numbers for both fields.';
+            // Validation Checks
+            if (isNaN(compliantActions) || isNaN(totalActions)) {
+                resultText.innerHTML = 'Please enter valid numbers.';
+                return;
             }
+    
+            if (compliantActions < 0 || totalActions <= 0) {
+                resultText.innerHTML = 'Values must be positive. Total actions must be greater than zero.';
+                return;
+            }
+    
+         
+    
+            // Calculate Compliance Score
+            const complianceScore = (compliantActions / totalActions) * 100;
+            let complianceStatus = '';
+    
+            // Classifying Compliance Score
+            if (complianceScore >= 80) {
+                complianceStatus = 'Excellent';
+            } else if (complianceScore >= 50) {
+                complianceStatus = 'Good';
+            } else {
+                complianceStatus = 'Needs Improvement';
+            }
+    
+            resultText.innerHTML = `Your Environmental Compliance Score: ${complianceScore.toFixed(2)}% (${complianceStatus})`;
         }
     </script>
     

@@ -667,17 +667,33 @@
     
     <script>
         function calculateSafety() {
-            const safeDays = document.getElementById('safeDays').value;
-            const totalDays = document.getElementById('totalDays').value;
-            
-            if (safeDays && totalDays && totalDays > 0) {
-                const safetyPerformance = (safeDays / totalDays) * 100;
-                document.getElementById('safetyResultText').innerHTML = `Your Safety Performance: ${safetyPerformance.toFixed(2)}%`;
-            } else {
-                document.getElementById('safetyResultText').innerHTML = 'Please enter valid numbers for both fields.';
+            const safeDays = parseFloat(document.getElementById('safeDays').value);
+            const totalDays = parseFloat(document.getElementById('totalDays').value);
+            const resultText = document.getElementById('safetyResultText');
+    
+            // Validation Checks
+            if (isNaN(safeDays) || isNaN(totalDays)) {
+                resultText.innerHTML = 'Please enter valid numbers.';
+                return;
             }
+    
+            if (safeDays < 0 || totalDays <= 0) {
+                resultText.innerHTML = 'Values must be positive. Total days must be greater than zero.';
+                return;
+            }
+    
+            if (safeDays > totalDays) {
+                resultText.innerHTML = 'Safe days cannot exceed total days.';
+                return;
+            }
+    
+            // Calculate Safety Performance
+            const safetyPerformance = (safeDays / totalDays) * 100;
+    
+            resultText.innerHTML = `Your Safety Performance: ${safetyPerformance.toFixed(2)}%`;
         }
     </script>
+    
 
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>

@@ -625,50 +625,72 @@ strong{
     document.getElementById("fireExtinguisherForm").addEventListener("submit", function(event) {
         event.preventDefault();
 
+        // Get input values
         var roomSize = parseInt(document.getElementById("roomSize").value);
         var hazardType = document.getElementById("hazardType").value;
         var extinguisherType = document.getElementById("extinguisherType").value;
 
+        // Get result and error elements
+        const resultsDiv = document.getElementById("results");
+        const errorDiv = document.createElement("div");
+        errorDiv.className = "error-message";
+        errorDiv.style.color = "red";
+        errorDiv.style.marginBottom = "10px";
+
+        // Clear previous error messages
+        const existingError = document.querySelector(".error-message");
+        if (existingError) {
+            existingError.remove();
+        }
+
+        // Input validation
+        if (isNaN(roomSize) || roomSize <= 0) {
+            errorDiv.textContent = "Error: Please enter a valid positive number for the room size.";
+            document.getElementById("fireExtinguisherForm").prepend(errorDiv);
+            resultsDiv.style.display = "none"; // Hide results if there's an error
+            return;
+        }
+
+        // Default values
         var resultRating = "2A";  // Default for Class A
         var resultArea = 300;  // Default area per extinguisher
         var resultDistance = 20;  // Default max distance for moderate hazard
-        var resultExtinguishers = Math.ceil(roomSize / resultArea);  // Default extinguishers calculation
 
         // Adjustments based on hazard type and extinguisher class
         if (hazardType === "Low") {
             if (extinguisherType === "ClassA") {
-                resultRating = "2A";  // Class A for Ordinary hazard
+                resultRating = "2A";
                 resultArea = 300;
                 resultDistance = 20;
             } else if (extinguisherType === "ClassB" || extinguisherType === "ClassC") {
-                resultRating = "55B";  // Class B and C for Ordinary hazard
+                resultRating = "55B";
                 resultArea = 150;
                 resultDistance = 15;
             }
         } else if (hazardType === "Ordinary") {
             if (extinguisherType === "ClassA") {
-                resultRating = "3A";  // Class A for Moderate hazard
+                resultRating = "3A";
                 resultArea = 150;
                 resultDistance = 15;
             } else if (extinguisherType === "ClassB" || extinguisherType === "ClassC") {
-                resultRating = "144B";  // Class B and C for Moderate hazard
+                resultRating = "144B";
                 resultArea = 150;
                 resultDistance = 15;
             }
         } else if (hazardType === "High") {
             if (extinguisherType === "ClassA") {
-                resultRating = "4A";  // Class A for High hazard
+                resultRating = "4A";
                 resultArea = 100;
                 resultDistance = 15;
             } else if (extinguisherType === "ClassB" || extinguisherType === "ClassC") {
-                resultRating = "233B";  // Class B and C for High hazard
+                resultRating = "233B";
                 resultArea = 100;
                 resultDistance = 15;
             }
         }
 
         // Calculate the number of extinguishers required
-        resultExtinguishers = Math.ceil(roomSize / resultArea);
+        var resultExtinguishers = Math.ceil(roomSize / resultArea);
 
         // Update the results on the page
         document.getElementById("resultType").textContent = extinguisherType;
@@ -678,7 +700,7 @@ strong{
         document.getElementById("resultExtinguishers").textContent = resultExtinguishers;
 
         // Display results section
-        document.getElementById("results").style.display = "block";
+        resultsDiv.style.display = "block";
     });
 </script>
 

@@ -673,39 +673,59 @@ p{
             const fireIncidents = document.getElementById('fireIncidents').value;
             const totalFireRisks = document.getElementById('totalFireRisks').value;
     
-            if (fireIncidents && totalFireRisks && totalFireRisks > 0) {
-                const fireSafetyPerformance = (fireIncidents / totalFireRisks) * 100;
-    
-                // Set the result text
-                let resultText = `Your Fire Safety Performance: ${fireSafetyPerformance.toFixed(2)}%`;
-    
-                // Rating system based on the performance
-                let rating = '';
-                let feedback = '';
-                if (fireSafetyPerformance >= 90) {
-                    rating = 'Excellent';
-                    feedback = 'Great job! You are highly effective in managing fire risks.';
-                } else if (fireSafetyPerformance >= 70) {
-                    rating = 'Good';
-                    feedback = 'Good work! There is still room for improvement.';
-                } else if (fireSafetyPerformance >= 50) {
-                    rating = 'Average';
-                    feedback = 'Satisfactory, but more effort is needed to improve fire safety.';
-                } else {
-                    rating = 'Poor';
-                    feedback = 'Needs improvement. Immediate attention to fire safety is recommended.';
-                }
-    
-                // Display result and rating with feedback
-                document.getElementById('fireSafetyResultText').innerHTML = `${resultText} (${rating} Rating)`;
-                document.getElementById('fireSafetyFeedback').innerHTML = feedback;
-            } else {
-                document.getElementById('fireSafetyResultText').innerHTML = 'Please enter valid numbers for both fields.';
+            // Input validation
+            if (!fireIncidents || !totalFireRisks) {
+                document.getElementById('fireSafetyResultText').innerHTML = 'Please enter values for both fields.';
                 document.getElementById('fireSafetyFeedback').innerHTML = '';
+                return;
             }
+    
+            if (isNaN(fireIncidents) || isNaN(totalFireRisks)) {
+                document.getElementById('fireSafetyResultText').innerHTML = 'Both inputs must be valid numbers.';
+                document.getElementById('fireSafetyFeedback').innerHTML = '';
+                return;
+            }
+    
+            if (fireIncidents < 0 || totalFireRisks < 0) {
+                document.getElementById('fireSafetyResultText').innerHTML = 'Inputs cannot be negative.';
+                document.getElementById('fireSafetyFeedback').innerHTML = '';
+                return;
+            }
+    
+            if (totalFireRisks == 0) {
+                document.getElementById('fireSafetyResultText').innerHTML = 'Total fire risks cannot be zero.';
+                document.getElementById('fireSafetyFeedback').innerHTML = '';
+                return;
+            }
+    
+            // Calculate Fire Safety Performance
+            const fireSafetyPerformance = (fireIncidents / totalFireRisks) * 100;
+    
+            // Set the result text
+            let resultText = `Your Fire Safety Performance: ${fireSafetyPerformance.toFixed(2)}%`;
+    
+            // Rating system based on the performance
+            let rating = '';
+            let feedback = '';
+            if (fireSafetyPerformance >= 90) {
+                rating = 'Excellent';
+                feedback = 'Great job! You are highly effective in managing fire risks.';
+            } else if (fireSafetyPerformance >= 70) {
+                rating = 'Good';
+                feedback = 'Good work! There is still room for improvement.';
+            } else if (fireSafetyPerformance >= 50) {
+                rating = 'Average';
+                feedback = 'Satisfactory, but more effort is needed to improve fire safety.';
+            } else {
+                rating = 'Poor';
+                feedback = 'Needs improvement. Immediate attention to fire safety is recommended.';
+            }
+    
+            // Display result and rating with feedback
+            document.getElementById('fireSafetyResultText').innerHTML = `${resultText} (${rating} Rating)`;
+            document.getElementById('fireSafetyFeedback').innerHTML = feedback;
         }
     </script>
-    
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
 

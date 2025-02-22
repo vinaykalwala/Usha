@@ -604,38 +604,44 @@ strong{
 </div>
 
 <script>
-   function calculateNoiseExposure() {
-    const L1 = parseFloat(document.getElementById('soundLevel1').value);
-    const L2 = parseFloat(document.getElementById('soundLevel2').value);
-    const L3 = parseFloat(document.getElementById('soundLevel3').value);
-
-    if (isNaN(L1) || isNaN(L2) || isNaN(L3)) {
-        document.getElementById('result').innerText = "Please fill in all fields with valid numbers.";
-        return;
+    function calculateNoiseExposure() {
+        const L1 = parseFloat(document.getElementById('soundLevel1').value);
+        const L2 = parseFloat(document.getElementById('soundLevel2').value);
+        const L3 = parseFloat(document.getElementById('soundLevel3').value);
+ 
+        // ✅ Validation: Ensure all values are entered and within a valid range (1-200 dB)
+        if (
+            isNaN(L1) || isNaN(L2) || isNaN(L3) || 
+            L1 <= 0 || L2 <= 0 || L3 <= 0 || 
+            L1 > 200 || L2 > 200 || L3 > 200
+        ) {
+            document.getElementById('result').innerHTML = 
+                "<span style='color: red;'>⚠️ Please enter valid noise levels (between 1 and 200 dB).</span>";
+            return;
+        }
+ 
+        const n = 3; // Number of measurements
+        const Leq = 10 * Math.log10((Math.pow(10, L1 / 10) + Math.pow(10, L2 / 10) + Math.pow(10, L3 / 10)) / n);
+ 
+        let feedback = "";
+        
+        if (Leq < 70) {
+            feedback = "✅ The noise level is <strong>safe</strong>. No hearing protection required.";
+        } else if (Leq >= 70 && Leq < 85) {
+            feedback = "⚠️ The noise level is <strong>moderate</strong>. Prolonged exposure may cause discomfort.";
+        } else if (Leq >= 85 && Leq < 100) {
+            feedback = "🚨 The noise level is <strong>high</strong>. Hearing protection is strongly recommended.";
+        } else {
+            feedback = "❌ <strong>Dangerously high noise level!</strong> Immediate protection is required!";
+        }
+ 
+        document.getElementById('result').innerHTML = `
+            <strong>Equivalent Continuous Sound Level (Leq): ${Leq.toFixed(2)} dB</strong><br>
+            ${feedback}
+        `;
     }
-
-    const n = 3; // Number of measurements
-    const Leq = 10 * Math.log10((Math.pow(10, L1 / 10) + Math.pow(10, L2 / 10) + Math.pow(10, L3 / 10)) / n);
-
-    let feedback = "";
-    
-    if (Leq < 70) {
-        feedback = "✅ The noise level is **safe** for prolonged exposure. No hearing protection required.";
-    } else if (Leq >= 70 && Leq < 85) {
-        feedback = "⚠️ The noise level is **moderate**. Prolonged exposure may cause hearing discomfort. Consider reducing exposure time.";
-    } else if (Leq >= 85 && Leq < 100) {
-        feedback = "🚨 The noise level is **high**. Hearing protection is **strongly recommended** if exposed for long periods.";
-    } else {
-        feedback = "❌ **Dangerously high noise level!** Extended exposure can cause **permanent hearing damage**. Immediate action required!";
-    }
-
-    document.getElementById('result').innerHTML = `
-        <strong>Equivalent Continuous Sound Level (Leq): ${Leq.toFixed(2)} dB.</strong><br>
-        ${feedback}
-    `;
-}
-
-</script>
+ </script>
+ 
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
 

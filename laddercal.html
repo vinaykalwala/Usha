@@ -578,34 +578,34 @@ strong{
 </div>
 
 <script>
-        function calculateLadderLength() {
-            // Get the vertical height input
-            let verticalHeight = parseFloat(document.getElementById('verticalHeight').value);
-            
-            // Validate input
-            if (isNaN(verticalHeight) || verticalHeight <= 0) {
-                alert("Please enter a valid vertical height.");
-                return;
-            }
+    function calculateLadderLength() {
+        // Get the vertical height input
+        let verticalHeight = parseFloat(document.getElementById('verticalHeight').value);
 
-            // Calculate the base distance using the 4:1 rule
-            let baseDistance = verticalHeight / 4;
-
-            // Calculate the ladder length using the Pythagorean theorem
-            let ladderLength = Math.sqrt(Math.pow(verticalHeight, 2) + Math.pow(baseDistance, 2));
-
-            // Add safety margin (1 meter)
-            let totalLadderLength = ladderLength + 1;
-
-            // Display the result
-            document.getElementById('result').innerHTML = `
-                <h2>Calculated Ladder Length</h2>
-                <p>Base Distance: ${baseDistance.toFixed(2)} meters</p>
-                <p>Ladder Length (without safety margin): ${ladderLength.toFixed(2)} meters</p>
-                <p>Total Ladder Length (with safety margin): ${totalLadderLength.toFixed(2)} meters</p>
-            `;
+        // Validate input
+        if (isNaN(verticalHeight) || verticalHeight === 0) {
+            alert("Please enter a valid vertical height (positive or negative, but not zero).");
+            return;
         }
-    </script>
+
+        // Calculate the base distance using the 4:1 rule
+        let baseDistance = Math.abs(verticalHeight) / 4;
+
+        // Calculate the ladder length using the Pythagorean theorem
+        let ladderLength = Math.sqrt(Math.pow(Math.abs(verticalHeight), 2) + Math.pow(baseDistance, 2));
+
+        // Add safety margin (1 meter)
+        let totalLadderLength = ladderLength + 1;
+
+        // Display the result
+        document.getElementById('result').innerHTML = `
+            <h2>Calculated Ladder Length</h2>
+            <p>Base Distance: ${baseDistance.toFixed(2)} meters</p>
+            <p>Ladder Length (without safety margin): ${ladderLength.toFixed(2)} meters</p>
+            <p>Total Ladder Length (with safety margin): ${totalLadderLength.toFixed(2)} meters</p>
+        `;
+    }
+</script>
 <!-- WhatsApp Icon -->
 <!-- WhatsApp Icon -->
 <div id="whatsapp-icon" class="whatsapp-icon">
