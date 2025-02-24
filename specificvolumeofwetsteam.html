@@ -595,7 +595,7 @@ strong{
       const vg = parseFloat(document.getElementById('vg').value);
       const x = parseFloat(document.getElementById('x').value);
   
-      if (isNaN(vg) || isNaN(x) || x < 0 || x > 1) {
+      if (isNaN(vg) || isNaN(x) || x < 0 || x > 1 ) {
         document.getElementById('result').innerText = "Please enter valid values. Dryness fraction must be between 0 and 1.";
         return;
       }

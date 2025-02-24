@@ -639,27 +639,55 @@ strong{
 </div>
 
 <script>
-    function calculateEnthalpy() {
-        const hf = parseFloat(document.getElementById('hf').value);
-        const hfg = parseFloat(document.getElementById('hfg').value);
-        const x = parseFloat(document.getElementById('drynessFraction').value);
-        const resultEvaporation = document.getElementById('result-evaporation');
-        const resultTotal = document.getElementById('result-total');
+  function calculateEnthalpy() {
+    const hfInput = document.getElementById('hf');
+    const hfgInput = document.getElementById('hfg');
+    const xInput = document.getElementById('drynessFraction');
+    const resultEvaporation = document.getElementById('result-evaporation');
+    const resultTotal = document.getElementById('result-total');
 
-        if (isNaN(hf) || isNaN(hfg) || isNaN(x) || x < 0 || x > 1) {
-            resultEvaporation.innerText = "Please enter valid numbers. Dryness fraction should be between 0 and 1.";
-            resultTotal.innerText = "";
-            return;
-        }
+    // Convert input values to floats
+    const hf = parseFloat(hfInput.value);
+    const hfg = parseFloat(hfgInput.value);
+    const x = parseFloat(xInput.value);
 
-        // Calculate Enthalpy of Evaporation
-        const actualEnthalpyEvaporation = hfg * x;
-        resultEvaporation.innerText = `Actual Enthalpy of Evaporation: ${actualEnthalpyEvaporation.toFixed(2)} kJ/kg.`;
+    // Reset styles
+    hfInput.style.border = "";
+    hfgInput.style.border = "";
+    xInput.style.border = "";
+    resultEvaporation.innerText = "";
+    resultTotal.innerText = "";
 
-        // Calculate Total Enthalpy of Wet Steam
-        const totalEnthalpy = hf + actualEnthalpyEvaporation;
-        resultTotal.innerText = `Total Enthalpy of Wet Steam: ${totalEnthalpy.toFixed(2)} kJ/kg.`;
+    // Validation checks
+    if (isNaN(hf) || hf <= 0) {
+        resultEvaporation.innerText = "❌ Please enter a valid positive value for Liquid Enthalpy (hf).";
+        return;
     }
+
+    if (isNaN(hfg) || hfg <= 0) {
+        resultEvaporation.innerText = "❌ Please enter a valid positive value for Enthalpy of Evaporation (hfg).";
+        return;
+    }
+
+    if (isNaN(x) || x < 0 || x > 1) {
+        resultEvaporation.innerText = "❌ Dryness Fraction (x) must be a number between 0 and 1.";
+        return;
+    }
+
+    // Perform calculations
+    const actualEnthalpyEvaporation = hfg * x;
+    const totalEnthalpy = hf + actualEnthalpyEvaporation;
+
+    // Display results
+    resultEvaporation.innerText = `✅ Actual Enthalpy of Evaporation: ${actualEnthalpyEvaporation.toFixed(2)} kJ/kg.`;
+    resultTotal.innerText = `✅ Total Enthalpy of Wet Steam: ${totalEnthalpy.toFixed(2)} kJ/kg.`;
+
+    // Reset error highlights if input is valid
+    hfInput.style.border = "2px solid green";
+    hfgInput.style.border = "2px solid green";
+    xInput.style.border = "2px solid green";
+}
+
 </script>
 
 
