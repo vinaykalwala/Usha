@@ -270,6 +270,131 @@ strong{
         padding: 10px; 
     }
 }
+.custom-slider-container {
+    position: relative;
+    max-width: 90%;
+    margin: 20px auto;
+    overflow: hidden;
+    border-radius: 10px;
+   
+    padding: 10px;
+    text-align: center;
+}
+
+.custom-slider {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    justify-content: center;
+    align-items: center;
+}
+
+.custom-slide {
+    width: 1200px;
+    height: auto;
+    object-fit: contain;
+    display: none;
+}
+
+.custom-prev, .custom-next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    padding: 12px;
+    font-size: 24px;
+    font-weight: bold;
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    user-select: none;
+}
+
+.custom-prev {
+    left: 10px;
+    border-radius: 0 5px 5px 0;
+}
+
+.custom-next {
+    right: 10px;
+    border-radius: 5px 0 0 5px;
+}
+
+.custom-prev:hover, .custom-next:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+.custom-slider-title {
+    font-size: 28px;
+    font-weight: bold;
+    text-align: center;
+    color: #fff;
+    background: linear-gradient(90deg, #1560bd, #000040);
+    padding: 15px;
+    border-radius: 8px;
+    margin: 20px auto;
+    max-width: 80%;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+}
+/* Large Screens (Desktops) */
+@media (min-width: 1200px) {
+    .custom-slider-container {
+        max-width: 95%;
+    }
+    .custom-slide {
+        max-width: 1000px;
+    }
+}
+
+/* Medium Screens (Tablets & Small Laptops) */
+@media (max-width: 1024px) {
+    .custom-slider-container {
+        max-width: 90%;
+    }
+    .custom-slide {
+        max-width: 800px;
+    }
+    .custom-slider-title {
+        font-size: 24px;
+        padding: 12px;
+    }
+    .custom-prev, .custom-next {
+        font-size: 20px;
+        padding: 10px;
+    }
+}
+
+/* Small Screens (Mobile Phones) */
+@media (max-width: 768px) {
+    .custom-slider-container {
+        max-width: 95%;
+    }
+    .custom-slide {
+        max-width: 100%;
+    }
+    .custom-slider-title {
+        font-size: 20px;
+        padding: 10px;
+    }
+    .custom-prev, .custom-next {
+        font-size: 18px;
+        padding: 8px;
+    }
+}
+
+/* Extra Small Screens (Very Small Phones) */
+@media (max-width: 480px) {
+    .custom-slider-title {
+        font-size: 18px;
+        padding: 8px;
+    }
+    .custom-prev, .custom-next {
+        font-size: 16px;
+        padding: 6px;
+    }
+}
+
+
 </style>
 	</head>
 
@@ -548,13 +673,13 @@ strong{
 
 
 <div class="calculator-container">
-    <h2>Fire Extinguisher Inspection</h2>
+    <h2>Fire Extinguisher Weight Inspection</h2>
     <div class="form-group">
-        <label for="initialWeight">Initial Weight (lbs):</label>
+        <label for="initialWeight">Initial Weight (kg):</label>
         <input type="number" id="initialWeight" placeholder="Enter Initial Weight">
     </div>
     <div class="form-group">
-        <label for="currentWeight">Current Weight (lbs):</label>
+        <label for="currentWeight">Current Weight (kg):</label>
         <input type="number" id="currentWeight" placeholder="Enter Current Weight">
     </div>
     <button class="cal-btn" onclick="calculateWeightLoss()">Calculate Weight Loss %</button>
@@ -564,18 +689,66 @@ strong{
 <div class="note-container">
     <h3>Note:</h3>
     <p>
-        This calculator helps determine the percentage of weight loss based on the initial and current weight. 
-        To calculate, enter the following:
+        This calculator determines the percentage of weight loss in <strong>kilograms (kg)</strong>.
+        To calculate, enter:
     </p>
     <ul>
-        <li><strong>Initial Weight:</strong> The weight before weight loss (in lbs).</li>
-        <li><strong>Current Weight:</strong> The weight after weight loss (in lbs).</li>
+        <li><strong>Initial Weight (kg):</strong> The fire extinguisher's weight before loss.</li>
+        <li><strong>Current Weight (kg):</strong> The extinguisher's weight after loss.</li>
     </ul>
     <p>
-        After entering these values, click the <strong>Calculate Weight Loss %</strong> button. 
-        The result will show the percentage of weight lost.
+        After entering the values, click <strong>Calculate Weight Loss %</strong> to see the percentage decrease.
     </p>
 </div>
+
+<h2 class="custom-slider-title">According To the Indian Standards</h2>
+
+<div class="custom-slider-container">
+    <div class="custom-slider">
+        <img class="custom-slide" src="images/vindus_clients_images/vintex_image_2.jpg">
+        <img class="custom-slide" src="images/vindus_clients_images/vintex_image_3.jpg">
+        <img class="custom-slide" src="images/vindus_clients_images/vintex_image_4.png">
+        <img class="custom-slide" src="images/vindus_clients_images/vintex_image_5.png">
+        <img class="custom-slide" src="images/vindus_clients_images/vintex_image_6.png">
+        <img class="custom-slide" src="images/vindus_clients_images/vintex_image_7.png">
+        <img class="custom-slide" src="images/vindus_clients_images/vintex_image_8.png">
+        <img class="custom-slide" src="images/vindus_clients_images/vintex_image_9.png">
+
+    </div>
+
+    <a class="custom-prev" href="#" onclick="changeSlide(-1, event)">❮</a>
+    <a class="custom-next" href="#" onclick="changeSlide(1, event)">❯</a>
+</div>
+
+
+
+<script>
+  let slideIndex = 1;
+let slides = document.getElementsByClassName("custom-slide");
+
+function showSlide(n) {
+    if (n > slides.length) slideIndex = 1;
+    if (n < 1) slideIndex = slides.length;
+
+    for (let i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+    }
+
+    slides[slideIndex - 1].style.display = "block";
+}
+
+function changeSlide(n, event) {
+    if (event) event.preventDefault(); // Prevent default anchor behavior
+    slideIndex += n;
+    showSlide(slideIndex);
+}
+
+// Initialize slider with the first image visible
+showSlide(slideIndex);
+
+
+</script>
+
 
 <script>
     function calculateWeightLoss() {
@@ -584,20 +757,19 @@ strong{
         const resultElement = document.getElementById('result');
 
         if (isNaN(initialWeight) || isNaN(currentWeight) || initialWeight <= 0 || currentWeight < 0) {
-            resultElement.innerText = "Please enter valid positive weight values.";
+            resultElement.innerText = "⚠️ Please enter valid positive weight values in kg.";
             return;
         }
 
         if (currentWeight > initialWeight) {
-            resultElement.innerText = "Current weight cannot be greater than the initial weight.";
+            resultElement.innerText = "⚠️ Error: Current weight cannot be greater than the initial weight.";
             return;
         }
 
         const weightLossPercentage = ((initialWeight - currentWeight) / initialWeight) * 100;
-        resultElement.innerText = `Weight Loss: ${weightLossPercentage.toFixed(2)}%`;
+        resultElement.innerHTML = `<strong>Weight Loss: ${weightLossPercentage.toFixed(2)}%</strong> 🔥`;
     }
 </script>
-
 
 
 
