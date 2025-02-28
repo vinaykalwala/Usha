@@ -170,241 +170,243 @@
 }
 
 
-/* General Reset */
 
 
-/* Styling for the header section */
 .main-header {
-    text-align: center;
-    background-image:url('images/vindus_clients_images/blue4.jpg');  /* Blue */
-    color: #1560bd;
-    padding: 40px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-arou;
+    background: linear-gradient(135deg, #000040, #1560bd);
+    color: #fff;
+    padding: 30px 50px;
     background-size: cover;
+    flex-wrap: nowrap;
 }
 
+/* Clickable Logo */
+.logo-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.logo {
+    width: 130px;
+    height: 130px;
+    object-fit: contain;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+
+
+}
+.logo:hover {
+    transform: scale(1.1);
+}
+
+/* Centered Text Content */
+.header-content {
+    flex: 1;
+    text-align: center;
+    padding: 0 20px;
+}
 .main-header h1 {
     font-size: 2rem;
-    margin-bottom: 15px;
-    color: #012756;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+    color: white;
+}
+.main-header p {
+    font-size: 1.1rem;
+    opacity: 0.9;
 }
 
-.main-header p {
-    font-size: 1.2rem;
+/* Beautiful Calendar Card */
+.calendar-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 130px;
+    height: 130px;
+    background: #ffffff;
+    color: #1560bd;
+    text-align: center;
+    border-radius: 10px;
+    text-decoration: none;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(8px);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+    padding: 5px;
+}
+.calendar-img {
+    width: 50px;  /* Adjust to fit well */
+    height: auto;
     margin-bottom: 5px;
 }
-
-/* Styling for the main content */
-
-
-.main-content {
-            padding: 0px 10%;
-            text-align: center;
-        }
-
-        /* Main Category Buttons - Vertical Layout */
-        .button-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 15px;
-        }
-
-        .calculatorqehs-btn {
-            width: 60%;
-            background: linear-gradient(#000040, #1560bd);
-            color: white;
-            text-align: center;
-            padding: 15px;
-            font-size: 1rem;
-            text-decoration: none;
-            border-radius: 10px;
-            border: 2px solid #1560bd;
-            cursor: pointer;
-            transition: background 0.3s;
-        }
-
-        .calculatorqehs-btn:hover {
-            background: linear-gradient(#1560bd,#000040);    
-        }
-
-        /* Sub-Calculator Buttons - Grid Layout (2 in a row) */
-        .subcalculator-container {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 15px;
-            justify-content: center;
-            margin-top: 30px;
-            margin-bottom: 50px;
-        }
-
-        .calculator-btn {
-            width: 100%;
-            background: linear-gradient(#000040, #1560bd);
-            color: white;
-            text-align: center;
-            padding: 15px;
-            font-size: 1rem;
-            text-decoration: none;
-            border-radius: 10px;
-            border: 2px solid #1560bd;
-            transition: background 0.3s;
-        }
-
-        .calculator-btn:hover {
-            background: linear-gradient(#1560bd,#000040);    
-        }
-
-        /* Hide Calculator Sections Initially */
-        .calculator-section {
-            display: none;
-        }
-
-        /* Subheading Styling */
-        .sub-heading {
-            margin-bottom: 20px;
-            color: #1560bd;
-            font-size: 1.8rem;
-        }
-        .back-btn {
-    background: #1560bd;
-    color: white;
-    padding: 8px 12px;
-    border-radius: 5px;
-    border: none;
-    cursor: pointer;
-    font-size: 0.9rem; 
-    margin: 10px auto; 
-    display: block;
-    margin-bottom: 25px;
+.calendar-card h3 {
+    font-size: 1rem;
+    color: #1560bd;
+    text-align: center;
+}
+.calendar-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.4);
+    background: rgba(255, 255, 255, 0.2);
 }
 
-.back-btn:hover {
-    background: #000040;
-}
-
+/* 🔹 Responsive Design */
 @media (max-width: 768px) {
-    .button-container {
-        flex-direction: column;
-        width: 100%;
+    .main-header {
+        padding: 20px;
     }
-
-    .calculatorqehs-btn {
-        width: 90%;
+    .logo, .calendar-card {
+        width: 110px;
+        height: 110px;
+    }
+    .calendar-img {
+        width: 40px;
+    }
+    .main-header h1 {
+        font-size: 1.6rem;
+    }
+    .main-header p {
         font-size: 1rem;
-        padding: 12px;
-    }
-
-   
-    .calculator-btn {
-        width: 90%;
-        font-size: 1rem;
-        padding: 12px;
-    }
-
-    .sub-heading {
-        font-size: 1.5rem;
-    }
-
-  
-}
-@media (max-width: 768px) {
-    .subcalculator-container {
-        grid-template-columns: repeat(1, 1fr);
-        justify-items: center; /* Center the items horizontally */
-        width: 100%;
-    }
-}
-@media (max-width: 768px) {
-    .back-btn {
-        padding: 6px 10px;  
-        font-size: 1rem;  
-        position: static;    
-        margin: 15px auto;   
-        display: inline-block;
     }
 }
 
 @media (max-width: 480px) {
-    .back-btn {
-        padding: 6px 10px;  
-        font-size: 1rem;   
-        width: auto;        
-        margin: 10px auto;  
+    .main-header {
+        padding: 15px;
+    }
+    .logo, .calendar-card {
+        width: 90px;
+        height: 90px;
+    }
+    .calendar-img {
+        width: 35px;
+    }
+    .main-header h1 {
+        font-size: 1.4rem;
+    }
+    .main-header p {
+        font-size: 0.9rem;
     }
 }
+
+
+.main-content {
+    padding: 0px 2%;
+    text-align: center;
+}
+
+/* Increase Card Width for Better Fit */
+.col-lg-2-5 {
+    flex: 0 0 20%; /* Wider cards */
+    max-width: 22%;
+    padding: 8px;
+}
+
+/* Category Card - Balanced Width & Height */
 .category-card {
-    position: relative;
-    border-radius: 20px;
+    border-radius: 15px;
     overflow: hidden;
     cursor: pointer;
     text-align: center;
-    padding: 20px;
-    border: 1px solid #1560bd; /* Border color instead of background */
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-    transition: all 0.4s ease-in-out;
-    height: 100%; /* Ensures same height for all cards */
+    padding: 15px;
+    border: 1px solid #1560bd;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s ease-in-out;
+    height: 250px; /* Slightly optimized */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
+/* Hover Effect */
 .category-card:hover {
-    transform: translateY(-1px);
-    box-shadow: 0 12px 30px rgba(0, 123, 255, 0.5);
-   
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(0, 123, 255, 0.4);
 }
 
+/* Category Image */
 .category-img {
     width: 100%;
-    height: 200px;
+    height: 160px; /* Adjusted for balance */
     object-fit: cover;
-    border-radius: 15px;
-    transition: transform 0.4s ease-in-out;
+    border-radius: 10px;
+    transition: transform 0.3s ease-in-out;
 }
 
 .category-card:hover .category-img {
-    transform: scale(1.08);
-    filter: brightness(1.2);
+    transform: scale(1.05);
+    filter: brightness(1.1);
 }
 
+/* Category Title */
 .category-title {
-    margin-top: 15px;
-    font-size: 1rem;
+    font-size: 1.1rem;
     font-weight: bold;
     color: #1560bd;
     transition: color 0.3s ease-in-out;
     border: 0.1rem dotted #1560bd;
-    padding: 5px;
     border-radius: 5px;
+    width: 100%;
+    text-align: center;
+    margin: 8px 0;
 }
+
+/* Custom Button - Moved Outside */
+.calc-btn-container {
+    text-align: center;
+    margin-top: 10px;
+}
+
 .btn-custom {
-            background:linear-gradient(#000040,#1560bd);
-            color: white;
-            padding: 10px 20px;
-            text-align: center;
-            border-radius: 5px;
-            display: inline-block;
-            text-decoration: none;
-            margin-top: 10px;
-            font-size:medium;
-        }
-        
-        .btn-custom:hover {
-            background-color: #1560bd;
-            color: white;
-        }
+    background: linear-gradient(#000040, #1560bd);
+    color: white;
+    padding: 8px 15px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 1rem;
+    display: inline-block;
+    width: 200px; /* Same width for all */
+}
 
+.btn-custom:hover {
+    background-color: #1560bd;
+    color: white;
+}
 
-/* Mobile Optimized */
-@media (max-width: 768px) {
+/* Default styles already set in your code */
+
+/* Medium devices (Tablets) */
+@media (max-width: 992px) {
+    .col-lg-2-5 {
+        flex: 0 0 45%; /* Two cards per row */
+        max-width: 45%;
+    }
     .category-card {
-        padding: 15px;
-        border-radius: 15px;
+        height: 230px;
     }
+}
 
-    .category-title {
-        font-size: 20px;
+/* Small devices (Phones) */
+@media (max-width: 768px) {
+    .col-lg-2-5 {
+        flex: 0 0 100%; /* One card per row */
+        max-width:80%;
     }
-
+    .category-card {
+        height: auto;
+        padding: 12px;
+    }
     .category-img {
-        height: 180px;
+        height: 190px; /* Adjust image size */
+        width: 300px;
+    }
+    .btn-custom {
+        width: 100%; /* Full width button */
     }
 }
 
@@ -687,69 +689,93 @@
 
 
 <div class="main-header">
-    <h1>World's No.1 QEHS Calculator</h1>
-    <p>Your trusted tool ✔️ for Quality, Environment, Health, Safety & Fire Calculations</p>
+    <!-- Clickable Logo -->
+    <a href="index.html" class="logo-link">
+        <img src="images/vindus_clients_images/mlclogo.jpg" alt="Logo" class="logo">
+    </a>
+
+    <!-- Centered Header Content -->
+    <div class="header-content">
+        <h1>World's No.1 QEHS Calculator</h1>
+        <p>Your trusted tool for Quality, Environment, Health, Safety & Fire Calculations</p>
+    </div>
+
+    <!-- Beautiful Calendar Card -->
+    <a href="calendar.html" class="calendar-card">
+        <img src="images/vindus_clients_images/calender.webp" alt="Calendar Icon" class="calendar-img">
+        <h3>The Calendar of a Century</h3>
+    </a>
 </div>
+
+
+
 <div class="main-content">
-    <!-- Main Categories with Images and Links -->
     <section class="category-section container py-5">
         <div class="row text-center justify-content-center">
-            <!-- First Row - 3 Cards -->
-            <div class="col-md-4 mb-4">
+            
+            <div class="col-lg-2-5 col-md-4 col-sm-6">
                 <div class="category-card">
                     <a href="qualitysubcalculators.html">
                         <img src="images/vindus_clients_images/calquality.jpg" class="category-img" alt="Quality Calculators">
                         <h3 class="category-title">Quality Calculators</h3>
                     </a>
+                </div>
+                <div class="calc-btn-container">
                     <a href="qualitycalculator.html" class="btn btn-custom">Try Quality Calculator</a>
                 </div>
             </div>
-            <div class="col-md-4 mb-4">
+
+            <div class="col-lg-2-5 col-md-4 col-sm-6">
                 <div class="category-card">
                     <a href="environmentalsubcalculators.html">
                         <img src="images/vindus_clients_images/calenv.jpg" class="category-img" alt="Environment Calculators">
                         <h3 class="category-title">Environment Calculators</h3>
                     </a>
-                    <a href="envcalculator.html" class="btn btn-custom">Try Environmental Calculator</a>
+                </div>
+                <div class="calc-btn-container">
+                    <a href="envcalculator.html" class="btn btn-custom">Try Environment Calculator</a>
                 </div>
             </div>
-            <div class="col-md-4 mb-4">
+
+            <div class="col-lg-2-5 col-md-4 col-sm-6">
                 <div class="category-card">
                     <a href="healthsubcalculators.html">
                         <img src="images/vindus_clients_images/calhealth.jpg" class="category-img" alt="Health Calculators">
                         <h3 class="category-title">Health Calculators</h3>
                     </a>
+                </div>
+                <div class="calc-btn-container">
                     <a href="healthcalculator.html" class="btn btn-custom">Try Health Calculator</a>
                 </div>
             </div>
-        </div>
 
-        <!-- Second Row - 2 Centered Cards -->
-        <div class="row justify-content-center">
-            <div class="col-md-4 mb-4">
+            <div class="col-lg-2-5 col-md-4 col-sm-6">
                 <div class="category-card">
                     <a href="safetysubcalculators.html">
                         <img src="images/vindus_clients_images/calsafety.jpg" class="category-img" alt="Safety Calculators">
                         <h3 class="category-title">Safety Calculators</h3>
                     </a>
+                </div>
+                <div class="calc-btn-container">
                     <a href="safetycalculator.html" class="btn btn-custom">Try Safety Calculator</a>
                 </div>
             </div>
-            <div class="col-md-4 mb-4">
+
+            <div class="col-lg-2-5 col-md-4 col-sm-6">
                 <div class="category-card">
                     <a href="firesubcalculators.html">
                         <img src="images/vindus_clients_images/calfire.jpg" class="category-img" alt="Fire Calculators">
-                        <h3 class="category-title">Fire Calculators</h3>
+                        <h3 class="category-title">Fire <br>Calculators</h3>
                     </a>
+                </div>
+                <div class="calc-btn-container">
                     <a href="firecalculator.html" class="btn btn-custom">Try Fire Safety Calculator</a>
                 </div>
             </div>
+
         </div>
     </section>
 </div>
-
-
-    
 
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
