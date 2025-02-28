@@ -250,11 +250,17 @@
     max-width: 1200px;
     margin-bottom: 15px;
 }
+/* 
+.note-container h3 {
+    margin-top: 0;
+    color: #007bff;
+    font-size: 18px;
+} */
 
 .note-container h3 {
     margin:15px 0;
     color: #007bff;
-    font-size: 20px;
+    font-size:20px;
 }
 
 .note-container p {
@@ -545,133 +551,115 @@ strong{
 
 <br><br><br><br>
 
-
 <div class="calculator-container">
-    <h2>Heat Transfer Rate Calculator</h2>
+    <h2>LMTD (Log Mean Temperature Difference) Calculator</h2>
 
     <div class="form-group">
-        <label for="A">Heat Transfer Area (A, m²):</label>
-        <input type="number" id="A" placeholder="Enter area in m²">
+        <label for="Ts">Steam Temperature (Ts, °C):</label>
+        <input type="number" id="Ts" placeholder="Enter steam temperature">
     </div>
 
     <div class="form-group">
-        <label for="deltaT">Temperature Difference (ΔT, °C):</label>
-        <input type="number" id="deltaT" placeholder="Enter temperature difference">
+        <label for="T1">Secondary Fluid In Temperature (T1, °C):</label>
+        <input type="number" id="T1" placeholder="Enter fluid in temperature">
     </div>
 
     <div class="form-group">
-        <label for="x">Barrier Thickness (x, m):</label>
-        <input type="number" id="x" placeholder="Enter thickness">
+        <label for="T2">Secondary Fluid Out Temperature (T2, °C):</label>
+        <input type="number" id="T2" placeholder="Enter fluid out temperature">
     </div>
 
-    <div class="form-group">
-        <label for="k">Thermal Conductivity (k, W/m°C):</label>
-        <input type="number" id="k" placeholder="Enter conductivity">
-    </div>
-
-    <button class="cal-btn" onclick="calculateHeatTransfer()">Calculate Heat Transfer</button>
+    <button class="cal-btn" onclick="calculateLMTD()">Calculate LMTD</button>
 
     <div class="result" id="result"></div>
 </div>
 
 <div class="note-container">
     <h3>Note:</h3>
-    <p>
-        The <strong>Rate of Heat Transfer</strong> is an essential concept in thermal engineering, helping to determine the amount of heat energy moving through a barrier. Understanding the key parameters involved in this process is crucial for optimizing thermal efficiency.
-    </p>
+<p>
+    The <strong>Log Mean Temperature Difference (LMTD)</strong> is a crucial parameter in heat exchangers, representing the 
+    <strong>effective temperature difference</strong> between two fluids exchanging heat. Unlike a simple arithmetic mean, LMTD 
+    accounts for the <strong>variation in temperature</strong> along the length of the heat exchanger, providing a more accurate 
+    measure of heat transfer effectiveness.
+</p>
 
-    <h3>Parameters for Heat Transfer Calculation:</h3>
-    <ul>
-        <li><strong>Heat Transfer Area (A):</strong> 
-            The total surface area through which heat is transferred. A larger surface area allows more heat to pass through, increasing the heat transfer rate.
-        </li>
-        <li><strong>Temperature Difference (ΔT):</strong> 
-            The difference in temperature between the two sides of the barrier. A greater temperature difference results in a higher heat transfer rate.
-        </li>
-        <li><strong>Barrier Thickness / Thermal Conductivity (X/k):</strong> 
-            This represents the resistance to heat transfer. Thicker materials or lower thermal conductivity reduce heat transfer, while thinner or highly conductive materials allow more heat to pass.
-        </li>
-    </ul>
+<h3>Parameters for LMTD Calculation:</h3>
+<ul>
+    <li><strong>Inlet and Outlet Fluid Temperatures:</strong> Temperatures of both fluids at their entry and exit points in the heat exchanger.</li>
+    <li><strong>Heat Exchanger Flow Configuration:</strong> Parallel flow, counterflow, or crossflow arrangements that influence heat transfer.</li>
+    <li><strong>Fluid Properties:</strong> Includes specific heat capacity, flow rate, and fluid type, affecting heat transfer rate.</li>
+    <li><strong>Heat Transfer Area:</strong> Surface area available for thermal exchange, influencing efficiency.</li>
+    <li><strong>Heat Transfer Coefficients:</strong> Determines how efficiently heat is transferred based on fluid velocity, material conductivity, and surface roughness.</li>
+</ul>
 
-    <h3>Input Validations:</h3>
-    <ul>
-        <li><strong>Heat Transfer Area (A):</strong> Must be a positive number. A zero or negative value is not physically meaningful.</li>
-        <li><strong>Temperature Difference (ΔT):</strong> Should be a positive value since heat transfer depends on a temperature gradient.</li>
-        <li><strong>Barrier Thickness / Conductivity (X/k):</strong> Must be a positive number. A zero or negative value would result in incorrect calculations.</li>
-    </ul>
 
-    <h3>Real-Life Applications:</h3>
-    <ul>
-        <li><strong>Building Insulation:</strong> Designing efficient walls and windows to reduce energy loss.</li>
-        <li><strong>Industrial Equipment:</strong> Optimizing heat exchangers and cooling systems for thermal management.</li>
-        <li><strong>Energy Efficiency:</strong> Enhancing HVAC, refrigeration, and power plant performance.</li>
-        <li><strong>Material Selection:</strong> Choosing materials based on their thermal properties for electronics and machinery.</li>
-        <li><strong>Food Processing:</strong> Maintaining temperature control in refrigeration and cooking applications.</li>
-    </ul>
 
-    <h3>How to Use This Calculator:</h3>
-    <ul>
-        <li>Enter the <strong>heat transfer area (A)</strong>, <strong>temperature difference (ΔT)</strong>, and <strong>barrier thickness/material conductivity (X/k)</strong>.</li>
-        <li>The calculator will determine the <strong>rate of heat transfer</strong> across the barrier.</li>
-        <li>The result will be displayed in <strong>watts (W)</strong>, representing the heat energy transferred per unit time.</li>
-        <li>A <strong>performance feedback</strong> will indicate efficiency based on the heat transfer rate.</li>
-    </ul>
+<h3>Real-World Applications:</h3>
+<ul>
+    <li><strong>Heat Exchanger Design:</strong> Optimizing exchanger size and efficiency.</li>
+    <li><strong>HVAC Systems:</strong> Designing air conditioning and heating setups.</li>
+    <li><strong>Power Plants:</strong> Analyzing boilers, condensers, and cooling towers.</li>
+    <li><strong>Industrial Processes:</strong> Used in chemical plants, refineries, and food processing for temperature control.</li>
+</ul>
 
-    <h3>Conclusion:</h3>
-    <p>
-        Understanding heat transfer principles is essential in engineering, energy efficiency, and material selection. Proper parameter selection and validation ensure accurate calculations, leading to better thermal management. This tool helps users optimize heat transfer processes for various applications.
-    </p>
+<h3>Why LMTD is Important:</h3>
+<ul>
+    <li>Determines heat exchanger size and efficiency.</li>
+    <li>Helps select the best flow configuration for performance.</li>
+    <li>Provides a standardized approach to compare different heat exchanger designs.</li>
+</ul>
+
+<h3>Conclusion:</h3>
+<p>
+    The <strong>Log Mean Temperature Difference (LMTD)</strong> is fundamental in heat transfer, ensuring accurate assessment of 
+    temperature gradients in heat exchangers. By considering fluid temperatures, flow configuration, and material properties, 
+    engineers can optimize energy transfer, improve system efficiency, and enhance industrial processes.
+</p>
 </div>
 
 
 <script>
-    function calculateHeatTransfer() {
-        const A = parseFloat(document.getElementById("A").value);
-        const deltaT = parseFloat(document.getElementById("deltaT").value);
-        const x = parseFloat(document.getElementById("x").value);
-        const k = parseFloat(document.getElementById("k").value);
+    function calculateLMTD() {
+        const Ts = parseFloat(document.getElementById("Ts").value);
+        const T1 = parseFloat(document.getElementById("T1").value);
+        const T2 = parseFloat(document.getElementById("T2").value);
         const resultElement = document.getElementById("result");
 
-        // Validation Checks
-        if (isNaN(A) || isNaN(deltaT) || isNaN(x) || isNaN(k)) {
-            resultElement.innerHTML = "❌ Error: Please enter valid numerical values for all fields.";
+        if (isNaN(Ts) || isNaN(T1) || isNaN(T2)) {
+            resultElement.innerHTML = "❌ Error: Please enter valid numerical values for all temperatures.";
             resultElement.style.color = "red";
             return;
         }
-        if (A <= 0) {
-            resultElement.innerHTML = "❌ Error: Heat transfer area (A) must be greater than zero.";
+        if (Ts <= T1 || Ts <= T2) {
+            resultElement.innerHTML = "❌ Error: Steam temperature (Ts) must be greater than both T1 and T2.";
             resultElement.style.color = "red";
             return;
         }
-        if (x <= 0) {
-            resultElement.innerHTML = "❌ Error: Barrier thickness (x) must be greater than zero.";
-            resultElement.style.color = "red";
-            return;
-        }
-        if (k <= 0) {
-            resultElement.innerHTML = "❌ Error: Thermal conductivity (k) must be greater than zero.";
+        if (T1 === T2) {
+            resultElement.innerHTML = "❌ Error: T1 and T2 cannot be equal to avoid logarithm error.";
             resultElement.style.color = "red";
             return;
         }
 
-        // Heat Transfer Calculation
-        const Q = A * (deltaT / (x / k));
+        const deltaT1 = Ts - T1;
+        const deltaT2 = Ts - T2;
+        const lmtd = (T2 - T1) / Math.log(deltaT1 / deltaT2);
 
-        // Feedback
         let feedback = "";
-        if (Q > 500) {
-            feedback = "✅ Excellent: High heat transfer efficiency.";
-        } else if (Q >= 100 && Q <= 500) {
-            feedback = "⚠️ Moderate: Heat transfer is acceptable but could be optimized.";
+        if (lmtd > 50) {
+            feedback = "✅ Excellent: High temperature difference indicates efficient heat transfer.";
+        } else if (lmtd >= 20 && lmtd <= 50) {
+            feedback = "⚠️ Moderate: Acceptable LMTD, but efficiency could be improved.";
         } else {
-            feedback = "❌ Poor: Low heat transfer rate, consider improving thermal conductivity or reducing barrier thickness.";
+            feedback = "❌ Poor: Low temperature difference may lead to inefficient heat transfer.";
         }
 
-        // Displaying Result
-        resultElement.innerHTML = `<strong>Heat Transfer Rate (Q):</strong> ${Q.toFixed(2)} W/m²<br><strong>Feedback:</strong> ${feedback}`;
+        resultElement.innerHTML = `<strong>LMTD (ΔT<sub>lm</sub>):</strong> ${lmtd.toFixed(2)} °C<br><strong>Feedback:</strong> ${feedback}`;
         resultElement.style.color = "black";
     }
 </script>
+
+
 
 
 
@@ -947,4 +935,3 @@ document.addEventListener("DOMContentLoaded", function() {
 
 <!-- Mirrored from dsathemes.com/html/martex_1.1/files/project-details.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 08 Mar 2024 16:40:05 GMT -->
 </html>
-
