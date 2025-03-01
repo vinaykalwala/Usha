@@ -171,25 +171,149 @@
 
 
 .main-header {
-    text-align: center;
-    background-image:url('images/vindus_clients_images/blue4.jpg');  /* Blue */
-    color: #1560bd;
-    padding: 40px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-arou;
+    background: linear-gradient(135deg, #000040, #1560bd);
+    color: #fff;
+    padding: 10px 50px;
     background-size: cover;
+    flex-wrap: nowrap;
+   
 }
 
+/* Clickable Logo */
+.logo-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.logo {
+    width: 110px;
+    height: 110px;
+    object-fit: contain;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+
+
+}
+.logo:hover {
+    transform: scale(1.1);
+}
+
+/* Centered Text Content */
+.header-content {
+    flex: 1;
+    text-align: center;
+    padding: 0 20px;
+    padding-top:20px ;
+  
+   
+}
 .main-header h1 {
-    font-size: 2rem;
-    margin-bottom: 15px;
-    color: #012756;
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+    color: white;
+}
+.main-header p {
+    font-size: 1.1rem;
+    opacity: 0.9;
 }
 
-.main-header p {
-    font-size: 1.2rem;
+/* Beautiful Calendar Card */
+.calendar-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 110px;
+    height: 110px;
+    background: #ffffff;
+    color: #1560bd;
+    text-align: center;
+    border-radius: 10px;
+    text-decoration: none;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(8px);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+    padding: 5px;
+}
+.calendar-img {
+    width: 50px;  /* Adjust to fit well */
+    height: auto;
     margin-bottom: 5px;
 }
+.calendar-card h3 {
+    font-size: 0.8rem;
+    color: #1560bd;
+    text-align: center;
+}
+.calendar-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.4);
+    background: rgba(255, 255, 255, 0.982);
+}
 
-/* Styling for the main content */
+/* 🔹 Responsive Design */
+@media (max-width: 768px) {
+    .main-header {
+        padding: 20px;
+    }
+
+    .logo, .calendar-card {
+        width: 110px;
+        height: 110px;
+    }
+
+  
+    .calendar-img {
+        width: 40px;
+        margin-bottom: 5px; /* Keeps text close to image */
+    }
+
+    .main-header h1 {
+        font-size: 1.6rem;
+    }
+
+    .main-header p {
+        font-size: 1rem;
+    }
+
+    .calendar-card h3 {
+        font-size: 0.8rem; /* Make text more readable */
+        margin: 0; /* Remove unnecessary spacing */
+    }
+}
+
+@media (max-width: 480px) {
+    .main-header {
+        padding: 15px;
+    }
+    .logo, .calendar-card {
+        width: 90px;
+        height: 90px;
+    }
+   
+
+    .calendar-img {
+        width: 35px;
+        margin-bottom: 5px;
+    }
+
+    .main-header h1 {
+        font-size: 1.4rem;
+    }
+
+    .main-header p {
+        font-size: 1rem;
+    }
+
+    .calendar-card h3 {
+        font-size: 0.7rem;
+    }
+}
 
 
 .main-content {
@@ -205,28 +329,10 @@
 }
 
 /* Styling for the header section */
-.main-header {
-    text-align: center;
-    background-image:url('images/vindus_clients_images/blue4.jpg');  /* Blue */
-    color: #1560bd;
-    padding: 40px 20px;
-    background-size: cover;
-}
-
-.main-header h1 {
-    font-size: 2rem;
-    margin-bottom: 15px;
-    color: #012756;
-}
-
-.main-header p {
-    font-size: 1.2rem;
-    margin-bottom: 5px;
-}
 
 /* Styling for the main content */
 .main-content {
-    padding: 50px 10%;
+    padding: 30px 10%;
     color: white;
 }
 
@@ -621,8 +727,22 @@
 
 
 <div class="main-header">
-    <h1>World's No.1 QEHS Calculator</h1>
+    <!-- Clickable Logo -->
+    <a href="index.html" class="logo-link">
+        <img src="images/vindus_clients_images/mlclogo.jpg" alt="Logo" class="logo">
+    </a>
+
+    <!-- Centered Header Content -->
+    <div class="header-content">
+        <h1>World's No.1 QEHS Calculator</h1>
         <p>Your Trusted Tool For Quality, Environment, Health, Safety & Fire Calculations</p>
+    </div>
+
+    <!-- Beautiful Calendar Card -->
+    <a href="calender.html" class="calendar-card">
+        <img src="images/vindus_clients_images/calender.webp" alt="Calendar Icon" class="calendar-img">
+        <h3>The Calendar Of A Century</h3>
+    </a>
 </div>
 
 <div class="main-content">
@@ -640,7 +760,7 @@
             <a href="burnratecal.html" class="calculator-btn">Burn Rate (Chemical Exposure) Calculator</a>
             <a href="basedesignquantityforco₂calculator.html" class="calculator-btn">Base Design Quantity For CO₂ Calculator</a>
             <a href="bernoullisequationforaliquid.html" class="calculator-btn">Bernoulli's Equation For A Liquid Calculator</a>
-            <a href="bernoullisequationwithfrictionloss.html" class="calculator-btn">Bernoulli's Equation (with Friction Loss) Calculator</a> 
+            <a href="bernoullisequationwithfrictionloss.html" class="calculator-btn">Bernoulli's Equation With Constant Potential Energy Terms And Frictional Losses Calculator</a> 
             
             <a href="dischargeratecalculation.html" class="calculator-btn">Discharge Rate Calculator For CO₂</a>
             <a href="designquantityofco₂calculatorforlocal.html" class="calculator-btn">Design Quantity Of CO₂ Calculator For Local Application</a>
@@ -662,7 +782,6 @@
             <a href="heattransferconvectioncalculator.html" class="calculator-btn">Heat Transfer By Convection (Newton's Law) Calculator</a>
             
             <a href="heatdetectorresponsetimecalculator.html" class="calculator-btn">Heat Detector Response Time Calculator</a>
-            <a href="kvflowcoefficient.html" class="calculator-btn">Kv Flow Coefficient Calculator</a>
 
             <a href="modifiedquantitycalculator.html" class="calculator-btn">Modified CO₂ Quantity Calculator</a>
             
@@ -672,7 +791,7 @@
             <a href="smokedetectorquantitycalculator.html" class="calculator-btn">Smoke Detector Quantity Calculator</a>
             <a href="specificvolumecalculation.html" class="calculator-btn">Specific Volume Calculation</a>
             <a href="sprinklerflowratecalculator.html" class="calculator-btn">Sprinkler Flow Rate Calculator</a>
-            <a href="volumetricflowrate.html" class="calculator-btn">Volumetric Flow Rate Calculator</a>
+            <a href="volumetricflowrate.html" class="calculator-btn">Volumetric Flowrate Of Liquid Is Proportional To The Square Root Of Pressure Drop </a>
             
 
 
