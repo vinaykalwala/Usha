@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="keywords" content="Responsive, Digital Product">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Integrated Management Systems | ML Consultancy - Hyderabad, Telangana</title>
+    <title> ML Consultancy Calender</title>
     <meta name="description" content="ML Consultancy in Hyderabad, Telangana provides integrated management systems to streamline your business operations and enhance efficiency." />
     <meta name="keywords" content="Integrated management systems, IMS, ML Consultancy, Hyderabad, Telangana, business efficiency, management solutions" />
 
@@ -380,30 +380,65 @@ td[data-event]:hover::after {
 }
 
 .gallery-container {
-  width: 100%;
-  overflow-x: hidden;
+    position: relative;
+    width: 100%;
+    overflow-x: hidden;
 }
 
 .gallery {
-  display: flex;
-  gap: 10px;
-  scroll-behavior: smooth;
-  overflow-x: auto;
-  -ms-overflow-style: none;  /* For Internet Explorer */
-  scrollbar-width: none;     /* For Firefox */
+    display: flex;
+    gap: 10px;
+    scroll-behavior: smooth;
+    overflow-x: auto;
+    -ms-overflow-style: none;  /* For Internet Explorer */
+    scrollbar-width: none;     /* For Firefox */
 }
 
 .gallery::-webkit-scrollbar {
-  display: none;  /* For Chrome, Safari, and Edge */
+    display: none; /* Hides scrollbar in Chrome/Safari */
 }
 
 .gallery img {
-  width: 800px;
-  height: auto;
-  border-radius: 8px;
-  object-fit: cover;
+    width: 800px;
+    height: auto;
+    border-radius: 8px;
+    object-fit: cover;
 }
 
+/* Scroll buttons */
+.scroll-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(2, 7, 90, 0.5);
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 24px;
+    border-radius: 50%;
+    transition: 0.3s ease-in-out;
+}
+
+.scroll-btn:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Position buttons */
+.left {
+    left: 10px;
+}
+
+.right {
+    right: 10px;
+}
+
+@media (max-width: 768px) {
+    .heading-container {
+  text-align: center;
+  margin: 30px 0;
+}
+}
     </style>
 </head>
 
@@ -686,9 +721,9 @@ td[data-event]:hover::after {
     </div>
 
     <div class="safety-dates">
-        <img src="images/vindus_clients_images/cardlogo.jpg" alt="" class="rounded-circle" height="100px" width="100px">
+        <img src="images/vindus_clients_images/mlclogo.jpg" alt="mlclogo"  height="100px" width="100px">
         
-        <h3 style="color: white;margin: 10px 0;">Important Safety Dates</h3>
+        <h3 style="color: white;margin: 10px 0;">Important QEHS Dates</h3>
         
         <ul id="safety-list"></ul>
     </div>
@@ -699,27 +734,40 @@ td[data-event]:hover::after {
   </div>
   
   <div class="gallery-container">
+    <button class="scroll-btn left" onclick="scrollGallery(-1)">&#10094;</button>
     <div class="gallery">
-      <img src="images/vindus_clients_images/jan.png" alt="Image 1">
-      <img src="images/vindus_clients_images/feb.png" alt="Image 2">
-      <img src="images/vindus_clients_images/march.png" alt="Image 3">
-      <img src="images/vindus_clients_images/april.png" alt="Image 4">
-      <img src="images/vindus_clients_images/may.png" alt="Image 5">
-      <img src="images/vindus_clients_images/june.png" alt="Image 6">
-      <img src="images/vindus_clients_images/july.png" alt="Image 7">
-      <img src="images/vindus_clients_images/aug.png" alt="Image 8">
-      <img src="images/vindus_clients_images/september.png" alt="Image 9">
-      <img src="images/vindus_clients_images/oct.png" alt="Image 10">
-      <img src="images/vindus_clients_images/nov.png" alt="Image 11">
-      <img src="images/vindus_clients_images/dec.png" alt="Image 12">
+        <img src="images/vindus_clients_images/jan.png" alt="Image 1">
+        <img src="images/vindus_clients_images/feb.png" alt="Image 2">
+        <img src="images/vindus_clients_images/march.png" alt="Image 3">
+        <img src="images/vindus_clients_images/april.png" alt="Image 4">
+        <img src="images/vindus_clients_images/may.png" alt="Image 5">
+        <img src="images/vindus_clients_images/june.png" alt="Image 6">
+        <img src="images/vindus_clients_images/july.png" alt="Image 7">
+        <img src="images/vindus_clients_images/aug.png" alt="Image 8">
+        <img src="images/vindus_clients_images/september.png" alt="Image 9">
+        <img src="images/vindus_clients_images/oct.png" alt="Image 10">
+        <img src="images/vindus_clients_images/nov.png" alt="Image 11">
+        <img src="images/vindus_clients_images/dec.png" alt="Image 12">
     </div>
-  </div>
+    <button class="scroll-btn right" onclick="scrollGallery(1)">&#10095;</button>
+</div>
+
   <br>
+  <script>
+    function scrollGallery(direction) {
+    const gallery = document.querySelector(".gallery");
+    const scrollAmount = 800; // Adjust based on image width
+    gallery.scrollBy({ left: direction * scrollAmount, behavior: "smooth" });
+}
+
+  </script>
 <script>
     const safetyEvents = {
         "01-24": "International Day of Education",
         "01-26": "International Day of Clean Energy",
-        "01-26": "International Customs Day",
+        "01-26": "International Customs Day-Republic Day",
+        "01-11": "Road safety week Start",
+        "01-17": "Road safety week End",
         "01-30": "World Neglected Tropical Diseases Day",
         "01-30": "World Leprosy Day",
         "02-02": "World Wetlands Day",
@@ -727,24 +775,51 @@ td[data-event]:hover::after {
         "03-03": "World Wildlife Day",
         "03-04": "National Safety Day (India)",
         "03-08": "International Women’s Day",
+        "03-22": "World Water day",
         "04-07": "World Health Day",
         "04-22": "Earth Day",
+        "04-14": "fire Service Day",
         "05-01": "International Workers’ Day (Labour Day)",
         "05-22": "International Day for Biological Diversity",
+        "05-31": "Anti-Tobacco Day",
         "06-05": "World Environment Day",
         "06-08": "World Oceans Day",
+        "08-15": "Independence Day",
         "09-16": "International Day for the Preservation of the Ozone Layer",
+        "10-02": "Ghandhi Jayanthi",
+        "10-06": "World WildLife Day",
         "10-10": "World Mental Health Day",
+        "10-13": "The International Day for Disaster Risk Reduction",
         "10-16": "World Food Day",
+        "11-01": "kannada rajyotsava",
+        "12-01": "World AIDs Day",
+        "12-02": "National Pollution Control Day",
         "12-05": "World Soil Day",
         "12-11": "International Mountain Day"
     };
 
     const qehsThemes = [
-        "Good Housekeeping", "Ladder Safety", "Confined Space Safety", "Slips and Trips",
-        "Well-Being", "No Shortcut to Safety", "Personal Protective Equipment", "Avoiding Safety Mistakes",
-        "Foot Protection (PPE)", "Electrical Safety", "Safety Attitude", "First Aid at Work"
+        "MLC ISO Certifications", "Mlc QEHS Documentation", "MLC Internal Audits", "MLC Employment Services",
+        "MLC Fire Consultancy Services ", "MLC PPE Services", "MLC QEHS Trainings", "MLC Safety Studies",
+        "MLC ESG Services", "MLC Incident Investigations", "MLC Power System Studies", "MLC Statutory Compliance"
     ];
+
+    // Define a specific link for each image
+    const imageLinks = {
+    "January": "certification1.html",
+    "February": "documentation.html",
+    "March": "auditing.html",
+    "April": "employeehs.html",
+    "May": "mlcfiresystemservices.html",
+    "June": "ppesupply.html",
+    "July": "ehstrainings.html",
+    "August": "safetystudies.html",
+    "September": "Esg.html",
+    "October": "incidentinvestigation.html",
+    "November": "powersystem.html",
+    "December": "professionaltax.html"
+};
+
 
     function generateCalendar() {
         const year = document.getElementById("year").value;
@@ -754,17 +829,29 @@ td[data-event]:hover::after {
         safetyList.innerHTML = "";
 
         const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+        
         months.forEach((month, index) => {
             const monthDiv = document.createElement("div");
             monthDiv.className = "month";
-            monthDiv.innerHTML = ` <h3 style="color: white; font-size:1.2rem;">
-            ${month} - ${qehsThemes[index]}</h3>
-           <img src='images/vindus_clients_images/${month}.jpg' alt='${month} Image' style='margin:10px 0'>
-            ` + generateMonthTable(year, index);
+
+            // Get the specific link for this month's image
+            let monthLink = imageLinks[month] || "#";  // Default to '#' if no link is provided
+
+            monthDiv.innerHTML = ` 
+                <h3 style="color: white; font-size:18px;">
+                    ${month} - ${qehsThemes[index]}
+                </h3>
+                <a href="${monthLink}">
+                    <img src='images/vindus_clients_images/${month}.jpg' 
+                         alt='${month} Image' 
+                         style='margin:10px 0; cursor:pointer;'>
+                </a>
+                ` + generateMonthTable(year, index);
+            
             calendarDiv.appendChild(monthDiv);
         });
 
-        // Corrected safety event display logic
+        // Safety event display logic
         for (let date in safetyEvents) {
             let fullDate = `${year}-${date}`; // Attach the selected year
             let li = document.createElement("li");
@@ -773,32 +860,32 @@ td[data-event]:hover::after {
         }
     }
 
-   function generateMonthTable(year, monthIndex) {
-    let date = new Date(year, monthIndex, 1);
-    let table = `<table><tr><th>Sun</th><th>Mon</th><th>Tue</th><th>Wed</th><th>Thu</th><th>Fri</th><th>Sat</th></tr><tr>`;
+    function generateMonthTable(year, monthIndex) {
+        let date = new Date(year, monthIndex, 1);
+        let table = `<table><tr><th>Sun</th><th>Mon</th><th>Tue</th><th>Wed</th><th>Thu</th><th>Fri</th><th>Sat</th></tr><tr>`;
 
-    for (let i = 0; i < date.getDay(); i++) {
-        table += "<td></td>";
-    }
-
-    while (date.getMonth() === monthIndex) {
-        let day = date.getDate();
-        let dateKey = `${String(monthIndex + 1).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
-        let highlight = safetyEvents[dateKey] ? "background-color: #ffcccb; font-weight: bold;" : "";
-        let sundayHighlight = date.getDay() === 0 ? "background-color: #a6d7fa;" : "";
-        let tooltip = safetyEvents[dateKey] ? `data-event="${safetyEvents[dateKey]}"` : "";
-
-        table += `<td style="${highlight} ${sundayHighlight}" ${tooltip}>${day}</td>`;
-
-        if (date.getDay() === 6) {
-            table += "</tr><tr>";
+        for (let i = 0; i < date.getDay(); i++) {
+            table += "<td></td>";
         }
-        date.setDate(day + 1);
-    }
 
-    table += "</tr></table>";
-    return table;
-}
+        while (date.getMonth() === monthIndex) {
+            let day = date.getDate();
+            let dateKey = `${String(monthIndex + 1).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
+            let highlight = safetyEvents[dateKey] ? "background-color: #ffcccb; font-weight: bold;" : "";
+            let sundayHighlight = date.getDay() === 0 ? "background-color: #a6d7fa;" : "";
+            let tooltip = safetyEvents[dateKey] ? `data-event="${safetyEvents[dateKey]}"` : "";
+
+            table += `<td style="${highlight} ${sundayHighlight}" ${tooltip}>${day}</td>`;
+
+            if (date.getDay() === 6) {
+                table += "</tr><tr>";
+            }
+            date.setDate(day + 1);
+        }
+
+        table += "</tr></table>";
+        return table;
+    }
 
     function populateYearOptions() {
         let yearSelect = document.getElementById("year");
