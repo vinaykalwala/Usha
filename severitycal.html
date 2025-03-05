@@ -249,9 +249,9 @@
 }
 
 .note-container h3 {
-    margin-top: 0;
+    margin:15px 0;
     color: #007bff;
-    font-size: 18px;
+    font-size: 20px;
 }
 
 .note-container p {
@@ -564,8 +564,29 @@ strong{
     
 </div>
 <div class="note-container">
-    <p><strong>Note:</strong> The calculation assumes a constant of 100,000 which represents 100 workers working 40 hours a week for 50 weeks a year. The result will show the severity rate per 100 workers. A higher severity rate indicates more lost workdays relative to hours worked.</p>
+    <h3>Note:</h3>
+    <p>
+        The <strong>Severity Rate</strong> is a key workplace safety metric that measures the impact of workplace injuries 
+        by assessing the number of lost workdays relative to total hours worked. It helps organizations understand 
+        the seriousness of incidents and improve safety measures.
+    </p>
+
+    <h3>Understanding the Parameters:</h3>
+    <ul>
+        <li>
+            <strong>Lost Workdays:</strong> The total number of days employees were unable to work due to occupational injuries 
+            or illnesses. A higher number of lost workdays indicates more severe incidents.
+        </li>
+        <li>
+            <strong>Total Hours Worked:</strong> The total number of hours worked by all employees during a specific period, 
+            including regular hours, overtime, and shift work. This provides context for calculating the impact of lost time.
+        </li>
+    </ul>
+
+    
+    
 </div>
+
 <script>
     function calculateSeverityRate() {
         const lostWorkdays = parseInt(document.getElementById('lostWorkdaysInput').value);
