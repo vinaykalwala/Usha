@@ -564,49 +564,37 @@ strong{
     
     <button class="cal-btn" onclick="calculateEvaporationFactor()">Calculate Evaporation Factor</button>
     <div class="result" id="result"></div>
-  
 </div>
-
 
 <div class="note-container">
     <h3>Note:</h3>
-
-    <p>The Factor formula  determines the efficiency of a boiler in converting feedwater into steam. It helps in analyzing steam generation performance by calculating the ratio of energy available for phase change. A higher factor indicates better efficiency and minimal energy loss.</p>
-
+    <p>The Factor formula determines the efficiency of a boiler in converting feedwater into steam. It helps in analyzing steam generation performance by calculating the ratio of energy available for phase change. A higher factor indicates better efficiency and minimal energy loss.</p>
     <p><strong>Explanation of Parameters:</strong></p>
     <ul>
         <li><strong>A (Specific Enthalpy of Evaporation):</strong> The amount of heat energy required to convert water into steam at atmospheric pressure (measured in kJ/kg).</li>
         <li><strong>B (Specific Enthalpy of Steam):</strong> The total heat energy present in steam at the operating pressure of the boiler (measured in kJ/kg).</li>
         <li><strong>C (Specific Enthalpy of Feedwater):</strong> The heat energy contained in feedwater before it enters the boiler, usually at a lower temperature (measured in kJ/kg).</li>
     </ul>
-
     <p><strong>Real-Life Applications:</strong></p>
-
+    <ul>
         <li>Used in industrial boilers to measure and optimize steam generation efficiency.</li>
         <li>Helps in fuel consumption analysis for cost savings in power plants and manufacturing industries.</li>
         <li>Critical in thermal power stations where efficient steam conversion affects electricity generation.</li>
         <li>Utilized in food processing, chemical plants, and textile industries where steam is a key component.</li>
-    
-
+    </ul>
     <p><strong>Conclusion:</strong></p>
     <p><strong>The Evaporation Factor</strong> is a crucial metric for evaluating boiler efficiency and operational performance. By optimizing steam generation based on this factor, industries can improve fuel efficiency, reduce costs, and enhance energy utilization. Regular monitoring of this value ensures sustainable and cost-effective boiler operations.</p>
 </div>
-
-
-
 
 <script>
     function calculateEvaporationFactor() {
         let A = parseFloat(document.getElementById("A").value);
         let B = parseFloat(document.getElementById("B").value);
         let C = parseFloat(document.getElementById("C").value);
-
-        if (A > 0 && B > C) {
-            let evaporationFactor = A / (B - C);
-            document.getElementById("result").innerHTML = "Evaporation Factor: " + evaporationFactor.toFixed(4);
-        } else {
-            document.getElementById("result").innerHTML = "Please enter valid values where B > C.";
-        }
+        
+        // Direct calculation without additional validation.
+        let evaporationFactor = A / (B - C);
+        document.getElementById("result").innerHTML = "Evaporation Factor: " + evaporationFactor.toFixed(4);
     }
 </script>
 

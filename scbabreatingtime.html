@@ -170,7 +170,7 @@
       background-color: #f5f5f5;
     }
     .calculator-container {
-      max-width: 1000px;
+      max-width: 1100px;
       margin: 20px auto;
       padding: 20px;
       background: #ffffff;
@@ -252,7 +252,7 @@
 }
 
 .note-container h3 {
-    margin-top: 0;
+    margin:15px 0;
     color: #007bff;
     font-size: 18px;
 }
@@ -277,7 +277,7 @@ select {
     border: 1px solid #d3e0f0;
     border-radius: 5px;
     font-size: 1rem;
-    background-color: rgb(235, 243, 246);
+    background-color: rgb(223, 241, 247);
 
 }
 /* Table Styles */
@@ -321,6 +321,27 @@ tr:hover {
     th, td {
         font-size: 14px;
         padding: 8px;
+    }
+}
+.image-container {
+    text-align: center; /* Centers the image */
+}
+
+.responsive-image {
+    max-width: 90%; /* Ensures image scales within its container */
+    height: 350px; /* Maintains aspect ratio */
+}
+
+/* Adjust image size for smaller screens */
+@media screen and (max-width: 768px) {
+    .responsive-image {
+        width: 90%; /* Reduce width on smaller screens */
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .responsive-image {
+        width: 100%; /* Make image fully responsive on mobile */
     }
 }
 
@@ -602,233 +623,91 @@ tr:hover {
 
 
 
+
+
 <div class="calculator-container">
-    <h2>BMI Calculator</h2>
-    
+    <h2>SCBA (Self-Contained Breathing Apparatus) Cylinder 
+        Breathing Duration Calculation</h2>
+
     <div class="form-group">
-        <label for="age">Age (years):</label>
-        <input type="number" id="age" placeholder="Enter Age">
+        <label for="cylinderPressure">Cylinder Pressure (Bar):</label>
+        <input type="number" id="cylinderPressure" placeholder="Enter cylinder pressure in Bar">
     </div>
+
     <div class="form-group">
-        <label for="gender">Gender:</label>
-        <select id="gender">
-            <option value="male">Male</option>
-            <option value="female">Female</option>
-        </select>
+        <label for="cylinderVolume">Cylinder Volume (Liters):</label>
+        <input type="number" id="cylinderVolume" placeholder="Enter cylinder volume in liters">
     </div>
+
     <div class="form-group">
-        <label for="weight">Weight (kg):</label>
-        <input type="number" id="weight" placeholder="Enter Weight">
+        <label for="breathingRate">Regular Breathing Rate (LPM):</label>
+        <input type="number" id="breathingRate" placeholder="Enter breathing rate in LPM">
     </div>
-    <div class="form-group">
-        <label for="height">Height (cm):</label>
-        <input type="number" id="height" placeholder="Enter Height">
-    </div>
-    <button class="cal-btn" onclick="calculateBMI()">Calculate BMI</button>
+
+    <button class="cal-btn" onclick="calculateSCBADuration()">Calculate SCBA Duration</button>
     <div class="result" id="result"></div>
 </div>
+
 <div class="note-container">
-    <h3>BMI Categories for Adults</h3>
-    <table>
-        <tr>
-            <th>Classification</th>
-            <th>BMI Range (kg/m²)</th>
-        </tr>
-        <tr><td>Severe Thinness</td><td>&lt; 16</td></tr>
-        <tr><td>Moderate Thinness</td><td>16 - 17</td></tr>
-        <tr><td>Mild Thinness</td><td>17 - 18.5</td></tr>
-        <tr><td>Normal</td><td>18.5 - 25</td></tr>
-        <tr><td>Overweight</td><td>25 - 30</td></tr>
-        <tr><td>Obese Class I</td><td>30 - 35</td></tr>
-        <tr><td>Obese Class II</td><td>35 - 40</td></tr>
-        <tr><td>Obese Class III</td><td>&gt; 40</td></tr>
-    </table>
-
-    <p><strong>What is Obesity?</strong><br>
-        Obesity is a medical condition where a person has an excessive amount of body fat. It is classified into different categories based on BMI (Body Mass Index). The three classes of obesity are:
-        <ul>
-            <li><strong>Obese Class I</strong> (BMI 30-34.9) - Mild obesity, where lifestyle changes and weight management may help.</li>
-            <li><strong>Obese Class II</strong> (BMI 35-39.9) - Moderate obesity, which may require medical intervention.</li>
-            <li><strong>Obese Class III</strong> (BMI ≥40) - Severe obesity, often referred to as morbid obesity, which poses significant health risks and may require surgical intervention.</li>
-        </ul>
-        Obesity increases the risk of numerous health problems, such as heart disease, diabetes, and high blood pressure. Early identification and intervention are crucial to managing these risks.
-    </p>
-
-    <h3>BMI Categories for Children and Teens (Age 2-20)</h3>
-    <table>
-        <tr>
-            <th>Category</th>
-            <th>Percentile Range</th>
-        </tr>
-        <tr><td>Underweight</td><td>&lt; 5%</td></tr>
-        <tr><td>Healthy weight</td><td>5% - 85%</td></tr>
-        <tr><td>At risk of overweight</td><td>85% - 95%</td></tr>
-        <tr><td>Overweight</td><td>&gt; 95%</td></tr>
-    </table>
-
-    <p><strong>Why is the BMI Calculator Used?</strong><br>
-        The BMI calculator is a simple and widely used tool to assess whether a person is underweight, normal weight, overweight, or obese based on their height and weight. It helps identify potential health risks and determine if further evaluation by a healthcare professional is necessary.
-        However, BMI does not distinguish between muscle mass and fat, so it is not a perfect measure of health. It’s important to consider other factors like body composition, lifestyle, and family history when assessing one's health.</p>
-
-    <p><strong>What is BMI?</strong><br>
-        Body Mass Index (BMI) is a measure of body fat based on a person's weight in relation to their height. Although it’s a quick and easy tool for classifying body weight, it doesn’t directly measure body fat percentage or distribution. It serves as a general indicator of whether a person is at a healthy weight for their height, and it helps healthcare providers evaluate risks associated with obesity, malnutrition, and other health issues.</p>
-
+    <h3>Note:</h3>
     <p>
-        BMI is a useful tool for assessing body weight status but does not account for body composition. It is important to consult a healthcare professional for more personalized advice.
+        <strong>SCBA Duration Calculation</strong> helps determine how long a Self-Contained Breathing Apparatus cylinder will last based on its pressure, volume, and the user's breathing rate. This is critical for ensuring safety in environments where breathable air is limited.
     </p>
-    <h3>Risks Associated with Being Overweight</h3>
+
+    <h3>Understanding the Parameters:</h3>
     <ul>
-        <li>High blood pressure</li>
-        <li>Higher levels of LDL cholesterol and lower levels of HDL cholesterol</li>
-        <li>Type II diabetes</li>
-        <li>Coronary heart disease</li>
-        <li>Stroke</li>
-        <li>Gallbladder disease</li>
-        <li>Osteoarthritis</li>
-        <li>Sleep apnea and breathing problems</li>
-        <li>Certain cancers (endometrial, breast, colon, kidney, gallbladder, liver)</li>
-        <li>Low quality of life</li>
-        <li>Mental illnesses such as clinical depression, anxiety, and others</li>
-        <li>Body pains and difficulty with certain physical functions</li>
-        <li>Increased risk of mortality</li>
+        <li>
+            <strong>Cylinder Pressure (Bar):</strong> The pressure of the air in the SCBA cylinder, typically measured in Bar (e.g., 300 Bar for a full cylinder).
+        </li>
+        <li>
+            <strong>Cylinder Volume (Liters):</strong> The volume of the SCBA cylinder, typically measured in liters (e.g., 6 liters).
+        </li>
+        <li>
+            <strong>Breathing Rate (LPM):</strong> The rate at which the user consumes air, measured in liters per minute (LPM). A typical breathing rate ranges from 40-60 LPM.
+        </li>
     </ul>
 
-    <h3>Risks Associated with Being Underweight</h3>
-    <ul>
-        <li>Malnutrition, vitamin deficiencies, anemia</li>
-        <li>Osteoporosis</li>
-        <li>Decreased immune function</li>
-        <li>Growth and development issues</li>
-        <li>Possible reproductive issues for women</li>
-        <li>Potential complications from surgery</li>
-        <li>Increased risk of mortality</li>
-        <li>Possible underlying conditions such as anorexia nervosa</li>
-    </ul>
-    <h3>BMI Prime</h3>
-    <p>BMI prime is the ratio of a person's measured BMI to the upper limit of BMI that is considered "normal," by institutions such as the WHO and the CDC. Though it may differ in some countries, such as those in Asia, this upper limit, which will be referred to as BMI<sub>upper</sub>, is 25 kg/m².</p>
-
-   
-
-    <p>Since BMI prime is a ratio of two BMI values, BMI prime is a dimensionless value. A person who has a BMI prime less than 0.74 is classified as underweight; from 0.74 to 1 is classified as normal; greater than 1 is classified as overweight; and greater than 1.2 is classified as obese. The table below shows a person's weight classification based on their BMI prime:</p>
-
-    <table border="1" cellpadding="10">
-        <thead>
-            <tr>
-                <th>Classification</th>
-                <th>BMI</th>
-                <th>BMI Prime</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>Severe Thinness</td>
-                <td>&lt; 16</td>
-                <td>&lt; 0.64</td>
-            </tr>
-            <tr>
-                <td>Moderate Thinness</td>
-                <td>16 - 17</td>
-                <td>0.64 - 0.68</td>
-            </tr>
-            <tr>
-                <td>Mild Thinness</td>
-                <td>17 - 18.5</td>
-                <td>0.68 - 0.74</td>
-            </tr>
-            <tr>
-                <td>Normal</td>
-                <td>18.5 - 25</td>
-                <td>0.74 - 1</td>
-            </tr>
-            <tr>
-                <td>Overweight</td>
-                <td>25 - 30</td>
-                <td>1 - 1.2</td>
-            </tr>
-            <tr>
-                <td>Obese Class I</td>
-                <td>30 - 35</td>
-                <td>1.2 - 1.4</td>
-            </tr>
-            <tr>
-                <td>Obese Class II</td>
-                <td>35 - 40</td>
-                <td>1.4 - 1.6</td>
-            </tr>
-            <tr>
-                <td>Obese Class III</td>
-                <td>&gt; 40</td>
-                <td>&gt; 1.6</td>
-            </tr>
-        </tbody>
+    <h3>SCBA Cylinder Duration Table</h3>
+    <table>
+        <tr>
+            <th>Cylinder Pressure (Bar)</th>
+            <th>Cylinder Volume (Liters)</th>
+            <th>Duration (Minutes)</th>
+            <th>Notes</th>
+        </tr>
+        <tr><td>300</td><td>6</td><td>45</td><td>Full Pressure</td></tr>
+        <tr><td>250</td><td>6</td><td>37.5</td><td></td></tr>
+        <tr><td>200</td><td>6</td><td>30</td><td></td></tr>
+        <tr><td>100</td><td>6</td><td>15</td><td></td></tr>
+        <tr><td>50</td><td>6</td><td>7.5</td><td>Buzzer or whistle is blown</td></tr>
     </table>
-
-    <p>BMI prime allows us to make a quick assessment of how much a person's BMI differs from the upper limit of BMI that is considered normal. It also allows for comparisons between groups of people who have different upper BMI limits.</p>
+    <div class="image-container">
+        <img src="images/vindus_clients_images/scba.png" alt="SCBA Image" class="responsive-image">
+    </div>
+    
+        <p>
+        Enter the required values and click <strong>"Calculate SCBA Duration"</strong> to determine how long your SCBA cylinder will last.
+    </p>
 </div>
 
 <script>
-  function calculateBMI() {
-    const age = parseInt(document.getElementById('age').value);
-    const gender = document.getElementById('gender').value;
-    const weight = parseFloat(document.getElementById('weight').value);
-    const height = parseFloat(document.getElementById('height').value) / 100; // Convert cm to meters
+    function calculateSCBADuration() {
+        const cylinderPressure = parseFloat(document.getElementById('cylinderPressure').value);
+        const cylinderVolume = parseFloat(document.getElementById('cylinderVolume').value);
+        const breathingRate = parseFloat(document.getElementById('breathingRate').value);
+        const resultElement = document.getElementById('result');
 
-    const resultElement = document.getElementById('result');
+        if (isNaN(cylinderPressure) || isNaN(cylinderVolume) || isNaN(breathingRate) || 
+            cylinderPressure <= 0 || cylinderVolume <= 0 || breathingRate <= 0) {
+            resultElement.innerText = "Please enter valid positive numbers for all fields.";
+            return;
+        }
 
-    // Validate Inputs
-    if (isNaN(age) || age < 0) {
-        resultElement.innerText = "Please enter a valid age.";
-        resultElement.style.color = "red";
-        return;
+        const scbaDuration = (cylinderPressure * cylinderVolume) / breathingRate;
+        resultElement.innerHTML = `<p><strong>Your SCBA cylinder will last approximately ${Math.floor(scbaDuration)} minutes.</strong></p>
+                                   <p>Plan accordingly and ensure you have enough air for safety.</p>`;
     }
-    if (isNaN(weight) || weight <= 0) {
-        resultElement.innerText = "Please enter a valid weight.";
-        resultElement.style.color = "red";
-        return;
-    }
-    if (isNaN(height) || height <= 0) {
-        resultElement.innerText = "Please enter a valid height.";
-        resultElement.style.color = "red";
-        return;
-    }
-
-    // Calculate BMI
-    const bmi = weight / (height * height);
-    const bmiPrime = bmi / 25;
-
-    let category = '';
-
-    if (bmi < 16) {
-        category = 'Severe Thinness';
-    } else if (bmi < 17) {
-        category = 'Moderate Thinness';
-    } else if (bmi < 18.5) {
-        category = 'Mild Thinness';
-    } else if (bmi < 25) {
-        category = 'Normal';
-    } else if (bmi < 30) {
-        category = 'Overweight';
-    } else if (bmi < 35) {
-        category = 'Obese Class I';
-    } else if (bmi < 40) {
-        category = 'Obese Class II';
-    } else {
-        category = 'Obese Class III';
-    }
-
-    // Display Result
-    resultElement.innerHTML = `
-        <p><strong>Your BMI:</strong> ${bmi.toFixed(2)}kg/m²</p>
-        <p><strong>Category:</strong> ${category}</p>
-        <p><strong>BMI Prime:</strong> ${bmiPrime.toFixed(2)}</p>
-    `;
-    resultElement.style.color = "black"; // Reset color in case of previous error
-}
-
 </script>
-
-
-
 
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>

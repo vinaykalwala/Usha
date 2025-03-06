@@ -598,11 +598,11 @@ strong{
 
         if (isNaN(heatTransfer)) {
             document.getElementById("result").textContent = "Please enter a valid number.";
-        } else if (heatTransfer <= 0) {
+        } else if (heatTransfer < 0) {
             document.getElementById("result").textContent = "Heat transfer must be a positive value.";
         } else {
             let boilerHP = heatTransfer / 17;
-            document.getElementById("result").textContent = "Boiler Horsepower: " + boilerHP.toFixed(2) + " HP";
+            document.getElementById("result").textContent = "Boiler Horsepower: " + boilerHP.toFixed(6) + " HP";
         }
     }
 </script>

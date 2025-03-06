@@ -604,7 +604,7 @@ strong{
 
         if (Qdot > 0 && energy > 0) {
             let steamOutput = (Qdot * 3600) / energy;
-            document.getElementById("result").innerHTML = "Steam Output: " + steamOutput.toFixed(2) + " kg/h";
+            document.getElementById("result").innerHTML = "Steam Output: " + steamOutput.toFixed(4) + " kg/h";
         } else {
             document.getElementById("result").innerHTML = "Please enter valid values where Q̇ > 0 and Energy > 0.";
         }
