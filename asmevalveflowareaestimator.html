@@ -276,28 +276,7 @@ strong{
         padding: 10px; 
     }
 }
-.form-row {
-        display: flex;
-        justify-content: space-between;
-        flex-wrap: wrap;
-    }
-    .form-group {
-        flex: 1;
-        margin-right: 15px;
-        min-width: 45%;
-    }
-    .form-group:last-child {
-        margin-right: 0;
-    }
-    @media (max-width: 768px) {
-        .form-row {
-            flex-direction: column;
-        }
-        .form-group {
-            min-width: 100%;
-            margin-right: 0;
-        }
-    }
+
 
 </style>
 	</head>
@@ -580,7 +559,7 @@ strong{
 
 <div class="calculator-container">
     <h2>ASME (API RP 520) valves - Minimum Flow Area For Liquids Calculator</h2>
-    <div class="form-row">
+   
     <div class="form-group">
         <label for="Vt"><strong>Required Volume Flow (V̇<sub>t</sub>) (US gal/min):</strong></label>
     <input type="number" id="Vt" placeholder="Enter V̇t > 0">
@@ -592,8 +571,8 @@ strong{
         <input type="number" id="Kd" placeholder="Enter Kd > 0">
         <div class="error" id="Kd-error"></div>
     </div>
-    </div>
-    <div class="form-row">
+    
+    
     <div class="form-group">
         <label><strong>Viscosity Factor (K<sub>v</sub>):</strong></label>
         <input type="number" id="Kv" placeholder="Enter Kv > 0">
@@ -605,8 +584,8 @@ strong{
         <input type="number" id="Kw" placeholder="Enter Kw > 0">
         <div class="error" id="Kw-error"></div>
     </div>
-    </div>
-     <div class="form-row">
+    
+     
     <div class="form-group">
         <label><strong>Specific Gravity (G):</strong></label>
         <input type="number" id="G" placeholder="Enter G > 0">
@@ -618,7 +597,7 @@ strong{
         <input type="number" id="PR" placeholder="Enter PR > PB">
         <div class="error" id="PR-error"></div>
     </div>
-     </div>
+    
     
     <div class="form-group">
         <label><strong>Backpressure (P<sub>B</sub>) (psi a):</strong></label>

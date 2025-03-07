@@ -270,28 +270,6 @@ strong{
         padding: 10px; 
     }
 }
-.form-row {
-        display: flex;
-        justify-content: space-between;
-        flex-wrap: wrap;
-    }
-    .form-group {
-        flex: 1;
-        margin-right: 15px;
-        min-width: 45%;
-    }
-    .form-group:last-child {
-        margin-right: 0;
-    }
-    @media (max-width: 768px) {
-        .form-row {
-            flex-direction: column;
-        }
-        .form-group {
-            min-width: 100%;
-            margin-right: 0;
-        }
-    }
 
 </style>
 	</head>
@@ -573,7 +551,7 @@ strong{
 <div class="calculator-container">
     <h2>Cost of Fuel Saved by Returning Condensate Calculator</h2>
 
-    <div class="form-row">
+    
         <div class="form-group">
             <label for="X">Expected Improvement in Condensate Return (%):</label>
             <input type="number" id="X" placeholder="Enter X value">
@@ -582,8 +560,8 @@ strong{
             <label for="A">Cost of Fuel per 1 GJ of Energy (₹):</label>
             <input type="number" id="A" placeholder="Enter A value">
         </div>
-    </div>
-    <div class="form-row">
+   
+   
         <div class="form-group">
             <label for="B">Energy Required per kg of Make-up Water (kJ/kg):</label>
             <input type="number" id="B" placeholder="Enter B value">
@@ -592,8 +570,8 @@ strong{
             <label for="C">Average Boiler Evaporation Rate (kg/h):</label>
             <input type="number" id="C" placeholder="Enter C value">
         </div>
-    </div>
-    <div class="form-row">
+    
+   
         <div class="form-group">
             <label for="D">Operational Hours per Year (h/year):</label>
             <input type="number" id="D" placeholder="Enter D value">
@@ -602,7 +580,7 @@ strong{
             <label for="E">Boiler Efficiency (%):</label>
             <input type="number" id="E" placeholder="Enter E value">
         </div>
-    </div>
+  
 
     <button class="cal-btn" onclick="calculateFuelSavings()">Calculate Fuel Savings</button>
     <div class="result" id="result"></div>
