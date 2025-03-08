@@ -177,9 +177,9 @@
 }
 
 .note-container h3 {
-    margin:15px 0;
+    margin-top: 0;
     color: #007bff;
-    font-size: 20px;
+    font-size: 18px;
 }
 
 .note-container p {
@@ -195,16 +195,7 @@ strong{
         padding: 10px; 
     }
 }
-select {
-    width: 100%;
-    padding: 10px;
-    margin-top: 5px;
-    border: 1px solid #d3e0f0;
-    border-radius: 5px;
-    font-size: 1rem;
-    background-color: rgb(223, 241, 247);
 
-}
 </style>
 	</head>
 
@@ -224,72 +215,129 @@ select {
 <div id="header"></div>
 
 <div class="calculator-container">
-    <h2>Accident Rate Calculator</h2>
+    <h2>BS-6759 Minimum Orifice Area Calculator for Air</h2>
+
     <div class="form-group">
-        <label for="numAccidents">Number of Accidents:</label>
-        <input type="number" id="numAccidents" placeholder="Enter Number of Accidents">
+        <label for="volumetricFlow">Volumetric Flow Rate (V̇) (l/s):</label>
+        <input type="number" id="volumetricFlow" placeholder="Enter volumetric flow rate">
     </div>
+
     <div class="form-group">
-        <label for="totalHours">Total Hours Worked:</label>
-        <input type="number" id="totalHours" placeholder="Enter Total Hours Worked">
+        <label for="pressure">Absolute Relieving Pressure (Pᵣ) (bar a):</label>
+        <input type="number" id="pressure" placeholder="Enter pressure">
     </div>
-    <button class="cal-btn" onclick="calculateAccidentRate()">Calculate Accident Rate</button>
+
+    <div class="form-group">
+        <label for="kdr">Derated Coefficient of Discharge (Kdr):</label>
+        <input type="number" id="kdr" placeholder="Enter Kdr (0-1)">
+    </div>
+
+    <div class="form-group">
+        <label for="temperature">Inlet Temperature (T) (K):</label>
+        <input type="number" id="temperature" placeholder="Enter temperature in Kelvin">
+    </div>
+
+    <button class="cal-btn" onclick="calculateOrificeArea()">Calculate Orifice Area</button>
+
     <div class="result" id="result"></div>
-    <div class="feedback" id="feedback"></div> <!-- New feedback section -->
+    <div class="feedback" id="feedback"></div>
 </div>
 
 <div class="note-container">
-    <h3>Note:</h3>
-    <p>
-        This calculator helps determine the **Accident Rate**, which measures the number of workplace accidents per 1,000,000 hours worked.
-        It provides insights into workplace safety and helps organizations improve safety measures.
-    </p>
-    <p>
-        To calculate the Accident Rate, enter the following values:
-    </p>
+    <h3>Note:</h3> 
+    <p>This tool calculates the <strong>Minimum Orifice Area for Air</strong> in a safety valve, based on volumetric flow rate, absolute relieving pressure, and discharge coefficients. Proper sizing ensures efficient pressure relief and prevents system overpressure.</p>
+
+    <p><strong>Understanding Parameters:</strong></p>
     <ul>
-        <li><strong>Number of Accidents:</strong> This includes reportable workplace accidents such as injuries, fatalities, and lost-time incidents.</li>
-        <li><strong>Total Hours Worked:</strong> The total number of hours worked by all employees over a specific period.</li>
+        <li><strong>Volumetric Flow Rate (V̇) (l/s):</strong> The total air volume that needs to be discharged per second.</li>
+        <li><strong>Absolute Relieving Pressure (Pᵣ) (bar a):</strong> The system pressure at which the valve will relieve air.</li>
+        <li><strong>Derated Coefficient of Discharge (K<sub>dr</sub>):</strong> A correction factor accounting for discharge efficiency.</li>
+        <li><strong>Inlet Temperature (T) (K):</strong> The temperature of the air entering the valve, measured in Kelvin.</li>
+        <li><strong>Flow Area (A₀) (mm²):</strong> The minimum required orifice area to safely discharge air, calculated using:</li>
     </ul>
-    <p>
-        After entering these values, click the <strong>Calculate Accident Rate</strong> button. 
-        The result will show the **Accident Rate**, along with feedback to help you interpret the result.
-    </p>
+
+    <p><strong>Key Applications:</strong></p>
+    <ul>
+        <li><strong>Air Safety Valve Sizing:</strong> Ensures the valve can handle the required airflow under relief conditions.</li>
+        <li><strong>Compressed Air Systems:</strong> Protects systems from excessive pressure buildup.</li>
+        <li><strong>Industrial Pneumatic Systems:</strong> Ensures efficient air pressure regulation in industrial machinery.</li>
+        <li><strong>Regulatory Compliance:</strong> Ensures adherence to safety standards such as BS 6759 for pressure relief devices.</li>
+    </ul>
+
+    <p><strong>Validations & Input Constraints:</strong></p>
+    <ul>
+        <li><strong>Volumetric Flow Rate (V̇) must be positive:</strong> The discharged airflow must be a valid positive number.</li>
+        <li><strong>Pressure (Pᵣ) must be greater than zero:</strong> Absolute relieving pressure must be a positive value.</li>
+        <li><strong>Coefficient of Discharge (K<sub>dr</sub>) must be valid:</strong> Must be within the acceptable range (0-1).</li>
+        <li><strong>Temperature (T) must be in Kelvin:</strong> Temperature must be a positive Kelvin value (above absolute zero).</li>
+        <li><strong>Check for extreme Orifice Area values:</strong> Very small or large areas may indicate incorrect input values or improper valve selection.</li>
+    </ul>
+    <br>
+    <p><strong>BS 6759</strong> is a British Standard that specifies requirements for the performance, design, and testing of safety valves used in pressurized systems. It ensures that safety valves operate reliably to prevent overpressure in boilers, pipelines, and industrial equipment.</p>
+
+    <p><strong>Conclusion:</strong></p>
+    <p>This tool helps engineers and technicians determine the minimum orifice area required for a safety valve in air systems. Proper valve sizing enhances safety, efficiency, and compliance with industrial safety standards.</p>
 </div>
 
-<script>
-    function calculateAccidentRate() {
-        // Get input values
-        var numAccidents = document.getElementById("numAccidents").value;
-        var totalHours = document.getElementById("totalHours").value;
 
-        // Validate inputs
-        if (!numAccidents || !totalHours || totalHours <= 0) {
-            document.getElementById("result").innerHTML = "Please enter valid values.";
-            document.getElementById("feedback").innerHTML = ""; // Clear feedback
+
+
+
+<script>
+    function calculateOrificeArea() {
+        const volumetricFlow = parseFloat(document.getElementById("volumetricFlow").value);
+        const pressure = parseFloat(document.getElementById("pressure").value);
+        const kdr = parseFloat(document.getElementById("kdr").value);
+        const temperature = parseFloat(document.getElementById("temperature").value);
+        const resultElement = document.getElementById("result");
+        const feedbackElement = document.getElementById("feedback");
+
+        // Reset previous results
+        resultElement.innerHTML = "";
+        feedbackElement.innerHTML = "";
+
+        // 🔹 **Validations**
+        if (isNaN(volumetricFlow) || volumetricFlow <= 0) {
+            resultElement.innerHTML = "❌ <strong>Error:</strong> Volumetric flow rate must be a positive number.";
+            return;
+        }
+        if (isNaN(pressure) || pressure <= 0) {
+            resultElement.innerHTML = "❌ <strong>Error:</strong> Pressure must be a positive number.";
+            return;
+        }
+        if (isNaN(kdr) || kdr <= 0 || kdr > 1) {
+            resultElement.innerHTML = "❌ <strong>Error:</strong> Kdr must be between 0 and 1.";
+            return;
+        }
+        if (isNaN(temperature) || temperature < 0) {
+            resultElement.innerHTML = "❌ <strong>Error:</strong> Temperature must be a positive Kelvin value.";
             return;
         }
 
-        // Calculate Accident Rate
-        var accidentRate = (numAccidents / totalHours) * 1000000;
-        document.getElementById("result").innerHTML = "Accident Rate: " + accidentRate.toFixed(2);
+        // 🔹 **Calculate Orifice Area using the BS 6759 formula for air**
+        const orificeArea = (volumetricFlow / (0.193 * pressure * kdr)) * Math.sqrt(temperature / 288);
 
-        // Provide feedback based on the Accident Rate
-        var feedback = "";
-        if (accidentRate === 0) {
-            feedback = "Excellent! This indicates a very safe work environment with no reported accidents. Keep up the good work!";
-        } else if (accidentRate < 1.0) {
-            feedback = "This is a good sign, indicating a relatively safe workplace with minimal accidents. Continue to monitor and improve safety measures.";
-        } else if (accidentRate >= 1.0 && accidentRate <= 5.0) {
-            feedback = "There is room for improvement. Review recent accidents, identify common causes, and enhance safety protocols.";
-        } else if (accidentRate > 5.0 && accidentRate <= 100.0) {
-            feedback = "This is a concerning rate. Immediate action is required to improve workplace safety. Investigate root causes and implement corrective measures.";
-        } else if (accidentRate > 100.0) {
-            feedback = "This is an extremely high and alarming rate. Urgent intervention is needed. Conduct a thorough investigation, halt high-risk operations, and enhance safety training.";
+        // 🔹 **Define Feedback Message & Color**
+        let feedbackMessage = "";
+        let feedbackColor = "black";
+
+        if (orificeArea < 50) {
+            feedbackMessage = "⚠️ <strong>Small Orifice Area:</strong> Ensure this is sufficient for air discharge.";
+            feedbackColor = "blue";
+        } else if (orificeArea >= 50 && orificeArea <= 2000) {
+            feedbackMessage = "✅ <strong>Optimal Orifice Area:</strong> This is within a typical range for safety valves.";
+            feedbackColor = "green";
+        } else {
+            feedbackMessage = "❌ <strong>Large Orifice Area:</strong> Ensure this matches the system design.";
+            feedbackColor = "red";
         }
 
-        // Display feedback
-        document.getElementById("feedback").innerHTML = "<strong>Feedback:</strong> " + feedback;
+        // 🔹 **Display Results**
+        resultElement.innerHTML = `
+            <strong>Minimum Orifice Area:</strong> ${orificeArea.toFixed(4)} <strong>mm²</strong><br>
+            <strong style="color: ${feedbackColor};">${feedbackMessage}</strong>
+        `;
+        resultElement.style.color = "black";
     }
 </script>
 

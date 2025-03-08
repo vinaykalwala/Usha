@@ -28,10 +28,9 @@ html {
   margin-left: 10px;
 }
 body {
-  font-family: 'Rubik', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   color: #6c757d;
   line-height: 1.6666;
-  font-weight: 400;
+  
 }
 
 /*------------------------------------------*/
@@ -570,8 +569,8 @@ hr.divider {
 
 h1, h2, h3, h4, h5, h6 {  
   color: #353f4f;
-  font-weight: 600;
-  letter-spacing: 0;
+  
+ 
   margin-bottom: 0;
 }
 
@@ -678,7 +677,7 @@ p.p-xl { font-size: 1.2rem; }      /* 19.2px */
 /*------------------------------------------*/
 
 a {
-  color: #6c757d;
+ 
   text-decoration: none;
   -webkit-transition: all 400ms ease-in-out;
   -moz-transition: all 400ms ease-in-out;
@@ -688,7 +687,7 @@ a {
 }
 
 a:hover {
-  color: #353f4f!important;
+ 
   text-decoration: none;
 }
 
@@ -700,7 +699,7 @@ a:focus {
 a.tra-link {
   font-size: 1rem;
   line-height: 1;
-  font-weight: 500;
+ 
 }
 
 a.tra-link span {
@@ -6880,7 +6879,6 @@ p.rbox-2-txt span {
 
 .switcher.bg--tra-white {
   background-color: #fff;
-  border: 2px solid #ccc;
 }
 
 .switcher.bg--ghost-white {
@@ -7431,7 +7429,7 @@ ul.tm-social li {
 }
 
 .banner-10-txt h6 {
-  font-weight: 400;
+ 
   margin-bottom: 12px;
 }
 
@@ -9717,7 +9715,7 @@ img.footer-logo-dark {
 
 .page-404-txt h6 {
   line-height: 1.6;
-  font-weight: 400;
+  
   padding: 0 5%;
   margin-bottom: 30px;
 }
