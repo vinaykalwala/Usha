@@ -56,43 +56,9 @@
 <style>
             
           
-.whatsapp-icon {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    z-index: 9999;
-}
 
-/* WhatsApp Icon Color */
-.whatsapp-icon i {
-    color: green;
-    font-size: 2.5rem; /* Adjust as needed */
-    transition: color 0.3s;
-}
-
-/* WhatsApp Text Styling */
-.whatsapp-icon .whatsapp-text {
-    display: none;
-    position: absolute;
-    bottom: -25px;
-    left: -50px; /* Adjust the left position as needed */
-    background-color: rgba(255, 255, 255, 0.8);
-    padding: 5px 10px;
-    border-radius: 5px;
-    font-size: 14px;
-}
-
-/* Show WhatsApp Text on Hover */
-.whatsapp-icon:hover .whatsapp-text {
-    display: block;
-}
       
-    body {
-    -webkit-user-select: none; /* Safari */
-    -moz-user-select: none; /* Firefox */
-    -ms-user-select: none; /* IE10+/Edge */
-    user-select: none; /* Standard */
-}
+  
 	.calculator-container {
     max-width: 800px;
     margin: 0 auto;
@@ -326,14 +292,7 @@ strong{
     fetch("footer.html").then(response => response.text()).then(data => document.getElementById("footer").innerHTML = data);
 </script>
 
-<!-- WhatsApp Icon -->
-<!-- WhatsApp Icon -->
-<div id="whatsapp-icon" class="whatsapp-icon">
-    <a href="https://api.whatsapp.com/send?phone=7726932023" target="_blank">
-<img src="images/vindus_clients_images/whate.png" alt="whatsapp"	>	
- <span class="whatsapp-text">WhatsApp</span>
-    </a>
-</div>
+
 
 
 <button id="scrollToTopBtn" class="btn" style="display: block;">
@@ -361,11 +320,8 @@ strong{
     });
     </script>
 
-<!-- FOOTER-3
-			============================================= -->
-			
+
             <div id="footer"></div>
-		</div>	<!-- END PAGE CONTENT -->	
 
 
 
