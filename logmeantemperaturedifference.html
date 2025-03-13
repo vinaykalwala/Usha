@@ -636,25 +636,41 @@ strong{
 
 <script>
     function calculateLMTD() {
+        // Get input values
         const T1 = parseFloat(document.getElementById('T1').value);
         const T2 = parseFloat(document.getElementById('T2').value);
         const TT = parseFloat(document.getElementById('TT').value);
 
+        // Validate input
         if (isNaN(T1) || isNaN(T2) || isNaN(TT)) {
             document.getElementById('result').innerText = "Please enter valid numbers for all fields.";
             return;
         }
 
-        // Calculate Log Mean Temperature Difference (LMTD)
+        // Calculate temperature differences
         const deltaT1 = TT - T1;
         const deltaT2 = TT - T2;
 
+        // Handle the case where both differences are zero
+        if (deltaT1 === 0 && deltaT2 === 0) {
+            document.getElementById('result').innerText = "LMTD: 0 °C (No temperature difference)";
+            return;
+        }
+
+        // Handle invalid cases where deltaT1 or deltaT2 is negative
+        if (deltaT1 * deltaT2 < 0) {
+    document.getElementById('result').innerText = "Error: Invalid temperature combination. Ensure T1 > T2 and TT is between T1 and T2.";
+    return;
+}
+
+
+        // Calculate LMTD using the formula
         const LMTD = (deltaT1 - deltaT2) / Math.log(deltaT1 / deltaT2);
-        
-        document.getElementById('result').innerText = `Log Mean Temperature Difference (LMTD): ${LMTD.toFixed(4)} °C`;
+
+        // Display the result
+        document.getElementById('result').innerText = `Log Mean Temperature Difference (LMTD): ${LMTD.toFixed(2)} °C`;
     }
 </script>
-
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
 
