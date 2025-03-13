@@ -152,6 +152,14 @@
     font-size: 20px;
 }
 
+.note-container ul{
+    margin: 10px;
+}
+
+.note-container{
+    margin-top: 10px;
+}
+
 .note-container p {
     margin-top: 15px;
     text-align: justify;
@@ -175,60 +183,6 @@ select {
     background-color: rgb(223, 241, 247);
 
 }
-.flammable-range-table {
-    width: 50%;
-    border-collapse: collapse;
-    margin-top: 20px;
-    font-family: Arial, sans-serif;
-    margin-left: auto;
-    margin-right: auto; /* Centers the table */
-}
-
-@media screen and (max-width: 768px) {
-    .flammable-range-table {
-        width: 90%; /* Adjust width for smaller screens */
-    }
-}
-
-
-.flammable-header {
-    background-color: #1560bd;
-    color: white;
-    text-align: left;
-
-}
-
-.flammable-header th {
-    padding: 10px;
-}
-
-.flammable-row:nth-child(even) {
-    background-color: #f2f2f2;
-}
-
-.flammable-row:nth-child(odd) {
-    background-color: #ffffff;
-}
-
-.fuel-cell, .lfl-cell, .ufl-cell {
-    padding: 10px;
-    border: 2px solid #ddd;
-}
-.flammable-range-table, 
-.flammable-range-table th, 
-.flammable-range-table td {
-    border: 1px solid #ddd;
-    border-collapse: collapse;
-}
-
-.fuel-column {
-    width: 40%;
-}
-
-.lfl-column, .ufl-column {
-    width: 30%;
-}
-
 </style>
 	</head>
 
@@ -241,120 +195,136 @@ select {
 
 
 
-
+<div id="header"></div>
 		
 <br><br><br><br>
 
-<div id="header"></div>
-
 <div class="calculator-container">
-    <h2>Flammable Range Calculator</h2>
+    <h2>Stall Load For A Constant Flow Secondary Calculator</h2>
+
     <div class="form-group">
-        <label for="lfl">Lower Flammable Limit (LFL) %:</label>
-        <input type="number" id="lfl" placeholder="Enter LFL in %" step="0.01">
+        <label for="a">Steam Temperature at Full Load (A) [°C]:</label>
+        <input type="number" id="a" placeholder="Enter A" step="any">
     </div>
+
     <div class="form-group">
-        <label for="ufl">Upper Flammable Limit (UFL) %:</label>
-        <input type="number" id="ufl" placeholder="Enter UFL in %" step="0.01">
+        <label for="b">Secondary Fluid Outlet Temperature (B) [°C]:</label>
+        <input type="number" id="b" placeholder="Enter B" step="any">
     </div>
-    <button class="cal-btn" onclick="calculateFlammableRange()">Calculate Range</button>
+
+    <div class="form-group">
+        <label for="d">Backpressure Equivalent Saturated Steam Temperature (D) [°C]:</label>
+        <input type="number" id="d" placeholder="Enter D" step="any">
+    </div>
+
+    <button class="cal-btn" onclick="calculateStallLoad()">Calculate</button>
+
     <div class="result" id="result"></div>
+    <div class="feedback" id="feedback"></div>
 </div>
+
 
 <div class="note-container">
     <h3>Note:</h3>
-    <p>This calculator determines the flammable range, helping assess the safe concentration limits of gases or vapors to prevent fire hazards.</p>
-    <p>
-        The <strong>Flammable Range</strong> is the range of fuel-to-air concentration within which a gas or vapor can ignite.
-    </p>
-    <p>
-        It is determined by two key limits:
-    </p>
+    <p>This calculator determines the <strong>Stall Load Percentage</strong>, which is crucial for evaluating steam system performance and identifying potential stall conditions in heat exchangers.</p>
+
+    <p>It is widely used in <strong>steam and thermal engineering</strong> to analyze the efficiency of heat transfer and ensure optimal steam utilization.</p>
+
+    <h3>Explanation of Parameters:</h3>
     <ul>
-        <li><strong>Lower Flammable Limit (LFL):</strong> The minimum concentration of a gas or vapor in air that can sustain combustion.</li>
-        <li><strong>Upper Flammable Limit (UFL):</strong> The maximum concentration beyond which the mixture is too rich to burn.</li>
+        <li><strong>Stall Load Percentage:</strong> The percentage of steam system load at which stall occurs.</li>
+        <li><strong>Steam Temperature at Full Load (A):</strong> The temperature of steam in the heat exchanger at full-load conditions, measured in degrees Celsius (°C).</li>
+        <li><strong>Secondary Fluid Outlet Temperature (B):</strong> The temperature of the secondary fluid exiting the heat exchanger, in °C.</li>
+        <li><strong>Backpressure Equivalent Saturated Steam Temperature (D):</strong> The equivalent saturated steam temperature corresponding to the backpressure, in °C.</li>
     </ul>
-    <p>
-        If the gas concentration falls **below the LFL**, there isn’t enough fuel to sustain combustion.  
-        If it is **above the UFL**, there is too much fuel and not enough oxygen for combustion to occur.
-    </p>
-    <h3 style="text-align: center;">Examples of Flammability Limits (in air)</h3>
-    <table class="flammable-range-table">
-        <thead>
-            <tr class="flammable-header">
-                <th class="fuel-column">Fuel</th>
-                <th class="lfl-column">LFL (%)</th>
-                <th class="ufl-column">UFL (%)</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr class="flammable-row">
-                <td class="fuel-cell">Methane</td>
-                <td class="lfl-cell">5.0</td>
-                <td class="ufl-cell">15.0</td>
-            </tr>
-            <tr class="flammable-row">
-                <td class="fuel-cell">Propane</td>
-                <td class="lfl-cell">2.1</td>
-                <td class="ufl-cell">9.5</td>
-            </tr>
-            <tr class="flammable-row">
-                <td class="fuel-cell">Ethylene</td>
-                <td class="lfl-cell">2.7</td>
-                <td class="ufl-cell">12.0</td>
-            </tr>
-            <tr class="flammable-row">
-                <td class="fuel-cell">Hydrogen</td>
-                <td class="lfl-cell">4.0</td>
-                <td class="ufl-cell">75.0</td>
-            </tr>
-            <tr class="flammable-row">
-                <td class="fuel-cell">Methanol</td>
-                <td class="lfl-cell">6.0</td>
-                <td class="ufl-cell">36.0</td>
-            </tr>
-            <tr class="flammable-row">
-                <td class="fuel-cell">Acetylene</td>
-                <td class="lfl-cell">2.5</td>
-                <td class="ufl-cell">100.0</td>
-            </tr>
-        </tbody>
-    </table>
-    
-    <p>
-        The flammable range is calculated as the **difference between UFL and LFL**.  
-        Enter the LFL and UFL values above and click <strong>Calculate Range</strong> to determine the flammable range.
-    </p>
+
+    <h3>Why Stall Load Percentage is Important?</h3>
+    <p>The stall load percentage helps in **steam system optimization**. A **higher stall load** indicates **potential stall conditions**, while a **lower stall load** suggests **stable steam flow and effective heat transfer**.</p>
+
+    <h3>Validations:</h3>
+    <ul>
+        <li><strong>Applicability:</strong> This formula applies to steam systems with constant secondary flow rates.</li>
+        <li><strong>Positive or Negative Values:</strong> Stall load should ideally be between 0% and 100% for practical applications.</li>
+        <li><strong>Valid Range:</strong> A must be greater than B, and D must be greater than or equal to B to ensure meaningful calculations.</li>
+        <li><strong>Limitations:</strong> This formula assumes **steady-state conditions** and does not account for transient effects or condensate behavior.</li>
+    </ul>
+
+    <h3>Real-life Applications:</h3>
+    <ul>
+        <li><strong>Steam Heat Exchangers:</strong> Used to diagnose and prevent stall conditions in industrial steam systems.</li>
+        <li><strong>Power Plants:</strong> Helps in evaluating steam system efficiency under varying load conditions.</li>
+        <li><strong>HVAC Systems:</strong> Ensures proper steam distribution in heating applications.</li>
+        <li><strong>Industrial Process Control:</strong> Aids in maintaining steam flow stability in manufacturing systems.</li>
+        <li><strong>Energy Management:</strong> Assists in optimizing steam usage and reducing energy waste.</li>
+    </ul>
+
+    <h3>Conclusion:</h3>
+    <p>The Stall Load Percentage is a **key factor** in steam system performance analysis. Understanding it allows engineers to **enhance efficiency**, **prevent steam stall issues**, and **ensure reliable thermal management**.</p>
 </div>
 
+
 <script>
-    function calculateFlammableRange() {
-    let lfl = parseFloat(document.getElementById("lfl").value);
-    let ufl = parseFloat(document.getElementById("ufl").value);
+    function calculateStallLoad() {
+        const A = parseFloat(document.getElementById("a").value);
+        const B = parseFloat(document.getElementById("b").value);
+        const D = parseFloat(document.getElementById("d").value);
+        const resultElement = document.getElementById("result");
+        const feedbackElement = document.getElementById("feedback");
 
-    if (isNaN(lfl) || isNaN(ufl) || lfl < 0 || ufl <= 0 || lfl >= ufl) {
-        document.getElementById("result").innerHTML = "❌ Please enter valid LFL and UFL values (LFL must be less than UFL).";
-        return;
+        // Reset previous results
+        resultElement.innerHTML = "";
+        feedbackElement.innerHTML = "";
+
+        // **Validations**
+        if (isNaN(A)) {
+            resultElement.innerHTML = "❌ <strong>Error:</strong> A must be a valid number.";
+            return;
+        }
+        if (isNaN(B)) {
+            resultElement.innerHTML = "❌ <strong>Error:</strong> B must be a valid number.";
+            return;
+        }
+        if (isNaN(D)) {
+            resultElement.innerHTML = "❌ <strong>Error:</strong> D must be a valid number.";
+            return;
+        }
+        if (A <= B) {
+            resultElement.innerHTML = "❌ <strong>Error:</strong> A must be greater than B to ensure correct calculations.";
+            return;
+        }
+        if (D < B) {
+            resultElement.innerHTML = "❌ <strong>Error:</strong> D must be greater than or equal to B.";
+            return;
+        }
+
+        // **Calculate Stall Load Percentage**
+        const stallLoad = ((D - B) / (A - B)) * 100;
+
+        // **Feedback Message & Color**
+        let feedbackMessage = "";
+        let feedbackColor = "black";
+
+        if (stallLoad >= 0 && stallLoad <= 100) {
+            feedbackMessage = "✅ <strong>Valid Calculation:</strong> The stall load percentage is within an acceptable range.";
+            feedbackColor = "green";
+        } else if (stallLoad > 100) {
+            feedbackMessage = "⚠️ <strong>Warning:</strong> The stall load exceeds 100%, which may indicate an incorrect input or extreme system conditions.";
+            feedbackColor = "orange";
+        } else {
+            feedbackMessage = "❌ <strong>Error:</strong> Negative stall load is not physically meaningful. Please check the input values.";
+            feedbackColor = "red";
+        }
+
+        // **Display Results**
+        resultElement.innerHTML = `
+            <strong>Stall Load Percentage:</strong> ${stallLoad.toFixed(4)} %<br>
+            <strong style="color: ${feedbackColor};">${feedbackMessage}</strong>
+        `;
+        resultElement.style.color = "black";
     }
-
-    let flammableRange = ufl - lfl;
-    let rating = "";
-
-    if (flammableRange <= 5) {
-        rating = "🔵 Low Risk: Minimal Flammability Risk";
-    } else if (flammableRange <= 10) {
-        rating = "🟡 Moderate Risk: Moderate Flammability Risk";
-    } else {
-        rating = "🔴 High Risk: High Flammability Risk! Caution!";
-    }
-
-    document.getElementById("result").innerHTML = `
-        <strong>Flammable Range:</strong> ${flammableRange.toFixed(2)}%<br>
-        <strong>Rating:</strong> ${rating}
-    `;
-}
-
 </script>
+
+
 
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
@@ -498,5 +468,5 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 
-<!-- Mirrored from dsathemes.com/html/martex_1.1/files/project-details.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 08 Mar 2024 16:40:05 GMT -->
+<!-- Mirrored from dsathemes.com/html/martex_1.1/files/project-details.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 08 Mar 2024 16:40:05 GMT -->
 </html>

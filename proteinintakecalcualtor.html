@@ -65,7 +65,7 @@
       background-color: #f5f5f5;
     }
     .calculator-container {
-      max-width: 1000px;
+      max-width: 1200px;
       margin: 20px auto;
       padding: 20px;
       background: #ffffff;
@@ -175,60 +175,66 @@ select {
     background-color: rgb(223, 241, 247);
 
 }
-.flammable-range-table {
-    width: 50%;
-    border-collapse: collapse;
-    margin-top: 20px;
-    font-family: Arial, sans-serif;
-    margin-left: auto;
-    margin-right: auto; /* Centers the table */
-}
 
-@media screen and (max-width: 768px) {
-    .flammable-range-table {
-        width: 90%; /* Adjust width for smaller screens */
+.input-row {
+        display: flex;
+        justify-content: space-between;
+        gap: 10px;
+      }
+  
+      .input-row .form-group {
+        width: 48%;
+      }
+      @media (max-width: 768px) {
+    .input-row {
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    .input-row .form-group {
+        width: 100%;
     }
 }
-
-
-.flammable-header {
-    background-color: #1560bd;
-    color: white;
-    text-align: left;
-
-}
-
-.flammable-header th {
-    padding: 10px;
-}
-
-.flammable-row:nth-child(even) {
-    background-color: #f2f2f2;
-}
-
-.flammable-row:nth-child(odd) {
-    background-color: #ffffff;
-}
-
-.fuel-cell, .lfl-cell, .ufl-cell {
-    padding: 10px;
-    border: 2px solid #ddd;
-}
-.flammable-range-table, 
-.flammable-range-table th, 
-.flammable-range-table td {
-    border: 1px solid #ddd;
-    border-collapse: collapse;
-}
-
-.fuel-column {
-    width: 40%;
-}
-
-.lfl-column, .ufl-column {
-    width: 30%;
-}
-
+ /* Centering the table */
+ .table-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+           
+        }
+    
+        /* Table Styling */
+        .custom-table {
+            border-collapse: collapse;
+            width: 80%;
+            max-width: 600px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+    
+        .custom-table thead {
+            background-color: #5b9bd5; /* Light blue header */
+            color: white;
+        }
+    
+        .custom-table th, .custom-table td {
+            padding: 12px 16px;
+            border: 1px solid #ddd;
+        }
+    
+        .custom-table tr:nth-child(even) {
+            background-color: #f9f9f9; /* Zebra striping */
+        }
+    
+        .custom-table tr:hover {
+            background-color: #e6f7ff; /* Hover effect */
+        }
+    
+        /* Heading Style */
+        .table-heading {
+            margin-bottom: 20px;
+            color: #2c3e50;
+        }
 </style>
 	</head>
 
@@ -248,114 +254,151 @@ select {
 <div id="header"></div>
 
 <div class="calculator-container">
-    <h2>Flammable Range Calculator</h2>
-    <div class="form-group">
-        <label for="lfl">Lower Flammable Limit (LFL) %:</label>
-        <input type="number" id="lfl" placeholder="Enter LFL in %" step="0.01">
+    <h2>Protein Intake Calculator</h2>
+
+    <!-- Gender Input -->
+    <div class="input-row">
+        <div class="form-group">
+            <label for="gender">Gender:</label>
+            <select id="gender">
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+            </select>
+        </div>
+
+        <!-- Age Input -->
+        <div class="form-group">
+            <label for="age">Age (in years):</label>
+            <input type="number" id="age" placeholder="Enter your age" min="1">
+        </div>
     </div>
-    <div class="form-group">
-        <label for="ufl">Upper Flammable Limit (UFL) %:</label>
-        <input type="number" id="ufl" placeholder="Enter UFL in %" step="0.01">
+
+    <!-- Height and Weight Inputs -->
+    <div class="input-row">
+        <div class="form-group">
+            <label for="height">Height (in cm):</label>
+            <input type="number" id="height" placeholder="Enter your height" min="1" step="0.01">
+        </div>
+
+        <div class="form-group">
+            <label for="weight">Weight (in kg):</label>
+            <input type="number" id="weight" placeholder="Enter your weight" min="1" step="0.01">
+        </div>
     </div>
-    <button class="cal-btn" onclick="calculateFlammableRange()">Calculate Range</button>
+
+    <!-- Activity Level Input -->
+    <div class="form-group">
+        <label for="activity">Activity Level:</label>
+        <select id="activity">
+            <option value="sedentary">Sedentary (Little to No Exercise)</option>
+            <option value="light">Lightly Active (Light Exercise/Sports 1-3 days/week)</option>
+            <option value="moderate">Moderately Active (Moderate Exercise 3-5 days/week)</option>
+            <option value="active">Very Active (Intense Exercise 6-7 days/week)</option>
+            <option value="extra">Athlete/Extra Active (Very Intense Exercise or Physical Job)</option>
+        </select>
+    </div>
+
+    <!-- Calculate and Reset Buttons -->
+    <button class="cal-btn" onclick="calculateProtein()">Calculate Protein Intake</button>
+
+    <!-- Result Display -->
     <div class="result" id="result"></div>
 </div>
 
 <div class="note-container">
-    <h3>Note:</h3>
-    <p>This calculator determines the flammable range, helping assess the safe concentration limits of gases or vapors to prevent fire hazards.</p>
-    <p>
-        The <strong>Flammable Range</strong> is the range of fuel-to-air concentration within which a gas or vapor can ignite.
-    </p>
-    <p>
-        It is determined by two key limits:
-    </p>
+    <h3>Max Healthcare Protein Intake Calculator: Understand Your Protein Needs</h3>
+    <p>Protein is a crucial macronutrient that supports muscle repair, metabolic function, and overall well-being. Use our guide to understand how your age, gender, body weight, and activity level influence your daily protein needs.</p>
+
+    <h3>Protein Intake Parameters</h3>
     <ul>
-        <li><strong>Lower Flammable Limit (LFL):</strong> The minimum concentration of a gas or vapor in air that can sustain combustion.</li>
-        <li><strong>Upper Flammable Limit (UFL):</strong> The maximum concentration beyond which the mixture is too rich to burn.</li>
+        <li><strong>Age:</strong> Protein needs vary with age. Children and adolescents require more for growth, while older adults need increased intake to maintain muscle mass and strength.</li>
+        
+        <li><strong>Gender:</strong> Biological differences mean that men generally need more protein due to higher muscle mass, while women need consistent intake for hormonal balance and tissue maintenance.</li>
+        
+        <li><strong>Body Weight:</strong> Protein recommendations are calculated based on body weight. The more you weigh, the more protein your body requires to function optimally.</li>
+        
+        <li><strong>Activity Level:</strong> Active individuals need more protein to repair muscle damage and support recovery, while sedentary individuals require less.</li>
     </ul>
-    <p>
-        If the gas concentration falls **below the LFL**, there isn’t enough fuel to sustain combustion.  
-        If it is **above the UFL**, there is too much fuel and not enough oxygen for combustion to occur.
-    </p>
-    <h3 style="text-align: center;">Examples of Flammability Limits (in air)</h3>
-    <table class="flammable-range-table">
-        <thead>
-            <tr class="flammable-header">
-                <th class="fuel-column">Fuel</th>
-                <th class="lfl-column">LFL (%)</th>
-                <th class="ufl-column">UFL (%)</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr class="flammable-row">
-                <td class="fuel-cell">Methane</td>
-                <td class="lfl-cell">5.0</td>
-                <td class="ufl-cell">15.0</td>
-            </tr>
-            <tr class="flammable-row">
-                <td class="fuel-cell">Propane</td>
-                <td class="lfl-cell">2.1</td>
-                <td class="ufl-cell">9.5</td>
-            </tr>
-            <tr class="flammable-row">
-                <td class="fuel-cell">Ethylene</td>
-                <td class="lfl-cell">2.7</td>
-                <td class="ufl-cell">12.0</td>
-            </tr>
-            <tr class="flammable-row">
-                <td class="fuel-cell">Hydrogen</td>
-                <td class="lfl-cell">4.0</td>
-                <td class="ufl-cell">75.0</td>
-            </tr>
-            <tr class="flammable-row">
-                <td class="fuel-cell">Methanol</td>
-                <td class="lfl-cell">6.0</td>
-                <td class="ufl-cell">36.0</td>
-            </tr>
-            <tr class="flammable-row">
-                <td class="fuel-cell">Acetylene</td>
-                <td class="lfl-cell">2.5</td>
-                <td class="ufl-cell">100.0</td>
-            </tr>
-        </tbody>
-    </table>
-    
-    <p>
-        The flammable range is calculated as the **difference between UFL and LFL**.  
-        Enter the LFL and UFL values above and click <strong>Calculate Range</strong> to determine the flammable range.
-    </p>
+
+    <h3>Recommended Daily Protein Intake</h3>
+    <ul>
+        <li><strong>General Adults (CDC Guideline):</strong> 0.8g of protein per kg of body weight to maintain basic body functions.</li>
+        
+        <li><strong>Athletes:</strong> 1.2-2.0g of protein per kg of body weight to support muscle recovery and endurance.</li>
+        
+        <li><strong>Older Adults:</strong> 1.0-1.2g of protein per kg of body weight to prevent muscle loss and maintain strength.</li>
+    </ul>
+
+    <h3>Why Is Protein Essential?</h3>
+    <p>Protein is vital for building and repairing tissues, producing enzymes, and supporting immune health. Adequate protein intake is also linked to improved muscle retention, better metabolic health, and faster recovery from physical activity.</p>
 </div>
 
 <script>
-    function calculateFlammableRange() {
-    let lfl = parseFloat(document.getElementById("lfl").value);
-    let ufl = parseFloat(document.getElementById("ufl").value);
+    // Calculate Protein Intake
+    function calculateProtein() {
+        const gender = document.getElementById('gender').value;
+        const age = parseInt(document.getElementById('age').value);
+        const height = parseFloat(document.getElementById('height').value);
+        const weight = parseFloat(document.getElementById('weight').value);
+        const activity = document.getElementById('activity').value;
+        const result = document.getElementById('result');
 
-    if (isNaN(lfl) || isNaN(ufl) || lfl < 0 || ufl <= 0 || lfl >= ufl) {
-        document.getElementById("result").innerHTML = "❌ Please enter valid LFL and UFL values (LFL must be less than UFL).";
-        return;
+        // Clear previous result
+        result.innerHTML = "";
+
+        // Input Validation
+        if (isNaN(age) || age <= 0) {
+            result.innerHTML = "❌ Please enter a valid age.";
+            return;
+        }
+        if (isNaN(height) || height <= 0) {
+            result.innerHTML = "❌ Please enter a valid height.";
+            return;
+        }
+        if (isNaN(weight) || weight <= 0) {
+            result.innerHTML = "❌ Please enter a valid weight.";
+            return;
+        }
+
+        // Protein Calculation Logic (in grams/day)
+        let minProtein = 0.8 * weight; // Minimum for sedentary adults
+        let maxProtein = 1.2 * weight; // Active adults
+
+        switch (activity) {
+            case "light":
+                minProtein = 1.0 * weight;
+                maxProtein = 1.5 * weight;
+                break;
+            case "moderate":
+                minProtein = 1.2 * weight;
+                maxProtein = 1.7 * weight;
+                break;
+            case "active":
+                minProtein = 1.4 * weight;
+                maxProtein = 2.0 * weight;
+                break;
+            case "extra":
+                minProtein = 1.6 * weight;
+                maxProtein = 2.2 * weight;
+                break;
+        }
+
+        // Adjust for older adults (age 50+)
+        if (age >= 50) {
+            minProtein += 0.2 * weight;
+            maxProtein += 0.3 * weight;
+        }
+
+        // Round values for display
+        minProtein = minProtein.toFixed(1);
+        maxProtein = maxProtein.toFixed(1);
+
+        // Display Result
+        result.innerHTML = `✅ Recommended Protein Intake: <strong>${minProtein} - ${maxProtein} grams/day</strong><br>Maintain a balanced diet to support your health and activity level.`;
     }
 
-    let flammableRange = ufl - lfl;
-    let rating = "";
-
-    if (flammableRange <= 5) {
-        rating = "🔵 Low Risk: Minimal Flammability Risk";
-    } else if (flammableRange <= 10) {
-        rating = "🟡 Moderate Risk: Moderate Flammability Risk";
-    } else {
-        rating = "🔴 High Risk: High Flammability Risk! Caution!";
-    }
-
-    document.getElementById("result").innerHTML = `
-        <strong>Flammable Range:</strong> ${flammableRange.toFixed(2)}%<br>
-        <strong>Rating:</strong> ${rating}
-    `;
-}
-
+   
 </script>
-
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
 

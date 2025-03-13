@@ -65,60 +65,80 @@
       background-color: #f5f5f5;
     }
     .calculator-container {
-      max-width: 1000px;
-      margin: 20px auto;
-      padding: 20px;
-      background: #ffffff;
-      border-radius: 8px;
-      border: 2px dotted #1560bd;
-
-      box-shadow: 20px 14px 8px rgba(0, 0, 0, 0.2);
-    }
-    .calculator-container h2 {
-      text-align: center;
-      margin-bottom: 20px;
-      color: #1560bd;
-      font-size: 1.8rem;
-      margin-bottom: 30px;
-    }
-    .form-group {
-      margin-bottom: 15px;
-    }
-    .form-group label {
-      display: block;
-      margin-bottom: 5px;
-      color: #333;
-    }
-    .form-group input {
-      width: 100%;
-      padding: 8px;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-      background-color: rgb(223, 241, 247);
-
-    
-    }
-    .cal-btn {
-      width: 100%;
-      padding: 10px;
-      background-color: #1560bd;
-      color: #fff;
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
-      font-size: 16px;
-    }
-    .cal-btn:hover {
-      background-color: #0056b3;
-    }
-    .result {
-      margin-top: 20px;
-      font-size: 24px;
-      color: #333;
-      text-align: center;
-      color: rgb(36, 116, 2);
-     
-    }
+        max-width: 1200px;
+        margin: 20px auto;
+        padding: 20px;
+        background: #ffffff;
+        border-radius: 8px;
+        border: 2px dotted #1560bd;
+        box-shadow: 20px 14px 8px rgba(0, 0, 0, 0.2);
+      }
+      
+      .calculator-container h2 {
+        text-align: center;
+        margin-bottom: 20px;
+        color: #1560bd;
+        font-size: 1.8rem;
+      }
+  
+      .inflow-equation {
+        display: flex;
+        justify-content: space-between;
+        gap: 10px;
+      }
+  
+      .inflow-equation .form-group {
+        width: 48%;
+      }
+      @media (max-width:768px){
+        .inflow-equation {
+            flex-direction: column;
+            gap: 5px;
+        }
+        .inflow-equation .form-group{
+            width: 100%;
+        }
+      }
+  
+      .form-group {
+        margin-bottom: 15px;
+      }
+  
+      .form-group label {
+        display: block;
+        margin-bottom: 5px;
+        color: #333;
+      }
+  
+      .form-group input {
+        width: 100%;
+        padding: 8px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        background-color: rgb(223, 241, 247);
+      }
+  
+      .cal-btn {
+        width: 100%;
+        padding: 10px;
+        background-color: #1560bd;
+        color: #fff;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 16px;
+      }
+  
+      .cal-btn:hover {
+        background-color: #0056b3;
+      }
+  
+      .result {
+        margin-top: 20px;
+        font-size: 24px;
+        color: rgb(36, 116, 2);
+        text-align: center;
+      }
     @media (max-width: 768px) {
     .calculator-container {
         margin: 20px 15px; 
@@ -147,13 +167,16 @@
 }
 
 .note-container h3 {
-    margin:15px 0;
+    margin-top: 10px;
     color: #007bff;
-    font-size: 20px;
+    font-size: 18px;
+}
+.note-container ul{
+    margin-top: 5px;
 }
 
 .note-container p {
-    margin-top: 15px;
+    margin-top: 10px;
     text-align: justify;
 }
 strong{
@@ -165,69 +188,6 @@ strong{
         padding: 10px; 
     }
 }
-select {
-    width: 100%;
-    padding: 10px;
-    margin-top: 5px;
-    border: 1px solid #d3e0f0;
-    border-radius: 5px;
-    font-size: 1rem;
-    background-color: rgb(223, 241, 247);
-
-}
-.flammable-range-table {
-    width: 50%;
-    border-collapse: collapse;
-    margin-top: 20px;
-    font-family: Arial, sans-serif;
-    margin-left: auto;
-    margin-right: auto; /* Centers the table */
-}
-
-@media screen and (max-width: 768px) {
-    .flammable-range-table {
-        width: 90%; /* Adjust width for smaller screens */
-    }
-}
-
-
-.flammable-header {
-    background-color: #1560bd;
-    color: white;
-    text-align: left;
-
-}
-
-.flammable-header th {
-    padding: 10px;
-}
-
-.flammable-row:nth-child(even) {
-    background-color: #f2f2f2;
-}
-
-.flammable-row:nth-child(odd) {
-    background-color: #ffffff;
-}
-
-.fuel-cell, .lfl-cell, .ufl-cell {
-    padding: 10px;
-    border: 2px solid #ddd;
-}
-.flammable-range-table, 
-.flammable-range-table th, 
-.flammable-range-table td {
-    border: 1px solid #ddd;
-    border-collapse: collapse;
-}
-
-.fuel-column {
-    width: 40%;
-}
-
-.lfl-column, .ufl-column {
-    width: 30%;
-}
 
 </style>
 	</head>
@@ -236,132 +196,150 @@ select {
 
 
 	<body> 
-
-
-
-
-
-
 		
 <br><br><br><br>
 
 <div id="header"></div>
 
+
 <div class="calculator-container">
-    <h2>Flammable Range Calculator</h2>
-    <div class="form-group">
-        <label for="lfl">Lower Flammable Limit (LFL) %:</label>
-        <input type="number" id="lfl" placeholder="Enter LFL in %" step="0.01">
+    <h2>Inflow Equation Calculator</h2>
+
+    <div class="inflow-equation">
+        <div class="form-group">
+            <label for="k"><strong>Formation Permeability (k) [md]:</strong></label>
+            <input type="number" id="k" placeholder="Enter permeability">
+            <div class="error" id="kError"></div>
+        </div>
+
+        <div class="form-group">    
+            <label for="h"><strong>Formation Thickness (h) [ft]:</strong></label>
+            <input type="number" id="h" placeholder="Enter thickness">
+            <div class="error" id="hError"></div>
+        </div>
     </div>
-    <div class="form-group">
-        <label for="ufl">Upper Flammable Limit (UFL) %:</label>
-        <input type="number" id="ufl" placeholder="Enter UFL in %" step="0.01">
+
+    <div class="inflow-equation">
+        <div class="form-group">
+            <label for="Pe"><strong>Reservoir Pressure (Pe) [psi]:</strong></label>
+            <input type="number" id="Pe" placeholder="Enter Pe">
+            <div class="error" id="PeError"></div>        
+        </div>
+
+        <div class="form-group">
+            <label for="Pw"><strong>Wellbore Pressure (Pw) [psi]:</strong></label>
+            <input type="number" id="Pw" placeholder="Enter Pw">
+            <div class="error" id="PwError"></div>
+        </div>
     </div>
-    <button class="cal-btn" onclick="calculateFlammableRange()">Calculate Range</button>
+    <div class="inflow-equation">
+        <div class="form-group">
+            <label for="Bo"><strong>Formation Volume Factor (Bo) [RB/STB]:</strong></label>
+            <input type="number" id="Bo" placeholder="Enter Bo">
+            <div class="error" id="BoError"></div>
+        </div>
+
+        <div class="form-group">    
+            <label for="uo"><strong>Oil Viscosity (μo) [cp]:</strong></label>
+            <input type="number" id="uo" placeholder="Enter μo">
+            <div class="error" id="uoError"></div>
+        </div>
+    </div>
+
+    <div class="inflow-equation">
+        <div class="form-group">
+            <label for="re"><strong>Drainage Radius (re) [ft]:</strong></label>
+            <input type="number" id="re" placeholder="Enter re">
+            <div class="error" id="reError"></div>
+        </div>
+
+        <div class="form-group">
+            <label for="rw"><strong>Wellbore Radius (rw) [ft]:</strong></label>
+            <input type="number" id="rw" placeholder="Enter rw">
+            <div class="error" id="rwError"></div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="Sf"><strong>Skin Factor (Sf):</strong></label>
+        <input type="number" id="Sf" placeholder="Enter Sf">
+        <div class="error" id="SfError"></div>
+    </div>
+
+    <button class="cal-btn" onclick="calculateInflow()">Calculate Production Rate</button>
     <div class="result" id="result"></div>
 </div>
 
+
 <div class="note-container">
     <h3>Note:</h3>
-    <p>This calculator determines the flammable range, helping assess the safe concentration limits of gases or vapors to prevent fire hazards.</p>
-    <p>
-        The <strong>Flammable Range</strong> is the range of fuel-to-air concentration within which a gas or vapor can ignite.
-    </p>
-    <p>
-        It is determined by two key limits:
-    </p>
+    <p><strong>This formula</strong> estimates oil well productivity based on reservoir and well conditions.</p>
     <ul>
-        <li><strong>Lower Flammable Limit (LFL):</strong> The minimum concentration of a gas or vapor in air that can sustain combustion.</li>
-        <li><strong>Upper Flammable Limit (UFL):</strong> The maximum concentration beyond which the mixture is too rich to burn.</li>
+        <li><strong>k (Permeability)</strong>: Determines ease of fluid flow in the rock formation.</li>
+        <li><strong>h (Thickness)</strong>: The height of the producing formation.</li>
+        <li><strong>Pe & Pw (Pressures)</strong>: The difference drives fluid movement.</li>
+        <li><strong>Bo (Formation Volume Factor)</strong>: Adjusts for expansion effects.</li>
+        <li><strong>μo (Oil Viscosity)</strong>: Higher viscosity slows flow.</li>
+        <li><strong>re & rw (Radiuses)</strong>: Defines the drainage area.</li>
+        <li><strong>Sf (Skin Factor)</strong>: Indicates well performance (damage or enhancement).</li>
     </ul>
-    <p>
-        If the gas concentration falls **below the LFL**, there isn’t enough fuel to sustain combustion.  
-        If it is **above the UFL**, there is too much fuel and not enough oxygen for combustion to occur.
-    </p>
-    <h3 style="text-align: center;">Examples of Flammability Limits (in air)</h3>
-    <table class="flammable-range-table">
-        <thead>
-            <tr class="flammable-header">
-                <th class="fuel-column">Fuel</th>
-                <th class="lfl-column">LFL (%)</th>
-                <th class="ufl-column">UFL (%)</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr class="flammable-row">
-                <td class="fuel-cell">Methane</td>
-                <td class="lfl-cell">5.0</td>
-                <td class="ufl-cell">15.0</td>
-            </tr>
-            <tr class="flammable-row">
-                <td class="fuel-cell">Propane</td>
-                <td class="lfl-cell">2.1</td>
-                <td class="ufl-cell">9.5</td>
-            </tr>
-            <tr class="flammable-row">
-                <td class="fuel-cell">Ethylene</td>
-                <td class="lfl-cell">2.7</td>
-                <td class="ufl-cell">12.0</td>
-            </tr>
-            <tr class="flammable-row">
-                <td class="fuel-cell">Hydrogen</td>
-                <td class="lfl-cell">4.0</td>
-                <td class="ufl-cell">75.0</td>
-            </tr>
-            <tr class="flammable-row">
-                <td class="fuel-cell">Methanol</td>
-                <td class="lfl-cell">6.0</td>
-                <td class="ufl-cell">36.0</td>
-            </tr>
-            <tr class="flammable-row">
-                <td class="fuel-cell">Acetylene</td>
-                <td class="lfl-cell">2.5</td>
-                <td class="ufl-cell">100.0</td>
-            </tr>
-        </tbody>
-    </table>
-    
-    <p>
-        The flammable range is calculated as the **difference between UFL and LFL**.  
-        Enter the LFL and UFL values above and click <strong>Calculate Range</strong> to determine the flammable range.
-    </p>
+    <h3>Real-life Applications:</h3>
+    <p>Used in petroleum engineering to estimate production rates, optimize well design, and plan reservoir management.</p>
+    <h3>Conclusion:</h3>
+    <p>The inflow equation is crucial for predicting well performance, guiding economic decisions, and improving oil extraction efficiency.</p>
 </div>
 
 <script>
-    function calculateFlammableRange() {
-    let lfl = parseFloat(document.getElementById("lfl").value);
-    let ufl = parseFloat(document.getElementById("ufl").value);
+function calculateInflow() {
+    let k = parseFloat(document.getElementById("k").value);
+    let h = parseFloat(document.getElementById("h").value);
+    let Pe = parseFloat(document.getElementById("Pe").value);
+    let Pw = parseFloat(document.getElementById("Pw").value);
+    let Bo = parseFloat(document.getElementById("Bo").value);
+    let uo = parseFloat(document.getElementById("uo").value);
+    let re = parseFloat(document.getElementById("re").value);
+    let rw = parseFloat(document.getElementById("rw").value);
+    let Sf = parseFloat(document.getElementById("Sf").value) || 0;
 
-    if (isNaN(lfl) || isNaN(ufl) || lfl < 0 || ufl <= 0 || lfl >= ufl) {
-        document.getElementById("result").innerHTML = "❌ Please enter valid LFL and UFL values (LFL must be less than UFL).";
-        return;
+    let errors = {
+        k: "Permeability must be greater than 0. It determines how easily fluid can flow through rock.",
+        h: "Thickness must be greater than 0. A non-zero thickness is needed for flow.",
+        Pe: "Reservoir pressure must be greater than wellbore pressure for production.",
+        Pw: "Wellbore pressure must be greater than 0 for valid calculations.",
+        Bo: "Formation volume factor must be greater than 0. It accounts for fluid expansion.",
+        uo: "Viscosity must be greater than 0. A zero viscosity means infinite flow, which is unrealistic.",
+        re: "Drainage radius must be greater than wellbore radius to define a reservoir.",
+        rw: "Wellbore radius must be greater than 0. A well cannot have zero size."
+    };
+
+    let inputs = { k, h, Pe, Pw, Bo, uo, re, rw };
+    let valid = true;
+
+    for (let key in inputs) {
+        let errorField = document.getElementById(key + "Error");
+        errorField.textContent = "";
+        if (isNaN(inputs[key]) || inputs[key] <= 0) {
+            errorField.textContent = errors[key];
+            valid = false;
+        }
     }
 
-    let flammableRange = ufl - lfl;
-    let rating = "";
-
-    if (flammableRange <= 5) {
-        rating = "🔵 Low Risk: Minimal Flammability Risk";
-    } else if (flammableRange <= 10) {
-        rating = "🟡 Moderate Risk: Moderate Flammability Risk";
-    } else {
-        rating = "🔴 High Risk: High Flammability Risk! Caution!";
+    if (Pe <= Pw) {
+        document.getElementById("PeError").textContent = errors.Pe;
+        valid = false;
     }
 
-    document.getElementById("result").innerHTML = `
-        <strong>Flammable Range:</strong> ${flammableRange.toFixed(2)}%<br>
-        <strong>Rating:</strong> ${rating}
-    `;
+    if (!valid) return;
+
+    let lnRatio = Math.log(re / rw);
+    let q = (k * h * (Pe - Pw)) / (141.2 * Bo * uo * (lnRatio + Sf));
+
+    document.getElementById("result").textContent = q.toFixed(4) + " STB/D";
 }
-
 </script>
 
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
-
-
-
-
 
 
 

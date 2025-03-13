@@ -65,60 +65,61 @@
       background-color: #f5f5f5;
     }
     .calculator-container {
-      max-width: 1000px;
-      margin: 20px auto;
-      padding: 20px;
-      background: #ffffff;
-      border-radius: 8px;
-      border: 2px dotted #1560bd;
-
-      box-shadow: 20px 14px 8px rgba(0, 0, 0, 0.2);
-    }
-    .calculator-container h2 {
-      text-align: center;
-      margin-bottom: 20px;
-      color: #1560bd;
-      font-size: 1.8rem;
-      margin-bottom: 30px;
-    }
-    .form-group {
-      margin-bottom: 15px;
-    }
-    .form-group label {
-      display: block;
-      margin-bottom: 5px;
-      color: #333;
-    }
-    .form-group input {
-      width: 100%;
-      padding: 8px;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-      background-color: rgb(223, 241, 247);
-
-    
-    }
-    .cal-btn {
-      width: 100%;
-      padding: 10px;
-      background-color: #1560bd;
-      color: #fff;
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
-      font-size: 16px;
-    }
-    .cal-btn:hover {
-      background-color: #0056b3;
-    }
-    .result {
-      margin-top: 20px;
-      font-size: 24px;
-      color: #333;
-      text-align: center;
-      color: rgb(36, 116, 2);
-     
-    }
+        max-width: 1200px;
+        margin: 20px auto;
+        padding: 20px;
+        background: #ffffff;
+        border-radius: 8px;
+        border: 2px dotted #1560bd;
+        box-shadow: 20px 14px 8px rgba(0, 0, 0, 0.2);
+      }
+      
+      .calculator-container h2 {
+        text-align: center;
+        margin-bottom: 20px;
+        color: #1560bd;
+        font-size: 1.8rem;
+      }
+  
+      .form-group {
+        margin-bottom: 15px;
+      }
+  
+      .form-group label {
+        display: block;
+        margin-bottom: 5px;
+        color: #333;
+      }
+  
+      .form-group input {
+        width: 100%;
+        padding: 8px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        background-color: rgb(223, 241, 247);
+      }
+  
+      .cal-btn {
+        width: 100%;
+        padding: 10px;
+        background-color: #1560bd;
+        color: #fff;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 16px;
+      }
+  
+      .cal-btn:hover {
+        background-color: #0056b3;
+      }
+  
+      .result {
+        margin-top: 20px;
+        font-size: 24px;
+        color: rgb(36, 116, 2);
+        text-align: center;
+      }
     @media (max-width: 768px) {
     .calculator-container {
         margin: 20px 15px; 
@@ -147,86 +148,54 @@
 }
 
 .note-container h3 {
-    margin:15px 0;
+    margin-top: 10px;
     color: #007bff;
-    font-size: 20px;
+    font-size: 18px;
+}
+.note-container ul{
+    margin-top: 5px;
 }
 
 .note-container p {
-    margin-top: 15px;
+    margin-top: 10px;
     text-align: justify;
 }
 strong{
     color: #0056b3;
 }
+.feedback-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+    font-size: 16px;
+}
+
+.feedback-table th, 
+.feedback-table td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+}
+
+.feedback-table th {
+    background-color: #1b00cb;
+    color: white;
+    font-weight: bold;
+}
+
+.feedback-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.feedback-table tr:hover {
+    background-color: #f1f1f1;
+}
+
 @media (max-width: 768px) {
     .note-container {
         margin: 15px; 
         padding: 10px; 
     }
-}
-select {
-    width: 100%;
-    padding: 10px;
-    margin-top: 5px;
-    border: 1px solid #d3e0f0;
-    border-radius: 5px;
-    font-size: 1rem;
-    background-color: rgb(223, 241, 247);
-
-}
-.flammable-range-table {
-    width: 50%;
-    border-collapse: collapse;
-    margin-top: 20px;
-    font-family: Arial, sans-serif;
-    margin-left: auto;
-    margin-right: auto; /* Centers the table */
-}
-
-@media screen and (max-width: 768px) {
-    .flammable-range-table {
-        width: 90%; /* Adjust width for smaller screens */
-    }
-}
-
-
-.flammable-header {
-    background-color: #1560bd;
-    color: white;
-    text-align: left;
-
-}
-
-.flammable-header th {
-    padding: 10px;
-}
-
-.flammable-row:nth-child(even) {
-    background-color: #f2f2f2;
-}
-
-.flammable-row:nth-child(odd) {
-    background-color: #ffffff;
-}
-
-.fuel-cell, .lfl-cell, .ufl-cell {
-    padding: 10px;
-    border: 2px solid #ddd;
-}
-.flammable-range-table, 
-.flammable-range-table th, 
-.flammable-range-table td {
-    border: 1px solid #ddd;
-    border-collapse: collapse;
-}
-
-.fuel-column {
-    width: 40%;
-}
-
-.lfl-column, .ufl-column {
-    width: 30%;
 }
 
 </style>
@@ -236,132 +205,173 @@ select {
 
 
 	<body> 
-
-
-
-
-
-
 		
 <br><br><br><br>
 
 <div id="header"></div>
 
+
+
+
 <div class="calculator-container">
-    <h2>Flammable Range Calculator</h2>
+    <h2>Fold of Increase Calculator</h2>
+  
     <div class="form-group">
-        <label for="lfl">Lower Flammable Limit (LFL) %:</label>
-        <input type="number" id="lfl" placeholder="Enter LFL in %" step="0.01">
+        <label for="re"><strong>Drainage Radius (r<sub>e</sub>) in ft:</strong></label>
+        <input type="number" id="re" placeholder="Enter r_e">
+        <span class="error" id="reError"></span>
     </div>
+
+    <div class="form-group">     
+    <label for="rw"><strong>Wellbore Radius (r<sub>w</sub>) in ft:</strong></label>
+    <input type="number" id="rw" placeholder="Enter r_w">
+    <span class="error" id="rwError"></span>
+    </div>
+   
     <div class="form-group">
-        <label for="ufl">Upper Flammable Limit (UFL) %:</label>
-        <input type="number" id="ufl" placeholder="Enter UFL in %" step="0.01">
+        <label for="sf"><strong>Equivalent Skin Factor (S<sub>f</sub>):</strong></label>
+        <input type="number" id="sf" placeholder="Enter S_f">
+        <span class="error" id="sfError"></span>
     </div>
-    <button class="cal-btn" onclick="calculateFlammableRange()">Calculate Range</button>
+  
+
+    <button class="cal-btn" onclick="calculateFoldIncrease()">Calculate</button>
+
     <div class="result" id="result"></div>
+    <span class="error" id="resultError"></span>
+    
 </div>
 
 <div class="note-container">
-    <h3>Note:</h3>
-    <p>This calculator determines the flammable range, helping assess the safe concentration limits of gases or vapors to prevent fire hazards.</p>
-    <p>
-        The <strong>Flammable Range</strong> is the range of fuel-to-air concentration within which a gas or vapor can ignite.
-    </p>
-    <p>
-        It is determined by two key limits:
-    </p>
+    <h3><strong>Note:</strong></h3>
+
+        <p>This formula calculates the <strong>fold of increase</strong>, measuring how much the well's productivity improves after hydraulic fracturing.
+        A higher fold of increase indicates a more effective fracturing process.
+        The equation compares the productivity of a fractured well against a non-fractured well.</p>
+
+
+    <p><strong>Explanation of Parameters:</strong></p>
     <ul>
-        <li><strong>Lower Flammable Limit (LFL):</strong> The minimum concentration of a gas or vapor in air that can sustain combustion.</li>
-        <li><strong>Upper Flammable Limit (UFL):</strong> The maximum concentration beyond which the mixture is too rich to burn.</li>
+        <li><strong>r<sub>e</sub> (Drainage Radius):</strong> The area from which the well extracts fluids. A larger value means a wider reservoir.</li>
+        <li><strong>r<sub>w</sub> (Wellbore Radius):</strong> The radius of the drilled well, affecting fluid inflow to the wellbore.</li>
+        <li><strong>S<sub>f</sub> (Skin Factor):</strong> Represents flow resistance near the well. A high S<sub>f</sub> indicates formation damage.</li>
     </ul>
-    <p>
-        If the gas concentration falls **below the LFL**, there isn’t enough fuel to sustain combustion.  
-        If it is **above the UFL**, there is too much fuel and not enough oxygen for combustion to occur.
-    </p>
-    <h3 style="text-align: center;">Examples of Flammability Limits (in air)</h3>
-    <table class="flammable-range-table">
+
+    <p><strong>Why Do Some Inputs Give Unexpected Results?</strong></p>
+    <ul>
+        <li>If <strong>r<sub>e</sub> = r<sub>w</sub></strong>, then <code>ln(r<sub>e</sub> / r<sub>w</sub>) = ln(1) = 0</code>, making the formula divide by zero.</li>
+        <li>This leads to a result of <strong>zero</strong>, which is not meaningful in this context.</li>
+        <li>For valid results, <strong>r<sub>e</sub> must be greater than r<sub>w</sub></strong>.</li>
+    </ul>
+
+    <p><strong>Valid Input Guidelines:</strong></p>
+    <ul>
+        <li><strong>r<sub>e</sub> > r<sub>w</sub>:</strong> Drainage radius should always be larger than wellbore radius for a meaningful calculation.</li>
+        <li><strong>r<sub>w</sub> > 0:</strong> Wellbore radius must be greater than zero, as a well cannot have zero size.</li>
+        <li><strong>S<sub>f</sub>:</strong> Can be any real number, but extreme values may distort results.</li>
+    </ul>
+
+    <p><strong>Real-Life Applications:</strong></p>
+    <ul>
+        <li><strong>Petroleum Industry:</strong> Determines how effective hydraulic fracturing is in increasing oil and gas production.</li>
+        <li><strong>Environmental Engineering:</strong> Evaluates underground water extraction efficiency.</li>
+        <li><strong>Geothermal Energy:</strong> Assesses the impact of well stimulation on geothermal reservoirs.</li>
+        <li><strong>Mining Operations:</strong> Helps optimize fluid extraction from rock formations.</li>
+    </ul>
+
+    <table class="feedback-table">
         <thead>
-            <tr class="flammable-header">
-                <th class="fuel-column">Fuel</th>
-                <th class="lfl-column">LFL (%)</th>
-                <th class="ufl-column">UFL (%)</th>
+            <tr>
+                <th>Condition</th>
+                <th>Feedback Message</th>
             </tr>
         </thead>
         <tbody>
-            <tr class="flammable-row">
-                <td class="fuel-cell">Methane</td>
-                <td class="lfl-cell">5.0</td>
-                <td class="ufl-cell">15.0</td>
+            <tr>
+                <td><strong>r<sub>e</sub> = r<sub>w</sub></strong></td>
+                <td>Drainage radius must be greater than wellbore radius for valid calculations.</td>
             </tr>
-            <tr class="flammable-row">
-                <td class="fuel-cell">Propane</td>
-                <td class="lfl-cell">2.1</td>
-                <td class="ufl-cell">9.5</td>
+            <tr>
+                <td><strong>r<sub>w</sub> ≤ 0</strong></td>
+                <td>Wellbore radius cannot be zero or negative.</td>
             </tr>
-            <tr class="flammable-row">
-                <td class="fuel-cell">Ethylene</td>
-                <td class="lfl-cell">2.7</td>
-                <td class="ufl-cell">12.0</td>
+            <tr>
+                <td><strong>Fold of Increase = 1</strong></td>
+                <td>No improvement in productivity. Check input values!</td>
             </tr>
-            <tr class="flammable-row">
-                <td class="fuel-cell">Hydrogen</td>
-                <td class="lfl-cell">4.0</td>
-                <td class="ufl-cell">75.0</td>
-            </tr>
-            <tr class="flammable-row">
-                <td class="fuel-cell">Methanol</td>
-                <td class="lfl-cell">6.0</td>
-                <td class="ufl-cell">36.0</td>
-            </tr>
-            <tr class="flammable-row">
-                <td class="fuel-cell">Acetylene</td>
-                <td class="lfl-cell">2.5</td>
-                <td class="ufl-cell">100.0</td>
+            <tr>
+                <td><strong>Fold of Increase > 1</strong></td>
+                <td>Productivity increased successfully! Effective fracturing.</td>
             </tr>
         </tbody>
     </table>
+    <p><strong>Conclusion:</strong></p>
+    <ul>
+        <p>The fold of increase helps engineers understand how effective fracturing is in enhancing well productivity. Lower values indicate minimal improvement, while higher values show significant enhancement.</li>
+        Accurate input values ensure reliable calculations and real-world applicability.</p>
+    </ul>
     
-    <p>
-        The flammable range is calculated as the **difference between UFL and LFL**.  
-        Enter the LFL and UFL values above and click <strong>Calculate Range</strong> to determine the flammable range.
-    </p>
 </div>
 
 <script>
-    function calculateFlammableRange() {
-    let lfl = parseFloat(document.getElementById("lfl").value);
-    let ufl = parseFloat(document.getElementById("ufl").value);
-
-    if (isNaN(lfl) || isNaN(ufl) || lfl < 0 || ufl <= 0 || lfl >= ufl) {
-        document.getElementById("result").innerHTML = "❌ Please enter valid LFL and UFL values (LFL must be less than UFL).";
-        return;
+    function calculateFoldIncrease() {
+        let re = parseFloat(document.getElementById("re").value);
+        let rw = parseFloat(document.getElementById("rw").value);
+        let sf = parseFloat(document.getElementById("sf").value);
+    
+        let reError = document.getElementById("reError");
+        let rwError = document.getElementById("rwError");
+        let sfError = document.getElementById("sfError");
+        let resultElement = document.getElementById("result");
+        let resultError = document.getElementById("resultError");
+    
+        // Clear previous messages
+        reError.textContent = "";
+        rwError.textContent = "";
+        sfError.textContent = "";
+        resultElement.textContent = "";
+        resultError.textContent = "";
+    
+        // Validate inputs
+        if (isNaN(re) || re <= 0) {
+            reError.textContent = "Drainage radius (rₑ) must be greater than 0.";
+            return;
+        }
+        if (isNaN(rw) || rw <= 0) {
+            rwError.textContent = "Wellbore radius (rₓ) must be greater than 0.";
+            return;
+        }
+        if (isNaN(sf)) {
+            sfError.textContent = "Skin factor (Sₓ) is required.";
+            return;
+        }
+        if (re <= rw) {
+            resultError.textContent = "Drainage radius (rₑ) must be greater than wellbore radius (rₓ).";
+            return;
+        }
+    
+        // Compute Fold of Increase
+        let lnRatio = Math.log(re / rw);
+        let foi = lnRatio / (lnRatio + sf);
+    
+        // Debugging logs
+        console.log("re:", re, "rw:", rw, "sf:", sf);
+        console.log("ln(re/rw):", lnRatio);
+        console.log("FOI:", foi);
+    
+        // Display result
+        if (!isFinite(foi) || foi < 0) {
+            resultError.textContent = "Unexpected result. Verify that inputs are correct.";
+        } else {
+            resultElement.textContent = `Fold of Increase: ${foi.toFixed(4)}`;
+        }
     }
-
-    let flammableRange = ufl - lfl;
-    let rating = "";
-
-    if (flammableRange <= 5) {
-        rating = "🔵 Low Risk: Minimal Flammability Risk";
-    } else if (flammableRange <= 10) {
-        rating = "🟡 Moderate Risk: Moderate Flammability Risk";
-    } else {
-        rating = "🔴 High Risk: High Flammability Risk! Caution!";
-    }
-
-    document.getElementById("result").innerHTML = `
-        <strong>Flammable Range:</strong> ${flammableRange.toFixed(2)}%<br>
-        <strong>Rating:</strong> ${rating}
-    `;
-}
-
+    
 </script>
 
 
+
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
-
-
-
-
 
 
 

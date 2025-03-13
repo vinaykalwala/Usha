@@ -152,6 +152,14 @@
     font-size: 20px;
 }
 
+.note-container ul{
+    margin: 10px;
+}
+
+.note-container{
+    margin-top: 10px;
+}
+
 .note-container p {
     margin-top: 15px;
     text-align: justify;
@@ -175,60 +183,6 @@ select {
     background-color: rgb(223, 241, 247);
 
 }
-.flammable-range-table {
-    width: 50%;
-    border-collapse: collapse;
-    margin-top: 20px;
-    font-family: Arial, sans-serif;
-    margin-left: auto;
-    margin-right: auto; /* Centers the table */
-}
-
-@media screen and (max-width: 768px) {
-    .flammable-range-table {
-        width: 90%; /* Adjust width for smaller screens */
-    }
-}
-
-
-.flammable-header {
-    background-color: #1560bd;
-    color: white;
-    text-align: left;
-
-}
-
-.flammable-header th {
-    padding: 10px;
-}
-
-.flammable-row:nth-child(even) {
-    background-color: #f2f2f2;
-}
-
-.flammable-row:nth-child(odd) {
-    background-color: #ffffff;
-}
-
-.fuel-cell, .lfl-cell, .ufl-cell {
-    padding: 10px;
-    border: 2px solid #ddd;
-}
-.flammable-range-table, 
-.flammable-range-table th, 
-.flammable-range-table td {
-    border: 1px solid #ddd;
-    border-collapse: collapse;
-}
-
-.fuel-column {
-    width: 40%;
-}
-
-.lfl-column, .ufl-column {
-    width: 30%;
-}
-
 </style>
 	</head>
 
@@ -247,114 +201,123 @@ select {
 
 <div id="header"></div>
 
+
 <div class="calculator-container">
-    <h2>Flammable Range Calculator</h2>
+    <h2>Secondary Inlet Temperature At Any Load Calculator</h2>
+
     <div class="form-group">
-        <label for="lfl">Lower Flammable Limit (LFL) %:</label>
-        <input type="number" id="lfl" placeholder="Enter LFL in %" step="0.01">
+        <label for="t1">Secondary Inlet Temperature at Full Load (T₁) [°C]:</label>
+        <input type="number" id="t1" placeholder="Enter T₁" step="any">
     </div>
+
     <div class="form-group">
-        <label for="ufl">Upper Flammable Limit (UFL) %:</label>
-        <input type="number" id="ufl" placeholder="Enter UFL in %" step="0.01">
+        <label for="t2">Secondary Outlet Temperature at Full Load (T₂) [°C]:</label>
+        <input type="number" id="t2" placeholder="Enter T₂" step="any">
     </div>
-    <button class="cal-btn" onclick="calculateFlammableRange()">Calculate Range</button>
+
+    <div class="form-group">
+        <label for="x">Load Factor (x) [0-1]:</label>
+        <input type="number" id="x" placeholder="Enter x (0 to 1)" step="any">
+    </div>
+
+    <button class="cal-btn" onclick="calculateSecondaryInletTemp()">Calculate</button>
+
     <div class="result" id="result"></div>
+    <div class="feedback" id="feedback"></div>
 </div>
+
 
 <div class="note-container">
     <h3>Note:</h3>
-    <p>This calculator determines the flammable range, helping assess the safe concentration limits of gases or vapors to prevent fire hazards.</p>
-    <p>
-        The <strong>Flammable Range</strong> is the range of fuel-to-air concentration within which a gas or vapor can ignite.
-    </p>
-    <p>
-        It is determined by two key limits:
-    </p>
+    <p>This calculator determines the <strong>Secondary Inlet Temperature (Tₓ)</strong>, which is crucial for evaluating thermal performance in heat exchange systems at varying load conditions.</p>
+
+    <p>It is widely used in <strong>thermal and process engineering</strong> to estimate temperature variations based on load factors and ensure system efficiency.</p>
+
+    <h3>Explanation of Parameters:</h3>
     <ul>
-        <li><strong>Lower Flammable Limit (LFL):</strong> The minimum concentration of a gas or vapor in air that can sustain combustion.</li>
-        <li><strong>Upper Flammable Limit (UFL):</strong> The maximum concentration beyond which the mixture is too rich to burn.</li>
+        <li><strong>Secondary Inlet Temperature (Tₓ):</strong> The temperature at any load factor, measured in degrees Celsius (°C).</li>
+        <li><strong>Secondary Inlet Temperature at Full Load (T₁):</strong> The reference inlet temperature under full-load conditions, in °C.</li>
+        <li><strong>Secondary Outlet Temperature at Full Load (T₂):</strong> The outlet temperature under full-load conditions, in °C.</li>
+        <li><strong>Load Factor (x):</strong> A dimensionless factor representing the system's operational load.</li>
     </ul>
-    <p>
-        If the gas concentration falls **below the LFL**, there isn’t enough fuel to sustain combustion.  
-        If it is **above the UFL**, there is too much fuel and not enough oxygen for combustion to occur.
-    </p>
-    <h3 style="text-align: center;">Examples of Flammability Limits (in air)</h3>
-    <table class="flammable-range-table">
-        <thead>
-            <tr class="flammable-header">
-                <th class="fuel-column">Fuel</th>
-                <th class="lfl-column">LFL (%)</th>
-                <th class="ufl-column">UFL (%)</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr class="flammable-row">
-                <td class="fuel-cell">Methane</td>
-                <td class="lfl-cell">5.0</td>
-                <td class="ufl-cell">15.0</td>
-            </tr>
-            <tr class="flammable-row">
-                <td class="fuel-cell">Propane</td>
-                <td class="lfl-cell">2.1</td>
-                <td class="ufl-cell">9.5</td>
-            </tr>
-            <tr class="flammable-row">
-                <td class="fuel-cell">Ethylene</td>
-                <td class="lfl-cell">2.7</td>
-                <td class="ufl-cell">12.0</td>
-            </tr>
-            <tr class="flammable-row">
-                <td class="fuel-cell">Hydrogen</td>
-                <td class="lfl-cell">4.0</td>
-                <td class="ufl-cell">75.0</td>
-            </tr>
-            <tr class="flammable-row">
-                <td class="fuel-cell">Methanol</td>
-                <td class="lfl-cell">6.0</td>
-                <td class="ufl-cell">36.0</td>
-            </tr>
-            <tr class="flammable-row">
-                <td class="fuel-cell">Acetylene</td>
-                <td class="lfl-cell">2.5</td>
-                <td class="ufl-cell">100.0</td>
-            </tr>
-        </tbody>
-    </table>
-    
-    <p>
-        The flammable range is calculated as the **difference between UFL and LFL**.  
-        Enter the LFL and UFL values above and click <strong>Calculate Range</strong> to determine the flammable range.
-    </p>
+
+    <h3>Why Secondary Inlet Temperature is Important?</h3>
+    <p>The secondary inlet temperature helps in **thermal system optimization**. A **higher Tₓ** indicates **higher inlet temperature at part-load conditions**, while a **lower Tₓ** may signify **reduced thermal efficiency or cooling requirements**.</p>
+
+    <p><strong>The load factor (x) is always between 0 and 1</strong> because it represents a fraction of full load, ensuring realistic and practical system behavior in thermal and process engineering applications</p>
+
+    <h3>Validations:</h3>
+    <ul>
+        <li><strong>Applicability:</strong> This formula applies to heat exchangers and thermal systems operating at variable loads.</li>
+        <li><strong>Positive or Negative Values:</strong> Tₓ should be within a reasonable temperature range. Extreme values indicate incorrect inputs.</li>
+        <li><strong>Valid Range:</strong> The difference (T₂ - T₁) should be realistic for heat exchanger applications.</li>
+        <li><strong>Limitations:</strong> This formula assumes **steady-state conditions** and does not account for transient effects or heat losses.</li>
+    </ul>
+
+    <h3>Real-life Applications:</h3>
+    <ul>
+        <li><strong>Heat Exchangers:</strong> Used to optimize temperature distribution under varying loads.</li>
+        <li><strong>Power Plants:</strong> Helps in thermal regulation for efficient energy generation.</li>
+        <li><strong>HVAC Systems:</strong> Ensures stable temperature control in heating and cooling applications.</li>
+        <li><strong>Industrial Process Control:</strong> Assists in maintaining desired thermal conditions in manufacturing.</li>
+        <li><strong>Thermal Energy Management:</strong> Aids in optimizing energy usage across different operational loads.</li>
+    </ul>
+
+    <h3>Conclusion:</h3>
+    <p>The Secondary Inlet Temperature (Tₓ) is a **key factor** in heat transfer analysis. Understanding it allows engineers to **enhance system efficiency**, **ensure proper temperature regulation**, and **improve overall thermal performance**.</p>
 </div>
 
+
 <script>
-    function calculateFlammableRange() {
-    let lfl = parseFloat(document.getElementById("lfl").value);
-    let ufl = parseFloat(document.getElementById("ufl").value);
+    function calculateSecondaryInletTemp() {
+        const T1 = parseFloat(document.getElementById("t1").value);
+        const T2 = parseFloat(document.getElementById("t2").value);
+        const x = parseFloat(document.getElementById("x").value);
+        const resultElement = document.getElementById("result");
+        const feedbackElement = document.getElementById("feedback");
 
-    if (isNaN(lfl) || isNaN(ufl) || lfl < 0 || ufl <= 0 || lfl >= ufl) {
-        document.getElementById("result").innerHTML = "❌ Please enter valid LFL and UFL values (LFL must be less than UFL).";
-        return;
+        // Reset previous results
+        resultElement.innerHTML = "";
+        feedbackElement.innerHTML = "";
+
+        // **Validations**
+        if (isNaN(T1)) {
+            resultElement.innerHTML = "❌ <strong>Error:</strong> T₁ must be a valid number.";
+            return;
+        }
+        if (isNaN(T2)) {
+            resultElement.innerHTML = "❌ <strong>Error:</strong> T₂ must be a valid number.";
+            return;
+        }
+        if (isNaN(x) || x < 0 || x > 1) {
+            resultElement.innerHTML = "❌ <strong>Error:</strong> Load factor (x) must be between 0 and 1.";
+            return;
+        }
+
+        // **Calculate Secondary Inlet Temperature (Tₓ)**
+        const Tx = ((T2 - T1) * (1 - x)) + T1;
+
+        // **Feedback Message & Color**
+        let feedbackMessage = "";
+        let feedbackColor = "black";
+
+        if (Tx > 0) {
+            feedbackMessage = "✅ <strong>Valid Temperature:</strong> The calculated secondary inlet temperature is reasonable.";
+            feedbackColor = "green";
+        } else {
+            feedbackMessage = "❌ <strong>Warning:</strong> The calculated temperature is negative, which might be unrealistic. Check input values.";
+            feedbackColor = "red";
+        }
+
+        // **Display Results**
+        resultElement.innerHTML = `
+            <strong>Secondary Inlet Temperature (Tₓ):</strong> ${Tx.toFixed(4)} °C<br>
+            <strong style="color: ${feedbackColor};">${feedbackMessage}</strong>
+        `;
+        resultElement.style.color = "black";
     }
-
-    let flammableRange = ufl - lfl;
-    let rating = "";
-
-    if (flammableRange <= 5) {
-        rating = "🔵 Low Risk: Minimal Flammability Risk";
-    } else if (flammableRange <= 10) {
-        rating = "🟡 Moderate Risk: Moderate Flammability Risk";
-    } else {
-        rating = "🔴 High Risk: High Flammability Risk! Caution!";
-    }
-
-    document.getElementById("result").innerHTML = `
-        <strong>Flammable Range:</strong> ${flammableRange.toFixed(2)}%<br>
-        <strong>Rating:</strong> ${rating}
-    `;
-}
-
 </script>
+
 
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
@@ -498,5 +461,5 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 
-<!-- Mirrored from dsathemes.com/html/martex_1.1/files/project-details.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 08 Mar 2024 16:40:05 GMT -->
+<!-- Mirrored from dsathemes.com/html/martex_1.1/files/project-details.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 08 Mar 2024 16:40:05 GMT -->
 </html>

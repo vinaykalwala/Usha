@@ -56,9 +56,7 @@
 		<link href="css/responsive.css" rel="stylesheet">
 <style>
             
-         
-
-   
+          
         body {
       font-family: Arial, sans-serif;
      
@@ -146,10 +144,16 @@
     margin-bottom: 15px;
 }
 
+/* .note-container h3 {
+    margin-top: 0;
+    color: #007bff;
+    font-size: 18px;
+} */
+
 .note-container h3 {
     margin:15px 0;
     color: #007bff;
-    font-size: 20px;
+    font-size:20px;
 }
 
 .note-container p {
@@ -165,70 +169,6 @@ strong{
         padding: 10px; 
     }
 }
-select {
-    width: 100%;
-    padding: 10px;
-    margin-top: 5px;
-    border: 1px solid #d3e0f0;
-    border-radius: 5px;
-    font-size: 1rem;
-    background-color: rgb(223, 241, 247);
-
-}
-.flammable-range-table {
-    width: 50%;
-    border-collapse: collapse;
-    margin-top: 20px;
-    font-family: Arial, sans-serif;
-    margin-left: auto;
-    margin-right: auto; /* Centers the table */
-}
-
-@media screen and (max-width: 768px) {
-    .flammable-range-table {
-        width: 90%; /* Adjust width for smaller screens */
-    }
-}
-
-
-.flammable-header {
-    background-color: #1560bd;
-    color: white;
-    text-align: left;
-
-}
-
-.flammable-header th {
-    padding: 10px;
-}
-
-.flammable-row:nth-child(even) {
-    background-color: #f2f2f2;
-}
-
-.flammable-row:nth-child(odd) {
-    background-color: #ffffff;
-}
-
-.fuel-cell, .lfl-cell, .ufl-cell {
-    padding: 10px;
-    border: 2px solid #ddd;
-}
-.flammable-range-table, 
-.flammable-range-table th, 
-.flammable-range-table td {
-    border: 1px solid #ddd;
-    border-collapse: collapse;
-}
-
-.fuel-column {
-    width: 40%;
-}
-
-.lfl-column, .ufl-column {
-    width: 30%;
-}
-
 </style>
 	</head>
 
@@ -242,124 +182,159 @@ select {
 
 
 
-		
+		<div id="header"></div>
+
 <br><br><br><br>
 
-<div id="header"></div>
-
 <div class="calculator-container">
-    <h2>Flammable Range Calculator</h2>
+    <h2>Binomial Distribution Calculator</h2>
+
     <div class="form-group">
-        <label for="lfl">Lower Flammable Limit (LFL) %:</label>
-        <input type="number" id="lfl" placeholder="Enter LFL in %" step="0.01">
+        <label for="sampleSize">Sample Size (n):</label>
+        <input type="number" id="sampleSize" placeholder="Enter sample size">
     </div>
+
     <div class="form-group">
-        <label for="ufl">Upper Flammable Limit (UFL) %:</label>
-        <input type="number" id="ufl" placeholder="Enter UFL in %" step="0.01">
+        <label for="itemInterest">Item of Interest (x):</label>
+        <input type="number" id="itemInterest" placeholder="Enter item of interest">
     </div>
-    <button class="cal-btn" onclick="calculateFlammableRange()">Calculate Range</button>
+
+    <div class="form-group">
+        <label for="probability">Probability of Success (p):</label>
+        <input type="number" id="probability" placeholder="Enter probability" step="0.01">
+    </div>
+
+    <button class="cal-btn" onclick="calculateBinomial()">Calculate Probability</button>
+
     <div class="result" id="result"></div>
+    <div class="feedback" id="feedback"></div>
 </div>
 
 <div class="note-container">
-    <h3>Note:</h3>
-    <p>This calculator determines the flammable range, helping assess the safe concentration limits of gases or vapors to prevent fire hazards.</p>
-    <p>
-        The <strong>Flammable Range</strong> is the range of fuel-to-air concentration within which a gas or vapor can ignite.
-    </p>
-    <p>
-        It is determined by two key limits:
-    </p>
+    <h3>Note:</h3> 
+    <p>This tool calculates the probability of obtaining exactly <strong>x</strong> successes in <strong>n</strong> independent trials, where each trial has the same probability of success <strong>p</strong>.</p>
+
+    <p><strong>Understanding Parameters:</strong></p>
     <ul>
-        <li><strong>Lower Flammable Limit (LFL):</strong> The minimum concentration of a gas or vapor in air that can sustain combustion.</li>
-        <li><strong>Upper Flammable Limit (UFL):</strong> The maximum concentration beyond which the mixture is too rich to burn.</li>
+        <li><strong>Sample Size (n):</strong> The number of trials or experiments.</li>
+        <li><strong>Item of Interest (x):</strong> The number of successful outcomes.</li>
+        <li><strong>Probability of Success (p):</strong> The probability of success on a single trial.</li>
     </ul>
-    <p>
-        If the gas concentration falls **below the LFL**, there isn’t enough fuel to sustain combustion.  
-        If it is **above the UFL**, there is too much fuel and not enough oxygen for combustion to occur.
-    </p>
-    <h3 style="text-align: center;">Examples of Flammability Limits (in air)</h3>
-    <table class="flammable-range-table">
-        <thead>
-            <tr class="flammable-header">
-                <th class="fuel-column">Fuel</th>
-                <th class="lfl-column">LFL (%)</th>
-                <th class="ufl-column">UFL (%)</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr class="flammable-row">
-                <td class="fuel-cell">Methane</td>
-                <td class="lfl-cell">5.0</td>
-                <td class="ufl-cell">15.0</td>
-            </tr>
-            <tr class="flammable-row">
-                <td class="fuel-cell">Propane</td>
-                <td class="lfl-cell">2.1</td>
-                <td class="ufl-cell">9.5</td>
-            </tr>
-            <tr class="flammable-row">
-                <td class="fuel-cell">Ethylene</td>
-                <td class="lfl-cell">2.7</td>
-                <td class="ufl-cell">12.0</td>
-            </tr>
-            <tr class="flammable-row">
-                <td class="fuel-cell">Hydrogen</td>
-                <td class="lfl-cell">4.0</td>
-                <td class="ufl-cell">75.0</td>
-            </tr>
-            <tr class="flammable-row">
-                <td class="fuel-cell">Methanol</td>
-                <td class="lfl-cell">6.0</td>
-                <td class="ufl-cell">36.0</td>
-            </tr>
-            <tr class="flammable-row">
-                <td class="fuel-cell">Acetylene</td>
-                <td class="lfl-cell">2.5</td>
-                <td class="ufl-cell">100.0</td>
-            </tr>
-        </tbody>
-    </table>
-    
-    <p>
-        The flammable range is calculated as the **difference between UFL and LFL**.  
-        Enter the LFL and UFL values above and click <strong>Calculate Range</strong> to determine the flammable range.
-    </p>
+
+    <p><strong>What is an Event?</strong></p>
+    <p>An <strong>event</strong> refers to a specific outcome or a collection of outcomes in a probability experiment. In the context of binomial distribution, it represents the occurrence of exactly <strong>x</strong> successes in <strong>n</strong> independent trials, where each trial has a fixed probability <strong>p</strong> of success.</p>
+
+    <p><strong>Example:</strong></p>
+    <ul>
+        <li>Flipping a fair coin 10 times and getting exactly 4 heads is an event.</li>
+        <li>Finding 3 defective products in a batch of 50 is an event.</li>
+        <li>8 out of 10 patients responding positively to a treatment is an event.</li>
+        <li>Scoring 5 goals in a 10-match soccer season is an event.</li>
+    </ul>
+
+    <p><strong>Key Applications:</strong></p>
+    <ul>
+        <li><strong>Quality Control:</strong> Determining the likelihood of a certain number of defective items in a batch.</li>
+        <li><strong>Medical Trials:</strong> Calculating the probability of a certain number of patients responding to a treatment.</li>
+        <li><strong>Finance:</strong> Assessing the probability of a certain number of successful investments.</li>
+        <li><strong>Sports Analytics:</strong> Estimating the probability of a certain number of wins in a season.</li>
+    </ul>
+
+    <p><strong>Validations & Input Constraints:</strong></p>
+    <ul>
+        <li><strong>Sample Size (n) must be a positive integer:</strong>  
+            - The number of trials cannot be zero or negative.</li>
+        <li><strong>Item of Interest (x) must be a non-negative integer:</strong>  
+            - The number of successes cannot be negative.</li>
+        <li><strong>Probability of Success (p) must be between 0 and 1:</strong>  
+            - Probability values must be within the range [0, 1].</li>
+    </ul>
+
+    <p><strong>Conclusion:</strong></p>
+    <p>This tool enables accurate probability assessment in various fields by evaluating the likelihood of a specific number of successes in a series of independent trials.</p>
 </div>
 
 <script>
-    function calculateFlammableRange() {
-    let lfl = parseFloat(document.getElementById("lfl").value);
-    let ufl = parseFloat(document.getElementById("ufl").value);
+  // Logarithmic Factorial to Avoid Overflow
+function logFactorial(n) {
+    if (n === 0 || n === 1) return 0;
+    let logSum = 0;
+    for (let i = 2; i <= n; i++) {
+        logSum += Math.log(i);
+    }
+    return logSum;
+}
 
-    if (isNaN(lfl) || isNaN(ufl) || lfl < 0 || ufl <= 0 || lfl >= ufl) {
-        document.getElementById("result").innerHTML = "❌ Please enter valid LFL and UFL values (LFL must be less than UFL).";
+// Binomial Probability Calculation (Handles Large Inputs)
+function calculateBinomial() {
+    const n = parseInt(document.getElementById("sampleSize").value);
+    const x = parseInt(document.getElementById("itemInterest").value);
+    const p = parseFloat(document.getElementById("probability").value);
+
+    const resultElement = document.getElementById("result");
+    const feedbackElement = document.getElementById("feedback");
+
+    // Reset outputs
+    resultElement.innerText = "";
+    feedbackElement.innerText = "";
+
+    // ✅ Input Validations
+    if (isNaN(n) || n <= 0 || !Number.isInteger(n)) {
+        resultElement.innerHTML = "❌ <strong>Error:</strong> Sample size must be a positive integer.";
+        return;
+    }
+    if (isNaN(x) || x < 0 || !Number.isInteger(x) || x > n) {
+        resultElement.innerHTML = "❌ <strong>Error:</strong> Item of interest must be between 0 and the sample size.";
+        return;
+    }
+    if (isNaN(p) || p < 0 || p > 1) {
+        resultElement.innerHTML = "❌ <strong>Error:</strong> Probability must be between 0 and 1.";
         return;
     }
 
-    let flammableRange = ufl - lfl;
-    let rating = "";
+    // ✅ Logarithmic Calculation to Prevent Overflow
+    const logCombination = logFactorial(n) - (logFactorial(x) + logFactorial(n - x));
+    const probability = Math.exp(logCombination) * Math.pow(p, x) * Math.pow(1 - p, n - x);
 
-    if (flammableRange <= 5) {
-        rating = "🔵 Low Risk: Minimal Flammability Risk";
-    } else if (flammableRange <= 10) {
-        rating = "🟡 Moderate Risk: Moderate Flammability Risk";
-    } else {
-        rating = "🔴 High Risk: High Flammability Risk! Caution!";
+    // ✅ Feedback Based on Probability
+    let feedbackMessage = "";
+    let feedbackColor = "black";
+
+    if (probability === 0) {
+        feedbackMessage = "❌ <strong>Extremely Unlikely:</strong> The event is almost impossible.";
+        feedbackColor = "red";
+    } else if (probability > 0 && probability <= 0.2) {
+        feedbackMessage = "⚠️ <strong>Unlikely:</strong> The event has a low chance of occurring.";
+        feedbackColor = "orange";
+    } else if (probability > 0.2 && probability <= 0.5) {
+        feedbackMessage = "🔶 <strong>Possible:</strong> The event has a moderate chance of occurring.";
+        feedbackColor = "yellow";
+    } else if (probability > 0.5 && probability <= 0.8) {
+        feedbackMessage = "🔷 <strong>Likely:</strong> The event has a high chance of occurring.";
+        feedbackColor = "blue";
+    } else if (probability > 0.8 && probability < 1) {
+        feedbackMessage = "✅ <strong>Very Likely:</strong> The event is highly probable.";
+        feedbackColor = "green";
+    } else if (probability === 1) {
+        feedbackMessage = "✅ <strong>Certain:</strong> The event is guaranteed to occur.";
+        feedbackColor = "green";
     }
 
-    document.getElementById("result").innerHTML = `
-        <strong>Flammable Range:</strong> ${flammableRange.toFixed(2)}%<br>
-        <strong>Rating:</strong> ${rating}
+    // ✅ Display Result
+    resultElement.innerHTML = `
+        <strong>Probability (P(x)):</strong> ${probability.toFixed(10)}<br>
+        <strong style="color: ${feedbackColor};">${feedbackMessage}</strong>
     `;
+    resultElement.style.color = "black";
 }
 
 </script>
 
 
+
+
+
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
-
-
 
 
 
@@ -395,9 +370,7 @@ select {
     fetch("header.html").then(response => response.text()).then(data => document.getElementById("header").innerHTML = data);
     fetch("footer.html").then(response => response.text()).then(data => document.getElementById("footer").innerHTML = data);
 </script>
-
-
-		</div>	<!-- END PAGE CONTENT -->	
+	
 
 
 
@@ -500,3 +473,4 @@ document.addEventListener("DOMContentLoaded", function() {
 
 <!-- Mirrored from dsathemes.com/html/martex_1.1/files/project-details.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 08 Mar 2024 16:40:05 GMT -->
 </html>
+

@@ -152,6 +152,14 @@
     font-size: 20px;
 }
 
+.note-container ul{
+    margin: 10px;
+}
+
+.note-container{
+    margin-top: 10px;
+}
+
 .note-container p {
     margin-top: 15px;
     text-align: justify;
@@ -175,60 +183,6 @@ select {
     background-color: rgb(223, 241, 247);
 
 }
-.flammable-range-table {
-    width: 50%;
-    border-collapse: collapse;
-    margin-top: 20px;
-    font-family: Arial, sans-serif;
-    margin-left: auto;
-    margin-right: auto; /* Centers the table */
-}
-
-@media screen and (max-width: 768px) {
-    .flammable-range-table {
-        width: 90%; /* Adjust width for smaller screens */
-    }
-}
-
-
-.flammable-header {
-    background-color: #1560bd;
-    color: white;
-    text-align: left;
-
-}
-
-.flammable-header th {
-    padding: 10px;
-}
-
-.flammable-row:nth-child(even) {
-    background-color: #f2f2f2;
-}
-
-.flammable-row:nth-child(odd) {
-    background-color: #ffffff;
-}
-
-.fuel-cell, .lfl-cell, .ufl-cell {
-    padding: 10px;
-    border: 2px solid #ddd;
-}
-.flammable-range-table, 
-.flammable-range-table th, 
-.flammable-range-table td {
-    border: 1px solid #ddd;
-    border-collapse: collapse;
-}
-
-.fuel-column {
-    width: 40%;
-}
-
-.lfl-column, .ufl-column {
-    width: 30%;
-}
-
 </style>
 	</head>
 
@@ -247,114 +201,126 @@ select {
 
 <div id="header"></div>
 
+
 <div class="calculator-container">
-    <h2>Flammable Range Calculator</h2>
+    <h2>Mean Temperature Difference B/W Primary and secondary Fluid Calculator</h2>
+
     <div class="form-group">
-        <label for="lfl">Lower Flammable Limit (LFL) %:</label>
-        <input type="number" id="lfl" placeholder="Enter LFL in %" step="0.01">
+        <label for="q">Heat Transfer Rate (Q̇) [W]:</label>
+        <input type="number" id="q" placeholder="Enter heat transfer rate" step="any">
     </div>
+
     <div class="form-group">
-        <label for="ufl">Upper Flammable Limit (UFL) %:</label>
-        <input type="number" id="ufl" placeholder="Enter UFL in %" step="0.01">
+        <label for="u">Heat Transfer Coefficient (U) [W/m²°C]:</label>
+        <input type="number" id="u" placeholder="Enter heat transfer coefficient" step="any">
     </div>
-    <button class="cal-btn" onclick="calculateFlammableRange()">Calculate Range</button>
+
+    <div class="form-group">
+        <label for="a">Heating Area (A) [m²]:</label>
+        <input type="number" id="a" placeholder="Enter heating area" step="any">
+    </div>
+
+    <button class="cal-btn" onclick="calculateMeanTemperatureDifference()">Calculate</button>
+
     <div class="result" id="result"></div>
+    <div class="feedback" id="feedback"></div>
 </div>
+
 
 <div class="note-container">
     <h3>Note:</h3>
-    <p>This calculator determines the flammable range, helping assess the safe concentration limits of gases or vapors to prevent fire hazards.</p>
-    <p>
-        The <strong>Flammable Range</strong> is the range of fuel-to-air concentration within which a gas or vapor can ignite.
-    </p>
-    <p>
-        It is determined by two key limits:
-    </p>
+    <p>This calculator determines the <strong>Mean Temperature Difference (ΔTₘ)</strong>, which is essential for analyzing heat transfer efficiency between primary and secondary fluids.</p>
+
+    <p>It is widely used in <strong>heat exchanger and thermal engineering</strong> to evaluate temperature gradients and optimize heat transfer performance.</p>
+
+    <h3>Explanation of Parameters:</h3>
     <ul>
-        <li><strong>Lower Flammable Limit (LFL):</strong> The minimum concentration of a gas or vapor in air that can sustain combustion.</li>
-        <li><strong>Upper Flammable Limit (UFL):</strong> The maximum concentration beyond which the mixture is too rich to burn.</li>
+        <li><strong>Heat Transfer Rate (Q̇):</strong> The total heat energy transferred per unit time, measured in watts (W).</li>
+        <li><strong>Heat Transfer Coefficient (U):</strong> A measure of how well heat is conducted through a material, expressed in W/m²°C.</li>
+        <li><strong>Heating Area (A):</strong> The surface area available for heat exchange, measured in square meters (m²).</li>
+        <li><strong>Mean Temperature Difference (ΔTₘ):</strong> The average temperature gradient that drives heat transfer, measured in degrees Celsius (°C).</li>
     </ul>
-    <p>
-        If the gas concentration falls **below the LFL**, there isn’t enough fuel to sustain combustion.  
-        If it is **above the UFL**, there is too much fuel and not enough oxygen for combustion to occur.
-    </p>
-    <h3 style="text-align: center;">Examples of Flammability Limits (in air)</h3>
-    <table class="flammable-range-table">
-        <thead>
-            <tr class="flammable-header">
-                <th class="fuel-column">Fuel</th>
-                <th class="lfl-column">LFL (%)</th>
-                <th class="ufl-column">UFL (%)</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr class="flammable-row">
-                <td class="fuel-cell">Methane</td>
-                <td class="lfl-cell">5.0</td>
-                <td class="ufl-cell">15.0</td>
-            </tr>
-            <tr class="flammable-row">
-                <td class="fuel-cell">Propane</td>
-                <td class="lfl-cell">2.1</td>
-                <td class="ufl-cell">9.5</td>
-            </tr>
-            <tr class="flammable-row">
-                <td class="fuel-cell">Ethylene</td>
-                <td class="lfl-cell">2.7</td>
-                <td class="ufl-cell">12.0</td>
-            </tr>
-            <tr class="flammable-row">
-                <td class="fuel-cell">Hydrogen</td>
-                <td class="lfl-cell">4.0</td>
-                <td class="ufl-cell">75.0</td>
-            </tr>
-            <tr class="flammable-row">
-                <td class="fuel-cell">Methanol</td>
-                <td class="lfl-cell">6.0</td>
-                <td class="ufl-cell">36.0</td>
-            </tr>
-            <tr class="flammable-row">
-                <td class="fuel-cell">Acetylene</td>
-                <td class="lfl-cell">2.5</td>
-                <td class="ufl-cell">100.0</td>
-            </tr>
-        </tbody>
-    </table>
-    
-    <p>
-        The flammable range is calculated as the **difference between UFL and LFL**.  
-        Enter the LFL and UFL values above and click <strong>Calculate Range</strong> to determine the flammable range.
-    </p>
+
+    <h3>Why Mean Temperature Difference is Important?</h3>
+    <p>The mean temperature difference determines **heat exchanger efficiency**. A **higher ΔTₘ** indicates **effective heat transfer**, while a **lower ΔTₘ** suggests **reduced thermal efficiency**.</p>
+
+    <h3>Validations:</h3>
+    <ul>
+        
+        <li><strong>Applicability:</strong> This formula is used for steady-state heat exchanger calculations.</li>
+        <li><strong>Positive or Negative Values:</strong> ΔTₘ should be positive, as negative values indicate an incorrect input or reversed heat flow assumptions.</li>
+        <li><strong>Valid Range:</strong> Heat transfer coefficient (U) and heating area (A) must be greater than zero to avoid division errors.</li>
+        <li><strong>Limitations:</strong> This formula assumes **steady-state conditions** and does not account for fluid properties, flow variations, or phase changes.</li>
+    </ul>
+
+    <h3>Real-life Applications:</h3>
+    <ul>
+        <li><strong>Heat Exchangers:</strong> Used in industries for optimizing heat transfer between fluids.</li>
+        <li><strong>Power Plants:</strong> Helps in designing efficient thermal systems for energy generation.</li>
+        <li><strong>HVAC Systems:</strong> Ensures effective heating and cooling in residential and industrial setups.</li>
+        <li><strong>Industrial Process Control:</strong> Helps in maintaining temperature balance in chemical and manufacturing processes.</li>
+        <li><strong>Refrigeration & Cooling Systems:</strong> Aids in determining cooling efficiency in refrigeration units.</li>
+    </ul>
+
+    <h3>Conclusion:</h3>
+    <p>The Mean Temperature Difference (ΔTₘ) is a **key parameter** in heat transfer analysis. Understanding it helps engineers **improve energy efficiency**, **optimize heat exchanger design**, and **ensure effective thermal management**.</p>
 </div>
 
+
+
 <script>
-    function calculateFlammableRange() {
-    let lfl = parseFloat(document.getElementById("lfl").value);
-    let ufl = parseFloat(document.getElementById("ufl").value);
+    function calculateMeanTemperatureDifference() {
+        const Q = parseFloat(document.getElementById("q").value);
+        const U = parseFloat(document.getElementById("u").value);
+        const A = parseFloat(document.getElementById("a").value);
+        const resultElement = document.getElementById("result");
+        const feedbackElement = document.getElementById("feedback");
 
-    if (isNaN(lfl) || isNaN(ufl) || lfl < 0 || ufl <= 0 || lfl >= ufl) {
-        document.getElementById("result").innerHTML = "❌ Please enter valid LFL and UFL values (LFL must be less than UFL).";
-        return;
+        // Reset previous results
+        resultElement.innerHTML = "";
+        feedbackElement.innerHTML = "";
+
+        // **Validations**
+        if (isNaN(Q)) {
+            resultElement.innerHTML = "❌ <strong>Error:</strong> Heat transfer rate (Q̇) must be a valid number.";
+            return;
+        }
+        if (isNaN(U) || U <= 0) {
+            resultElement.innerHTML = "❌ <strong>Error:</strong> Heat transfer coefficient (U) must be greater than 0.";
+            return;
+        }
+        if (isNaN(A) || A <= 0) {
+            resultElement.innerHTML = "❌ <strong>Error:</strong> Heating area (A) must be greater than 0.";
+            return;
+        }
+
+        // **Calculate Mean Temperature Difference (ΔTₘ)**
+        const deltaTm = Q / (U * A);
+
+        // **Feedback Message & Color**
+        let feedbackMessage = "";
+        let feedbackColor = "black";
+
+        if (deltaTm > 0) {
+            feedbackMessage = "✅ <strong>Efficient Heat Transfer:</strong> The system is effectively transferring heat.";
+            feedbackColor = "green";
+        } else if (deltaTm === 0) {
+            feedbackMessage = "⚠️ <strong>No Temperature Difference:</strong> Check inputs; heat exchange might not be occurring.";
+            feedbackColor = "orange";
+        } else {
+            feedbackMessage = "❌ <strong>Invalid Calculation:</strong> Check input values and try again.";
+            feedbackColor = "red";
+        }
+
+        // **Display Results**
+        resultElement.innerHTML = `
+            <strong>Mean Temperature Difference (ΔTₘ):</strong> ${deltaTm.toFixed(4)} °C<br>
+            <strong style="color: ${feedbackColor};">${feedbackMessage}</strong>
+        `;
+        resultElement.style.color = "black";
     }
-
-    let flammableRange = ufl - lfl;
-    let rating = "";
-
-    if (flammableRange <= 5) {
-        rating = "🔵 Low Risk: Minimal Flammability Risk";
-    } else if (flammableRange <= 10) {
-        rating = "🟡 Moderate Risk: Moderate Flammability Risk";
-    } else {
-        rating = "🔴 High Risk: High Flammability Risk! Caution!";
-    }
-
-    document.getElementById("result").innerHTML = `
-        <strong>Flammable Range:</strong> ${flammableRange.toFixed(2)}%<br>
-        <strong>Rating:</strong> ${rating}
-    `;
-}
-
 </script>
+
 
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
@@ -498,5 +464,5 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 
-<!-- Mirrored from dsathemes.com/html/martex_1.1/files/project-details.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 08 Mar 2024 16:40:05 GMT -->
+<!-- Mirrored from dsathemes.com/html/martex_1.1/files/project-details.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 08 Mar 2024 16:40:05 GMT -->
 </html>

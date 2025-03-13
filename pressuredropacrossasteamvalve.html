@@ -152,6 +152,14 @@
     font-size: 20px;
 }
 
+.note-container ul{
+    margin: 10px;
+}
+
+.note-container{
+    margin-top: 10px;
+}
+
 .note-container p {
     margin-top: 15px;
     text-align: justify;
@@ -175,60 +183,6 @@ select {
     background-color: rgb(223, 241, 247);
 
 }
-.flammable-range-table {
-    width: 50%;
-    border-collapse: collapse;
-    margin-top: 20px;
-    font-family: Arial, sans-serif;
-    margin-left: auto;
-    margin-right: auto; /* Centers the table */
-}
-
-@media screen and (max-width: 768px) {
-    .flammable-range-table {
-        width: 90%; /* Adjust width for smaller screens */
-    }
-}
-
-
-.flammable-header {
-    background-color: #1560bd;
-    color: white;
-    text-align: left;
-
-}
-
-.flammable-header th {
-    padding: 10px;
-}
-
-.flammable-row:nth-child(even) {
-    background-color: #f2f2f2;
-}
-
-.flammable-row:nth-child(odd) {
-    background-color: #ffffff;
-}
-
-.fuel-cell, .lfl-cell, .ufl-cell {
-    padding: 10px;
-    border: 2px solid #ddd;
-}
-.flammable-range-table, 
-.flammable-range-table th, 
-.flammable-range-table td {
-    border: 1px solid #ddd;
-    border-collapse: collapse;
-}
-
-.fuel-column {
-    width: 40%;
-}
-
-.lfl-column, .ufl-column {
-    width: 30%;
-}
-
 </style>
 	</head>
 
@@ -247,114 +201,132 @@ select {
 
 <div id="header"></div>
 
+
 <div class="calculator-container">
-    <h2>Flammable Range Calculator</h2>
+    <h2>Pressure Drop Across A Steam Valve  Calculator</h2>
+
     <div class="form-group">
-        <label for="lfl">Lower Flammable Limit (LFL) %:</label>
-        <input type="number" id="lfl" placeholder="Enter LFL in %" step="0.01">
+        <label for="p1">Upstream Pressure (P₁) [bar]:</label>
+        <input type="number" id="p1" placeholder="Enter upstream pressure" step="any">
     </div>
+
     <div class="form-group">
-        <label for="ufl">Upper Flammable Limit (UFL) %:</label>
-        <input type="number" id="ufl" placeholder="Enter UFL in %" step="0.01">
+        <label for="ms">Mass Flow Rate (ṁₛ) [kg/h]:</label>
+        <input type="number" id="ms" placeholder="Enter mass flow rate" step="any">
     </div>
-    <button class="cal-btn" onclick="calculateFlammableRange()">Calculate Range</button>
+
+    <div class="form-group">
+        <label for="kv">Valve Flow Coefficient (Kᵥ) [m³/h bar]:</label>
+        <input type="number" id="kv" placeholder="Enter valve flow coefficient" step="any">
+    </div>
+
+    <button class="cal-btn" onclick="calculatePressureDrop()">Calculate</button>
+
     <div class="result" id="result"></div>
+    <div class="feedback" id="feedback"></div>
 </div>
+
 
 <div class="note-container">
     <h3>Note:</h3>
-    <p>This calculator determines the flammable range, helping assess the safe concentration limits of gases or vapors to prevent fire hazards.</p>
-    <p>
-        The <strong>Flammable Range</strong> is the range of fuel-to-air concentration within which a gas or vapor can ignite.
-    </p>
-    <p>
-        It is determined by two key limits:
-    </p>
+    <p>This calculator determines the <strong>Pressure Drop (ΔP)</strong> across a steam valve, which is crucial in evaluating flow control efficiency and system performance.</p>
+
+    <p>It is widely used in <strong>steam and process engineering</strong> to analyze pressure loss and ensure optimal valve selection.</p>
+
+    <h3>Explanation of Parameters:</h3>
     <ul>
-        <li><strong>Lower Flammable Limit (LFL):</strong> The minimum concentration of a gas or vapor in air that can sustain combustion.</li>
-        <li><strong>Upper Flammable Limit (UFL):</strong> The maximum concentration beyond which the mixture is too rich to burn.</li>
+        <li><strong>Upstream Pressure (P₁):</strong> The pressure before the valve, measured in bar.</li>
+        <li><strong>Mass Flow Rate (ṁₛ):</strong> The amount of steam passing through the valve, in kg/h.</li>
+        <li><strong>Valve Flow Coefficient (Kᵥ):</strong> A measure of the valve's capacity to pass steam, expressed in m³/h bar.</li>
+        <li><strong>Pressure Drop (ΔP):</strong> The reduction in pressure across the valve, in bar.</li>
     </ul>
-    <p>
-        If the gas concentration falls **below the LFL**, there isn’t enough fuel to sustain combustion.  
-        If it is **above the UFL**, there is too much fuel and not enough oxygen for combustion to occur.
-    </p>
-    <h3 style="text-align: center;">Examples of Flammability Limits (in air)</h3>
-    <table class="flammable-range-table">
-        <thead>
-            <tr class="flammable-header">
-                <th class="fuel-column">Fuel</th>
-                <th class="lfl-column">LFL (%)</th>
-                <th class="ufl-column">UFL (%)</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr class="flammable-row">
-                <td class="fuel-cell">Methane</td>
-                <td class="lfl-cell">5.0</td>
-                <td class="ufl-cell">15.0</td>
-            </tr>
-            <tr class="flammable-row">
-                <td class="fuel-cell">Propane</td>
-                <td class="lfl-cell">2.1</td>
-                <td class="ufl-cell">9.5</td>
-            </tr>
-            <tr class="flammable-row">
-                <td class="fuel-cell">Ethylene</td>
-                <td class="lfl-cell">2.7</td>
-                <td class="ufl-cell">12.0</td>
-            </tr>
-            <tr class="flammable-row">
-                <td class="fuel-cell">Hydrogen</td>
-                <td class="lfl-cell">4.0</td>
-                <td class="ufl-cell">75.0</td>
-            </tr>
-            <tr class="flammable-row">
-                <td class="fuel-cell">Methanol</td>
-                <td class="lfl-cell">6.0</td>
-                <td class="ufl-cell">36.0</td>
-            </tr>
-            <tr class="flammable-row">
-                <td class="fuel-cell">Acetylene</td>
-                <td class="lfl-cell">2.5</td>
-                <td class="ufl-cell">100.0</td>
-            </tr>
-        </tbody>
-    </table>
-    
-    <p>
-        The flammable range is calculated as the **difference between UFL and LFL**.  
-        Enter the LFL and UFL values above and click <strong>Calculate Range</strong> to determine the flammable range.
-    </p>
+
+    <h3>Why Pressure Drop is Important?</h3>
+    <p>Pressure drop across a valve affects **flow rate, energy efficiency, and system stability**. A **higher pressure drop** indicates **restricted flow**, while a **lower pressure drop** suggests **efficient valve performance**.</p>
+
+    <h3>Formula & Validations:</h3>
+    <ul>
+        <li><strong>Applicability:</strong> This formula applies to steam valves and helps in selecting the appropriate valve size.</li>
+        <li><strong>Positive or Negative Values:</strong> The pressure drop (ΔP) should be positive; a negative or zero value indicates incorrect inputs or an unrestricted valve.</li>
+        <li><strong>Valid Range:</strong> The term inside the square root must be **non-negative** to ensure a real result.</li>
+        <li><strong>Limitations:</strong> This formula assumes **steady-state flow** and does not account for pipe friction, turbulence, or phase changes.</li>
+    </ul>
+
+    <h3>Real-life Applications:</h3>
+    <ul>
+        <li><strong>Steam Boilers:</strong> Helps in designing efficient steam control systems.</li>
+        <li><strong>Power Plants:</strong> Ensures optimal steam flow in turbines and piping networks.</li>
+        <li><strong>Industrial Process Control:</strong> Used to regulate steam pressure in manufacturing plants.</li>
+        <li><strong>HVAC & Thermal Systems:</strong> Aids in steam distribution for heating systems.</li>
+        <li><strong>Refineries & Chemical Plants:</strong> Helps in maintaining pressure balance in processing units.</li>
+    </ul>
+
+    <h3>Conclusion:</h3>
+    <p>The Pressure Drop (ΔP) is a **critical factor** in steam system efficiency. Understanding it helps engineers **optimize valve selection**, prevent **excessive pressure losses**, and improve **system reliability**.</p>
 </div>
 
+
+
 <script>
-    function calculateFlammableRange() {
-    let lfl = parseFloat(document.getElementById("lfl").value);
-    let ufl = parseFloat(document.getElementById("ufl").value);
+    function calculatePressureDrop() {
+        const P1 = parseFloat(document.getElementById("p1").value);
+        const Ms = parseFloat(document.getElementById("ms").value);
+        const Kv = parseFloat(document.getElementById("kv").value);
+        const resultElement = document.getElementById("result");
+        const feedbackElement = document.getElementById("feedback");
 
-    if (isNaN(lfl) || isNaN(ufl) || lfl < 0 || ufl <= 0 || lfl >= ufl) {
-        document.getElementById("result").innerHTML = "❌ Please enter valid LFL and UFL values (LFL must be less than UFL).";
-        return;
+        // Reset previous results
+        resultElement.innerHTML = "";
+        feedbackElement.innerHTML = "";
+
+        // **Validations**
+        if (isNaN(P1) || P1 <= 0) {
+            resultElement.innerHTML = "❌ <strong>Error:</strong> Upstream pressure (P₁) must be greater than 0.";
+            return;
+        }
+        if (isNaN(Ms) || Ms <= 0) {
+            resultElement.innerHTML = "❌ <strong>Error:</strong> Mass flow rate (ṁₛ) must be greater than 0.";
+            return;
+        }
+        if (isNaN(Kv) || Kv <= 0) {
+            resultElement.innerHTML = "❌ <strong>Error:</strong> Valve flow coefficient (Kᵥ) must be greater than 0.";
+            return;
+        }
+
+        // Validate square root term
+        let flowTerm = (Ms / (12 * Kv * P1)) ** 2;
+        if (flowTerm >= 1) {
+            resultElement.innerHTML = "❌ <strong>Error:</strong> Flow rate too high, leading to invalid pressure drop calculation.";
+            return;
+        }
+
+        // **Calculate Pressure Drop (ΔP)**
+        const deltaP = P1 * (0.42 * Math.sqrt((1 / 5.67) * (1 - flowTerm)));
+
+        // **Feedback Message & Color**
+        let feedbackMessage = "";
+        let feedbackColor = "black";
+
+        if (deltaP > 0) {
+            feedbackMessage = "✅ <strong>Normal Pressure Drop:</strong> Valve is regulating flow as expected.";
+            feedbackColor = "green";
+        } else if (deltaP === 0) {
+            feedbackMessage = "⚠️ <strong>No Pressure Drop:</strong> Flow is unrestricted or inputs need verification.";
+            feedbackColor = "orange";
+        } else {
+            feedbackMessage = "❌ <strong>Invalid Calculation:</strong> Check input values and try again.";
+            feedbackColor = "red";
+        }
+
+        // **Display Results**
+        resultElement.innerHTML = `
+            <strong>Pressure Drop (ΔP):</strong> ${deltaP.toFixed(4)} bar<br>
+            <strong style="color: ${feedbackColor};">${feedbackMessage}</strong>
+        `;
+        resultElement.style.color = "black";
     }
-
-    let flammableRange = ufl - lfl;
-    let rating = "";
-
-    if (flammableRange <= 5) {
-        rating = "🔵 Low Risk: Minimal Flammability Risk";
-    } else if (flammableRange <= 10) {
-        rating = "🟡 Moderate Risk: Moderate Flammability Risk";
-    } else {
-        rating = "🔴 High Risk: High Flammability Risk! Caution!";
-    }
-
-    document.getElementById("result").innerHTML = `
-        <strong>Flammable Range:</strong> ${flammableRange.toFixed(2)}%<br>
-        <strong>Rating:</strong> ${rating}
-    `;
-}
-
 </script>
+
 
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
@@ -498,5 +470,5 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 
-<!-- Mirrored from dsathemes.com/html/martex_1.1/files/project-details.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 08 Mar 2024 16:40:05 GMT -->
+<!-- Mirrored from dsathemes.com/html/martex_1.1/files/project-details.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 08 Mar 2024 16:40:05 GMT -->
 </html>
