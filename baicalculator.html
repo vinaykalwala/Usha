@@ -231,15 +231,33 @@ select {
         }
         
 
-        @media (max-width: 600px) {
-            .custom-table {
-        width: 90%; /* Adjusts width for mobile */
-        margin: 20px auto; /* Ensures it stays centered */
+        @media (max-width: 768px) {
+    .table-container h3 {
+        font-size: 1.5rem;
     }
-    
-    .custom-table th, .custom-table td{
-        font-size: 14px;
-        padding: 8px;
+
+    .custom-table th, .custom-table td {
+        padding: 6px;
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .table-container h3 {
+        font-size: 1.25rem;
+    }
+
+    .custom-table th, .custom-table td {
+        padding: 4px;
+        font-size: 0.8rem;
+    }
+
+    .custom-table th {
+        white-space: nowrap; /* Prevent header text from wrapping */
+    }
+
+    .table-container {
+        overflow-x: scroll; /* Ensure smooth scrolling on very small screens */
     }
 }
 
@@ -315,11 +333,12 @@ select {
         </ul>
     </p>
 
-    <h3>Interpreting Your BAI</h3>
-    <p>
-        Understanding your BAI value can help assess your health and potential risks associated with body fat levels. Below is a guide to interpreting your results based on gender:
-    </p>
-
+   
+    <div class="table-container">
+        <h3>Interpreting Your BAI</h3>
+        <p>
+            Understanding your BAI value can help assess your health and potential risks associated with body fat levels. Below is a guide to interpreting your results based on gender:
+        </p>
     <table border="1" cellpadding="8" cellspacing="0" class="custom-table">
         <thead>
             <tr>
@@ -347,7 +366,7 @@ select {
             </tr>
         </tbody>
     </table>
-
+    </div>
     <h3>Why Is Knowing Your BAI Important?</h3>
     <p>
         Monitoring your BAI can offer valuable insights into your overall health and help identify potential health risks associated with body fat. High body fat levels are linked to:
