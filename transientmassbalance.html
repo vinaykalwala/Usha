@@ -65,60 +65,80 @@
       background-color: #f5f5f5;
     }
     .calculator-container {
-      max-width: 1000px;
-      margin: 20px auto;
-      padding: 20px;
-      background: #ffffff;
-      border-radius: 8px;
-      border: 2px dotted #1560bd;
-
-      box-shadow: 20px 14px 8px rgba(0, 0, 0, 0.2);
-    }
-    .calculator-container h2 {
-      text-align: center;
-      margin-bottom: 20px;
-      color: #1560bd;
-      font-size: 1.8rem;
-      margin-bottom: 30px;
-    }
-    .form-group {
-      margin-bottom: 15px;
-    }
-    .form-group label {
-      display: block;
-      margin-bottom: 5px;
-      color: #333;
-    }
-    .form-group input {
-      width: 100%;
-      padding: 8px;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-      background-color: rgb(223, 241, 247);
-
-    
-    }
-    .cal-btn {
-      width: 100%;
-      padding: 10px;
-      background-color: #1560bd;
-      color: #fff;
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
-      font-size: 16px;
-    }
-    .cal-btn:hover {
-      background-color: #0056b3;
-    }
-    .result {
-      margin-top: 20px;
-      font-size: 24px;
-      color: #333;
-      text-align: center;
-      color: rgb(36, 116, 2);
-     
-    }
+        max-width: 1200px;
+        margin: 20px auto;
+        padding: 20px;
+        background: #ffffff;
+        border-radius: 8px;
+        border: 2px dotted #1560bd;
+        box-shadow: 20px 14px 8px rgba(0, 0, 0, 0.2);
+      }
+      
+      .calculator-container h2 {
+        text-align: center;
+        margin-bottom: 20px;
+        color: #1560bd;
+        font-size: 1.8rem;
+      }
+  
+      .garments-cost {
+        display: flex;
+        justify-content: space-between;
+        gap: 10px;
+      }
+  
+      .garments-cost .form-group {
+        width: 48%;
+      }
+      @media (max-width:768px){
+        .garments-cost {
+            flex-direction: column;
+            gap: 5px;
+        }
+        .garments-cost .form-group{
+            width: 100%;
+        }
+      }
+  
+      .form-group {
+        margin-bottom: 15px;
+      }
+  
+      .form-group label {
+        display: block;
+        margin-bottom: 5px;
+        color: #333;
+      }
+  
+      .form-group input {
+        width: 100%;
+        padding: 8px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        background-color: rgb(223, 241, 247);
+      }
+  
+      .cal-btn {
+        width: 100%;
+        padding: 10px;
+        background-color: #1560bd;
+        color: #fff;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 16px;
+      }
+  
+      .cal-btn:hover {
+        background-color: #0056b3;
+      }
+  
+      .result {
+        margin-top: 20px;
+        font-size: 24px;
+        color: rgb(36, 116, 2);
+        text-align: center;
+      }
     @media (max-width: 768px) {
     .calculator-container {
         margin: 20px 15px; 
@@ -147,21 +167,16 @@
 }
 
 .note-container h3 {
-    margin:15px 0;
-    color: #007bff;
-    font-size: 20px;
-}
-
-.note-container ul{
-    margin: 10px;
-}
-
-.note-container{
     margin-top: 10px;
+    color: #007bff;
+    font-size: 18px;
+}
+.note-container ul{
+    margin-top: 5px;
 }
 
 .note-container p {
-    margin-top: 15px;
+    margin-top: 10px;
     text-align: justify;
 }
 strong{
@@ -173,16 +188,7 @@ strong{
         padding: 10px; 
     }
 }
-select {
-    width: 100%;
-    padding: 10px;
-    margin-top: 5px;
-    border: 1px solid #d3e0f0;
-    border-radius: 5px;
-    font-size: 1rem;
-    background-color: rgb(223, 241, 247);
 
-}
 </style>
 	</head>
 
@@ -190,128 +196,107 @@ select {
 
 
 	<body> 
-
-
-
-
-
-
 		
 <br><br><br><br>
 
 <div id="header"></div>
 
+
+
 <div class="calculator-container">
-    <h2>Remaining Corrosion Life Calculator (1)</h2>
+    <h2>Transient Mass Balance Calculator</h2>
 
     <div class="form-group">
-        <label for="remainingAllowance">Remaining Corrosion Allowance [inches]:</label>
-        <input type="number" id="remainingAllowance" placeholder="Enter Remaining Corrosion Allowance" step="any">
+        <label for="density"><strong>Density (ρ in kg/m³):</strong> </label>
+    <input type="number" id="density" placeholder="Enter density (ρ)" required>
+    <span class="error" id="densityError"></span>
     </div>
 
     <div class="form-group">
-        <label for="corrosionRate">Corrosion Rate [inches/year]:</label>
-        <input type="number" id="corrosionRate" placeholder="Enter Corrosion Rate" step="any">
+        <label for="volume"><strong>Volume (V in m³): </strong></label>
+    <input type="number" id="volume" placeholder="Enter volume (V)" required>
+    <span class="error" id="volumeError"></span>
     </div>
 
-    <button class="cal-btn" onclick="calculateRemainingLife()">Calculate</button>
+    <div class="form-group"> 
+    <label for="massFlowRate"><strong>Mass Flow Rate (W in kg/s):</strong> </label>
+    <input type="number" id="massFlowRate" placeholder="Enter mass flow rate (W)" required>
+    <span class="error" id="massFlowRateError"></span>
+    </div>
 
+    <button class="cal-btn" onclick="calculateMassBalance()">Calculate</button>
     <div class="result" id="result"></div>
-    <div class="feedback" id="feedback"></div>
+
 </div>
 
 <div class="note-container">
     <h3>Note:</h3>
-    <p>This calculator determines the <strong>Remaining Life</strong> of a material based on its corrosion rate and remaining corrosion allowance, helping in predictive maintenance and failure prevention.</p>
+    <p>The mass balance equation ensures that the total mass entering or leaving a system is accounted for. It is essential for analyzing 
+       fluid dynamics, pollutant tracking, and ventilation control.</p>
 
-    <h3>Explanation of Parameters:</h3>
+    <h3>Parameters Explained:</h3>
     <ul>
-        <li><strong>Remaining Corrosion Allowance:</strong> The remaining material thickness before reaching the critical limit, in inches.</li>
-        <li><strong>Corrosion Rate:</strong> The rate at which the material is degrading, measured in inches per year.</li>
-        <li><strong>Remaining Life:</strong> The estimated number of years before the material reaches its minimum allowable thickness.</li>
+        <li><strong>ρ (Density in kg/m³):</strong> Measures mass per unit volume of a fluid.</li>
+        <li><strong>V (Volume in m³):</strong> Represents the space occupied by the fluid.</li>
+        <li><strong>W (Mass Flow Rate in kg/s):</strong> The rate at which mass exits the system.</li>
     </ul>
 
-    <h3>Why Remaining Life is Important?</h3>
-    <p>It helps in **predicting equipment lifespan**, **ensuring safety compliance**, and **planning timely maintenance or replacement** to avoid failures.</p>
-
-    <h3>Validations:</h3>
+    <h3>Real-Life Applications:</h3>
     <ul>
-        <li><strong>Remaining Corrosion Allowance Must Be Non-Negative:</strong> It cannot be less than zero.</li>
-        <li><strong>Corrosion Rate Must Be Positive:</strong> The rate should be greater than zero for valid calculations.</li>
-        <li><strong>Remaining Life Should Be Realistic:</strong> Ensuring that the calculated life expectancy is within an expected range.</li>
-        <li><strong>Units Should Be Consistent:</strong> Both parameters should be measured in compatible units.</li>
-    </ul>
-
-    <h3>Real-life Applications:</h3>
-    <ul>
-        <li><strong>Pipelines and Pressure Vessels:</strong> Used to determine remaining lifespan and safety margins.</li>
-        <li><strong>Bridges and Infrastructure:</strong> Helps in structural inspections and maintenance planning.</li>
-        <li><strong>Oil & Gas Industry:</strong> Assesses corrosion impact on critical equipment.</li>
-        <li><strong>Shipbuilding and Marine Structures:</strong> Ensures compliance with safety regulations.</li>
-        <li><strong>Manufacturing & Industrial Plants:</strong> Aids in preventive maintenance of metallic components.</li>
+        <li><strong>Environmental Engineering:</strong> Used in water treatment plants for pollution control.</li>
+        <li><strong>Fire Safety:</strong> Ensures proper ventilation in fire suppression systems.</li>
+        <li><strong>Industrial Safety:</strong> Helps in hazardous gas leak analysis.</li>
     </ul>
 
     <h3>Conclusion:</h3>
-    <p>The Remaining Life Calculation is a **key factor** in material integrity assessments. Regular monitoring ensures **prolonged service life, safety compliance, and reduced risk of structural failures**.</p>
+    <p>The mass balance equation is crucial for ensuring the safe and efficient operation of systems involving fluids, gases, and hazardous materials.</p>
 </div>
 
 <script>
-    function calculateRemainingLife() {
-        const remainingAllowance = parseFloat(document.getElementById("remainingAllowance").value);
-        const corrosionRate = parseFloat(document.getElementById("corrosionRate").value);
-        const resultElement = document.getElementById("result");
-        const feedbackElement = document.getElementById("feedback");
-
-        // Reset previous results
-        resultElement.innerHTML = "";
-        feedbackElement.innerHTML = "";
-
-        // Validations
-        if (isNaN(remainingAllowance) || remainingAllowance < 0) {
-            resultElement.innerHTML = "❌ <strong>Error:</strong> Remaining Corrosion Allowance must be a non-negative number.";
-            return;
-        }
-
-        if (isNaN(corrosionRate) || corrosionRate <= 0) {
-            resultElement.innerHTML = "❌ <strong>Error:</strong> Corrosion Rate must be a positive number.";
-            return;
-        }
-
-        // Remaining Life Calculation
-        const remainingLife = remainingAllowance / corrosionRate;
-
-        // Feedback Message & Color
-        let feedbackMessage = "";
-        let feedbackColor = "black";
-
-        if (remainingLife > 10) {
-            feedbackMessage = "✅ <strong>Long Remaining Life:</strong> The material is in good condition.";
-            feedbackColor = "green";
-        } else if (remainingLife > 5) {
-            feedbackMessage = "⚠️ <strong>Moderate Remaining Life:</strong> Consider monitoring and planning maintenance.";
-            feedbackColor = "orange";
+    function validateInput(value, id, paramName) {
+        let errorSpan = document.getElementById(id);
+        
+        if (isNaN(value) || value <= 0) {
+            errorSpan.textContent = `${paramName} must be greater than zero.`;
+            return false;
         } else {
-            feedbackMessage = "❌ <strong>Short Remaining Life:</strong> Immediate action required to prevent failure.";
-            feedbackColor = "red";
+            errorSpan.textContent = "";
+            return true;
         }
-
-        // Display Results
-        resultElement.innerHTML = `
-            <strong>Remaining Life:</strong> ${remainingLife.toFixed(2)} years<br>
-            <strong style="color: ${feedbackColor};">${feedbackMessage}</strong>
-        `;
-        resultElement.style.color = "black";
     }
+    
+    function calculateMassBalance() {
+        let density = parseFloat(document.getElementById("density").value);
+        let volume = parseFloat(document.getElementById("volume").value);
+        let massFlowRate = parseFloat(document.getElementById("massFlowRate").value);
+    
+        let validInputs = [
+            validateInput(density, "densityError", "Density (ρ)"),
+            validateInput(volume, "volumeError", "Volume (V)"),
+            validateInput(massFlowRate, "massFlowRateError", "Mass Flow Rate (W)")
+        ];
+    
+        if (validInputs.includes(false)) return;
+    
+        let mass = density * volume; // Total mass inside the system
+        let dMass_dt = -massFlowRate; // Change in mass per second
+    
+        let feedbackMessage = `The rate of change of mass (dM/dt) is <span style="color: blue;">${dMass_dt.toFixed(2)} kg/s</span>. `;
+        
+        if (dMass_dt < 0) {
+            feedbackMessage += "The mass is decreasing, indicating outflow.";
+        } else if (dMass_dt > 0) {
+            feedbackMessage += "The mass is increasing, indicating inflow.";
+        } else {
+            feedbackMessage += "The system maintains perfect mass balance.";
+        }
+    
+        document.getElementById("result").innerHTML = feedbackMessage;
+    }
+    
 </script>
 
-
-
-
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
-
-
-
-
 
 
 
@@ -448,5 +433,5 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 
-<!-- Mirrored from dsathemes.com/html/martex_1.1/files/project-details.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 08 Mar 2024 16:40:05 GMT -->
+<!-- Mirrored from dsathemes.com/html/martex_1.1/files/project-details.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 08 Mar 2024 16:40:05 GMT -->
 </html>

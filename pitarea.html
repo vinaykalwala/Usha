@@ -202,19 +202,14 @@ select {
 <div id="header"></div>
 
 <div class="calculator-container">
-    <h2>Remaining Corrosion Life Calculator (1)</h2>
+    <h2>Pit Area Calculation</h2>
 
     <div class="form-group">
-        <label for="remainingAllowance">Remaining Corrosion Allowance [inches]:</label>
-        <input type="number" id="remainingAllowance" placeholder="Enter Remaining Corrosion Allowance" step="any">
+        <label for="diameter">Pit Diameter (D) [inches]:</label>
+        <input type="number" id="diameter" placeholder="Enter Pit Diameter" step="any">
     </div>
 
-    <div class="form-group">
-        <label for="corrosionRate">Corrosion Rate [inches/year]:</label>
-        <input type="number" id="corrosionRate" placeholder="Enter Corrosion Rate" step="any">
-    </div>
-
-    <button class="cal-btn" onclick="calculateRemainingLife()">Calculate</button>
+    <button class="cal-btn" onclick="calculatePitArea()">Calculate</button>
 
     <div class="result" id="result"></div>
     <div class="feedback" id="feedback"></div>
@@ -222,43 +217,41 @@ select {
 
 <div class="note-container">
     <h3>Note:</h3>
-    <p>This calculator determines the <strong>Remaining Life</strong> of a material based on its corrosion rate and remaining corrosion allowance, helping in predictive maintenance and failure prevention.</p>
+    <p>This calculator determines the <strong>Pit Area</strong> based on the diameter of a corrosion pit.</p>
+
+    <p>It is widely used in <strong>structural integrity assessment, corrosion monitoring, and maintenance planning</strong> to evaluate the impact of metal loss and ensure safety in industrial equipment.</p>
 
     <h3>Explanation of Parameters:</h3>
     <ul>
-        <li><strong>Remaining Corrosion Allowance:</strong> The remaining material thickness before reaching the critical limit, in inches.</li>
-        <li><strong>Corrosion Rate:</strong> The rate at which the material is degrading, measured in inches per year.</li>
-        <li><strong>Remaining Life:</strong> The estimated number of years before the material reaches its minimum allowable thickness.</li>
+        <li><strong>Pit Diameter (D):</strong> The measured diameter of the corrosion pit on the surface.</li>
+        <li><strong>Pit Area:</strong> The total affected surface area due to corrosion, calculated using the given diameter.</li>
     </ul>
 
-    <h3>Why Remaining Life is Important?</h3>
-    <p>It helps in **predicting equipment lifespan**, **ensuring safety compliance**, and **planning timely maintenance or replacement** to avoid failures.</p>
+    <h3>Why This Calculation is Important?</h3>
+    <p>It helps in <strong>assessing the severity of corrosion, predicting potential failure risks, and improving maintenance strategies</strong>.</p>
 
     <h3>Validations:</h3>
     <ul>
-        <li><strong>Remaining Corrosion Allowance Must Be Non-Negative:</strong> It cannot be less than zero.</li>
-        <li><strong>Corrosion Rate Must Be Positive:</strong> The rate should be greater than zero for valid calculations.</li>
-        <li><strong>Remaining Life Should Be Realistic:</strong> Ensuring that the calculated life expectancy is within an expected range.</li>
-        <li><strong>Units Should Be Consistent:</strong> Both parameters should be measured in compatible units.</li>
+        <li><strong>Positive Pit Diameter:</strong> The diameter must be a positive number for meaningful calculations.</li>
+        <li><strong>Logical Area Calculation:</strong> The computed pit area should be realistic and within expected corrosion damage limits.</li>
     </ul>
 
     <h3>Real-life Applications:</h3>
     <ul>
-        <li><strong>Pipelines and Pressure Vessels:</strong> Used to determine remaining lifespan and safety margins.</li>
-        <li><strong>Bridges and Infrastructure:</strong> Helps in structural inspections and maintenance planning.</li>
-        <li><strong>Oil & Gas Industry:</strong> Assesses corrosion impact on critical equipment.</li>
-        <li><strong>Shipbuilding and Marine Structures:</strong> Ensures compliance with safety regulations.</li>
-        <li><strong>Manufacturing & Industrial Plants:</strong> Aids in preventive maintenance of metallic components.</li>
+        <li><strong>Pipelines:</strong> Evaluating the impact of pitting corrosion on oil, gas, and water pipelines.</li>
+        <li><strong>Pressure Vessels:</strong> Monitoring corrosion damage in industrial boilers and tanks.</li>
+        <li><strong>Storage Tanks:</strong> Assessing structural reliability for industrial storage systems.</li>
+        <li><strong>Marine & Offshore:</strong> Evaluating corrosion damage on ship hulls and offshore platforms.</li>
     </ul>
 
     <h3>Conclusion:</h3>
-    <p>The Remaining Life Calculation is a **key factor** in material integrity assessments. Regular monitoring ensures **prolonged service life, safety compliance, and reduced risk of structural failures**.</p>
+    <p>The <strong>Pit Area Calculation</strong> is essential for engineers and asset managers to <strong>detect corrosion early, enhance safety, and implement proactive maintenance strategies</strong>.</p>
 </div>
 
+
 <script>
-    function calculateRemainingLife() {
-        const remainingAllowance = parseFloat(document.getElementById("remainingAllowance").value);
-        const corrosionRate = parseFloat(document.getElementById("corrosionRate").value);
+    function calculatePitArea() {
+        const diameter = parseFloat(document.getElementById("diameter").value);
         const resultElement = document.getElementById("result");
         const feedbackElement = document.getElementById("feedback");
 
@@ -267,42 +260,38 @@ select {
         feedbackElement.innerHTML = "";
 
         // Validations
-        if (isNaN(remainingAllowance) || remainingAllowance < 0) {
-            resultElement.innerHTML = "❌ <strong>Error:</strong> Remaining Corrosion Allowance must be a non-negative number.";
+        if (isNaN(diameter) || diameter <= 0) {
+            resultElement.innerHTML = "❌ <strong>Error:</strong> Pit diameter must be a positive number.";
             return;
         }
 
-        if (isNaN(corrosionRate) || corrosionRate <= 0) {
-            resultElement.innerHTML = "❌ <strong>Error:</strong> Corrosion Rate must be a positive number.";
-            return;
-        }
-
-        // Remaining Life Calculation
-        const remainingLife = remainingAllowance / corrosionRate;
+        // Pit Area Calculation
+        const radius = diameter / 2;
+        const pitArea = Math.PI * Math.pow(radius, 2);
 
         // Feedback Message & Color
         let feedbackMessage = "";
         let feedbackColor = "black";
 
-        if (remainingLife > 10) {
-            feedbackMessage = "✅ <strong>Long Remaining Life:</strong> The material is in good condition.";
+        if (pitArea < 1) {
+            feedbackMessage = "✅ <strong>Minimal Risk:</strong> The pit is small and may not require immediate action.";
             feedbackColor = "green";
-        } else if (remainingLife > 5) {
-            feedbackMessage = "⚠️ <strong>Moderate Remaining Life:</strong> Consider monitoring and planning maintenance.";
+        } else if (pitArea >= 1 && pitArea < 5) {
+            feedbackMessage = "⚠️ <strong>Moderate Risk:</strong> The pit size is significant; regular monitoring is recommended.";
             feedbackColor = "orange";
         } else {
-            feedbackMessage = "❌ <strong>Short Remaining Life:</strong> Immediate action required to prevent failure.";
+            feedbackMessage = "❌ <strong>High Risk:</strong> The pit is large and may compromise structural integrity. Immediate action is needed.";
             feedbackColor = "red";
         }
 
         // Display Results
         resultElement.innerHTML = `
-            <strong>Remaining Life:</strong> ${remainingLife.toFixed(2)} years<br>
-            <strong style="color: ${feedbackColor};">${feedbackMessage}</strong>
+            <strong>Pit Area:</strong> ${pitArea.toFixed(4)} square inches
         `;
-        resultElement.style.color = "black";
+        feedbackElement.innerHTML = `<strong style="color: ${feedbackColor};">${feedbackMessage}</strong>`;
     }
 </script>
+
 
 
 
@@ -450,3 +439,4 @@ document.addEventListener("DOMContentLoaded", function() {
 
 <!-- Mirrored from dsathemes.com/html/martex_1.1/files/project-details.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 08 Mar 2024 16:40:05 GMT -->
 </html>
+ 

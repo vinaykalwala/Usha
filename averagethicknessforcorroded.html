@@ -202,19 +202,14 @@ select {
 <div id="header"></div>
 
 <div class="calculator-container">
-    <h2>Remaining Corrosion Life Calculator (1)</h2>
+    <h2>Averaging Thickness for Corroded Areas</h2>
 
     <div class="form-group">
-        <label for="remainingAllowance">Remaining Corrosion Allowance [inches]:</label>
-        <input type="number" id="remainingAllowance" placeholder="Enter Remaining Corrosion Allowance" step="any">
+        <label for="diameter">Vessel Diameter (D) [inches]:</label>
+        <input type="number" id="diameter" placeholder="Enter Vessel Diameter" step="any">
     </div>
 
-    <div class="form-group">
-        <label for="corrosionRate">Corrosion Rate [inches/year]:</label>
-        <input type="number" id="corrosionRate" placeholder="Enter Corrosion Rate" step="any">
-    </div>
-
-    <button class="cal-btn" onclick="calculateRemainingLife()">Calculate</button>
+    <button class="cal-btn" onclick="calculateAveragingThickness()">Calculate</button>
 
     <div class="result" id="result"></div>
     <div class="feedback" id="feedback"></div>
@@ -222,43 +217,46 @@ select {
 
 <div class="note-container">
     <h3>Note:</h3>
-    <p>This calculator determines the <strong>Remaining Life</strong> of a material based on its corrosion rate and remaining corrosion allowance, helping in predictive maintenance and failure prevention.</p>
+    <p>This calculator determines the <strong>Averaging Thickness for Corroded Areas</strong> based on the vessel's inside diameter.</p>
+
+    <p>It is widely used in <strong>structural integrity assessment, corrosion monitoring, and maintenance planning</strong> to ensure safety and longevity of industrial equipment.</p>
 
     <h3>Explanation of Parameters:</h3>
     <ul>
-        <li><strong>Remaining Corrosion Allowance:</strong> The remaining material thickness before reaching the critical limit, in inches.</li>
-        <li><strong>Corrosion Rate:</strong> The rate at which the material is degrading, measured in inches per year.</li>
-        <li><strong>Remaining Life:</strong> The estimated number of years before the material reaches its minimum allowable thickness.</li>
+        <li><strong>Vessel Diameter (D):</strong> The internal diameter of the vessel or component being assessed.</li>
+        <li><strong>Length for Averaging:</strong> The section over which thickness measurements are averaged, calculated based on the vessel diameter.</li>
     </ul>
 
-    <h3>Why Remaining Life is Important?</h3>
-    <p>It helps in **predicting equipment lifespan**, **ensuring safety compliance**, and **planning timely maintenance or replacement** to avoid failures.</p>
+    <h3>Formula Used:</h3>
+    <ul>
+        <li>For vessels with inside diameters &le; 60 inches: <em>Length for averaging = min(2 &times; D, 20 inches)</em>.</li>
+        <li>For vessels with inside diameters > 60 inches: <em>Length for averaging = min(3 &times; D, 40 inches)</em>.</li>
+    </ul>
+
+    <h3>Why This Calculation is Important?</h3>
+    <p>It helps in <strong>ensuring uniform corrosion assessment, reducing localized weak points, and improving maintenance strategies</strong>.</p>
 
     <h3>Validations:</h3>
     <ul>
-        <li><strong>Remaining Corrosion Allowance Must Be Non-Negative:</strong> It cannot be less than zero.</li>
-        <li><strong>Corrosion Rate Must Be Positive:</strong> The rate should be greater than zero for valid calculations.</li>
-        <li><strong>Remaining Life Should Be Realistic:</strong> Ensuring that the calculated life expectancy is within an expected range.</li>
-        <li><strong>Units Should Be Consistent:</strong> Both parameters should be measured in compatible units.</li>
+        <li><strong>Positive Vessel Diameter:</strong> The diameter must be a positive number for meaningful calculations.</li>
+        <li><strong>Logical Averaging Length:</strong> The computed length must not exceed the set limits of 20 or 40 inches as per the formula.</li>
     </ul>
 
     <h3>Real-life Applications:</h3>
     <ul>
-        <li><strong>Pipelines and Pressure Vessels:</strong> Used to determine remaining lifespan and safety margins.</li>
-        <li><strong>Bridges and Infrastructure:</strong> Helps in structural inspections and maintenance planning.</li>
-        <li><strong>Oil & Gas Industry:</strong> Assesses corrosion impact on critical equipment.</li>
-        <li><strong>Shipbuilding and Marine Structures:</strong> Ensures compliance with safety regulations.</li>
-        <li><strong>Manufacturing & Industrial Plants:</strong> Aids in preventive maintenance of metallic components.</li>
+        <li><strong>Pressure Vessels:</strong> Assessing corrosion impact in boilers and tanks.</li>
+        <li><strong>Pipelines:</strong> Evaluating corrosion thickness over extended pipe sections.</li>
+        <li><strong>Storage Tanks:</strong> Ensuring structural reliability in industrial storage systems.</li>
     </ul>
 
     <h3>Conclusion:</h3>
-    <p>The Remaining Life Calculation is a **key factor** in material integrity assessments. Regular monitoring ensures **prolonged service life, safety compliance, and reduced risk of structural failures**.</p>
+    <p>The <strong>Averaging Thickness Calculation</strong> is crucial for engineers and inspectors to <strong>ensure structural reliability, optimize maintenance schedules, and prevent premature failures</strong>.</p>
 </div>
 
+
 <script>
-    function calculateRemainingLife() {
-        const remainingAllowance = parseFloat(document.getElementById("remainingAllowance").value);
-        const corrosionRate = parseFloat(document.getElementById("corrosionRate").value);
+    function calculateAveragingThickness() {
+        const diameter = parseFloat(document.getElementById("diameter").value);
         const resultElement = document.getElementById("result");
         const feedbackElement = document.getElementById("feedback");
 
@@ -267,42 +265,42 @@ select {
         feedbackElement.innerHTML = "";
 
         // Validations
-        if (isNaN(remainingAllowance) || remainingAllowance < 0) {
-            resultElement.innerHTML = "❌ <strong>Error:</strong> Remaining Corrosion Allowance must be a non-negative number.";
+        if (isNaN(diameter) || diameter <= 0) {
+            resultElement.innerHTML = "❌ <strong>Error:</strong> Vessel diameter must be a positive number.";
             return;
         }
 
-        if (isNaN(corrosionRate) || corrosionRate <= 0) {
-            resultElement.innerHTML = "❌ <strong>Error:</strong> Corrosion Rate must be a positive number.";
-            return;
-        }
+        let lengthForAveraging;
 
-        // Remaining Life Calculation
-        const remainingLife = remainingAllowance / corrosionRate;
+        if (diameter <= 60) {
+            lengthForAveraging = Math.min(2 * diameter, 20);
+        } else {
+            lengthForAveraging = Math.min(3 * diameter, 40);
+        }
 
         // Feedback Message & Color
         let feedbackMessage = "";
         let feedbackColor = "black";
 
-        if (remainingLife > 10) {
-            feedbackMessage = "✅ <strong>Long Remaining Life:</strong> The material is in good condition.";
-            feedbackColor = "green";
-        } else if (remainingLife > 5) {
-            feedbackMessage = "⚠️ <strong>Moderate Remaining Life:</strong> Consider monitoring and planning maintenance.";
+        if (lengthForAveraging < 15) {
+            feedbackMessage = "⚠️ <strong>High Risk:</strong> Corrosion is significant; frequent monitoring is recommended.";
+            feedbackColor = "red";
+        } else if (lengthForAveraging >= 15 && lengthForAveraging < 30) {
+            feedbackMessage = "✅ <strong>Moderate Risk:</strong> Corrosion is within acceptable limits; maintain regular inspections.";
             feedbackColor = "orange";
         } else {
-            feedbackMessage = "❌ <strong>Short Remaining Life:</strong> Immediate action required to prevent failure.";
-            feedbackColor = "red";
+            feedbackMessage = "✅ <strong>Low Risk:</strong> Corrosion impact is minimal; periodic monitoring is sufficient.";
+            feedbackColor = "green";
         }
 
         // Display Results
         resultElement.innerHTML = `
-            <strong>Remaining Life:</strong> ${remainingLife.toFixed(2)} years<br>
-            <strong style="color: ${feedbackColor};">${feedbackMessage}</strong>
+            <strong>Length for Averaging:</strong> ${lengthForAveraging.toFixed(2)} inches
         `;
-        resultElement.style.color = "black";
+        feedbackElement.innerHTML = `<strong style="color: ${feedbackColor};">${feedbackMessage}</strong>`;
     }
 </script>
+
 
 
 
@@ -450,3 +448,4 @@ document.addEventListener("DOMContentLoaded", function() {
 
 <!-- Mirrored from dsathemes.com/html/martex_1.1/files/project-details.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 08 Mar 2024 16:40:05 GMT -->
 </html>
+ 

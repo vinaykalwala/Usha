@@ -65,7 +65,7 @@
       background-color: #f5f5f5;
     }
     .calculator-container {
-      max-width: 1000px;
+      max-width: 1200px;
       margin: 20px auto;
       padding: 20px;
       background: #ffffff;
@@ -152,14 +152,6 @@
     font-size: 20px;
 }
 
-.note-container ul{
-    margin: 10px;
-}
-
-.note-container{
-    margin-top: 10px;
-}
-
 .note-container p {
     margin-top: 15px;
     text-align: justify;
@@ -183,6 +175,84 @@ select {
     background-color: rgb(223, 241, 247);
 
 }
+
+.input-row {
+        display: flex;
+        justify-content: space-around;
+        gap: 10px;
+      }
+  
+      .input-row .form-group {
+        width: 48%;
+      }
+      @media (max-width: 768px) {
+    .input-row {
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    .input-row .form-group {
+        width: 100%;
+    }
+}
+ /* FFMI Table Container (for centering) */
+.ffmi-table-container {
+    overflow-x: auto; /* Ensures table is scrollable on small screens */
+    margin-top: 30px;
+}
+
+/* FFMI Table Styling */
+.ffmi-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 0 auto;
+}
+
+/* Table Header */
+.ffmi-table thead {
+    background: #1560bd;
+    color: #fff;
+}
+
+/* Table Cells */
+.ffmi-table th, 
+.ffmi-table td {
+    padding: 12px 16px;
+    text-align: center;
+    border: 1px solid #ddd;
+}
+
+/* Table Body Styling */
+.ffmi-table tbody tr:nth-child(odd) {
+    background: #e8f4ff; /* Light blue for alternate rows */
+}
+
+.ffmi-table tbody tr:nth-child(even) {
+    background: #ffffff;
+}
+
+/* Responsive Design */
+
+/* Medium screens (Tablets) */
+@media (max-width: 768px) {
+    
+
+    .ffmi-table th,
+    .ffmi-table td {
+        padding: 10px;
+    }
+}
+
+/* Small screens (Phones) */
+@media (max-width: 480px) {
+   
+
+    .ffmi-table th,
+    .ffmi-table td {
+        padding: 8px;
+        font-size: 12px;
+    }
+}
 </style>
 	</head>
 
@@ -202,111 +272,185 @@ select {
 <div id="header"></div>
 
 <div class="calculator-container">
-    <h2>Remaining Corrosion Life Calculator (1)</h2>
+    <h2>Lille Score Calculator for Alcoholic Hepatitis</h2>
 
-    <div class="form-group">
-        <label for="remainingAllowance">Remaining Corrosion Allowance [inches]:</label>
-        <input type="number" id="remainingAllowance" placeholder="Enter Remaining Corrosion Allowance" step="any">
+    <!-- Input Row 1 -->
+    <div class="input-row">
+        <!-- Age Input -->
+        <div class="form-group">
+            <label for="age">Age (years):</label>
+            <input type="number" id="age" placeholder="Enter age" required>
+        </div>
+
+        <!-- PT Input -->
+        <div class="form-group">
+            <label for="pt">Prothrombin Time (PT) (seconds):</label>
+            <input type="number" id="pt" placeholder="Enter PT" required>
+        </div>
     </div>
 
-    <div class="form-group">
-        <label for="corrosionRate">Corrosion Rate [inches/year]:</label>
-        <input type="number" id="corrosionRate" placeholder="Enter Corrosion Rate" step="any">
+    <!-- Input Row 2 -->
+    <div class="input-row">
+        <!-- Creatinine Input -->
+        <div class="form-group">
+            <label for="creatinine">Creatinine (mg/dL):</label>
+            <input type="number" id="creatinine" placeholder="Enter creatinine" required>
+        </div>
+
+        <!-- Albumin Input -->
+        <div class="form-group">
+            <label for="albumin">Albumin (g/L):</label>
+            <input type="number" id="albumin" placeholder="Enter albumin" required>
+        </div>
     </div>
 
-    <button class="cal-btn" onclick="calculateRemainingLife()">Calculate</button>
+    <!-- Input Row 3 -->
+    <div class="input-row">
+        <!-- Bilirubin (Day 0) Input -->
+        <div class="form-group">
+            <label for="bilirubin0">Bilirubin (Day 0) (μmol/L):</label>
+            <input type="number" id="bilirubin0" placeholder="Enter bilirubin (Day 0)" required>
+        </div>
 
+        <!-- Bilirubin (Day 7) Input -->
+        <div class="form-group">
+            <label for="bilirubin7">Bilirubin (Day 7) (μmol/L):</label>
+            <input type="number" id="bilirubin7" placeholder="Enter bilirubin (Day 7)" required>
+        </div>
+    </div>
+
+    <!-- Calculate Button -->
+    <button class="cal-btn" onclick="calculateLilleScore()">Calculate Lille Score</button>
+
+    <!-- Result Display -->
     <div class="result" id="result"></div>
-    <div class="feedback" id="feedback"></div>
 </div>
 
+<!-- Information Section -->
 <div class="note-container">
-    <h3>Note:</h3>
-    <p>This calculator determines the <strong>Remaining Life</strong> of a material based on its corrosion rate and remaining corrosion allowance, helping in predictive maintenance and failure prevention.</p>
+    <h3>What is the Lille Score?</h3>
+    <p>
+        The Lille Score is a tool used to predict the 6-month survival rate in patients with alcoholic hepatitis who are undergoing steroid treatment. It helps physicians assess the effectiveness of steroid therapy and determine whether alternative treatments are needed.
+    </p>
 
-    <h3>Explanation of Parameters:</h3>
+    <h3>Why is the Lille Score Important?</h3>
+    <p>
+        Alcoholic hepatitis is a severe condition that can lead to liver failure and death. The Lille Score helps:
+    </p>
     <ul>
-        <li><strong>Remaining Corrosion Allowance:</strong> The remaining material thickness before reaching the critical limit, in inches.</li>
-        <li><strong>Corrosion Rate:</strong> The rate at which the material is degrading, measured in inches per year.</li>
-        <li><strong>Remaining Life:</strong> The estimated number of years before the material reaches its minimum allowable thickness.</li>
+        <li><strong>Evaluate Treatment Response:</strong> Determines if steroid therapy is improving liver function.</li>
+        <li><strong>Predict Survival:</strong> Estimates the likelihood of survival within 6 months.</li>
+        <li><strong>Guide Clinical Decisions:</strong> Helps doctors decide whether to continue or change treatment strategies.</li>
     </ul>
 
-    <h3>Why Remaining Life is Important?</h3>
-    <p>It helps in **predicting equipment lifespan**, **ensuring safety compliance**, and **planning timely maintenance or replacement** to avoid failures.</p>
+    <h3>How to Use the Lille Score Calculator?</h3>
+    <p>
+        The calculator requires the following inputs:
+    </p>
+    <ol>
+        <li><strong>Age:</strong> The patient's age in years.</li>
+        <li><strong>Prothrombin Time (PT):</strong> A measure of blood clotting time, in seconds.</li>
+        <li><strong>Creatinine:</strong> A measure of kidney function, in mg/dL.</li>
+        <li><strong>Albumin:</strong> A protein produced by the liver, in g/L.</li>
+        <li><strong>Bilirubin (Day 0):</strong> A measure of liver function at the start of treatment, in μmol/L.</li>
+        <li><strong>Bilirubin (Day 7):</strong> A measure of liver function after 7 days of steroid treatment, in μmol/L.</li>
+    </ol>
+    <p>
+        Once all inputs are entered, click "Calculate Lille Score" to get the results.
+    </p>
 
-    <h3>Validations:</h3>
+    <h3>Interpreting the Results</h3>
+    <p>
+        The Lille Score ranges from 0 to 1:
+    </p>
     <ul>
-        <li><strong>Remaining Corrosion Allowance Must Be Non-Negative:</strong> It cannot be less than zero.</li>
-        <li><strong>Corrosion Rate Must Be Positive:</strong> The rate should be greater than zero for valid calculations.</li>
-        <li><strong>Remaining Life Should Be Realistic:</strong> Ensuring that the calculated life expectancy is within an expected range.</li>
-        <li><strong>Units Should Be Consistent:</strong> Both parameters should be measured in compatible units.</li>
+        <li><strong>Score < 0.45:</strong> Indicates a good response to steroid therapy and a higher likelihood of survival.</li>
+        <li><strong>Score ≥ 0.45:</strong> Suggests a poor response to steroids, and alternative treatments may be needed.</li>
     </ul>
 
-    <h3>Real-life Applications:</h3>
+    <h3>Limitations of the Lille Score</h3>
+    <p>
+        While the Lille Score is a useful tool, it has some limitations:
+    </p>
     <ul>
-        <li><strong>Pipelines and Pressure Vessels:</strong> Used to determine remaining lifespan and safety margins.</li>
-        <li><strong>Bridges and Infrastructure:</strong> Helps in structural inspections and maintenance planning.</li>
-        <li><strong>Oil & Gas Industry:</strong> Assesses corrosion impact on critical equipment.</li>
-        <li><strong>Shipbuilding and Marine Structures:</strong> Ensures compliance with safety regulations.</li>
-        <li><strong>Manufacturing & Industrial Plants:</strong> Aids in preventive maintenance of metallic components.</li>
+        <li><strong>Specific to Steroid Treatment:</strong> It only applies to patients undergoing steroid therapy for alcoholic hepatitis.</li>
+        <li><strong>Does Not Replace Clinical Judgment:</strong> The score should be used alongside other clinical assessments.</li>
+        <li><strong>Not a Diagnostic Tool:</strong> It predicts survival but does not diagnose the condition.</li>
     </ul>
 
-    <h3>Conclusion:</h3>
-    <p>The Remaining Life Calculation is a **key factor** in material integrity assessments. Regular monitoring ensures **prolonged service life, safety compliance, and reduced risk of structural failures**.</p>
+    <h3>Disclaimer</h3>
+    <p>
+        This calculator provides estimates for educational purposes. It should not replace medical advice or diagnosis. Always consult healthcare professionals for a comprehensive assessment of your health.
+    </p>
 </div>
 
+<!-- JavaScript Logic -->
 <script>
-    function calculateRemainingLife() {
-        const remainingAllowance = parseFloat(document.getElementById("remainingAllowance").value);
-        const corrosionRate = parseFloat(document.getElementById("corrosionRate").value);
-        const resultElement = document.getElementById("result");
-        const feedbackElement = document.getElementById("feedback");
+    function calculateLilleScore() {
+        // Get input values
+        const age = parseFloat(document.getElementById('age').value);
+        const pt = parseFloat(document.getElementById('pt').value);
+        const creatinine = parseFloat(document.getElementById('creatinine').value);
+        const albumin = parseFloat(document.getElementById('albumin').value);
+        const bilirubin0 = parseFloat(document.getElementById('bilirubin0').value);
+        const bilirubin7 = parseFloat(document.getElementById('bilirubin7').value);
+        const result = document.getElementById('result');
 
-        // Reset previous results
-        resultElement.innerHTML = "";
-        feedbackElement.innerHTML = "";
+        // Reset result display
+        result.innerHTML = "";
 
-        // Validations
-        if (isNaN(remainingAllowance) || remainingAllowance < 0) {
-            resultElement.innerHTML = "❌ <strong>Error:</strong> Remaining Corrosion Allowance must be a non-negative number.";
+        // Input validation
+        if (isNaN(age) || age <= 0) {
+            result.innerHTML = "❌ Please enter a valid age.";
+            return;
+        }
+        if (isNaN(pt) || pt <= 0) {
+            result.innerHTML = "❌ Please enter a valid Prothrombin Time (PT).";
+            return;
+        }
+        if (isNaN(creatinine) || creatinine <= 0) {
+            result.innerHTML = "❌ Please enter a valid Creatinine value.";
+            return;
+        }
+        if (isNaN(albumin) || albumin <= 0) {
+            result.innerHTML = "❌ Please enter a valid Albumin value.";
+            return;
+        }
+        if (isNaN(bilirubin0) || bilirubin0 <= 0) {
+            result.innerHTML = "❌ Please enter a valid Bilirubin (Day 0) value.";
+            return;
+        }
+        if (isNaN(bilirubin7) || bilirubin7 <= 0) {
+            result.innerHTML = "❌ Please enter a valid Bilirubin (Day 7) value.";
             return;
         }
 
-        if (isNaN(corrosionRate) || corrosionRate <= 0) {
-            resultElement.innerHTML = "❌ <strong>Error:</strong> Corrosion Rate must be a positive number.";
-            return;
-        }
+        // Calculate renal insufficiency
+        const renalInsufficiency = creatinine > 1.3 ? 1 : 0;
 
-        // Remaining Life Calculation
-        const remainingLife = remainingAllowance / corrosionRate;
+        // Calculate R value
+        const R = 3.19 - (0.101 * age) + (0.147 * albumin) + (0.0165 * (bilirubin7 - bilirubin0)) - (0.206 * renalInsufficiency) - (0.0065 * bilirubin0) - (0.0096 * pt);
 
-        // Feedback Message & Color
-        let feedbackMessage = "";
-        let feedbackColor = "black";
+        // Calculate Lille Score
+        const lilleScore = Math.exp(-R) / (1 + Math.exp(-R));
 
-        if (remainingLife > 10) {
-            feedbackMessage = "✅ <strong>Long Remaining Life:</strong> The material is in good condition.";
-            feedbackColor = "green";
-        } else if (remainingLife > 5) {
-            feedbackMessage = "⚠️ <strong>Moderate Remaining Life:</strong> Consider monitoring and planning maintenance.";
-            feedbackColor = "orange";
+        // Determine predicted survival
+        let survivalRate;
+        if (lilleScore < 0.45) {
+            survivalRate = "85% (±2.8%)";
         } else {
-            feedbackMessage = "❌ <strong>Short Remaining Life:</strong> Immediate action required to prevent failure.";
-            feedbackColor = "red";
+            survivalRate = "Lower than 85%";
         }
 
-        // Display Results
-        resultElement.innerHTML = `
-            <strong>Remaining Life:</strong> ${remainingLife.toFixed(2)} years<br>
-            <strong style="color: ${feedbackColor};">${feedbackMessage}</strong>
+        // Display results
+        result.innerHTML = `
+            <strong>Lille Score:</strong> ${lilleScore.toFixed(6)}<br>
+            <strong>Predicted 6-Month Survival:</strong> ${survivalRate}
         `;
-        resultElement.style.color = "black";
     }
 </script>
 
-
-
-
+ 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
 
 
@@ -448,5 +592,5 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 
-<!-- Mirrored from dsathemes.com/html/martex_1.1/files/project-details.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 08 Mar 2024 16:40:05 GMT -->
+<!-- Mirrored from dsathemes.com/html/martex_1.1/files/project-details.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 08 Mar 2024 16:40:05 GMT -->
 </html>

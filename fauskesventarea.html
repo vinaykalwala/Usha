@@ -65,60 +65,80 @@
       background-color: #f5f5f5;
     }
     .calculator-container {
-      max-width: 1000px;
-      margin: 20px auto;
-      padding: 20px;
-      background: #ffffff;
-      border-radius: 8px;
-      border: 2px dotted #1560bd;
-
-      box-shadow: 20px 14px 8px rgba(0, 0, 0, 0.2);
-    }
-    .calculator-container h2 {
-      text-align: center;
-      margin-bottom: 20px;
-      color: #1560bd;
-      font-size: 1.8rem;
-      margin-bottom: 30px;
-    }
-    .form-group {
-      margin-bottom: 15px;
-    }
-    .form-group label {
-      display: block;
-      margin-bottom: 5px;
-      color: #333;
-    }
-    .form-group input {
-      width: 100%;
-      padding: 8px;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-      background-color: rgb(223, 241, 247);
-
-    
-    }
-    .cal-btn {
-      width: 100%;
-      padding: 10px;
-      background-color: #1560bd;
-      color: #fff;
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
-      font-size: 16px;
-    }
-    .cal-btn:hover {
-      background-color: #0056b3;
-    }
-    .result {
-      margin-top: 20px;
-      font-size: 24px;
-      color: #333;
-      text-align: center;
-      color: rgb(36, 116, 2);
-     
-    }
+        max-width: 1200px;
+        margin: 20px auto;
+        padding: 20px;
+        background: #ffffff;
+        border-radius: 8px;
+        border: 2px dotted #1560bd;
+        box-shadow: 20px 14px 8px rgba(0, 0, 0, 0.2);
+      }
+      
+      .calculator-container h2 {
+        text-align: center;
+        margin-bottom: 20px;
+        color: #1560bd;
+        font-size: 1.8rem;
+      }
+  
+      .Fauskes-vent {
+        display: flex;
+        justify-content: space-between;
+        gap: 10px;
+      }
+  
+      .Fauskes-vent .form-group {
+        width: 48%;
+      }
+      @media (max-width:768px){
+        .Fauskes-vent {
+            flex-direction: column;
+            gap: 5px;
+        }
+        .Fauskes-vent .form-group{
+            width: 100%;
+        }
+      }
+  
+      .form-group {
+        margin-bottom: 15px;
+      }
+  
+      .form-group label {
+        display: block;
+        margin-bottom: 5px;
+        color: #333;
+      }
+  
+      .form-group input {
+        width: 100%;
+        padding: 8px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        background-color: rgb(223, 241, 247);
+      }
+  
+      .cal-btn {
+        width: 100%;
+        padding: 10px;
+        background-color: #1560bd;
+        color: #fff;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 16px;
+      }
+  
+      .cal-btn:hover {
+        background-color: #0056b3;
+      }
+  
+      .result {
+        margin-top: 20px;
+        font-size: 24px;
+        color: rgb(36, 116, 2);
+        text-align: center;
+      }
     @media (max-width: 768px) {
     .calculator-container {
         margin: 20px 15px; 
@@ -147,21 +167,16 @@
 }
 
 .note-container h3 {
-    margin:15px 0;
-    color: #007bff;
-    font-size: 20px;
-}
-
-.note-container ul{
-    margin: 10px;
-}
-
-.note-container{
     margin-top: 10px;
+    color: #007bff;
+    font-size: 18px;
+}
+.note-container ul{
+    margin-top: 5px;
 }
 
 .note-container p {
-    margin-top: 15px;
+    margin-top: 10px;
     text-align: justify;
 }
 strong{
@@ -173,16 +188,7 @@ strong{
         padding: 10px; 
     }
 }
-select {
-    width: 100%;
-    padding: 10px;
-    margin-top: 5px;
-    border: 1px solid #d3e0f0;
-    border-radius: 5px;
-    font-size: 1rem;
-    background-color: rgb(223, 241, 247);
 
-}
 </style>
 	</head>
 
@@ -190,128 +196,137 @@ select {
 
 
 	<body> 
-
-
-
-
-
-
 		
 <br><br><br><br>
 
 <div id="header"></div>
 
+
+
+
 <div class="calculator-container">
-    <h2>Remaining Corrosion Life Calculator (1)</h2>
+    <h2>Fauske's Vent Area Calculator</h2>
 
-    <div class="form-group">
-        <label for="remainingAllowance">Remaining Corrosion Allowance [inches]:</label>
-        <input type="number" id="remainingAllowance" placeholder="Enter Remaining Corrosion Allowance" step="any">
+    <div class="Fauskes-vent">
+        <div class="form-group">
+            <label><strong>Initial Mass (kg):</strong></label>
+    <input type="number" id="mass" placeholder="Enter mass">
+    <span id="massError" class="error"></span>
+        </div>
+
+        <div class="form-group">    
+            <label><strong>Overpressure (Pa):</strong></label>
+            <input type="number" id="pressure" placeholder="Enter pressure">
+            <span id="pressureError" class="error"></span>
+        </div>
     </div>
 
+    <div class="Fauskes-vent">
+        <div class="form-group">
+            <label><strong>Specific Heat (J/kg·K):</strong></label>
+    <input type="number" id="specificHeat" placeholder="Enter specific heat">
+    <span id="specificHeatError" class="error"></span>
+        </div>
+
+        <div class="form-group">
+            <label><strong>Initial Temperature (K):</strong></label>
+            <input type="number" id="temperature" placeholder="Enter temperature">
+            <span id="temperatureError" class="error"></span>
+        </div>
+    </div>
     <div class="form-group">
-        <label for="corrosionRate">Corrosion Rate [inches/year]:</label>
-        <input type="number" id="corrosionRate" placeholder="Enter Corrosion Rate" step="any">
+        <label><strong>Temperature Rise Rate (K/s):</strong></label>
+        <input type="number" id="tempRate" placeholder="Enter temperature rise rate">
+        <span id="tempRateError" class="error"></span>
     </div>
 
-    <button class="cal-btn" onclick="calculateRemainingLife()">Calculate</button>
+    <button class="cal-btn" onclick="calculateVentArea()">Calculate Vent Area</button>
 
     <div class="result" id="result"></div>
-    <div class="feedback" id="feedback"></div>
+    <span id="resultFeedback" class="error"></span>
 </div>
 
 <div class="note-container">
     <h3>Note:</h3>
-    <p>This calculator determines the <strong>Remaining Life</strong> of a material based on its corrosion rate and remaining corrosion allowance, helping in predictive maintenance and failure prevention.</p>
-
-    <h3>Explanation of Parameters:</h3>
+    <p><strong>Fauske's Vent Area Formula:</strong> This formula is used in fire safety and pressure relief systems to calculate the necessary vent area to prevent explosions due to pressure buildup. It helps design efficient venting solutions to release excessive pressure safely.</p>
+    
+    <h3>Parameters:</h3>
     <ul>
-        <li><strong>Remaining Corrosion Allowance:</strong> The remaining material thickness before reaching the critical limit, in inches.</li>
-        <li><strong>Corrosion Rate:</strong> The rate at which the material is degrading, measured in inches per year.</li>
-        <li><strong>Remaining Life:</strong> The estimated number of years before the material reaches its minimum allowable thickness.</li>
+        <li><strong>Initial Mass (kg):</strong> The total mass of the material inside the container.</li>
+        <li><strong>Overpressure (Pa):</strong> The pressure difference between the inside and outside of the container that needs to be relieved.</li>
+        <li><strong>Specific Heat (J/kg·K):</strong> The amount of heat required to raise the temperature of a unit mass by one Kelvin.</li>
+        <li><strong>Initial Temperature (K):</strong> The starting temperature of the material.</li>
+        <li><strong>Temperature Rise Rate (K/s):</strong> The rate at which the temperature increases over time.</li>
     </ul>
 
-    <h3>Why Remaining Life is Important?</h3>
-    <p>It helps in **predicting equipment lifespan**, **ensuring safety compliance**, and **planning timely maintenance or replacement** to avoid failures.</p>
-
-    <h3>Validations:</h3>
+    <h3>Real-Life Applications:</h3>
     <ul>
-        <li><strong>Remaining Corrosion Allowance Must Be Non-Negative:</strong> It cannot be less than zero.</li>
-        <li><strong>Corrosion Rate Must Be Positive:</strong> The rate should be greater than zero for valid calculations.</li>
-        <li><strong>Remaining Life Should Be Realistic:</strong> Ensuring that the calculated life expectancy is within an expected range.</li>
-        <li><strong>Units Should Be Consistent:</strong> Both parameters should be measured in compatible units.</li>
-    </ul>
-
-    <h3>Real-life Applications:</h3>
-    <ul>
-        <li><strong>Pipelines and Pressure Vessels:</strong> Used to determine remaining lifespan and safety margins.</li>
-        <li><strong>Bridges and Infrastructure:</strong> Helps in structural inspections and maintenance planning.</li>
-        <li><strong>Oil & Gas Industry:</strong> Assesses corrosion impact on critical equipment.</li>
-        <li><strong>Shipbuilding and Marine Structures:</strong> Ensures compliance with safety regulations.</li>
-        <li><strong>Manufacturing & Industrial Plants:</strong> Aids in preventive maintenance of metallic components.</li>
+        <li><strong>Industrial Safety:</strong> Used in chemical and manufacturing industries to design explosion vents.</li>
+        <li><strong>Fire Protection:</strong> Applied in fire suppression systems to control pressure buildup.</li>
+        <li><strong>Pressure Vessels:</strong> Used in tanks and boilers to prevent catastrophic failures.</li>
     </ul>
 
     <h3>Conclusion:</h3>
-    <p>The Remaining Life Calculation is a **key factor** in material integrity assessments. Regular monitoring ensures **prolonged service life, safety compliance, and reduced risk of structural failures**.</p>
+    <p><strong>Importance of Proper Venting:</strong> Proper calculation of vent area ensures safety by preventing structural damage and explosions. Ensuring accurate input values is critical for effective vent design.</p>
 </div>
 
 <script>
-    function calculateRemainingLife() {
-        const remainingAllowance = parseFloat(document.getElementById("remainingAllowance").value);
-        const corrosionRate = parseFloat(document.getElementById("corrosionRate").value);
-        const resultElement = document.getElementById("result");
-        const feedbackElement = document.getElementById("feedback");
+    function calculateVentArea() {
+        let mass = parseFloat(document.getElementById("mass").value);
+        let pressure = parseFloat(document.getElementById("pressure").value);
+        let specificHeat = parseFloat(document.getElementById("specificHeat").value);
+        let temperature = parseFloat(document.getElementById("temperature").value);
+        let tempRate = parseFloat(document.getElementById("tempRate").value);
 
-        // Reset previous results
-        resultElement.innerHTML = "";
-        feedbackElement.innerHTML = "";
+        let errors = false;
 
-        // Validations
-        if (isNaN(remainingAllowance) || remainingAllowance < 0) {
-            resultElement.innerHTML = "❌ <strong>Error:</strong> Remaining Corrosion Allowance must be a non-negative number.";
-            return;
-        }
-
-        if (isNaN(corrosionRate) || corrosionRate <= 0) {
-            resultElement.innerHTML = "❌ <strong>Error:</strong> Corrosion Rate must be a positive number.";
-            return;
-        }
-
-        // Remaining Life Calculation
-        const remainingLife = remainingAllowance / corrosionRate;
-
-        // Feedback Message & Color
-        let feedbackMessage = "";
-        let feedbackColor = "black";
-
-        if (remainingLife > 10) {
-            feedbackMessage = "✅ <strong>Long Remaining Life:</strong> The material is in good condition.";
-            feedbackColor = "green";
-        } else if (remainingLife > 5) {
-            feedbackMessage = "⚠️ <strong>Moderate Remaining Life:</strong> Consider monitoring and planning maintenance.";
-            feedbackColor = "orange";
+        if (isNaN(mass) || mass <= 0) {
+            document.getElementById("massError").innerText = "Mass must be greater than zero. Mass represents the material quantity, and zero mass means no substance to heat.";
+            errors = true;
         } else {
-            feedbackMessage = "❌ <strong>Short Remaining Life:</strong> Immediate action required to prevent failure.";
-            feedbackColor = "red";
+            document.getElementById("massError").innerText = "";
         }
 
-        // Display Results
-        resultElement.innerHTML = `
-            <strong>Remaining Life:</strong> ${remainingLife.toFixed(2)} years<br>
-            <strong style="color: ${feedbackColor};">${feedbackMessage}</strong>
-        `;
-        resultElement.style.color = "black";
+        if (isNaN(pressure) || pressure <= 0) {
+            document.getElementById("pressureError").innerText = "Overpressure must be greater than zero. Zero pressure means no force to release, making venting unnecessary.";
+            errors = true;
+        } else {
+            document.getElementById("pressureError").innerText = "";
+        }
+
+        if (isNaN(specificHeat) || specificHeat <= 0) {
+            document.getElementById("specificHeatError").innerText = "Specific heat must be greater than zero. Zero specific heat implies no energy absorption, which is physically impossible.";
+            errors = true;
+        } else {
+            document.getElementById("specificHeatError").innerText = "";
+        }
+
+        if (isNaN(temperature) || temperature <= 0) {
+            document.getElementById("temperatureError").innerText = "Initial temperature must be greater than zero. Zero temperature is unrealistic for this calculation.";
+            errors = true;
+        } else {
+            document.getElementById("temperatureError").innerText = "";
+        }
+
+        if (isNaN(tempRate) || tempRate <= 0) {
+            document.getElementById("tempRateError").innerText = "Temperature rise rate must be greater than zero. A zero rate means no heat increase, making venting unnecessary.";
+            errors = true;
+        } else {
+            document.getElementById("tempRateError").innerText = "";
+        }
+
+        if (!errors) {
+            let ventArea = (mass / pressure) * Math.sqrt(specificHeat / temperature) * tempRate;
+            document.getElementById("result").innerText = "Required Vent Area: " + ventArea.toFixed(4) + " m²";
+            document.getElementById("resultFeedback").innerText = "This is the required vent size to safely relieve overpressure in your system.";
+        } else {
+            document.getElementById("result").innerText = "";
+            document.getElementById("resultFeedback").innerText = "Please correct the errors above to proceed with the calculation.";
+        }
     }
 </script>
 
-
-
-
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
-
-
-
-
 
 
 
@@ -448,5 +463,5 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 
-<!-- Mirrored from dsathemes.com/html/martex_1.1/files/project-details.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 08 Mar 2024 16:40:05 GMT -->
+<!-- Mirrored from dsathemes.com/html/martex_1.1/files/project-details.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 08 Mar 2024 16:40:05 GMT -->
 </html>

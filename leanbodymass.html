@@ -65,7 +65,7 @@
       background-color: #f5f5f5;
     }
     .calculator-container {
-      max-width: 1000px;
+      max-width: 1200px;
       margin: 20px auto;
       padding: 20px;
       background: #ffffff;
@@ -152,14 +152,6 @@
     font-size: 20px;
 }
 
-.note-container ul{
-    margin: 10px;
-}
-
-.note-container{
-    margin-top: 10px;
-}
-
 .note-container p {
     margin-top: 15px;
     text-align: justify;
@@ -183,6 +175,84 @@ select {
     background-color: rgb(223, 241, 247);
 
 }
+
+.input-row {
+        display: flex;
+        justify-content: space-between;
+        gap: 10px;
+      }
+  
+      .input-row .form-group {
+        width: 48%;
+      }
+      @media (max-width: 768px) {
+    .input-row {
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    .input-row .form-group {
+        width: 100%;
+    }
+}
+ /* FFMI Table Container (for centering) */
+.ffmi-table-container {
+    overflow-x: auto; /* Ensures table is scrollable on small screens */
+    margin-top: 30px;
+}
+
+/* FFMI Table Styling */
+.ffmi-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 0 auto;
+}
+
+/* Table Header */
+.ffmi-table thead {
+    background: #1560bd;
+    color: #fff;
+}
+
+/* Table Cells */
+.ffmi-table th, 
+.ffmi-table td {
+    padding: 12px 16px;
+    text-align: center;
+    border: 1px solid #ddd;
+}
+
+/* Table Body Styling */
+.ffmi-table tbody tr:nth-child(odd) {
+    background: #e8f4ff; /* Light blue for alternate rows */
+}
+
+.ffmi-table tbody tr:nth-child(even) {
+    background: #ffffff;
+}
+
+/* Responsive Design */
+
+/* Medium screens (Tablets) */
+@media (max-width: 768px) {
+    
+
+    .ffmi-table th,
+    .ffmi-table td {
+        padding: 10px;
+    }
+}
+
+/* Small screens (Phones) */
+@media (max-width: 480px) {
+   
+
+    .ffmi-table th,
+    .ffmi-table td {
+        padding: 8px;
+        font-size: 12px;
+    }
+}
 </style>
 	</head>
 
@@ -202,111 +272,136 @@ select {
 <div id="header"></div>
 
 <div class="calculator-container">
-    <h2>Remaining Corrosion Life Calculator (1)</h2>
+    <h2>Lean Body Mass (LBM) Calculator</h2>
 
-    <div class="form-group">
-        <label for="remainingAllowance">Remaining Corrosion Allowance [inches]:</label>
-        <input type="number" id="remainingAllowance" placeholder="Enter Remaining Corrosion Allowance" step="any">
+   
+        <div class="form-group">
+            <label for="sex">Gender:</label>
+            <select id="sex">
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+            </select>
+       
+
+        <!-- Weight Input -->
+        <div class="form-group"  style="margin-top: 10px;">
+            <label for="weight">Weight (kg):</label>
+            <input type="number" id="weight" placeholder="Enter your weight" step="0.1" required>
+        </div>
     </div>
 
-    <div class="form-group">
-        <label for="corrosionRate">Corrosion Rate [inches/year]:</label>
-        <input type="number" id="corrosionRate" placeholder="Enter Corrosion Rate" step="any">
-    </div>
+    
+        <!-- Height Input -->
+        <div class="form-group">
+            <label for="height">Height (cm):</label>
+            <input type="number" id="height" placeholder="Enter your height" step="0.1" required>
+        </div>
+   
 
-    <button class="cal-btn" onclick="calculateRemainingLife()">Calculate</button>
+    <!-- Calculate Button -->
+    <button class="cal-btn" onclick="calculateLBM()">Calculate Lean Body Mass</button>
 
+    <!-- Result Display -->
     <div class="result" id="result"></div>
-    <div class="feedback" id="feedback"></div>
 </div>
 
+<!-- Information Section -->
 <div class="note-container">
-    <h3>Note:</h3>
-    <p>This calculator determines the <strong>Remaining Life</strong> of a material based on its corrosion rate and remaining corrosion allowance, helping in predictive maintenance and failure prevention.</p>
+    <h3>What is Lean Body Mass (LBM)?</h3>
+    <p>
+        Lean Body Mass (LBM) refers to the total weight of your body minus the weight of fat. It includes muscles, bones, organs, water, and other non-fat tissues. Essentially, LBM represents everything in your body that isn't fat. It’s a key indicator of your body composition and overall health.
+    </p>
 
-    <h3>Explanation of Parameters:</h3>
+    <h3>Why is Lean Body Mass Important?</h3>
+    <p>
+        Lean Body Mass plays a crucial role in understanding your physical health and fitness. Here’s why it matters:
+    </p>
     <ul>
-        <li><strong>Remaining Corrosion Allowance:</strong> The remaining material thickness before reaching the critical limit, in inches.</li>
-        <li><strong>Corrosion Rate:</strong> The rate at which the material is degrading, measured in inches per year.</li>
-        <li><strong>Remaining Life:</strong> The estimated number of years before the material reaches its minimum allowable thickness.</li>
+        <li><strong>Muscle Mass Indicator:</strong> LBM helps you understand how much of your body weight comes from muscles. This is especially important for athletes, bodybuilders, and fitness enthusiasts.</li>
+        <li><strong>Metabolic Health:</strong> A higher LBM is associated with a faster metabolism, as muscles burn more calories than fat even at rest.</li>
+        <li><strong>Fitness Progress Tracking:</strong> When you lose weight, it’s important to know whether you’re losing fat or muscle. LBM helps you track changes in muscle mass over time.</li>
+        <li><strong>Nutritional Planning:</strong> Knowing your LBM can help you determine your daily protein and calorie needs, especially if you’re trying to build muscle or lose fat.</li>
     </ul>
 
-    <h3>Why Remaining Life is Important?</h3>
-    <p>It helps in **predicting equipment lifespan**, **ensuring safety compliance**, and **planning timely maintenance or replacement** to avoid failures.</p>
-
-    <h3>Validations:</h3>
+    <h3>How is Lean Body Mass Used?</h3>
+    <p>
+        Lean Body Mass is used in various ways to improve health and fitness:
+    </p>
     <ul>
-        <li><strong>Remaining Corrosion Allowance Must Be Non-Negative:</strong> It cannot be less than zero.</li>
-        <li><strong>Corrosion Rate Must Be Positive:</strong> The rate should be greater than zero for valid calculations.</li>
-        <li><strong>Remaining Life Should Be Realistic:</strong> Ensuring that the calculated life expectancy is within an expected range.</li>
-        <li><strong>Units Should Be Consistent:</strong> Both parameters should be measured in compatible units.</li>
+        <li><strong>Fitness Goals:</strong> If you’re working to build muscle or lose fat, LBM helps you monitor your progress and adjust your workout and diet plans accordingly.</li>
+        <li><strong>Health Assessments:</strong> Doctors and nutritionists use LBM to assess overall health, especially in cases of obesity, malnutrition, or muscle-wasting conditions.</li>
+        <li><strong>Performance Optimization:</strong> Athletes use LBM to optimize their training programs and ensure they’re maintaining or increasing muscle mass for better performance.</li>
     </ul>
 
-    <h3>Real-life Applications:</h3>
+    <h3>How Can You Improve Your Lean Body Mass?</h3>
+    <p>
+        If you want to increase your Lean Body Mass, focus on the following:
+    </p>
     <ul>
-        <li><strong>Pipelines and Pressure Vessels:</strong> Used to determine remaining lifespan and safety margins.</li>
-        <li><strong>Bridges and Infrastructure:</strong> Helps in structural inspections and maintenance planning.</li>
-        <li><strong>Oil & Gas Industry:</strong> Assesses corrosion impact on critical equipment.</li>
-        <li><strong>Shipbuilding and Marine Structures:</strong> Ensures compliance with safety regulations.</li>
-        <li><strong>Manufacturing & Industrial Plants:</strong> Aids in preventive maintenance of metallic components.</li>
+        <li><strong>Strength Training:</strong> Engage in resistance exercises like weightlifting to build and maintain muscle mass.</li>
+        <li><strong>Protein-Rich Diet:</strong> Consume adequate protein to support muscle growth and repair.</li>
+        <li><strong>Balanced Nutrition:</strong> Ensure you’re eating enough calories and nutrients to fuel your workouts and recovery.</li>
+        <li><strong>Stay Hydrated:</strong> Muscles are made up of a significant amount of water, so proper hydration is essential.</li>
     </ul>
 
-    <h3>Conclusion:</h3>
-    <p>The Remaining Life Calculation is a **key factor** in material integrity assessments. Regular monitoring ensures **prolonged service life, safety compliance, and reduced risk of structural failures**.</p>
+    <h3>Limitations of Lean Body Mass</h3>
+    <p>
+        While LBM is a useful metric, it has some limitations:
+    </p>
+    <ul>
+        <li><strong>Doesn’t Differentiate Tissues:</strong> LBM includes bones, organs, and water, not just muscles. So, it doesn’t provide a detailed breakdown of muscle mass alone.</li>
+        <li><strong>Individual Variability:</strong> Factors like age, sex, and genetics can influence LBM, so it’s important to interpret results in context.</li>
+        <li><strong>Not a Standalone Metric:</strong> LBM should be used alongside other measurements like body fat percentage for a complete picture of body composition.</li>
+    </ul>
+
+    <h3>Disclaimer</h3>
+    <p>
+        This calculator provides estimates for educational purposes. It should not replace medical advice or diagnosis. Always consult healthcare professionals for a comprehensive assessment of your body composition and health.
+    </p>
 </div>
-
+<!-- JavaScript Logic -->
 <script>
-    function calculateRemainingLife() {
-        const remainingAllowance = parseFloat(document.getElementById("remainingAllowance").value);
-        const corrosionRate = parseFloat(document.getElementById("corrosionRate").value);
-        const resultElement = document.getElementById("result");
-        const feedbackElement = document.getElementById("feedback");
+    function calculateLBM() {
+        // Get input values
+        const sex = document.getElementById('sex').value;
+        const weight = parseFloat(document.getElementById('weight').value);
+        const height = parseFloat(document.getElementById('height').value);
+        const result = document.getElementById('result');
 
-        // Reset previous results
-        resultElement.innerHTML = "";
-        feedbackElement.innerHTML = "";
+        // Reset result display
+        result.innerHTML = "";
 
-        // Validations
-        if (isNaN(remainingAllowance) || remainingAllowance < 0) {
-            resultElement.innerHTML = "❌ <strong>Error:</strong> Remaining Corrosion Allowance must be a non-negative number.";
+        // Input validation
+        if (isNaN(weight) || weight <= 0) {
+            result.innerHTML = "❌ Please enter a valid weight.";
+            return;
+        }
+        if (isNaN(height) || height <= 0) {
+            result.innerHTML = "❌ Please enter a valid height.";
             return;
         }
 
-        if (isNaN(corrosionRate) || corrosionRate <= 0) {
-            resultElement.innerHTML = "❌ <strong>Error:</strong> Corrosion Rate must be a positive number.";
-            return;
-        }
-
-        // Remaining Life Calculation
-        const remainingLife = remainingAllowance / corrosionRate;
-
-        // Feedback Message & Color
-        let feedbackMessage = "";
-        let feedbackColor = "black";
-
-        if (remainingLife > 10) {
-            feedbackMessage = "✅ <strong>Long Remaining Life:</strong> The material is in good condition.";
-            feedbackColor = "green";
-        } else if (remainingLife > 5) {
-            feedbackMessage = "⚠️ <strong>Moderate Remaining Life:</strong> Consider monitoring and planning maintenance.";
-            feedbackColor = "orange";
+        // Calculate Lean Body Mass
+        let LBM;
+        if (sex === "male") {
+            LBM = (0.407 * weight) + (0.267 * height) - 19.2;
         } else {
-            feedbackMessage = "❌ <strong>Short Remaining Life:</strong> Immediate action required to prevent failure.";
-            feedbackColor = "red";
+            LBM = (0.252 * weight) + (0.473 * height) - 48.3;
         }
 
-        // Display Results
-        resultElement.innerHTML = `
-            <strong>Remaining Life:</strong> ${remainingLife.toFixed(2)} years<br>
-            <strong style="color: ${feedbackColor};">${feedbackMessage}</strong>
+        // Round the result for better display
+        const LBMRounded = LBM.toFixed(3);
+
+        // Display results
+        result.innerHTML = `
+            <strong>Lean Body Mass:</strong> ${LBMRounded} kg
         `;
-        resultElement.style.color = "black";
     }
 </script>
 
+       
 
-
-
+ 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
 
 
@@ -448,5 +543,5 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 
-<!-- Mirrored from dsathemes.com/html/martex_1.1/files/project-details.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 08 Mar 2024 16:40:05 GMT -->
+<!-- Mirrored from dsathemes.com/html/martex_1.1/files/project-details.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 08 Mar 2024 16:40:05 GMT -->
 </html>

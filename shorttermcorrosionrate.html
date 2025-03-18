@@ -201,20 +201,26 @@ select {
 
 <div id="header"></div>
 
+
 <div class="calculator-container">
-    <h2>Remaining Corrosion Life Calculator (1)</h2>
+    <h2>Short-Term Corrosion Rate (STCR) Calculator</h2>
 
     <div class="form-group">
-        <label for="remainingAllowance">Remaining Corrosion Allowance [inches]:</label>
-        <input type="number" id="remainingAllowance" placeholder="Enter Remaining Corrosion Allowance" step="any">
+        <label for="previousThickness">Previous Thickness [inches]:</label>
+        <input type="number" id="previousThickness" placeholder="Enter Previous Thickness" step="any">
     </div>
 
     <div class="form-group">
-        <label for="corrosionRate">Corrosion Rate [inches/year]:</label>
-        <input type="number" id="corrosionRate" placeholder="Enter Corrosion Rate" step="any">
+        <label for="currentThickness">Current Thickness [inches]:</label>
+        <input type="number" id="currentThickness" placeholder="Enter Current Thickness" step="any">
     </div>
 
-    <button class="cal-btn" onclick="calculateRemainingLife()">Calculate</button>
+    <div class="form-group">
+        <label for="timeInterval">Time Interval [years]:</label>
+        <input type="number" id="timeInterval" placeholder="Enter Time Interval" step="any">
+    </div>
+
+    <button class="cal-btn" onclick="calculateSTCR()">Calculate</button>
 
     <div class="result" id="result"></div>
     <div class="feedback" id="feedback"></div>
@@ -222,43 +228,49 @@ select {
 
 <div class="note-container">
     <h3>Note:</h3>
-    <p>This calculator determines the <strong>Remaining Life</strong> of a material based on its corrosion rate and remaining corrosion allowance, helping in predictive maintenance and failure prevention.</p>
+    <p>This calculator determines the <strong>Short-Term Corrosion Rate (STCR)</strong>, which is essential for assessing the rate of material degradation in industrial applications.</p>
+
+    <p>It is widely used in <strong>corrosion monitoring, structural integrity analysis, and predictive maintenance</strong> to prevent failures and improve equipment lifespan.</p>
 
     <h3>Explanation of Parameters:</h3>
     <ul>
-        <li><strong>Remaining Corrosion Allowance:</strong> The remaining material thickness before reaching the critical limit, in inches.</li>
-        <li><strong>Corrosion Rate:</strong> The rate at which the material is degrading, measured in inches per year.</li>
-        <li><strong>Remaining Life:</strong> The estimated number of years before the material reaches its minimum allowable thickness.</li>
+        <li><strong>Previous Thickness:</strong> The initial thickness of the metal component before corrosion exposure (measured in inches).</li>
+        <li><strong>Current Thickness:</strong> The thickness of the metal component after exposure to corrosive conditions.</li>
+        <li><strong>Time Interval:</strong> The duration (in years) between the two thickness measurements.</li>
+        <li><strong>Short-Term Corrosion Rate (STCR):</strong> The rate at which material is lost due to corrosion, calculated as the thickness loss per year.</li>
     </ul>
 
-    <h3>Why Remaining Life is Important?</h3>
-    <p>It helps in **predicting equipment lifespan**, **ensuring safety compliance**, and **planning timely maintenance or replacement** to avoid failures.</p>
+    <h3>Why Corrosion Rate is Important?</h3>
+    <p>The **corrosion rate** helps in **predicting material degradation**, determining **the lifespan of metal structures**, and implementing **preventive maintenance strategies**.</p>
 
     <h3>Validations:</h3>
     <ul>
-        <li><strong>Remaining Corrosion Allowance Must Be Non-Negative:</strong> It cannot be less than zero.</li>
-        <li><strong>Corrosion Rate Must Be Positive:</strong> The rate should be greater than zero for valid calculations.</li>
-        <li><strong>Remaining Life Should Be Realistic:</strong> Ensuring that the calculated life expectancy is within an expected range.</li>
-        <li><strong>Units Should Be Consistent:</strong> Both parameters should be measured in compatible units.</li>
+        <li><strong>Applicability:</strong> This formula applies to pipelines, industrial machinery, storage tanks, marine structures, and any metal exposed to corrosion.</li>
+        <li><strong>Positive Corrosion Rate:</strong> A negative value indicates errors or material deposition instead of corrosion.</li>
+        <li><strong>Logical Time Interval:</strong> Time between measurements must be a valid, positive number.</li>
+        <li><strong>Realistic Values:</strong> The thickness loss should be measurable and consistent with known corrosion behaviors.</li>
+        <li><strong>Limitations:</strong> This method assumes uniform corrosion and does not account for localized pitting, cracks, or mechanical damage.</li>
     </ul>
 
     <h3>Real-life Applications:</h3>
     <ul>
-        <li><strong>Pipelines and Pressure Vessels:</strong> Used to determine remaining lifespan and safety margins.</li>
-        <li><strong>Bridges and Infrastructure:</strong> Helps in structural inspections and maintenance planning.</li>
-        <li><strong>Oil & Gas Industry:</strong> Assesses corrosion impact on critical equipment.</li>
-        <li><strong>Shipbuilding and Marine Structures:</strong> Ensures compliance with safety regulations.</li>
-        <li><strong>Manufacturing & Industrial Plants:</strong> Aids in preventive maintenance of metallic components.</li>
+        <li><strong>Pipelines:</strong> Assessing corrosion rates to prevent leaks and failures.</li>
+        <li><strong>Industrial Equipment:</strong> Monitoring wear and tear in manufacturing plants.</li>
+        <li><strong>Storage Tanks:</strong> Ensuring tank walls do not thin to unsafe levels.</li>
+        <li><strong>Marine Structures:</strong> Evaluating corrosion impact on ship hulls and offshore platforms.</li>
+        <li><strong>Bridges & Infrastructure:</strong> Predicting material loss in steel bridges and supports.</li>
     </ul>
 
     <h3>Conclusion:</h3>
-    <p>The Remaining Life Calculation is a **key factor** in material integrity assessments. Regular monitoring ensures **prolonged service life, safety compliance, and reduced risk of structural failures**.</p>
+    <p>The **Short-Term Corrosion Rate (STCR)** is a critical tool for **engineering safety, material integrity assessment, and cost-effective maintenance**. Understanding corrosion rates helps industries **improve efficiency, reduce risks, and extend the lifespan of structures**.</p>
 </div>
 
+
 <script>
-    function calculateRemainingLife() {
-        const remainingAllowance = parseFloat(document.getElementById("remainingAllowance").value);
-        const corrosionRate = parseFloat(document.getElementById("corrosionRate").value);
+    function calculateSTCR() {
+        const previousThickness = parseFloat(document.getElementById("previousThickness").value);
+        const currentThickness = parseFloat(document.getElementById("currentThickness").value);
+        const timeInterval = parseFloat(document.getElementById("timeInterval").value);
         const resultElement = document.getElementById("result");
         const feedbackElement = document.getElementById("feedback");
 
@@ -267,37 +279,44 @@ select {
         feedbackElement.innerHTML = "";
 
         // Validations
-        if (isNaN(remainingAllowance) || remainingAllowance < 0) {
-            resultElement.innerHTML = "❌ <strong>Error:</strong> Remaining Corrosion Allowance must be a non-negative number.";
+        if (isNaN(previousThickness) || previousThickness <= 0) {
+            resultElement.innerHTML = "❌ <strong>Error:</strong> Previous thickness must be a positive number.";
             return;
         }
 
-        if (isNaN(corrosionRate) || corrosionRate <= 0) {
-            resultElement.innerHTML = "❌ <strong>Error:</strong> Corrosion Rate must be a positive number.";
+        if (isNaN(currentThickness) || currentThickness <= 0) {
+            resultElement.innerHTML = "❌ <strong>Error:</strong> Current thickness must be a positive number.";
             return;
         }
 
-        // Remaining Life Calculation
-        const remainingLife = remainingAllowance / corrosionRate;
+        if (currentThickness > previousThickness) {
+            resultElement.innerHTML = "❌ <strong>Error:</strong> Current thickness cannot be greater than previous thickness.";
+            return;
+        }
+
+        if (isNaN(timeInterval) || timeInterval <= 0) {
+            resultElement.innerHTML = "❌ <strong>Error:</strong> Time interval must be a positive number.";
+            return;
+        }
+
+        // Short-Term Corrosion Rate Calculation
+        const corrosionRate = (previousThickness - currentThickness) / timeInterval;
 
         // Feedback Message & Color
         let feedbackMessage = "";
         let feedbackColor = "black";
 
-        if (remainingLife > 10) {
-            feedbackMessage = "✅ <strong>Long Remaining Life:</strong> The material is in good condition.";
+        if (corrosionRate > 0) {
+            feedbackMessage = "✅ <strong>Corrosion detected:</strong> The material is deteriorating.";
             feedbackColor = "green";
-        } else if (remainingLife > 5) {
-            feedbackMessage = "⚠️ <strong>Moderate Remaining Life:</strong> Consider monitoring and planning maintenance.";
-            feedbackColor = "orange";
         } else {
-            feedbackMessage = "❌ <strong>Short Remaining Life:</strong> Immediate action required to prevent failure.";
+            feedbackMessage = "⚠️ <strong>Warning:</strong> No corrosion detected. Check for measurement errors or deposition.";
             feedbackColor = "red";
         }
 
         // Display Results
         resultElement.innerHTML = `
-            <strong>Remaining Life:</strong> ${remainingLife.toFixed(2)} years<br>
+            <strong>Short-Term Corrosion Rate:</strong> ${corrosionRate.toFixed(4)} inches per year<br>
             <strong style="color: ${feedbackColor};">${feedbackMessage}</strong>
         `;
         resultElement.style.color = "black";

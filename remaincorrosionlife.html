@@ -202,15 +202,20 @@ select {
 <div id="header"></div>
 
 <div class="calculator-container">
-    <h2>Remaining Corrosion Life Calculator (1)</h2>
+    <h2>Remaining Corrosion Life Calculator (2)</h2>
 
     <div class="form-group">
-        <label for="remainingAllowance">Remaining Corrosion Allowance [inches]:</label>
-        <input type="number" id="remainingAllowance" placeholder="Enter Remaining Corrosion Allowance" step="any">
+        <label for="tActual">Actual Thickness (t<sub>actual</sub>) [inches]:</label>
+        <input type="number" id="tActual" placeholder="Enter Actual Thickness" step="any">
     </div>
 
     <div class="form-group">
-        <label for="corrosionRate">Corrosion Rate [inches/year]:</label>
+        <label for="tRequired">Required Thickness (t<sub>required</sub>) [inches]:</label>
+        <input type="number" id="tRequired" placeholder="Enter Required Thickness" step="any">
+    </div>
+
+    <div class="form-group">
+        <label for="corrosionRate">Corrosion Rate [inches per year]:</label>
         <input type="number" id="corrosionRate" placeholder="Enter Corrosion Rate" step="any">
     </div>
 
@@ -222,42 +227,46 @@ select {
 
 <div class="note-container">
     <h3>Note:</h3>
-    <p>This calculator determines the <strong>Remaining Life</strong> of a material based on its corrosion rate and remaining corrosion allowance, helping in predictive maintenance and failure prevention.</p>
+    <p>This calculator determines the <strong>Remaining Life</strong> of a metal component based on its thickness and corrosion rate.</p>
+
+    <p>It is widely used in <strong>predictive maintenance, structural integrity assessment, and risk management</strong> to ensure the safety and reliability of industrial assets.</p>
 
     <h3>Explanation of Parameters:</h3>
     <ul>
-        <li><strong>Remaining Corrosion Allowance:</strong> The remaining material thickness before reaching the critical limit, in inches.</li>
-        <li><strong>Corrosion Rate:</strong> The rate at which the material is degrading, measured in inches per year.</li>
-        <li><strong>Remaining Life:</strong> The estimated number of years before the material reaches its minimum allowable thickness.</li>
+        <li><strong>Actual Thickness (t<sub>actual</sub>):</strong> The current thickness of the metal component.</li>
+        <li><strong>Required Thickness (t<sub>required</sub>):</strong> The minimum acceptable thickness before failure risk increases.</li>
+        <li><strong>Corrosion Rate:</strong> The rate at which the material is lost due to corrosion, measured in inches per year.</li>
+        <li><strong>Remaining Life:</strong> The estimated time before the component reaches its required minimum thickness.</li>
     </ul>
 
-    <h3>Why Remaining Life is Important?</h3>
-    <p>It helps in **predicting equipment lifespan**, **ensuring safety compliance**, and **planning timely maintenance or replacement** to avoid failures.</p>
+    <h3>Why Remaining Life Calculation is Important?</h3>
+    <p>It helps in <strong>planning maintenance schedules, preventing unexpected failures, and optimizing operational costs</strong>.</p>
 
     <h3>Validations:</h3>
     <ul>
-        <li><strong>Remaining Corrosion Allowance Must Be Non-Negative:</strong> It cannot be less than zero.</li>
-        <li><strong>Corrosion Rate Must Be Positive:</strong> The rate should be greater than zero for valid calculations.</li>
-        <li><strong>Remaining Life Should Be Realistic:</strong> Ensuring that the calculated life expectancy is within an expected range.</li>
-        <li><strong>Units Should Be Consistent:</strong> Both parameters should be measured in compatible units.</li>
+        <li><strong>Applicability:</strong> This calculation applies to pipelines, pressure vessels, storage tanks, and structural components.</li>
+        <li><strong>Logical Thickness Values:</strong> The actual thickness must be greater than or equal to the required thickness.</li>
+        <li><strong>Positive Corrosion Rate:</strong> Corrosion rate must be a positive value to provide meaningful results.</li>
+        <li><strong>Realistic Estimations:</strong> Assumes uniform corrosion without accounting for localized damage.</li>
     </ul>
 
     <h3>Real-life Applications:</h3>
     <ul>
-        <li><strong>Pipelines and Pressure Vessels:</strong> Used to determine remaining lifespan and safety margins.</li>
-        <li><strong>Bridges and Infrastructure:</strong> Helps in structural inspections and maintenance planning.</li>
-        <li><strong>Oil & Gas Industry:</strong> Assesses corrosion impact on critical equipment.</li>
-        <li><strong>Shipbuilding and Marine Structures:</strong> Ensures compliance with safety regulations.</li>
-        <li><strong>Manufacturing & Industrial Plants:</strong> Aids in preventive maintenance of metallic components.</li>
+        <li><strong>Pipelines:</strong> Predicting when pipeline walls need reinforcement or replacement.</li>
+        <li><strong>Industrial Equipment:</strong> Ensuring machinery parts do not weaken due to corrosion.</li>
+        <li><strong>Bridges & Infrastructure:</strong> Assessing corrosion impact on steel structures.</li>
+        <li><strong>Marine & Offshore:</strong> Evaluating the lifespan of ship hulls and offshore platforms.</li>
     </ul>
 
     <h3>Conclusion:</h3>
-    <p>The Remaining Life Calculation is a **key factor** in material integrity assessments. Regular monitoring ensures **prolonged service life, safety compliance, and reduced risk of structural failures**.</p>
+    <p>The <strong>Remaining Life Calculation</strong> is a crucial tool for engineers and asset managers to <strong>enhance safety, improve efficiency, and extend the service life of critical structures</strong>.</p>
 </div>
+
 
 <script>
     function calculateRemainingLife() {
-        const remainingAllowance = parseFloat(document.getElementById("remainingAllowance").value);
+        const tActual = parseFloat(document.getElementById("tActual").value);
+        const tRequired = parseFloat(document.getElementById("tRequired").value);
         const corrosionRate = parseFloat(document.getElementById("corrosionRate").value);
         const resultElement = document.getElementById("result");
         const feedbackElement = document.getElementById("feedback");
@@ -267,31 +276,38 @@ select {
         feedbackElement.innerHTML = "";
 
         // Validations
-        if (isNaN(remainingAllowance) || remainingAllowance < 0) {
-            resultElement.innerHTML = "❌ <strong>Error:</strong> Remaining Corrosion Allowance must be a non-negative number.";
+        if (isNaN(tActual) || tActual <= 0) {
+            resultElement.innerHTML = "❌ <strong>Error:</strong> Actual thickness must be a positive number.";
+            return;
+        }
+
+        if (isNaN(tRequired) || tRequired <= 0) {
+            resultElement.innerHTML = "❌ <strong>Error:</strong> Required thickness must be a positive number.";
+            return;
+        }
+
+        if (tActual < tRequired) {
+            resultElement.innerHTML = "❌ <strong>Error:</strong> Actual thickness cannot be less than required thickness.";
             return;
         }
 
         if (isNaN(corrosionRate) || corrosionRate <= 0) {
-            resultElement.innerHTML = "❌ <strong>Error:</strong> Corrosion Rate must be a positive number.";
+            resultElement.innerHTML = "❌ <strong>Error:</strong> Corrosion rate must be a positive number.";
             return;
         }
 
         // Remaining Life Calculation
-        const remainingLife = remainingAllowance / corrosionRate;
+        const remainingLife = (tActual - tRequired) / corrosionRate;
 
         // Feedback Message & Color
         let feedbackMessage = "";
         let feedbackColor = "black";
 
-        if (remainingLife > 10) {
-            feedbackMessage = "✅ <strong>Long Remaining Life:</strong> The material is in good condition.";
+        if (remainingLife > 0) {
+            feedbackMessage = "✅ <strong>Safe:</strong> The structure has remaining life based on the current corrosion rate.";
             feedbackColor = "green";
-        } else if (remainingLife > 5) {
-            feedbackMessage = "⚠️ <strong>Moderate Remaining Life:</strong> Consider monitoring and planning maintenance.";
-            feedbackColor = "orange";
         } else {
-            feedbackMessage = "❌ <strong>Short Remaining Life:</strong> Immediate action required to prevent failure.";
+            feedbackMessage = "⚠️ <strong>Warning:</strong> The structure may have already failed or is at risk.";
             feedbackColor = "red";
         }
 
@@ -450,3 +466,4 @@ document.addEventListener("DOMContentLoaded", function() {
 
 <!-- Mirrored from dsathemes.com/html/martex_1.1/files/project-details.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 08 Mar 2024 16:40:05 GMT -->
 </html>
+ 

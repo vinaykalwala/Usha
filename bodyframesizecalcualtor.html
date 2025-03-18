@@ -65,7 +65,7 @@
       background-color: #f5f5f5;
     }
     .calculator-container {
-      max-width: 1000px;
+      max-width: 1200px;
       margin: 20px auto;
       padding: 20px;
       background: #ffffff;
@@ -152,14 +152,6 @@
     font-size: 20px;
 }
 
-.note-container ul{
-    margin: 10px;
-}
-
-.note-container{
-    margin-top: 10px;
-}
-
 .note-container p {
     margin-top: 15px;
     text-align: justify;
@@ -183,6 +175,68 @@ select {
     background-color: rgb(223, 241, 247);
 
 }
+
+.input-row {
+        display: flex;
+        justify-content: space-around;
+        gap: 10px;
+      }
+  
+      .input-row .form-group {
+        width: 48%;
+      }
+      @media (max-width: 768px) {
+    .input-row {
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    .input-row .form-group {
+        width: 100%;
+    }
+}
+        .table-container {
+            display: flex;
+            justify-content: center;
+           
+        }
+    
+        .frame-table {
+            border-collapse: collapse;
+            width: 60%;
+            text-align: center;
+            border: 1px solid #000;
+        }
+    
+        .frame-table thead {
+            background-color: #1560bd;
+            color: white;
+        }
+    
+        .frame-table th, .frame-table td {
+            border: 1px solid #000;
+            padding: 10px;
+        }
+        @media (max-width: 768px) {
+        .frame-table {
+            width: 90%;
+        }
+
+        .frame-table th, .frame-table td {
+            padding: 8px;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .frame-table {
+            width: 100%;
+        }
+
+        .frame-table th, .frame-table td {
+            padding: 5px;
+            font-size: 12px;
+        }
+    }
 </style>
 	</head>
 
@@ -202,111 +256,143 @@ select {
 <div id="header"></div>
 
 <div class="calculator-container">
-    <h2>Remaining Corrosion Life Calculator (1)</h2>
+    <h2>Body Frame Size Calculator</h2>
 
-    <div class="form-group">
-        <label for="remainingAllowance">Remaining Corrosion Allowance [inches]:</label>
-        <input type="number" id="remainingAllowance" placeholder="Enter Remaining Corrosion Allowance" step="any">
-    </div>
+  
+        <div class="form-group">
+            <label for="gender">Gender:</label>
+            <select id="gender" required>
+                <option value="">Select Gender</option>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+            </select>
+        </div>
 
-    <div class="form-group">
-        <label for="corrosionRate">Corrosion Rate [inches/year]:</label>
-        <input type="number" id="corrosionRate" placeholder="Enter Corrosion Rate" step="any">
-    </div>
+        <!-- Height Input -->
+        <div class="form-group">
+            <label for="height">Height (inches):</label>
+            <input type="number" id="height" placeholder="Enter height" required>
+        </div>
 
-    <button class="cal-btn" onclick="calculateRemainingLife()">Calculate</button>
+        <!-- Wrist Circumference Input -->
+        <div class="form-group">
+            <label for="wrist">Wrist Circumference (inches):</label>
+            <input type="number" id="wrist" placeholder="Enter wrist circumference" required>
+        </div>
+  
 
+    <!-- Calculate Button -->
+    <button class="cal-btn" onclick="calculateBodyFrameSize()">Calculate Body Frame Size</button>
+
+    <!-- Result Display -->
     <div class="result" id="result"></div>
-    <div class="feedback" id="feedback"></div>
 </div>
 
+<!-- Information Section -->
 <div class="note-container">
-    <h3>Note:</h3>
-    <p>This calculator determines the <strong>Remaining Life</strong> of a material based on its corrosion rate and remaining corrosion allowance, helping in predictive maintenance and failure prevention.</p>
+    <h3>Welcome to the Body Frame Size Calculator</h3>
+    <p>
+        A convenient tool that helps you determine your body frame size using simple inputs such as gender, height, and wrist circumference. Grab a measuring tape and join us to learn about body frame size, how to calculate it, measure your wrist circumference, and more!
+    </p>
 
-    <h3>Explanation of Parameters:</h3>
-    <ul>
-        <li><strong>Remaining Corrosion Allowance:</strong> The remaining material thickness before reaching the critical limit, in inches.</li>
-        <li><strong>Corrosion Rate:</strong> The rate at which the material is degrading, measured in inches per year.</li>
-        <li><strong>Remaining Life:</strong> The estimated number of years before the material reaches its minimum allowable thickness.</li>
-    </ul>
+    <p>
+        We strive to make our calculators as precise and reliable as possible. However, this tool cannot replace professional medical advice. If you have any health concerns, consult a physician.
+    </p>
 
-    <h3>Why Remaining Life is Important?</h3>
-    <p>It helps in **predicting equipment lifespan**, **ensuring safety compliance**, and **planning timely maintenance or replacement** to avoid failures.</p>
+    <h3>What is Body Frame Size?</h3>
+    <p>
+        Body frame size refers to the skeletal mass adjustment in body composition. Since common indices like BMI do not account for body fat levels, measuring body frame size can offer a better understanding of your physique.
+    </p>
 
-    <h3>Validations:</h3>
-    <ul>
-        <li><strong>Remaining Corrosion Allowance Must Be Non-Negative:</strong> It cannot be less than zero.</li>
-        <li><strong>Corrosion Rate Must Be Positive:</strong> The rate should be greater than zero for valid calculations.</li>
-        <li><strong>Remaining Life Should Be Realistic:</strong> Ensuring that the calculated life expectancy is within an expected range.</li>
-        <li><strong>Units Should Be Consistent:</strong> Both parameters should be measured in compatible units.</li>
-    </ul>
+    <h3>How to Measure Your Body Frame Size</h3>
+    <p>
+        To calculate your body frame size, you need to measure your wrist circumference and height. Here is how to measure your wrist:
+    </p>
+    <ol>
+        <li>Use a flexible, non-stretchable measuring tape (around 0.7 cm or 0.3 inches wide).</li>
+        <li>Wrap the tape around your wrist, just above the knobby bone, and note the measurement.</li>
+    </ol>
 
-    <h3>Real-life Applications:</h3>
-    <ul>
-        <li><strong>Pipelines and Pressure Vessels:</strong> Used to determine remaining lifespan and safety margins.</li>
-        <li><strong>Bridges and Infrastructure:</strong> Helps in structural inspections and maintenance planning.</li>
-        <li><strong>Oil & Gas Industry:</strong> Assesses corrosion impact on critical equipment.</li>
-        <li><strong>Shipbuilding and Marine Structures:</strong> Ensures compliance with safety regulations.</li>
-        <li><strong>Manufacturing & Industrial Plants:</strong> Aids in preventive maintenance of metallic components.</li>
-    </ul>
+    
 
-    <h3>Conclusion:</h3>
-    <p>The Remaining Life Calculation is a **key factor** in material integrity assessments. Regular monitoring ensures **prolonged service life, safety compliance, and reduced risk of structural failures**.</p>
+    <h3>Body Frame Size Categories</h3>
+    <div class="table-container">
+        <table class="frame-table">
+            <thead>
+                <tr>
+                    <th>Gender</th>
+                    <th>Small Frame</th>
+                    <th>Medium Frame</th>
+                    <th>Large Frame</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Men</strong></td>
+                    <td>r > 10.4</td>
+                    <td>r = 9.6 - 10.4</td>
+                    <td>r < 9.6</td>
+                </tr>
+                <tr>
+                    <td><strong>Women</strong></td>
+                    <td>r > 11</td>
+                    <td>r = 10.1 - 11.0</td>
+                    <td>r < 10.1</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    
+    <p>Use this table to determine your body frame size based on your wrist measurement (r).</p>
+
 </div>
 
+<!-- JavaScript Logic -->
 <script>
-    function calculateRemainingLife() {
-        const remainingAllowance = parseFloat(document.getElementById("remainingAllowance").value);
-        const corrosionRate = parseFloat(document.getElementById("corrosionRate").value);
-        const resultElement = document.getElementById("result");
-        const feedbackElement = document.getElementById("feedback");
+    function calculateBodyFrameSize() {
+        const gender = document.getElementById('gender').value;
+        const height = parseFloat(document.getElementById('height').value);
+        const wrist = parseFloat(document.getElementById('wrist').value);
+        const result = document.getElementById('result');
 
-        // Reset previous results
-        resultElement.innerHTML = "";
-        feedbackElement.innerHTML = "";
+        // Reset result display
+        result.innerHTML = "";
 
-        // Validations
-        if (isNaN(remainingAllowance) || remainingAllowance < 0) {
-            resultElement.innerHTML = "❌ <strong>Error:</strong> Remaining Corrosion Allowance must be a non-negative number.";
+        // Input validation
+        if (!gender) {
+            result.innerHTML = "❌ Please select a gender.";
+            return;
+        }
+        if (isNaN(height) || height <= 0) {
+            result.innerHTML = "❌ Please enter a valid height.";
+            return;
+        }
+        if (isNaN(wrist) || wrist <= 0) {
+            result.innerHTML = "❌ Please enter a valid wrist circumference.";
             return;
         }
 
-        if (isNaN(corrosionRate) || corrosionRate <= 0) {
-            resultElement.innerHTML = "❌ <strong>Error:</strong> Corrosion Rate must be a positive number.";
-            return;
+        // Calculate body frame index
+        const frameIndex = height / wrist;
+
+        let frameSize = "";
+        if (gender === "male") {
+            if (frameIndex > 10.4) frameSize = "Small Frame";
+            else if (frameIndex >= 9.6 && frameIndex <= 10.4) frameSize = "Medium Frame";
+            else frameSize = "Large Frame";
+        } else if (gender === "female") {
+            if (frameIndex > 11) frameSize = "Small Frame";
+            else if (frameIndex >= 10.1 && frameIndex <= 11) frameSize = "Medium Frame";
+            else frameSize = "Large Frame";
         }
 
-        // Remaining Life Calculation
-        const remainingLife = remainingAllowance / corrosionRate;
-
-        // Feedback Message & Color
-        let feedbackMessage = "";
-        let feedbackColor = "black";
-
-        if (remainingLife > 10) {
-            feedbackMessage = "✅ <strong>Long Remaining Life:</strong> The material is in good condition.";
-            feedbackColor = "green";
-        } else if (remainingLife > 5) {
-            feedbackMessage = "⚠️ <strong>Moderate Remaining Life:</strong> Consider monitoring and planning maintenance.";
-            feedbackColor = "orange";
-        } else {
-            feedbackMessage = "❌ <strong>Short Remaining Life:</strong> Immediate action required to prevent failure.";
-            feedbackColor = "red";
-        }
-
-        // Display Results
-        resultElement.innerHTML = `
-            <strong>Remaining Life:</strong> ${remainingLife.toFixed(2)} years<br>
-            <strong style="color: ${feedbackColor};">${feedbackMessage}</strong>
-        `;
-        resultElement.style.color = "black";
+        // Display result
+        result.innerHTML = `<strong>Your Body Frame Size:</strong> ${frameSize} <br>
+        <strong>Your Body Frame Index:</strong> ${frameIndex.toFixed(2)}`;
     }
 </script>
 
-
-
-
+ 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
 
 
@@ -448,5 +534,5 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 
-<!-- Mirrored from dsathemes.com/html/martex_1.1/files/project-details.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 08 Mar 2024 16:40:05 GMT -->
+<!-- Mirrored from dsathemes.com/html/martex_1.1/files/project-details.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 08 Mar 2024 16:40:05 GMT -->
 </html>
