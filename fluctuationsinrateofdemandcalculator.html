@@ -56,15 +56,16 @@
 		<link href="css/responsive.css" rel="stylesheet">
 <style>
             
-            
+         
 
+   
         body {
       font-family: Arial, sans-serif;
      
       background-color: #f5f5f5;
     }
     .calculator-container {
-      max-width: 1000px;
+      max-width: 1200px;
       margin: 20px auto;
       padding: 20px;
       background: #ffffff;
@@ -113,11 +114,19 @@
     .result {
       margin-top: 20px;
       font-size: 24px;
-      color: #333;
-      text-align: center;
-      color: rgb(36, 116, 2);
+      text-align:justify;
+      color: rgb(36, 2, 116);
      
     }
+    .result {
+    margin-top: 20px;
+    font-size: 24px;
+    text-align:center;
+    color: rgb(36, 2, 116);
+}
+
+
+
     @media (max-width: 768px) {
     .calculator-container {
         margin: 20px 15px; 
@@ -164,42 +173,41 @@ strong{
         padding: 10px; 
     }
 }
+select {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #d3e0f0;
+    border-radius: 5px;
+    font-size: 1rem;
+    background-color: rgb(223, 241, 247);
 
-.table-container {
+}
+
+.input-row {
         display: flex;
-        justify-content: center;
-        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+      }
+  
+      .input-row .form-group {
+        width: 48%;
+      }
+      @media (max-width: 768px) {
+    .input-row {
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    .input-row .form-group {
         width: 100%;
-        padding: 20px 0;
     }
-    .custom-table {
-        width: 80%;
-        max-width: 800px;
-        border-collapse: collapse;
-        background: white;
-        text-align: center;
+}
+@media (max-width: 768px) {
+    .result {
+       font-size: 18px;
     }
-    .custom-table th, .custom-table td {
-        border: 1px solid #000;
-        padding: 10px;
-    }
-    .custom-table th {
-        background-color: #1560bd;
-        color: white;
-    }
-    @media (max-width: 768px) {
-        .custom-table {
-            width: 95%;
-        }
-    }
-    @media (max-width: 768px) {
-        .table-container {
-            padding: 10px;
-        }
-        .custom-table {
-            font-size: 14px;
-        }
-    }
+}
 </style>
 	</head>
 
@@ -213,32 +221,28 @@ strong{
 
 
 
-		<div id="header"></div>
-
+		
 <br><br><br><br>
 
-
+<div id="header"></div>
 
 <div class="calculator-container">
-    <h2>Municipal Water Quantity Estimator Calculator</h2>
+    <h2>Water Demand Fluctuation Calculator</h2>
 
-    <!-- Input Row 1 -->
-    <div class="input-row">
-        <!-- Per Capita Demand Input -->
-        <div class="form-group">
-            <label for="perCapitaDemand">Per Capita Demand (liters/day/person):</label>
-            <input type="number" id="perCapitaDemand" placeholder="Enter per capita demand" required>
-        </div>
+    <!-- Quantity Required in 12 Months Input -->
+    <div class="form-group">
+        <label for="quantity">Total Water Consumption Over 12 Months (liters):</label>
+        <input type="number" id="quantity" placeholder="Enter total water usage for a year" required>
+    </div>
 
-        <!-- Population Input -->
-        <div class="form-group">
-            <label for="population">Population:</label>
-            <input type="number" id="population" placeholder="Enter population" required>
-        </div>
+    <!-- Population Input -->
+    <div class="form-group">
+        <label for="population">Total Population Served:</label>
+        <input type="number" id="population" placeholder="Enter the total population count" required>
     </div>
 
     <!-- Calculate Button -->
-    <button class="cal-btn" onclick="calculateWaterQuantity()">Calculate Water Quantity</button>
+    <button class="cal-btn" onclick="calculateDemand()">Calculate Average Demand</button>
 
     <!-- Result Display -->
     <div class="result" id="result"></div>
@@ -246,86 +250,70 @@ strong{
 
 <!-- Information Section -->
 <div class="note-container">
-    <h3>What is Water Quantity Estimation?</h3>
+    <h3>What is the Water Demand Fluctuation Calculator?</h3>
     <p>
-        Water Quantity Estimation is the process of calculating the total amount of water required to meet the needs of a population. It is based on the per capita demand (water consumption rate per person) and the total population to be served.
+        This calculator helps estimate different levels of water demand, which are essential for designing and managing water supply systems. Water demand fluctuates daily, seasonally, and even hourly, requiring proper planning to avoid shortages or inefficiencies. 
     </p>
-    <p>The calculator helps users estimate the total municipal water demand based on population size and per capita water consumption</p>
-
-    <h3>Why is Water Quantity Estimation Important?</h3>
+    
+    <h3>How This Calculator Helps</h3>
     <p>
-        Estimating water quantity is essential for:
+        This tool calculates three critical water demand metrics:
+    </p>
+    <ol>
+        <li>
+            <strong>Average Daily Per Capita Water Demand:</strong> 
+            This represents the standard daily water consumption per person, calculated as total annual consumption divided by 365 days and population. It is useful for assessing baseline water requirements.
+        </li>
+        <li>
+            <strong>Maximum Daily Demand:</strong> 
+            Water usage is not constant, and on peak days (such as summer or special events), it increases. This value is estimated as 1.8 times the average daily demand, ensuring the water system can handle high-consumption periods.
+        </li>
+        <li>
+            <strong>Peak Hourly Demand:</strong> 
+            Water demand is not evenly distributed throughout the day. There are peak usage hours, particularly in the morning and evening. This metric, calculated as 2.7 times the average daily demand divided by 24, helps in designing supply systems that can handle short-term high-demand periods.
+        </li>
+    </ol>
+
+    <h3>Why Understanding Water Demand is Important</h3>
+    <p>
+        Water usage is influenced by various factors, making demand estimation crucial:
     </p>
     <ul>
-        <li><strong>Urban Planning:</strong> Designing water supply systems for cities and communities.</li>
-        <li><strong>Resource Management:</strong> Ensuring adequate water supply for daily needs.</li>
-        <li><strong>Emergency Preparedness:</strong> Planning for water requirements during emergencies or disasters.</li>
+        <li><strong>Seasonal Fluctuations:</strong> Higher demand in summer due to increased consumption and fire risks.</li>
+        <li><strong>Daily Variations:</strong> Increased water usage on weekends and festivals.</li>
+        <li><strong>Hourly Peaks:</strong> Water usage spikes during morning (6–10 AM) and evening (4–8 PM) hours.</li>
     </ul>
 
     <h3>How to Use the Calculator</h3>
-    <p>
-        The quantity of water required for municipal uses for which the water supply scheme has to be 
-designed requires following data: 
-    </p>
+    <p>Follow these simple steps:</p>
     <ol>
-        <li><strong>Enter Water consumption rate (Per Capita Demand in litres per day per head) :</strong> Input the water consumption rate per person in liters/day.</li>
-        <li><strong>Enter Population:</strong> Input the total number of people to be served.</li>
-        <li><strong>Calculate:</strong> Click "Calculate Water Quantity" to see the total water required.</li>
+        <li><strong>Enter Total Annual Water Consumption:</strong> Provide the yearly water usage in liters.</li>
+        <li><strong>Enter Total Population:</strong> Specify the number of people using the water supply.</li>
+        <li><strong>Click "Calculate Water Demand":</strong> The calculator will display the three key demand metrics.</li>
     </ol>
 
-  
-        <h3>Water Consumption Rate</h3>
-          <p> It is very difficult to precisely assess the quantity of water demanded by the public, since there 
-           are many variable factors affecting water consumption. The various types of water demands, 
-           which a city may have, may be broken into following classes: </p> 
-           <h3>Water Consumption for Various Purposes</h3>
+    <h3>How This Helps in Water Supply System Design</h3>
+    <p>
+        Proper water supply planning depends on understanding demand fluctuations:
+    </p>
+    <ul>
+        <li><strong>Infrastructure Design:</strong> Pipes and reservoirs must accommodate peak demand.</li>
+        <li><strong>Pumping Systems:</strong> Water distribution must be able to handle hourly fluctuations.</li>
+        <li><strong>Storage Capacity:</strong> Reservoirs should be designed for seasonal and daily variations.</li>
+    </ul>
 
-           <div class="table-container">
-    <table border="1" cellpadding="8" cellspacing="0" class="custom-table">
-        <tr>
-            <th>Types of Consumption</th>
-            <th>Normal Range (lit/capita/day)</th>
-            <th>Average </th>
-            <th>%</th>
-        </tr>
-        <tr>
-            <td>Domestic Consumption</td>
-            <td>65-300</td>
-            <td>160</td>
-            <td>35</td>
-        </tr>
-        <tr>
-            <td>Industrial and Commercial Demand</td>
-            <td>45-450</td>
-            <td>135</td>
-            <td>30</td>
-        </tr>
-        <tr>
-            <td>Public Uses including Fire Demand</td>
-            <td>20-90</td>
-            <td>45</td>
-            <td>10</td>
-        </tr>
-        <tr>
-            <td>Losses and Waste</td>
-            <td>45-150</td>
-            <td>62</td>
-            <td>25</td>
-        </tr>
-       
-    </table>
-    </div>
     <h3>Disclaimer</h3>
     <p>
-        This calculator provides estimates for informational purposes only. It should not replace professional advice or planning. Always consult with water resource experts for accurate and detailed water supply planning.
+        This calculator provides an estimate and should be used for informational purposes only. For precise water system planning, consult water resource experts.
     </p>
 </div>
 
+
 <!-- JavaScript Logic -->
 <script>
-    function calculateWaterQuantity() {
+    function calculateDemand() {
         // Get input values
-        const perCapitaDemand = parseFloat(document.getElementById('perCapitaDemand').value);
+        const quantity = parseFloat(document.getElementById('quantity').value);
         const population = parseFloat(document.getElementById('population').value);
         const result = document.getElementById('result');
 
@@ -333,26 +321,41 @@ designed requires following data:
         result.innerHTML = "";
 
         // Input validation
-        if (isNaN(perCapitaDemand) || perCapitaDemand <= 0) {
-            result.innerHTML = "❌ Please enter a valid per capita demand.";
+        if (isNaN(quantity) || quantity <= 0) {
+            result.innerHTML = "<span style='color: red;'>❌ Please enter a valid total water consumption.</span>";
             return;
         }
         if (isNaN(population) || population <= 0) {
-            result.innerHTML = "❌ Please enter a valid population.";
+            result.innerHTML = "<span style='color: red;'>❌ Please enter a valid population count.</span>";
             return;
         }
 
-        // Calculate total water quantity
-        const totalWaterQuantity = perCapitaDemand * population;
+        // Calculate Average Daily Per Capita Demand
+        const averageDailyDemand = quantity / (365 * population);
+        const maxDailyDemand = 1.8 * averageDailyDemand;
+        const peakHourlyDemand = (2.7 * averageDailyDemand) / 24;
+
+        // Round the results to 2 decimal places
+        const averageDailyDemandRounded = averageDailyDemand.toFixed(3);
+        const maxDailyDemandRounded = maxDailyDemand.toFixed(3);
+        const peakHourlyDemandRounded = peakHourlyDemand.toFixed(4);
 
         // Display results
         result.innerHTML = `
-            <strong>Total Water Required:</strong> ${totalWaterQuantity.toLocaleString()} liters/day
+            <strong>Average Daily Per Capita Water Demand:</strong> ${averageDailyDemandRounded} liters/person/day<br>
+            <strong>Maximum Daily Demand:</strong> ${maxDailyDemandRounded} liters/person/day<br>
+            <strong>Peak Hourly Demand:</strong> ${peakHourlyDemandRounded} liters/person/hour
         `;
     }
 </script>
 
+ 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+
+
+
+
+
 
 
 
@@ -380,12 +383,16 @@ designed requires following data:
         return false;
     });
     </script>
-
 <div id="footer"></div>
 <script>
     fetch("header.html").then(response => response.text()).then(data => document.getElementById("header").innerHTML = data);
     fetch("footer.html").then(response => response.text()).then(data => document.getElementById("footer").innerHTML = data);
 </script>
+
+
+		</div>	<!-- END PAGE CONTENT -->	
+
+
 
 
 		<!-- EXTERNAL SCRIPTS

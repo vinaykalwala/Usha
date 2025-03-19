@@ -56,15 +56,16 @@
 		<link href="css/responsive.css" rel="stylesheet">
 <style>
             
-            
+         
 
+   
         body {
       font-family: Arial, sans-serif;
      
       background-color: #f5f5f5;
     }
     .calculator-container {
-      max-width: 1000px;
+      max-width: 1200px;
       margin: 20px auto;
       padding: 20px;
       background: #ffffff;
@@ -113,11 +114,19 @@
     .result {
       margin-top: 20px;
       font-size: 24px;
-      color: #333;
-      text-align: center;
-      color: rgb(36, 116, 2);
+      text-align:justify;
+      color: rgb(36, 2, 116);
      
     }
+    .result {
+    margin-top: 20px;
+    font-size: 24px;
+    text-align:center;
+    color: rgb(36, 2, 116);
+}
+
+
+
     @media (max-width: 768px) {
     .calculator-container {
         margin: 20px 15px; 
@@ -164,42 +173,166 @@ strong{
         padding: 10px; 
     }
 }
+select {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #d3e0f0;
+    border-radius: 5px;
+    font-size: 1rem;
+    background-color: rgb(223, 241, 247);
 
-.table-container {
+}
+
+.input-row {
         display: flex;
-        justify-content: center;
-        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+      }
+  
+      .input-row .form-group {
+        width: 48%;
+      }
+      @media (max-width: 768px) {
+    .input-row {
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    .input-row .form-group {
         width: 100%;
-        padding: 20px 0;
     }
-    .custom-table {
-        width: 80%;
-        max-width: 800px;
-        border-collapse: collapse;
-        background: white;
-        text-align: center;
-    }
-    .custom-table th, .custom-table td {
-        border: 1px solid #000;
+}
+ /* FFMI Table Container (for centering) */
+.ffmi-table-container {
+    overflow-x: auto; /* Ensures table is scrollable on small screens */
+    margin-top: 30px;
+}
+
+/* FFMI Table Styling */
+.ffmi-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 0 auto;
+}
+
+/* Table Header */
+.ffmi-table thead {
+    background: #1560bd;
+    color: #fff;
+}
+
+/* Table Cells */
+.ffmi-table th, 
+.ffmi-table td {
+    padding: 12px 16px;
+    text-align: center;
+    border: 1px solid #ddd;
+}
+
+/* Table Body Styling */
+.ffmi-table tbody tr:nth-child(odd) {
+    background: #e8f4ff; /* Light blue for alternate rows */
+}
+
+.ffmi-table tbody tr:nth-child(even) {
+    background: #ffffff;
+}
+
+/* Responsive Design */
+
+/* Medium screens (Tablets) */
+@media (max-width: 768px) {
+    
+
+    .ffmi-table th,
+    .ffmi-table td {
         padding: 10px;
     }
-    .custom-table th {
-        background-color: #1560bd;
-        color: white;
+}
+
+/* Small screens (Phones) */
+@media (max-width: 480px) {
+   
+
+    .ffmi-table th,
+    .ffmi-table td {
+        padding: 8px;
+        font-size: 12px;
     }
-    @media (max-width: 768px) {
-        .custom-table {
-            width: 95%;
-        }
-    }
-    @media (max-width: 768px) {
-        .table-container {
-            padding: 10px;
-        }
-        .custom-table {
-            font-size: 14px;
-        }
-    }
+}
+/* Checkbox Styling */
+.form-group label {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px; /* Space between checkbox and label */
+}
+
+#customCycle {
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #4A90E2;
+    border-radius: 5px;
+    outline: none;
+    cursor: pointer;
+    position: relative;
+    transition: background 0.3s ease;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+#customCycle:checked {
+    background: #4A90E2;
+    border-color: #4A90E2;
+}
+
+#customCycle:checked::after {
+    content: '\2714';
+    font-size: 14px;
+    color: white;
+    position: absolute;
+    left: 4px;
+    top: -1px;
+}
+
+/* Checkbox Styling */
+.form-group label {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px; /* Space between checkbox and label */
+}
+
+#customCycle {
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #4A90E2;
+    border-radius: 5px;
+    outline: none;
+    cursor: pointer;
+    position: relative;
+    transition: background 0.3s ease;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+#customCycle:checked {
+    background: #4A90E2;
+    border-color: #4A90E2;
+}
+
+#customCycle:checked::after {
+    content: '\2713'; /* Ensure correct checkmark rendering */
+    font-size: 14px;
+    color: white;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+
 </style>
 	</head>
 
@@ -213,32 +346,28 @@ strong{
 
 
 
-		<div id="header"></div>
-
+		
 <br><br><br><br>
 
-
+<div id="header"></div>
 
 <div class="calculator-container">
-    <h2>Municipal Water Quantity Estimator Calculator</h2>
+    <h2>Body Roundness Index (BRI) Calculator</h2>
 
-    <!-- Input Row 1 -->
-    <div class="input-row">
-        <!-- Per Capita Demand Input -->
+    
         <div class="form-group">
-            <label for="perCapitaDemand">Per Capita Demand (liters/day/person):</label>
-            <input type="number" id="perCapitaDemand" placeholder="Enter per capita demand" required>
+            <label for="height">Height (cm):</label>
+            <input type="number" id="height" placeholder="Enter your height" required>
         </div>
 
-        <!-- Population Input -->
+        <!-- Waist Circumference Input -->
         <div class="form-group">
-            <label for="population">Population:</label>
-            <input type="number" id="population" placeholder="Enter population" required>
+            <label for="waist">Waist Circumference (cm):</label>
+            <input type="number" id="waist" placeholder="Enter your waist circumference" required>
         </div>
-    </div>
 
     <!-- Calculate Button -->
-    <button class="cal-btn" onclick="calculateWaterQuantity()">Calculate Water Quantity</button>
+    <button class="cal-btn" onclick="calculateBRI()">Calculate BRI</button>
 
     <!-- Result Display -->
     <div class="result" id="result"></div>
@@ -246,113 +375,114 @@ strong{
 
 <!-- Information Section -->
 <div class="note-container">
-    <h3>What is Water Quantity Estimation?</h3>
+    <h3>What is the Body Roundness Index (BRI)?</h3>
     <p>
-        Water Quantity Estimation is the process of calculating the total amount of water required to meet the needs of a population. It is based on the per capita demand (water consumption rate per person) and the total population to be served.
+        The Body Roundness Index (BRI) is a measure of body fat distribution, focusing on how much your body shape resembles a circle. It is calculated using your height and waist circumference. Unlike BMI, BRI considers the distribution of fat, particularly visceral fat, which is linked to health risks such as cardiovascular disease and diabetes.
     </p>
-    <p>The calculator helps users estimate the total municipal water demand based on population size and per capita water consumption</p>
 
-    <h3>Why is Water Quantity Estimation Important?</h3>
+    <h3>Why is BRI Important?</h3>
     <p>
-        Estimating water quantity is essential for:
+        BRI provides a more accurate assessment of health risks related to body fat distribution. It helps identify individuals at risk for conditions like metabolic syndrome, hypertension, and insulin resistance. A higher BRI indicates a higher concentration of visceral fat, which is more dangerous than subcutaneous fat.
     </p>
-    <ul>
-        <li><strong>Urban Planning:</strong> Designing water supply systems for cities and communities.</li>
-        <li><strong>Resource Management:</strong> Ensuring adequate water supply for daily needs.</li>
-        <li><strong>Emergency Preparedness:</strong> Planning for water requirements during emergencies or disasters.</li>
-    </ul>
 
-    <h3>How to Use the Calculator</h3>
+    <h3>How to Use the BRI Calculator</h3>
     <p>
-        The quantity of water required for municipal uses for which the water supply scheme has to be 
-designed requires following data: 
+        Follow these steps to calculate your BRI:
     </p>
     <ol>
-        <li><strong>Enter Water consumption rate (Per Capita Demand in litres per day per head) :</strong> Input the water consumption rate per person in liters/day.</li>
-        <li><strong>Enter Population:</strong> Input the total number of people to be served.</li>
-        <li><strong>Calculate:</strong> Click "Calculate Water Quantity" to see the total water required.</li>
+        <li><strong>Measure Your Height:</strong> Stand straight and measure your height in centimeters (cm).</li>
+        <li><strong>Measure Your Waist Circumference:</strong> Use a measuring tape to measure your waist at the midpoint between the bottom of your ribs and the top of your hips.</li>
+        <li><strong>Enter Your Values:</strong> Input your height and waist circumference into the calculator.</li>
+        <li><strong>Calculate:</strong> Click "Calculate BRI" to see your results and interpretation.</li>
     </ol>
 
-  
-        <h3>Water Consumption Rate</h3>
-          <p> It is very difficult to precisely assess the quantity of water demanded by the public, since there 
-           are many variable factors affecting water consumption. The various types of water demands, 
-           which a city may have, may be broken into following classes: </p> 
-           <h3>Water Consumption for Various Purposes</h3>
+    <h3>Interpreting Your BRI Results</h3>
+    <p>
+        Based on studies, BRI values can be interpreted as follows:
+    </p>
+    <ul>
+        <li><strong>BRI < 3.41:</strong> Moderate increase in health risks (25% higher risk of mortality).</li>
+        <li><strong>BRI 3.41–4.44:</strong> No significant increase in health risks.</li>
+        <li><strong>BRI 4.45–5.45:</strong> Low risk for health problems related to visceral obesity.</li>
+        <li><strong>BRI 5.46–6.91:</strong> Moderate increase in health risks.</li>
+        <li><strong>BRI > 6.91:</strong> High risk of health problems related to visceral obesity (50% higher risk of mortality).</li>
+    </ul>
 
-           <div class="table-container">
-    <table border="1" cellpadding="8" cellspacing="0" class="custom-table">
-        <tr>
-            <th>Types of Consumption</th>
-            <th>Normal Range (lit/capita/day)</th>
-            <th>Average </th>
-            <th>%</th>
-        </tr>
-        <tr>
-            <td>Domestic Consumption</td>
-            <td>65-300</td>
-            <td>160</td>
-            <td>35</td>
-        </tr>
-        <tr>
-            <td>Industrial and Commercial Demand</td>
-            <td>45-450</td>
-            <td>135</td>
-            <td>30</td>
-        </tr>
-        <tr>
-            <td>Public Uses including Fire Demand</td>
-            <td>20-90</td>
-            <td>45</td>
-            <td>10</td>
-        </tr>
-        <tr>
-            <td>Losses and Waste</td>
-            <td>45-150</td>
-            <td>62</td>
-            <td>25</td>
-        </tr>
-       
-    </table>
-    </div>
+    <h3>BRI vs. BMI</h3>
+    <p>
+        Unlike BMI, which only considers height and weight, BRI focuses on waist circumference and fat distribution. This makes BRI a better predictor of health risks related to visceral fat, such as heart disease and diabetes.
+    </p>
+
     <h3>Disclaimer</h3>
     <p>
-        This calculator provides estimates for informational purposes only. It should not replace professional advice or planning. Always consult with water resource experts for accurate and detailed water supply planning.
+        This calculator provides estimates for informational purposes only. It should not replace medical advice, diagnosis, or treatment. Always consult a healthcare provider for a comprehensive assessment of your health.
     </p>
 </div>
 
 <!-- JavaScript Logic -->
 <script>
-    function calculateWaterQuantity() {
-        // Get input values
-        const perCapitaDemand = parseFloat(document.getElementById('perCapitaDemand').value);
-        const population = parseFloat(document.getElementById('population').value);
-        const result = document.getElementById('result');
+ function calculateBRI() {
+    // Get input values
+    const height = parseFloat(document.getElementById('height').value);
+    const waist = parseFloat(document.getElementById('waist').value);
+    const result = document.getElementById('result');
 
-        // Reset result display
-        result.innerHTML = "";
+    // Reset result display
+    result.innerHTML = "";
 
-        // Input validation
-        if (isNaN(perCapitaDemand) || perCapitaDemand <= 0) {
-            result.innerHTML = "❌ Please enter a valid per capita demand.";
-            return;
-        }
-        if (isNaN(population) || population <= 0) {
-            result.innerHTML = "❌ Please enter a valid population.";
-            return;
-        }
-
-        // Calculate total water quantity
-        const totalWaterQuantity = perCapitaDemand * population;
-
-        // Display results
-        result.innerHTML = `
-            <strong>Total Water Required:</strong> ${totalWaterQuantity.toLocaleString()} liters/day
-        `;
+    // Input validation
+    if (isNaN(height) || height <= 0) {
+        result.innerHTML = "❌ Please enter a valid height.";
+        return;
     }
+    if (isNaN(waist) || waist <= 0) {
+        result.innerHTML = "❌ Please enter a valid waist circumference.";
+        return;
+    }
+
+    // Convert height and waist to meters
+    const heightMeters = height / 100;
+    const waistMeters = waist / 100;
+
+    // Calculate BRI
+    const numerator = Math.pow(waistMeters / (2 * Math.PI), 2);
+    const denominator = Math.pow(0.5 * heightMeters, 2);
+    const BRI = 364.2 - 365.5 * Math.sqrt(1 - (numerator / denominator));
+
+    // Round BRI to 2 decimal places
+    const BRIRounded = BRI.toFixed(2);
+
+    // Interpret BRI results
+    let interpretation;
+    if (BRI < 3.41) {
+        interpretation = "Your BRI value indicates a moderate (25%) increase in health risks, especially if other risk factors are present.";
+    } else if (BRI >= 3.41 && BRI < 4.45) {
+        interpretation = "Your BRI value shows no statistically significant increase in health risks.";
+    } else if (BRI >= 4.45 && BRI < 5.46) {
+        interpretation = "Your BRI value generally indicates a low risk for health problems related to visceral obesity.";
+    } else if (BRI >= 5.46 && BRI <= 6.91) {
+        interpretation = "Your BRI value suggests a moderate increase in health risks, especially if other risk factors are present.";
+    } else {
+        interpretation = "Your BRI value is often linked to a higher risk of health problems related to visceral obesity. Consider discussing this result with a physician.";
+    }
+
+    // Display results
+    result.innerHTML = `
+        <strong>BRI:</strong> ${BRIRounded}<br>
+        <strong>Interpretation:</strong> ${interpretation}
+    `;
+}
 </script>
 
+
+
+ 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+
+
+
+
+
 
 
 
@@ -380,12 +510,16 @@ designed requires following data:
         return false;
     });
     </script>
-
 <div id="footer"></div>
 <script>
     fetch("header.html").then(response => response.text()).then(data => document.getElementById("header").innerHTML = data);
     fetch("footer.html").then(response => response.text()).then(data => document.getElementById("footer").innerHTML = data);
 </script>
+
+
+		</div>	<!-- END PAGE CONTENT -->	
+
+
 
 
 		<!-- EXTERNAL SCRIPTS

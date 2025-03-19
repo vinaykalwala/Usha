@@ -56,68 +56,89 @@
 		<link href="css/responsive.css" rel="stylesheet">
 <style>
             
-            
+         
 
+   
         body {
       font-family: Arial, sans-serif;
      
       background-color: #f5f5f5;
     }
     .calculator-container {
-      max-width: 1000px;
-      margin: 20px auto;
-      padding: 20px;
-      background: #ffffff;
-      border-radius: 8px;
-      border: 2px dotted #1560bd;
-
-      box-shadow: 20px 14px 8px rgba(0, 0, 0, 0.2);
-    }
-    .calculator-container h2 {
-      text-align: center;
-      margin-bottom: 20px;
-      color: #1560bd;
-      font-size: 1.8rem;
-      margin-bottom: 30px;
-    }
-    .form-group {
-      margin-bottom: 15px;
-    }
-    .form-group label {
-      display: block;
-      margin-bottom: 5px;
-      color: #333;
-    }
-    .form-group input {
-      width: 100%;
-      padding: 8px;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-      background-color: rgb(223, 241, 247);
-
-    
-    }
-    .cal-btn {
-      width: 100%;
-      padding: 10px;
-      background-color: #1560bd;
-      color: #fff;
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
-      font-size: 16px;
-    }
-    .cal-btn:hover {
-      background-color: #0056b3;
-    }
-    .result {
-      margin-top: 20px;
-      font-size: 24px;
-      color: #333;
-      text-align: center;
-      color: rgb(36, 116, 2);
-     
-    }
+        max-width: 1200px;
+        margin: 20px auto;
+        padding: 20px;
+        background: #ffffff;
+        border-radius: 8px;
+        border: 2px dotted #1560bd;
+        box-shadow: 20px 14px 8px rgba(0, 0, 0, 0.2);
+      }
+      
+      .calculator-container h2 {
+        text-align: center;
+        margin-bottom: 20px;
+        color: #1560bd;
+        font-size: 1.8rem;
+      }
+  
+      .Venting-energy {
+        display: flex;
+        justify-content: space-between;
+        gap: 10px;
+      }
+  
+      .Venting-energy .form-group {
+        width: 48%;
+      }
+      @media (max-width:768px){
+        .Venting-energy {
+            flex-direction: column;
+            gap: 5px;
+        }
+        .Venting-energy .form-group{
+            width: 100%;
+        }
+      }
+  
+      .form-group {
+        margin-bottom: 15px;
+      }
+  
+      .form-group label {
+        display: block;
+        margin-bottom: 5px;
+        color: #333;
+      }
+  
+      .form-group input {
+        width: 100%;
+        padding: 8px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        background-color: rgb(223, 241, 247);
+      }
+  
+      .cal-btn {
+        width: 100%;
+        padding: 10px;
+        background-color: #1560bd;
+        color: #fff;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 16px;
+      }
+  
+      .cal-btn:hover {
+        background-color: #0056b3;
+      }
+  
+      .result {
+        margin-top: 20px;
+        font-size: 24px;
+        color: rgb(36, 116, 2);
+        text-align: center;
+      }
     @media (max-width: 768px) {
     .calculator-container {
         margin: 20px 15px; 
@@ -146,13 +167,16 @@
 }
 
 .note-container h3 {
-    margin:15px 0;
+    margin-top: 10px;
     color: #007bff;
-    font-size: 20px;
+    font-size: 18px;
+}
+.note-container ul{
+    margin-top: 5px;
 }
 
 .note-container p {
-    margin-top: 15px;
+    margin-top: 10px;
     text-align: justify;
 }
 strong{
@@ -165,41 +189,6 @@ strong{
     }
 }
 
-.table-container {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 100%;
-        padding: 20px 0;
-    }
-    .custom-table {
-        width: 80%;
-        max-width: 800px;
-        border-collapse: collapse;
-        background: white;
-        text-align: center;
-    }
-    .custom-table th, .custom-table td {
-        border: 1px solid #000;
-        padding: 10px;
-    }
-    .custom-table th {
-        background-color: #1560bd;
-        color: white;
-    }
-    @media (max-width: 768px) {
-        .custom-table {
-            width: 95%;
-        }
-    }
-    @media (max-width: 768px) {
-        .table-container {
-            padding: 10px;
-        }
-        .custom-table {
-            font-size: 14px;
-        }
-    }
 </style>
 	</head>
 
@@ -207,152 +196,139 @@ strong{
 
 
 	<body> 
-
-
-
-
-
-
-		<div id="header"></div>
-
+		
 <br><br><br><br>
+
+<div id="header"></div>
+
 
 
 
 <div class="calculator-container">
-    <h2>Municipal Water Quantity Estimator Calculator</h2>
+    <h2>Relief Vent Rate (Homogeneous-Vessel Venting) Calculator</h2>
 
-    <!-- Input Row 1 -->
-    <div class="input-row">
-        <!-- Per Capita Demand Input -->
+    <div class="Venting-energy">
         <div class="form-group">
-            <label for="perCapitaDemand">Per Capita Demand (liters/day/person):</label>
-            <input type="number" id="perCapitaDemand" placeholder="Enter per capita demand" required>
+            <label for="V">Volume (V):</label>
+            <input type="number" id="V" min="0.01" placeholder="Enter volume (m³)">
+            <span class="error" id="error-V"></span>
         </div>
 
-        <!-- Population Input -->
-        <div class="form-group">
-            <label for="population">Population:</label>
-            <input type="number" id="population" placeholder="Enter population" required>
+        <div class="form-group">    
+            <label for="mo">Initial Mass (mo):</label>
+            <input type="number" id="mo" min="0.01" placeholder="Enter initial mass (kg)">
+            <span class="error" id="error-mo"></span>
         </div>
     </div>
 
-    <!-- Calculate Button -->
-    <button class="cal-btn" onclick="calculateWaterQuantity()">Calculate Water Quantity</button>
+    <div class="Venting-energy">
+        <div class="form-group">
+            <label for="vfa">Specific Volume (vfa):</label>
+            <input type="number" id="vfa" min="0.01" placeholder="Enter specific volume (m³/kg)">
+            <span class="error" id="error-vfa"></span>
+        </div>
 
-    <!-- Result Display -->
+        <div class="form-group">
+            <label for="Cv">Specific Heat at Constant Volume (Cv):</label>
+            <input type="number" id="Cv" min="0.01" placeholder="Enter Cv (J/kg.K)">
+            <span class="error" id="error-Cv"></span>
+        </div>
+    </div>
+
+        <div class="form-group">   
+            <label for="dT">Temperature Rise (ΔT):</label>
+            <input type="number" id="dT" min="0.01" placeholder="Enter temperature rise (K)">
+            <span class="error" id="error-dT"></span>
+        </div>
+
+    <button class="cal-btn" onclick="calculateVentRate()">Calculate</button>
+
     <div class="result" id="result"></div>
+
 </div>
 
-<!-- Information Section -->
-<div class="note-container">
-    <h3>What is Water Quantity Estimation?</h3>
-    <p>
-        Water Quantity Estimation is the process of calculating the total amount of water required to meet the needs of a population. It is based on the per capita demand (water consumption rate per person) and the total population to be served.
-    </p>
-    <p>The calculator helps users estimate the total municipal water demand based on population size and per capita water consumption</p>
 
-    <h3>Why is Water Quantity Estimation Important?</h3>
-    <p>
-        Estimating water quantity is essential for:
-    </p>
+<div class="note-container">
+    <h3>Note:</h3>
+    <p><strong>About the Formula:</strong> The Relief Vent Rate Formula helps determine the required venting capacity for safe pressure relief in vessels. It ensures that pressure buildup is controlled, preventing explosions or structural failures.</p>
+
+    <p><strong>Understanding the Parameters:</strong></p>
     <ul>
-        <li><strong>Urban Planning:</strong> Designing water supply systems for cities and communities.</li>
-        <li><strong>Resource Management:</strong> Ensuring adequate water supply for daily needs.</li>
-        <li><strong>Emergency Preparedness:</strong> Planning for water requirements during emergencies or disasters.</li>
+        <li><strong>V (Volume):</strong> The total space inside the vessel, which influences how pressure is distributed.</li>
+        <li><strong>mo (Initial Mass):</strong> The mass of the liquid inside the vessel at the start. More mass means higher potential energy.</li>
+        <li><strong>vfa (Specific Volume):</strong> The space occupied by a unit mass of liquid. It determines how the liquid expands under pressure.</li>
+        <li><strong>Cv (Specific Heat Capacity):</strong> The heat required to raise the temperature of a unit mass by one degree. It affects energy transfer.</li>
+        <li><strong>ΔT (Temperature Rise):</strong> The increase in temperature over time. A higher ΔT leads to a higher pressure buildup.</li>
     </ul>
 
-    <h3>How to Use the Calculator</h3>
-    <p>
-        The quantity of water required for municipal uses for which the water supply scheme has to be 
-designed requires following data: 
-    </p>
-    <ol>
-        <li><strong>Enter Water consumption rate (Per Capita Demand in litres per day per head) :</strong> Input the water consumption rate per person in liters/day.</li>
-        <li><strong>Enter Population:</strong> Input the total number of people to be served.</li>
-        <li><strong>Calculate:</strong> Click "Calculate Water Quantity" to see the total water required.</li>
-    </ol>
+    <p><strong>Real-Life Applications:</strong></p>
+    <ul>
+        <li><strong>Fire Protection Systems:</strong> Prevents vessels from over-pressurizing due to fire exposure.</li>
+        <li><strong>Chemical Processing:</strong> Ensures controlled pressure release in reactors and storage tanks.</li>
+        <li><strong>Industrial Safety:</strong> Used in refineries, power plants, and storage facilities to maintain safe operating conditions.</li>
+    </ul>
 
-  
-        <h3>Water Consumption Rate</h3>
-          <p> It is very difficult to precisely assess the quantity of water demanded by the public, since there 
-           are many variable factors affecting water consumption. The various types of water demands, 
-           which a city may have, may be broken into following classes: </p> 
-           <h3>Water Consumption for Various Purposes</h3>
-
-           <div class="table-container">
-    <table border="1" cellpadding="8" cellspacing="0" class="custom-table">
-        <tr>
-            <th>Types of Consumption</th>
-            <th>Normal Range (lit/capita/day)</th>
-            <th>Average </th>
-            <th>%</th>
-        </tr>
-        <tr>
-            <td>Domestic Consumption</td>
-            <td>65-300</td>
-            <td>160</td>
-            <td>35</td>
-        </tr>
-        <tr>
-            <td>Industrial and Commercial Demand</td>
-            <td>45-450</td>
-            <td>135</td>
-            <td>30</td>
-        </tr>
-        <tr>
-            <td>Public Uses including Fire Demand</td>
-            <td>20-90</td>
-            <td>45</td>
-            <td>10</td>
-        </tr>
-        <tr>
-            <td>Losses and Waste</td>
-            <td>45-150</td>
-            <td>62</td>
-            <td>25</td>
-        </tr>
-       
-    </table>
-    </div>
-    <h3>Disclaimer</h3>
-    <p>
-        This calculator provides estimates for informational purposes only. It should not replace professional advice or planning. Always consult with water resource experts for accurate and detailed water supply planning.
-    </p>
+    <p><strong>Conclusion:</strong> This formula is essential for industries dealing with high-pressure systems. Proper venting ensures safety, efficiency, and compliance with industrial safety standards.</p>
 </div>
 
-<!-- JavaScript Logic -->
 <script>
-    function calculateWaterQuantity() {
-        // Get input values
-        const perCapitaDemand = parseFloat(document.getElementById('perCapitaDemand').value);
-        const population = parseFloat(document.getElementById('population').value);
-        const result = document.getElementById('result');
+    function calculateVentRate() {
+        let V = parseFloat(document.getElementById('V').value);
+        let mo = parseFloat(document.getElementById('mo').value);
+        let vfa = parseFloat(document.getElementById('vfa').value);
+        let Cv = parseFloat(document.getElementById('Cv').value);
+        let dT = parseFloat(document.getElementById('dT').value);
+        let errors = false;
 
-        // Reset result display
-        result.innerHTML = "";
+        // Clear previous error messages
+        document.querySelectorAll(".error").forEach(el => el.innerText = "");
 
-        // Input validation
-        if (isNaN(perCapitaDemand) || perCapitaDemand <= 0) {
-            result.innerHTML = "❌ Please enter a valid per capita demand.";
-            return;
+        // Input Validations
+        if (isNaN(V) || V <= 0) { 
+            document.getElementById('error-V').innerText = "Volume must be greater than zero because a zero or negative volume is not physically possible for a vessel."; 
+            errors = true; 
         }
-        if (isNaN(population) || population <= 0) {
-            result.innerHTML = "❌ Please enter a valid population.";
-            return;
+        if (isNaN(mo) || mo <= 0) { 
+            document.getElementById('error-mo').innerText = "Initial mass must be greater than zero because an empty vessel cannot generate pressure buildup."; 
+            errors = true; 
+        }
+        if (isNaN(vfa) || vfa <= 0) { 
+            document.getElementById('error-vfa').innerText = "Specific volume must be greater than zero because liquid expansion must be considered."; 
+            errors = true; 
+        }
+        if (isNaN(Cv) || Cv <= 0) { 
+            document.getElementById('error-Cv').innerText = "Specific heat must be greater than zero because heat transfer cannot be zero in a pressurized system."; 
+            errors = true; 
+        }
+        if (isNaN(dT) || dT <= 0) { 
+            document.getElementById('error-dT').innerText = "Temperature rise must be greater than zero because a static system does not create pressure."; 
+            errors = true; 
+        }
+        
+        if (errors) return;
+
+        // Relief vent rate calculation
+        let term1 = Math.sqrt(V / (mo * vfa));
+        let term2 = Math.sqrt(Cv * dT);
+        let result = Math.pow((term1 + term2), 2);
+
+        // Display result with feedback
+        let resultText = `<p>Relief Vent Rate (W) = <span style="color: blue;">${result.toFixed(3)} kg/s</span></p>`;
+        if (result < 1) {
+            resultText += `<p style="color: green;">This indicates a low-pressure release system, which is safer.</p>`;
+        } else if (result > 10) {
+            resultText += `<p style="color: red;">High vent rate! Ensure the system can handle this pressure safely.</p>`;
+        } else {
+            resultText += `<p style="color: orange;">Moderate vent rate. Regular maintenance is recommended.</p>`;
         }
 
-        // Calculate total water quantity
-        const totalWaterQuantity = perCapitaDemand * population;
-
-        // Display results
-        result.innerHTML = `
-            <strong>Total Water Required:</strong> ${totalWaterQuantity.toLocaleString()} liters/day
-        `;
+        document.getElementById('result').innerHTML = resultText;
     }
 </script>
 
+
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+
 
 
 
@@ -380,12 +356,16 @@ designed requires following data:
         return false;
     });
     </script>
-
 <div id="footer"></div>
 <script>
     fetch("header.html").then(response => response.text()).then(data => document.getElementById("header").innerHTML = data);
     fetch("footer.html").then(response => response.text()).then(data => document.getElementById("footer").innerHTML = data);
 </script>
+
+
+		</div>	<!-- END PAGE CONTENT -->	
+
+
 
 
 		<!-- EXTERNAL SCRIPTS
