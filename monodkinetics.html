@@ -56,8 +56,9 @@
 		<link href="css/responsive.css" rel="stylesheet">
 <style>
             
-      
+         
 
+   
         body {
       font-family: Arial, sans-serif;
      
@@ -80,6 +81,8 @@
       font-size: 1.8rem;
       margin-bottom: 30px;
     }
+
+
     .form-group {
       margin-bottom: 15px;
     }
@@ -97,6 +100,28 @@
 
     
     }
+
+    .do-deficit {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.do-deficit .form-group {
+    width: 48%;
+}
+
+@media (max-width: 768px) {
+    .do-deficit {
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    .do-deficit .form-group {
+        width: 100%;
+    }
+}
+
     .cal-btn {
       width: 100%;
       padding: 10px;
@@ -146,9 +171,17 @@
 }
 
 .note-container h3 {
-    margin-top: 0;
+    margin:15px 0;
     color: #007bff;
-    font-size: 18px;
+    font-size: 20px;
+}
+
+.note-container ul{
+    margin: 10px;
+}
+
+.note-container{
+    margin-top: 10px;
 }
 
 .note-container p {
@@ -164,6 +197,16 @@ strong{
         padding: 10px; 
     }
 }
+select {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #d3e0f0;
+    border-radius: 5px;
+    font-size: 1rem;
+    background-color: rgb(223, 241, 247);
+
+}
 </style>
 	</head>
 
@@ -175,83 +218,151 @@ strong{
 
 
 
+
+
+		
 <br><br><br><br>
+
 <div id="header"></div>
 
-
 <div class="calculator-container">
-    <h2>Energy Consumption Calculator</h2>
+    <h2>Monod Kinetics - Substrate Limited Growth Calculator</h2>
+
     <div class="form-group">
-        <label for="deviceWattage"><strong>Device Wattage (W):</strong></label>
-        <input type="number" id="deviceWattage" placeholder="Enter the device wattage in watts">
+        <label for="muMax">Maximum Growth Rate (μₘₐₓ) [1/day]:</label>
+        <input type="number" id="muMax" placeholder="Enter μₘₐₓ" step="any">
     </div>
+
     <div class="form-group">
-        <label for="hoursPerDay"><strong>Hours Used per Day:</strong></label>
-        <input type="number" id="hoursPerDay" placeholder="Enter the number of hours the device is used per day">
+        <label for="substrate">Substrate Concentration (S) [mg/L]:</label>
+        <input type="number" id="substrate" placeholder="Enter S" step="any">
     </div>
-    <button class="cal-btn" onclick="calculateEnergyConsumption()">Calculate</button>
+
+    <div class="form-group">
+        <label for="halfSaturation">Half-Saturation Constant (Kₛ) [mg/L]:</label>
+        <input type="number" id="halfSaturation" placeholder="Enter Kₛ" step="any">
+    </div>
+
+    <div class="form-group">
+        <label for="decayRate">Decay Rate (kₐ) [1/day]:</label>
+        <input type="number" id="decayRate" placeholder="Enter kₐ" step="any">
+    </div>
+
+    <button class="cal-btn" onclick="calculateGrowthRate()">Calculate</button>
+
     <div class="result" id="result"></div>
     <div class="feedback" id="feedback"></div>
 </div>
+    
 
 <div class="note-container">
     <h3>Note:</h3>
-    <p>
-        This calculator determines the <strong>total energy consumption</strong> of a device based on:
-    </p>
+    <p>This calculator determines the <strong>Specific Growth Rate (μ)</strong> using the Monod Kinetics model.</p>
+    <p>It is essential in environmental and biological engineering for <strong>analyzing microbial growth</strong> in bioreactors, wastewater treatment, and fermentation processes.</p>
+
+    <h3>Explanation of Parameters:</h3>
     <ul>
-        <li><strong>Device Wattage (W):</strong> The amount of power the device uses when it is turned on, measured in watts (W).</li>
-        <li><strong>Hours Used per Day:</strong> The number of hours the device is used each day.</li>
+        <li><strong>Maximum Growth Rate (μₘₐₓ):</strong> The highest possible specific growth rate under ideal substrate conditions, measured in <strong>1/day</strong>.</li>
+        <li><strong>Substrate Concentration (S):</strong> The available nutrient concentration supporting microbial growth, measured in <strong>mg/L</strong>.</li>
+        <li><strong>Half-Saturation Constant (Kₛ):</strong> The substrate concentration at which the growth rate is half of μₘₐₓ, measured in <strong>mg/L</strong>.</li>
+        <li><strong>Decay Rate (kₐ):</strong> The rate at which microorganisms die or lose viability, measured in <strong>1/day</strong>.</li>
     </ul>
-    <p>
-        After entering the values, click <strong>Calculate</strong> to see your <strong>total energy consumption</strong> in kilowatt-hours (kWh).
-    </p>
-    <p>
-        The <strong>total energy consumption</strong> is calculated by multiplying the device wattage and hours used per day. The result is then converted into kilowatt-hours (kWh) by dividing the total watt-hours by 1000.
-    </p>
+
+    <h3>Why Monod Kinetics is Important?</h3>
+    <p>Understanding microbial growth kinetics is crucial for <strong>wastewater treatment, bioprocess engineering, and industrial biotechnology</strong>. It helps determine:</p>
+    <ul>
+        <li>The optimal substrate concentration for microbial growth.</li>
+        <li>The impact of nutrient limitations on biomass production.</li>
+        <li>The efficiency of biological treatment systems.</li>
+        <li>How to control microbial populations in bioreactors.</li>
+    </ul>
+
+    <h3>Validations:</h3>
+    <ul>
+        <li><strong>Maximum Growth Rate (μₘₐₓ):</strong> Must be a <strong>positive</strong> number.</li>
+        <li><strong>Substrate Concentration (S):</strong> Must be a <strong>non-negative</strong> number.</li>
+        <li><strong>Half-Saturation Constant (Kₛ):</strong> Must be a <strong>positive</strong> number.</li>
+        <li><strong>Decay Rate (kₐ):</strong> Must be a <strong>non-negative</strong> number.</li>
+        <li><strong>Denominator (Kₛ + S):</strong> Cannot be zero.</li>
+    </ul>
+
+    <h3>Real-life Applications:</h3>
+    <ul>
+        <li><strong>Wastewater Treatment:</strong> Modeling bacterial growth for nutrient removal.</li>
+        <li><strong>Bioreactors & Fermentation:</strong> Optimizing microbial culture conditions.</li>
+        <li><strong>Pharmaceutical Production:</strong> Controlling growth rates for drug manufacturing.</li>
+        <li><strong>Food Industry:</strong> Enhancing fermentation efficiency.</li>
+        <li><strong>Environmental Engineering:</strong> Predicting microbial degradation of pollutants.</li>
+    </ul>
+
+    <h3>Conclusion:</h3>
+    <p>The Monod Kinetics model helps predict microbial growth rates, aiding in <strong>bioprocess optimization, environmental sustainability, and industrial production</strong>.</p>
 </div>
 
+
+
 <script>
-function calculateEnergyConsumption() {
-    const deviceWattage = parseFloat(document.getElementById('deviceWattage').value);
-    const hoursPerDay = parseFloat(document.getElementById('hoursPerDay').value);
-    const resultElement = document.getElementById('result');
-    const feedbackElement = document.getElementById('feedback');
+    function calculateGrowthRate() {
+        const muMax = parseFloat(document.getElementById("muMax").value);
+        const S = parseFloat(document.getElementById("substrate").value);
+        const Ks = parseFloat(document.getElementById("halfSaturation").value);
+        const kd = parseFloat(document.getElementById("decayRate").value);
+        const resultElement = document.getElementById("result");
+        const feedbackElement = document.getElementById("feedback");
 
-    // If invalid input, clear previous results and show error message
-    if (isNaN(deviceWattage) || isNaN(hoursPerDay) || deviceWattage <= 0 || hoursPerDay <= 0 || hoursPerDay > 24) {
-        resultElement.innerText = "";
-        feedbackElement.innerText = "";
-        resultElement.innerText = "Please enter valid positive numbers.";
-        return;
+        resultElement.innerHTML = "";
+        feedbackElement.innerHTML = "";
+
+        // Validations
+        if (isNaN(muMax) || muMax <= 0) {
+            resultElement.innerHTML = "❌ <strong>Error:</strong> Maximum Growth Rate (μₘₐₓ) must be a positive number.";
+            return;
+        }
+        if (isNaN(S) || S < 0) {
+            resultElement.innerHTML = "❌ <strong>Error:</strong> Substrate Concentration (S) must be non-negative.";
+            return;
+        }
+        if (isNaN(Ks) || Ks <= 0) {
+            resultElement.innerHTML = "❌ <strong>Error:</strong> Half-Saturation Constant (Kₛ) must be a positive number.";
+            return;
+        }
+        if (isNaN(kd) || kd < 0) {
+            resultElement.innerHTML = "❌ <strong>Error:</strong> Decay Rate (kₐ) must be a non-negative number.";
+            return;
+        }
+        if (Ks + S === 0) {
+            resultElement.innerHTML = "❌ <strong>Error:</strong> Denominator (Kₛ + S) cannot be zero.";
+            return;
+        }
+
+        // Monod Growth Rate Calculation
+        const mu = (muMax * S) / (Ks + S) - kd;
+
+        // Display Result
+        resultElement.innerHTML = `<strong>Specific Growth Rate (μ):</strong> ${mu.toFixed(4)} 1/day`;
+
+        // Feedback Based on Growth Rate
+        let feedbackMessage = "";
+        if (mu <= 0) {
+            feedbackMessage = "⚠️ <strong>Microbial growth is inhibited or declining.</strong> Low substrate concentration or high decay rate is limiting growth.";
+            feedbackElement.style.color = "red";
+        } else if (mu > 0 && mu <= 0.5 * muMax) {
+            feedbackMessage = "🔹 <strong>Growth is occurring but limited.</strong> Increasing substrate concentration may enhance growth.";
+            feedbackElement.style.color = "orange";
+        } else {
+            feedbackMessage = "✅ <strong>Microbes are growing efficiently!</strong> Favorable conditions are supporting optimal growth.";
+            feedbackElement.style.color = "green";
+        }
+
+        feedbackElement.innerHTML = feedbackMessage;
     }
-
-    // Convert device wattage from watts to kilowatts
-    const deviceWattageKW = deviceWattage / 1000; // Convert wattage to kilowatts (1 kW = 1000 W)
-
-    // Total energy consumed in kilowatt-hours (kWh) per day
-    const totalEnergyKWh = deviceWattageKW * hoursPerDay;
-
-    resultElement.innerText = `Total Energy Consumption: ${totalEnergyKWh.toFixed(2)} kWh per day`;
-
-    // Provide feedback
-    let feedback = "";
-    if (totalEnergyKWh < 1) {
-        feedback = "✅ This is low energy consumption. Great job!";
-    } else if (totalEnergyKWh >= 1 && totalEnergyKWh <= 5) {
-        feedback = "⚡ This is moderate energy consumption. Consider reducing usage to save energy.";
-    } else {
-        feedback = "❗ This is high energy consumption. Consider using energy-efficient devices or reducing usage.";
-    }
-
-    feedbackElement.innerText = feedback;
-}
-
 </script>
 
 
 
+
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+
 
 
 
@@ -283,11 +394,13 @@ function calculateEnergyConsumption() {
         return false;
     });
     </script>
+
 <div id="footer"></div>
 <script>
     fetch("header.html").then(response => response.text()).then(data => document.getElementById("header").innerHTML = data);
     fetch("footer.html").then(response => response.text()).then(data => document.getElementById("footer").innerHTML = data);
 </script>
+
 
 		</div>	<!-- END PAGE CONTENT -->	
 
@@ -390,5 +503,5 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 
-<!-- Mirrored from dsathemes.com/html/martex_1.1/files/project-details.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 08 Mar 2024 16:40:05 GMT -->
+<!-- Mirrored from dsathemes.com/html/martex_1.1/files/project-details.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 08 Mar 2024 16:40:05 GMT -->
 </html>

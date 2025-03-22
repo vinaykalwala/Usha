@@ -56,68 +56,101 @@
 		<link href="css/responsive.css" rel="stylesheet">
 <style>
             
-      
+         
 
+   
         body {
       font-family: Arial, sans-serif;
      
       background-color: #f5f5f5;
     }
     .calculator-container {
-      max-width: 1000px;
-      margin: 20px auto;
-      padding: 20px;
-      background: #ffffff;
-      border-radius: 8px;
-      border: 2px dotted #1560bd;
-
-      box-shadow: 20px 14px 8px rgba(0, 0, 0, 0.2);
-    }
-    .calculator-container h2 {
-      text-align: center;
-      margin-bottom: 20px;
-      color: #1560bd;
-      font-size: 1.8rem;
-      margin-bottom: 30px;
-    }
-    .form-group {
-      margin-bottom: 15px;
-    }
-    .form-group label {
-      display: block;
-      margin-bottom: 5px;
-      color: #333;
-    }
-    .form-group input {
-      width: 100%;
-      padding: 8px;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-      background-color: rgb(223, 241, 247);
+        max-width: 1200px;
+        margin: 20px auto;
+        padding: 20px;
+        background: #ffffff;
+        border-radius: 8px;
+        border: 2px dotted #1560bd;
+        box-shadow: 20px 14px 8px rgba(0, 0, 0, 0.2);
+      }
+      
+      .calculator-container h2 {
+        text-align: center;
+        margin-bottom: 20px;
+        color: #1560bd;
+        font-size: 1.8rem;
+      }
 
     
-    }
-    .cal-btn {
-      width: 100%;
-      padding: 10px;
-      background-color: #1560bd;
-      color: #fff;
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
-      font-size: 16px;
-    }
-    .cal-btn:hover {
-      background-color: #0056b3;
-    }
-    .result {
-      margin-top: 20px;
-      font-size: 24px;
-      color: #333;
-      text-align: center;
-      color: rgb(36, 116, 2);
+  
+      .precast-lifting {
+        display: flex;
+        justify-content: space-between;
+        gap: 10px;
+      }
+  
+      .precast-lifting .form-group {
+        width: 48%;
+      }
+      @media (max-width:768px){
+        .precast-lifting {
+            flex-direction: column;
+            gap: 5px;
+        }
+        .precast-lifting .form-group{
+            width: 100%;
+        }
+      }
+
+
+      .section {
+        display: none; 
+      }
      
-    }
+      .active {
+        display: block; 
+      }
+  
+      .form-group {
+        margin-bottom: 15px;
+        
+      }
+  
+      .form-group label {
+        display: block;
+        margin-bottom: 5px;
+        color: #333;
+      }
+  
+      .form-group input {
+        width: 100%;
+        padding: 8px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        background-color: rgb(223, 241, 247);
+      }
+  
+      .cal-btn {
+        width: 100%;
+        padding: 10px;
+        background-color: #1560bd;
+        color: #fff;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 16px;
+      }
+  
+      .cal-btn:hover {
+        background-color: #0056b3;
+      }
+  
+      .result {
+        margin-top: 20px;
+        font-size: 24px;
+        color: rgb(36, 116, 2);
+        text-align: center;
+      }
     @media (max-width: 768px) {
     .calculator-container {
         margin: 20px 15px; 
@@ -146,13 +179,16 @@
 }
 
 .note-container h3 {
-    margin-top: 0;
+    margin-top: 10px;
     color: #007bff;
     font-size: 18px;
 }
+.note-container ul{
+    margin-top: 5px;
+}
 
 .note-container p {
-    margin-top: 15px;
+    margin-top: 10px;
     text-align: justify;
 }
 strong{
@@ -164,6 +200,17 @@ strong{
         padding: 10px; 
     }
 }
+select {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #d3e0f0;
+    border-radius: 5px;
+    font-size: 1rem;
+    background-color: rgb(223, 241, 247);
+
+}
+
 </style>
 	</head>
 
@@ -171,90 +218,118 @@ strong{
 
 
 	<body> 
-
-
-
-
+		
 <br><br><br><br>
+
 <div id="header"></div>
 
 
+
 <div class="calculator-container">
-    <h2>Energy Consumption Calculator</h2>
-    <div class="form-group">
-        <label for="deviceWattage"><strong>Device Wattage (W):</strong></label>
-        <input type="number" id="deviceWattage" placeholder="Enter the device wattage in watts">
+    <h2>Precast Lifting Safety Calculator</h2>
+
+
+        <div class="form-group">
+            <label for="length">Length (m):</label>
+            <input type="number" id="length" placeholder="Enter length">
+        </div>
+        <div class="form-group">
+            <label for="width">Width (m):</label>
+            <input type="number" id="width" placeholder="Enter width">
+        </div>
+        <div class="form-group">
+            <label for="thickness">Thickness (m):</label>
+            <input type="number" id="thickness" placeholder="Enter thickness">
+        </div>
+
+        <!-- Optional Special Case Selection -->
+        <div class="form-group">
+            <label for="structureType">Select Special Case (Optional):</label>
+            <select id="structureType">
+                <option value="1">None</option>
+                <option value="2">Double-T Slabs (2 × G)</option>
+                <option value="3">Ribbed Elements (3 × G)</option>
+                <option value="4">Coffered Elements (4 × G)</option>
+            </select>
+        </div>
+
+        <button class="cal-btn" onclick="calculateWeight()">Calculate Weight</button>
+        <p class="result" id="weight-result"></p>
     </div>
-    <div class="form-group">
-        <label for="hoursPerDay"><strong>Hours Used per Day:</strong></label>
-        <input type="number" id="hoursPerDay" placeholder="Enter the number of hours the device is used per day">
-    </div>
-    <button class="cal-btn" onclick="calculateEnergyConsumption()">Calculate</button>
-    <div class="result" id="result"></div>
-    <div class="feedback" id="feedback"></div>
+
 </div>
 
 <div class="note-container">
     <h3>Note:</h3>
-    <p>
-        This calculator determines the <strong>total energy consumption</strong> of a device based on:
-    </p>
+    <p><strong>Precast Lifting Safety Formulas</strong> help in estimating the weight of precast units and calculating adhesion forces to ensure safe handling and lifting.</p>
+
+    <h3>Why These Calculations Are Important?</h3>
+    <p>Understanding the weight and adhesion of precast units is essential for safety in construction. Incorrect estimations can lead to accidents, equipment failure, and structural damage.</p>
+
+    <h3>Key Parameters That Affect Calculations:</h3>
     <ul>
-        <li><strong>Device Wattage (W):</strong> The amount of power the device uses when it is turned on, measured in watts (W).</li>
-        <li><strong>Hours Used per Day:</strong> The number of hours the device is used each day.</li>
+        <li><strong>Material Density (ρ)</strong> – Concrete density affects weight estimation.</li>
+        <li><strong>Unit Dimensions (L, W, T)</strong> – The length, width, and thickness determine volume.</li>
+        <li><strong>Contact Area (A)</strong> – The area in contact with the formwork influences adhesion forces.</li>
+        <li><strong>Formwork Type (q)</strong> – Different materials have different adhesion levels.</li>
+        <li><strong>Structural Type</strong> – Special elements like Double-T slabs, ribbed, and coffered units impact weight.</li>
     </ul>
-    <p>
-        After entering the values, click <strong>Calculate</strong> to see your <strong>total energy consumption</strong> in kilowatt-hours (kWh).
-    </p>
-    <p>
-        The <strong>total energy consumption</strong> is calculated by multiplying the device wattage and hours used per day. The result is then converted into kilowatt-hours (kWh) by dividing the total watt-hours by 1000.
-    </p>
+
+    <h3>Real-Life Applications:</h3>
+    <ul>
+        <li><strong>Construction Industry</strong> – Ensuring proper lifting of precast concrete walls, slabs, and beams.</li>
+        <li><strong>Bridge Engineering</strong> – Calculating forces for lifting heavy bridge segments.</li>
+        <li><strong>Prefab Housing</strong> – Safe handling of prefabricated walls and floors.</li>
+        <li><strong>Industrial Warehouses</strong> – Installation of precast concrete panels.</li>
+    </ul>
+
+    <h3>Lessons from History:</h3>
+    <ul>
+        <li><strong>Building Collapses</strong> – Cases where improper lifting caused structural failure.</li>
+        <li><strong>Crane Accidents</strong> – Incidents due to underestimating weight or adhesion forces.</li>
+        <li><strong>Infrastructure Failures</strong> – Bridges collapsing during precast segment installation due to miscalculations.</li>
+    </ul>
+
+    <h3>Industry Standards & Guidelines:</h3>
+    <p>Standards such as **OSHA (Occupational Safety and Health Administration)**, **ACI (American Concrete Institute)**, and **ISO 9001** ensure best practices for lifting safety.</p>
+
+    <h3>Conclusion:</h3>
+    <p>Proper weight estimation and adhesion calculations are crucial in precast construction. Following these principles ensures safer and more efficient lifting, reducing accidents and improving productivity.</p>
 </div>
 
 <script>
-function calculateEnergyConsumption() {
-    const deviceWattage = parseFloat(document.getElementById('deviceWattage').value);
-    const hoursPerDay = parseFloat(document.getElementById('hoursPerDay').value);
-    const resultElement = document.getElementById('result');
-    const feedbackElement = document.getElementById('feedback');
+function calculateWeight() {
+    let length = parseFloat(document.getElementById("length").value);
+    let width = parseFloat(document.getElementById("width").value);
+    let thickness = parseFloat(document.getElementById("thickness").value);
+    let structureFactor = parseFloat(document.getElementById("structureType").value);
+    let density = 25;  // Given in kN/m³
+    let messages = [];
 
-    // If invalid input, clear previous results and show error message
-    if (isNaN(deviceWattage) || isNaN(hoursPerDay) || deviceWattage <= 0 || hoursPerDay <= 0 || hoursPerDay > 24) {
-        resultElement.innerText = "";
-        feedbackElement.innerText = "";
-        resultElement.innerText = "Please enter valid positive numbers.";
+    if (isNaN(length) || length <= 0) messages.push("Enter a valid Length (must be > 0).");
+    if (isNaN(width) || width <= 0) messages.push("Enter a valid Width (must be > 0).");
+    if (isNaN(thickness) || thickness <= 0) messages.push("Enter a valid Thickness (must be > 0).");
+    if (isNaN(structureFactor) || structureFactor <= 0) messages.push("Enter a valid Structure Factor (must be > 0).");
+
+    if (messages.length > 0) {
+        document.getElementById("weight-result").innerText = messages.join("\n");
         return;
     }
 
-    // Convert device wattage from watts to kilowatts
-    const deviceWattageKW = deviceWattage / 1000; // Convert wattage to kilowatts (1 kW = 1000 W)
+    let volume = length * width * thickness;
+    let weight = density * volume;
+    let finalWeight = (structureFactor === 1) ? weight : weight * structureFactor;
 
-    // Total energy consumed in kilowatt-hours (kWh) per day
-    const totalEnergyKWh = deviceWattageKW * hoursPerDay;
+    document.getElementById("weight-result").innerHTML = 
+    (structureFactor === 1) 
+    ? `<strong>Weight of Precast Unit:</strong> ${weight.toFixed(2)} kN`
+    : `<strong>Weight of Precast Unit (Special Case):</strong> ${finalWeight.toFixed(2)} kN`;
 
-    resultElement.innerText = `Total Energy Consumption: ${totalEnergyKWh.toFixed(2)} kWh per day`;
-
-    // Provide feedback
-    let feedback = "";
-    if (totalEnergyKWh < 1) {
-        feedback = "✅ This is low energy consumption. Great job!";
-    } else if (totalEnergyKWh >= 1 && totalEnergyKWh <= 5) {
-        feedback = "⚡ This is moderate energy consumption. Consider reducing usage to save energy.";
-    } else {
-        feedback = "❗ This is high energy consumption. Consider using energy-efficient devices or reducing usage.";
-    }
-
-    feedbackElement.innerText = feedback;
 }
 
 </script>
 
-
-
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
-
-
-
 
 
 
@@ -288,6 +363,7 @@ function calculateEnergyConsumption() {
     fetch("header.html").then(response => response.text()).then(data => document.getElementById("header").innerHTML = data);
     fetch("footer.html").then(response => response.text()).then(data => document.getElementById("footer").innerHTML = data);
 </script>
+
 
 		</div>	<!-- END PAGE CONTENT -->	
 

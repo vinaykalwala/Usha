@@ -154,6 +154,7 @@
 
 .note-container ul{
     margin: 10px;
+    
 }
 
 .note-container{
@@ -253,6 +254,29 @@ select {
         padding: 8px;
     }
 }
+.image-container {
+    text-align: center; /* Centers the image */
+}
+
+.responsive-image {
+    max-width: 90%; /* Ensures image scales within its container */
+    height: 350px; /* Maintains aspect ratio */
+}
+
+/* Adjust image size for smaller screens */
+@media screen and (max-width: 768px) {
+    .responsive-image {
+        width: 90%; /* Reduce width on smaller screens */
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .responsive-image {
+        width: 100%; /* Make image fully responsive on mobile */
+    }
+}
+
+
 </style>
 	</head>
 
@@ -341,7 +365,21 @@ select {
             </tbody>
         </table>
     </div>
-
+    <h3>Shape chart based on waist-to-height-ratio</h3>
+    <p>After research showed that WHtR was as good a predictor of health outcomes as waist circumference and waist-to-hip ratio, a simple "Shape Chart" was produced:</p>
+    <div class="image-container">
+        <img src="images/vindus_clients_images/whtr.webp" alt="SCBA Image" class="responsive-image">
+    </div>
+    <h3>Diagram Description:</h3>
+<ul>
+    <li>Waist circumference is presented along the x-axis, and height on the y-axis.</li>
+    <li>Chart is suitable for adults and children over 5 years old.</li>
+    <li>The cut-off values for waist-to-height ratio are set at WHtR 0.4 (brown to green), 0.5 (green to yellow), and 0.6 (yellow to red).</li>
+    <li>The brown area indicates Take Care – you might be underweight; no need to decrease your waist circumference.</li>
+    <li>The green area indicates OK.</li>
+    <li>The yellow area indicates Consider Action for adults and Take Action for children.</li>
+    <li>The red area indicates Take Action.</li>
+</ul>
     <h3>Limitations of WHtR:</h3>
     <p>While WHtR is a useful tool, it has some limitations:</p>
     <ul>

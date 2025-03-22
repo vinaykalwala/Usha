@@ -55,85 +55,90 @@
 		<!-- RESPONSIVE CSS -->
 		<link href="css/responsive.css" rel="stylesheet">
 <style>
-    
+            
+         
+
+   
         body {
       font-family: Arial, sans-serif;
      
       background-color: #f5f5f5;
     }
     .calculator-container {
-      max-width: 1100px;
-      margin: 20px auto;
-      padding: 20px;
-      background: #ffffff;
-      border-radius: 8px;
-      border: 2px dotted #1560bd;
-
-      box-shadow: 20px 14px 8px rgba(0, 0, 0, 0.2);
-    }
-    .calculator-container h2 {
-      text-align: center;
-      margin-bottom: 20px;
-      color: #1560bd;
-      font-size: 1.8rem;
-      margin-bottom: 30px;
-    }
-    .vapour {
+        max-width: 1200px;
+        margin: 20px auto;
+        padding: 20px;
+        background: #ffffff;
+        border-radius: 8px;
+        border: 2px dotted #1560bd;
+        box-shadow: 20px 14px 8px rgba(0, 0, 0, 0.2);
+      }
+      
+      .calculator-container h2 {
+        text-align: center;
+        margin-bottom: 20px;
+        color: #1560bd;
+        font-size: 1.8rem;
+      }
+  
+      .vent-area {
         display: flex;
-        justify-content: space-around;
+        justify-content: space-between;
         gap: 10px;
       }
   
-      .vapour .form-group {
+      .vent-area .form-group {
         width: 48%;
       }
       @media (max-width:768px){
-        .vapour {
+        .vent-area {
             flex-direction: column;
             gap: 5px;
         }
-        .vapour .form-group{
+        .vent-area .form-group{
             width: 100%;
         }
       }
-    .form-group {
-      margin-bottom: 15px;
-    }
-    .form-group label {
-      display: block;
-      margin-bottom: 5px;
-      color: #333;
-    }
-    .form-group input {
-      width: 100%;
-      padding: 8px;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-      background-color: rgb(223, 241, 247);
-
-    
-    }
-    .cal-btn {
-      width: 100%;
-      padding: 10px;
-      background-color: #1560bd;
-      color: #fff;
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
-      font-size: 16px;
-    }
-    .cal-btn:hover {
-      background-color: #0056b3;
-    }
-    .result {
-      margin-top: 20px;
-      font-size: 24px;
-      color: #333;
-      text-align: center;
-      color: rgb(36, 116, 2);
-     
-    }
+  
+      .form-group {
+        margin-bottom: 15px;
+      }
+  
+      .form-group label {
+        display: block;
+        margin-bottom: 5px;
+        color: #333;
+      }
+  
+      .form-group input {
+        width: 100%;
+        padding: 8px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        background-color: rgb(223, 241, 247);
+      }
+  
+      .cal-btn {
+        width: 100%;
+        padding: 10px;
+        background-color: #1560bd;
+        color: #fff;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 16px;
+      }
+  
+      .cal-btn:hover {
+        background-color: #0056b3;
+      }
+  
+      .result {
+        margin-top: 20px;
+        font-size: 24px;
+        color: rgb(36, 116, 2);
+        text-align: center;
+      }
     @media (max-width: 768px) {
     .calculator-container {
         margin: 20px 15px; 
@@ -162,13 +167,16 @@
 }
 
 .note-container h3 {
-    margin-top: 0;
+    margin-top: 10px;
     color: #007bff;
     font-size: 18px;
 }
+.note-container ul{
+    margin-top: 5px;
+}
 
 .note-container p {
-    margin-top: 15px;
+    margin-top: 10px;
     text-align: justify;
 }
 strong{
@@ -180,118 +188,171 @@ strong{
         padding: 10px; 
     }
 }
+
 </style>
 	</head>
 
-	<body> 
 
+
+
+	<body> 
+		
 <br><br><br><br>
+
 <div id="header"></div>
 
 
+
 <div class="calculator-container">
-    <h2>Vapor Pressure Calculator</h2>
-    <div class="vapour">
-    <div class="form-group">
-        <label for="A"><strong>Constant A:</strong></label>
-        <input type="number" id="A" placeholder="Enter Constant A">
+    <h2>Vent Area Reduction Formula Calculator</h2>
+
+    <div class="vent-area">
+        <div class="form-group">
+            <label for="m0">Initial Mass (m₀) in kg:</label>
+            <input type="number" id="m0" placeholder="Enter initial mass">
+        </div>
+        <div class="form-group">
+            <label for="q">Heat Release Rate (q) in J/kg:</label>
+            <input type="number" id="q" placeholder="Enter heat release rate">
+        </div>
     </div>
-    <div class="form-group">
-        <label for="B"><strong>Constant B:</strong></label>
-        <input type="number" id="B" placeholder="Enter Constant B">
+
+    <div class="vent-area">
+        <div class="form-group">
+            <label for="G">Mass Flux (G) in kg/m²s:</label>
+            <input type="number" id="G" placeholder="Enter mass flux">
+        </div>
+        <div class="form-group">
+            <label for="Cv">Specific Heat (Cᵥ) in J/kgK:</label>
+            <input type="number" id="Cv" placeholder="Enter specific heat">
+        </div>
     </div>
+
+    <div class="vent-area">
+        <div class="form-group">
+            <label for="deltaT">Temperature Rise (ΔT) in K:</label>
+            <input type="number" id="deltaT" placeholder="Enter temperature rise">
+        </div>
+        <div class="form-group">
+            <label for="deltaTp">Emptying Time (Δtₚ) in seconds:</label>
+            <input type="number" id="deltaTp" placeholder="Enter emptying time">
+        </div>
     </div>
-    <div class="vapour">
-    <div class="form-group">
-        <label for="C"><strong>Constant C:</strong></label>
-        <input type="number" id="C" placeholder="Enter Constant C">
-    </div>
-    <div class="form-group">
-        <label for="T"><strong>Temperature (T, °C):</strong></label>
-        <input type="number" id="T" placeholder="Enter Temperature">
-    </div>
-    </div>
-    <button class="cal-btn" onclick="calculateVaporPressure()">Calculate Vapor Pressure</button>
+
+    <button class="cal-btn" onclick="calculateVentArea()">Calculate Vent Area</button>
+
+    <p class="feedback" id="feedback"></p>
     <div class="result" id="result"></div>
 </div>
 
 <div class="note-container">
     <h3>Note:</h3>
-    <p>
-        The <strong>Antoine Equation</strong> is a widely used mathematical relationship in thermodynamics and chemical engineering to estimate the vapor pressure of pure substances at a given temperature. Vapor pressure is a critical property that describes the tendency of a substance to transition from the liquid phase to the gas phase. It is particularly important in applications such as distillation, evaporation, and chemical safety assessments.
-    </p>
-    <p>
-      
-        <ul>
-            <li><strong>A</strong>, <strong>B</strong>, and <strong>C</strong> are substance-specific constants that are experimentally determined for each chemical compound. These constants vary depending on the substance and the temperature range being studied.</li>
-            <li><strong>T</strong> is the temperature at which the vapor pressure is being calculated. The units of temperature must match the units used in the constants (typically in Celsius (°C) or Kelvin (K), with Kelvin being the standard in thermodynamic calculations).</li>
-        </ul>
-    </p>
-    <p>
-        <strong>Key Points:</strong>
-        <ul>
-            <li>The Antoine equation is most accurate for temperatures within the range for which the constants A, B, and C were derived. Extrapolation outside this range may lead to inaccurate results.</li>
-            <li>Vapor pressure increases with temperature, as higher temperatures provide more energy for molecules to escape the liquid phase.</li>
-            <li>This equation is essential for designing and optimizing processes such as distillation columns, evaporators, and reactors, where precise control of vapor pressure is required.</li>
-        </ul>
-    </p>
-    <p>
-        <strong>Applications:</strong>
-        <ul>
-            <li><strong>Chemical Engineering:</strong> Used in the design of separation processes like distillation and evaporation.</li>
-            <li><strong>Environmental Science:</strong> Helps in understanding the behavior of volatile organic compounds (VOCs) in the atmosphere.</li>
-            <li><strong>Safety Assessments:</strong> Critical for evaluating the risks associated with the storage and handling of volatile substances.</li>
-        </ul>
-    </p>
-    <p>
-        By using this calculator, you can estimate the vapor pressure of a substance at a specific temperature, which is crucial for both theoretical and practical applications in science and engineering.
-    </p>
+    <p><strong>Ventilation and Safety Engineering</strong> play a crucial role in preventing dangerous pressure buildup in enclosed spaces. Proper venting ensures heat dissipation, controlled gas release, and overall structural safety.</p>
+
+    <h3>Why Venting is Important?</h3>
+    <p>In enclosed environments, excessive heat or gas accumulation can lead to structural failures, explosions, or hazardous conditions. Industries use controlled venting to regulate internal conditions and prevent catastrophic failures.</p>
+
+    <h3>Key Parameters That Affect Venting:</h3>
+    <ul>
+        <li><strong>Gas Properties</strong> - Different gases expand and behave uniquely under heat and pressure.</li>
+        <li><strong>Material Strength</strong> - The design of an enclosure affects how much pressure it can withstand.</li>
+        <li><strong>Vent Placement</strong> - A well-placed vent ensures efficient and safe gas release.</li>
+        <li><strong>Environmental Factors</strong> - External temperature, humidity, and airflow impact venting efficiency.</li>
+    </ul>
+
+    <h3>Real-Life Applications:</h3>
+    <ul>
+        <li><strong>Fire Protection Systems</strong> - Ensuring smoke and heat are safely expelled in case of fire.</li>
+        <li><strong>Gas Storage Facilities</strong> - Preventing explosions due to unexpected pressure build-up.</li>
+        <li><strong>Battery Safety</strong> - Protecting lithium-ion battery compartments from overheating.</li>
+        <li><strong>HVAC Systems</strong> - Maintaining controlled ventilation in buildings and industrial spaces.</li>
+    </ul>
+
+    <h3>Lessons from History:</h3>
+    <ul>
+        <li><strong>Bhopal Gas Tragedy (1984)</strong> - Poor venting led to the release of toxic gases, causing mass casualties.</li>
+        <li><strong>Texas City Refinery Explosion (2005)</strong> - Inadequate ventilation and pressure buildup caused a catastrophic explosion.</li>
+        <li><strong>Aircraft Cabin Ventilation</strong> - Proper pressure venting is crucial for maintaining cabin safety during flights.</li>
+    </ul>
+
+    <h3>Industry Standards & Guidelines:</h3>
+    <p>Many industries follow safety guidelines set by organizations like OSHA, NFPA, and ISO to ensure proper venting and prevent hazardous incidents.</p>
+
+    <h3>Conclusion:</h3>
+    <p>Proper ventilation and pressure regulation are critical for safety across multiple industries. Understanding these principles helps engineers design systems that mitigate risks and enhance operational efficiency.</p>
 </div>
 
+
 <script>
-    function calculateVaporPressure() {
-        const A = parseFloat(document.getElementById('A').value);
-        const B = parseFloat(document.getElementById('B').value);
-        const C = parseFloat(document.getElementById('C').value);
-        const T = parseFloat(document.getElementById('T').value);
-        const resultElement = document.getElementById('result');
+    function calculateVentArea() {
+        let m0 = parseFloat(document.getElementById("m0").value);
+        let q = parseFloat(document.getElementById("q").value);
+        let G = parseFloat(document.getElementById("G").value);
+        let Cv = parseFloat(document.getElementById("Cv").value);
+        let deltaT = parseFloat(document.getElementById("deltaT").value);
+        let deltaTp = parseFloat(document.getElementById("deltaTp").value);
+        let feedback = document.getElementById("feedback");
+        let result = document.getElementById("result");
 
-        // Clear previous results
-        resultElement.style.color = "black";
+        // Clear previous messages
+        feedback.textContent = "";
+        result.textContent = "";
 
-        // Basic Validation: Check if inputs are numbers
-        if (isNaN(A) || isNaN(B) || isNaN(C) || isNaN(T)) {
-            resultElement.innerText = "⚠️ Please enter valid numeric values for all fields.";
+        // Input validation: Check for empty fields
+        if (document.getElementById("m0").value.trim() === "" ||
+            document.getElementById("q").value.trim() === "" ||
+            document.getElementById("G").value.trim() === "" ||
+            document.getElementById("Cv").value.trim() === "" ||
+            document.getElementById("deltaT").value.trim() === "" ||
+            document.getElementById("deltaTp").value.trim() === "") {
+            feedback.textContent = "Error: Please fill in all fields before calculating.";
             return;
         }
 
-        // Ensure temperature (T) is within a valid range
-        if (T <= -273.15) {  // Absolute zero in Celsius
-            resultElement.innerText = "⚠️ Temperature (T) must be above absolute zero (-273.15°C or 0 K).";
+        // Input validation: Check for valid numerical values
+        if (isNaN(m0) || isNaN(q) || isNaN(G) || isNaN(Cv) || isNaN(deltaT) || isNaN(deltaTp)) {
+            feedback.textContent = "Error: Please enter valid numerical values.";
             return;
         }
 
-        // Ensure denominator is not zero
-        if (C + T === 0) {
-            resultElement.innerText = "⚠️ Invalid calculation: (C + T) results in division by zero. This happens because the denominator in the equation cannot be zero, as division by zero is undefined in mathematics. Please ensure that (C + T) is not equal to zero by choosing valid input values.";
+        // Validation for positive values with explanations
+        if (m0 <= 0) {
+            feedback.textContent = "Error: Initial mass (m₀) must be greater than zero because without mass, no venting is required.";
+            return;
+        }
+        if (q <= 0) {
+            feedback.textContent = "Error: Heat release rate (q) must be positive since energy generation cannot be negative.";
+            return;
+        }
+        if (G <= 0) {
+            feedback.textContent = "Error: Mass flux (G) must be positive; otherwise, no gas flow occurs for venting.";
+            return;
+        }
+        if (Cv <= 0) {
+            feedback.textContent = "Error: Specific heat (Cᵥ) must be greater than zero as substances require heat capacity to absorb energy.";
+            return;
+        }
+        if (deltaT <= 0) {
+            feedback.textContent = "Error: Temperature rise (ΔT) must be positive, as temperature cannot stay constant or decrease in a heating scenario.";
+            return;
+        }
+        if (deltaTp <= 0) {
+            feedback.textContent = "Error: Emptying time (Δtₚ) must be greater than zero since venting requires a finite duration.";
             return;
         }
 
-        // Calculate vapor pressure using the Antoine equation
-        const logP = A - (B / (C + T)); // Logarithm of vapor pressure (base 10)
-        const vaporPressure = Math.pow(10, logP); // Convert to actual vapor pressure
+        // Calculate vent area using both forms of the equation
+        let A1 = (m0 * q) / (G * Cv * deltaT);
+        let A2 = m0 / (G * deltaTp);
 
-        // Display Result
-        resultElement.innerHTML = `
-            <p style="color: green;"><strong>Vapor Pressure:</strong> ${vaporPressure.toFixed(2)} mmHg</p>
-            <p><em>Note: Vapor pressure is calculated in mmHg (millimeters of mercury).</em></p>
-        `;
+        // Display result
+        result.innerHTML = `Calculated Vent Area (A): <strong>${A1.toFixed(4)}</strong> m² <br> Alternative Calculation: <strong>${A2.toFixed(4)}</strong> m²`;
+        feedback.innerHTML = "Success: Vent area has been calculated correctly. Use the appropriate formula based on available data.";
     }
 </script>
 
-
-
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+
 
 
 
@@ -324,6 +385,8 @@ strong{
     fetch("header.html").then(response => response.text()).then(data => document.getElementById("header").innerHTML = data);
     fetch("footer.html").then(response => response.text()).then(data => document.getElementById("footer").innerHTML = data);
 </script>
+
+
 		</div>	<!-- END PAGE CONTENT -->	
 
 

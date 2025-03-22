@@ -56,15 +56,16 @@
 		<link href="css/responsive.css" rel="stylesheet">
 <style>
             
-      
+         
 
+   
         body {
       font-family: Arial, sans-serif;
      
       background-color: #f5f5f5;
     }
     .calculator-container {
-      max-width: 1000px;
+      max-width: 1200px;
       margin: 20px auto;
       padding: 20px;
       background: #ffffff;
@@ -80,6 +81,8 @@
       font-size: 1.8rem;
       margin-bottom: 30px;
     }
+
+
     .form-group {
       margin-bottom: 15px;
     }
@@ -97,6 +100,28 @@
 
     
     }
+
+    .do-deficit {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.do-deficit .form-group {
+    width: 48%;
+}
+
+@media (max-width: 768px) {
+    .do-deficit {
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    .do-deficit .form-group {
+        width: 100%;
+    }
+}
+
     .cal-btn {
       width: 100%;
       padding: 10px;
@@ -146,9 +171,17 @@
 }
 
 .note-container h3 {
-    margin-top: 0;
+    margin:15px 0;
     color: #007bff;
-    font-size: 18px;
+    font-size: 20px;
+}
+
+.note-container ul{
+    margin: 10px;
+}
+
+.note-container{
+    margin-top: 10px;
 }
 
 .note-container p {
@@ -164,6 +197,16 @@ strong{
         padding: 10px; 
     }
 }
+select {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #d3e0f0;
+    border-radius: 5px;
+    font-size: 1rem;
+    background-color: rgb(223, 241, 247);
+
+}
 </style>
 	</head>
 
@@ -175,83 +218,143 @@ strong{
 
 
 
+
+
+		
 <br><br><br><br>
+
 <div id="header"></div>
 
-
 <div class="calculator-container">
-    <h2>Energy Consumption Calculator</h2>
+    <h2>Dissolved Oxygen (DO) Deficit (Streeter-Phelps Model) Calculator</h2>
+
+    <div class="do-deficit">
     <div class="form-group">
-        <label for="deviceWattage"><strong>Device Wattage (W):</strong></label>
-        <input type="number" id="deviceWattage" placeholder="Enter the device wattage in watts">
+        <label for="reaerationRate">Reaeration Rate (k₂) [1/day]:</label>
+        <input type="number" id="reaerationRate" placeholder="Enter k₂" step="any">
     </div>
+
     <div class="form-group">
-        <label for="hoursPerDay"><strong>Hours Used per Day:</strong></label>
-        <input type="number" id="hoursPerDay" placeholder="Enter the number of hours the device is used per day">
+        <label for="deoxygenationRate">Deoxygenation Rate (k₁) [1/day]:</label>
+        <input type="number" id="deoxygenationRate" placeholder="Enter k₁" step="any">
     </div>
-    <button class="cal-btn" onclick="calculateEnergyConsumption()">Calculate</button>
-    <div class="result" id="result"></div>
-    <div class="feedback" id="feedback"></div>
 </div>
+
+<div class="do-deficit">
+    <div class="form-group">
+        <label for="initialBOD">Initial BOD Ultimate (L₀) [mg/L]:</label>
+        <input type="number" id="initialBOD" placeholder="Enter L₀" step="any">
+    </div>
+
+    <div class="form-group">
+        <label for="initialDeficit">Initial DO Deficit (D₀) [mg/L]:</label>
+        <input type="number" id="initialDeficit" placeholder="Enter D₀" step="any">
+    </div>
+</div>
+
+    <div class="form-group">
+        <label for="time">Time (t) [days]:</label>
+        <input type="number" id="time" placeholder="Enter time" step="any">
+    </div>
+
+    <button class="cal-btn" onclick="calculateDODeficit()">Calculate</button>
+
+    <div class="result" id="result"></div>
+</div>
+    
 
 <div class="note-container">
     <h3>Note:</h3>
-    <p>
-        This calculator determines the <strong>total energy consumption</strong> of a device based on:
-    </p>
+    <p>This calculator determines the <strong>Dissolved Oxygen Deficit (D)</strong> using the Streeter-Phelps model.</p>
+    <p>It is essential in environmental engineering for <strong>analyzing oxygen depletion</strong> in water bodies due to organic pollution.</p>
+
+    <h3>Explanation of Parameters:</h3>
     <ul>
-        <li><strong>Device Wattage (W):</strong> The amount of power the device uses when it is turned on, measured in watts (W).</li>
-        <li><strong>Hours Used per Day:</strong> The number of hours the device is used each day.</li>
+        <li><strong>Reaeration Rate (k₂):</strong> The rate at which oxygen is reintroduced into the water, measured in <strong>1/day</strong>.</li>
+        <li><strong>Deoxygenation Rate (k₁):</strong> The rate at which organic matter consumes oxygen, measured in <strong>1/day</strong>.</li>
+        <li><strong>Initial BOD Ultimate (L₀):</strong> The maximum biochemical oxygen demand exerted by organic matter, measured in <strong>mg/L</strong>.</li>
+        <li><strong>Initial DO Deficit (D₀):</strong> The initial oxygen deficit in the water body, measured in <strong>mg/L</strong>.</li>
+        <li><strong>Time (t):</strong> The duration over which the oxygen deficit is calculated, given in <strong>days</strong>.</li>
     </ul>
-    <p>
-        After entering the values, click <strong>Calculate</strong> to see your <strong>total energy consumption</strong> in kilowatt-hours (kWh).
-    </p>
-    <p>
-        The <strong>total energy consumption</strong> is calculated by multiplying the device wattage and hours used per day. The result is then converted into kilowatt-hours (kWh) by dividing the total watt-hours by 1000.
-    </p>
+
+    <h3>Why DO Deficit is Important?</h3>
+    <p>Understanding DO deficit is crucial for <strong>wastewater treatment, water pollution control, and aquatic ecosystem health</strong>. It helps determine:</p>
+    <ul>
+        <li>The impact of organic pollution on dissolved oxygen levels.</li>
+        <li>Whether a water body can naturally recover from pollution.</li>
+        <li>The effectiveness of aeration and pollution control strategies.</li>
+    </ul>
+
+    <h3>Validations:</h3>
+    <ul>
+        <li><strong>Reaeration Rate (k₂):</strong> Must be a <strong>positive</strong> number.</li>
+        <li><strong>Deoxygenation Rate (k₁):</strong> Must be a <strong>positive</strong> number.</li>
+        <li><strong>Initial BOD Ultimate (L₀):</strong> Must be a <strong>positive</strong> number.</li>
+        <li><strong>Initial DO Deficit (D₀):</strong> Must be a <strong>non-negative</strong> number.</li>
+        <li><strong>Time (t):</strong> Must be a <strong>non-negative</strong> number.</li>
+    </ul>
+
+    <h3>Real-life Applications:</h3>
+    <ul>
+        <li><strong>Wastewater Treatment:</strong> Predicting oxygen depletion in effluents.</li>
+        <li><strong>Industrial Effluent Monitoring:</strong> Assessing the impact of industrial waste on water bodies.</li>
+        <li><strong>Environmental Impact Assessments:</strong> Studying oxygen depletion in rivers and lakes.</li>
+        <li><strong>Regulatory Compliance:</strong> Ensuring adherence to water quality standards.</li>
+        <li><strong>Fishery and Aquatic Life Protection:</strong> Preventing hypoxia and fish kills.</li>
+    </ul>
+
+    <h3>Conclusion:</h3>
+    <p>The Streeter-Phelps model helps predict oxygen depletion, aiding in <strong>pollution control, water quality management, and ecosystem protection</strong>.</p>
 </div>
 
+
+
 <script>
-function calculateEnergyConsumption() {
-    const deviceWattage = parseFloat(document.getElementById('deviceWattage').value);
-    const hoursPerDay = parseFloat(document.getElementById('hoursPerDay').value);
-    const resultElement = document.getElementById('result');
-    const feedbackElement = document.getElementById('feedback');
+    function calculateDODeficit() {
+        const k2 = parseFloat(document.getElementById("reaerationRate").value);
+        const k1 = parseFloat(document.getElementById("deoxygenationRate").value);
+        const L0 = parseFloat(document.getElementById("initialBOD").value);
+        const D0 = parseFloat(document.getElementById("initialDeficit").value);
+        const t = parseFloat(document.getElementById("time").value);
+        const resultElement = document.getElementById("result");
 
-    // If invalid input, clear previous results and show error message
-    if (isNaN(deviceWattage) || isNaN(hoursPerDay) || deviceWattage <= 0 || hoursPerDay <= 0 || hoursPerDay > 24) {
-        resultElement.innerText = "";
-        feedbackElement.innerText = "";
-        resultElement.innerText = "Please enter valid positive numbers.";
-        return;
+        resultElement.innerHTML = "";
+
+        // Validations
+        if (isNaN(k2) || k2 <= 0) {
+            resultElement.innerHTML = "❌ <strong>Error:</strong> Reaeration rate (k₂) must be a positive number.";
+            return;
+        }
+        if (isNaN(k1) || k1 <= 0) {
+            resultElement.innerHTML = "❌ <strong>Error:</strong> Deoxygenation rate (k₁) must be a positive number.";
+            return;
+        }
+        if (isNaN(L0) || L0 <= 0) {
+            resultElement.innerHTML = "❌ <strong>Error:</strong> Initial BOD (L₀) must be a positive number.";
+            return;
+        }
+        if (isNaN(D0) || D0 < 0) {
+            resultElement.innerHTML = "❌ <strong>Error:</strong> Initial DO deficit (D₀) must be a non-negative number.";
+            return;
+        }
+        if (isNaN(t) || t < 0) {
+            resultElement.innerHTML = "❌ <strong>Error:</strong> Time (t) must be a non-negative number.";
+            return;
+        }
+
+        // Streeter-Phelps DO Deficit Calculation
+        const D = (k1 * L0 / (k2 - k1)) * (Math.exp(-k1 * t) - Math.exp(-k2 * t)) + D0 * Math.exp(-k2 * t);
+
+        // Display Result
+        resultElement.innerHTML = `<strong>DO Deficit (D):</strong> ${D.toFixed(4)} mg/L`;
     }
-
-    // Convert device wattage from watts to kilowatts
-    const deviceWattageKW = deviceWattage / 1000; // Convert wattage to kilowatts (1 kW = 1000 W)
-
-    // Total energy consumed in kilowatt-hours (kWh) per day
-    const totalEnergyKWh = deviceWattageKW * hoursPerDay;
-
-    resultElement.innerText = `Total Energy Consumption: ${totalEnergyKWh.toFixed(2)} kWh per day`;
-
-    // Provide feedback
-    let feedback = "";
-    if (totalEnergyKWh < 1) {
-        feedback = "✅ This is low energy consumption. Great job!";
-    } else if (totalEnergyKWh >= 1 && totalEnergyKWh <= 5) {
-        feedback = "⚡ This is moderate energy consumption. Consider reducing usage to save energy.";
-    } else {
-        feedback = "❗ This is high energy consumption. Consider using energy-efficient devices or reducing usage.";
-    }
-
-    feedbackElement.innerText = feedback;
-}
-
 </script>
 
 
 
+
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+
 
 
 
@@ -283,11 +386,13 @@ function calculateEnergyConsumption() {
         return false;
     });
     </script>
+
 <div id="footer"></div>
 <script>
     fetch("header.html").then(response => response.text()).then(data => document.getElementById("header").innerHTML = data);
     fetch("footer.html").then(response => response.text()).then(data => document.getElementById("footer").innerHTML = data);
 </script>
+
 
 		</div>	<!-- END PAGE CONTENT -->	
 
@@ -390,5 +495,5 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 
-<!-- Mirrored from dsathemes.com/html/martex_1.1/files/project-details.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 08 Mar 2024 16:40:05 GMT -->
+<!-- Mirrored from dsathemes.com/html/martex_1.1/files/project-details.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 08 Mar 2024 16:40:05 GMT -->
 </html>

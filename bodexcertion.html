@@ -56,8 +56,9 @@
 		<link href="css/responsive.css" rel="stylesheet">
 <style>
             
-      
+         
 
+   
         body {
       font-family: Arial, sans-serif;
      
@@ -146,9 +147,17 @@
 }
 
 .note-container h3 {
-    margin-top: 0;
+    margin:15px 0;
     color: #007bff;
-    font-size: 18px;
+    font-size: 20px;
+}
+
+.note-container ul{
+    margin: 10px;
+}
+
+.note-container{
+    margin-top: 10px;
 }
 
 .note-container p {
@@ -164,6 +173,16 @@ strong{
         padding: 10px; 
     }
 }
+select {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #d3e0f0;
+    border-radius: 5px;
+    font-size: 1rem;
+    background-color: rgb(223, 241, 247);
+
+}
 </style>
 	</head>
 
@@ -175,83 +194,147 @@ strong{
 
 
 
+
+
+		
 <br><br><br><br>
+
 <div id="header"></div>
 
-
 <div class="calculator-container">
-    <h2>Energy Consumption Calculator</h2>
+    <h2>BOD ( Biochemical Oxygen Demand) Exertion Calculator</h2>
+
     <div class="form-group">
-        <label for="deviceWattage"><strong>Device Wattage (W):</strong></label>
-        <input type="number" id="deviceWattage" placeholder="Enter the device wattage in watts">
+        <label for="ultimateBOD">Ultimate BOD (L) [mg/L]:</label>
+        <input type="number" id="ultimateBOD" placeholder="Enter ultimate BOD" step="any">
     </div>
+
     <div class="form-group">
-        <label for="hoursPerDay"><strong>Hours Used per Day:</strong></label>
-        <input type="number" id="hoursPerDay" placeholder="Enter the number of hours the device is used per day">
+        <label for="decayRate">BOD Decay Rate (k) [1/day]:</label>
+        <input type="number" id="decayRate" placeholder="Enter decay rate" step="any">
     </div>
-    <button class="cal-btn" onclick="calculateEnergyConsumption()">Calculate</button>
+
+    <div class="form-group">
+        <label for="time">Time (t) [days]:</label>
+        <input type="number" id="time" placeholder="Enter time in days" step="any">
+    </div>
+
+    <button class="cal-btn" onclick="calculateBODExertion()">Calculate</button>
+
     <div class="result" id="result"></div>
     <div class="feedback" id="feedback"></div>
 </div>
-
+    
+    
 <div class="note-container">
     <h3>Note:</h3>
-    <p>
-        This calculator determines the <strong>total energy consumption</strong> of a device based on:
-    </p>
+    <p>This calculator determines the <strong>BOD Exertion (y<sub>t</sub>)</strong></p>
+    <p>This is essential in environmental engineering for <strong>analyzing the oxygen demand</strong> in wastewater treatment plants, industrial effluents, and surface water bodies.</p>
+     <h3>What is BOD</h3>
+     <p>BOD stands for Biochemical Oxygen Demand. It is a measure of the amount of oxygen required by microorganisms to break down organic matter in water</p>
+    <h3>Explanation of Parameters:</h3>
     <ul>
-        <li><strong>Device Wattage (W):</strong> The amount of power the device uses when it is turned on, measured in watts (W).</li>
-        <li><strong>Hours Used per Day:</strong> The number of hours the device is used each day.</li>
+        <li><strong>Ultimate BOD (L):</strong> The maximum biochemical oxygen demand exerted by organic matter, measured in <strong>mg/L</strong>.</li>
+        <li><strong>BOD Decay Rate (k):</strong> The rate at which BOD is exerted, measured in <strong>1/day</strong>.</li>
+        <li><strong>Time (t):</strong> The duration over which BOD exertion is measured, given in <strong>days</strong>.</li>
     </ul>
-    <p>
-        After entering the values, click <strong>Calculate</strong> to see your <strong>total energy consumption</strong> in kilowatt-hours (kWh).
-    </p>
-    <p>
-        The <strong>total energy consumption</strong> is calculated by multiplying the device wattage and hours used per day. The result is then converted into kilowatt-hours (kWh) by dividing the total watt-hours by 1000.
-    </p>
+
+    <h3>Why BOD Exertion is Important?</h3>
+    <p>Understanding BOD exertion is crucial for <strong>wastewater treatment efficiency, regulatory compliance, and environmental health</strong>. It helps determine:</p>
+    <ul>
+        <li>Whether wastewater treatment processes are effective in reducing oxygen demand.</li>
+        <li>The impact of organic waste discharge on aquatic ecosystems.</li>
+        <li>The efficiency of pollution control measures in industries and municipalities.</li>
+    </ul>
+
+    <h3>Validations:</h3>
+    <ul>
+        <li><strong>Ultimate BOD (L):</strong> Must be a <strong>positive</strong> number (total BOD demand cannot be zero or negative).</li>
+        <li><strong>BOD Decay Rate (k):</strong> Must be a <strong>positive</strong> number (rate of decay must be realistic).</li>
+        <li><strong>Time (t):</strong> Must be a <strong>non-negative</strong> number (cannot be in the past).</li>
+        <li><strong>High BOD Exertion:</strong> May indicate <strong>severe oxygen depletion</strong>, impacting aquatic life.</li>
+        <li><strong>Low BOD Exertion:</strong> Could indicate <strong>efficient treatment</strong> or slow degradation of organic matter.</li>
+        <li><strong>Limitations:</strong> This formula assumes constant temperature and microbial activity, ignoring seasonal changes and other environmental factors.</li>
+    </ul>
+
+    <h3>Real-life Applications:</h3>
+    <ul>
+        <li><strong>Wastewater Treatment:</strong> Measuring efficiency of organic matter breakdown.</li>
+        <li><strong>Industrial Effluent Monitoring:</strong> Tracking organic pollution from factories.</li>
+        <li><strong>Environmental Impact Assessments:</strong> Evaluating the health of water bodies.</li>
+        <li><strong>Drinking Water Safety:</strong> Preventing contamination in water supplies.</li>
+        <li><strong>River and Lake Studies:</strong> Monitoring oxygen depletion due to pollution.</li>
+    </ul>
+
+    <h3>Conclusion:</h3>
+    <p>The BOD Exertion formula is a <strong>key tool in water quality management</strong>. Understanding oxygen demand helps industries and municipalities <strong>protect aquatic ecosystems, comply with regulations, and improve wastewater treatment processes.</strong></p>
 </div>
 
+
+
+
+
 <script>
-function calculateEnergyConsumption() {
-    const deviceWattage = parseFloat(document.getElementById('deviceWattage').value);
-    const hoursPerDay = parseFloat(document.getElementById('hoursPerDay').value);
-    const resultElement = document.getElementById('result');
-    const feedbackElement = document.getElementById('feedback');
+    function calculateBODExertion() {
+        const L = parseFloat(document.getElementById("ultimateBOD").value);
+        const k = parseFloat(document.getElementById("decayRate").value);
+        const t = parseFloat(document.getElementById("time").value);
+        const resultElement = document.getElementById("result");
+        const feedbackElement = document.getElementById("feedback");
 
-    // If invalid input, clear previous results and show error message
-    if (isNaN(deviceWattage) || isNaN(hoursPerDay) || deviceWattage <= 0 || hoursPerDay <= 0 || hoursPerDay > 24) {
-        resultElement.innerText = "";
-        feedbackElement.innerText = "";
-        resultElement.innerText = "Please enter valid positive numbers.";
-        return;
+        // Reset previous results
+        resultElement.innerHTML = "";
+        feedbackElement.innerHTML = "";
+
+        // Validations
+        if (isNaN(L) || L <= 0) {
+            resultElement.innerHTML = "❌ <strong>Error:</strong> Ultimate BOD (L) must be a positive number.";
+            return;
+        }
+
+        if (isNaN(k) || k <= 0) {
+            resultElement.innerHTML = "❌ <strong>Error:</strong> BOD Decay Rate (k) must be a positive number.";
+            return;
+        }
+
+        if (isNaN(t) || t < 0) {
+            resultElement.innerHTML = "❌ <strong>Error:</strong> Time (t) must be a non-negative number.";
+            return;
+        }
+
+        // BOD Exertion Calculation: yt = L * (1 - e^(-kt))
+        const yt = L * (1 - Math.exp(-k * t));
+
+        // Feedback Message & Color
+        let feedbackMessage = "";
+        let feedbackColor = "black";
+
+        if (yt > 0.8 * L) {
+            feedbackMessage = "⚠️ <strong>High BOD Exertion:</strong> Most of the BOD has been exerted. Water quality may be poor.";
+            feedbackColor = "orange";
+        } else if (yt >= 0.3 * L && yt <= 0.8 * L) {
+            feedbackMessage = "✅ <strong>Moderate BOD Exertion:</strong> BOD exertion is within normal levels.";
+            feedbackColor = "green";
+        } else {
+            feedbackMessage = "❌ <strong>Low BOD Exertion:</strong> Minimal oxygen demand exerted, check system efficiency.";
+            feedbackColor = "red";
+        }
+
+        // Display Results
+        resultElement.innerHTML = `
+            <strong>BOD Exerted (y<sub>t</sub>):</strong> ${yt.toFixed(4)} mg/L<br>
+            <strong style="color: ${feedbackColor};">${feedbackMessage}</strong>
+        `;
+        resultElement.style.color = "black";
     }
-
-    // Convert device wattage from watts to kilowatts
-    const deviceWattageKW = deviceWattage / 1000; // Convert wattage to kilowatts (1 kW = 1000 W)
-
-    // Total energy consumed in kilowatt-hours (kWh) per day
-    const totalEnergyKWh = deviceWattageKW * hoursPerDay;
-
-    resultElement.innerText = `Total Energy Consumption: ${totalEnergyKWh.toFixed(2)} kWh per day`;
-
-    // Provide feedback
-    let feedback = "";
-    if (totalEnergyKWh < 1) {
-        feedback = "✅ This is low energy consumption. Great job!";
-    } else if (totalEnergyKWh >= 1 && totalEnergyKWh <= 5) {
-        feedback = "⚡ This is moderate energy consumption. Consider reducing usage to save energy.";
-    } else {
-        feedback = "❗ This is high energy consumption. Consider using energy-efficient devices or reducing usage.";
-    }
-
-    feedbackElement.innerText = feedback;
-}
-
 </script>
 
 
 
+
+
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+
 
 
 
@@ -283,11 +366,13 @@ function calculateEnergyConsumption() {
         return false;
     });
     </script>
+
 <div id="footer"></div>
 <script>
     fetch("header.html").then(response => response.text()).then(data => document.getElementById("header").innerHTML = data);
     fetch("footer.html").then(response => response.text()).then(data => document.getElementById("footer").innerHTML = data);
 </script>
+
 
 		</div>	<!-- END PAGE CONTENT -->	
 
@@ -390,5 +475,5 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 
-<!-- Mirrored from dsathemes.com/html/martex_1.1/files/project-details.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 08 Mar 2024 16:40:05 GMT -->
+<!-- Mirrored from dsathemes.com/html/martex_1.1/files/project-details.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 08 Mar 2024 16:40:05 GMT -->
 </html>

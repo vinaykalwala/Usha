@@ -56,68 +56,89 @@
 		<link href="css/responsive.css" rel="stylesheet">
 <style>
             
-      
+         
 
+   
         body {
       font-family: Arial, sans-serif;
      
       background-color: #f5f5f5;
     }
     .calculator-container {
-      max-width: 1000px;
-      margin: 20px auto;
-      padding: 20px;
-      background: #ffffff;
-      border-radius: 8px;
-      border: 2px dotted #1560bd;
-
-      box-shadow: 20px 14px 8px rgba(0, 0, 0, 0.2);
-    }
-    .calculator-container h2 {
-      text-align: center;
-      margin-bottom: 20px;
-      color: #1560bd;
-      font-size: 1.8rem;
-      margin-bottom: 30px;
-    }
-    .form-group {
-      margin-bottom: 15px;
-    }
-    .form-group label {
-      display: block;
-      margin-bottom: 5px;
-      color: #333;
-    }
-    .form-group input {
-      width: 100%;
-      padding: 8px;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-      background-color: rgb(223, 241, 247);
-
-    
-    }
-    .cal-btn {
-      width: 100%;
-      padding: 10px;
-      background-color: #1560bd;
-      color: #fff;
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
-      font-size: 16px;
-    }
-    .cal-btn:hover {
-      background-color: #0056b3;
-    }
-    .result {
-      margin-top: 20px;
-      font-size: 24px;
-      color: #333;
-      text-align: center;
-      color: rgb(36, 116, 2);
-     
-    }
+        max-width: 1200px;
+        margin: 20px auto;
+        padding: 20px;
+        background: #ffffff;
+        border-radius: 8px;
+        border: 2px dotted #1560bd;
+        box-shadow: 20px 14px 8px rgba(0, 0, 0, 0.2);
+      }
+      
+      .calculator-container h2 {
+        text-align: center;
+        margin-bottom: 20px;
+        color: #1560bd;
+        font-size: 1.8rem;
+      }
+  
+      .vent-area {
+        display: flex;
+        justify-content: space-between;
+        gap: 10px;
+      }
+  
+      .vent-area .form-group {
+        width: 48%;
+      }
+      @media (max-width:768px){
+        .vent-area {
+            flex-direction: column;
+            gap: 5px;
+        }
+        .vent-area .form-group{
+            width: 100%;
+        }
+      }
+  
+      .form-group {
+        margin-bottom: 15px;
+      }
+  
+      .form-group label {
+        display: block;
+        margin-bottom: 5px;
+        color: #333;
+      }
+  
+      .form-group input {
+        width: 100%;
+        padding: 8px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        background-color: rgb(223, 241, 247);
+      }
+  
+      .cal-btn {
+        width: 100%;
+        padding: 10px;
+        background-color: #1560bd;
+        color: #fff;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 16px;
+      }
+  
+      .cal-btn:hover {
+        background-color: #0056b3;
+      }
+  
+      .result {
+        margin-top: 20px;
+        font-size: 24px;
+        color: rgb(36, 116, 2);
+        text-align: center;
+      }
     @media (max-width: 768px) {
     .calculator-container {
         margin: 20px 15px; 
@@ -146,24 +167,80 @@
 }
 
 .note-container h3 {
-    margin-top: 0;
+    margin-top: 10px;
     color: #007bff;
     font-size: 18px;
 }
+.note-container ul{
+    margin-top: 5px;
+}
 
 .note-container p {
-    margin-top: 15px;
+    margin-top: 10px;
     text-align: justify;
 }
 strong{
     color: #0056b3;
 }
-@media (max-width: 768px) {
-    .note-container {
-        margin: 15px; 
-        padding: 10px; 
+
+/* Centering the table */
+.table-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-x: auto; /* Allows horizontal scroll if needed */
+}
+
+/* Table Styling */
+.custom-table {
+    border-collapse: collapse;
+    width: 100%; /* Ensure full responsiveness */
+    max-width: 600px; 
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Header Styling */
+.custom-table thead {
+    background-color: #1560bd; /* Light blue header */
+    color: white;
+}
+
+/* Cell Styling */
+.custom-table th, .custom-table td {
+    padding: 12px 16px;
+    border: 1px solid #ddd;
+    word-break: break-word; /* Prevents content overflow */
+}
+
+/* Zebra Striping */
+.custom-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+/* Hover Effect */
+
+
+/* Heading Style */
+.table-heading {
+    margin-bottom: 20px;
+    color: #2c3e50;
+}
+
+/* Responsive Design for Small Screens */
+@media (max-width: 600px) {
+    .custom-table {
+        width: 100%; /* Adjusts width for mobile */
+    }
+    .custom-table th, .custom-table td {
+        font-size: 14px; /* Smaller font for better fit */
+        padding: 8px;
+    }
+    .table-container {
+        overflow-x: auto; /* Enables scroll on overflow */
     }
 }
+
 </style>
 	</head>
 
@@ -171,90 +248,131 @@ strong{
 
 
 	<body> 
-
-
-
-
+		
 <br><br><br><br>
+
 <div id="header"></div>
 
 
+
+
 <div class="calculator-container">
-    <h2>Energy Consumption Calculator</h2>
+    <h2>Spread Angle Factor Calculator</h2>
+
     <div class="form-group">
-        <label for="deviceWattage"><strong>Device Wattage (W):</strong></label>
-        <input type="number" id="deviceWattage" placeholder="Enter the device wattage in watts">
+        <label for="ftot"><strong>Total Load (Ftot) (kN):</strong></label>
+        <input type="number" id="ftot" placeholder="Enter total load (kN)">
     </div>
+
     <div class="form-group">
-        <label for="hoursPerDay"><strong>Hours Used per Day:</strong></label>
-        <input type="number" id="hoursPerDay" placeholder="Enter the number of hours the device is used per day">
+        <label for="angle"><strong>Cable Angle (β) (degrees):</strong></label>
+        <input type="number" id="angle" placeholder="Enter cable angle (0-45)">
     </div>
-    <button class="cal-btn" onclick="calculateEnergyConsumption()">Calculate</button>
+
+    <div class="form-group">
+        <label for="anchors"><strong>Number of Load Bearing Anchors (n):</strong></label>
+        <input type="number" id="anchors" placeholder="Enter number of anchors">
+    </div>
+
+    <button class="cal-btn" onclick="calculateForce()">Calculate Tensile Force</button>
+
+    <p class="feedback" id="feedback"></p>
     <div class="result" id="result"></div>
-    <div class="feedback" id="feedback"></div>
 </div>
 
 <div class="note-container">
     <h3>Note:</h3>
-    <p>
-        This calculator determines the <strong>total energy consumption</strong> of a device based on:
-    </p>
+    <p><strong>Spread Angle Factor Formula:</strong> The tensile force on the anchor is affected by the spread angle of the cables. The formula helps determine the correct force distribution.</p>
+
+    <h3>Spread Angle Factor Table:</h3>
+    <div class="table-container">
+    <table class="custom-table">
+        <thead>
+        <tr>
+            <th>Angle β (degrees)</th>
+            <th>Spread Factor (z)</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr><td>0°</td><td>1.00</td></tr>
+        <tr><td>5°</td><td>1.003</td></tr>
+        <tr><td>10°</td><td>1.015</td></tr>
+        <tr><td>15°</td><td>1.035</td></tr>
+        <tr><td>20°</td><td>1.064</td></tr>
+        <tr><td>25°</td><td>1.103</td></tr>
+        <tr><td>30°</td><td>1.154</td></tr>
+        <tr><td>35°</td><td>1.220</td></tr>
+        <tr><td>40°</td><td>1.305</td></tr>
+        <tr><td>45°</td><td>1.414</td></tr>
+    </tbody>
+    </table>
+    
+    </div>
+    <h3>Key Parameters That Affect Calculation:</h3>
     <ul>
-        <li><strong>Device Wattage (W):</strong> The amount of power the device uses when it is turned on, measured in watts (W).</li>
-        <li><strong>Hours Used per Day:</strong> The number of hours the device is used each day.</li>
+        <li><strong>Total Load (Ftot):</strong> The weight of the lifted object in kN.</li>
+        <li><strong>Cable Angle (β):</strong> The angle between the cables and the object. (Preferred <strong>β &lt; 30°</strong>)</li>
+        <li><strong>Spread Angle Factor (z):</strong> A multiplier based on β (from table).</li>
+        <li><strong>Number of Load Anchors (n):</strong> The count of load-bearing points.</li>
     </ul>
-    <p>
-        After entering the values, click <strong>Calculate</strong> to see your <strong>total energy consumption</strong> in kilowatt-hours (kWh).
-    </p>
-    <p>
-        The <strong>total energy consumption</strong> is calculated by multiplying the device wattage and hours used per day. The result is then converted into kilowatt-hours (kWh) by dividing the total watt-hours by 1000.
-    </p>
+
+    <h3>Real-Life Applications:</h3>
+    <ul>
+        <li><strong>Construction:</strong> Used in tower crane lifting operations.</li>
+        <li><strong>Shipping:</strong> Ensuring safe handling of large cargo.</li>
+        <li><strong>Manufacturing:</strong> Lifting machinery parts safely.</li>
+    </ul>
+
+    <h3>Conclusion:</h3>
+    <p>Using the spread angle factor formula ensures safety, prevents overloading, and improves efficiency in lifting operations.</p>
 </div>
 
 <script>
-function calculateEnergyConsumption() {
-    const deviceWattage = parseFloat(document.getElementById('deviceWattage').value);
-    const hoursPerDay = parseFloat(document.getElementById('hoursPerDay').value);
-    const resultElement = document.getElementById('result');
-    const feedbackElement = document.getElementById('feedback');
+function getSpreadFactor(angle) {
+    const table = {
+        0: 1.000, 5: 1.003, 10: 1.015, 15: 1.035, 20: 1.064,
+        25: 1.103, 30: 1.154, 35: 1.220, 40: 1.305, 45: 1.414
+    };
+    
+    let closestAngle = Object.keys(table).reduce((prev, curr) => {
+        return Math.abs(curr - angle) < Math.abs(prev - angle) ? curr : prev;
+    });
 
-    // If invalid input, clear previous results and show error message
-    if (isNaN(deviceWattage) || isNaN(hoursPerDay) || deviceWattage <= 0 || hoursPerDay <= 0 || hoursPerDay > 24) {
-        resultElement.innerText = "";
-        feedbackElement.innerText = "";
-        resultElement.innerText = "Please enter valid positive numbers.";
+    return table[closestAngle];
+}
+
+function calculateForce() {
+    let ftot = parseFloat(document.getElementById("ftot").value);
+    let angle = parseFloat(document.getElementById("angle").value);
+    let anchors = parseInt(document.getElementById("anchors").value);
+    let feedback = document.getElementById("feedback");
+    let result = document.getElementById("result");
+
+    feedback.innerHTML = "";
+    result.innerHTML = "";
+
+    if (isNaN(ftot) || ftot <= 0) {
+        feedback.innerHTML = "Total load must be greater than 0.";
+        return;
+    }
+    if (isNaN(angle) || angle < 0 || angle > 45) {
+        feedback.innerHTML = "Cable angle must be between 0 and 45 degrees.";
+        return;
+    }
+    if (isNaN(anchors) || anchors <= 0) {
+        feedback.innerHTML = "Number of anchors must be at least 1.";
         return;
     }
 
-    // Convert device wattage from watts to kilowatts
-    const deviceWattageKW = deviceWattage / 1000; // Convert wattage to kilowatts (1 kW = 1000 W)
-
-    // Total energy consumed in kilowatt-hours (kWh) per day
-    const totalEnergyKWh = deviceWattageKW * hoursPerDay;
-
-    resultElement.innerText = `Total Energy Consumption: ${totalEnergyKWh.toFixed(2)} kWh per day`;
-
-    // Provide feedback
-    let feedback = "";
-    if (totalEnergyKWh < 1) {
-        feedback = "✅ This is low energy consumption. Great job!";
-    } else if (totalEnergyKWh >= 1 && totalEnergyKWh <= 5) {
-        feedback = "⚡ This is moderate energy consumption. Consider reducing usage to save energy.";
-    } else {
-        feedback = "❗ This is high energy consumption. Consider using energy-efficient devices or reducing usage.";
-    }
-
-    feedbackElement.innerText = feedback;
+    let spreadFactor = getSpreadFactor(angle);
+    let force = (ftot * spreadFactor) / anchors;
+    result.innerHTML = `Tensile Force per Anchor: <strong>${force.toFixed(2)} kN</strong>`;
 }
-
 </script>
 
 
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
-
-
-
 
 
 
@@ -288,6 +406,7 @@ function calculateEnergyConsumption() {
     fetch("header.html").then(response => response.text()).then(data => document.getElementById("header").innerHTML = data);
     fetch("footer.html").then(response => response.text()).then(data => document.getElementById("footer").innerHTML = data);
 </script>
+
 
 		</div>	<!-- END PAGE CONTENT -->	
 

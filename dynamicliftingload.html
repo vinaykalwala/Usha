@@ -56,68 +56,89 @@
 		<link href="css/responsive.css" rel="stylesheet">
 <style>
             
-      
+         
 
+   
         body {
       font-family: Arial, sans-serif;
      
       background-color: #f5f5f5;
     }
     .calculator-container {
-      max-width: 1000px;
-      margin: 20px auto;
-      padding: 20px;
-      background: #ffffff;
-      border-radius: 8px;
-      border: 2px dotted #1560bd;
-
-      box-shadow: 20px 14px 8px rgba(0, 0, 0, 0.2);
-    }
-    .calculator-container h2 {
-      text-align: center;
-      margin-bottom: 20px;
-      color: #1560bd;
-      font-size: 1.8rem;
-      margin-bottom: 30px;
-    }
-    .form-group {
-      margin-bottom: 15px;
-    }
-    .form-group label {
-      display: block;
-      margin-bottom: 5px;
-      color: #333;
-    }
-    .form-group input {
-      width: 100%;
-      padding: 8px;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-      background-color: rgb(223, 241, 247);
-
-    
-    }
-    .cal-btn {
-      width: 100%;
-      padding: 10px;
-      background-color: #1560bd;
-      color: #fff;
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
-      font-size: 16px;
-    }
-    .cal-btn:hover {
-      background-color: #0056b3;
-    }
-    .result {
-      margin-top: 20px;
-      font-size: 24px;
-      color: #333;
-      text-align: center;
-      color: rgb(36, 116, 2);
-     
-    }
+        max-width: 1200px;
+        margin: 20px auto;
+        padding: 20px;
+        background: #ffffff;
+        border-radius: 8px;
+        border: 2px dotted #1560bd;
+        box-shadow: 20px 14px 8px rgba(0, 0, 0, 0.2);
+      }
+      
+      .calculator-container h2 {
+        text-align: center;
+        margin-bottom: 20px;
+        color: #1560bd;
+        font-size: 1.8rem;
+      }
+  
+      .vent-area {
+        display: flex;
+        justify-content: space-between;
+        gap: 10px;
+      }
+  
+      .vent-area .form-group {
+        width: 48%;
+      }
+      @media (max-width:768px){
+        .vent-area {
+            flex-direction: column;
+            gap: 5px;
+        }
+        .vent-area .form-group{
+            width: 100%;
+        }
+      }
+  
+      .form-group {
+        margin-bottom: 15px;
+      }
+  
+      .form-group label {
+        display: block;
+        margin-bottom: 5px;
+        color: #333;
+      }
+  
+      .form-group input {
+        width: 100%;
+        padding: 8px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        background-color: rgb(223, 241, 247);
+      }
+  
+      .cal-btn {
+        width: 100%;
+        padding: 10px;
+        background-color: #1560bd;
+        color: #fff;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 16px;
+      }
+  
+      .cal-btn:hover {
+        background-color: #0056b3;
+      }
+  
+      .result {
+        margin-top: 20px;
+        font-size: 24px;
+        color: rgb(36, 116, 2);
+        text-align: center;
+      }
     @media (max-width: 768px) {
     .calculator-container {
         margin: 20px 15px; 
@@ -146,23 +167,95 @@
 }
 
 .note-container h3 {
-    margin-top: 0;
+    margin-top: 10px;
     color: #007bff;
     font-size: 18px;
 }
+.note-container ul{
+    margin-top: 5px;
+}
 
 .note-container p {
-    margin-top: 15px;
+    margin-top: 10px;
     text-align: justify;
 }
 strong{
     color: #0056b3;
 }
+
+/* Centering the table */
+.table-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-x: auto; /* Allows horizontal scroll if needed */
+}
+
+/* Table Styling */
+.custom-table {
+    border-collapse: collapse;
+    width: 100%; /* Ensure full responsiveness */
+    max-width: 600px; 
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Header Styling */
+.custom-table thead {
+    background-color: #1560bd; /* Light blue header */
+    color: white;
+}
+
+/* Cell Styling */
+.custom-table th, .custom-table td {
+    padding: 12px 16px;
+    border: 1px solid #ddd;
+    word-break: break-word; /* Prevents content overflow */
+}
+
+/* Zebra Striping */
+.custom-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+/* Hover Effect */
+
+
+/* Heading Style */
+.table-heading {
+    margin-bottom: 20px;
+    color: #2c3e50;
+}
+
+/* Responsive Design for Small Screens */
+@media (max-width: 600px) {
+    .custom-table {
+        width: 100%; /* Adjusts width for mobile */
+    }
+    .custom-table th, .custom-table td {
+        font-size: 14px; /* Smaller font for better fit */
+        padding: 8px;
+    }
+    .table-container {
+        overflow-x: auto; /* Enables scroll on overflow */
+    }
+}
+
 @media (max-width: 768px) {
     .note-container {
         margin: 15px; 
         padding: 10px; 
     }
+}
+select {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #d3e0f0;
+    border-radius: 5px;
+    font-size: 1rem;
+    background-color: rgb(223, 241, 247);
+
 }
 </style>
 	</head>
@@ -171,90 +264,124 @@ strong{
 
 
 	<body> 
-
-
-
-
+		
 <br><br><br><br>
+
 <div id="header"></div>
 
 
+
+
 <div class="calculator-container">
-    <h2>Energy Consumption Calculator</h2>
+    <h2>Dynamic Lifting Load Calculator</h2>
+
     <div class="form-group">
-        <label for="deviceWattage"><strong>Device Wattage (W):</strong></label>
-        <input type="number" id="deviceWattage" placeholder="Enter the device wattage in watts">
+        <label for="staticLoad">Static Load (kN/kg):</label>
+        <input type="number" id="staticLoad" placeholder="Enter static load" min="1">
     </div>
+
     <div class="form-group">
-        <label for="hoursPerDay"><strong>Hours Used per Day:</strong></label>
-        <input type="number" id="hoursPerDay" placeholder="Enter the number of hours the device is used per day">
+        <label for="liftingClass">Select Lifting Equipment:</label>
+        <select id="liftingClass">
+            <option value="1.1">Tower Crane (f = 1.1)</option>
+            <option value="1.3">Overhead Crane (f = 1.3)</option>
+            <option value="1.4">Mobile Crane (f = 1.4)</option>
+            <option value="1.6">High-Speed Lifting (f = 1.6)</option>
+        </select>
     </div>
-    <button class="cal-btn" onclick="calculateEnergyConsumption()">Calculate</button>
+
+    <button class="cal-btn" onclick="calculateDynamicLoad()">Calculate Dynamic Load</button>
+
+    <p class="feedback" id="feedback"></p>
     <div class="result" id="result"></div>
-    <div class="feedback" id="feedback"></div>
 </div>
 
 <div class="note-container">
     <h3>Note:</h3>
-    <p>
-        This calculator determines the <strong>total energy consumption</strong> of a device based on:
-    </p>
+    <p><strong>Formula for Dynamic Lifting Load:</strong></p>
+    <p>When lifting precast units, dynamic forces arise due to acceleration, requiring a correction factor. The formula to calculate the dynamic lifting load is:</p>
+
+
+    <h3>Why Dynamic Load Calculation is Important?</h3>
+    <p>Ensuring proper load calculation prevents equipment overload, structural damage, and workplace accidents.</p>
+
+    <h3>Key Parameters That Affect Lifting Load:</h3>
     <ul>
-        <li><strong>Device Wattage (W):</strong> The amount of power the device uses when it is turned on, measured in watts (W).</li>
-        <li><strong>Hours Used per Day:</strong> The number of hours the device is used each day.</li>
+        <li><strong>Static Load:</strong> Weight of the object being lifted.</li>
+        <li><strong>Lifting Coefficient (f):</strong> Factor depending on the type of lifting equipment.</li>
+        <li><strong>Lifting Speed:</strong> In high-speed lifting, additional forces impact the dynamic load.</li>
     </ul>
-    <p>
-        After entering the values, click <strong>Calculate</strong> to see your <strong>total energy consumption</strong> in kilowatt-hours (kWh).
-    </p>
-    <p>
-        The <strong>total energy consumption</strong> is calculated by multiplying the device wattage and hours used per day. The result is then converted into kilowatt-hours (kWh) by dividing the total watt-hours by 1000.
-    </p>
+
+    <h3>Real-Life Applications:</h3>
+    <ul>
+        <li><strong>Construction:</strong> Cranes lifting heavy steel beams.</li>
+        <li><strong>Factories:</strong> Overhead cranes moving machinery.</li>
+        <li><strong>Shipbuilding:</strong> Lifting large ship parts with mobile cranes.</li>
+    </ul>
+
+    <h3>Standard Values of Lifting Coefficient (f):</h3>
+    <div class="table-container">
+    <table class="custom-table">
+        <thead>
+        <tr>
+            <th>Lifting Equipment</th>
+            <th>Dynamic Factor (f)</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Tower Crane</td>
+            <td>1.1</td>
+        </tr>
+        <tr>
+            <td>Overhead Crane</td>
+            <td>1.3</td>
+        </tr>
+        <tr>
+            <td>Mobile Crane</td>
+            <td>1.4</td>
+        </tr>
+        <tr>
+            <td>High-Speed Lifting</td>
+            <td>1.6</td>
+        </tr>
+    </tbody>
+    </table>
+</div>
+    <h3>Conclusion:</h3>
+    <p>By using the correct dynamic load factor, lifting operations can be optimized for safety, efficiency, and reliability.</p>
 </div>
 
 <script>
-function calculateEnergyConsumption() {
-    const deviceWattage = parseFloat(document.getElementById('deviceWattage').value);
-    const hoursPerDay = parseFloat(document.getElementById('hoursPerDay').value);
-    const resultElement = document.getElementById('result');
-    const feedbackElement = document.getElementById('feedback');
+function calculateDynamicLoad() {
+    const staticLoad = parseFloat(document.getElementById("staticLoad").value);
+    const liftingFactor = parseFloat(document.getElementById("liftingClass").value);
+    const feedback = document.getElementById("feedback");
+    const result = document.getElementById("result");
 
-    // If invalid input, clear previous results and show error message
-    if (isNaN(deviceWattage) || isNaN(hoursPerDay) || deviceWattage <= 0 || hoursPerDay <= 0 || hoursPerDay > 24) {
-        resultElement.innerText = "";
-        feedbackElement.innerText = "";
-        resultElement.innerText = "Please enter valid positive numbers.";
+    // Clear previous messages
+    feedback.innerText = "";
+    result.innerText = "";
+
+    // Validation: Ensure Static Load is greater than 0
+    if (isNaN(staticLoad) || staticLoad <= 0) {
+        feedback.innerText = "Static Load must be greater than 0. A zero value means no lifting is required!";
         return;
     }
 
-    // Convert device wattage from watts to kilowatts
-    const deviceWattageKW = deviceWattage / 1000; // Convert wattage to kilowatts (1 kW = 1000 W)
+    // Calculation
+    const dynamicLoad = staticLoad * liftingFactor;
+    result.innerText = `Dynamic Lifting Load: ${dynamicLoad.toFixed(2)} kN`;
 
-    // Total energy consumed in kilowatt-hours (kWh) per day
-    const totalEnergyKWh = deviceWattageKW * hoursPerDay;
-
-    resultElement.innerText = `Total Energy Consumption: ${totalEnergyKWh.toFixed(2)} kWh per day`;
-
-    // Provide feedback
-    let feedback = "";
-    if (totalEnergyKWh < 1) {
-        feedback = "✅ This is low energy consumption. Great job!";
-    } else if (totalEnergyKWh >= 1 && totalEnergyKWh <= 5) {
-        feedback = "⚡ This is moderate energy consumption. Consider reducing usage to save energy.";
-    } else {
-        feedback = "❗ This is high energy consumption. Consider using energy-efficient devices or reducing usage.";
+    // Additional feedback for user understanding
+    if (dynamicLoad > 500) {
+        feedback.innerText = "Warning: High dynamic load! Ensure your lifting equipment can handle this load safely.";
     }
-
-    feedbackElement.innerText = feedback;
 }
-
 </script>
 
 
-
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
-
-
-
 
 
 
@@ -288,6 +415,7 @@ function calculateEnergyConsumption() {
     fetch("header.html").then(response => response.text()).then(data => document.getElementById("header").innerHTML = data);
     fetch("footer.html").then(response => response.text()).then(data => document.getElementById("footer").innerHTML = data);
 </script>
+
 
 		</div>	<!-- END PAGE CONTENT -->	
 
