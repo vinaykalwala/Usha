@@ -385,6 +385,7 @@ body {
     width: 100%;
     overflow: hidden;
     position: relative;
+    white-space: nowrap;
 }
 
 
@@ -392,8 +393,14 @@ body {
 
 .marquee-content {
     display: flex;
-    animation: marquee 20s linear infinite;
+    animation: marquee 70s linear infinite;
+    min-width: 400%; /* Ensure enough width for the loop */
 }
+@keyframes marquee {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-100%); }
+}
+
 
 .marquee-content img {
     width: auto;
@@ -1962,6 +1969,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 							<img src="images/vindus_clients_images/ACE Tyres LTD.jpg" alt="ACE Tyres LTD" class="logo">
 							<img src="images/vindus_clients_images/clientlogo9.jpg" alt="Group" class="logo">
 							<img src="images/vindus_clients_images/clientlogo10.jpg" alt="Group" class="logo">
+							<img src="images/vindus_clients_images/mahindra.jpg" alt="Group" class="logo">
+							<img src="images/vindus_clients_images/circle.jpg" alt="Group" class="logo">
+							<img src="images/vindus_clients_images/amararaja.jpg" alt="Group" class="logo">
+
 							<img src="images/vindus_clients_images/Prime Focus Limited.jpg" alt="Prime Focus Limited" class="logo">
 							<img src="images/vindus_clients_images/Exel Rubber.png" alt="Exel Rubber" class="logo">
 							<img src="images/vindus_clients_images/JSW Cement.png" alt="JSW Cement" class="logo">
