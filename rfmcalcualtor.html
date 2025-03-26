@@ -207,7 +207,7 @@ select {
         .custom-table {
             border-collapse: collapse;
             width: 80%;
-            max-width: 600px;
+            max-width: 800px;
             text-align: center;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
@@ -266,258 +266,179 @@ select {
 <div id="header"></div>
 
 <div class="calculator-container">
-    <h2>Army Body Fat Calculator</h2>
+    <h2>Relative Fat Mass (RFM) Calculator</h2>
 
-    <div class="input-row">
-        <!-- Sex Input -->
+   
+        <!-- Gender Input -->
         <div class="form-group">
             <label for="sex">Gender:</label>
-            <select id="sex" onchange="toggleHipInput()">
+            <select id="sex">
                 <option value="male">Male</option>
                 <option value="female">Female</option>
             </select>
         </div>
 
-        <!-- Age Input -->
-        <div class="form-group">
-            <label for="age">Age (years):</label>
-            <input type="number" id="age" placeholder="Enter your age" step="1">
-        </div>
-    </div>
-
-    <div class="input-row">
         <!-- Height Input -->
         <div class="form-group">
             <label for="height">Height (cm):</label>
-            <input type="number" id="height" placeholder="Enter your height" step="0.1">
+            <input type="number" id="height" placeholder="e.g., 170 cm" step="0.1">
         </div>
 
-        <!-- Weight Input -->
+        <!-- Waist Input -->
         <div class="form-group">
-            <label for="weight">Weight (kg):</label>
-            <input type="number" id="weight" placeholder="Enter your weight" step="0.1">
+            <label for="waist">Waist Circumference (cm):</label>
+            <input type="number" id="waist" placeholder="e.g., 80 cm" step="0.1">
         </div>
-    </div>
-
-    <div class="input-row">
-        <!-- Neck Circumference Input -->
-        <div class="form-group">
-            <label for="neck">Neck (cm):</label>
-            <input type="number" id="neck" placeholder="Enter neck circumference" step="0.1">
-        </div>
-
-        <!-- Waist Circumference Input -->
-        <div class="form-group">
-            <label for="waist">Waist (cm):</label>
-            <input type="number" id="waist" placeholder="Enter waist circumference" step="0.1">
-        </div>
-    </div>
-
-    <!-- Hip Circumference Input (Visible only for females) -->
-    <div class="form-group" id="hip-group" style="display: none;">
-        <label for="hip">Hip (cm):</label>
-        <input type="number" id="hip" placeholder="Enter hip circumference" step="0.1">
-    </div>
 
     <!-- Calculate Button -->
-    <button class="cal-btn" onclick="calculateBodyFat()">Calculate Body Fat</button>
+    <button class="cal-btn" onclick="calculateRFM()">Calculate Body Fat %</button>
 
     <!-- Result Display -->
     <div class="result" id="result"></div>
 </div>
 
 <div class="note-container">
-    <h3>What Measurements Are Needed?</h3>
+    <h3>📌 What Is Relative Fat Mass (RFM)?</h3>
     <p>
-        According to the <strong>US Army Regulation 600-9</strong>, the following measurements are required:
+        RFM is a scientifically validated method to estimate body fat percentage using only <strong>height</strong> and <strong>waist circumference</strong>. Unlike BMI, which ignores body composition, RFM accounts for central fat distribution—a key indicator of metabolic health risks.
+    </p>
+
+    <h3>🔍 How Does It Work?</h3>
+    <p>
+        RFM calculates body fat by comparing your waist size to your height. Since abdominal fat is closely linked to health risks (e.g., heart disease, diabetes), this method is more accurate than BMI for identifying obesity.
     </p>
     <ul>
-        <li><strong>Height:</strong> Measure without shoes, standing straight.</li>
-        <li><strong>Neck:</strong> Measure below the larynx (Adam's apple).</li>
-        <li><strong>Waist:</strong> Measure at the navel level for men, and around the narrowest part of the abdomen for women.</li>
-        <li><strong>Hips (for women only):</strong> Measure at the widest part of the buttocks or hips.</li>
+        <li><strong>For Men:</strong> Uses a height-to-waist ratio adjusted for male physiology.</li>
+        <li><strong>For Women:</strong> Accounts for naturally higher essential fat levels.</li>
+    </ul>
+    <h3>Parameters</h3>
+    <ul class="measurement-instructions">
+        <li><strong>Height:</strong> Stand straight against a wall without shoes, measure from floor to top of head.</li>
+        <li><strong>Waist (Men):</strong> Measure horizontally at navel level, keeping tape parallel to floor.</li>
+        <li><strong>Waist (Women):</strong> Measure at the narrowest part of torso (usually above navel).</li>
+        <li><strong>For All:</strong> Take measurements in the morning before eating, with relaxed abdomen.</li>
+    </ul>
+    <h3>📋 RFM Interpretation Guide</h3>
+    <div class="table-container">
+        <h3>Body Fat Percentage Categories</h3>
+        <table class="custom-table">
+            <thead>
+                <tr>
+                    <th>Category</th>
+                    <th>Men (Body Fat %)</th>
+                    <th>Women (Body Fat %)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="extreme-low">
+                    <td><strong>Extremely Low Fat</strong></td>
+                    <td>&lt; 2%</td>
+                    <td>&lt; 10%</td>
+                </tr>
+                <tr class="essential-fat">
+                    <td><strong>Essential Fat</strong> (Minimum for health)</td>
+                    <td>2–5%</td>
+                    <td>10–13%</td>
+                </tr>
+                <tr class="athletes">
+                    <td><strong>Athletes</strong> (Lean, muscular)</td>
+                    <td>6–13%</td>
+                    <td>12–20%</td>
+                </tr>
+                <tr class="fitness">
+                    <td><strong>Fitness</strong> (Healthy, active)</td>
+                    <td>14–17%</td>
+                    <td>21–24%</td>
+                </tr>
+                <tr class="average">
+                    <td><strong>Average</strong> (Moderate fat)</td>
+                    <td>18–24%</td>
+                    <td>25–31%</td>
+                </tr>
+                <tr class="obese">
+                    <td><strong>Obese</strong> (High health risk)</td>
+                    <td>25%+</td>
+                    <td>32%+</td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="table-note">
+            <p><strong>Note:</strong> These ranges are general guidelines. Individual health assessments should consider multiple factors.</p>
+        </div>
+    </div>
+    
+   
+    
+    <h3>⚠️ Important Notes</h3>
+    <ul>
+        <li><strong>Waist Measurement Tips:</strong> Measure at the navel (men) or narrowest part (women). Keep tape snug but not tight.</li>
+        <li><strong>Limitations:</strong> RFM may underestimate fat in very muscular individuals or overestimate in older adults with lost muscle mass.</li>
+        <li><strong>Not for Children/Pregnant Women:</strong> Use specialized tools for these groups.</li>
     </ul>
 
-   
-
-    <h3>US Army Body Fat Standards</h3>
+    <h3>📚 Why RFM Beats BMI</h3>
     <p>
-        The US Army has specific body fat percentage standards for active-duty personnel and candidates. These standards vary by age and gender:
+        BMI only considers weight and height, lumping muscle and fat together. RFM focuses on <strong>abdominal fat</strong>—the dangerous kind linked to diabetes and heart disease. Studies show RFM is <em>more accurate</em> for predicting health risks than BMI.
     </p>
-    <div class="table-container">
-        <h3>Active Duty Personnel:</h3>
-        <table class="custom-table">
-            <thead>
-                <tr>
-                    <th>Age Group</th>
-                    <th>Male (%)</th>
-                    <th>Female (%)</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>17-20</td>
-                    <td>20</td>
-                    <td>30</td>
-                </tr>
-                <tr>
-                    <td>21-27</td>
-                    <td>22</td>
-                    <td>32</td>
-                </tr>
-                <tr>
-                    <td>28-39</td>
-                    <td>24</td>
-                    <td>34</td>
-                </tr>
-                <tr>
-                    <td>40+</td>
-                    <td>26</td>
-                    <td>36</td>
-                </tr>
-            </tbody>
-        </table>
 
-        <h3>Military Candidates:</h3>
-        <table class="custom-table">
-            <thead>
-                <tr>
-                    <th>Age Group</th>
-                    <th>Male (%)</th>
-                    <th>Female (%)</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>17-20</td>
-                    <td>24</td>
-                    <td>30</td>
-                </tr>
-                <tr>
-                    <td>21-27</td>
-                    <td>26</td>
-                    <td>32</td>
-                </tr>
-                <tr>
-                    <td>28-39</td>
-                    <td>28</td>
-                    <td>34</td>
-                </tr>
-                <tr>
-                    <td>40+</td>
-                    <td>30</td>
-                    <td>36</td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-
-    <h3>Disclaimer</h3>
+    <h3>🚨 When to Consult a Doctor</h3>
     <p>
-        This calculator provides estimates based on the US Army formulas and is not a substitute for professional medical advice. Always consult a healthcare provider for personalized recommendations.
+        If your RFM falls in the "Obese" range or you have concerns about metabolic health (e.g., high blood pressure, prediabetes), seek a professional assessment. Tools like DEXA scans or skinfold tests provide more precise measurements.
     </p>
 </div>
-
 <script>
-    // Function to toggle hip input visibility based on gender
-    function toggleHipInput() {
+    function calculateRFM() {
         const gender = document.getElementById('sex').value;
-        const hipGroup = document.getElementById('hip-group');
-        if (gender === 'female') {
-            hipGroup.style.display = 'block';
-        } else {
-            hipGroup.style.display = 'none';
-        }
-    }
-
-    // Function to calculate body fat percentage
-    function calculateBodyFat() {
-        // Get input values
-        const gender = document.getElementById('sex').value;
-        const age = parseFloat(document.getElementById('age').value);
         const height = parseFloat(document.getElementById('height').value);
-        const weight = parseFloat(document.getElementById('weight').value);
-        const neck = parseFloat(document.getElementById('neck').value);
         const waist = parseFloat(document.getElementById('waist').value);
-        const hip = parseFloat(document.getElementById('hip').value || 0);
         const result = document.getElementById('result');
 
-        // Reset previous results
-        result.innerHTML = "";
-
         // Validate inputs
-        if (isNaN(age) || age <= 0) {
-            result.innerHTML = "❌ Please enter a valid age (must be a positive number).";
-            return;
-        }
         if (isNaN(height) || height <= 0) {
-            result.innerHTML = "❌ Please enter a valid height (must be a positive number).";
-            return;
-        }
-        if (isNaN(weight) || weight <= 0) {
-            result.innerHTML = "❌ Please enter a valid weight (must be a positive number).";
-            return;
-        }
-        if (isNaN(neck) || neck <= 0) {
-            result.innerHTML = "❌ Please enter a valid neck measurement (must be a positive number).";
+            result.innerHTML = "❌ Please enter a valid height.";
             return;
         }
         if (isNaN(waist) || waist <= 0) {
-            result.innerHTML = "❌ Please enter a valid waist measurement (must be a positive number).";
-            return;
-        }
-        if (gender === 'female' && (isNaN(hip) || hip <= 0)) {
-            result.innerHTML = "❌ Please enter a valid hip measurement (must be a positive number).";
+            result.innerHTML = "❌ Please enter a valid waist measurement.";
             return;
         }
 
-        // Convert measurements from cm to inches
-        const heightInches = height / 2.54;
-        const neckInches = neck / 2.54;
-        const waistInches = waist / 2.54;
-        const hipInches = hip / 2.54;
-
-        // Calculate body fat percentage
-        let bodyFatPercentage;
+        // Calculate RFM (formula hidden in practice)
+        let rfm;
         if (gender === 'male') {
-            bodyFatPercentage = (86.010 * Math.log10(waistInches - neckInches)) - (70.041 * Math.log10(heightInches)) + 36.76;
+            rfm = 64 - (20 * (height / waist));
         } else {
-            bodyFatPercentage = (163.205 * Math.log10(waistInches + hipInches - neckInches)) - (97.684 * Math.log10(heightInches)) - 78.387;
+            rfm = 76 - (20 * (height / waist));
         }
+        rfm = parseFloat(rfm.toFixed(2));
 
-        // Round body fat percentage to 2 decimal places
-        bodyFatPercentage = parseFloat(bodyFatPercentage.toFixed(2));
-
-        // Determine if the result meets Army standards
-        let standard;
-        if (gender === 'male') {
-            if (age >= 17 && age <= 20) standard = 20;
-            else if (age >= 21 && age <= 27) standard = 22;
-            else if (age >= 28 && age <= 39) standard = 24;
-            else standard = 26;
-        } else {
-            if (age >= 17 && age <= 20) standard = 30;
-            else if (age >= 21 && age <= 27) standard = 32;
-            else if (age >= 28 && age <= 39) standard = 34;
-            else standard = 36;
-        }
-
-        // Display results
+        // Interpretation
         let interpretation;
-        if (bodyFatPercentage <= standard) {
-            interpretation = `✅ Your body fat percentage meets the US Army standard of <strong>${standard}%</strong>.`;
+        if (gender === 'male') {
+            if (rfm < 2) interpretation = "❄️ Extremely low fat (Rare, consult a doctor)";
+            else if (rfm <= 5) interpretation = "🏋️ Essential fat (Athlete-level leanness)";
+            else if (rfm <= 13) interpretation = "💪 Athletes (Lean and muscular)";
+            else if (rfm <= 17) interpretation = "👍 Fitness (Healthy and active)";
+            else if (rfm <= 24) interpretation = "🆗 Average (Moderate fat)";
+            else interpretation = "⚠️ Obese (High health risk)";
         } else {
-            interpretation = `❌ Your body fat percentage exceeds the US Army standard of <strong>${standard}%</strong>.`;
+            if (rfm < 10) interpretation = "❄️ Extremely low fat (Rare, consult a doctor)";
+            else if (rfm <= 13) interpretation = "🏋️ Essential fat (Athlete-level leanness)";
+            else if (rfm <= 20) interpretation = "💪 Athletes (Lean and muscular)";
+            else if (rfm <= 24) interpretation = "👍 Fitness (Healthy and active)";
+            else if (rfm <= 31) interpretation = "🆗 Average (Moderate fat)";
+            else interpretation = "⚠️ Obese (High health risk)";
         }
 
         result.innerHTML = `
-            <strong>Your Body Fat Percentage:</strong> ${bodyFatPercentage}%<br>
-            <strong>US Army Standard:</strong> ${standard}%<br>
-            <strong>Interpretation:</strong> ${interpretation}<br><br>
-            <strong>Note:</strong> You should have <strong>${standard}%</strong> body fat, but you have <strong>${bodyFatPercentage}%</strong>.
+            <strong>Your Estimated Body Fat:</strong> ${rfm}%<br>
+            <strong>Category:</strong> ${interpretation}<br>
         `;
     }
 </script>
+
+
+
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
 
 

@@ -266,255 +266,197 @@ select {
 <div id="header"></div>
 
 <div class="calculator-container">
-    <h2>Army Body Fat Calculator</h2>
+    <h2>Body Surface Area (BSA) Calculator</h2>
 
     <div class="input-row">
-        <!-- Sex Input -->
+        <!-- Weight Input -->
         <div class="form-group">
-            <label for="sex">Gender:</label>
-            <select id="sex" onchange="toggleHipInput()">
-                <option value="male">Male</option>
-                <option value="female">Female</option>
+            <label for="weight">Weight:</label>
+            <input type="number" id="weight" placeholder="e.g., 70 kg" step="0.1">
+            <select id="weight-unit">
+                <option value="kg">kg</option>
+                <option value="lb">lb</option>
             </select>
         </div>
 
-        <!-- Age Input -->
-        <div class="form-group">
-            <label for="age">Age (years):</label>
-            <input type="number" id="age" placeholder="Enter your age" step="1">
-        </div>
-    </div>
-
-    <div class="input-row">
         <!-- Height Input -->
         <div class="form-group">
-            <label for="height">Height (cm):</label>
-            <input type="number" id="height" placeholder="Enter your height" step="0.1">
-        </div>
-
-        <!-- Weight Input -->
-        <div class="form-group">
-            <label for="weight">Weight (kg):</label>
-            <input type="number" id="weight" placeholder="Enter your weight" step="0.1">
-        </div>
-    </div>
-
-    <div class="input-row">
-        <!-- Neck Circumference Input -->
-        <div class="form-group">
-            <label for="neck">Neck (cm):</label>
-            <input type="number" id="neck" placeholder="Enter neck circumference" step="0.1">
-        </div>
-
-        <!-- Waist Circumference Input -->
-        <div class="form-group">
-            <label for="waist">Waist (cm):</label>
-            <input type="number" id="waist" placeholder="Enter waist circumference" step="0.1">
+            <label for="height">Height:</label>
+            <input type="number" id="height" placeholder="e.g., 170 cm" step="0.1">
+            <select id="height-unit">
+                <option value="cm">cm</option>
+                <option value="in">in</option>
+                <option value="ft">ft</option>
+            </select>
         </div>
     </div>
 
-    <!-- Hip Circumference Input (Visible only for females) -->
-    <div class="form-group" id="hip-group" style="display: none;">
-        <label for="hip">Hip (cm):</label>
-        <input type="number" id="hip" placeholder="Enter hip circumference" step="0.1">
+    <!-- Formula Selection -->
+    <div class="form-group">
+        <label for="formula">BSA Formula:</label>
+        <select id="formula">
+            <option value="dubois">Du Bois (default)</option>
+            <option value="mosteller">Mosteller</option>
+            <option value="haycock">Haycock</option>
+            <option value="gehan">Gehan & George</option>
+            <option value="fujimoto">Fujimoto</option>
+        </select>
     </div>
 
     <!-- Calculate Button -->
-    <button class="cal-btn" onclick="calculateBodyFat()">Calculate Body Fat</button>
+    <button class="cal-btn" onclick="calculateBSA()">Calculate BSA</button>
 
     <!-- Result Display -->
     <div class="result" id="result"></div>
 </div>
 
 <div class="note-container">
-    <h3>What Measurements Are Needed?</h3>
+    <h3>📌 What Is Body Surface Area (BSA)?</h3>
     <p>
-        According to the <strong>US Army Regulation 600-9</strong>, the following measurements are required:
+        BSA is the total surface area of the human body, measured in square meters (m²). It's widely used in medical practice to calculate drug dosages, assess metabolic rate, and determine treatment protocols for conditions like burns or chemotherapy.
     </p>
-    <ul>
-        <li><strong>Height:</strong> Measure without shoes, standing straight.</li>
-        <li><strong>Neck:</strong> Measure below the larynx (Adam's apple).</li>
-        <li><strong>Waist:</strong> Measure at the navel level for men, and around the narrowest part of the abdomen for women.</li>
-        <li><strong>Hips (for women only):</strong> Measure at the widest part of the buttocks or hips.</li>
-    </ul>
 
    
 
-    <h3>US Army Body Fat Standards</h3>
-    <p>
-        The US Army has specific body fat percentage standards for active-duty personnel and candidates. These standards vary by age and gender:
-    </p>
+    <h3>📋 Average BSA Values</h3>
     <div class="table-container">
-        <h3>Active Duty Personnel:</h3>
-        <table class="custom-table">
-            <thead>
-                <tr>
-                    <th>Age Group</th>
-                    <th>Male (%)</th>
-                    <th>Female (%)</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>17-20</td>
-                    <td>20</td>
-                    <td>30</td>
-                </tr>
-                <tr>
-                    <td>21-27</td>
-                    <td>22</td>
-                    <td>32</td>
-                </tr>
-                <tr>
-                    <td>28-39</td>
-                    <td>24</td>
-                    <td>34</td>
-                </tr>
-                <tr>
-                    <td>40+</td>
-                    <td>26</td>
-                    <td>36</td>
-                </tr>
-            </tbody>
-        </table>
+    <table class="custom-table">
+        <thead>
+            <tr>
+                <th>Category</th>
+                <th>Average BSA (m²)</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Newborn infants</td>
+                <td>0.25</td>
+            </tr>
+            <tr>
+                <td>2-year-old child</td>
+                <td>0.5</td>
+            </tr>
+            <tr>
+                <td>10-year-old child</td>
+                <td>1.14</td>
+            </tr>
+            <tr>
+                <td>Adult women</td>
+                <td>1.6</td>
+            </tr>
+            <tr>
+                <td>Adult men</td>
+                <td>1.9</td>
+            </tr>
+            <tr>
+                <td>Reference value (70kg adult)</td>
+                <td>1.73</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+    <h3>⚠️ Important Notes</h3>
+    <ul>
+        <li><strong>Medical Use:</strong> BSA is particularly important for chemotherapy dosing and burn assessment.</li>
+        <li><strong>Limitations:</strong> BSA doesn't account for body composition (muscle vs. fat).</li>
+        <li><strong>Measurement Tips:</strong> For accurate results, measure height without shoes and weight with minimal clothing.</li>
+        <li><strong>Unit Conversion:</strong> The calculator automatically handles conversions between kg/lb and cm/in/ft.</li>
+    </ul>
 
-        <h3>Military Candidates:</h3>
-        <table class="custom-table">
-            <thead>
-                <tr>
-                    <th>Age Group</th>
-                    <th>Male (%)</th>
-                    <th>Female (%)</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>17-20</td>
-                    <td>24</td>
-                    <td>30</td>
-                </tr>
-                <tr>
-                    <td>21-27</td>
-                    <td>26</td>
-                    <td>32</td>
-                </tr>
-                <tr>
-                    <td>28-39</td>
-                    <td>28</td>
-                    <td>34</td>
-                </tr>
-                <tr>
-                    <td>40+</td>
-                    <td>30</td>
-                    <td>36</td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-
-    <h3>Disclaimer</h3>
+    <h3>📚 Why BSA Matters in Medicine</h3>
     <p>
-        This calculator provides estimates based on the US Army formulas and is not a substitute for professional medical advice. Always consult a healthcare provider for personalized recommendations.
+        BSA provides a better indicator of metabolic mass than body weight alone, as it accounts for both height and weight. This makes it particularly useful for:
     </p>
+    <ul>
+        <li>Calculating drug dosages (especially chemotherapy)</li>
+        <li>Assessing burn size (rule of nines)</li>
+        <li>Evaluating cardiac index</li>
+        <li>Determining glomerular filtration rate (GFR)</li>
+    </ul>
+
+    <h3>🚨 When to Consult a Doctor</h3>
+    <p>
+        While BSA is a useful tool for health assessments, it should never replace professional medical advice. Always consult your doctor for:
+    </p>
+    <ul>
+        <li>Precise medication dosing</li>
+        <li>Metabolic health concerns</li>
+        <li>Personalized health assessments</li>
+    </ul>
 </div>
 
 <script>
-    // Function to toggle hip input visibility based on gender
-    function toggleHipInput() {
-        const gender = document.getElementById('sex').value;
-        const hipGroup = document.getElementById('hip-group');
-        if (gender === 'female') {
-            hipGroup.style.display = 'block';
-        } else {
-            hipGroup.style.display = 'none';
-        }
-    }
-
-    // Function to calculate body fat percentage
-    function calculateBodyFat() {
+    function calculateBSA() {
         // Get input values
-        const gender = document.getElementById('sex').value;
-        const age = parseFloat(document.getElementById('age').value);
-        const height = parseFloat(document.getElementById('height').value);
         const weight = parseFloat(document.getElementById('weight').value);
-        const neck = parseFloat(document.getElementById('neck').value);
-        const waist = parseFloat(document.getElementById('waist').value);
-        const hip = parseFloat(document.getElementById('hip').value || 0);
+        const weightUnit = document.getElementById('weight-unit').value;
+        const height = parseFloat(document.getElementById('height').value);
+        const heightUnit = document.getElementById('height-unit').value;
+        const formula = document.getElementById('formula').value;
         const result = document.getElementById('result');
 
-        // Reset previous results
-        result.innerHTML = "";
-
         // Validate inputs
-        if (isNaN(age) || age <= 0) {
-            result.innerHTML = "❌ Please enter a valid age (must be a positive number).";
+        if (isNaN(weight) || weight <= 0) {
+            result.innerHTML = "❌ Please enter a valid weight.";
             return;
         }
         if (isNaN(height) || height <= 0) {
-            result.innerHTML = "❌ Please enter a valid height (must be a positive number).";
-            return;
-        }
-        if (isNaN(weight) || weight <= 0) {
-            result.innerHTML = "❌ Please enter a valid weight (must be a positive number).";
-            return;
-        }
-        if (isNaN(neck) || neck <= 0) {
-            result.innerHTML = "❌ Please enter a valid neck measurement (must be a positive number).";
-            return;
-        }
-        if (isNaN(waist) || waist <= 0) {
-            result.innerHTML = "❌ Please enter a valid waist measurement (must be a positive number).";
-            return;
-        }
-        if (gender === 'female' && (isNaN(hip) || hip <= 0)) {
-            result.innerHTML = "❌ Please enter a valid hip measurement (must be a positive number).";
+            result.innerHTML = "❌ Please enter a valid height.";
             return;
         }
 
-        // Convert measurements from cm to inches
-        const heightInches = height / 2.54;
-        const neckInches = neck / 2.54;
-        const waistInches = waist / 2.54;
-        const hipInches = hip / 2.54;
-
-        // Calculate body fat percentage
-        let bodyFatPercentage;
-        if (gender === 'male') {
-            bodyFatPercentage = (86.010 * Math.log10(waistInches - neckInches)) - (70.041 * Math.log10(heightInches)) + 36.76;
+        // Convert units to metric (kg and cm)
+        const weightKg = weightUnit === 'lb' ? weight * 0.453592 : weight;
+        
+        let heightCm;
+        if (heightUnit === 'in') {
+            heightCm = height * 2.54;
+        } else if (heightUnit === 'ft') {
+            heightCm = height * 30.48;
         } else {
-            bodyFatPercentage = (163.205 * Math.log10(waistInches + hipInches - neckInches)) - (97.684 * Math.log10(heightInches)) - 78.387;
+            heightCm = height;
         }
 
-        // Round body fat percentage to 2 decimal places
-        bodyFatPercentage = parseFloat(bodyFatPercentage.toFixed(2));
-
-        // Determine if the result meets Army standards
-        let standard;
-        if (gender === 'male') {
-            if (age >= 17 && age <= 20) standard = 20;
-            else if (age >= 21 && age <= 27) standard = 22;
-            else if (age >= 28 && age <= 39) standard = 24;
-            else standard = 26;
-        } else {
-            if (age >= 17 && age <= 20) standard = 30;
-            else if (age >= 21 && age <= 27) standard = 32;
-            else if (age >= 28 && age <= 39) standard = 34;
-            else standard = 36;
+        // Calculate BSA based on selected formula
+        let bsa;
+        switch(formula) {
+            case 'mosteller':
+                bsa = Math.sqrt((heightCm * weightKg) / 3600);
+                break;
+            case 'haycock':
+                bsa = 0.024265 * Math.pow(weightKg, 0.5378) * Math.pow(heightCm, 0.3964);
+                break;
+            case 'gehan':
+                bsa = 0.0235 * Math.pow(weightKg, 0.51456) * Math.pow(heightCm, 0.42246);
+                break;
+            case 'fujimoto':
+                bsa = 0.008883 * Math.pow(weightKg, 0.444) * Math.pow(heightCm, 0.663);
+                break;
+            default: // Du Bois
+                bsa = 0.007184 * Math.pow(weightKg, 0.425) * Math.pow(heightCm, 0.725);
         }
 
-        // Display results
+        // Round to 2 decimal places
+        bsa = parseFloat(bsa.toFixed(2));
+
+        // Interpretation
         let interpretation;
-        if (bodyFatPercentage <= standard) {
-            interpretation = `✅ Your body fat percentage meets the US Army standard of <strong>${standard}%</strong>.`;
+        if (bsa < 0.5) {
+            interpretation = "Child (2 years or younger)";
+        } else if (bsa < 1.14) {
+            interpretation = "Child (under 10 years)";
+        } else if (bsa < 1.6) {
+            interpretation = "Adolescent or small adult";
+        } else if (bsa < 1.9) {
+            interpretation = "Average adult";
         } else {
-            interpretation = `❌ Your body fat percentage exceeds the US Army standard of <strong>${standard}%</strong>.`;
+            interpretation = "Large adult";
         }
 
         result.innerHTML = `
-            <strong>Your Body Fat Percentage:</strong> ${bodyFatPercentage}%<br>
-            <strong>US Army Standard:</strong> ${standard}%<br>
-            <strong>Interpretation:</strong> ${interpretation}<br><br>
-            <strong>Note:</strong> You should have <strong>${standard}%</strong> body fat, but you have <strong>${bodyFatPercentage}%</strong>.
+            <strong>Your Body Surface Area:</strong> ${bsa} m²<br>
+            <strong>Category:</strong> ${interpretation}<br>
+            <strong>Formula Used:</strong> ${document.getElementById('formula').options[document.getElementById('formula').selectedIndex].text}
         `;
     }
 </script>
