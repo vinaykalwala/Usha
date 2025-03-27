@@ -81,6 +81,24 @@
       font-size: 1.8rem;
       margin-bottom: 30px;
     }
+    .vent-pipe {
+        display: flex;
+        justify-content: space-between;
+        gap: 10px;
+      }
+  
+      .vent-pipe .form-group {
+        width: 48%;
+      }
+      @media (max-width:768px){
+        .vent-pipe {
+            flex-direction: column;
+            gap: 5px;
+        }
+        .vent-pipe .form-group{
+            width: 100%;
+        }
+      }
     .form-group {
       margin-bottom: 15px;
     }
@@ -204,7 +222,7 @@ select {
 
 <div class="calculator-container">
     <h2>Safety Valve Vent Pipe Diameter Calculator</h2>
-
+    <div class="vent-pipe">
     <div class="form-group">
         <label for="Lc">Equivalent Length of Pipe (L<sub>c</sub>) (m):</label>
         <input type="number" id="Lc" placeholder="Enter equivalent pipe length" min="0" step="any">
@@ -214,6 +232,8 @@ select {
         <label for="ith">Discharge Capacity (ṁ) (kg/h):</label>
         <input type="number" id="ith" placeholder="Enter discharge capacity" min="0" step="any">
     </div>
+    </div>
+    <div class="vent-pipe">
 
     <div class="form-group">
         <label for="setPressure">Safety Valve Set Pressure (P) (bar g):</label>
@@ -223,6 +243,7 @@ select {
     <div class="form-group">
         <label for="pressureDrop">Required Percentage Pressure Drop (%):</label>
         <input type="number" id="pressureDrop" placeholder="Enter pressure drop" min="0" step="any">
+    </div>
     </div>
 
     <div class="form-group">

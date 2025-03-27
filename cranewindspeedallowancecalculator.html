@@ -65,7 +65,7 @@
       background-color: #f5f5f5;
     }
     .calculator-container {
-      max-width: 1000px;
+      max-width: 1200px;
       margin: 20px auto;
       padding: 20px;
       background: #ffffff;
@@ -186,7 +186,25 @@ strong{
         width: 100%; /* Make image fully responsive on mobile */
     }
 }
+.input-row {
+        display: flex;
+        justify-content: space-around;
+        gap: 10px;
+      }
+  
+      .input-row .form-group {
+        width: 48%;
+      }
+      @media (max-width: 768px) {
+    .input-row {
+        flex-direction: column;
+        gap: 5px;
+    }
 
+    .input-row .form-group {
+        width: 100%;
+    }
+}
 </style>
 	</head>
 
@@ -207,7 +225,7 @@ strong{
 
 <div class="calculator-container">
     <h2>Crane Wind Speed Allowance Calculator</h2>
-
+<div class="input-row">
     <div class="form-group">
         <label for="windSpeed">Wind Speed (m/s):</label>
         <input type="number" id="windSpeed" placeholder="Enter wind speed">
@@ -217,6 +235,8 @@ strong{
         <label for="craneCapacity">Crane Capacity (tons):</label>
         <input type="number" id="craneCapacity" placeholder="Enter crane capacity">
     </div>
+</div>
+<div class="input-row">
 
     <div class="form-group">
         <label for="boomLength">Boom Length (m):</label>
@@ -227,7 +247,7 @@ strong{
         <label for="loadWeight">Load Weight (kg):</label>
         <input type="number" id="loadWeight" placeholder="Enter load weight">
     </div>
-
+</div>
     <button class="cal-btn" onclick="calculateWindAllowance()">Calculate Wind Allowance</button>
 
     <div class="result" id="result"></div>

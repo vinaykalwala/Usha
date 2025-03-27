@@ -81,6 +81,24 @@
       font-size: 1.8rem;
       margin-bottom: 30px;
     }
+    .row-row {
+        display: flex;
+        justify-content: space-between;
+        gap: 10px;
+      }
+  
+      .row-row .form-group {
+        width: 48%;
+      }
+      @media (max-width:768px){
+        .row-row {
+            flex-direction: column;
+            gap: 5px;
+        }
+        .row-row .form-group{
+            width: 100%;
+        }
+      }
     .form-group {
       margin-bottom: 15px;
     }
@@ -203,6 +221,7 @@ select {
 
 <div class="calculator-container">
     <h2> Reaction Force at the end of Safety Valve Calculator</h2>
+    <div class="row-row">
 
     <div class="form-group">
         <label for="massFlow">Discharge Mass Flowrate (ṁ) (kg/s):</label>
@@ -213,6 +232,8 @@ select {
         <label for="isentropicCoeff">Isentropic Coefficient (k):</label>
         <input type="number" id="isentropicCoeff" placeholder="Enter isentropic coefficient" min="0" step="any">
     </div>
+    </div>
+    <div class="row-row">
 
     <div class="form-group">
         <label for="temperature">Fluid Temperature (T) (K):</label>
@@ -223,6 +244,8 @@ select {
         <label for="molarMass">Molar Mass (M) (kg/kmol):</label>
         <input type="number" id="molarMass" placeholder="Enter molar mass" min="0" step="any">
     </div>
+    </div>
+    <div class="row-row">
 
     <div class="form-group">
         <label for="outletArea">Outlet Area (A) (mm²):</label>
@@ -232,6 +255,7 @@ select {
     <div class="form-group">
         <label for="pressure">Static Pressure at Outlet (P) (bar g):</label>
         <input type="number" id="pressure" placeholder="Enter static pressure" min="0" step="any">
+    </div>
     </div>
 
     <button class="cal-btn" onclick="calculateReactionForce()">Calculate Reaction Force</button>
