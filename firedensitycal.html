@@ -184,15 +184,11 @@ strong{
 <div class="calculator-container">
     <h2>Fire Load Density Calculator</h2>
     <div class="form-group">
-        <label for="totalMass">Total Combustible Material (kg):</label>
-        <input type="number" id="totalMass" placeholder="Enter total combustible material mass">
+        <label for="totalEnergy">Total Combustible Material (MJ):</label>
+        <input type="number" id="totalEnergy" placeholder="Enter total energy in MJ">
     </div>
     <div class="form-group">
-        <label for="calorificValue">Average Calorific Value (MJ/kg):</label>
-        <input type="number" id="calorificValue" placeholder="Enter calorific value">
-    </div>
-    <div class="form-group">
-        <label for="floorArea">Total Floor Area (m²):</label>
+        <label for="floorArea">Floor Area (m²):</label>
         <input type="number" id="floorArea" placeholder="Enter floor area">
     </div>
     <button class="cal-btn" onclick="calculateFireLoadDensity()">Calculate Fire Load Density</button>
@@ -212,7 +208,13 @@ strong{
         Fire Load Density (FLD) is a measure of the total heat energy released by combustible materials in a 
         specific area during a fire. It is expressed in megajoules per square meter (MJ/m²) 
     </p>
-   
+    
+    <h3>Key Parameters:</h3>
+    <ul>
+        <li><strong>Total Combustible Material (MJ):</strong> The total heat energy content of all flammable materials in the space</li>
+        <li><strong>Floor Area (m²):</strong> The total area of the space being evaluated</li>
+    </ul>
+
     <h3>Why is Fire Load Density Important?</h3>
     <p>
         Fire Load Density is used to evaluate the fire risk in buildings, factories, and other enclosed spaces. 
@@ -244,17 +246,16 @@ strong{
 
 <script>
     function calculateFireLoadDensity() {
-        const totalMass = parseFloat(document.getElementById('totalMass').value);
-        const calorificValue = parseFloat(document.getElementById('calorificValue').value);
+        const totalEnergy = parseFloat(document.getElementById('totalEnergy').value);
         const floorArea = parseFloat(document.getElementById('floorArea').value);
         const resultElement = document.getElementById('result');
 
-        if (isNaN(totalMass) || totalMass <= 0 || isNaN(calorificValue) || calorificValue <= 0 || isNaN(floorArea) || floorArea <= 0) {
+        if (isNaN(totalEnergy) || totalEnergy <= 0 || isNaN(floorArea) || floorArea <= 0) {
             resultElement.innerText = "Please enter valid positive numbers for all fields.";
             return;
         }
 
-        const fireLoadDensity = (totalMass * calorificValue) / floorArea;
+        const fireLoadDensity = totalEnergy / floorArea;
         resultElement.innerText = `Fire Load Density: ${fireLoadDensity.toFixed(2)} MJ/m²`;
     }
 </script>
