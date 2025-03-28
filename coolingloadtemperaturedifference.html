@@ -65,60 +65,92 @@
       background-color: #f5f5f5;
     }
     .calculator-container {
-      max-width: 1000px;
-      margin: 20px auto;
-      padding: 20px;
-      background: #ffffff;
-      border-radius: 8px;
-      border: 2px dotted #1560bd;
-
-      box-shadow: 20px 14px 8px rgba(0, 0, 0, 0.2);
-    }
-    .calculator-container h2 {
-      text-align: center;
-      margin-bottom: 20px;
-      color: #1560bd;
-      font-size: 1.8rem;
-      margin-bottom: 30px;
-    }
-    .form-group {
-      margin-bottom: 15px;
-    }
-    .form-group label {
-      display: block;
-      margin-bottom: 5px;
-      color: #333;
-    }
-    .form-group input {
-      width: 100%;
-      padding: 8px;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-      background-color: rgb(223, 241, 247);
+        max-width: 1200px;
+        margin: 20px auto;
+        padding: 20px;
+        background: #ffffff;
+        border-radius: 8px;
+        border: 2px dotted #1560bd;
+        box-shadow: 20px 14px 8px rgba(0, 0, 0, 0.2);
+      }
+      
+      .calculator-container h2 {
+        text-align: center;
+        margin-bottom: 20px;
+        color: #1560bd;
+        font-size: 1.8rem;
+      }
 
     
-    }
-    .cal-btn {
-      width: 100%;
-      padding: 10px;
-      background-color: #1560bd;
-      color: #fff;
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
-      font-size: 16px;
-    }
-    .cal-btn:hover {
-      background-color: #0056b3;
-    }
-    .result {
-      margin-top: 20px;
-      font-size: 24px;
-      color: #333;
-      text-align: center;
-      color: rgb(36, 116, 2);
+  
+      .force-per {
+        display: flex;
+        justify-content: space-between;
+        gap: 10px;
+      }
+  
+      .force-per .form-group {
+        width: 48%;
+      }
+      @media (max-width:768px){
+        .force-per {
+            flex-direction: column;
+            gap: 5px;
+        }
+        .force-per .form-group{
+            width: 100%;
+        }
+      }
+
+
+      .section {
+        display: none; 
+      }
      
-    }
+      .active {
+        display: block; 
+      }
+  
+      .form-group {
+        margin-bottom: 15px;
+        
+      }
+  
+      .form-group label {
+        display: block;
+        margin-bottom: 5px;
+        color: #333;
+      }
+  
+      .form-group input {
+        width: 100%;
+        padding: 8px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        background-color: rgb(223, 241, 247);
+      }
+  
+      .cal-btn {
+        width: 100%;
+        padding: 10px;
+        background-color: #1560bd;
+        color: #fff;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 16px;
+      }
+  
+      .cal-btn:hover {
+        background-color: #0056b3;
+      }
+  
+      .result {
+        margin-top: 20px;
+        font-size: 24px;
+        color: rgb(36, 116, 2);
+        text-align: center;
+      }
     @media (max-width: 768px) {
     .calculator-container {
         margin: 20px 15px; 
@@ -147,16 +179,25 @@
 }
 
 .note-container h3 {
-    margin:15px 0;
+    margin-top: 10px;
     color: #007bff;
-    font-size: 20px;
+    font-size: 18px;
+}
+.note-container ul{
+    margin-top: 5px;
 }
 
 .note-container p {
-    margin-top: 15px;
+    margin-top: 10px;
     text-align: justify;
 }
 strong{
+    color: #0056b3;
+}
+.feedback {
+    margin-top: 20px;
+    font-size: 24px;
+    text-align: center;
     color: #0056b3;
 }
 @media (max-width: 768px) {
@@ -176,57 +217,6 @@ select {
 
 }
 
-  /* Centering the table */
- .table-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-           
-        }
-    
-        /* Table Styling */
-        .custom-table {
-            border-collapse: collapse;
-            width: 80%;
-            max-width: 600px;
-            text-align: center;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-    
-        .custom-table thead {
-            background-color: #1560bd; /* Light blue header */
-            color: white;
-        }
-    
-        .custom-table th, .custom-table td {
-            padding: 12px 16px;
-            border: 1px solid #ddd;
-        }
-    
-        .custom-table tr:nth-child(even) {
-            background-color: #f9f9f9; /* Zebra striping */
-        }
-    
-       
-    
-        /* Heading Style */
-        .table-heading {
-            margin-bottom: 20px;
-            color: #2c3e50;
-        }
-        
-
-        @media (max-width: 600px) {
-            .custom-table {
-        width: 90%; /* Adjusts width for mobile */
-        margin: 20px auto; /* Ensures it stays centered */
-    }
-    
-    .custom-table th, .custom-table td{
-        font-size: 14px;
-        padding: 8px;
-    }
-}
 </style>
 	</head>
 
@@ -234,145 +224,147 @@ select {
 
 
 	<body> 
-
-
-
-
-
-
 		
 <br><br><br><br>
 
 <div id="header"></div>
 
+
 <div class="calculator-container">
-    <h2>Rapid Entire Body Assessment (REBA) Calculator</h2>
+    <h2>Cooling Load Temperature Difference (CLTD) Calculator</h2>
+
     <div class="form-group">
-        <label for="postureScore">Posture Score:</label>
-        <input type="number" id="postureScore" placeholder="Enter posture score (typically 1-12)">
+        <label for="uValue">U-Factor (BTU/hr·ft²·°F):</label>
+        <input type="number" id="uValue" placeholder="Enter U-Factor" step="0.01" required>
     </div>
+
     <div class="form-group">
-        <label for="loadScore">Load/Force Score:</label>
-        <input type="number" id="loadScore" placeholder="Enter load score (typically 0-3)">
+        <label for="area">Surface Area (ft²):</label>
+        <input type="number" id="area" placeholder="Enter Area" required>
     </div>
+
     <div class="form-group">
-        <label for="couplingScore">Coupling Score:</label>
-        <input type="number" id="couplingScore" placeholder="Enter coupling score (typically 0-3)">
+        <label for="cltd">CLTD (Cooling Load Temperature Difference in °F):</label>
+        <input type="number" id="cltd" placeholder="Enter CLTD" required>
     </div>
-    <button class="cal-btn" onclick="calculateREBAScore()">Calculate REBA Score</button>
+
+    <button class="cal-btn" onclick="calculateCoolingLoad()">Calculate Cooling Load</button>
+
     <div class="result" id="result"></div>
+    <p class="feedback" id="feedback"></p>
 </div>
 
 <div class="note-container">
     <h3>Note:</h3>
-    <p> The <strong>Rapid Entire Body Assessment (REBA)</strong> is an ergonomic tool used to evaluate whole-body postural risks in occupational settings. It helps assess the physical strain associated with different tasks, particularly in workplaces where manual labor, repetitive movements, or awkward postures are involved. REBA considers factors such as body posture, force exertion, and movement frequency to determine a risk score, which can guide workplace modifications and injury prevention strategies. By identifying high-risk postures, employers and safety professionals can implement ergonomic interventions to enhance worker health, efficiency, and overall well-being. </p>
+    <p><strong>Cooling Load Temperature Difference (CLTD)</strong> calculates heat gain through sunlit surfaces. It's essential for proper HVAC sizing and energy-efficient building design. The method accounts for time-delayed heat transfer through building elements.</p>
 
-   
-
-    <strong>Parameters Explained:</strong>
+    <h3>Key Parameters:</h3>
     <ul>
-        <li><strong>Posture Score:</strong> Evaluation of body positioning (typically 1-12)</li>
-        <li><strong>Load/Force Score:</strong> Assessment of weight/force being handled (typically 0-3)</li>
-        <li><strong>Coupling Score:</strong> Evaluation of grip/hand-object interaction (typically 0-3)</li>
+        <li><strong>U-Factor</strong> - Overall heat transfer coefficient (BTU/hr·ft²·°F), representing insulation effectiveness</li>
+        <li><strong>Surface Area</strong> - Area of the sunlit surface (ft²) contributing to heat gain</li>
+        <li><strong>CLTD</strong> - Cooling Load Temperature Difference (°F), accounting for time-delayed heat transfer through materials</li>
     </ul>
-    <h3>Risk Level Interpretation:</h3>
-    <div class="table-container">
 
-    <table class="custom-table">
-        <thead>
-        <tr>
-            <th>Score Range</th>
-            <th>Risk Level</th>
-            <th>Action Required</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td>1-2</td>
-            <td>Low Risk</td>
-            <td>No Action</td>
-        </tr>
-        <tr>
-            <td>3-4</td>
-            <td>Medium Risk</td>
-            <td>Change Needed</td>
-        </tr>
-        <tr>
-            <td>5-7</td>
-            <td>High Risk</td>
-            <td>Intervention Required</td>
-        </tr>
-        <tr>
-            <td>8+</td>
-            <td>Very High Risk</td>
-            <td>Immediate Action</td>
-        </tr>
-    </tbody>
-    </table>
-</div>
-    <h3>Importance of REBA Assessment:</h3>
+    <h3>Real-Life Applications:</h3>
     <ul>
-        <li>Identifies ergonomic risks in workplace postures</li>
-        <li>Helps prevent musculoskeletal disorders</li>
-        <li>Guides ergonomic interventions</li>
-        <li>Improves worker safety and comfort</li>
+        <li><strong>HVAC System Design</strong> - Precisely sizing air conditioning equipment</li>
+        <li><strong>Building Energy Analysis</strong> - Evaluating thermal performance of building envelopes</li>
+        <li><strong>Retrofit Projects</strong> - Assessing impact of roof/wall modifications</li>
+        <li><strong>Energy Code Compliance</strong> - Meeting ASHRAE 90.1 and IECC requirements</li>
     </ul>
+
+    <h3>Why CLTD Matters for the Environment?</h3>
+    <p>Accurate cooling load calculations prevent oversized HVAC systems, reducing energy waste and carbon emissions. Properly sized systems operate more efficiently and have longer lifespans, benefiting both the environment and building owners.</p>
+
+    <h3>Lessons from History:</h3>
+    <ul>
+        <li><strong>1970s Energy Crisis</strong> - Highlighted need for accurate cooling load calculations</li>
+        <li><strong>Modern Green Buildings</strong> - Showed 20-30% energy savings from proper CLTD methods</li>
+    </ul>
+
+    <h3>Industry Standards & Guidelines:</h3>
+    <p>ASHRAE Handbook Fundamentals provides CLTD values for various materials and conditions. Typical roof CLTD values range from 30-90°F depending on construction and climate. Modern energy codes require CLTD-based calculations for commercial buildings.</p>
+
+    <h3>Conclusion:</h3>
+    <p>The CLTD method remains a fundamental tool for HVAC professionals. By accurately calculating cooling loads through sunlit surfaces, we can design systems that minimize energy use while maintaining comfort. This simple calculation has significant environmental and economic impacts over a building's lifetime.</p>
 </div>
-  
+
 <script>
-    function calculateREBAScore() {
-        // Get input values
-        var postureScore = parseInt(document.getElementById("postureScore").value);
-        var loadScore = parseInt(document.getElementById("loadScore").value);
-        var couplingScore = parseInt(document.getElementById("couplingScore").value);
-
-        // Validate inputs
-        if (isNaN(postureScore) || isNaN(loadScore) || isNaN(couplingScore) ||
-            postureScore < 1 || loadScore < 0 || couplingScore < 0) {
-            document.getElementById("result").innerHTML = "<span style='color: red;'>Please enter valid scores.</span>";
-            return;
-        }
-
-        // Calculate REBA Score
-        var rebaScore = postureScore + loadScore + couplingScore;
-        var riskLevel = "";
-        var actionRequired = "";
-        var color = "";
-
-        // Determine risk level
-        if (rebaScore <= 2) {
-            riskLevel = "Low Risk";
-            actionRequired = "No Action";
-            color = "green";
-        } else if (rebaScore <= 4) {
-            riskLevel = "Medium Risk";
-            actionRequired = "Change Needed";
-            color = "orange";
-        } else if (rebaScore <= 7) {
-            riskLevel = "High Risk";
-            actionRequired = "Intervention Required";
-            color = "#FF6600";
-        } else {
-            riskLevel = "Very High Risk";
-            actionRequired = "Immediate Action";
-            color = "red";
-        }
-
-        // Display result
-        document.getElementById("result").innerHTML = 
-            "<strong>REBA Score:</strong> " + rebaScore + "<br>" +
-            "<strong>Risk Level:</strong> <span style='color: " + color + ";'>" + riskLevel + "</span><br>" +
-            "<strong>Action Required:</strong> " + actionRequired;
+function calculateCoolingLoad() {
+    // Get input values
+    const uFactor = parseFloat(document.getElementById('uValue').value);
+    const area = parseFloat(document.getElementById('area').value);
+    const cltd = parseFloat(document.getElementById('cltd').value);
+    
+    const feedbackElement = document.getElementById('feedback');
+    const resultElement = document.getElementById('result');
+    
+    // Reset previous messages
+    feedbackElement.textContent = '';
+    feedbackElement.className = 'feedback';
+    resultElement.textContent = '';
+    
+    // Validate inputs
+    let isValid = true;
+    
+    if (isNaN(uFactor)) {
+        feedbackElement.textContent = 'Please enter a valid number for U-Factor (must be > 0)';
+        isValid = false;
+    } else if (uFactor <= 0) {
+        feedbackElement.textContent = 'U-Factor must be greater than 0 (typical values 0.02-0.2)';
+        isValid = false;
     }
+    
+    if (isValid && isNaN(area)) {
+        feedbackElement.textContent = 'Please enter a valid number for Surface Area (must be > 0)';
+        isValid = false;
+    } else if (isValid && area <= 0) {
+        feedbackElement.textContent = 'Surface Area must be greater than 0';
+        isValid = false;
+    }
+    
+    if (isValid && isNaN(cltd)) {
+        feedbackElement.textContent = 'Please enter a valid number for CLTD (must be > 0)';
+        isValid = false;
+    } else if (isValid && cltd <= 0) {
+        feedbackElement.textContent = 'CLTD must be greater than 0 (typical values 30-90)';
+        isValid = false;
+    }
+    
+    if (!isValid) {
+        feedbackElement.className = 'feedback error';
+        return;
+    }
+    
+    // Calculate cooling load
+    const coolingLoad = uFactor * area * cltd;
+    
+    // Display result with interpretation
+    resultElement.innerHTML = `
+        <p><strong>Cooling Load:</strong> ${coolingLoad.toLocaleString()} BTU/hr</p>
+        <p>(${(coolingLoad/12000).toFixed(2)} tons of cooling)</p>
+    `;
+    
+    // Provide feedback based on result
+    if (coolingLoad < 10000) {
+        feedbackElement.textContent = 'Small cooling load - Consider mini-split or small packaged unit';
+        feedbackElement.className = 'feedback success';
+    } else if (coolingLoad < 50000) {
+        feedbackElement.textContent = 'Moderate cooling load - Rooftop unit or split system appropriate';
+        feedbackElement.className = 'feedback success';
+    } else if (coolingLoad < 200000) {
+        feedbackElement.textContent = 'Large cooling load - Consider multiple units or central plant';
+        feedbackElement.className = 'feedback warning';
+    } else {
+        feedbackElement.textContent = 'Very large cooling load - Requires detailed engineering analysis';
+        feedbackElement.className = 'feedback error';
+    }
+}
 </script>
 
 
-
+    
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
-
-
-
-
 
 
 

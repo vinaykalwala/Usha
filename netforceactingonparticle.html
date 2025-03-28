@@ -152,6 +152,14 @@
     font-size: 20px;
 }
 
+.note-container ul{
+    margin: 10px;
+}
+
+.note-container{
+    margin-top: 10px;
+}
+
 .note-container p {
     margin-top: 15px;
     text-align: justify;
@@ -175,58 +183,6 @@ select {
     background-color: rgb(223, 241, 247);
 
 }
-
-  /* Centering the table */
- .table-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-           
-        }
-    
-        /* Table Styling */
-        .custom-table {
-            border-collapse: collapse;
-            width: 80%;
-            max-width: 600px;
-            text-align: center;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-    
-        .custom-table thead {
-            background-color: #1560bd; /* Light blue header */
-            color: white;
-        }
-    
-        .custom-table th, .custom-table td {
-            padding: 12px 16px;
-            border: 1px solid #ddd;
-        }
-    
-        .custom-table tr:nth-child(even) {
-            background-color: #f9f9f9; /* Zebra striping */
-        }
-    
-       
-    
-        /* Heading Style */
-        .table-heading {
-            margin-bottom: 20px;
-            color: #2c3e50;
-        }
-        
-
-        @media (max-width: 600px) {
-            .custom-table {
-        width: 90%; /* Adjusts width for mobile */
-        margin: 20px auto; /* Ensures it stays centered */
-    }
-    
-    .custom-table th, .custom-table td{
-        font-size: 14px;
-        padding: 8px;
-    }
-}
 </style>
 	</head>
 
@@ -245,126 +201,142 @@ select {
 
 <div id="header"></div>
 
+
 <div class="calculator-container">
-    <h2>Rapid Entire Body Assessment (REBA) Calculator</h2>
+    <h2>Settling Net Force Calculator</h2>
+
     <div class="form-group">
-        <label for="postureScore">Posture Score:</label>
-        <input type="number" id="postureScore" placeholder="Enter posture score (typically 1-12)">
+        <label for="particleDensity">Density of Particle (ρₚ) [kg/m³]:</label>
+        <input type="number" id="particleDensity" placeholder="Enter Particle Density" step="any">
     </div>
+
     <div class="form-group">
-        <label for="loadScore">Load/Force Score:</label>
-        <input type="number" id="loadScore" placeholder="Enter load score (typically 0-3)">
+        <label for="fluidDensity">Density of Fluid (ρ) [kg/m³]:</label>
+        <input type="number" id="fluidDensity" placeholder="Enter Fluid Density" step="any">
     </div>
+
     <div class="form-group">
-        <label for="couplingScore">Coupling Score:</label>
-        <input type="number" id="couplingScore" placeholder="Enter coupling score (typically 0-3)">
+        <label for="gravity">Gravitational Acceleration (g) [m/s²]:</label>
+        <input type="number" id="gravity" placeholder="Enter Gravity (Default: 9.81)" step="any" value="9.81">
     </div>
-    <button class="cal-btn" onclick="calculateREBAScore()">Calculate REBA Score</button>
+
+    <div class="form-group">
+        <label for="volume">Volume of Particle (Vₚ) [m³]:</label>
+        <input type="number" id="volume" placeholder="Enter Particle Volume" step="any">
+    </div>
+
+    <button class="cal-btn" onclick="calculateNetForce()">Calculate</button>
+
     <div class="result" id="result"></div>
+    <div class="feedback" id="feedback"></div>
 </div>
 
 <div class="note-container">
     <h3>Note:</h3>
-    <p> The <strong>Rapid Entire Body Assessment (REBA)</strong> is an ergonomic tool used to evaluate whole-body postural risks in occupational settings. It helps assess the physical strain associated with different tasks, particularly in workplaces where manual labor, repetitive movements, or awkward postures are involved. REBA considers factors such as body posture, force exertion, and movement frequency to determine a risk score, which can guide workplace modifications and injury prevention strategies. By identifying high-risk postures, employers and safety professionals can implement ergonomic interventions to enhance worker health, efficiency, and overall well-being. </p>
+    <p>This calculator determines the <strong>Settling Net Force</strong>, which is essential for understanding the motion of particles in a fluid medium.</p>
 
-   
+    <p>It is widely used in <strong>fluid mechanics, sedimentation studies, and industrial separation processes</strong> to analyze the behavior of particles in different fluid environments.</p>
 
-    <strong>Parameters Explained:</strong>
+    <h3>Explanation of Parameters:</h3>
     <ul>
-        <li><strong>Posture Score:</strong> Evaluation of body positioning (typically 1-12)</li>
-        <li><strong>Load/Force Score:</strong> Assessment of weight/force being handled (typically 0-3)</li>
-        <li><strong>Coupling Score:</strong> Evaluation of grip/hand-object interaction (typically 0-3)</li>
+        <li><strong>Density of Particle (ρₚ):</strong> The mass per unit volume of the solid particle being analyzed.</li>
+        <li><strong>Density of Fluid (ρ):</strong> The mass per unit volume of the surrounding fluid.</li>
+        <li><strong>Gravitational Acceleration (g):</strong> The acceleration due to gravity (usually 9.81 m/s² on Earth).</li>
+        <li><strong>Volume of Particle (Vₚ):</strong> The total space occupied by the particle.</li>
+        <li><strong>Net Force (F<sub>net</sub>):</strong> The force acting on the particle due to gravity and buoyancy.</li>
     </ul>
-    <h3>Risk Level Interpretation:</h3>
-    <div class="table-container">
 
-    <table class="custom-table">
-        <thead>
-        <tr>
-            <th>Score Range</th>
-            <th>Risk Level</th>
-            <th>Action Required</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td>1-2</td>
-            <td>Low Risk</td>
-            <td>No Action</td>
-        </tr>
-        <tr>
-            <td>3-4</td>
-            <td>Medium Risk</td>
-            <td>Change Needed</td>
-        </tr>
-        <tr>
-            <td>5-7</td>
-            <td>High Risk</td>
-            <td>Intervention Required</td>
-        </tr>
-        <tr>
-            <td>8+</td>
-            <td>Very High Risk</td>
-            <td>Immediate Action</td>
-        </tr>
-    </tbody>
-    </table>
-</div>
-    <h3>Importance of REBA Assessment:</h3>
+    <h3>Why Settling Net Force is Important?</h3>
+    <p>The settling net force determines whether a **particle will sink, rise, or remain suspended** in a fluid. Understanding this force is crucial for:</p>
     <ul>
-        <li>Identifies ergonomic risks in workplace postures</li>
-        <li>Helps prevent musculoskeletal disorders</li>
-        <li>Guides ergonomic interventions</li>
-        <li>Improves worker safety and comfort</li>
+        <li>Designing **water treatment systems** for removing sediments.</li>
+        <li>Optimizing **industrial separation techniques** (e.g., centrifugation, filtration).</li>
+        <li>Analyzing **sediment transport in rivers and oceans**.</li>
+        <li>Improving **pharmaceutical and chemical mixing processes**.</li>
     </ul>
+
+    <h3>Validations:</h3>
+    <ul>
+        <li><strong>Applicability:</strong> This formula applies to small solid particles settling in a liquid or gas.</li>
+        <li><strong>Density Constraints:</strong> The density of the particle and fluid must be positive values.</li>
+        <li><strong>Volume Considerations:</strong> The particle volume must be greater than zero for a meaningful force calculation.</li>
+    </ul>
+
+    <h3>Real-life Applications:</h3>
+    <ul>
+        <li><strong>Water Treatment:</strong> Separating suspended solids from liquids.</li>
+        <li><strong>Mining and Metallurgy:</strong> Settling and flotation processes for ore extraction.</li>
+        <li><strong>Environmental Science:</strong> Studying sedimentation in rivers and lakes.</li>
+        <li><strong>Food Industry:</strong> Controlling solid-liquid mixtures in beverages and dairy products.</li>
+        <li><strong>Pharmaceuticals:</strong> Designing drug formulations with precise settling properties.</li>
+    </ul>
+
+    <h3>Conclusion:</h3>
+    <p>The Net Force calculation is a **key concept in fluid mechanics and industrial processes**. Understanding it allows engineers and scientists to **predict particle behavior**, **optimize separation techniques**, and **improve efficiency in various engineering applications**.</p>
 </div>
-  
+
+
 <script>
-    function calculateREBAScore() {
-        // Get input values
-        var postureScore = parseInt(document.getElementById("postureScore").value);
-        var loadScore = parseInt(document.getElementById("loadScore").value);
-        var couplingScore = parseInt(document.getElementById("couplingScore").value);
+    function calculateNetForce() {
+        const particleDensity = parseFloat(document.getElementById("particleDensity").value);
+        const fluidDensity = parseFloat(document.getElementById("fluidDensity").value);
+        const gravity = parseFloat(document.getElementById("gravity").value);
+        const volume = parseFloat(document.getElementById("volume").value);
+        const resultElement = document.getElementById("result");
+        const feedbackElement = document.getElementById("feedback");
 
-        // Validate inputs
-        if (isNaN(postureScore) || isNaN(loadScore) || isNaN(couplingScore) ||
-            postureScore < 1 || loadScore < 0 || couplingScore < 0) {
-            document.getElementById("result").innerHTML = "<span style='color: red;'>Please enter valid scores.</span>";
+        // Reset previous results
+        resultElement.innerHTML = "";
+        feedbackElement.innerHTML = "";
+
+        // Validations
+        if (isNaN(particleDensity) || particleDensity <= 0) {
+            resultElement.innerHTML = "❌ <strong>Error:</strong> Particle density must be a positive number.";
             return;
         }
 
-        // Calculate REBA Score
-        var rebaScore = postureScore + loadScore + couplingScore;
-        var riskLevel = "";
-        var actionRequired = "";
-        var color = "";
-
-        // Determine risk level
-        if (rebaScore <= 2) {
-            riskLevel = "Low Risk";
-            actionRequired = "No Action";
-            color = "green";
-        } else if (rebaScore <= 4) {
-            riskLevel = "Medium Risk";
-            actionRequired = "Change Needed";
-            color = "orange";
-        } else if (rebaScore <= 7) {
-            riskLevel = "High Risk";
-            actionRequired = "Intervention Required";
-            color = "#FF6600";
-        } else {
-            riskLevel = "Very High Risk";
-            actionRequired = "Immediate Action";
-            color = "red";
+        if (isNaN(fluidDensity) || fluidDensity <= 0) {
+            resultElement.innerHTML = "❌ <strong>Error:</strong> Fluid density must be a positive number.";
+            return;
         }
 
-        // Display result
-        document.getElementById("result").innerHTML = 
-            "<strong>REBA Score:</strong> " + rebaScore + "<br>" +
-            "<strong>Risk Level:</strong> <span style='color: " + color + ";'>" + riskLevel + "</span><br>" +
-            "<strong>Action Required:</strong> " + actionRequired;
+        if (isNaN(gravity) || gravity <= 0) {
+            resultElement.innerHTML = "❌ <strong>Error:</strong> Gravity must be a positive number.";
+            return;
+        }
+
+        if (isNaN(volume) || volume <= 0) {
+            resultElement.innerHTML = "❌ <strong>Error:</strong> Volume must be a positive number.";
+            return;
+        }
+
+        // Net Force Calculation
+        const netForce = (particleDensity - fluidDensity) * gravity * volume;
+
+        // Determine feedback message based on result
+        let feedbackMessage = "";
+        let feedbackColor = "black";
+
+        if (netForce > 0) {
+            feedbackMessage = "📉 The particle is denser than the fluid, so it sinks due to a downward net force.";
+            feedbackColor = "blue";
+        } else if (netForce < 0) {
+            feedbackMessage = "📈 The particle is less dense than the fluid, so it rises due to an upward net force (buoyant effect).";
+            feedbackColor = "green";
+        } else {
+            feedbackMessage = "⚖️ The particle has neutral buoyancy, meaning it neither sinks nor rises but remains suspended in the fluid.";
+            feedbackColor = "orange";
+        }
+
+        // Display Results
+        resultElement.innerHTML = `
+            <strong>Net Force (F<sub>net</sub>):</strong> ${netForce.toFixed(4)} N<br>
+            <strong style="color: ${feedbackColor};">${feedbackMessage}</strong>
+        `;
+        resultElement.style.color = "black";
     }
 </script>
+
 
 
 
@@ -401,6 +373,7 @@ select {
         return false;
     });
     </script>
+
 <div id="footer"></div>
 <script>
     fetch("header.html").then(response => response.text()).then(data => document.getElementById("header").innerHTML = data);
@@ -509,5 +482,5 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 
-<!-- Mirrored from dsathemes.com/html/martex_1.1/files/project-details.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 08 Mar 2024 16:40:05 GMT -->
+<!-- Mirrored from dsathemes.com/html/martex_1.1/files/project-details.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 08 Mar 2024 16:40:05 GMT -->
 </html>

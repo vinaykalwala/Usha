@@ -56,9 +56,7 @@
 		<link href="css/responsive.css" rel="stylesheet">
 <style>
             
-         
-
-   
+          
         body {
       font-family: Arial, sans-serif;
      
@@ -149,7 +147,7 @@
 .note-container h3 {
     margin:15px 0;
     color: #007bff;
-    font-size: 20px;
+    font-size: 18px;
 }
 
 .note-container p {
@@ -175,9 +173,52 @@ select {
     background-color: rgb(223, 241, 247);
 
 }
+/* Table Styles */
+table {
+    width: 50%;
+    border-collapse: collapse;
+    margin: 20px auto; /* Centers table */
+}
 
-  /* Centering the table */
- .table-container {
+/* Table Cells */
+th, td {
+    padding: 12px;
+    text-align: center;
+    border: 1px solid #ddd;
+    font-size: 16px;
+}
+
+/* Header Styles */
+th {
+    background-color: #1560bd;
+    color: white;
+    font-weight: bold;
+}
+
+/* Row Styles */
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+tr:hover {
+    background-color: #ddd;
+}
+
+/* Responsive Table */
+@media (max-width: 600px) {
+    table {
+        width: 90%; /* Adjusts width for mobile */
+        margin: 20px auto; /* Ensures it stays centered */
+    }
+    
+    th, td {
+        font-size: 14px;
+        padding: 8px;
+    }
+}
+
+/* Centering the table */
+.table-container {
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -227,6 +268,7 @@ select {
         padding: 8px;
     }
 }
+
 </style>
 	</head>
 
@@ -240,131 +282,138 @@ select {
 
 
 
-		
+		<div id="header"></div>
+
+
 <br><br><br><br>
 
-<div id="header"></div>
+
 
 <div class="calculator-container">
-    <h2>Rapid Entire Body Assessment (REBA) Calculator</h2>
+    <h2>Risk Matrix Calculator</h2>
+
     <div class="form-group">
-        <label for="postureScore">Posture Score:</label>
-        <input type="number" id="postureScore" placeholder="Enter posture score (typically 1-12)">
+        <label for="probability">Probability (P) - 1 to 5 Scale:</label>
+        <select id="probability">
+            <option value="">Select probability level</option>
+            <option value="1">1 - Very Unlikely</option>
+            <option value="2">2 - Unlikely</option>
+            <option value="3">3 - Possible</option>
+            <option value="4">4 - Likely</option>
+            <option value="5">5 - Very Likely</option>
+        </select>
     </div>
+
     <div class="form-group">
-        <label for="loadScore">Load/Force Score:</label>
-        <input type="number" id="loadScore" placeholder="Enter load score (typically 0-3)">
+        <label for="consequence">Consequence (C) - 1 to 5 Scale:</label>
+        <select id="consequence">
+            <option value="">Select consequence level</option>
+            <option value="1">1 - Negligible</option>
+            <option value="2">2 - Minor</option>
+            <option value="3">3 - Moderate</option>
+            <option value="4">4 - Major</option>
+            <option value="5">5 - Catastrophic</option>
+        </select>
     </div>
-    <div class="form-group">
-        <label for="couplingScore">Coupling Score:</label>
-        <input type="number" id="couplingScore" placeholder="Enter coupling score (typically 0-3)">
-    </div>
-    <button class="cal-btn" onclick="calculateREBAScore()">Calculate REBA Score</button>
+
+    <button class="cal-btn" onclick="calculateRisk()">Calculate Risk Level</button>
     <div class="result" id="result"></div>
 </div>
 
 <div class="note-container">
-    <h3>Note:</h3>
-    <p> The <strong>Rapid Entire Body Assessment (REBA)</strong> is an ergonomic tool used to evaluate whole-body postural risks in occupational settings. It helps assess the physical strain associated with different tasks, particularly in workplaces where manual labor, repetitive movements, or awkward postures are involved. REBA considers factors such as body posture, force exertion, and movement frequency to determine a risk score, which can guide workplace modifications and injury prevention strategies. By identifying high-risk postures, employers and safety professionals can implement ergonomic interventions to enhance worker health, efficiency, and overall well-being. </p>
-
-   
-
-    <strong>Parameters Explained:</strong>
+    <p>The Risk Matrix (Numeric Representation) categorizes risks based on probability and consequence, helping assess workplace hazards effectively. </p>
+    <h3>Usage and Application</h3>
     <ul>
-        <li><strong>Posture Score:</strong> Evaluation of body positioning (typically 1-12)</li>
-        <li><strong>Load/Force Score:</strong> Assessment of weight/force being handled (typically 0-3)</li>
-        <li><strong>Coupling Score:</strong> Evaluation of grip/hand-object interaction (typically 0-3)</li>
+        <li><strong>Workplace Safety Assessments:</strong> Evaluating hazards in industrial, construction, and manufacturing environments</li>
+        <li><strong>Project Risk Management:</strong> Assessing potential risks in project planning phases</li>
+        <li><strong>Process Hazard Analysis:</strong> Identifying and prioritizing risks in chemical and operational processes</li>
+        <li><strong>Job Safety Analysis (JSA):</strong> Quantifying risks associated with specific job tasks</li>
+        <li><strong>Regulatory Compliance:</strong> Meeting OSHA, ISO 31000, and other safety standard requirements</li>
     </ul>
-    <h3>Risk Level Interpretation:</h3>
+    <h3>Risk Matrix Interpretation</h3>
     <div class="table-container">
-
     <table class="custom-table">
-        <thead>
         <tr>
-            <th>Score Range</th>
+            <th>Risk Score (R = P × C)</th>
             <th>Risk Level</th>
             <th>Action Required</th>
         </tr>
-    </thead>
-    <tbody>
         <tr>
-            <td>1-2</td>
+            <td>1-4</td>
             <td>Low Risk</td>
-            <td>No Action</td>
+            <td>Acceptable, monitor as needed</td>
         </tr>
         <tr>
-            <td>3-4</td>
+            <td>5-10</td>
             <td>Medium Risk</td>
-            <td>Change Needed</td>
+            <td>Mitigation required</td>
         </tr>
         <tr>
-            <td>5-7</td>
+            <td>11-25</td>
             <td>High Risk</td>
-            <td>Intervention Required</td>
+            <td>Immediate control measures needed</td>
         </tr>
-        <tr>
-            <td>8+</td>
-            <td>Very High Risk</td>
-            <td>Immediate Action</td>
-        </tr>
-    </tbody>
     </table>
 </div>
-    <h3>Importance of REBA Assessment:</h3>
+    <h3>Probability Scale Guide</h3>
     <ul>
-        <li>Identifies ergonomic risks in workplace postures</li>
-        <li>Helps prevent musculoskeletal disorders</li>
-        <li>Guides ergonomic interventions</li>
-        <li>Improves worker safety and comfort</li>
+        <li><strong>1 - Very Unlikely:</strong> May occur only in exceptional circumstances (&lt;10% chance)</li>
+        <li><strong>2 - Unlikely:</strong> Could occur sometime (10-30% chance)</li>
+        <li><strong>3 - Possible:</strong> Might occur occasionally (30-50% chance)</li>
+        <li><strong>4 - Likely:</strong> Will probably occur (50-70% chance)</li>
+        <li><strong>5 - Very Likely:</strong> Expected to occur frequently (&gt;70% chance)</li>
+    </ul>
+
+    <h3>Consequence Scale Guide</h3>
+    <ul>
+        <li><strong>1 - Negligible:</strong> No injuries, minimal financial loss</li>
+        <li><strong>2 - Minor:</strong> First aid injury, minor equipment damage</li>
+        <li><strong>3 - Moderate:</strong> Medical treatment, moderate downtime</li>
+        <li><strong>4 - Major:</strong> Serious injury, major equipment loss</li>
+        <li><strong>5 - Catastrophic:</strong> Fatality, extensive damage</li>
     </ul>
 </div>
-  
-<script>
-    function calculateREBAScore() {
-        // Get input values
-        var postureScore = parseInt(document.getElementById("postureScore").value);
-        var loadScore = parseInt(document.getElementById("loadScore").value);
-        var couplingScore = parseInt(document.getElementById("couplingScore").value);
 
-        // Validate inputs
-        if (isNaN(postureScore) || isNaN(loadScore) || isNaN(couplingScore) ||
-            postureScore < 1 || loadScore < 0 || couplingScore < 0) {
-            document.getElementById("result").innerHTML = "<span style='color: red;'>Please enter valid scores.</span>";
+<script>
+    function calculateRisk() {
+        const probability = parseInt(document.getElementById('probability').value);
+        const consequence = parseInt(document.getElementById('consequence').value);
+        const resultElement = document.getElementById('result');
+
+        if (isNaN(probability) || isNaN(consequence) || probability < 1 || probability > 5 || consequence < 1 || consequence > 5) {
+            resultElement.innerText = "Please select valid probability and consequence levels (1-5).";
             return;
         }
 
-        // Calculate REBA Score
-        var rebaScore = postureScore + loadScore + couplingScore;
-        var riskLevel = "";
-        var actionRequired = "";
-        var color = "";
+        const riskScore = probability * consequence;
+        let riskLevel = "";
+        let actionRequired = "";
+        let riskColor = "";
 
-        // Determine risk level
-        if (rebaScore <= 2) {
+        if (riskScore <= 4) {
             riskLevel = "Low Risk";
-            actionRequired = "No Action";
-            color = "green";
-        } else if (rebaScore <= 4) {
+            actionRequired = "Acceptable, monitor as needed";
+            riskColor = "green";
+        } else if (riskScore <= 10) {
             riskLevel = "Medium Risk";
-            actionRequired = "Change Needed";
-            color = "orange";
-        } else if (rebaScore <= 7) {
-            riskLevel = "High Risk";
-            actionRequired = "Intervention Required";
-            color = "#FF6600";
+            actionRequired = "Mitigation required";
+            riskColor = "orange";
         } else {
-            riskLevel = "Very High Risk";
-            actionRequired = "Immediate Action";
-            color = "red";
+            riskLevel = "High Risk";
+            actionRequired = "Immediate control measures needed";
+            riskColor = "red";
         }
 
-        // Display result
-        document.getElementById("result").innerHTML = 
-            "<strong>REBA Score:</strong> " + rebaScore + "<br>" +
-            "<strong>Risk Level:</strong> <span style='color: " + color + ";'>" + riskLevel + "</span><br>" +
-            "<strong>Action Required:</strong> " + actionRequired;
+        resultElement.innerHTML = `
+            <div class="risk-result">
+                <p><strong>Risk Score (R): ${riskScore}</strong></p>
+                <p><strong>Risk Level:</strong> ${riskLevel}</p>
+                <p><strong>Action Required:</strong> ${actionRequired}</p>
+            </div>
+        `;
     }
 </script>
+
 
 
 
@@ -406,9 +455,6 @@ select {
     fetch("header.html").then(response => response.text()).then(data => document.getElementById("header").innerHTML = data);
     fetch("footer.html").then(response => response.text()).then(data => document.getElementById("footer").innerHTML = data);
 </script>
-
-
-		</div>	<!-- END PAGE CONTENT -->	
 
 
 

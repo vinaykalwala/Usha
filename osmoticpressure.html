@@ -152,6 +152,14 @@
     font-size: 20px;
 }
 
+.note-container ul{
+    margin: 10px;
+}
+
+.note-container{
+    margin-top: 10px;
+}
+
 .note-container p {
     margin-top: 15px;
     text-align: justify;
@@ -175,58 +183,6 @@ select {
     background-color: rgb(223, 241, 247);
 
 }
-
-  /* Centering the table */
- .table-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-           
-        }
-    
-        /* Table Styling */
-        .custom-table {
-            border-collapse: collapse;
-            width: 80%;
-            max-width: 600px;
-            text-align: center;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-    
-        .custom-table thead {
-            background-color: #1560bd; /* Light blue header */
-            color: white;
-        }
-    
-        .custom-table th, .custom-table td {
-            padding: 12px 16px;
-            border: 1px solid #ddd;
-        }
-    
-        .custom-table tr:nth-child(even) {
-            background-color: #f9f9f9; /* Zebra striping */
-        }
-    
-       
-    
-        /* Heading Style */
-        .table-heading {
-            margin-bottom: 20px;
-            color: #2c3e50;
-        }
-        
-
-        @media (max-width: 600px) {
-            .custom-table {
-        width: 90%; /* Adjusts width for mobile */
-        margin: 20px auto; /* Ensures it stays centered */
-    }
-    
-    .custom-table th, .custom-table td{
-        font-size: 14px;
-        padding: 8px;
-    }
-}
 </style>
 	</head>
 
@@ -246,124 +202,164 @@ select {
 <div id="header"></div>
 
 <div class="calculator-container">
-    <h2>Rapid Entire Body Assessment (REBA) Calculator</h2>
+    <h2>Reverse Osmosis (Osmotic Pressure Calculator)</h2>
+
     <div class="form-group">
-        <label for="postureScore">Posture Score:</label>
-        <input type="number" id="postureScore" placeholder="Enter posture score (typically 1-12)">
+        <label for="osmoticCoefficient">Osmotic Coefficient (φ):</label>
+        <input type="number" id="osmoticCoefficient" placeholder="Enter φ (0.1-2.0)" step="0.01" min="0.1" max="2.0">
     </div>
+
     <div class="form-group">
-        <label for="loadScore">Load/Force Score:</label>
-        <input type="number" id="loadScore" placeholder="Enter load score (typically 0-3)">
+        <label for="ionNumber">Ions per Molecule (v):</label>
+        <input type="number" id="ionNumber" placeholder="Enter v (e.g., 2 for NaCl)" step="1" min="1">
     </div>
+
     <div class="form-group">
-        <label for="couplingScore">Coupling Score:</label>
-        <input type="number" id="couplingScore" placeholder="Enter coupling score (typically 0-3)">
+        <label for="moles">Moles of Electrolyte (n) [kmol]:</label>
+        <input type="number" id="moles" placeholder="Enter n" step="0.0001" min="0">
     </div>
-    <button class="cal-btn" onclick="calculateREBAScore()">Calculate REBA Score</button>
+
+    <div class="form-group">
+        <label for="volume">Solvent Volume (V) [m³/kmol]:</label>
+        <input type="number" id="volume" placeholder="Enter V" step="0.001" min="0">
+    </div>
+
+    <div class="form-group">
+        <label for="temperature">Temperature (T) [K]:</label>
+        <input type="number" id="temperature" placeholder="Enter T (e.g., 298)" step="0.1" min="0">
+    </div>
+
+    <button class="cal-btn" onclick="calculateOsmoticPressure()">Calculate</button>
+
     <div class="result" id="result"></div>
+    <div class="feedback" id="feedback"></div>
 </div>
 
 <div class="note-container">
     <h3>Note:</h3>
-    <p> The <strong>Rapid Entire Body Assessment (REBA)</strong> is an ergonomic tool used to evaluate whole-body postural risks in occupational settings. It helps assess the physical strain associated with different tasks, particularly in workplaces where manual labor, repetitive movements, or awkward postures are involved. REBA considers factors such as body posture, force exertion, and movement frequency to determine a risk score, which can guide workplace modifications and injury prevention strategies. By identifying high-risk postures, employers and safety professionals can implement ergonomic interventions to enhance worker health, efficiency, and overall well-being. </p>
+    <p>This calculator determines the <strong>Osmotic Pressure (Π)</strong>, which is crucial for assessing the efficiency of reverse osmosis (RO) systems in water treatment applications.</p>
 
-   
+    <p>It is widely used in <strong>desalination and wastewater purification</strong> to ensure optimal membrane performance and energy efficiency.</p>
 
-    <strong>Parameters Explained:</strong>
+    <h3>Why Environment-Sector</h3>
+    <p>The Osmotic Pressure Calculator belongs to the Environment sector because osmotic pressure plays a significant role in environmental science, particularly in water purification, desalination, and wastewater treatment. Reverse osmosis (RO) systems, which are widely used to remove contaminants from water, rely on osmotic pressure principles</p>
+    
+    <h3>Reverse osmosis </h3>
+    <p>Reverse osmosis (RO) is a water purification process that uses a semipermeable membrane to remove dissolved salts, contaminants, and impurities from water by applying pressure greater than the natural osmotic pressure. It works by forcing water molecules through the membrane while blocking larger particles, ions, and pollutants, producing clean permeate water and a concentrated waste stream</p>
+    
+    <h3>Explanation of Parameters:</h3>
     <ul>
-        <li><strong>Posture Score:</strong> Evaluation of body positioning (typically 1-12)</li>
-        <li><strong>Load/Force Score:</strong> Assessment of weight/force being handled (typically 0-3)</li>
-        <li><strong>Coupling Score:</strong> Evaluation of grip/hand-object interaction (typically 0-3)</li>
+        <li><strong>Osmotic Coefficient (φ):</strong> Corrects for non-ideal behavior in electrolyte solutions (unitless).</li>
+        <li><strong>Ions per Molecule (v):</strong> Number of ions dissociated from one electrolyte molecule (e.g., 2 for NaCl).</li>
+        <li><strong>Moles of Electrolyte (n):</strong> Amount of dissolved solute in the solution (kmol).</li>
+        <li><strong>Solvent Volume (V):</strong> Volume of solvent per kmol (m³/kmol).</li>
+        <li><strong>Temperature (T):</strong> Absolute temperature of the solution (K).</li>
+        <li><strong>Osmotic Pressure (Π):</strong> Pressure required to prevent solvent flow through a semipermeable membrane (Pa).</li>
     </ul>
-    <h3>Risk Level Interpretation:</h3>
-    <div class="table-container">
 
-    <table class="custom-table">
-        <thead>
-        <tr>
-            <th>Score Range</th>
-            <th>Risk Level</th>
-            <th>Action Required</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td>1-2</td>
-            <td>Low Risk</td>
-            <td>No Action</td>
-        </tr>
-        <tr>
-            <td>3-4</td>
-            <td>Medium Risk</td>
-            <td>Change Needed</td>
-        </tr>
-        <tr>
-            <td>5-7</td>
-            <td>High Risk</td>
-            <td>Intervention Required</td>
-        </tr>
-        <tr>
-            <td>8+</td>
-            <td>Very High Risk</td>
-            <td>Immediate Action</td>
-        </tr>
-    </tbody>
-    </table>
-</div>
-    <h3>Importance of REBA Assessment:</h3>
+    <h3>Why Osmotic Pressure is Important?</h3>
+    <p>Osmotic pressure helps in <strong>designing RO systems</strong>, <strong>minimizing energy consumption</strong>, and <strong>preventing membrane fouling</strong> by ensuring optimal operating conditions.</p>
+
+    <h3>Validations:</h3>
     <ul>
-        <li>Identifies ergonomic risks in workplace postures</li>
-        <li>Helps prevent musculoskeletal disorders</li>
-        <li>Guides ergonomic interventions</li>
-        <li>Improves worker safety and comfort</li>
+        <li><strong>Applicability:</strong> This formula applies to seawater desalination, industrial wastewater treatment, and pharmaceutical purification.</li>
+        <li><strong>Positive Values Only:</strong> All input parameters must be positive numbers.</li>
+        <li><strong>Valid Range:</strong> Osmotic pressure should align with typical RO system operating pressures (0.5–10 MPa).</li>
+        <li><strong>Limitations:</strong> Assumes dilute solutions and does not account for membrane-specific effects or fouling.</li>
     </ul>
+
+    <h3>Real-life Applications:</h3>
+    <ul>
+        <li><strong>Seawater Desalination:</strong> Calculating pressure requirements for salt removal.</li>
+        <li><strong>Industrial Wastewater:</strong> Treating high-salinity effluents from manufacturing.</li>
+        <li><strong>Pharmaceuticals:</strong> Purifying water for drug production.</li>
+        <li><strong>Food & Beverage:</strong> Concentrating juices and dairy products.</li>
+        <li><strong>Medical Dialysis:</strong> Simulating blood filtration processes.</li>
+    </ul>
+
+    <h3>Conclusion:</h3>
+    <p>The Osmotic Pressure calculation is a <strong>critical tool in membrane process engineering</strong>. Understanding it allows engineers to <strong>optimize system design</strong>, <strong>reduce operational costs</strong>, and <strong>ensure water quality standards</strong>.</p>
 </div>
-  
+
 <script>
-    function calculateREBAScore() {
-        // Get input values
-        var postureScore = parseInt(document.getElementById("postureScore").value);
-        var loadScore = parseInt(document.getElementById("loadScore").value);
-        var couplingScore = parseInt(document.getElementById("couplingScore").value);
+    function calculateOsmoticPressure() {
+    // Constants
+    const R = 8.314; // Universal gas constant [Pa·m³/(kmol·K)]
 
-        // Validate inputs
-        if (isNaN(postureScore) || isNaN(loadScore) || isNaN(couplingScore) ||
-            postureScore < 1 || loadScore < 0 || couplingScore < 0) {
-            document.getElementById("result").innerHTML = "<span style='color: red;'>Please enter valid scores.</span>";
-            return;
-        }
+    // Input values
+    const φ = parseFloat(document.getElementById("osmoticCoefficient").value);
+    const v = parseInt(document.getElementById("ionNumber").value);
+    const n = parseFloat(document.getElementById("moles").value);
+    const V = parseFloat(document.getElementById("volume").value);
+    const T = parseFloat(document.getElementById("temperature").value);
 
-        // Calculate REBA Score
-        var rebaScore = postureScore + loadScore + couplingScore;
-        var riskLevel = "";
-        var actionRequired = "";
-        var color = "";
+    const resultElement = document.getElementById("result");
+    const feedbackElement = document.getElementById("feedback");
 
-        // Determine risk level
-        if (rebaScore <= 2) {
-            riskLevel = "Low Risk";
-            actionRequired = "No Action";
-            color = "green";
-        } else if (rebaScore <= 4) {
-            riskLevel = "Medium Risk";
-            actionRequired = "Change Needed";
-            color = "orange";
-        } else if (rebaScore <= 7) {
-            riskLevel = "High Risk";
-            actionRequired = "Intervention Required";
-            color = "#FF6600";
-        } else {
-            riskLevel = "Very High Risk";
-            actionRequired = "Immediate Action";
-            color = "red";
-        }
+    // Reset previous results
+    resultElement.innerHTML = "";
+    feedbackElement.innerHTML = "";
 
-        // Display result
-        document.getElementById("result").innerHTML = 
-            "<strong>REBA Score:</strong> " + rebaScore + "<br>" +
-            "<strong>Risk Level:</strong> <span style='color: " + color + ";'>" + riskLevel + "</span><br>" +
-            "<strong>Action Required:</strong> " + actionRequired;
+    // Validations
+    if (isNaN(φ) || φ < 0.1 || φ > 2.0) {
+        resultElement.innerHTML = "❌ <strong>Error:</strong> Osmotic coefficient (φ) must be between 0.1 and 2.0.";
+        return;
     }
+
+    if (isNaN(v) || v < 1) {
+        resultElement.innerHTML = "❌ <strong>Error:</strong> Ions per molecule (v) must be ≥1.";
+        return;
+    }
+
+    if (isNaN(n) || n <= 0) {
+        resultElement.innerHTML = "❌ <strong>Error:</strong> Moles of electrolyte (n) must be positive.";
+        return;
+    }
+
+    if (isNaN(V) || V <= 0) {
+        resultElement.innerHTML = "❌ <strong>Error:</strong> Solvent volume (V) must be positive.";
+        return;
+    }
+
+    if (isNaN(T) || T <= 0) {
+        resultElement.innerHTML = "❌ <strong>Error:</strong> Temperature (T) must be positive.";
+        return;
+    }
+
+    // Calculation
+    const Π = φ * v * (n / V) * R * T;
+    const Π_MPa = Π / 1e6;
+
+    // Detailed Feedback
+    let feedbackMessage = "";
+    let feedbackColor = "black";
+
+    if (Π_MPa < 0.5) {
+        feedbackMessage = `🔹 <strong>Low Pressure (${Π_MPa.toFixed(2)} MPa):</strong> Suitable for brackish water treatment. Requires relatively low energy in RO systems.`;
+        feedbackColor = "blue";
+    } 
+    else if (Π_MPa >= 0.5 && Π_MPa <= 2.5) {
+        feedbackMessage = `✅ <strong>Moderate Pressure (${Π_MPa.toFixed(2)} MPa):</strong> Typical range for most drinking water applications. Optimal for municipal RO plants.`;
+        feedbackColor = "green";
+    } 
+    else if (Π_MPa > 2.5 && Π_MPa <= 5.0) {
+        feedbackMessage = `⚠️ <strong>High Pressure (${Π_MPa.toFixed(2)} MPa):</strong> Common in seawater desalination. Requires robust membranes and higher energy.`;
+        feedbackColor = "orange";
+    } 
+    else {
+        feedbackMessage = `❗ <strong>Very High Pressure (${Π_MPa.toFixed(2)} MPa):</strong> Extreme conditions (e.g., industrial wastewater). Consider pre-treatment or multi-stage RO.`;
+        feedbackColor = "red";
+    }
+
+    // Display Results
+    resultElement.innerHTML = `
+        <strong>Osmotic Pressure (Π):</strong> ${Π.toExponential(2)} Pa<br>
+        <strong>Alternative Units:</strong> ${Π_MPa.toFixed(4)} MPa
+    `;
+    
+    feedbackElement.innerHTML = feedbackMessage;
+    feedbackElement.style.color = feedbackColor;
+}
 </script>
 
 
@@ -401,6 +397,7 @@ select {
         return false;
     });
     </script>
+
 <div id="footer"></div>
 <script>
     fetch("header.html").then(response => response.text()).then(data => document.getElementById("header").innerHTML = data);
@@ -509,5 +506,5 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 
-<!-- Mirrored from dsathemes.com/html/martex_1.1/files/project-details.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 08 Mar 2024 16:40:05 GMT -->
+<!-- Mirrored from dsathemes.com/html/martex_1.1/files/project-details.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 08 Mar 2024 16:40:05 GMT -->
 </html>
