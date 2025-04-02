@@ -56,7 +56,9 @@
 		<link href="css/responsive.css" rel="stylesheet">
 <style>
             
-          
+         
+
+   
         body {
       font-family: Arial, sans-serif;
      
@@ -79,6 +81,26 @@
       font-size: 1.8rem;
       margin-bottom: 30px;
     }
+    .reel {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.reel .form-group {
+  width: 48%;
+}
+
+@media (max-width: 768px) {
+  .reel {
+    flex-direction: column;
+    gap: 5px;
+  }
+  
+  .reel .form-group {
+    width: 100%;
+  }
+}
     .form-group {
       margin-bottom: 15px;
     }
@@ -147,7 +169,15 @@
 .note-container h3 {
     margin:15px 0;
     color: #007bff;
-    font-size: 18px;
+    font-size: 20px;
+}
+
+.note-container ul{
+    margin: 10px;
+}
+
+.note-container{
+    margin-top: 10px;
 }
 
 .note-container p {
@@ -173,51 +203,6 @@ select {
     background-color: rgb(223, 241, 247);
 
 }
-/* Table Styles */
-table {
-    width: 50%;
-    border-collapse: collapse;
-    margin: 20px auto; /* Centers table */
-}
-
-/* Table Cells */
-th, td {
-    padding: 12px;
-    text-align: center;
-    border: 1px solid #ddd;
-    font-size: 16px;
-}
-
-/* Header Styles */
-th {
-    background-color: #1560bd;
-    color: white;
-    font-weight: bold;
-}
-
-/* Row Styles */
-tr:nth-child(even) {
-    background-color: #f2f2f2;
-}
-
-tr:hover {
-    background-color: #ddd;
-}
-
-/* Responsive Table */
-@media (max-width: 600px) {
-    table {
-        width: 90%; /* Adjusts width for mobile */
-        margin: 20px auto; /* Ensures it stays centered */
-    }
-    
-    th, td {
-        font-size: 14px;
-        padding: 8px;
-    }
-}
-
-
 </style>
 	</head>
 
@@ -231,74 +216,119 @@ tr:hover {
 
 
 
-		<div id="header"></div>
-
-
+		
 <br><br><br><br>
 
-
+<div id="header"></div>
 
 <div class="calculator-container">
-    <h2>Dilution Ventilation Rate for Contaminant Control Calculator</h2>
+    <h2>Loading Rate Hydraulic Retention Time (HRT) Calculator</h2>
 
-    <div class="form-group">
-        <label for="generationRate">Contaminant Generation Rate (G) in m³/s:</label>
-        <input type="number" id="generationRate" placeholder="Enter generation rate">
-    </div>
+    
+        <div class="form-group">
+            <label for="V">Volume of Aeration Tank (V) in m³:</label>
+            <input type="number" id="V" placeholder="Enter V" step="any">
+        </div>
+        <div class="form-group">
+            <label for="Q">Sewage Inflow (Q) in m³/d:</label>
+            <input type="number" id="Q" placeholder="Enter Q" step="any">
+        </div>
+    
+    <button class="cal-btn" onclick="calculateHRT()">Calculate</button>
 
-    <div class="form-group">
-        <label for="desiredConcentration">Desired Contaminant Concentration (C<sub>desired</sub>) in ppm:</label>
-        <input type="number" id="desiredConcentration" placeholder="Enter desired concentration">
-    </div>
-
-    <div class="form-group">
-        <label for="ambientConcentration">Ambient Contaminant Concentration (C<sub>ambient</sub>) in ppm:</label>
-        <input type="number" id="ambientConcentration" placeholder="Enter ambient concentration">
-    </div>
-
-    <button class="cal-btn" onclick="calculateVentilationRate()">Calculate Required Airflow</button>
     <div class="result" id="result"></div>
+    <div class="feedback" id="feedback"></div>
 </div>
 
 <div class="note-container">
     <h3>Note:</h3>
-    <p>
-        <strong>Dilution Ventilation Rate for Contaminant Control</strong>
-    </p>
-    <p>
-        Proper ventilation is crucial to maintaining air quality and controlling contaminants in an enclosed space. The required airflow (Q) helps in reducing the concentration of airborne contaminants to safe levels.
-    </p>
-    <h3>Key Factors:</h3>
+    <p>This calculator determines the <strong>Hydraulic Retention Time (HRT)</strong>, which is crucial for evaluating the efficiency of wastewater treatment systems and other fluid retention applications.</p>
+
+    <p>HRT is widely used in <strong>environmental engineering, water treatment, and industrial wastewater management</strong> to optimize processing times and improve system efficiency.</p>
+
+    <h3>Explanation of Parameters:</h3>
     <ul>
-        <li><strong>Required Airflow (Q):</strong> The necessary airflow to achieve acceptable contaminant concentration.</li>
-        <li><strong>Contaminant Generation Rate (G):</strong> The rate at which the contaminant is introduced into the air.</li>
-        <li><strong>Acceptable Concentration (C<sub>desired</sub>):</strong> The maximum permissible concentration to ensure safety.</li>
-        <li><strong>Ambient Concentration (C<sub>ambient</sub>):</strong> The current contaminant level before ventilation is applied.</li>
+        <li><strong>Volume of Aeration Tank (V):</strong> The total volume of the tank where treatment occurs, measured in cubic meters (m³).</li>
+        <li><strong>Sewage Inflow Rate (Q):</strong> The flow rate of incoming sewage, measured in cubic meters per day (m³/d).</li>
     </ul>
+
+    <h3>Why Environment-Sector?</h3>
+    <p>This calculator is relevant to the environment sector as it helps analyze and design wastewater treatment systems, ensuring effective water purification and sustainable resource management.</p>
     
-    <p>
-        Understanding these factors helps in determining the appropriate ventilation rate to maintain air quality, comply with safety regulations, and create a healthier environment.
-    </p>
+    <h3>Why Hydraulic Retention Time is Important?</h3>
+    <p>Understanding HRT helps in **optimizing water treatment processes**, **ensuring proper pollutant removal**, and **maintaining system efficiency**.</p>
+
+    <h3>Validations:</h3>
+    <ul>
+        <li><strong>Applicability:</strong> This formula applies to wastewater treatment plants, bioreactors, and other fluid-based treatment systems.</li>
+        <li><strong>Positive Values Only:</strong> Volume (V) and flow rate (Q) must be positive to ensure meaningful calculations.</li>
+        <li><strong>Valid Range:</strong> HRT should be realistic, typically ranging from hours to days.</li>
+        <li><strong>Limitations:</strong> This calculation assumes steady flow conditions and does not account for variations in influent quality or process inefficiencies.</li>
+    </ul>
+
+    <h3>Real-life Applications:</h3>
+    <ul>
+        <li><strong>Wastewater Treatment:</strong> Optimizing retention times for biological treatment systems.</li>
+        <li><strong>Industrial Water Treatment:</strong> Managing fluid processing in factories and plants.</li>
+        <li><strong>Aquaculture:</strong> Maintaining water quality in fish farming systems.</li>
+        <li><strong>Environmental Science:</strong> Studying pollutant degradation in natural water bodies.</li>
+    </ul>
+
+    <h3>Conclusion:</h3>
+    <p>The Hydraulic Retention Time (HRT) is a **fundamental parameter in environmental and industrial water treatment**. Proper HRT calculation allows engineers and scientists to **design efficient treatment systems**, **improve water quality**, and **ensure regulatory compliance**.</p>
 </div>
 
-<script>
-    function calculateVentilationRate() {
-        const generationRate = parseFloat(document.getElementById('generationRate').value);
-        const desiredConcentration = parseFloat(document.getElementById('desiredConcentration').value);
-        const ambientConcentration = parseFloat(document.getElementById('ambientConcentration').value);
-        const resultElement = document.getElementById('result');
 
-        if (isNaN(generationRate) || isNaN(desiredConcentration) || isNaN(ambientConcentration) ||
-            generationRate <= 0 || desiredConcentration <= ambientConcentration) {
-            resultElement.innerText = "Please enter valid positive values, and ensure Acceptable Concentration is greater than Ambient Concentration.";
+<script>
+    function calculateHRT() {
+        const V = parseFloat(document.getElementById("V").value);
+        const Q = parseFloat(document.getElementById("Q").value);
+        const resultElement = document.getElementById("result");
+        const feedbackElement = document.getElementById("feedback");
+
+        // Reset previous results
+        resultElement.innerHTML = "";
+        feedbackElement.innerHTML = "";
+
+        // Validations
+        if (isNaN(V) || V <= 0 || isNaN(Q) || Q <= 0) {
+            resultElement.innerHTML = "❌ <strong>Error:</strong> Both values must be positive numbers.";
+            return;
+        }
+        if (Q === 0) {
+            resultElement.innerHTML = "❌ <strong>Error:</strong> Sewage inflow (Q) cannot be zero.";
             return;
         }
 
-        // Calculate required ventilation rate Q = G / (C_desired - C_ambient)
-        const Q = generationRate / (desiredConcentration - ambientConcentration);
-        resultElement.innerHTML = `<p><strong>Required Airflow (Q): ${Q.toFixed(4)} m³/s</strong></p>`;
+        // Hydraulic Retention Time Calculation
+        const HRT = V / Q;
+
+        // Feedback Message
+        let feedbackMessage = "";
+        let feedbackColor = "black";
+
+        if (HRT > 24) {
+            feedbackMessage = "✅ <strong>Long Retention Time:</strong> Wastewater stays longer, allowing for better treatment.";
+            feedbackColor = "green";
+        } else if (HRT >= 6 && HRT <= 24) {
+            feedbackMessage = "⚠️ <strong>Moderate Retention Time:</strong> Treatment is effective, but conditions should be monitored.";
+            feedbackColor = "blue";
+        } else {
+            feedbackMessage = "❌ <strong>Short Retention Time:</strong> Insufficient time for proper wastewater treatment, consider increasing V or reducing Q.";
+            feedbackColor = "red";
+        }
+
+        // Display Results
+        resultElement.innerHTML = `
+            <strong>Hydraulic Retention Time (HRT):</strong> ${HRT.toFixed(4)} days<br>
+            <strong style="color: ${feedbackColor};">${feedbackMessage}</strong>
+        `;
+        resultElement.style.color = "black";
     }
 </script>
+
+
+
 
 
 
@@ -335,11 +365,15 @@ tr:hover {
         return false;
     });
     </script>
+
 <div id="footer"></div>
 <script>
     fetch("header.html").then(response => response.text()).then(data => document.getElementById("header").innerHTML = data);
     fetch("footer.html").then(response => response.text()).then(data => document.getElementById("footer").innerHTML = data);
 </script>
+
+
+		</div>	<!-- END PAGE CONTENT -->	
 
 
 
@@ -440,5 +474,5 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 
-<!-- Mirrored from dsathemes.com/html/martex_1.1/files/project-details.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 08 Mar 2024 16:40:05 GMT -->
+<!-- Mirrored from dsathemes.com/html/martex_1.1/files/project-details.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 08 Mar 2024 16:40:05 GMT -->
 </html>

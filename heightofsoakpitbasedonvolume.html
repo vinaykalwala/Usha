@@ -239,68 +239,62 @@ tr:hover {
 
 
 <div class="calculator-container">
-    <h2>Dilution Ventilation Rate for Contaminant Control Calculator</h2>
-
+    <h2>Height of Soak Pit Based on Volume Calculator</h2>
     <div class="form-group">
-        <label for="generationRate">Contaminant Generation Rate (G) in m³/s:</label>
-        <input type="number" id="generationRate" placeholder="Enter generation rate">
+        <label for="volume">Total Volume of Soak Pit (V in cubic meters):</label>
+        <input type="number" id="volume" placeholder="Enter volume" step="0.01">
     </div>
-
     <div class="form-group">
-        <label for="desiredConcentration">Desired Contaminant Concentration (C<sub>desired</sub>) in ppm:</label>
-        <input type="number" id="desiredConcentration" placeholder="Enter desired concentration">
+        <label for="length">Length of Soak Pit (L in meters):</label>
+        <input type="number" id="length" placeholder="Enter length" step="0.01">
     </div>
-
     <div class="form-group">
-        <label for="ambientConcentration">Ambient Contaminant Concentration (C<sub>ambient</sub>) in ppm:</label>
-        <input type="number" id="ambientConcentration" placeholder="Enter ambient concentration">
+        <label for="breadth">Breadth of Soak Pit (B in meters):</label>
+        <input type="number" id="breadth" placeholder="Enter breadth" step="0.01">
     </div>
-
-    <button class="cal-btn" onclick="calculateVentilationRate()">Calculate Required Airflow</button>
+    <button class="cal-btn" onclick="calculateSoakPitHeight()">Calculate Height</button>
     <div class="result" id="result"></div>
 </div>
 
 <div class="note-container">
-    <h3>Note:</h3>
-    <p>
-        <strong>Dilution Ventilation Rate for Contaminant Control</strong>
-    </p>
-    <p>
-        Proper ventilation is crucial to maintaining air quality and controlling contaminants in an enclosed space. The required airflow (Q) helps in reducing the concentration of airborne contaminants to safe levels.
-    </p>
-    <h3>Key Factors:</h3>
+    <h3>About Soak Pit Height Calculation</h3>
+    <p>Determining the height of a soak pit is essential to ensure that it can handle the expected volume of fluid efficiently. The height depends on the total volume of liquid it must hold and the available base area, which is determined by the length and breadth of the soak pit.</p>
+    
+    <h3>Key Considerations:</h3>
     <ul>
-        <li><strong>Required Airflow (Q):</strong> The necessary airflow to achieve acceptable contaminant concentration.</li>
-        <li><strong>Contaminant Generation Rate (G):</strong> The rate at which the contaminant is introduced into the air.</li>
-        <li><strong>Acceptable Concentration (C<sub>desired</sub>):</strong> The maximum permissible concentration to ensure safety.</li>
-        <li><strong>Ambient Concentration (C<sub>ambient</sub>):</strong> The current contaminant level before ventilation is applied.</li>
+        <li><strong>Total Volume:</strong> This represents the total capacity of the soak pit, which needs to be sufficient to manage wastewater or other liquid discharge.</li>
+        <li><strong>Base Area:</strong> The combination of the length and breadth defines the surface area of the soak pit. A larger base area can reduce the required height for the same volume.</li>
+        <li><strong>Optimal Design:</strong> The height should be chosen carefully to avoid excessive depth, which could make maintenance difficult, while also ensuring enough capacity to prevent overflow.</li>
+        <li><strong>Practical Applications:</strong> Soak pits are commonly used in wastewater management, rainwater harvesting, and industrial filtration systems, making accurate height estimation crucial.</li>
     </ul>
     
-    <p>
-        Understanding these factors helps in determining the appropriate ventilation rate to maintain air quality, comply with safety regulations, and create a healthier environment.
-    </p>
-</div>
+    <h3>Conclusion:</h3>
+    <p>Proper height calculation ensures that the soak pit can effectively absorb and manage liquid discharge without causing environmental issues or structural inefficiencies. A well-designed soak pit contributes to sustainable water management and prevents ground saturation problems.</p>
+    
+    <p>If you need assistance calculating the Total Volume of Soak Pit, please use the following link:</p>
+    <ul style="display: flex;">
+      <li style="margin: 20px auto;">
+        <a href="soakpitvolumecalculator.html" style="background-color: #1560bd; padding: 10px; color: white; border-radius: 10px;">Soak Pit Volume Calculator</a>
+      </li>
+     
+    </ul></div>
 
 <script>
-    function calculateVentilationRate() {
-        const generationRate = parseFloat(document.getElementById('generationRate').value);
-        const desiredConcentration = parseFloat(document.getElementById('desiredConcentration').value);
-        const ambientConcentration = parseFloat(document.getElementById('ambientConcentration').value);
+    function calculateSoakPitHeight() {
+        const volume = parseFloat(document.getElementById('volume').value);
+        const length = parseFloat(document.getElementById('length').value);
+        const breadth = parseFloat(document.getElementById('breadth').value);
         const resultElement = document.getElementById('result');
 
-        if (isNaN(generationRate) || isNaN(desiredConcentration) || isNaN(ambientConcentration) ||
-            generationRate <= 0 || desiredConcentration <= ambientConcentration) {
-            resultElement.innerText = "Please enter valid positive values, and ensure Acceptable Concentration is greater than Ambient Concentration.";
+        if (isNaN(volume) || isNaN(length) || isNaN(breadth) || length <= 0 || breadth <= 0) {
+            resultElement.innerText = "Please enter valid numbers for volume, length, and breadth.";
             return;
         }
 
-        // Calculate required ventilation rate Q = G / (C_desired - C_ambient)
-        const Q = generationRate / (desiredConcentration - ambientConcentration);
-        resultElement.innerHTML = `<p><strong>Required Airflow (Q): ${Q.toFixed(4)} m³/s</strong></p>`;
+        const height = volume / (length * breadth);
+        resultElement.innerText = `Soak Pit Height: ${height.toFixed(2)} meters`;
     }
 </script>
-
-
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
 

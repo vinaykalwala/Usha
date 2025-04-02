@@ -239,68 +239,44 @@ tr:hover {
 
 
 <div class="calculator-container">
-    <h2>Dilution Ventilation Rate for Contaminant Control Calculator</h2>
-
+    <h2>Soak Pit Volume Calculator</h2>
     <div class="form-group">
-        <label for="generationRate">Contaminant Generation Rate (G) in m³/s:</label>
-        <input type="number" id="generationRate" placeholder="Enter generation rate">
+        <label for="oilVolume">Oil Volume of Largest Transformer (litres):</label>
+        <input type="number" id="oilVolume" placeholder="Enter oil volume" step="0.01">
     </div>
-
-    <div class="form-group">
-        <label for="desiredConcentration">Desired Contaminant Concentration (C<sub>desired</sub>) in ppm:</label>
-        <input type="number" id="desiredConcentration" placeholder="Enter desired concentration">
-    </div>
-
-    <div class="form-group">
-        <label for="ambientConcentration">Ambient Contaminant Concentration (C<sub>ambient</sub>) in ppm:</label>
-        <input type="number" id="ambientConcentration" placeholder="Enter ambient concentration">
-    </div>
-
-    <button class="cal-btn" onclick="calculateVentilationRate()">Calculate Required Airflow</button>
+    <button class="cal-btn" onclick="calculateSoakPitVolume()">Calculate Soak Pit Volume</button>
     <div class="result" id="result"></div>
 </div>
 
 <div class="note-container">
-    <h3>Note:</h3>
-    <p>
-        <strong>Dilution Ventilation Rate for Contaminant Control</strong>
-    </p>
-    <p>
-        Proper ventilation is crucial to maintaining air quality and controlling contaminants in an enclosed space. The required airflow (Q) helps in reducing the concentration of airborne contaminants to safe levels.
-    </p>
-    <h3>Key Factors:</h3>
+    <h3>About Soak Pit Volume Calculation</h3>
+    <p>The soak pit volume is determined based on the oil volume of the largest transformer. This ensures that the pit has adequate capacity to contain any potential oil leakage, preventing environmental contamination and maintaining safety standards.</p>
+    
+    <h3>Key Considerations:</h3>
     <ul>
-        <li><strong>Required Airflow (Q):</strong> The necessary airflow to achieve acceptable contaminant concentration.</li>
-        <li><strong>Contaminant Generation Rate (G):</strong> The rate at which the contaminant is introduced into the air.</li>
-        <li><strong>Acceptable Concentration (C<sub>desired</sub>):</strong> The maximum permissible concentration to ensure safety.</li>
-        <li><strong>Ambient Concentration (C<sub>ambient</sub>):</strong> The current contaminant level before ventilation is applied.</li>
+        <li><strong>Oil Volume:</strong> This is the total oil volume of the largest transformer, which serves as the baseline for the soak pit size calculation.</li>
+        <li><strong>Safety Factor:</strong> A buffer is applied to the calculated volume to ensure the soak pit can handle unexpected variations in oil capacity.</li>
+        <li><strong>Environmental and Safety Regulations:</strong> The design follows recommended guidelines to minimize risks and comply with industrial safety norms.</li>
     </ul>
     
-    <p>
-        Understanding these factors helps in determining the appropriate ventilation rate to maintain air quality, comply with safety regulations, and create a healthier environment.
-    </p>
+    <h3>Conclusion:</h3>
+    <p>By considering these factors, the soak pit is designed to effectively contain transformer oil, ensuring operational safety and environmental protection.</p>
 </div>
 
 <script>
-    function calculateVentilationRate() {
-        const generationRate = parseFloat(document.getElementById('generationRate').value);
-        const desiredConcentration = parseFloat(document.getElementById('desiredConcentration').value);
-        const ambientConcentration = parseFloat(document.getElementById('ambientConcentration').value);
+    function calculateSoakPitVolume() {
+        const oilVolume = parseFloat(document.getElementById('oilVolume').value);
         const resultElement = document.getElementById('result');
 
-        if (isNaN(generationRate) || isNaN(desiredConcentration) || isNaN(ambientConcentration) ||
-            generationRate <= 0 || desiredConcentration <= ambientConcentration) {
-            resultElement.innerText = "Please enter valid positive values, and ensure Acceptable Concentration is greater than Ambient Concentration.";
+        if (isNaN(oilVolume)) {
+            resultElement.innerText = "Please enter a valid oil volume.";
             return;
         }
 
-        // Calculate required ventilation rate Q = G / (C_desired - C_ambient)
-        const Q = generationRate / (desiredConcentration - ambientConcentration);
-        resultElement.innerHTML = `<p><strong>Required Airflow (Q): ${Q.toFixed(4)} m³/s</strong></p>`;
+        const soakPitVolume = 1.25 * oilVolume;
+        resultElement.innerText = `Soak Pit Volume (V): ${soakPitVolume.toFixed(2)} litres`;
     }
 </script>
-
-
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
 

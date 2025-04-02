@@ -239,69 +239,62 @@ tr:hover {
 
 
 <div class="calculator-container">
-    <h2>Dilution Ventilation Rate for Contaminant Control Calculator</h2>
-
+    <h2>Height Calculation for Drain Pipe Slope</h2>
     <div class="form-group">
-        <label for="generationRate">Contaminant Generation Rate (G) in m³/s:</label>
-        <input type="number" id="generationRate" placeholder="Enter generation rate">
+        <label for="distance">Distance from Transformer Oil Pit (D in meters):</label>
+        <input type="number" id="distance" placeholder="Enter distance" step="0.01">
     </div>
-
-    <div class="form-group">
-        <label for="desiredConcentration">Desired Contaminant Concentration (C<sub>desired</sub>) in ppm:</label>
-        <input type="number" id="desiredConcentration" placeholder="Enter desired concentration">
-    </div>
-
-    <div class="form-group">
-        <label for="ambientConcentration">Ambient Contaminant Concentration (C<sub>ambient</sub>) in ppm:</label>
-        <input type="number" id="ambientConcentration" placeholder="Enter ambient concentration">
-    </div>
-
-    <button class="cal-btn" onclick="calculateVentilationRate()">Calculate Required Airflow</button>
+    <button class="cal-btn" onclick="calculateDrainPipeHeight()">Calculate Height</button>
     <div class="result" id="result"></div>
 </div>
 
 <div class="note-container">
-    <h3>Note:</h3>
-    <p>
-        <strong>Dilution Ventilation Rate for Contaminant Control</strong>
-    </p>
-    <p>
-        Proper ventilation is crucial to maintaining air quality and controlling contaminants in an enclosed space. The required airflow (Q) helps in reducing the concentration of airborne contaminants to safe levels.
-    </p>
-    <h3>Key Factors:</h3>
+    <h3>About Drain Pipe Slope Height Calculation</h3>
+    <p>The height calculation for the drain pipe slope ensures proper drainage from the transformer oil pit to the soak pit. The slope is designed to facilitate smooth flow and prevent blockages.</p>
+    
+    <h3>Key Considerations:</h3>
     <ul>
-        <li><strong>Required Airflow (Q):</strong> The necessary airflow to achieve acceptable contaminant concentration.</li>
-        <li><strong>Contaminant Generation Rate (G):</strong> The rate at which the contaminant is introduced into the air.</li>
-        <li><strong>Acceptable Concentration (C<sub>desired</sub>):</strong> The maximum permissible concentration to ensure safety.</li>
-        <li><strong>Ambient Concentration (C<sub>ambient</sub>):</strong> The current contaminant level before ventilation is applied.</li>
+        <li><strong>Distance from Transformer Oil Pit (D):</strong> The length between the transformer oil pit and the soak pit.</li>
+        <li><strong>Minimum Height Adjustment:</strong> A base height is added to ensure an effective slope.</li>
+        <li><strong>Slope Gradient:</strong> A small percentage gradient is applied to maintain proper drainage flow.</li>
     </ul>
     
-    <p>
-        Understanding these factors helps in determining the appropriate ventilation rate to maintain air quality, comply with safety regulations, and create a healthier environment.
-    </p>
+    <h3>Conclusion:</h3>
+    <p>By considering these factors, the drain pipe is designed to ensure efficient oil drainage, reducing the risk of overflow or blockages.</p>
+   
 </div>
 
 <script>
-    function calculateVentilationRate() {
-        const generationRate = parseFloat(document.getElementById('generationRate').value);
-        const desiredConcentration = parseFloat(document.getElementById('desiredConcentration').value);
-        const ambientConcentration = parseFloat(document.getElementById('ambientConcentration').value);
+    function calculateDrainPipeHeight() {
+        const distance = parseFloat(document.getElementById('distance').value);
         const resultElement = document.getElementById('result');
 
-        if (isNaN(generationRate) || isNaN(desiredConcentration) || isNaN(ambientConcentration) ||
-            generationRate <= 0 || desiredConcentration <= ambientConcentration) {
-            resultElement.innerText = "Please enter valid positive values, and ensure Acceptable Concentration is greater than Ambient Concentration.";
+        if (isNaN(distance)) {
+            resultElement.innerText = "Please enter a valid distance.";
             return;
         }
 
-        // Calculate required ventilation rate Q = G / (C_desired - C_ambient)
-        const Q = generationRate / (desiredConcentration - ambientConcentration);
-        resultElement.innerHTML = `<p><strong>Required Airflow (Q): ${Q.toFixed(4)} m³/s</strong></p>`;
+        const height = 0.15 + (0.01 * distance);
+        resultElement.innerText = `Drain Pipe Height (H₁): ${height.toFixed(2)} meters`;
     }
 </script>
 
+<script>
+    function calculateSafetyStock() {
+        const zValue = parseFloat(document.getElementById('serviceLevel').value);
+        const stdDevDemand = parseFloat(document.getElementById('stdDevDemand').value);
+        const leadTime = parseFloat(document.getElementById('leadTime').value);
+        const resultElement = document.getElementById('result');
 
+        if (isNaN(zValue) || isNaN(stdDevDemand) || isNaN(leadTime)) {
+            resultElement.innerText = "Please enter valid numbers for all fields.";
+            return;
+        }
 
+        const safetyStock = zValue * stdDevDemand * Math.sqrt(leadTime);
+        resultElement.innerText = `Safety Stock (SS): ${safetyStock.toFixed(2)} units`;
+    }
+</script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
 
 

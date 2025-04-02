@@ -56,14 +56,16 @@
 		<link href="css/responsive.css" rel="stylesheet">
 <style>
             
-          
+         
+
+   
         body {
       font-family: Arial, sans-serif;
      
       background-color: #f5f5f5;
     }
     .calculator-container {
-      max-width: 1000px;
+      max-width: 1200px;
       margin: 20px auto;
       padding: 20px;
       background: #ffffff;
@@ -79,6 +81,26 @@
       font-size: 1.8rem;
       margin-bottom: 30px;
     }
+    .reel {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.reel .form-group {
+  width: 48%;
+}
+
+@media (max-width: 768px) {
+  .reel {
+    flex-direction: column;
+    gap: 5px;
+  }
+  
+  .reel .form-group {
+    width: 100%;
+  }
+}
     .form-group {
       margin-bottom: 15px;
     }
@@ -147,7 +169,15 @@
 .note-container h3 {
     margin:15px 0;
     color: #007bff;
-    font-size: 18px;
+    font-size: 20px;
+}
+
+.note-container ul{
+    margin: 10px;
+}
+
+.note-container{
+    margin-top: 10px;
 }
 
 .note-container p {
@@ -173,51 +203,6 @@ select {
     background-color: rgb(223, 241, 247);
 
 }
-/* Table Styles */
-table {
-    width: 50%;
-    border-collapse: collapse;
-    margin: 20px auto; /* Centers table */
-}
-
-/* Table Cells */
-th, td {
-    padding: 12px;
-    text-align: center;
-    border: 1px solid #ddd;
-    font-size: 16px;
-}
-
-/* Header Styles */
-th {
-    background-color: #1560bd;
-    color: white;
-    font-weight: bold;
-}
-
-/* Row Styles */
-tr:nth-child(even) {
-    background-color: #f2f2f2;
-}
-
-tr:hover {
-    background-color: #ddd;
-}
-
-/* Responsive Table */
-@media (max-width: 600px) {
-    table {
-        width: 90%; /* Adjusts width for mobile */
-        margin: 20px auto; /* Ensures it stays centered */
-    }
-    
-    th, td {
-        font-size: 14px;
-        padding: 8px;
-    }
-}
-
-
 </style>
 	</head>
 
@@ -231,74 +216,127 @@ tr:hover {
 
 
 
-		<div id="header"></div>
-
-
+		
 <br><br><br><br>
 
-
+<div id="header"></div>
 
 <div class="calculator-container">
-    <h2>Dilution Ventilation Rate for Contaminant Control Calculator</h2>
+    <h2>Biomass Substrate Utilization Rate Calculator</h2>
 
-    <div class="form-group">
-        <label for="generationRate">Contaminant Generation Rate (G) in m³/s:</label>
-        <input type="number" id="generationRate" placeholder="Enter generation rate">
+    <div class="reel">
+        <div class="form-group">
+            <label for="k">Maximum Specific Substrate Utilization Rate (k):</label>
+            <input type="number" id="k" placeholder="Enter k" step="any">
+        </div>
+
+        <div class="form-group">
+            <label for="X">Microorganism Concentration (X):</label>
+            <input type="number" id="X" placeholder="Enter X" step="any">
+        </div>
+    </div>
+    
+    <div class="reel">
+        <div class="form-group">
+            <label for="S">Substrate Concentration (S):</label>
+            <input type="number" id="S" placeholder="Enter S" step="any">
+        </div>
+
+        <div class="form-group">
+            <label for="Ks">Substrate Concentration at Half Maximum Growth (Ks):</label>
+            <input type="number" id="Ks" placeholder="Enter Ks" step="any">
+        </div>
     </div>
 
-    <div class="form-group">
-        <label for="desiredConcentration">Desired Contaminant Concentration (C<sub>desired</sub>) in ppm:</label>
-        <input type="number" id="desiredConcentration" placeholder="Enter desired concentration">
-    </div>
+    <button class="cal-btn" onclick="calculateSubstrateUtilization()">Calculate</button>
 
-    <div class="form-group">
-        <label for="ambientConcentration">Ambient Contaminant Concentration (C<sub>ambient</sub>) in ppm:</label>
-        <input type="number" id="ambientConcentration" placeholder="Enter ambient concentration">
-    </div>
-
-    <button class="cal-btn" onclick="calculateVentilationRate()">Calculate Required Airflow</button>
     <div class="result" id="result"></div>
+    <div class="feedback" id="feedback"></div>
 </div>
 
 <div class="note-container">
     <h3>Note:</h3>
-    <p>
-        <strong>Dilution Ventilation Rate for Contaminant Control</strong>
-    </p>
-    <p>
-        Proper ventilation is crucial to maintaining air quality and controlling contaminants in an enclosed space. The required airflow (Q) helps in reducing the concentration of airborne contaminants to safe levels.
-    </p>
-    <h3>Key Factors:</h3>
+    <p>This calculator determines the <strong>Substrate Utilization Rate</strong>, which is crucial for assessing microbial metabolism in biological and industrial processes.</p>
+
+    <p>It is widely used in <strong>biotechnology, wastewater treatment, and fermentation industries</strong> to optimize microbial efficiency.</p>
+
+    <h3>Explanation of Parameters:</h3>
     <ul>
-        <li><strong>Required Airflow (Q):</strong> The necessary airflow to achieve acceptable contaminant concentration.</li>
-        <li><strong>Contaminant Generation Rate (G):</strong> The rate at which the contaminant is introduced into the air.</li>
-        <li><strong>Acceptable Concentration (C<sub>desired</sub>):</strong> The maximum permissible concentration to ensure safety.</li>
-        <li><strong>Ambient Concentration (C<sub>ambient</sub>):</strong> The current contaminant level before ventilation is applied.</li>
+        <li><strong>Maximum Specific Substrate Utilization Rate (k):</strong> The highest rate at which microorganisms can consume a substrate.</li>
+        <li><strong>Microorganism Concentration (X):</strong> The biomass concentration of microorganisms in the system.</li>
+        <li><strong>Substrate Concentration (S):</strong> The available concentration of nutrients for microbial growth.</li>
+        <li><strong>Substrate Concentration at Half Maximum Growth (Ks):</strong> The substrate level where the utilization rate reaches half its maximum.</li>
     </ul>
-    
-    <p>
-        Understanding these factors helps in determining the appropriate ventilation rate to maintain air quality, comply with safety regulations, and create a healthier environment.
-    </p>
+
+      <h3>Why Substrate Utilization Rate is Important?</h3>
+    <p>Understanding substrate utilization helps in **optimizing bioprocesses**, enhancing **waste treatment efficiency**, and improving **industrial fermentation yields**.</p>
+
+    <h3>Validations:</h3>
+    <ul>
+        <li><strong>Applicability:</strong> This formula applies to microbial cultures, bioreactors, and environmental microbiology studies.</li>
+        <li><strong>Positive Values Only:</strong> All parameters must be positive to ensure meaningful biological interpretations.</li>
+        <li><strong>Valid Range:</strong> The substrate utilization rate should be realistic and measurable.</li>
+        <li><strong>Limitations:</strong> This calculation assumes that utilization is limited by a single substrate and does not account for inhibition effects.</li>
+    </ul>
+
+    <h3>Real-life Applications:</h3>
+    <ul>
+        <li><strong>Wastewater Treatment:</strong> Monitoring microbial activity in treatment plants.</li>
+        <li><strong>Biotechnology:</strong> Optimizing microbial production of biofuels and pharmaceuticals.</li>
+        <li><strong>Food Industry:</strong> Controlling fermentation processes in dairy and beverage industries.</li>
+        <li><strong>Environmental Science:</strong> Studying biodegradation of pollutants.</li>
+        <li><strong>Medical Research:</strong> Understanding pathogen growth dynamics.</li>
+    </ul>
+
+    <h3>Conclusion:</h3>
+    <p>The substrate utilization rate is a **critical tool in microbiology and biotechnology**. Understanding this principle allows scientists and engineers to **enhance efficiency**, **improve production**, and **optimize microbial applications**.</p>
 </div>
 
-<script>
-    function calculateVentilationRate() {
-        const generationRate = parseFloat(document.getElementById('generationRate').value);
-        const desiredConcentration = parseFloat(document.getElementById('desiredConcentration').value);
-        const ambientConcentration = parseFloat(document.getElementById('ambientConcentration').value);
-        const resultElement = document.getElementById('result');
 
-        if (isNaN(generationRate) || isNaN(desiredConcentration) || isNaN(ambientConcentration) ||
-            generationRate <= 0 || desiredConcentration <= ambientConcentration) {
-            resultElement.innerText = "Please enter valid positive values, and ensure Acceptable Concentration is greater than Ambient Concentration.";
+<script>
+    function calculateSubstrateUtilization() {
+        const k = parseFloat(document.getElementById("k").value);
+        const X = parseFloat(document.getElementById("X").value);
+        const S = parseFloat(document.getElementById("S").value);
+        const Ks = parseFloat(document.getElementById("Ks").value);
+        const resultElement = document.getElementById("result");
+        const feedbackElement = document.getElementById("feedback");
+
+        // Reset previous results
+        resultElement.innerHTML = "";
+        feedbackElement.innerHTML = "";
+
+        // Validations
+        if (isNaN(k) || k <= 0 || isNaN(X) || X <= 0 || isNaN(S) || S <= 0 || isNaN(Ks) || Ks <= 0) {
+            resultElement.innerHTML = "❌ <strong>Error:</strong> All values must be positive numbers.";
             return;
         }
 
-        // Calculate required ventilation rate Q = G / (C_desired - C_ambient)
-        const Q = generationRate / (desiredConcentration - ambientConcentration);
-        resultElement.innerHTML = `<p><strong>Required Airflow (Q): ${Q.toFixed(4)} m³/s</strong></p>`;
+        // Substrate Utilization Rate Calculation
+        const substrateUtilizationRate = (k * X * S) / (Ks + S);
+
+        // Feedback Message
+        let feedbackMessage = "";
+        let feedbackColor = "black";
+
+        if (substrateUtilizationRate > 0.5 * k) {
+            feedbackMessage = "✅ <strong>High Utilization:</strong> Efficient nutrient consumption, supporting optimal microbial growth.";
+            feedbackColor = "green";
+        } else {
+            feedbackMessage = "⚠️ <strong>Low Utilization:</strong> Possible nutrient limitation or environmental constraints affecting efficiency.";
+            feedbackColor = "orange";
+        }
+
+        // Display Results
+        resultElement.innerHTML = `
+            <strong>Substrate Utilization Rate:</strong> ${substrateUtilizationRate.toFixed(4)} per unit time<br>
+            <strong style="color: ${feedbackColor};">${feedbackMessage}</strong>
+        `;
+        resultElement.style.color = "black";
     }
 </script>
+
+
 
 
 
@@ -335,11 +373,15 @@ tr:hover {
         return false;
     });
     </script>
+
 <div id="footer"></div>
 <script>
     fetch("header.html").then(response => response.text()).then(data => document.getElementById("header").innerHTML = data);
     fetch("footer.html").then(response => response.text()).then(data => document.getElementById("footer").innerHTML = data);
 </script>
+
+
+		</div>	<!-- END PAGE CONTENT -->	
 
 
 
@@ -440,5 +482,5 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 
-<!-- Mirrored from dsathemes.com/html/martex_1.1/files/project-details.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 08 Mar 2024 16:40:05 GMT -->
+<!-- Mirrored from dsathemes.com/html/martex_1.1/files/project-details.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 08 Mar 2024 16:40:05 GMT -->
 </html>
