@@ -217,18 +217,8 @@ tr:hover {
     }
 }
 
-.calculation-nav {
-  display: flex;
-  justify-content: center;
-  list-style-type: none;
-  padding: 0;
-}
-
-.calculation-item {
-  margin: 0 20px;
-}
-
 .calculation-link {
+  display: inline-block;  /* Ensures background fits the content */
   background-color: #1560bd;
   padding: 10px 20px;
   color: white;
@@ -236,11 +226,6 @@ tr:hover {
   text-decoration: none;
   font-size: 16px;
   transition: background-color 0.3s ease, transform 0.3s ease;
-}
-
-.calculation-link:hover {
-  background-color: #0d47a1;
-  transform: scale(1.1);
 }
 
 @media (max-width: 768px) {
@@ -254,8 +239,12 @@ tr:hover {
   }
 
   .calculation-link {
+    display: flex;  /* Ensures proper alignment */
+    align-items: center;
+    justify-content: center;
     padding: 12px 25px;
     font-size: 18px;
+    width: fit-content; /* Prevents full-width background issue */
   }
 }
 
