@@ -217,8 +217,20 @@ tr:hover {
     }
 }
 
+.calculation-nav {
+  display: flex;
+  flex-direction: row; /* Ensures horizontal layout on desktop */
+  justify-content: center;
+  list-style-type: none;
+  padding: 0;
+}
+
+.calculation-item {
+  margin: 0 20px;
+}
+
 .calculation-link {
-  display: inline-block;  /* Ensures background fits the content */
+  display: inline-block; /* Prevents full-width background */
   background-color: #1560bd;
   padding: 10px 20px;
   color: white;
@@ -228,9 +240,14 @@ tr:hover {
   transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
+.calculation-link:hover {
+  background-color: #0d47a1;
+  transform: scale(1.1);
+}
+
 @media (max-width: 768px) {
   .calculation-nav {
-    flex-direction: column;
+    flex-direction: column; /* Changes to vertical layout only for mobile */
     align-items: center;
   }
 
@@ -239,12 +256,10 @@ tr:hover {
   }
 
   .calculation-link {
-    display: flex;  /* Ensures proper alignment */
-    align-items: center;
-    justify-content: center;
+    display: inline-block;
     padding: 12px 25px;
     font-size: 18px;
-    width: fit-content; /* Prevents full-width background issue */
+    width: fit-content; /* Ensures the background does not stretch */
   }
 }
 
