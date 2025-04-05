@@ -327,114 +327,58 @@ select {
 <div id="header"></div>
 
 <div class="calculator-container">
-    <h2>Bedridden Patient Height Estimator</h2>
+    <h2>Bedridden Patient Weight Estimator</h2>
   
     <div class="form-group">
-      <label for="formula">Select Formula:</label>
-      <select id="formula" onchange="renderInputs()">
-        <option value="mitchell">Mitchell & Lipschitz</option>
-        <option value="who">WHO</option>
-        <option value="rabito1">Rabito et al. (Arm length + Semi-span)</option>
-        <option value="rabito2">Rabito et al. (Semi-span only)</option>
-        <option value="gray">Gray et al. (Recumbent height)</option>
+      <label for="weightFormula">Select Formula:</label>
+      <select id="weightFormula" onchange="renderWeightInputs()">
         <option value="chumlea">Chumlea et al.</option>
-        <option value="cereda">Cereda et al.</option>
-        <option value="knee">Knee Height formula</option>
-        <option value="demi">Demi-span formula</option>
+        <option value="rabito1">Rabito et al. (Full)</option>
+        <option value="rabito2">Rabito et al. (Simplified)</option>
+        <option value="rabito3">Rabito et al. (Sex-adjusted)</option>
+        <option value="ross">Ross Laboratories</option>
       </select>
     </div>
   
-    <div id="inputFields"></div>
+    <div id="weightInputFields"></div>
   
-    <button onclick="calculateHeight()" class="cal-btn">Estimate Height</button>
+    <button onclick="calculateWeight()" class="cal-btn">Estimate Weight</button>
   
-    <div class="result" id="resultArea"></div>
-  </div>
-  
+    <div class="result" id="weightResultArea"></div>
+</div>
 
-  <div class="note-container">
-    <h3>Height Estimation in Bedridden Patients</h3>
+<div class="note-container">
+    <h3>Weight Estimation in Bedridden Patients</h3>
     <p>
-      Measuring height in bedridden or immobile patients can be challenging due to the inability to stand upright. In such cases, alternative anthropometric methods are used to estimate height using body segment measurements. These estimates are valuable in clinical care, especially for calculating medication dosages, nutritional requirements, and physiological volumes.
+      Accurate weight estimation is crucial for medication dosing, nutritional assessment, and treatment planning in immobile patients. These validated anthropometric methods use body measurements to estimate weight when direct measurement isn't possible.
     </p>
+    <h3>Weight Estimation Formulas Explained</h3>
+    <p>Estimating weight in bedridden patients is crucial for accurate medication dosing and nutritional planning. Several validated formulas are used based on body measurements. Here's a quick overview:</p>
   
-    <h3>Why Estimate Height Without Standing?</h3>
     <ul>
-      <li>To calculate nutritional needs, body surface area, and physiological volumes.</li>
-      <li>For dosing medications accurately in critical care or chronic illness.</li>
-      <li>To monitor growth or body composition in patients unable to stand due to injury, surgery, or illness.</li>
+      <li><strong>Chumlea et al.:</strong> 
+        Designed for elderly or immobile patients, this formula uses <strong>knee height</strong> and <strong>mid-arm circumference (MAC)</strong>. It's gender-specific and widely used in geriatric settings due to its reliability.
+      </li>
+  
+      <li><strong>Rabito et al. (Full Model):</strong> 
+        A comprehensive regression model incorporating <strong>age, sex, MAC, calf circumference</strong>, and interaction variables. Offers high accuracy in clinical environments but requires multiple inputs.
+      </li>
+  
+      <li><strong>Rabito et al. (Simplified):</strong> 
+        A streamlined version of the full model. It only uses <strong>MAC and calf circumference</strong>, making it ideal for bedside use or in resource-limited settings.
+      </li>
+  
+      <li><strong>Rabito et al. (Sex-adjusted):</strong> 
+        Adjusts estimates based on patient sex using simplified variables. Useful when sex differences significantly impact body composition.
+      </li>
+  
+      <li><strong>Ross Laboratories:</strong> 
+        Originally developed for pediatric and clinical trial purposes, this formula uses <strong>MAC and subscapular skinfold thickness</strong> but can be adapted for adults. It’s less commonly used but still referenced.
+      </li>
     </ul>
   
-        <h3>Common Methods for Estimating Height</h3>
-        <ul>
-          <li><strong>Semi-span Method:</strong> Estimates height by doubling the distance from the sternum to the fingertips on an outstretched arm. It is useful when only one arm is available for measurement.</li>
-      
-          <li><strong>Arm Span Method:</strong> Uses the full distance between the fingertips of both outstretched arms. This method typically mirrors a person’s actual height in most adults.</li>
-      
-          <li><strong>Demi-span Method:</strong> Measures from the middle of the chest to the space between the middle and ring fingers. It’s a practical method and includes adjustments based on sex for better accuracy.</li>
-      
-          <li><strong>Knee Height Method:</strong> Relies on measuring the distance from the heel to the knee. This method is known for its reliability, especially when paired with patient age and sex data.</li>
-      
-          <li><strong>Ulna or Forearm Length Charts:</strong> Associates forearm length with height using standardized charts. This technique is simple and works well with limited equipment.</li>
-      
-          <li><strong>Recumbent Length:</strong> Involves measuring from the top of the head to the heels while the individual is lying down. It’s a direct method but may be limited by physical constraints.</li>
-      
-          <li><strong>Composite Equations:</strong> Combine multiple physical measurements and demographic data (like age and sex) for enhanced height prediction. These are especially effective for populations with diverse body types.</li>
-          <li><strong>Forearm Length-Based :</strong> estimate a patient's height, you can use the length of their forearm (ulna) as a reference. Simply measure the forearm and refer to the table below to find the corresponding height based on the patient's sex and age</li>
-        </ul>
-      
-        <div class="table-container">
-            <h3 >Forearm Length-Based Height Estimation</h3>
-              <table class="custom-table">
-                <thead >
-                  <tr>
-                    <th>Ulna Length (cm)</th>
-                    <th>Men &lt;65 yrs (cm)</th>
-                    <th>Men ≥65 yrs (cm)</th>
-                    <th>Women &lt;65 yrs (cm)</th>
-                    <th>Women ≥65 yrs (cm)</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr><td>18.5</td><td>146</td><td>145</td><td>147</td><td>140</td></tr>
-                  <tr><td>19.0</td><td>148</td><td>146</td><td>148</td><td>142</td></tr>
-                  <tr><td>19.5</td><td>149</td><td>148</td><td>150</td><td>144</td></tr>
-                  <tr><td>20.0</td><td>151</td><td>149</td><td>151</td><td>145</td></tr>
-                  <tr><td>20.5</td><td>153</td><td>151</td><td>152</td><td>147</td></tr>
-                  <tr><td>21.0</td><td>155</td><td>152</td><td>154</td><td>148</td></tr>
-                  <tr><td>21.5</td><td>157</td><td>154</td><td>155</td><td>150</td></tr>
-                  <tr><td>22.0</td><td>158</td><td>156</td><td>156</td><td>152</td></tr>
-                  <tr><td>22.5</td><td>160</td><td>157</td><td>158</td><td>153</td></tr>
-                  <tr><td>23.0</td><td>162</td><td>159</td><td>159</td><td>155</td></tr>
-                  <tr><td>23.5</td><td>164</td><td>160</td><td>161</td><td>156</td></tr>
-                  <tr><td>24.0</td><td>166</td><td>162</td><td>162</td><td>158</td></tr>
-                  <tr><td>24.5</td><td>167</td><td>163</td><td>163</td><td>160</td></tr>
-                  <tr><td>25.0</td><td>169</td><td>165</td><td>165</td><td>161</td></tr>
-                  <tr><td>25.5</td><td>171</td><td>167</td><td>166</td><td>163</td></tr>
-                  <tr><td>26.0</td><td>173</td><td>168</td><td>168</td><td>165</td></tr>
-                  <tr><td>26.5</td><td>175</td><td>170</td><td>169</td><td>166</td></tr>
-                  <tr><td>27.0</td><td>176</td><td>171</td><td>170</td><td>168</td></tr>
-                  <tr><td>27.5</td><td>178</td><td>173</td><td>172</td><td>170</td></tr>
-                  <tr><td>28.0</td><td>180</td><td>175</td><td>173</td><td>171</td></tr>
-                  <tr><td>28.5</td><td>182</td><td>176</td><td>175</td><td>173</td></tr>
-                  <tr><td>29.0</td><td>184</td><td>178</td><td>176</td><td>175</td></tr>
-                  <tr><td>29.5</td><td>185</td><td>179</td><td>177</td><td>176</td></tr>
-                  <tr><td>30.0</td><td>187</td><td>181</td><td>179</td><td>178</td></tr>
-                  <tr><td>30.5</td><td>189</td><td>182</td><td>180</td><td>179</td></tr>
-                  <tr><td>31.0</td><td>191</td><td>184</td><td>181</td><td>181</td></tr>
-                  <tr><td>31.5</td><td>193</td><td>186</td><td>183</td><td>183</td></tr>
-                  <tr><td>32.0</td><td>194</td><td>187</td><td>184</td><td>184</td></tr>
-                </tbody>
-              </table>
-            </div>
-         
-          
-    <h3>Important Considerations</h3>
-    <ul>
-      <li>Choose a method based on the patient's mobility and accessibility of body parts.</li>
-      <li>Use sex- and race-specific approaches when available for greater precision.</li>
-      <li>Note that all these are estimations, not exact measurements. Variability can occur.</li>
-    </ul>
+    <p ><strong>Note:</strong> All formulas are estimation tools and should be used along with clinical judgment.</p>
+  
     <div class="measurement-guide-container">
         <h3>Measurement Guide for Bedridden Patients</h3>
         <div class="measurement-grid">
@@ -496,141 +440,152 @@ select {
         </div>
       </div>
     
+      <h3>Importance of Accurate Weight Estimation</h3>
+      <ul>
+        <li><strong>Medication Dosing:</strong> Most drug dosages are calculated per kg of body weight. Underdosing or overdosing can lead to ineffective or harmful treatment.</li>
+        <li><strong>Nutritional Assessment:</strong> Helps evaluate malnutrition, obesity, or cachexia—crucial for creating effective diet plans and feeding regimens.</li>
+        <li><strong>Fluid Balance:</strong> Weight changes help track fluid retention or loss in critical patients, especially in nephrology and cardiology cases.</li>
+        <li><strong>Dialysis Dosing:</strong> Estimating dry weight is vital for adjusting dialysis sessions and preventing complications like hypotension.</li>
+        <li><strong>Anesthesia Safety:</strong> Weight determines anesthetic dosage and prevents overdose risks during surgical procedures in immobile patients.</li>
+      </ul>
       
-    <h3>Conclusion</h3>
-    <p>
-      Accurate height estimation in bedridden patients is crucial for clinical assessments and treatment planning. By using validated anthropometric methods such as knee height, demi-span, or arm span, healthcare professionals can derive reasonably accurate height estimates, even in the absence of upright measurements. Method selection should be based on patient condition, available tools, and clinical needs.
-    </p>
-  </div>
-  
+      <h3>Tips for Better Weight Estimation</h3>
+      <ul>
+        <li>Always take multiple limb circumference measurements and average them if possible.</li>
+        <li>Use consistent technique, tape tension, and anatomical landmarks for reliable data.</li>
+        <li>Document limb asymmetries (e.g., amputations, edema) and adjust estimation accordingly.</li>
+        <li>Cross-check estimation with BMI and clinical observation when in doubt.</li>
+      </ul>
+      
+      <h3>Limitations to Keep in Mind</h3>
+      <ul>
+        <li>Formulas may overestimate in obese patients or underestimate in those with muscle atrophy.</li>
+        <li>Presence of edema, ascites, or contractures may distort actual mass.</li>
+        <li>Always interpret results in conjunction with clinical judgment and visual assessment.</li>
+      </ul>
+      
+</div>
 
-  <script>
-    function renderInputs() {
-      const formula = document.getElementById("formula").value;
-      const container = document.getElementById("inputFields");
-      container.innerHTML = "";
-  
-      const addField = (id, label) => {
-        container.innerHTML += `
-          <div class="form-group">
-            <label for="${id}">${label}:</label>
-            <input type="number" id="${id}" placeholder="${label}">
-          </div>`;
-      };
-  
-      const addSelect = (id, label, options) => {
-        container.innerHTML += `
-          <div class="form-group">
-            <label for="${id}">${label}:</label>
-            <select id="${id}">
-              ${options.map(o => `<option value="${o.value}">${o.label}</option>`).join("")}
-            </select>
-          </div>`;
-      };
-  
-      switch (formula) {
-        case "mitchell":
-          addField("semispan", "Semi-span (cm)");
-          break;
-        case "who":
-          addField("armspan", "Half Arm-span (cm)");
-          break;
-        case "rabito1":
-          addSelect("sex", "Sex", [{ value: 1, label: "Male" }, { value: 2, label: "Female" }]);
-          addField("age", "Age (years)");
-          addField("armlength", "Arm Length (cm)");
-          addField("semispan", "Semi-span (cm)");
-          break;
-        case "rabito2":
-          addSelect("sex", "Sex", [{ value: 1, label: "Male" }, { value: 2, label: "Female" }]);
-          addField("age", "Age (years)");
-          addField("semispan", "Semi-span (cm)");
-          break;
-        case "gray":
-          addField("recumbent", "Recumbent Height (cm)");
-          break;
-        case "chumlea":
-          addSelect("sex", "Sex", [{ value: 1, label: "White Male" }, { value: 2, label: "White Female" }, { value: 3, label: "Black Male" }, { value: 4, label: "Black Female" }]);
-          addField("knee", "Knee Height (cm)");
-          addField("age", "Age (years)");
-          break;
-        case "cereda":
-          addSelect("sex", "Sex", [{ value: 1, label: "Male" }, { value: 0, label: "Female" }]);
-          addField("knee", "Knee Height (cm)");
-          addField("age", "Age (years)");
-          break;
-        case "knee":
-          addSelect("sex", "Sex", [{ value: 1, label: "Male" }, { value: 2, label: "Female" }]);
-          addField("knee", "Knee Height (cm)");
-          addField("age", "Age (years)");
-          break;
-        case "demi":
-          addSelect("sex", "Sex", [{ value: 1, label: "Male" }, { value: 2, label: "Female" }]);
-          addField("demi", "Demi-span (cm)");
-          break;
-      }
-    }
-  
-    function calculateHeight() {
-      const formula = document.getElementById("formula").value;
-      const get = id => parseFloat(document.getElementById(id)?.value || 0);
-      const sex = parseInt(document.getElementById("sex")?.value || 1);
-      const age = get("age");
-      let height = 0;
-  
-      switch (formula) {
-        case "mitchell":
-          height = get("semispan") * 2;
-          break;
-        case "who":
-          height = (0.73 * 2 * get("armspan")) + 0.43;
-          break;
-        case "rabito1":
-          height = 58.694 - (2.974 * sex) - (0.0736 * age) + (0.4958 * get("armlength")) + (1.132 * get("semispan"));
-          break;
-        case "rabito2":
-          height = 63.525 - (3.237 * sex) - (0.06904 * age) + (1.293 * get("semispan"));
-          break;
-        case "gray":
-          height = get("recumbent");
-          break;
-        case "chumlea":
-          const knee = get("knee");
-          if (sex === 1) height = 71.85 + (1.88 * knee); // White Male
-else if (sex === 2) height = 70.25 + (1.87 * knee) - (0.06 * age); // White Female
-else if (sex === 3) height = 73.42 + (1.79 * knee); // Black Male
-else if (sex === 4) height = 68.1 + (1.86 * knee) - (0.06 * age); // Black Female
+<script>
+function renderWeightInputs() {
+    const formula = document.getElementById("weightFormula").value;
+    const container = document.getElementById("weightInputFields");
+    container.innerHTML = "";
 
-          break;
-        case "cereda":
-          height = 60.76 + (2.16 * get("knee")) - (0.06 * age) + (2.76 * sex);
-          break;
-        case "knee":
-          if (sex === 1) {
-            height = 64.19 - (0.04 * age) + (2.02 * get("knee"));
-          } else {
-            height = 84.88 - (0.24 * age) + (1.83 * get("knee"));
-          }
-          break;
-        case "demi":
-          height = sex === 1
-            ? (1.4 * get("demi")) + 57.8
-            : (1.35 * get("demi")) + 60.1;
-          break;
-      }
-  
-      const result = isNaN(height) || height === 0
-        ? `<span style="color:red;">Please check all input values.</span>`
-        : `<strong>Estimated Height:</strong> ${height.toFixed(1)} cm`;
-  
-      document.getElementById("resultArea").innerHTML = result;
+    const addField = (id, label) => {
+        container.innerHTML += `
+            <div class="form-group">
+                <label for="${id}">${label}:</label>
+                <input type="number" id="${id}" placeholder="${label} (cm)">
+            </div>`;
+    };
+
+    const addSelect = (id, label, options) => {
+        container.innerHTML += `
+            <div class="form-group">
+                <label for="${id}">${label}:</label>
+                <select id="${id}">
+                    ${options.map(o => `<option value="${o.value}">${o.label}</option>`).join("")}
+                </select>
+            </div>`;
+    };
+
+    switch(formula) {
+        case "chumlea":
+            addSelect("wSex", "Sex", [{value:1,label:"Male"},{value:2,label:"Female"}]);
+            addField("calf", "Calf Circumference");
+            addField("knee", "Knee Height");
+            addField("arm", "Arm Circumference");
+            addField("subscap", "Subscapular Skinfold");
+            break;
+            
+        case "rabito1":
+            addField("arm", "Arm Circumference");
+            addField("abdominal", "Abdominal Circumference");
+            addField("calf", "Calf Circumference");
+            addField("subscap", "Subscapular Skinfold");
+            break;
+            
+        case "rabito2":
+            addField("arm", "Arm Circumference");
+            addField("abdominal", "Abdominal Circumference");
+            addField("calf", "Calf Circumference");
+            break;
+            
+        case "rabito3":
+            addSelect("wSex", "Sex", [{value:1,label:"Male"},{value:2,label:"Female"}]);
+            addField("arm", "Arm Circumference");
+            addField("abdominal", "Abdominal Circumference");
+            addField("calf", "Calf Circumference");
+            break;
+            
+        case "ross":
+            addSelect("race", "Race", [{value:1,label:"White"},{value:2,label:"Black"}]);
+            addSelect("wSex", "Sex", [{value:1,label:"Male"},{value:2,label:"Female"}]);
+            addField("knee", "Knee Height");
+            addField("arm", "Arm Circumference");
+            break;
     }
-  
-    // Initialize
-    renderInputs();
-  </script>
-  
-  
+}
+
+function calculateWeight() {
+    const formula = document.getElementById("weightFormula").value;
+    const get = id => parseFloat(document.getElementById(id)?.value || 0);
+    const sex = parseInt(document.getElementById("wSex")?.value || 1);
+    const race = parseInt(document.getElementById("race")?.value || 1);
+    let weight = 0;
+
+    switch(formula) {
+        case "chumlea":
+            if(sex === 1) { // Male
+                weight = (0.98 * get("calf")) + (1.16 * get("knee")) + 
+                         (1.73 * get("arm")) + (0.37 * get("subscap")) - 81.69;
+            } else { // Female
+                weight = (1.27 * get("calf")) + (0.87 * get("knee")) + 
+                         (0.98 * get("arm")) + (0.4 * get("subscap")) - 62.35;
+            }
+            break;
+            
+        case "rabito1":
+            weight = (0.503 * get("arm")) + (0.5634 * get("abdominal")) + 
+                    (1.318 * get("calf")) + (0.0339 * get("subscap")) - 43.156;
+            break;
+            
+        case "rabito2":
+            weight = (0.4808 * get("arm")) + (0.5646 * get("abdominal")) + 
+                    (1.316 * get("calf")) - 42.245;
+            break;
+            
+        case "rabito3":
+            weight = (0.5759 * get("arm")) + (0.5263 * get("abdominal")) + 
+                    (1.2452 * get("calf")) - (4.8689 * sex) + 32.9241;
+            break;
+            
+        case "ross":
+            const knee = get("knee");
+            const arm = get("arm");
+            if(race === 1) { // White
+                weight = sex === 1 
+                    ? (1.19 * knee) + (3.21 * arm) - 86.82  // Male
+                    : (1.01 * knee) + (2.81 * arm) - 66.04; // Female
+            } else { // Black
+                weight = sex === 1 
+                    ? (1.09 * knee) + (3.14 * arm) - 83.72  // Male
+                    : (1.24 * knee) + (2.81 * arm) - 82.48; // Female
+            }
+            break;
+    }
+
+    const result = isNaN(weight)
+        ? `<span style="color:red;">Check all measurements</span>`
+        : `<strong>Estimated Weight:</strong> ${weight.toFixed(1)} kg`;
+
+    document.getElementById("weightResultArea").innerHTML = result;
+}
+
+// Initialize
+renderWeightInputs();
+</script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
 
 
