@@ -858,6 +858,44 @@
                 font-size: 14px;
             }
         }
+        @media (max-width: 768px) {
+    .startupfino-container {
+        flex-direction: column;
+        padding: 10px;
+    }
+
+    .startupfino-image, 
+    .startupfino-content {
+        max-width: 100%;
+        flex: 100%;
+        margin: 10px 0;
+    }
+
+    .startupfino-header {
+        font-size: 1.5em;
+        text-align: center;
+    }
+
+    .startupfino-text {
+        font-size: 1em;
+        text-align: left;
+    }
+}
+
+@media (max-width: 480px) {
+    .startupfino-header {
+        font-size: 1.3em;
+    }
+
+    .startupfino-text {
+        font-size: 0.95em;
+    }
+
+    .startupfino-container {
+        padding: 5px;
+    }
+}
+
     </style>
 </head>
 
