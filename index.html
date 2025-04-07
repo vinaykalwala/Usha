@@ -394,7 +394,7 @@ body {
 .marquee-content {
     display: flex;
     animation: marquee 70s linear infinite;
-    min-width: 400%; /* Ensure enough width for the loop */
+    min-width: 500%; /* Ensure enough width for the loop */
 }
 @keyframes marquee {
     0% { transform: translateX(0); }
@@ -784,42 +784,151 @@ body {
     }
 }
 
-.btn--theme {
-  background: linear-gradient(135deg, #0465f8,#0465f8, #1560bd);
+
+/* CSS */
+.button-78 {
+  align-items: center;
+  appearance: none;
+  background-clip: padding-box;
+  background-color: initial;
+  background-image: none;
+  border-style: none;
+  box-sizing: border-box;
   color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  flex-direction: row;
+  flex-shrink: 0;
+  font-family: Eina01,sans-serif;
+  font-size: 16px;
   font-weight: 800;
-  border-radius: 50px;
-  padding: 14px 34px;
+  justify-content: center;
+  line-height: 24px;
+  margin: 0;
+  min-height: 64px;
+  outline: none;
+  overflow: visible;
+  padding: 19px 26px;
+  pointer-events: auto;
   position: relative;
+  text-align: center;
+  text-decoration: none;
+  text-transform: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: middle;
+  width: auto;
+  word-break: keep-all;
+  z-index: 0;
+}
+
+@media (min-width: 768px) {
+  .button-78 {
+    padding: 19px 32px;
+  }
+}
+
+.button-78:before,
+.button-78:after {
+  border-radius: 80px;
+}
+
+.button-78:before {
+  background-image: linear-gradient(92.83deg, #2626ff 0, #ba69f8 100%);
+  content: "";
+  display: block;
+  height: 100%;
+  left: 0;
   overflow: hidden;
-  
-  box-shadow: 0 0 20px rgba(255, 110, 196, 0.6);
-  animation: floatUpDown 2s ease-in-out infinite, glowing 1.8s ease-in-out infinite;
-  transition: all 0.3s ease-in-out;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: -2;
 }
 
-.btn--theme:hover {
-  transform: scale(1.1) rotate(-1deg);
-  box-shadow: 0 0 30px rgba(255, 110, 196, 0.8), 0 0 60px rgba(120, 115, 245, 0.5);
+.button-78:after {
+  background-color: initial;
+  background-image: linear-gradient(#160f54 0, #0c0d0d 100%);
+  bottom: 4px;
+  content: "";
+  display: block;
+  left: 4px;
+  overflow: hidden;
+  position: absolute;
+  right: 4px;
+  top: 4px;
+  transition: all 100ms ease-out;
+  z-index: -1;
 }
 
-/* Floating effect */
-@keyframes floatUpDown {
-  0% { transform: translateY(0); }
-  50% { transform: translateY(-5px); }
-  100% { transform: translateY(0); }
+.button-78:hover:not(:disabled):before {
+  background: linear-gradient(92.83deg, rgb(3, 118, 250) 0%, rgb(1, 106, 197) 100%);
 }
 
-/* Glowing border effect */
-@keyframes glowing {
+.button-78:hover:not(:disabled):after {
+  bottom: 0;
+  left: 0;
+  right: 0;
+  top: 0;
+  transition-timing-function: ease-in;
+  opacity: 0;
+}
+
+.button-78:active:not(:disabled) {
+  color: #ccc;
+}
+
+.button-78:active:not(:disabled):before {
+  background-image: linear-gradient(0deg, rgba(0, 0, 0, .2), rgba(0, 0, 0, .2)), linear-gradient(92.83deg, #2672ff 0, #1332f9 100%);
+}
+
+.button-78:active:not(:disabled):after {
+  background-image: linear-gradient(#541a0f 0, #0c0d0d 100%);
+  bottom: 4px;
+  left: 4px;
+  right: 4px;
+  top: 4px;
+}
+
+.button-78:disabled {
+  cursor: default;
+  opacity: .24;
+}
+
+.button-78 {
+  border-radius: 50px; /* More pill-like */
+  background: linear-gradient(145deg, #2626ff, #ea0d7f);
+  box-shadow:
+    inset 0 0 10px rgba(255, 255, 255, 0.2),
+    0 0 12px rgba(0, 255, 255, 0.4),
+    0 0 25px rgba(255, 0, 255, 0.3),
+    0 0 50px rgba(255, 174, 0, 0.2);
+  animation: neonGlow 3s ease-in-out infinite;
+}
+
+/* Neon Cylinder Glow Animation */
+@keyframes neonGlow {
   0% {
-    box-shadow: 0 0 8px #046cf5, 0 0 16px #7873f5;
+    box-shadow:
+      inset 0 0 10px rgba(255, 255, 255, 0.2),
+      0 0 8px #00f7ff,
+      0 0 16px #ff00f7,
+      0 0 32px #ffa600;
   }
   50% {
-    box-shadow: 0 0 16px #0855fd, 0 0 32px #7873f5;
+    box-shadow:
+      inset 0 0 14px rgba(255, 255, 255, 0.3),
+      0 0 12px #ff00f7,
+      0 0 24px #00ff94,
+      0 0 36px #ffa600;
   }
   100% {
-    box-shadow: 0 0 8px #0370ff, 0 0 16px #7873f5;
+    box-shadow:
+      inset 0 0 10px rgba(255, 255, 255, 0.2),
+      0 0 8px #00f7ff,
+      0 0 16px #ff00f7,
+      0 0 32px #ffa600;
   }
 }
 
@@ -1340,7 +1449,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                                                 </h2>
                                                 <p class="subtitle-element p-xl"> </p>
                                                 <div class="d-flex btn-trait-group flex-wrap justify-content-center gap-2 mb-2 " style="padding-bottom: 8px;">
-                                                    <a href="calculatorqehs.html" class="btn r-04 btn--theme hover--tra-white"><i class="fas fa-calculator"></i>&nbsp &nbsp
+                                                    <a href="calculatorqehs.html" class="button-78" role="button"><i class="fas fa-calculator"></i>&nbsp &nbsp
 Explore 500+ QEHS And Fire Calculators</a>
                                                 </div>
                                                 <p></p>
@@ -1350,22 +1459,22 @@ Explore 500+ QEHS And Fire Calculators</a>
 											<div class="row justify-content-center">
 												<div class="col-md-3 col-sm-6 mb-4">
 													<div class="rounded-circle overflow-hidden d-flex justify-content-center align-items-center circle-img">
-														<img src="images/vindus_clients_images/qualitybanner.jpg" class="img-fluid" alt="">
+														<img src="images/vindus_clients_images/quality6.webp" class="img-fluid" alt="">
 													</div>
 												</div>
 												<div class="col-md-3 col-sm-6 mb-4">
 													<div class="rounded-circle overflow-hidden d-flex justify-content-center align-items-center circle-img">
-														<img src="images/vindus_clients_images/safetybanner.avif" class="img-fluid" alt="">
+														<img src="images/vindus_clients_images/safety6.jpg" class="img-fluid" alt="">
 													</div>
 												</div>
 												<div class="col-md-3 col-sm-6 mb-4">
 													<div class="rounded-circle overflow-hidden d-flex justify-content-center align-items-center circle-img">
-														<img src="images/vindus_clients_images/healthbanner1.jpg" class="img-fluid" alt="">
+														<img src="images/vindus_clients_images/health9.jpg" class="img-fluid" alt="">
 													</div>
 												</div>
 												<div class="col-md-3 col-sm-6 mb-4">
 													<div class="rounded-circle overflow-hidden d-flex justify-content-center align-items-center circle-img">
-														<img src="images/vindus_clients_images/Environment.png" class="img-fluid" alt="">
+														<img src="images/vindus_clients_images/environment6.jpg" class="img-fluid" alt="">
 													</div>
 												</div>
 											</div>
@@ -1967,6 +2076,8 @@ Explore 500+ QEHS And Fire Calculators</a>
 							<img src="images/vindus_clients_images/ACE Tyres LTD.jpg" alt="ACE Tyres LTD" class="logo">
 							<img src="images/vindus_clients_images/clientlogo9.jpg" alt="Group" class="logo">
 							<img src="images/vindus_clients_images/clientlogo10.jpg" alt="Group" class="logo">
+							<img src="images/vindus_clients_images/dell.jpg" alt="Group" class="logo">
+
 							<img src="images/vindus_clients_images/mahindra.jpg" alt="Group" class="logo">
 							<img src="images/vindus_clients_images/circle.jpg" alt="Group" class="logo">
 							<img src="images/vindus_clients_images/amararaja.jpg" alt="Group" class="logo">
