@@ -56,68 +56,101 @@
 		<link href="css/responsive.css" rel="stylesheet">
 <style>
             
-            
+         
 
+   
         body {
       font-family: Arial, sans-serif;
      
       background-color: #f5f5f5;
     }
     .calculator-container {
-      max-width: 1000px;
-      margin: 20px auto;
-      padding: 20px;
-      background: #ffffff;
-      border-radius: 8px;
-      border: 2px dotted #1560bd;
-
-      box-shadow: 20px 14px 8px rgba(0, 0, 0, 0.2);
-    }
-    .calculator-container h2 {
-      text-align: center;
-      margin-bottom: 20px;
-      color: #1560bd;
-      font-size: 1.8rem;
-      margin-bottom: 30px;
-    }
-    .form-group {
-      margin-bottom: 15px;
-    }
-    .form-group label {
-      display: block;
-      margin-bottom: 5px;
-      color: #333;
-    }
-    .form-group input {
-      width: 100%;
-      padding: 8px;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-      background-color: rgb(223, 241, 247);
+        max-width: 1200px;
+        margin: 20px auto;
+        padding: 20px;
+        background: #ffffff;
+        border-radius: 8px;
+        border: 2px dotted #1560bd;
+        box-shadow: 20px 14px 8px rgba(0, 0, 0, 0.2);
+      }
+      
+      .calculator-container h2 {
+        text-align: center;
+        margin-bottom: 20px;
+        color: #1560bd;
+        font-size: 1.8rem;
+      }
 
     
-    }
-    .cal-btn {
-      width: 100%;
-      padding: 10px;
-      background-color: #1560bd;
-      color: #fff;
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
-      font-size: 16px;
-    }
-    .cal-btn:hover {
-      background-color: #0056b3;
-    }
-    .result {
-      margin-top: 20px;
-      font-size: 24px;
-      color: #333;
-      text-align: center;
-      color: rgb(36, 116, 2);
+  
+      .force-per {
+        display: flex;
+        justify-content: space-between;
+        gap: 10px;
+      }
+  
+      .force-per .form-group {
+        width: 48%;
+      }
+      @media (max-width:768px){
+        .force-per {
+            flex-direction: column;
+            gap: 5px;
+        }
+        .force-per .form-group{
+            width: 100%;
+        }
+      }
+
+
+      .section {
+        display: none; 
+      }
      
-    }
+      .active {
+        display: block; 
+      }
+  
+      .form-group {
+        margin-bottom: 15px;
+        
+      }
+  
+      .form-group label {
+        display: block;
+        margin-bottom: 5px;
+        color: #333;
+      }
+  
+      .form-group input {
+        width: 100%;
+        padding: 8px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        background-color: rgb(223, 241, 247);
+      }
+  
+      .cal-btn {
+        width: 100%;
+        padding: 10px;
+        background-color: #1560bd;
+        color: #fff;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 16px;
+      }
+  
+      .cal-btn:hover {
+        background-color: #0056b3;
+      }
+  
+      .result {
+        margin-top: 20px;
+        font-size: 24px;
+        color: rgb(36, 116, 2);
+        text-align: center;
+      }
     @media (max-width: 768px) {
     .calculator-container {
         margin: 20px 15px; 
@@ -146,16 +179,25 @@
 }
 
 .note-container h3 {
-    margin:15px 0;
+    margin-top: 10px;
     color: #007bff;
-    font-size: 20px;
+    font-size: 18px;
+}
+.note-container ul{
+    margin-top: 5px;
 }
 
 .note-container p {
-    margin-top: 15px;
+    margin-top: 10px;
     text-align: justify;
 }
 strong{
+    color: #0056b3;
+}
+.feedback {
+    margin-top: 20px;
+    font-size: 24px;
+    text-align: center;
     color: #0056b3;
 }
 @media (max-width: 768px) {
@@ -164,6 +206,58 @@ strong{
         padding: 10px; 
     }
 }
+select {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #d3e0f0;
+    border-radius: 5px;
+    font-size: 1rem;
+    background-color: rgb(223, 241, 247);
+
+}
+.calculation-nav {
+  display: flex;
+  flex-direction: row; /* Ensures horizontal layout on desktop */
+  justify-content: center;
+  list-style-type: none;
+  padding: 0;
+}
+
+.calculation-item {
+  margin: 0 20px;
+}
+
+.calculation-link {
+  display: inline-block; /* Prevents full-width background */
+  background-color: #1560bd;
+  padding: 10px 20px;
+  color: white;
+  border-radius: 10px;
+  text-decoration: none;
+  font-size: 16px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+
+@media (max-width: 768px) {
+  .calculation-nav {
+    flex-direction: column; /* Changes to vertical layout only for mobile */
+    align-items: center;
+  }
+
+  .calculation-item {
+    margin: 10px 0;
+  }
+
+  .calculation-link {
+    display: inline-block;
+    padding: 12px 25px;
+    font-size: 18px;
+    width: fit-content; /* Ensures the background does not stretch */
+  }
+}
+
 </style>
 	</head>
 
@@ -171,100 +265,130 @@ strong{
 
 
 	<body> 
-
-
-
-
-
-
-        <div id="header"></div>
-
-
+		
 <br><br><br><br>
 
+<div id="header"></div>
 
 
 <div class="calculator-container">
-    <h2>Heat Stress Index (HSI) Calculator</h2>
-    <div class="form-group">
-      <label for="requiredEvaporation">Required Sweat Evaporation (Er) (W/m²):</label>
-      <input type="number" id="requiredEvaporation" placeholder="Enter Required Evaporation">
-    </div>
-    <div class="form-group">
-      <label for="maxEvaporation">Maximum Sweat Evaporation (Emax) (W/m²):</label>
-      <input type="number" id="maxEvaporation" placeholder="Enter Maximum Evaporation">
-    </div>
-    <button class="cal-btn" onclick="calculateHSI()">Calculate HSI</button>
+    <h2>Risk Index Calculator</h2>
+
+        <div class="form-group">
+            <label for="controlScore">Control Score</label>
+            <input type="number" id="controlScore" placeholder="From control score calculator" step="0.1">
+        </div>
+        <div class="form-group">
+            <label for="hazardScore">Hazard Score</label>
+            <input type="number" id="hazardScore" placeholder="From hazard score calculator" step="0.1">
+        </div>
+  
+    <button class="cal-btn" onclick="calculateRiskIndex()">Calculate Risk Index</button>
+    
     <div class="result" id="result"></div>
+    <p class="feedback" id="feedback"></p>
 </div>
 
 <div class="note-container">
     <h3>Note:</h3>
-    <p>
-        The <strong>Shock Index (SI)</strong> is a simple and effective indicator used in emergency and critical care settings to quickly assess a patient’s cardiovascular condition. It helps healthcare professionals determine whether a patient is experiencing or approaching circulatory failure.
-    </p>
+    <p><strong>Risk Index Formula</strong> calculates net risk by offsetting hazards against existing controls. A positive value indicates adequate controls, while negative shows residual risk.</p>
 
-    <h3>Explanation of Parameters:</h3>
+    <h3>Key Parameters:</h3>
     <ul>
-        <li><strong>Heart Rate (HR):</strong> The number of times the heart beats per minute. An elevated heart rate may indicate stress on the body, dehydration, blood loss, or underlying medical conditions.</li>
-        <li><strong>Systolic Blood Pressure (SBP):</strong> The highest pressure in the arteries when the heart contracts. A lower SBP may suggest inadequate blood flow, which can be critical in trauma or shock scenarios.</li>
+        <li><strong>Control Score</strong> - Measure of how effectively hazards are controlled (higher is better)</li>
+        <li><strong>Hazard Score</strong> - Measure of potential harm severity/probability (lower is better)</li>
     </ul>
 
-    <h3>Use of the Calculator:</h3>
-    <p>
-        This calculator allows users to input the patient’s heart rate and systolic blood pressure to determine the Shock Index. It assists medical professionals in identifying whether the circulatory system is functioning properly or under distress. It's especially useful in trauma, emergency, and pre-hospital settings.
-    </p>
-
-    <h3>Result Interpretation:</h3>
+    <h3>Real-Life Applications:</h3>
     <ul>
-        <li><strong>SI less than 0.7:</strong> Normal — Indicates stable circulation.</li>
-        <li><strong>SI between 0.7 and 1.0:</strong> Caution — Could signal early circulatory imbalance; monitoring advised.</li>
-        <li><strong>SI greater than 1.0:</strong> Critical — Suggests possible circulatory failure; urgent intervention required.</li>
+        <li><strong>Safety Audits</strong> - Identifying under-controlled hazards</li>
+        <li><strong>Fire Risk Assessment</strong> - Evaluating building safety levels</li>
+        <li><strong>Incident Prevention</strong> - Prioritizing risk reduction efforts</li>
+        <li><strong>Safety Planning</strong> - Allocating resources effectively</li>
+        <li><strong>Regulatory Compliance</strong> - Demonstrating due diligence</li>
     </ul>
+    <h3>Why This Calculation is Important?</h3>
+    <p>It provides a single metric showing whether your current controls sufficiently address the hazards, helping prioritize safety investments and fire prevention measures.</p>
+
+
+    <h3>Why in Safety & Fire Calculator?</h3>
+    <p>This calculation is fundamental to modern risk assessment methodologies in safety and fire engineering, where both hazards and controls must be considered together.</p>
+
+    <h3>Interpretation Guidelines:</h3>
+    <ul>
+        <li><strong>Positive Values (+)</strong> - Controls exceed hazards (safe condition)</li>
+        <li><strong>Near Zero (≈0)</strong> - Controls match hazards (borderline)</li>
+        <li><strong>Negative Values (-)</strong> - Hazards exceed controls (needs improvement)</li>
+        <li><strong>Below -10</strong> - Immediate action required</li>
+    </ul>
+
+    <h3>Industry Standards & Guidelines:</h3>
+    <p>Aligned with ISO 31000 risk management, NFPA risk assessment methods, and OSHA hazard ranking systems. Basis for bowtie risk analysis.</p>
 
     <h3>Conclusion:</h3>
+    <p>The risk index provides a clear, quantitative measure of your safety margin - the essential difference between hazards present and controls implemented - enabling data-driven safety decisions.</p>
+
+    <h3>How to calculate Control Score and Hazard Score?</h3>
     <p>
-        The Shock Index is a valuable early warning tool that helps detect potential cardiovascular compromise before more serious symptoms develop. By using this calculator, healthcare providers can make quicker, more informed decisions to ensure patient safety and improve outcomes in high-risk or emergency situations.
+      If you need more information on how to calculate the Control Score and Hazard Score, you can refer to the following resources:
     </p>
+    <ul class="calculation-nav">
+        <li class="calculation-item">
+          <a href="controlscore.html" class="calculation-link">Control Score Calculator</a>
+        </li>
+        <li class="calculation-item">
+          <a href="hazardscore.html" class="calculation-link">Hazard Score Calculator</a>
+        </li>
+      </ul>
 </div>
 
 
 <script>
-    function calculateHSI() {
-        const Er = parseFloat(document.getElementById('requiredEvaporation').value);
-        const Emax = parseFloat(document.getElementById('maxEvaporation').value);
+    function calculateRiskIndex() {
+        const controlScore = parseFloat(document.getElementById('controlScore').value);
+        const hazardScore = parseFloat(document.getElementById('hazardScore').value);
+        const resultElement = document.getElementById('result');
+        const feedbackElement = document.getElementById('feedback');
 
-        if (isNaN(Er) || isNaN(Emax) || Emax <= 0) {
-            document.getElementById('result').innerText = "Please enter valid numbers.";
+        // Reset previous messages
+        resultElement.innerHTML = '';
+        feedbackElement.innerHTML = '';
+
+        // Validate inputs
+        if (isNaN(controlScore) || controlScore < 0) {
+            resultElement.innerHTML = '<strong>Control score</strong> must be 0 or greater. Negative control scores are not meaningful in risk evaluation.';
             return;
         }
 
-        const HSI = (Er / Emax) * 100;
-        let feedback = "";
-
-        if (HSI < 0) {
-            feedback = "❄️ **Too Cold:** No sweating needed. Ensure warmth if necessary.";
-        } else if (HSI <= 50) {
-            feedback = "✅ **Comfortable:** Body cools efficiently. Stay hydrated and maintain normal work pace.";
-        } else if (HSI <= 75) {
-            feedback = "⚠️ **Moderate Heat Stress:** Take regular water breaks, wear breathable clothing, and monitor for signs of fatigue.";
-        } else if (HSI <= 100) {
-            feedback = "🛑 **High Heat Stress:** Increase hydration, take frequent rest breaks in the shade, and reduce strenuous activities.";
-        } else {
-            feedback = "🔥 **Extreme Danger:** Immediate action required! Move to a cooler area, drink water, and stop physical activity. Risk of heat exhaustion or stroke.";
+        if (isNaN(hazardScore) || hazardScore < 0) {
+            resultElement.innerHTML = '<strong>Hazard score</strong> must be 0 or greater. Negative hazard scores do not make logical sense.';
+            return;
         }
 
-        document.getElementById('result').innerHTML = `Heat Stress Index (HSI): ${HSI.toFixed(2)}% <br> <strong>What to do:</strong> ${feedback}`;
+        // Calculate Risk Index
+        const riskIndex = controlScore - hazardScore;
+
+        // Display result
+        resultElement.innerHTML = `Risk Index: <strong>${riskIndex.toFixed(1)}</strong>`;
+
+        // Interpret result
+        if (riskIndex > 0) {
+            feedbackElement.style.color = 'green';
+            feedbackElement.innerHTML = '✅ SAFE: Controls adequately address hazards.';
+        } else if (riskIndex === 0) {
+            feedbackElement.style.color = 'orange';
+            feedbackElement.innerHTML = '⚠️ BORDERLINE: Controls just match hazards – consider improvements.';
+        } else if (riskIndex > -10) {
+            feedbackElement.style.color = 'orange';
+            feedbackElement.innerHTML = '⚠️ UNSAFE: Hazards exceed controls – needs attention.';
+        } else {
+            feedbackElement.style.color = 'red';
+            feedbackElement.innerHTML = '❌ DANGEROUS: Significant uncontrolled hazards – immediate action required!';
+        }
     }
 </script>
 
-
-
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
-
-
-
-
 
 
 
@@ -298,6 +422,10 @@ strong{
     fetch("header.html").then(response => response.text()).then(data => document.getElementById("header").innerHTML = data);
     fetch("footer.html").then(response => response.text()).then(data => document.getElementById("footer").innerHTML = data);
 </script>
+
+
+		</div>	<!-- END PAGE CONTENT -->	
+
 
 
 

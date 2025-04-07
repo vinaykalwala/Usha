@@ -56,8 +56,9 @@
 		<link href="css/responsive.css" rel="stylesheet">
 <style>
             
-            
+         
 
+   
         body {
       font-family: Arial, sans-serif;
      
@@ -80,6 +81,7 @@
       font-size: 1.8rem;
       margin-bottom: 30px;
     }
+    
     .form-group {
       margin-bottom: 15px;
     }
@@ -151,6 +153,14 @@
     font-size: 20px;
 }
 
+.note-container ul{
+    margin: 10px;
+}
+
+.note-container{
+    margin-top: 10px;
+}
+
 .note-container p {
     margin-top: 15px;
     text-align: justify;
@@ -163,6 +173,16 @@ strong{
         margin: 15px; 
         padding: 10px; 
     }
+}
+select {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #d3e0f0;
+    border-radius: 5px;
+    font-size: 1rem;
+    background-color: rgb(223, 241, 247);
+
 }
 </style>
 	</head>
@@ -177,94 +197,126 @@ strong{
 
 
 
-        <div id="header"></div>
-
-
+		
 <br><br><br><br>
 
-
+<div id="header"></div>
 
 <div class="calculator-container">
-    <h2>Heat Stress Index (HSI) Calculator</h2>
+    <h2>Head Loss through Clean Flat Bar Screens Calculator</h2>
+
     <div class="form-group">
-      <label for="requiredEvaporation">Required Sweat Evaporation (Er) (W/m²):</label>
-      <input type="number" id="requiredEvaporation" placeholder="Enter Required Evaporation">
+        <label for="v_before">Velocity before the screen (v) (m/s):</label>
+        <input type="number" id="v_before" placeholder="Enter v" step="any">
     </div>
+
     <div class="form-group">
-      <label for="maxEvaporation">Maximum Sweat Evaporation (Emax) (W/m²):</label>
-      <input type="number" id="maxEvaporation" placeholder="Enter Maximum Evaporation">
+        <label for="v_through">Velocity through the screen (V) (m/s):</label>
+        <input type="number" id="v_through" placeholder="Enter V" step="any">
     </div>
-    <button class="cal-btn" onclick="calculateHSI()">Calculate HSI</button>
+
+    <button class="cal-btn" onclick="calculateHeadLoss()">Calculate</button>
     <div class="result" id="result"></div>
+    <div class="feedback" id="feedback"></div>
 </div>
 
 <div class="note-container">
     <h3>Note:</h3>
-    <p>
-        The <strong>Shock Index (SI)</strong> is a simple and effective indicator used in emergency and critical care settings to quickly assess a patient’s cardiovascular condition. It helps healthcare professionals determine whether a patient is experiencing or approaching circulatory failure.
-    </p>
+    <p>This calculator determines the <strong>Head Loss (h)</strong> through clean flat bar screens, which is critical in evaluating the efficiency of screening systems in water and wastewater treatment processes.</p>
+
+    <p>It is widely used in <strong>environmental engineering, wastewater management, and water treatment plant design</strong> to minimize energy loss and maintain effective screening.</p>
 
     <h3>Explanation of Parameters:</h3>
     <ul>
-        <li><strong>Heart Rate (HR):</strong> The number of times the heart beats per minute. An elevated heart rate may indicate stress on the body, dehydration, blood loss, or underlying medical conditions.</li>
-        <li><strong>Systolic Blood Pressure (SBP):</strong> The highest pressure in the arteries when the heart contracts. A lower SBP may suggest inadequate blood flow, which can be critical in trauma or shock scenarios.</li>
+        <li><strong>V:</strong> Velocity through the screen (m/s)</li>
+        <li><strong>v:</strong> Velocity before the screen (m/s)</li>
+        <li><strong>h:</strong> Head loss across the screen (m)</li>
     </ul>
 
-    <h3>Use of the Calculator:</h3>
-    <p>
-        This calculator allows users to input the patient’s heart rate and systolic blood pressure to determine the Shock Index. It assists medical professionals in identifying whether the circulatory system is functioning properly or under distress. It's especially useful in trauma, emergency, and pre-hospital settings.
-    </p>
+    <h3>Why This Calculator Belongs to the Environment Sector?</h3>
+    <p>This <strong>Head Loss Calculator</strong> falls under the <strong>Environment sector</strong> as it assists in optimizing the design and performance of bar screens used in <strong>sewage treatment, stormwater control, and industrial wastewater management</strong>. Reducing head loss improves system efficiency and energy savings.</p>
 
-    <h3>Result Interpretation:</h3>
+    <p><strong>Head loss</strong> is the energy lost due to flow obstruction caused by screens, and it must be minimized for operational efficiency in treatment facilities.</p>
+
+    <h3>Why is Head Loss Important?</h3>
+    <p>Accurate head loss estimation is vital for:</p>
     <ul>
-        <li><strong>SI less than 0.7:</strong> Normal — Indicates stable circulation.</li>
-        <li><strong>SI between 0.7 and 1.0:</strong> Caution — Could signal early circulatory imbalance; monitoring advised.</li>
-        <li><strong>SI greater than 1.0:</strong> Critical — Suggests possible circulatory failure; urgent intervention required.</li>
+        <li><strong>Energy Efficiency:</strong> Ensuring pumps and treatment systems work without excessive load.</li>
+        <li><strong>Hydraulic Design:</strong> Proper sizing and layout of screens in channels and treatment units.</li>
+        <li><strong>System Performance:</strong> Avoiding backflow, clogging, and overflow in treatment facilities.</li>
+    </ul>
+
+    <h3>Validations:</h3>
+    <ul>
+        <li><strong>Positive Velocities:</strong> Both V and v must be positive numbers.</li>
+        <li><strong>V > v:</strong> Velocity through the screen must be greater than velocity before the screen.</li>
+        <li><strong>Units:</strong> Velocities should be in meters per second (m/s), and resulting head loss is in meters (m).</li>
+        <li><strong>Assumptions:</strong> The screen is clean (not clogged), and the flow is steady.</li>
+    </ul>
+
+    <h3>Real-life Applications:</h3>
+    <ul>
+        <li><strong>Municipal Wastewater Plants:</strong> Assessing bar screen effectiveness and maintaining flow efficiency.</li>
+        <li><strong>Stormwater Systems:</strong> Designing grates and screens to prevent blockage during heavy flow.</li>
+        <li><strong>Industrial Facilities:</strong> Reducing energy consumption and managing solid removal in water discharge systems.</li>
+        <li><strong>Environmental Engineering:</strong> Ensuring long-term sustainability of treatment infrastructure.</li>
     </ul>
 
     <h3>Conclusion:</h3>
-    <p>
-        The Shock Index is a valuable early warning tool that helps detect potential cardiovascular compromise before more serious symptoms develop. By using this calculator, healthcare providers can make quicker, more informed decisions to ensure patient safety and improve outcomes in high-risk or emergency situations.
-    </p>
+    <p>The <strong>Head Loss (h) calculation</strong> is a <strong>critical part of hydraulic and environmental system design</strong>. It helps engineers optimize performance, reduce operational issues, and promote efficient water management systems.</p>
 </div>
 
 
 <script>
-    function calculateHSI() {
-        const Er = parseFloat(document.getElementById('requiredEvaporation').value);
-        const Emax = parseFloat(document.getElementById('maxEvaporation').value);
+    function calculateHeadLoss() {
+        const v = parseFloat(document.getElementById("v_before").value);
+        const V = parseFloat(document.getElementById("v_through").value);
+        const resultElement = document.getElementById("result");
+        const feedbackElement = document.getElementById("feedback");
 
-        if (isNaN(Er) || isNaN(Emax) || Emax <= 0) {
-            document.getElementById('result').innerText = "Please enter valid numbers.";
+        // Reset previous output
+        resultElement.innerHTML = "";
+        feedbackElement.innerHTML = "";
+
+        // Validations
+        if (isNaN(v) || isNaN(V) || v <= 0 || V <= 0) {
+            resultElement.innerHTML = "❌ <strong>Error:</strong> Both velocities must be positive numbers.";
             return;
         }
 
-        const HSI = (Er / Emax) * 100;
-        let feedback = "";
-
-        if (HSI < 0) {
-            feedback = "❄️ **Too Cold:** No sweating needed. Ensure warmth if necessary.";
-        } else if (HSI <= 50) {
-            feedback = "✅ **Comfortable:** Body cools efficiently. Stay hydrated and maintain normal work pace.";
-        } else if (HSI <= 75) {
-            feedback = "⚠️ **Moderate Heat Stress:** Take regular water breaks, wear breathable clothing, and monitor for signs of fatigue.";
-        } else if (HSI <= 100) {
-            feedback = "🛑 **High Heat Stress:** Increase hydration, take frequent rest breaks in the shade, and reduce strenuous activities.";
-        } else {
-            feedback = "🔥 **Extreme Danger:** Immediate action required! Move to a cooler area, drink water, and stop physical activity. Risk of heat exhaustion or stroke.";
+        if (V <= v) {
+            resultElement.innerHTML = "❌ <strong>Error:</strong> Velocity through the screen (V) must be greater than velocity before the screen (v).";
+            return;
         }
 
-        document.getElementById('result').innerHTML = `Heat Stress Index (HSI): ${HSI.toFixed(2)}% <br> <strong>What to do:</strong> ${feedback}`;
+        // Head loss calculation using the given formula
+        const h = 0.0729 * (Math.pow(V, 2) - Math.pow(v, 2));
+
+        // Feedback based on head loss value
+        let feedbackMessage = "";
+        let feedbackColor = "black";
+
+        if (h > 1.5) {
+            feedbackMessage = "❌ <strong>High Head Loss:</strong> May indicate excessive obstruction. Consider redesigning the screen.";
+            feedbackColor = "red";
+        } else if (h >= 0.3 && h <= 1.5) {
+            feedbackMessage = "⚠️ <strong>Moderate Head Loss:</strong> Acceptable for typical bar screens.";
+            feedbackColor = "orange";
+        } else {
+            feedbackMessage = "✅ <strong>Low Head Loss:</strong> Efficient screen design with minimal energy loss.";
+            feedbackColor = "green";
+        }
+
+        // Display the result
+        resultElement.innerHTML = `
+            <strong>Head Loss (h):</strong> ${h.toFixed(3)} meters<br>
+            <strong style="color: ${feedbackColor};">${feedbackMessage}</strong>
+        `;
+        resultElement.style.color = "black";
     }
 </script>
 
-
-
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
-
-
-
-
 
 
 
@@ -293,11 +345,16 @@ strong{
         return false;
     });
     </script>
+
 <div id="footer"></div>
 <script>
     fetch("header.html").then(response => response.text()).then(data => document.getElementById("header").innerHTML = data);
     fetch("footer.html").then(response => response.text()).then(data => document.getElementById("footer").innerHTML = data);
 </script>
+
+
+		</div>	<!-- END PAGE CONTENT -->	
+
 
 
 
@@ -397,5 +454,5 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 
-<!-- Mirrored from dsathemes.com/html/martex_1.1/files/project-details.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 08 Mar 2024 16:40:05 GMT -->
+<!-- Mirrored from dsathemes.com/html/martex_1.1/files/project-details.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 08 Mar 2024 16:40:05 GMT -->
 </html>

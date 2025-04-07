@@ -185,16 +185,16 @@ strong{
 
 
 <div class="calculator-container">
-    <h2>Heat Stress Index (HSI) Calculator</h2>
+    <h2>Shock Index (SI) Calculator</h2>
     <div class="form-group">
-      <label for="requiredEvaporation">Required Sweat Evaporation (Er) (W/m²):</label>
-      <input type="number" id="requiredEvaporation" placeholder="Enter Required Evaporation">
+        <label for="heartRate">Heart Rate (HR) (beats/minute):</label>
+        <input type="number" id="heartRate" placeholder="Enter Heart Rate">
     </div>
     <div class="form-group">
-      <label for="maxEvaporation">Maximum Sweat Evaporation (Emax) (W/m²):</label>
-      <input type="number" id="maxEvaporation" placeholder="Enter Maximum Evaporation">
+        <label for="systolicBP">Systolic Blood Pressure (SBP) (mmHg):</label>
+        <input type="number" id="systolicBP" placeholder="Enter Systolic BP">
     </div>
-    <button class="cal-btn" onclick="calculateHSI()">Calculate HSI</button>
+    <button class="cal-btn" onclick="calculateShockIndex()">Calculate SI</button>
     <div class="result" id="result"></div>
 </div>
 
@@ -228,33 +228,28 @@ strong{
     </p>
 </div>
 
-
 <script>
-    function calculateHSI() {
-        const Er = parseFloat(document.getElementById('requiredEvaporation').value);
-        const Emax = parseFloat(document.getElementById('maxEvaporation').value);
+    function calculateShockIndex() {
+        const HR = parseFloat(document.getElementById('heartRate').value);
+        const SBP = parseFloat(document.getElementById('systolicBP').value);
 
-        if (isNaN(Er) || isNaN(Emax) || Emax <= 0) {
+        if (isNaN(HR) || isNaN(SBP) || SBP <= 0) {
             document.getElementById('result').innerText = "Please enter valid numbers.";
             return;
         }
 
-        const HSI = (Er / Emax) * 100;
+        const SI = HR / SBP;
         let feedback = "";
 
-        if (HSI < 0) {
-            feedback = "❄️ **Too Cold:** No sweating needed. Ensure warmth if necessary.";
-        } else if (HSI <= 50) {
-            feedback = "✅ **Comfortable:** Body cools efficiently. Stay hydrated and maintain normal work pace.";
-        } else if (HSI <= 75) {
-            feedback = "⚠️ **Moderate Heat Stress:** Take regular water breaks, wear breathable clothing, and monitor for signs of fatigue.";
-        } else if (HSI <= 100) {
-            feedback = "🛑 **High Heat Stress:** Increase hydration, take frequent rest breaks in the shade, and reduce strenuous activities.";
+        if (SI < 0.7) {
+            feedback = "✅ Normal: Circulatory status is stable.";
+        } else if (SI <= 1.0) {
+            feedback = "⚠️ Warning Zone: Monitor closely. May be an early sign of circulatory compromise.";
         } else {
-            feedback = "🔥 **Extreme Danger:** Immediate action required! Move to a cooler area, drink water, and stop physical activity. Risk of heat exhaustion or stroke.";
+            feedback = "🚨 Critical: Possible circulatory failure. Immediate medical evaluation needed!";
         }
 
-        document.getElementById('result').innerHTML = `Heat Stress Index (HSI): ${HSI.toFixed(2)}% <br> <strong>What to do:</strong> ${feedback}`;
+        document.getElementById('result').innerHTML = `Shock Index (SI): ${SI.toFixed(2)} <br> <strong>Interpretation:</strong> ${feedback}`;
     }
 </script>
 

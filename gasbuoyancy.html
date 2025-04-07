@@ -56,68 +56,101 @@
 		<link href="css/responsive.css" rel="stylesheet">
 <style>
             
-            
+         
 
+   
         body {
       font-family: Arial, sans-serif;
      
       background-color: #f5f5f5;
     }
     .calculator-container {
-      max-width: 1000px;
-      margin: 20px auto;
-      padding: 20px;
-      background: #ffffff;
-      border-radius: 8px;
-      border: 2px dotted #1560bd;
-
-      box-shadow: 20px 14px 8px rgba(0, 0, 0, 0.2);
-    }
-    .calculator-container h2 {
-      text-align: center;
-      margin-bottom: 20px;
-      color: #1560bd;
-      font-size: 1.8rem;
-      margin-bottom: 30px;
-    }
-    .form-group {
-      margin-bottom: 15px;
-    }
-    .form-group label {
-      display: block;
-      margin-bottom: 5px;
-      color: #333;
-    }
-    .form-group input {
-      width: 100%;
-      padding: 8px;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-      background-color: rgb(223, 241, 247);
+        max-width: 1200px;
+        margin: 20px auto;
+        padding: 20px;
+        background: #ffffff;
+        border-radius: 8px;
+        border: 2px dotted #1560bd;
+        box-shadow: 20px 14px 8px rgba(0, 0, 0, 0.2);
+      }
+      
+      .calculator-container h2 {
+        text-align: center;
+        margin-bottom: 20px;
+        color: #1560bd;
+        font-size: 1.8rem;
+      }
 
     
-    }
-    .cal-btn {
-      width: 100%;
-      padding: 10px;
-      background-color: #1560bd;
-      color: #fff;
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
-      font-size: 16px;
-    }
-    .cal-btn:hover {
-      background-color: #0056b3;
-    }
-    .result {
-      margin-top: 20px;
-      font-size: 24px;
-      color: #333;
-      text-align: center;
-      color: rgb(36, 116, 2);
+  
+      .force-per {
+        display: flex;
+        justify-content: space-between;
+        gap: 10px;
+      }
+  
+      .force-per .form-group {
+        width: 48%;
+      }
+      @media (max-width:768px){
+        .force-per {
+            flex-direction: column;
+            gap: 5px;
+        }
+        .force-per .form-group{
+            width: 100%;
+        }
+      }
+
+
+      .section {
+        display: none; 
+      }
      
-    }
+      .active {
+        display: block; 
+      }
+  
+      .form-group {
+        margin-bottom: 15px;
+        
+      }
+  
+      .form-group label {
+        display: block;
+        margin-bottom: 5px;
+        color: #333;
+      }
+  
+      .form-group input {
+        width: 100%;
+        padding: 8px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        background-color: rgb(223, 241, 247);
+      }
+  
+      .cal-btn {
+        width: 100%;
+        padding: 10px;
+        background-color: #1560bd;
+        color: #fff;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 16px;
+      }
+  
+      .cal-btn:hover {
+        background-color: #0056b3;
+      }
+  
+      .result {
+        margin-top: 20px;
+        font-size: 24px;
+        color: rgb(36, 116, 2);
+        text-align: center;
+      }
     @media (max-width: 768px) {
     .calculator-container {
         margin: 20px 15px; 
@@ -146,16 +179,25 @@
 }
 
 .note-container h3 {
-    margin:15px 0;
+    margin-top: 10px;
     color: #007bff;
-    font-size: 20px;
+    font-size: 18px;
+}
+.note-container ul{
+    margin-top: 5px;
 }
 
 .note-container p {
-    margin-top: 15px;
+    margin-top: 10px;
     text-align: justify;
 }
 strong{
+    color: #0056b3;
+}
+.feedback {
+    margin-top: 20px;
+    font-size: 24px;
+    text-align: center;
     color: #0056b3;
 }
 @media (max-width: 768px) {
@@ -164,6 +206,17 @@ strong{
         padding: 10px; 
     }
 }
+select {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #d3e0f0;
+    border-radius: 5px;
+    font-size: 1rem;
+    background-color: rgb(223, 241, 247);
+
+}
+
 </style>
 	</head>
 
@@ -171,100 +224,127 @@ strong{
 
 
 	<body> 
-
-
-
-
-
-
-        <div id="header"></div>
-
-
+		
 <br><br><br><br>
 
+<div id="header"></div>
 
 
 <div class="calculator-container">
-    <h2>Heat Stress Index (HSI) Calculator</h2>
-    <div class="form-group">
-      <label for="requiredEvaporation">Required Sweat Evaporation (Er) (W/m²):</label>
-      <input type="number" id="requiredEvaporation" placeholder="Enter Required Evaporation">
-    </div>
-    <div class="form-group">
-      <label for="maxEvaporation">Maximum Sweat Evaporation (Emax) (W/m²):</label>
-      <input type="number" id="maxEvaporation" placeholder="Enter Maximum Evaporation">
-    </div>
-    <button class="cal-btn" onclick="calculateHSI()">Calculate HSI</button>
+    <h2>Gas Buoyancy Calculator</h2>
+
+   
+        <div class="form-group">
+            <label for="materialDensity">Released Gas Density (ρ₀ in kg/m³)</label>
+            <input type="number" id="materialDensity" placeholder="Enter Released Gas Density" step="0.001" min="0.001">
+        </div>
+        <div class="form-group">
+            <label for="airDensity">Ambient Air Density (ρₐ in kg/m³)</label>
+            <input type="number" id="airDensity" placeholder="Enter Ambient Air Density" step="0.001" min="0.001" value="1.225">
+        </div>
+   
+
+    <button class="cal-btn" onclick="calculateBuoyancy()">Calculate Buoyancy</button>
+    
     <div class="result" id="result"></div>
+    <p class="feedback" id="feedback"></p>
 </div>
 
 <div class="note-container">
     <h3>Note:</h3>
-    <p>
-        The <strong>Shock Index (SI)</strong> is a simple and effective indicator used in emergency and critical care settings to quickly assess a patient’s cardiovascular condition. It helps healthcare professionals determine whether a patient is experiencing or approaching circulatory failure.
-    </p>
+    <p><strong>Initial Buoyancy Formula</strong> calculates the upward force of released gas relative to ambient air. This determines whether gas will rise (positive) or sink (negative), critical for dispersion predictions.</p>
 
-    <h3>Explanation of Parameters:</h3>
+    <h3>Why This Calculation is Important?</h3>
+    <p>Buoyancy drives gas plume behavior, directly impacting how pollutants spread through the environment and potentially affect human health and safety.</p>
+
+    <h3>Key Parameters:</h3>
     <ul>
-        <li><strong>Heart Rate (HR):</strong> The number of times the heart beats per minute. An elevated heart rate may indicate stress on the body, dehydration, blood loss, or underlying medical conditions.</li>
-        <li><strong>Systolic Blood Pressure (SBP):</strong> The highest pressure in the arteries when the heart contracts. A lower SBP may suggest inadequate blood flow, which can be critical in trauma or shock scenarios.</li>
+        <li><strong>Released Gas Density (ρ₀)</strong> - Mass per unit volume of emitted gas (must be >0)</li>
+        <li><strong>Ambient Air Density (ρₐ)</strong> - Typically 1.225 kg/m³ at sea level (must be >0)</li>
     </ul>
 
-    <h3>Use of the Calculator:</h3>
-    <p>
-        This calculator allows users to input the patient’s heart rate and systolic blood pressure to determine the Shock Index. It assists medical professionals in identifying whether the circulatory system is functioning properly or under distress. It's especially useful in trauma, emergency, and pre-hospital settings.
-    </p>
-
-    <h3>Result Interpretation:</h3>
+    <h3>Common Gas Densities (at 25°C):</h3>
     <ul>
-        <li><strong>SI less than 0.7:</strong> Normal — Indicates stable circulation.</li>
-        <li><strong>SI between 0.7 and 1.0:</strong> Caution — Could signal early circulatory imbalance; monitoring advised.</li>
-        <li><strong>SI greater than 1.0:</strong> Critical — Suggests possible circulatory failure; urgent intervention required.</li>
+        <li><strong>Natural Gas</strong>: 0.7-0.9 kg/m³</li>
+        <li><strong>Carbon Dioxide</strong>: 1.98 kg/m³</li>
+        <li><strong>Chlorine</strong>: 2.48 kg/m³</li>
+        <li><strong>Ammonia</strong>: 0.73 kg/m³</li>
     </ul>
+
+    <h3>Real-Life Applications:</h3>
+    <ul>
+        <li><strong>Industrial Emissions</strong> - Predicting pollution plume behavior</li>
+        <li><strong>Chemical Safety</strong> - Assessing toxic gas dispersion after leaks</li>
+        <li><strong>Climate Studies</strong> - Modeling greenhouse gas accumulation</li>
+        <li><strong>Emergency Response</strong> - Planning for gas release incidents</li>
+        <li><strong>Ventilation Design</strong> - Managing indoor air contaminants</li>
+    </ul>
+
+    <h3>Why in Environment Calculator?</h3>
+    <p>Gas buoyancy fundamentally determines environmental impact by controlling how pollutants disperse and concentrate in the atmosphere.</p>
+
+    <h3>Interpretation Guidelines:</h3>
+    <ul>
+        <li><strong>Positive Value</strong> - Gas is lighter than air (will rise)</li>
+        <strong>Negative Value</strong> - Gas is heavier than air (will sink)</li>
+        <li><strong>Near Zero</strong> - Neutral buoyancy (complex dispersion)</li>
+    </ul>
+
+    <h3>Industry Standards & Guidelines:</h3>
+    <p>Used in EPA's AERMOD, OSHA's chemical exposure assessments, and AIChE's CCPS guidelines for gas dispersion modeling.</p>
 
     <h3>Conclusion:</h3>
-    <p>
-        The Shock Index is a valuable early warning tool that helps detect potential cardiovascular compromise before more serious symptoms develop. By using this calculator, healthcare providers can make quicker, more informed decisions to ensure patient safety and improve outcomes in high-risk or emergency situations.
-    </p>
+    <p>The initial buoyancy calculation provides essential insights into gas behavior, forming the foundation for accurate environmental impact predictions and safety assessments.</p>
 </div>
 
-
 <script>
-    function calculateHSI() {
-        const Er = parseFloat(document.getElementById('requiredEvaporation').value);
-        const Emax = parseFloat(document.getElementById('maxEvaporation').value);
-
-        if (isNaN(Er) || isNaN(Emax) || Emax <= 0) {
-            document.getElementById('result').innerText = "Please enter valid numbers.";
+    function calculateBuoyancy() {
+        // Constants
+        const g = 9.81; // gravitational acceleration (m/s²)
+    
+        // Get input values
+        const materialDensity = parseFloat(document.getElementById('materialDensity').value);
+        const airDensity = parseFloat(document.getElementById('airDensity').value);
+        const resultElement = document.getElementById('result');
+        const feedbackElement = document.getElementById('feedback');
+    
+        // Reset previous messages
+        resultElement.innerHTML = '';
+        feedbackElement.innerHTML = '';
+    
+        // Validate inputs
+        if (isNaN(materialDensity) || materialDensity <= 0) {
+            resultElement.innerHTML = 'Gas density must be greater than 0. Zero density means no mass per volume to compare buoyancy.';
             return;
         }
-
-        const HSI = (Er / Emax) * 100;
-        let feedback = "";
-
-        if (HSI < 0) {
-            feedback = "❄️ **Too Cold:** No sweating needed. Ensure warmth if necessary.";
-        } else if (HSI <= 50) {
-            feedback = "✅ **Comfortable:** Body cools efficiently. Stay hydrated and maintain normal work pace.";
-        } else if (HSI <= 75) {
-            feedback = "⚠️ **Moderate Heat Stress:** Take regular water breaks, wear breathable clothing, and monitor for signs of fatigue.";
-        } else if (HSI <= 100) {
-            feedback = "🛑 **High Heat Stress:** Increase hydration, take frequent rest breaks in the shade, and reduce strenuous activities.";
-        } else {
-            feedback = "🔥 **Extreme Danger:** Immediate action required! Move to a cooler area, drink water, and stop physical activity. Risk of heat exhaustion or stroke.";
+    
+        if (isNaN(airDensity) || airDensity <= 0) {
+            resultElement.innerHTML = 'Air density must be greater than 0. Without air density, buoyant force cannot be determined.';
+            return;
         }
-
-        document.getElementById('result').innerHTML = `Heat Stress Index (HSI): ${HSI.toFixed(2)}% <br> <strong>What to do:</strong> ${feedback}`;
+    
+        // Calculate buoyancy: g₀ = g × (ρ₀ - ρₐ)/ρₐ
+        const buoyancy = g * ((materialDensity - airDensity) / airDensity);
+    
+        // Display result
+        resultElement.innerHTML = `Initial Buoyancy (g₀): <strong>${buoyancy.toFixed(4)} m/s²</strong>`;
+    
+        // Provide feedback
+        if (buoyancy > 0) {
+            feedbackElement.style.color = 'green';
+            feedbackElement.innerHTML = '✅ POSITIVE BUOYANCY: Gas will rise (lighter than air).';
+        } else if (buoyancy < 0) {
+            feedbackElement.style.color = 'orange';
+            feedbackElement.innerHTML = '⚠️ NEGATIVE BUOYANCY: Gas will sink (heavier than air).';
+        } else {
+            feedbackElement.style.color = 'blue';
+            feedbackElement.innerHTML = 'ℹ️ NEUTRAL BUOYANCY: Gas will stay suspended (same density as air).';
+        }
     }
-</script>
-
-
-
+    </script>
+    
+    
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
-
-
-
-
 
 
 
@@ -298,6 +378,10 @@ strong{
     fetch("header.html").then(response => response.text()).then(data => document.getElementById("header").innerHTML = data);
     fetch("footer.html").then(response => response.text()).then(data => document.getElementById("footer").innerHTML = data);
 </script>
+
+
+		</div>	<!-- END PAGE CONTENT -->	
+
 
 
 

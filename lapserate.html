@@ -56,68 +56,101 @@
 		<link href="css/responsive.css" rel="stylesheet">
 <style>
             
-            
+         
 
+   
         body {
       font-family: Arial, sans-serif;
      
       background-color: #f5f5f5;
     }
     .calculator-container {
-      max-width: 1000px;
-      margin: 20px auto;
-      padding: 20px;
-      background: #ffffff;
-      border-radius: 8px;
-      border: 2px dotted #1560bd;
-
-      box-shadow: 20px 14px 8px rgba(0, 0, 0, 0.2);
-    }
-    .calculator-container h2 {
-      text-align: center;
-      margin-bottom: 20px;
-      color: #1560bd;
-      font-size: 1.8rem;
-      margin-bottom: 30px;
-    }
-    .form-group {
-      margin-bottom: 15px;
-    }
-    .form-group label {
-      display: block;
-      margin-bottom: 5px;
-      color: #333;
-    }
-    .form-group input {
-      width: 100%;
-      padding: 8px;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-      background-color: rgb(223, 241, 247);
+        max-width: 1200px;
+        margin: 20px auto;
+        padding: 20px;
+        background: #ffffff;
+        border-radius: 8px;
+        border: 2px dotted #1560bd;
+        box-shadow: 20px 14px 8px rgba(0, 0, 0, 0.2);
+      }
+      
+      .calculator-container h2 {
+        text-align: center;
+        margin-bottom: 20px;
+        color: #1560bd;
+        font-size: 1.8rem;
+      }
 
     
-    }
-    .cal-btn {
-      width: 100%;
-      padding: 10px;
-      background-color: #1560bd;
-      color: #fff;
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
-      font-size: 16px;
-    }
-    .cal-btn:hover {
-      background-color: #0056b3;
-    }
-    .result {
-      margin-top: 20px;
-      font-size: 24px;
-      color: #333;
-      text-align: center;
-      color: rgb(36, 116, 2);
+  
+      .force-per {
+        display: flex;
+        justify-content: space-between;
+        gap: 10px;
+      }
+  
+      .force-per .form-group {
+        width: 48%;
+      }
+      @media (max-width:768px){
+        .force-per {
+            flex-direction: column;
+            gap: 5px;
+        }
+        .force-per .form-group{
+            width: 100%;
+        }
+      }
+
+
+      .section {
+        display: none; 
+      }
      
-    }
+      .active {
+        display: block; 
+      }
+  
+      .form-group {
+        margin-bottom: 15px;
+        
+      }
+  
+      .form-group label {
+        display: block;
+        margin-bottom: 5px;
+        color: #333;
+      }
+  
+      .form-group input {
+        width: 100%;
+        padding: 8px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        background-color: rgb(223, 241, 247);
+      }
+  
+      .cal-btn {
+        width: 100%;
+        padding: 10px;
+        background-color: #1560bd;
+        color: #fff;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 16px;
+      }
+  
+      .cal-btn:hover {
+        background-color: #0056b3;
+      }
+  
+      .result {
+        margin-top: 20px;
+        font-size: 24px;
+        color: rgb(36, 116, 2);
+        text-align: center;
+      }
     @media (max-width: 768px) {
     .calculator-container {
         margin: 20px 15px; 
@@ -146,16 +179,25 @@
 }
 
 .note-container h3 {
-    margin:15px 0;
+    margin-top: 10px;
     color: #007bff;
-    font-size: 20px;
+    font-size: 18px;
+}
+.note-container ul{
+    margin-top: 5px;
 }
 
 .note-container p {
-    margin-top: 15px;
+    margin-top: 10px;
     text-align: justify;
 }
 strong{
+    color: #0056b3;
+}
+.feedback {
+    margin-top: 20px;
+    font-size: 24px;
+    text-align: center;
     color: #0056b3;
 }
 @media (max-width: 768px) {
@@ -164,6 +206,17 @@ strong{
         padding: 10px; 
     }
 }
+select {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #d3e0f0;
+    border-radius: 5px;
+    font-size: 1rem;
+    background-color: rgb(223, 241, 247);
+
+}
+
 </style>
 	</head>
 
@@ -171,100 +224,125 @@ strong{
 
 
 	<body> 
-
-
-
-
-
-
-        <div id="header"></div>
-
-
+		
 <br><br><br><br>
 
+<div id="header"></div>
 
 
 <div class="calculator-container">
-    <h2>Heat Stress Index (HSI) Calculator</h2>
-    <div class="form-group">
-      <label for="requiredEvaporation">Required Sweat Evaporation (Er) (W/m²):</label>
-      <input type="number" id="requiredEvaporation" placeholder="Enter Required Evaporation">
-    </div>
-    <div class="form-group">
-      <label for="maxEvaporation">Maximum Sweat Evaporation (Emax) (W/m²):</label>
-      <input type="number" id="maxEvaporation" placeholder="Enter Maximum Evaporation">
-    </div>
-    <button class="cal-btn" onclick="calculateHSI()">Calculate HSI</button>
+    <h2>Lapse Rate Calculator</h2>
+
+  
+        <div class="form-group">
+            <label for="tempDiff">Temperature Differential (°C)</label>
+            <input type="number" id="tempDiff" placeholder="Enter Temperature Differential" step="0.1">
+        </div>
+        <div class="form-group">
+            <label for="heightDiff">Height Variation (meters)</label>
+            <input type="number" id="heightDiff" placeholder="Enter Height Variation" min="1">
+        </div>
+   
+
+    <button class="cal-btn" onclick="calculateLapseRate()">Calculate Lapse Rate</button>
+    
     <div class="result" id="result"></div>
+    <p class="feedback" id="feedback"></p>
 </div>
 
 <div class="note-container">
     <h3>Note:</h3>
-    <p>
-        The <strong>Shock Index (SI)</strong> is a simple and effective indicator used in emergency and critical care settings to quickly assess a patient’s cardiovascular condition. It helps healthcare professionals determine whether a patient is experiencing or approaching circulatory failure.
-    </p>
+    <p><strong>Lapse Rate Formula</strong> measures how atmospheric temperature changes with altitude. The environmental lapse rate is a fundamental concept in meteorology and atmospheric science.</p>
 
-    <h3>Explanation of Parameters:</h3>
+
+    <h3>Key Parameters:</h3>
     <ul>
-        <li><strong>Heart Rate (HR):</strong> The number of times the heart beats per minute. An elevated heart rate may indicate stress on the body, dehydration, blood loss, or underlying medical conditions.</li>
-        <li><strong>Systolic Blood Pressure (SBP):</strong> The highest pressure in the arteries when the heart contracts. A lower SBP may suggest inadequate blood flow, which can be critical in trauma or shock scenarios.</li>
+        <li><strong>Temperature Differential (dT)</strong> - Temperature change in degrees Celsius</li>
+        <li><strong>Height Variation (dZ)</strong> - Altitude change in meters (must be >0)</li>
     </ul>
 
-    <h3>Use of the Calculator:</h3>
-    <p>
-        This calculator allows users to input the patient’s heart rate and systolic blood pressure to determine the Shock Index. It assists medical professionals in identifying whether the circulatory system is functioning properly or under distress. It's especially useful in trauma, emergency, and pre-hospital settings.
-    </p>
-
-    <h3>Result Interpretation:</h3>
+    <h3>Real-Life Applications:</h3>
     <ul>
-        <li><strong>SI less than 0.7:</strong> Normal — Indicates stable circulation.</li>
-        <li><strong>SI between 0.7 and 1.0:</strong> Caution — Could signal early circulatory imbalance; monitoring advised.</li>
-        <li><strong>SI greater than 1.0:</strong> Critical — Suggests possible circulatory failure; urgent intervention required.</li>
+        <li><strong>Weather Forecasting</strong> - Predicting cloud formation and storm development</li>
+        <li><strong>Air Pollution</strong> - Modeling how pollutants disperse vertically</li>
+        <li><strong>Aviation</strong> - Calculating aircraft performance at different altitudes</li>
+        <li><strong>Climate Studies</strong> - Analyzing atmospheric stability patterns</li>
+        <li><strong>Mountain Ecology</strong> - Understanding temperature variations with elevation</li>
     </ul>
+    <h3>Why This Calculation is Important?</h3>
+    <p>Understanding temperature-altitude relationships helps predict weather patterns, assess pollution dispersion, and evaluate atmospheric stability for environmental impact studies.</p>
+
+    <h3>Why in Environment Calculator?</h3>
+    <p>Lapse rate is fundamental to environmental science as it affects air quality, weather systems, and climate patterns - all critical for environmental impact assessments.</p>
+
+    <h3>Interpretation Guidelines:</h3>
+    <ul>
+        <li><strong>Γ < 1°C/100m</strong> - Inversion layer (stable atmosphere)</li>
+        <li><strong>Γ ≈ 1°C/100m</strong> - Neutral stability</li>
+        <li><strong>Γ > 1°C/100m</strong> - Unstable atmosphere (favors vertical motion)</li>
+        <li><strong>Γ ≈ 9.8°C/100m</strong> - Dry adiabatic lapse rate</li>
+    </ul>
+
+    <h3>Industry Standards & Guidelines:</h3>
+    <p>Used in EPA air quality models, WMO meteorological standards, and ICAO aviation calculations. Basis for many atmospheric stability classifications.</p>
 
     <h3>Conclusion:</h3>
-    <p>
-        The Shock Index is a valuable early warning tool that helps detect potential cardiovascular compromise before more serious symptoms develop. By using this calculator, healthcare providers can make quicker, more informed decisions to ensure patient safety and improve outcomes in high-risk or emergency situations.
-    </p>
+    <p>The lapse rate calculation provides essential insights into atmospheric behavior, serving as a cornerstone for environmental studies, weather prediction, and air quality management.</p>
 </div>
 
-
 <script>
-    function calculateHSI() {
-        const Er = parseFloat(document.getElementById('requiredEvaporation').value);
-        const Emax = parseFloat(document.getElementById('maxEvaporation').value);
-
-        if (isNaN(Er) || isNaN(Emax) || Emax <= 0) {
-            document.getElementById('result').innerText = "Please enter valid numbers.";
+    function calculateLapseRate() {
+        // Get input values
+        const dT = parseFloat(document.getElementById('tempDiff').value);
+        const dZ = parseFloat(document.getElementById('heightDiff').value);
+        const resultElement = document.getElementById('result');
+        const feedbackElement = document.getElementById('feedback');
+    
+        // Reset previous messages
+        resultElement.innerHTML = '';
+        feedbackElement.innerHTML = '';
+    
+        // Validate inputs
+        if (isNaN(dT) || dT <= 0) {
+            resultElement.innerHTML = '<strong>Temperature difference</strong> must be greater than 0. Zero temperature difference means no gradient exists to define lapse rate.';
             return;
         }
-
-        const HSI = (Er / Emax) * 100;
-        let feedback = "";
-
-        if (HSI < 0) {
-            feedback = "❄️ **Too Cold:** No sweating needed. Ensure warmth if necessary.";
-        } else if (HSI <= 50) {
-            feedback = "✅ **Comfortable:** Body cools efficiently. Stay hydrated and maintain normal work pace.";
-        } else if (HSI <= 75) {
-            feedback = "⚠️ **Moderate Heat Stress:** Take regular water breaks, wear breathable clothing, and monitor for signs of fatigue.";
-        } else if (HSI <= 100) {
-            feedback = "🛑 **High Heat Stress:** Increase hydration, take frequent rest breaks in the shade, and reduce strenuous activities.";
-        } else {
-            feedback = "🔥 **Extreme Danger:** Immediate action required! Move to a cooler area, drink water, and stop physical activity. Risk of heat exhaustion or stroke.";
+        
+        if (isNaN(dZ) || dZ <= 0) {
+            resultElement.innerHTML = '<strong>Height difference</strong> must be greater than 0. Zero height difference means no vertical change to calculate lapse rate.';
+            return;
         }
-
-        document.getElementById('result').innerHTML = `Heat Stress Index (HSI): ${HSI.toFixed(2)}% <br> <strong>What to do:</strong> ${feedback}`;
+        
+    
+        // Calculate lapse rate (Γ = -dT/dZ), converted to °C per 100m
+        const lapseRate = - (dT / dZ) * 100;
+    
+        // Display result
+        resultElement.innerHTML = `Lapse Rate: <strong>${lapseRate.toFixed(2)}°C per 100m</strong>`;
+    
+        // Provide atmospheric stability interpretation
+        if (lapseRate < 0) {
+            feedbackElement.style.color = 'blue';
+            feedbackElement.innerHTML = '🌫️ Temperature Inversion: Extremely stable conditions.';
+        } else if (lapseRate < 1) {
+            feedbackElement.style.color = 'gray';
+            feedbackElement.innerHTML = '🌀 Stable Atmosphere: Limited vertical motion.';
+        } else if (lapseRate < 9.8) {
+            feedbackElement.style.color = 'orange';
+            feedbackElement.innerHTML = '⚠️ Conditionally Unstable: Potential for convection.';
+        } else if (Math.abs(lapseRate - 9.8) < 0.5) {
+            feedbackElement.style.color = 'green';
+            feedbackElement.innerHTML = '✅ Dry Adiabatic: Neutral for dry air parcels.';
+        } else {
+            feedbackElement.style.color = 'red';
+            feedbackElement.innerHTML = '🔥 Superadiabatic: Strong instability likely.';
+        }
     }
-</script>
+    </script>
+    
 
-
-
+    
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
-
-
-
-
 
 
 
@@ -298,6 +376,10 @@ strong{
     fetch("header.html").then(response => response.text()).then(data => document.getElementById("header").innerHTML = data);
     fetch("footer.html").then(response => response.text()).then(data => document.getElementById("footer").innerHTML = data);
 </script>
+
+
+		</div>	<!-- END PAGE CONTENT -->	
+
 
 
 

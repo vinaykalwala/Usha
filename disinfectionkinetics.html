@@ -56,8 +56,9 @@
 		<link href="css/responsive.css" rel="stylesheet">
 <style>
             
-            
+         
 
+   
         body {
       font-family: Arial, sans-serif;
      
@@ -80,6 +81,7 @@
       font-size: 1.8rem;
       margin-bottom: 30px;
     }
+    
     .form-group {
       margin-bottom: 15px;
     }
@@ -151,6 +153,14 @@
     font-size: 20px;
 }
 
+.note-container ul{
+    margin: 10px;
+}
+
+.note-container{
+    margin-top: 10px;
+}
+
 .note-container p {
     margin-top: 15px;
     text-align: justify;
@@ -163,6 +173,16 @@ strong{
         margin: 15px; 
         padding: 10px; 
     }
+}
+select {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #d3e0f0;
+    border-radius: 5px;
+    font-size: 1rem;
+    background-color: rgb(223, 241, 247);
+
 }
 </style>
 	</head>
@@ -177,94 +197,132 @@ strong{
 
 
 
-        <div id="header"></div>
-
-
+		
 <br><br><br><br>
 
-
+<div id="header"></div>
 
 <div class="calculator-container">
-    <h2>Heat Stress Index (HSI) Calculator</h2>
+    <h2>Chick’s Law: Microbial Disinfection Calculator</h2>
+
     <div class="form-group">
-      <label for="requiredEvaporation">Required Sweat Evaporation (Er) (W/m²):</label>
-      <input type="number" id="requiredEvaporation" placeholder="Enter Required Evaporation">
+        <label for="N0">Initial Microorganisms (N₀):</label>
+        <input type="number" id="N0" placeholder="Enter N₀" step="any">
     </div>
+
     <div class="form-group">
-      <label for="maxEvaporation">Maximum Sweat Evaporation (Emax) (W/m²):</label>
-      <input type="number" id="maxEvaporation" placeholder="Enter Maximum Evaporation">
+        <label for="k">Disinfection Constant (k):</label>
+        <input type="number" id="k" placeholder="Enter k" step="any">
     </div>
-    <button class="cal-btn" onclick="calculateHSI()">Calculate HSI</button>
+
+    <div class="form-group">
+        <label for="t">Contact Time (t):</label>
+        <input type="number" id="t" placeholder="Enter t" step="any">
+    </div>
+
+    <button class="cal-btn" onclick="calculateChicksLaw()">Calculate</button>
     <div class="result" id="result"></div>
+    <div class="feedback" id="feedback" style="text-align:center; margin-top:12px; font-weight:bold; font-size:16px;"></div>
 </div>
+
 
 <div class="note-container">
     <h3>Note:</h3>
-    <p>
-        The <strong>Shock Index (SI)</strong> is a simple and effective indicator used in emergency and critical care settings to quickly assess a patient’s cardiovascular condition. It helps healthcare professionals determine whether a patient is experiencing or approaching circulatory failure.
-    </p>
+    <p>This calculator determines the <strong>remaining number of microorganisms (N)</strong> after disinfection, based on <strong>Chick’s Law</strong>, a first-order reaction model.</p>
+
+    <p>It is widely used in <strong>environmental engineering, water and wastewater treatment, and disinfection planning</strong> to ensure the safety of treated water by evaluating microbial kill effectiveness.</p>
 
     <h3>Explanation of Parameters:</h3>
     <ul>
-        <li><strong>Heart Rate (HR):</strong> The number of times the heart beats per minute. An elevated heart rate may indicate stress on the body, dehydration, blood loss, or underlying medical conditions.</li>
-        <li><strong>Systolic Blood Pressure (SBP):</strong> The highest pressure in the arteries when the heart contracts. A lower SBP may suggest inadequate blood flow, which can be critical in trauma or shock scenarios.</li>
+        <li><strong>Initial Microorganisms (N₀):</strong> The number of microorganisms present before disinfection begins.</li>
+        <li><strong>Disinfection Constant (k):</strong> A rate constant that reflects the efficiency of the disinfectant (per unit time).</li>
+        <li><strong>Contact Time (t):</strong> The duration of exposure to the disinfectant (in minutes or seconds, based on k).</li>
     </ul>
 
-    <h3>Use of the Calculator:</h3>
-    <p>
-        This calculator allows users to input the patient’s heart rate and systolic blood pressure to determine the Shock Index. It assists medical professionals in identifying whether the circulatory system is functioning properly or under distress. It's especially useful in trauma, emergency, and pre-hospital settings.
-    </p>
+    <h3>Why This Calculator Belongs to the Environment Sector?</h3>
+    <p>This <strong>Disinfection Calculator</strong> falls under the <strong>Environment sector</strong> as it aids in the planning and evaluation of water purification, public health safety, and pollution control strategies.</p>
 
-    <h3>Result Interpretation:</h3>
+    <p><strong>Disinfection</strong> is a critical process in removing harmful pathogens from water and wastewater before it is reused or released into the environment. Chick’s Law provides a scientific model to predict disinfection effectiveness.</p>
+
+    <h3>Why is Disinfection Calculation Important?</h3>
+    <p>Accurate prediction of microbial inactivation is essential for:</p>
     <ul>
-        <li><strong>SI less than 0.7:</strong> Normal — Indicates stable circulation.</li>
-        <li><strong>SI between 0.7 and 1.0:</strong> Caution — Could signal early circulatory imbalance; monitoring advised.</li>
-        <li><strong>SI greater than 1.0:</strong> Critical — Suggests possible circulatory failure; urgent intervention required.</li>
+        <li><strong>Water Treatment Plants:</strong> Ensuring sufficient kill rates of bacteria, viruses, and protozoa.</li>
+        <li><strong>Public Health:</strong> Meeting safety standards for potable and reclaimed water.</li>
+        <li><strong>Environmental Safety:</strong> Preventing contamination of natural water bodies.</li>
+        <li><strong>Regulatory Compliance:</strong> Meeting national and international water quality guidelines.</li>
+    </ul>
+
+    <h3>Validations:</h3>
+    <ul>
+        <li><strong>Positive Values Only:</strong> N₀ and k must be greater than 0; t must be 0 or positive.</li>
+        <li><strong>Unit Consistency:</strong> Time (t) and k must use compatible time units (e.g., both in seconds or minutes).</li>
+        <li><strong>Scientific Validity:</strong> The model assumes ideal conditions; results may vary in real systems due to mixing, temperature, or resistant strains.</li>
+    </ul>
+
+    <h3>Real-life Applications:</h3>
+    <ul>
+        <li><strong>Drinking Water Disinfection:</strong> Determining how much disinfectant and time are needed to ensure microbial safety.</li>
+        <li><strong>Wastewater Reuse:</strong> Calculating safe contact times before releasing or recycling treated effluent.</li>
+        <li><strong>Industrial Applications:</strong> Estimating microbial kill in cooling towers, food processing, and pharmaceutical systems.</li>
+        <li><strong>Environmental Engineering:</strong> Designing and auditing disinfection units for treatment plants.</li>
     </ul>
 
     <h3>Conclusion:</h3>
-    <p>
-        The Shock Index is a valuable early warning tool that helps detect potential cardiovascular compromise before more serious symptoms develop. By using this calculator, healthcare providers can make quicker, more informed decisions to ensure patient safety and improve outcomes in high-risk or emergency situations.
-    </p>
+    <p>The <strong>Chick’s Law Disinfection Calculator</strong> is a powerful tool in <strong>environmental engineering and public health</strong>. It helps in evaluating the effectiveness of disinfectants and supports decisions for safe, clean water.</p>
 </div>
 
-
 <script>
-    function calculateHSI() {
-        const Er = parseFloat(document.getElementById('requiredEvaporation').value);
-        const Emax = parseFloat(document.getElementById('maxEvaporation').value);
+    function calculateChicksLaw() {
+        const N0 = parseFloat(document.getElementById("N0").value);
+        const k = parseFloat(document.getElementById("k").value);
+        const t = parseFloat(document.getElementById("t").value);
 
-        if (isNaN(Er) || isNaN(Emax) || Emax <= 0) {
-            document.getElementById('result').innerText = "Please enter valid numbers.";
+        const resultElement = document.getElementById("result");
+        const feedbackElement = document.getElementById("feedback");
+
+        // Clear previous results
+        resultElement.innerHTML = "";
+        feedbackElement.innerHTML = "";
+
+        // Validations
+        if (isNaN(N0) || N0 <= 0 || isNaN(k) || k <= 0 || isNaN(t) || t < 0) {
+            resultElement.innerHTML = "❌ <strong>Error:</strong> All input values must be valid positive numbers (t ≥ 0).";
             return;
         }
 
-        const HSI = (Er / Emax) * 100;
-        let feedback = "";
+        // Apply Chick's Law: N = N0 * e^(-kt)
+        const N = N0 * Math.exp(-k * t);
 
-        if (HSI < 0) {
-            feedback = "❄️ **Too Cold:** No sweating needed. Ensure warmth if necessary.";
-        } else if (HSI <= 50) {
-            feedback = "✅ **Comfortable:** Body cools efficiently. Stay hydrated and maintain normal work pace.";
-        } else if (HSI <= 75) {
-            feedback = "⚠️ **Moderate Heat Stress:** Take regular water breaks, wear breathable clothing, and monitor for signs of fatigue.";
-        } else if (HSI <= 100) {
-            feedback = "🛑 **High Heat Stress:** Increase hydration, take frequent rest breaks in the shade, and reduce strenuous activities.";
+        // Feedback logic
+        let feedbackMessage = "";
+        let feedbackColor = "black";
+
+        const reductionRatio = N / N0;
+
+        if (reductionRatio < 0.001) {
+            feedbackMessage = "✅ <strong>Highly Effective:</strong> Over 99.9% microorganisms inactivated.";
+            feedbackColor = "green";
+        } else if (reductionRatio <= 0.1) {
+            feedbackMessage = "⚠️ <strong>Moderately Effective:</strong> Significant disinfection achieved.";
+            feedbackColor = "orange";
         } else {
-            feedback = "🔥 **Extreme Danger:** Immediate action required! Move to a cooler area, drink water, and stop physical activity. Risk of heat exhaustion or stroke.";
+            feedbackMessage = "❌ <strong>Ineffective:</strong> Microbial reduction is low. Consider increasing time or concentration.";
+            feedbackColor = "red";
         }
 
-        document.getElementById('result').innerHTML = `Heat Stress Index (HSI): ${HSI.toFixed(2)}% <br> <strong>What to do:</strong> ${feedback}`;
+        // Display Results
+        resultElement.innerHTML = `
+            <strong>Remaining Microorganisms (N):</strong> ${N.toExponential(3)}<br>
+        `;
+        feedbackElement.innerHTML = `<strong style="color: ${feedbackColor};">${feedbackMessage}</strong>`;
+        feedbackElement.style.color = feedbackColor;
     }
 </script>
 
 
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
-
-
-
-
 
 
 
@@ -293,11 +351,16 @@ strong{
         return false;
     });
     </script>
+
 <div id="footer"></div>
 <script>
     fetch("header.html").then(response => response.text()).then(data => document.getElementById("header").innerHTML = data);
     fetch("footer.html").then(response => response.text()).then(data => document.getElementById("footer").innerHTML = data);
 </script>
+
+
+		</div>	<!-- END PAGE CONTENT -->	
+
 
 
 
@@ -397,5 +460,5 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 
-<!-- Mirrored from dsathemes.com/html/martex_1.1/files/project-details.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 08 Mar 2024 16:40:05 GMT -->
+<!-- Mirrored from dsathemes.com/html/martex_1.1/files/project-details.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 08 Mar 2024 16:40:05 GMT -->
 </html>
