@@ -56,16 +56,15 @@
 		<link href="css/responsive.css" rel="stylesheet">
 <style>
             
-         
+            
 
-   
         body {
       font-family: Arial, sans-serif;
      
       background-color: #f5f5f5;
     }
     .calculator-container {
-      max-width: 1200px;
+      max-width: 1000px;
       margin: 20px auto;
       padding: 20px;
       background: #ffffff;
@@ -165,90 +164,6 @@ strong{
         padding: 10px; 
     }
 }
-select {
-    width: 100%;
-    padding: 10px;
-    margin-top: 5px;
-    border: 1px solid #d3e0f0;
-    border-radius: 5px;
-    font-size: 1rem;
-    background-color: rgb(223, 241, 247);
-
-}
-
-.input-row {
-        display: flex;
-        justify-content: space-between;
-        gap: 10px;
-      }
-  
-      .input-row .form-group {
-        width: 48%;
-      }
-      @media (max-width: 768px) {
-    .input-row {
-        flex-direction: column;
-        gap: 5px;
-    }
-
-    .input-row .form-group {
-        width: 100%;
-    }
-}
- /* Centering the table */
- .table-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-           
-        }
-    
-        /* Table Styling */
-        .custom-table {
-            border-collapse: collapse;
-            width: 80%;
-            max-width: 600px;
-            text-align: center;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-    
-        .custom-table thead {
-            background-color: #1560bd; /* Light blue header */
-            color: white;
-        }
-    
-        .custom-table th, .custom-table td {
-            padding: 12px 16px;
-            border: 1px solid #ddd;
-        }
-    
-        .custom-table tr:nth-child(even) {
-            background-color: #f9f9f9; /* Zebra striping */
-        }
-    
-        .custom-table tr:hover {
-            background-color: #e6f7ff; /* Hover effect */
-        }
-    
-        /* Heading Style */
-        .table-heading {
-            margin-bottom: 20px;
-            color: #2c3e50;
-        }
-        
-
-        @media (max-width: 600px) {
-            .custom-table {
-        width: 90%; /* Adjusts width for mobile */
-        margin: 20px auto; /* Ensures it stays centered */
-    }
-    
-    .custom-table th, .custom-table td{
-        font-size: 14px;
-        padding: 8px;
-    }
-}
-
 </style>
 	</head>
 
@@ -262,194 +177,90 @@ select {
 
 
 
-		
+        <div id="header"></div>
+
+
 <br><br><br><br>
 
-<div id="header"></div>
 
 <div class="calculator-container">
-    <h2>A Body Shape Index (ABSI) Calculator</h2>
-
-    <div class="input-row">
-        <!-- Sex Input -->
-        <div class="form-group">
-            <label for="sex">Gender:</label>
-            <select id="sex">
-                <option value="female">Female</option>
-                <option value="male">Male</option>
-            </select>
-        </div>
-
-        <!-- Age Input -->
-        <div class="form-group">
-            <label for="age">Age (years):</label>
-            <input type="number" id="age" placeholder="Enter your age" step="1">
-        </div>
-    </div>
-
-    <div class="input-row">
-        <!-- Height Input -->
-        <div class="form-group">
-            <label for="height">Height (cm):</label>
-            <input type="number" id="height" placeholder="Enter your height" step="0.1">
-        </div>
-
-        <!-- Weight Input -->
-        <div class="form-group">
-            <label for="weight">Weight (kg):</label>
-            <input type="number" id="weight" placeholder="Enter your weight" step="0.1">
-        </div>
-    </div>
-
-    <!-- Waist Circumference Input -->
+    <h2>Modified Shock Index (MSI) Calculator</h2>
     <div class="form-group">
-        <label for="waist">Waist Circumference (cm):</label>
-        <input type="number" id="waist" placeholder="Enter waist circumference" step="0.1">
+        <label for="heartRate">Heart Rate (HR) (beats/minute):</label>
+        <input type="number" id="heartRate" placeholder="Enter Heart Rate">
     </div>
-
-    <!-- Calculate Button -->
-    <button class="cal-btn" onclick="calculateABSI()">Calculate ABSI</button>
-
-    <!-- Result Display -->
+    <div class="form-group">
+        <label for="systolicBP">Systolic Blood Pressure (SBP) (mmHg):</label>
+        <input type="number" id="systolicBP" placeholder="Enter Systolic BP">
+    </div>
+    <div class="form-group">
+        <label for="diastolicBP">Diastolic Blood Pressure (DBP) (mmHg):</label>
+        <input type="number" id="diastolicBP" placeholder="Enter Diastolic BP">
+    </div>
+    <button class="cal-btn" onclick="calculateModifiedShockIndex()">Calculate MSI</button>
     <div class="result" id="result"></div>
 </div>
 
 <div class="note-container">
-    <h3>What is A Body Shape Index (ABSI)?</h3>
+    <h3>Note:</h3>
     <p>
-        ABSI is a measure of body shape that uses waist circumference, height, and weight to assess health risks associated with body shape. Unlike BMI, ABSI accounts for fat distribution, making it a better predictor of mortality risk.
+        The <strong>Modified Shock Index (MSI)</strong> is an adaptation of the traditional shock index, designed to provide a more precise picture of a patient’s cardiovascular function. Unlike the standard version, which uses systolic blood pressure, MSI incorporates <strong>mean arterial pressure (MAP)</strong>, offering a more balanced understanding of blood flow to organs.
     </p>
 
-    <h3>What is ABSI z-score?</h3>
-    <p>
-        The ABSI z-score compares your ABSI to a reference population of the same age and sex. It indicates how your body shape compares to the average:
-        <ul>
-            <li><strong>Low z-score:</strong> Lower risk of health issues.</li>
-            <li><strong>Average z-score:</strong> Moderate risk.</li>
-            <li><strong>High z-score:</strong> Higher risk of premature mortality.</li>
-        </ul>
-    </p>
-
-    <h3>Why is ABSI Important?</h3>
-    <p>
-        ABSI is a powerful tool for assessing health risks because it considers fat distribution, which is a key factor in conditions like:
-        <ul>
-            <li>Cardiovascular disease</li>
-            <li>Type 2 diabetes</li>
-            <li>Metabolic syndrome</li>
-            <li>Premature mortality</li>
-        </ul>
-    </p>
-    <h3>Explanation of Parameters:</h3>
+    <h3>Understanding the Parameters:</h3>
     <ul>
-        <li><strong>Gender:</strong> Important for calculating the ABSI z-score, which is adjusted based on differences in body shape between males and females.</li>
-        <li><strong>Age (years):</strong> Used for z-score comparison against a reference population. Body shape risk changes with age.</li>
-        <li><strong>Height (cm):</strong> Affects both BMI and ABSI values. Taller individuals may distribute fat differently than shorter individuals.</li>
-        <li><strong>Weight (kg):</strong> Used in BMI calculation. Helps determine how much body mass a person has relative to their height.</li>
-        <li><strong>Waist Circumference (cm):</strong> The key input in ABSI. It reflects abdominal fat, which is a critical predictor of metabolic and cardiovascular risk.</li>
+        <li><strong>Heart Rate (HR):</strong> Indicates how fast the heart is beating. An elevated HR can be a sign of physiological stress, fluid loss, or shock.</li>
+        <li><strong>Systolic Blood Pressure (SBP):</strong> The top number in a blood pressure reading, representing the pressure during heart contraction.</li>
+        <li><strong>Diastolic Blood Pressure (DBP):</strong> The bottom number, representing the pressure when the heart rests between beats.</li>
+        <li><strong>Mean Arterial Pressure (MAP):</strong> A calculated value that reflects the average blood pressure in a person’s arteries during one cardiac cycle. It provides a clearer picture of perfusion to vital organs.</li>
     </ul>
-    <h3>Interpreting Your Results</h3>
+
+    <h3>MSI Interpretation:</h3>
+    <ul>
+        <li><strong>MSI below 1:</strong> Typically considered within a safer range.</li>
+        <li><strong>MSI above 1:</strong> Suggests poor perfusion and higher risk of complications such as shock, organ failure, or need for ICU care.</li>
+    </ul>
+
+    <h3>Clinical Significance:</h3>
     <p>
-        Based on your ABSI z-score:
-        <ul>
-            <li><strong>z-score < -1:</strong> Low risk of premature mortality.</li>
-            <li><strong>-1 ≤ z-score ≤ 1:</strong> Average risk.</li>
-            <li><strong>1 < z-score ≤ 2:</strong> Moderate risk.</li>
-            <li><strong>2 < z-score ≤ 3:</strong> High risk.</li>
-            <li><strong>z-score > 3:</strong> Very high risk.</li>
-        </ul>
+        A high MSI value has been associated with increased likelihood of <strong>ICU admission</strong>, <strong>sepsis</strong>, <strong>short- and long-term mortality</strong>, and the <strong>need for mechanical ventilation</strong>. This index is useful for clinicians to make quicker and more informed decisions, particularly in emergency settings.
     </p>
 
-    <h3>What Can You Do?</h3>
-    <p>
-        If your ABSI z-score indicates a high risk:
-        <ul>
-            <li><strong>Consult a Doctor:</strong> Seek professional medical advice for a comprehensive health evaluation.</li>
-            <li><strong>Adopt a Healthy Lifestyle:</strong> Focus on a balanced diet, regular exercise, and stress management.</li>
-            <li><strong>Monitor Progress:</strong> Track your waist circumference, weight, and overall health regularly.</li>
-        </ul>
-    </p>
-
-    <h3>Disclaimer</h3>
-    <p>
-        This calculator provides estimates based on the ABSI formula and is not a substitute for professional medical advice. Always consult a healthcare provider for personalized recommendations.
-    </p>
+   
 </div>
 
 <script>
-   function calculateABSI() {
-    // Get input values
-    const sex = document.getElementById('sex').value;
-    const age = parseFloat(document.getElementById('age').value);
-    const height = parseFloat(document.getElementById('height').value);
-    const weight = parseFloat(document.getElementById('weight').value);
-    const waist = parseFloat(document.getElementById('waist').value);
-    const result = document.getElementById('result');
+    function calculateModifiedShockIndex() {
+        const HR = parseFloat(document.getElementById('heartRate').value);
+        const SBP = parseFloat(document.getElementById('systolicBP').value);
+        const DBP = parseFloat(document.getElementById('diastolicBP').value);
 
-    // Reset previous results
-    result.innerHTML = "";
+        const resultDiv = document.getElementById('result');
 
-    // Validate inputs
-    if (isNaN(age) || age <= 0) {
-        result.innerHTML = "❌ Please enter a valid age (must be a positive number).";
-        return;
+        if (isNaN(HR) || isNaN(SBP) || isNaN(DBP) || HR <= 0 || SBP <= 0 || DBP <= 0) {
+            resultDiv.innerText = "❌ Please enter valid numbers in all fields.";
+            return;
+        }
+
+        const MAP = (2 * DBP + SBP) / 3;
+        const MSI = HR / MAP;
+
+        let interpretation = "";
+        if (MSI > 1.0) {
+            interpretation = "⚠️ Elevated: Risk of poor organ perfusion — may require ICU attention or suggest conditions like sepsis or shock.";
+        } else {
+            interpretation = "✅ Within normal range: Cardiovascular performance appears stable.";
+        }
+
+        resultDiv.innerHTML = `
+            <strong>Modified Shock Index (MSI):</strong> ${MSI.toFixed(2)}<br>
+            <strong>Interpretation:</strong> ${interpretation}
+        `;
     }
-    if (isNaN(height) || height <= 0) {
-        result.innerHTML = "❌ Please enter a valid height (must be a positive number).";
-        return;
-    }
-    if (isNaN(weight) || weight <= 0) {
-        result.innerHTML = "❌ Please enter a valid weight (must be a positive number).";
-        return;
-    }
-    if (isNaN(waist) || waist <= 0) {
-        result.innerHTML = "❌ Please enter a valid waist circumference (must be a positive number).";
-        return;
-    }
-
-    // Convert height and waist circumference from cm to meters
-    const heightMeters = height / 100;
-    const waistMeters = waist / 100;
-
-    // Calculate BMI
-    const bmi = weight / (heightMeters * heightMeters);
-
-    // Calculate ABSI
-    const absi = waistMeters / (Math.pow(bmi, 2 / 3) * Math.pow(heightMeters, 1 / 2));
-
-    // Round ABSI to 5 decimal places
-    const absiRounded = parseFloat(absi.toFixed(6));
-
-    // Calculate ABSI z-score (using adjusted mean and standard deviation)
-    const absiMean = 0.0760; // Adjusted mean
-    const absiStdDev = 0.004; // Assumed standard deviation
-    const absiZScore = (absi - absiMean) / absiStdDev;
-
-    // Round z-score to 2 decimal places
-    const absiZScoreRounded = parseFloat(absiZScore.toFixed(2));
-
-    // Interpret ABSI z-score
-    let interpretation = "";
-    if (absiZScoreRounded < -1) {
-        interpretation = "Your ABSI z-score indicates a **low risk** of premature mortality.";
-    } else if (absiZScoreRounded >= -1 && absiZScoreRounded <= 1) {
-        interpretation = "Your ABSI z-score indicates an **average risk** of premature mortality.";
-    } else if (absiZScoreRounded > 1 && absiZScoreRounded <= 2) {
-        interpretation = "Your ABSI z-score indicates a **moderate risk** of premature mortality.";
-    } else if (absiZScoreRounded > 2 && absiZScoreRounded <= 3) {
-        interpretation = "Your ABSI z-score indicates a **high risk** of premature mortality.";
-    } else {
-        interpretation = "Your ABSI z-score indicates a **very high risk** of premature mortality. ❗❗❗";
-    }
-
-    // Display results
-    result.innerHTML = `
-        <strong>ABSI:</strong> ${absiRounded}<br>
-        <strong>ABSI z-score:</strong> ${absiZScoreRounded}<br>
-        <strong>Interpretation:</strong> ${interpretation}
-    `;
-}
 </script>
+
+
+
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
 
 
@@ -488,10 +299,6 @@ select {
     fetch("header.html").then(response => response.text()).then(data => document.getElementById("header").innerHTML = data);
     fetch("footer.html").then(response => response.text()).then(data => document.getElementById("footer").innerHTML = data);
 </script>
-
-
-		</div>	<!-- END PAGE CONTENT -->	
-
 
 
 

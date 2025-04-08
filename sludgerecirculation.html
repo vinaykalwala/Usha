@@ -65,7 +65,7 @@
       background-color: #f5f5f5;
     }
     .calculator-container {
-      max-width: 1200px;
+      max-width: 1000px;
       margin: 20px auto;
       padding: 20px;
       background: #ffffff;
@@ -81,6 +81,7 @@
       font-size: 1.8rem;
       margin-bottom: 30px;
     }
+    
     .form-group {
       margin-bottom: 15px;
     }
@@ -152,6 +153,14 @@
     font-size: 20px;
 }
 
+.note-container ul{
+    margin: 10px;
+}
+
+.note-container{
+    margin-top: 10px;
+}
+
 .note-container p {
     margin-top: 15px;
     text-align: justify;
@@ -175,80 +184,6 @@ select {
     background-color: rgb(223, 241, 247);
 
 }
-
-.input-row {
-        display: flex;
-        justify-content: space-between;
-        gap: 10px;
-      }
-  
-      .input-row .form-group {
-        width: 48%;
-      }
-      @media (max-width: 768px) {
-    .input-row {
-        flex-direction: column;
-        gap: 5px;
-    }
-
-    .input-row .form-group {
-        width: 100%;
-    }
-}
- /* Centering the table */
- .table-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-           
-        }
-    
-        /* Table Styling */
-        .custom-table {
-            border-collapse: collapse;
-            width: 80%;
-            max-width: 600px;
-            text-align: center;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-    
-        .custom-table thead {
-            background-color: #1560bd; /* Light blue header */
-            color: white;
-        }
-    
-        .custom-table th, .custom-table td {
-            padding: 12px 16px;
-            border: 1px solid #ddd;
-        }
-    
-        .custom-table tr:nth-child(even) {
-            background-color: #f9f9f9; /* Zebra striping */
-        }
-    
-        .custom-table tr:hover {
-            background-color: #e6f7ff; /* Hover effect */
-        }
-    
-        /* Heading Style */
-        .table-heading {
-            margin-bottom: 20px;
-            color: #2c3e50;
-        }
-        
-
-        @media (max-width: 600px) {
-            .custom-table {
-        width: 90%; /* Adjusts width for mobile */
-        margin: 20px auto; /* Ensures it stays centered */
-    }
-    
-    .custom-table th, .custom-table td{
-        font-size: 14px;
-        padding: 8px;
-    }
-}
-
 </style>
 	</head>
 
@@ -268,193 +203,132 @@ select {
 <div id="header"></div>
 
 <div class="calculator-container">
-    <h2>A Body Shape Index (ABSI) Calculator</h2>
+    <h2>Sludge Recirculation Rate (Qr) Calculator</h2>
 
-    <div class="input-row">
-        <!-- Sex Input -->
-        <div class="form-group">
-            <label for="sex">Gender:</label>
-            <select id="sex">
-                <option value="female">Female</option>
-                <option value="male">Male</option>
-            </select>
-        </div>
-
-        <!-- Age Input -->
-        <div class="form-group">
-            <label for="age">Age (years):</label>
-            <input type="number" id="age" placeholder="Enter your age" step="1">
-        </div>
-    </div>
-
-    <div class="input-row">
-        <!-- Height Input -->
-        <div class="form-group">
-            <label for="height">Height (cm):</label>
-            <input type="number" id="height" placeholder="Enter your height" step="0.1">
-        </div>
-
-        <!-- Weight Input -->
-        <div class="form-group">
-            <label for="weight">Weight (kg):</label>
-            <input type="number" id="weight" placeholder="Enter your weight" step="0.1">
-        </div>
-    </div>
-
-    <!-- Waist Circumference Input -->
     <div class="form-group">
-        <label for="waist">Waist Circumference (cm):</label>
-        <input type="number" id="waist" placeholder="Enter waist circumference" step="0.1">
+        <label for="flow_rate">Influent Flow Rate (Q) (m³/day):</label>
+        <input type="number" id="flow_rate" placeholder="Enter Q" step="any">
     </div>
 
-    <!-- Calculate Button -->
-    <button class="cal-btn" onclick="calculateABSI()">Calculate ABSI</button>
+    <div class="form-group">
+        <label for="mlss">MLSS Concentration (X) in aeration tank (g/m³):</label>
+        <input type="number" id="mlss" placeholder="Enter X" step="any">
+    </div>
 
-    <!-- Result Display -->
+    <div class="form-group">
+        <label for="return_biomass">Return Sludge Concentration (Xr) (g/m³):</label>
+        <input type="number" id="return_biomass" placeholder="Enter Xr" step="any">
+    </div>
+
+    <button class="cal-btn" onclick="calculateRecirculationRate()">Calculate</button>
     <div class="result" id="result"></div>
+    <div class="feedback" id="feedback"></div>
 </div>
+
 
 <div class="note-container">
-    <h3>What is A Body Shape Index (ABSI)?</h3>
-    <p>
-        ABSI is a measure of body shape that uses waist circumference, height, and weight to assess health risks associated with body shape. Unlike BMI, ABSI accounts for fat distribution, making it a better predictor of mortality risk.
-    </p>
+    <h3>Note:</h3>
+    <p>This calculator determines the <strong>Sludge Recirculation Rate (Q<sub>r</sub>)</strong> for the <strong>Activated Sludge Process</strong> used in biological wastewater treatment systems.</p>
 
-    <h3>What is ABSI z-score?</h3>
-    <p>
-        The ABSI z-score compares your ABSI to a reference population of the same age and sex. It indicates how your body shape compares to the average:
-        <ul>
-            <li><strong>Low z-score:</strong> Lower risk of health issues.</li>
-            <li><strong>Average z-score:</strong> Moderate risk.</li>
-            <li><strong>High z-score:</strong> Higher risk of premature mortality.</li>
-        </ul>
-    </p>
+    <p>It plays a vital role in <strong>environmental engineering, sewage treatment, and process optimization</strong> by ensuring effective recycling of biomass to maintain optimal microbial activity in the aeration tank.</p>
 
-    <h3>Why is ABSI Important?</h3>
-    <p>
-        ABSI is a powerful tool for assessing health risks because it considers fat distribution, which is a key factor in conditions like:
-        <ul>
-            <li>Cardiovascular disease</li>
-            <li>Type 2 diabetes</li>
-            <li>Metabolic syndrome</li>
-            <li>Premature mortality</li>
-        </ul>
-    </p>
+    <p><strong> Sludge Recirculation Rate (Qr) </strong>is a critical parameter in the Activated Sludge Process used in wastewater treatment. It refers to the volume of sludge (biomass) that is returned per day from the secondary clarifier back to the aeration tank</p>
+    
     <h3>Explanation of Parameters:</h3>
     <ul>
-        <li><strong>Gender:</strong> Important for calculating the ABSI z-score, which is adjusted based on differences in body shape between males and females.</li>
-        <li><strong>Age (years):</strong> Used for z-score comparison against a reference population. Body shape risk changes with age.</li>
-        <li><strong>Height (cm):</strong> Affects both BMI and ABSI values. Taller individuals may distribute fat differently than shorter individuals.</li>
-        <li><strong>Weight (kg):</strong> Used in BMI calculation. Helps determine how much body mass a person has relative to their height.</li>
-        <li><strong>Waist Circumference (cm):</strong> The key input in ABSI. It reflects abdominal fat, which is a critical predictor of metabolic and cardiovascular risk.</li>
+        <li><strong>Q:</strong> Influent flow rate into the aeration tank (m³/day).</li>
+        <li><strong>X:</strong> Mixed Liquor Suspended Solids (MLSS) concentration in the aeration tank (g/m³).</li>
+        <li><strong>X<sub>r</sub>:</strong> Biomass concentration in return sludge (g/m³).</li>
     </ul>
-    <h3>Interpreting Your Results</h3>
-    <p>
-        Based on your ABSI z-score:
-        <ul>
-            <li><strong>z-score < -1:</strong> Low risk of premature mortality.</li>
-            <li><strong>-1 ≤ z-score ≤ 1:</strong> Average risk.</li>
-            <li><strong>1 < z-score ≤ 2:</strong> Moderate risk.</li>
-            <li><strong>2 < z-score ≤ 3:</strong> High risk.</li>
-            <li><strong>z-score > 3:</strong> Very high risk.</li>
-        </ul>
-    </p>
 
-    <h3>What Can You Do?</h3>
-    <p>
-        If your ABSI z-score indicates a high risk:
-        <ul>
-            <li><strong>Consult a Doctor:</strong> Seek professional medical advice for a comprehensive health evaluation.</li>
-            <li><strong>Adopt a Healthy Lifestyle:</strong> Focus on a balanced diet, regular exercise, and stress management.</li>
-            <li><strong>Monitor Progress:</strong> Track your waist circumference, weight, and overall health regularly.</li>
-        </ul>
-    </p>
+    
+    <h3>Why This Calculator Belongs to the Environment Sector?</h3>
+    <p>This <strong>Sludge Recirculation Rate Calculator</strong> is categorized under the <strong>Environment sector</strong> because it is fundamental to the design and operation of <strong>biological wastewater treatment plants</strong>. It helps maintain the correct balance of microorganisms needed to degrade organic pollutants effectively.</p>
 
-    <h3>Disclaimer</h3>
-    <p>
-        This calculator provides estimates based on the ABSI formula and is not a substitute for professional medical advice. Always consult a healthcare provider for personalized recommendations.
-    </p>
+    <h3>Why is Sludge Recirculation Rate Important?</h3>
+    <p>Determining the correct recirculation rate is crucial for:</p>
+    <ul>
+        <li><strong>Process Stability:</strong> Maintaining consistent microbial concentration in the aeration tank.</li>
+        <li><strong>Efficient Treatment:</strong> Ensuring complete breakdown of organic matter.</li>
+        <li><strong>Operational Control:</strong> Adjusting for changes in flow, load, or settleability.</li>
+    </ul>
+
+    <h3>Validations:</h3>
+    <ul>
+        <li><strong>All Inputs Must Be Positive:</strong> Q, X, and Xr must be greater than zero.</li>
+        <li><strong>Xr Must Be Greater Than X:</strong> Return sludge must have a higher concentration than MLSS in the aeration tank for recirculation to be meaningful.</li>
+        <li><strong>Xr ≤ 10,000 g/m³:</strong> Unless thickeners are used, the return sludge concentration should not exceed 10,000 g/m³.</li>
+        <li><strong>Unit Consistency:</strong> All concentrations must be in g/m³ and flow in m³/day.</li>
+    </ul>
+
+    <h3>Real-life Applications:</h3>
+    <ul>
+        <li><strong>Municipal Sewage Plants:</strong> Controlling biomass levels for stable treatment performance.</li>
+        <li><strong>Industrial Effluent Treatment:</strong> Recycling high-strength return sludge for biological degradation.</li>
+        <li><strong>Environmental Engineering Design:</strong> Sizing and balancing aeration tanks and clarifiers.</li>
+        <li><strong>Process Troubleshooting:</strong> Identifying under- or over-recirculation issues causing poor effluent quality.</li>
+    </ul>
+
+    <h3>Conclusion:</h3>
+    <p>The <strong>Sludge Recirculation Rate (Qr) calculation</strong> is a <strong>critical tool in activated sludge process design</strong>. It ensures that the right amount of biomass is returned to the aeration tank, which directly impacts treatment efficiency and environmental compliance.</p>
 </div>
 
+
+
+
 <script>
-   function calculateABSI() {
-    // Get input values
-    const sex = document.getElementById('sex').value;
-    const age = parseFloat(document.getElementById('age').value);
-    const height = parseFloat(document.getElementById('height').value);
-    const weight = parseFloat(document.getElementById('weight').value);
-    const waist = parseFloat(document.getElementById('waist').value);
-    const result = document.getElementById('result');
+    function calculateRecirculationRate() {
+        const Q = parseFloat(document.getElementById("flow_rate").value);
+        const X = parseFloat(document.getElementById("mlss").value);
+        const Xr = parseFloat(document.getElementById("return_biomass").value);
+        const resultElement = document.getElementById("result");
+        const feedbackElement = document.getElementById("feedback");
 
-    // Reset previous results
-    result.innerHTML = "";
+        resultElement.innerHTML = "";
+        feedbackElement.innerHTML = "";
 
-    // Validate inputs
-    if (isNaN(age) || age <= 0) {
-        result.innerHTML = "❌ Please enter a valid age (must be a positive number).";
-        return;
+        // Validations
+        if (isNaN(Q) || Q <= 0 || isNaN(X) || X <= 0 || isNaN(Xr) || Xr <= 0) {
+            resultElement.innerHTML = "❌ <strong>Error:</strong> All inputs must be positive numbers.";
+            return;
+        }
+
+        if (Xr <= X) {
+            resultElement.innerHTML = "❌ <strong>Error:</strong> Return sludge concentration (Xr) must be greater than MLSS concentration (X).";
+            return;
+        }
+
+        if (Xr > 10000) {
+            resultElement.innerHTML = "❌ <strong>Error:</strong> Xr should not exceed 10,000 g/m³ unless thickeners are used.";
+            return;
+        }
+
+        // Sludge Recirculation Rate Formula
+        const Qr = (Q * X) / (Xr - X);
+
+        // Feedback logic
+        let feedbackMessage = "";
+        let feedbackColor = "black";
+
+        if (Qr > Q * 1.5) {
+            feedbackMessage = "⚠️ <strong>High Recirculation:</strong> Check for possible excessive sludge return or low Xr.";
+            feedbackColor = "orange";
+        } else if (Qr < Q * 0.3) {
+            feedbackMessage = "⚠️ <strong>Low Recirculation:</strong> May not maintain sufficient biomass in aeration tank.";
+            feedbackColor = "red";
+        } else {
+            feedbackMessage = "✅ <strong>Optimal Recirculation:</strong> Sludge return rate is within typical range.";
+            feedbackColor = "green";
+        }
+
+        resultElement.innerHTML = `
+            <strong>Sludge Recirculation Rate (Q<sub>r</sub>):</strong> ${Qr.toFixed(2)} m³/day<br>
+            <strong style="color: ${feedbackColor};">${feedbackMessage}</strong>
+        `;
     }
-    if (isNaN(height) || height <= 0) {
-        result.innerHTML = "❌ Please enter a valid height (must be a positive number).";
-        return;
-    }
-    if (isNaN(weight) || weight <= 0) {
-        result.innerHTML = "❌ Please enter a valid weight (must be a positive number).";
-        return;
-    }
-    if (isNaN(waist) || waist <= 0) {
-        result.innerHTML = "❌ Please enter a valid waist circumference (must be a positive number).";
-        return;
-    }
-
-    // Convert height and waist circumference from cm to meters
-    const heightMeters = height / 100;
-    const waistMeters = waist / 100;
-
-    // Calculate BMI
-    const bmi = weight / (heightMeters * heightMeters);
-
-    // Calculate ABSI
-    const absi = waistMeters / (Math.pow(bmi, 2 / 3) * Math.pow(heightMeters, 1 / 2));
-
-    // Round ABSI to 5 decimal places
-    const absiRounded = parseFloat(absi.toFixed(6));
-
-    // Calculate ABSI z-score (using adjusted mean and standard deviation)
-    const absiMean = 0.0760; // Adjusted mean
-    const absiStdDev = 0.004; // Assumed standard deviation
-    const absiZScore = (absi - absiMean) / absiStdDev;
-
-    // Round z-score to 2 decimal places
-    const absiZScoreRounded = parseFloat(absiZScore.toFixed(2));
-
-    // Interpret ABSI z-score
-    let interpretation = "";
-    if (absiZScoreRounded < -1) {
-        interpretation = "Your ABSI z-score indicates a **low risk** of premature mortality.";
-    } else if (absiZScoreRounded >= -1 && absiZScoreRounded <= 1) {
-        interpretation = "Your ABSI z-score indicates an **average risk** of premature mortality.";
-    } else if (absiZScoreRounded > 1 && absiZScoreRounded <= 2) {
-        interpretation = "Your ABSI z-score indicates a **moderate risk** of premature mortality.";
-    } else if (absiZScoreRounded > 2 && absiZScoreRounded <= 3) {
-        interpretation = "Your ABSI z-score indicates a **high risk** of premature mortality.";
-    } else {
-        interpretation = "Your ABSI z-score indicates a **very high risk** of premature mortality. ❗❗❗";
-    }
-
-    // Display results
-    result.innerHTML = `
-        <strong>ABSI:</strong> ${absiRounded}<br>
-        <strong>ABSI z-score:</strong> ${absiZScoreRounded}<br>
-        <strong>Interpretation:</strong> ${interpretation}
-    `;
-}
 </script>
+
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
-
-
-
-
 
 
 
@@ -483,6 +357,7 @@ select {
         return false;
     });
     </script>
+
 <div id="footer"></div>
 <script>
     fetch("header.html").then(response => response.text()).then(data => document.getElementById("header").innerHTML = data);
@@ -591,5 +466,5 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 
-<!-- Mirrored from dsathemes.com/html/martex_1.1/files/project-details.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 08 Mar 2024 16:40:05 GMT -->
+<!-- Mirrored from dsathemes.com/html/martex_1.1/files/project-details.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 08 Mar 2024 16:40:05 GMT -->
 </html>

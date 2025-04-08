@@ -65,7 +65,7 @@
       background-color: #f5f5f5;
     }
     .calculator-container {
-      max-width: 1200px;
+      max-width: 1000px;
       margin: 20px auto;
       padding: 20px;
       background: #ffffff;
@@ -81,6 +81,7 @@
       font-size: 1.8rem;
       margin-bottom: 30px;
     }
+    
     .form-group {
       margin-bottom: 15px;
     }
@@ -152,6 +153,14 @@
     font-size: 20px;
 }
 
+.note-container ul{
+    margin: 10px;
+}
+
+.note-container{
+    margin-top: 10px;
+}
+
 .note-container p {
     margin-top: 15px;
     text-align: justify;
@@ -175,80 +184,6 @@ select {
     background-color: rgb(223, 241, 247);
 
 }
-
-.input-row {
-        display: flex;
-        justify-content: space-between;
-        gap: 10px;
-      }
-  
-      .input-row .form-group {
-        width: 48%;
-      }
-      @media (max-width: 768px) {
-    .input-row {
-        flex-direction: column;
-        gap: 5px;
-    }
-
-    .input-row .form-group {
-        width: 100%;
-    }
-}
- /* Centering the table */
- .table-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-           
-        }
-    
-        /* Table Styling */
-        .custom-table {
-            border-collapse: collapse;
-            width: 80%;
-            max-width: 600px;
-            text-align: center;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-    
-        .custom-table thead {
-            background-color: #1560bd; /* Light blue header */
-            color: white;
-        }
-    
-        .custom-table th, .custom-table td {
-            padding: 12px 16px;
-            border: 1px solid #ddd;
-        }
-    
-        .custom-table tr:nth-child(even) {
-            background-color: #f9f9f9; /* Zebra striping */
-        }
-    
-        .custom-table tr:hover {
-            background-color: #e6f7ff; /* Hover effect */
-        }
-    
-        /* Heading Style */
-        .table-heading {
-            margin-bottom: 20px;
-            color: #2c3e50;
-        }
-        
-
-        @media (max-width: 600px) {
-            .custom-table {
-        width: 90%; /* Adjusts width for mobile */
-        margin: 20px auto; /* Ensures it stays centered */
-    }
-    
-    .custom-table th, .custom-table td{
-        font-size: 14px;
-        padding: 8px;
-    }
-}
-
 </style>
 	</head>
 
@@ -268,193 +203,111 @@ select {
 <div id="header"></div>
 
 <div class="calculator-container">
-    <h2>A Body Shape Index (ABSI) Calculator</h2>
+    <h2>Biomass Concentration (Xr) Calculator</h2>
 
-    <div class="input-row">
-        <!-- Sex Input -->
-        <div class="form-group">
-            <label for="sex">Gender:</label>
-            <select id="sex">
-                <option value="female">Female</option>
-                <option value="male">Male</option>
-            </select>
-        </div>
-
-        <!-- Age Input -->
-        <div class="form-group">
-            <label for="age">Age (years):</label>
-            <input type="number" id="age" placeholder="Enter your age" step="1">
-        </div>
-    </div>
-
-    <div class="input-row">
-        <!-- Height Input -->
-        <div class="form-group">
-            <label for="height">Height (cm):</label>
-            <input type="number" id="height" placeholder="Enter your height" step="0.1">
-        </div>
-
-        <!-- Weight Input -->
-        <div class="form-group">
-            <label for="weight">Weight (kg):</label>
-            <input type="number" id="weight" placeholder="Enter your weight" step="0.1">
-        </div>
-    </div>
-
-    <!-- Waist Circumference Input -->
     <div class="form-group">
-        <label for="waist">Waist Circumference (cm):</label>
-        <input type="number" id="waist" placeholder="Enter waist circumference" step="0.1">
+        <label for="svi">Sludge Volume Index (SVI) (mL/g):</label>
+        <input type="number" id="svi" placeholder="Enter SVI" step="any">
     </div>
 
-    <!-- Calculate Button -->
-    <button class="cal-btn" onclick="calculateABSI()">Calculate ABSI</button>
-
-    <!-- Result Display -->
+    <button class="cal-btn" onclick="calculateBiomassConcentration()">Calculate</button>
     <div class="result" id="result"></div>
 </div>
 
 <div class="note-container">
-    <h3>What is A Body Shape Index (ABSI)?</h3>
-    <p>
-        ABSI is a measure of body shape that uses waist circumference, height, and weight to assess health risks associated with body shape. Unlike BMI, ABSI accounts for fat distribution, making it a better predictor of mortality risk.
-    </p>
+    <h3>Note:</h3>
+    <p>This calculator determines the <strong>Biomass Concentration in Return Sludge (Xr)</strong> using the <strong>Sludge Volume Index (SVI)</strong>, a vital parameter in the <strong>Activated Sludge Process</strong> of biological wastewater treatment.</p>
 
-    <h3>What is ABSI z-score?</h3>
-    <p>
-        The ABSI z-score compares your ABSI to a reference population of the same age and sex. It indicates how your body shape compares to the average:
-        <ul>
-            <li><strong>Low z-score:</strong> Lower risk of health issues.</li>
-            <li><strong>Average z-score:</strong> Moderate risk.</li>
-            <li><strong>High z-score:</strong> Higher risk of premature mortality.</li>
-        </ul>
-    </p>
+    <p>It plays a critical role in <strong>environmental engineering, wastewater treatment, and plant design</strong> by ensuring effective sludge recycling and maintaining proper microbial density in aeration tanks.</p>
 
-    <h3>Why is ABSI Important?</h3>
-    <p>
-        ABSI is a powerful tool for assessing health risks because it considers fat distribution, which is a key factor in conditions like:
-        <ul>
-            <li>Cardiovascular disease</li>
-            <li>Type 2 diabetes</li>
-            <li>Metabolic syndrome</li>
-            <li>Premature mortality</li>
-        </ul>
-    </p>
+    <p><strong>X<sub>r</strong> represents the concentration of biomass (in g/m³) in the return activated sludge (RAS) line, and is calculated using the inverse relationship with the Sludge Volume Index (SVI).</p>
+    
     <h3>Explanation of Parameters:</h3>
     <ul>
-        <li><strong>Gender:</strong> Important for calculating the ABSI z-score, which is adjusted based on differences in body shape between males and females.</li>
-        <li><strong>Age (years):</strong> Used for z-score comparison against a reference population. Body shape risk changes with age.</li>
-        <li><strong>Height (cm):</strong> Affects both BMI and ABSI values. Taller individuals may distribute fat differently than shorter individuals.</li>
-        <li><strong>Weight (kg):</strong> Used in BMI calculation. Helps determine how much body mass a person has relative to their height.</li>
-        <li><strong>Waist Circumference (cm):</strong> The key input in ABSI. It reflects abdominal fat, which is a critical predictor of metabolic and cardiovascular risk.</li>
+        <li><strong>SVI (Sludge Volume Index):</strong> A measure of sludge settleability, defined in mL/g.</li>
+        <li><strong>Xr:</strong> Biomass concentration in return sludge (g/m³).</li>
     </ul>
-    <h3>Interpreting Your Results</h3>
-    <p>
-        Based on your ABSI z-score:
-        <ul>
-            <li><strong>z-score < -1:</strong> Low risk of premature mortality.</li>
-            <li><strong>-1 ≤ z-score ≤ 1:</strong> Average risk.</li>
-            <li><strong>1 < z-score ≤ 2:</strong> Moderate risk.</li>
-            <li><strong>2 < z-score ≤ 3:</strong> High risk.</li>
-            <li><strong>z-score > 3:</strong> Very high risk.</li>
-        </ul>
-    </p>
 
-    <h3>What Can You Do?</h3>
-    <p>
-        If your ABSI z-score indicates a high risk:
-        <ul>
-            <li><strong>Consult a Doctor:</strong> Seek professional medical advice for a comprehensive health evaluation.</li>
-            <li><strong>Adopt a Healthy Lifestyle:</strong> Focus on a balanced diet, regular exercise, and stress management.</li>
-            <li><strong>Monitor Progress:</strong> Track your waist circumference, weight, and overall health regularly.</li>
-        </ul>
-    </p>
+    <h3>Why This Calculator Belongs to the Environment Sector?</h3>
+    <p>This <strong>Biomass Concentration Calculator</strong> supports the <strong>Environment sector</strong> by helping optimize the biological processes in <strong>wastewater treatment plants</strong>. It helps operators monitor and adjust sludge quality for effective pollutant removal and process control.</p>
 
-    <h3>Disclaimer</h3>
-    <p>
-        This calculator provides estimates based on the ABSI formula and is not a substitute for professional medical advice. Always consult a healthcare provider for personalized recommendations.
-    </p>
+    <h3>Why is Biomass Concentration Important?</h3>
+    <p>Calculating Xr is important for:</p>
+    <ul>
+        <li><strong>Ensuring Proper Microbial Activity:</strong> Affects the degradation of organic material in aeration tanks.</li>
+        <li><strong>Sludge Recycle Efficiency:</strong> Indicates the quality and concentration of return sludge being recycled.</li>
+        <li><strong>Operational Monitoring:</strong> Used to assess sludge settleability and overall system health.</li>
+    </ul>
+
+    <h3>Validations:</h3>
+    <ul>
+        <li><strong>SVI Must Be Positive:</strong> Enter a valid, non-zero SVI value.</li>
+        <li><strong>Ideal SVI Range:</strong> For good settling, SVI should be between <strong>100–150 mL/g</strong>.</li>
+        <li><strong>Maximum Xr Limit:</strong> Should not exceed <strong>10,000 g/m³</strong> unless a thickener is used.</li>
+        <li><strong>Unit Consistency:</strong> SVI must be in mL/g to compute Xr correctly.</li>
+    </ul>
+
+    <h3>Real-life Applications:</h3>
+    <ul>
+        <li><strong>Municipal Wastewater Plants:</strong> Optimizing return sludge concentration for treatment stability.</li>
+        <li><strong>Industrial Effluent Systems:</strong> Monitoring sludge quality for high-strength waste management.</li>
+        <li><strong>Environmental Compliance:</strong> Ensuring treatment meets discharge standards by monitoring biomass levels.</li>
+        <li><strong>Operational Control:</strong> Helps in detecting poor settleability and bulking issues early.</li>
+    </ul>
+
+    <h3>Conclusion:</h3>
+    <p>The <strong>Biomass Concentration (Xr) calculation</strong> is a <strong>key tool in biological wastewater treatment</strong>. It enables better process control, stable treatment performance, and compliance with environmental regulations by providing insights into sludge quality and behavior.</p>
 </div>
 
+
+
 <script>
-   function calculateABSI() {
-    // Get input values
-    const sex = document.getElementById('sex').value;
-    const age = parseFloat(document.getElementById('age').value);
-    const height = parseFloat(document.getElementById('height').value);
-    const weight = parseFloat(document.getElementById('weight').value);
-    const waist = parseFloat(document.getElementById('waist').value);
-    const result = document.getElementById('result');
+    function calculateBiomassConcentration() {
+        const svi = parseFloat(document.getElementById("svi").value);
+        const resultElement = document.getElementById("result");
 
-    // Reset previous results
-    result.innerHTML = "";
+        // Reset previous result
+        resultElement.innerHTML = "";
 
-    // Validate inputs
-    if (isNaN(age) || age <= 0) {
-        result.innerHTML = "❌ Please enter a valid age (must be a positive number).";
-        return;
+        // Validations
+        if (isNaN(svi) || svi <= 0) {
+            resultElement.innerHTML = "❌ <strong>Error:</strong> SVI must be a positive number.";
+            return;
+        }
+
+        // Calculate biomass concentration
+        const Xr = 1000000 / svi;
+
+        // Feedback based on SVI
+        let feedback = "";
+        let feedbackColor = "black";
+
+        if (svi < 100) {
+            feedback = "⚠️ <strong>Low SVI:</strong> May indicate sludge is too dense or bulking.";
+            feedbackColor = "orange";
+        } else if (svi >= 100 && svi <= 150) {
+            feedback = "✅ <strong>Optimal Range:</strong> Good sludge settling conditions.";
+            feedbackColor = "green";
+        } else {
+            feedback = "❌ <strong>High SVI:</strong> Poor settling or possible sludge bulking.";
+            feedbackColor = "red";
+        }
+
+        // Validation for Xr range
+        if (Xr > 10000) {
+            feedback += " ⚠️ <strong>Warning:</strong> X<sub>r</sub> exceeds 10,000 g/m³. A thickener may be required.";
+        }
+
+        // Display result
+        resultElement.innerHTML = `
+            <strong>Biomass Concentration (X<sub>r</sub>):</strong> ${Xr.toFixed(2)} g/m³<br>
+            <span style="color: ${feedbackColor};">${feedback}</span>
+        `;
+        resultElement.style.color = "black";
     }
-    if (isNaN(height) || height <= 0) {
-        result.innerHTML = "❌ Please enter a valid height (must be a positive number).";
-        return;
-    }
-    if (isNaN(weight) || weight <= 0) {
-        result.innerHTML = "❌ Please enter a valid weight (must be a positive number).";
-        return;
-    }
-    if (isNaN(waist) || waist <= 0) {
-        result.innerHTML = "❌ Please enter a valid waist circumference (must be a positive number).";
-        return;
-    }
-
-    // Convert height and waist circumference from cm to meters
-    const heightMeters = height / 100;
-    const waistMeters = waist / 100;
-
-    // Calculate BMI
-    const bmi = weight / (heightMeters * heightMeters);
-
-    // Calculate ABSI
-    const absi = waistMeters / (Math.pow(bmi, 2 / 3) * Math.pow(heightMeters, 1 / 2));
-
-    // Round ABSI to 5 decimal places
-    const absiRounded = parseFloat(absi.toFixed(6));
-
-    // Calculate ABSI z-score (using adjusted mean and standard deviation)
-    const absiMean = 0.0760; // Adjusted mean
-    const absiStdDev = 0.004; // Assumed standard deviation
-    const absiZScore = (absi - absiMean) / absiStdDev;
-
-    // Round z-score to 2 decimal places
-    const absiZScoreRounded = parseFloat(absiZScore.toFixed(2));
-
-    // Interpret ABSI z-score
-    let interpretation = "";
-    if (absiZScoreRounded < -1) {
-        interpretation = "Your ABSI z-score indicates a **low risk** of premature mortality.";
-    } else if (absiZScoreRounded >= -1 && absiZScoreRounded <= 1) {
-        interpretation = "Your ABSI z-score indicates an **average risk** of premature mortality.";
-    } else if (absiZScoreRounded > 1 && absiZScoreRounded <= 2) {
-        interpretation = "Your ABSI z-score indicates a **moderate risk** of premature mortality.";
-    } else if (absiZScoreRounded > 2 && absiZScoreRounded <= 3) {
-        interpretation = "Your ABSI z-score indicates a **high risk** of premature mortality.";
-    } else {
-        interpretation = "Your ABSI z-score indicates a **very high risk** of premature mortality. ❗❗❗";
-    }
-
-    // Display results
-    result.innerHTML = `
-        <strong>ABSI:</strong> ${absiRounded}<br>
-        <strong>ABSI z-score:</strong> ${absiZScoreRounded}<br>
-        <strong>Interpretation:</strong> ${interpretation}
-    `;
-}
 </script>
+
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
-
-
-
-
 
 
 
@@ -483,6 +336,7 @@ select {
         return false;
     });
     </script>
+
 <div id="footer"></div>
 <script>
     fetch("header.html").then(response => response.text()).then(data => document.getElementById("header").innerHTML = data);
@@ -591,5 +445,5 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 
-<!-- Mirrored from dsathemes.com/html/martex_1.1/files/project-details.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 08 Mar 2024 16:40:05 GMT -->
+<!-- Mirrored from dsathemes.com/html/martex_1.1/files/project-details.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 08 Mar 2024 16:40:05 GMT -->
 </html>

@@ -65,60 +65,92 @@
       background-color: #f5f5f5;
     }
     .calculator-container {
-      max-width: 1200px;
-      margin: 20px auto;
-      padding: 20px;
-      background: #ffffff;
-      border-radius: 8px;
-      border: 2px dotted #1560bd;
-
-      box-shadow: 20px 14px 8px rgba(0, 0, 0, 0.2);
-    }
-    .calculator-container h2 {
-      text-align: center;
-      margin-bottom: 20px;
-      color: #1560bd;
-      font-size: 1.8rem;
-      margin-bottom: 30px;
-    }
-    .form-group {
-      margin-bottom: 15px;
-    }
-    .form-group label {
-      display: block;
-      margin-bottom: 5px;
-      color: #333;
-    }
-    .form-group input {
-      width: 100%;
-      padding: 8px;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-      background-color: rgb(223, 241, 247);
+        max-width: 1200px;
+        margin: 20px auto;
+        padding: 20px;
+        background: #ffffff;
+        border-radius: 8px;
+        border: 2px dotted #1560bd;
+        box-shadow: 20px 14px 8px rgba(0, 0, 0, 0.2);
+      }
+      
+      .calculator-container h2 {
+        text-align: center;
+        margin-bottom: 20px;
+        color: #1560bd;
+        font-size: 1.8rem;
+      }
 
     
-    }
-    .cal-btn {
-      width: 100%;
-      padding: 10px;
-      background-color: #1560bd;
-      color: #fff;
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
-      font-size: 16px;
-    }
-    .cal-btn:hover {
-      background-color: #0056b3;
-    }
-    .result {
-      margin-top: 20px;
-      font-size: 24px;
-      color: #333;
-      text-align: center;
-      color: rgb(36, 116, 2);
+  
+      .force-per {
+        display: flex;
+        justify-content: space-between;
+        gap: 10px;
+      }
+  
+      .force-per .form-group {
+        width: 48%;
+      }
+      @media (max-width:768px){
+        .force-per {
+            flex-direction: column;
+            gap: 5px;
+        }
+        .force-per .form-group{
+            width: 100%;
+        }
+      }
+
+
+      .section {
+        display: none; 
+      }
      
-    }
+      .active {
+        display: block; 
+      }
+  
+      .form-group {
+        margin-bottom: 15px;
+        
+      }
+  
+      .form-group label {
+        display: block;
+        margin-bottom: 5px;
+        color: #333;
+      }
+  
+      .form-group input {
+        width: 100%;
+        padding: 8px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        background-color: rgb(223, 241, 247);
+      }
+  
+      .cal-btn {
+        width: 100%;
+        padding: 10px;
+        background-color: #1560bd;
+        color: #fff;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 16px;
+      }
+  
+      .cal-btn:hover {
+        background-color: #0056b3;
+      }
+  
+      .result {
+        margin-top: 20px;
+        font-size: 24px;
+        color: rgb(36, 116, 2);
+        text-align: center;
+      }
     @media (max-width: 768px) {
     .calculator-container {
         margin: 20px 15px; 
@@ -147,24 +179,25 @@
 }
 
 .note-container h3 {
-    margin:15px 0;
-    color: #007bff;
-    font-size: 20px;
-}
-
-.note-container ul{
-    margin: 10px;
-}
-
-.note-container{
     margin-top: 10px;
+    color: #007bff;
+    font-size: 18px;
+}
+.note-container ul{
+    margin-top: 5px;
 }
 
 .note-container p {
-    margin-top: 15px;
+    margin-top: 10px;
     text-align: justify;
 }
 strong{
+    color: #0056b3;
+}
+.feedback {
+    margin-top: 20px;
+    font-size: 24px;
+    text-align: center;
     color: #0056b3;
 }
 @media (max-width: 768px) {
@@ -183,67 +216,6 @@ select {
     background-color: rgb(223, 241, 247);
 
 }
-.input-row {
-        display: flex;
-        justify-content: space-around;
-        gap: 10px;
-      }
-  
-      .input-row .form-group {
-        width: 48%;
-      }
-      @media (max-width: 768px) {
-    .input-row {
-        flex-direction: column;
-        gap: 5px;
-    }
-
-    .input-row .form-group {
-        width: 100%;
-    }
-}
-.calculation-nav {
-  display: flex;
-  flex-direction: row; /* Ensures horizontal layout on desktop */
-  justify-content: center;
-  list-style-type: none;
-  padding: 0;
-}
-
-.calculation-item {
-  margin: 0 20px;
-}
-
-.calculation-link {
-  display: inline-block; /* Prevents full-width background */
-  background-color: #1560bd;
-  padding: 10px 20px;
-  color: white;
-  border-radius: 10px;
-  text-decoration: none;
-  font-size: 16px;
-  transition: background-color 0.3s ease, transform 0.3s ease;
-}
-
-
-
-@media (max-width: 768px) {
-  .calculation-nav {
-    flex-direction: column; /* Changes to vertical layout only for mobile */
-    align-items: center;
-  }
-
-  .calculation-item {
-    margin: 10px 0;
-  }
-
-  .calculation-link {
-    display: inline-block;
-    padding: 12px 25px;
-    font-size: 18px;
-    width: fit-content; /* Ensures the background does not stretch */
-  }
-}
 
 </style>
 	</head>
@@ -252,131 +224,134 @@ select {
 
 
 	<body> 
-
-
-
-
-
-
 		
 <br><br><br><br>
 
 <div id="header"></div>
 
 
+
 <div class="calculator-container">
-    <h2>Total Brake Horsepower (BHP) Required Calculator</h2>
-
-    <!-- Input Section -->
-    <div class="input-row">
+    <h2>Safety Risk Assessment Calculator</h2>
+    
+ 
         <div class="form-group">
-            <label for="specificWeightBHP">Specific Weight of Water (kg/m³):</label>
-            <input type="number" id="specificWeightBHP" placeholder="Enter specific weight" required>
+            <label for="probability">Probability of Accident :</label>
+            <input type="number" id="probability" step="0.01" min="0" max="1" placeholder="Enter Probability of Accident">
         </div>
-
         <div class="form-group">
-            <label for="dischargeBHP">Discharge of Pump (m³/s):</label>
-            <input type="number" id="dischargeBHP" placeholder="Enter discharge" required>
+            <label for="consequence">Consequence Severity ($):</label>
+            <input type="number" id="consequence" min="0" placeholder="Enter monetary value">
         </div>
-    </div>
-        <div class="input-row">
-        <div class="form-group">
-            <label for="totalHeadBHP">Total Head (m):</label>
-            <input type="number" id="totalHeadBHP" placeholder="Enter total head" required>
-        </div>
+   
 
-        <div class="form-group">
-            <label for="efficiency">Pump Efficiency (%):</label>
-            <input type="number" id="efficiency" placeholder="Enter efficiency" required>
-        </div>
-    </div>
-
-    <!-- Calculate Button -->
-    <button class="cal-btn" onclick="calculateTotalBHP()">Calculate Total BHP</button>
-
-    <!-- Result Display -->
-    <div class="result" id="bhpResult"></div>
+    <button class="cal-btn" onclick="calculateRisk()">Calculate Risk</button>
+    
+    <div class="result" id="result"></div>
+    <p class="feedback" id="feedback"></p>
 </div>
-    <!-- Detailed Note Container -->
-    <div class="note-container">
-        <h3>Understanding the Parameters:</h3>
-        <ul>
-            <li><strong>Specific Weight of Water (kg/m³):</strong> This represents the density of the fluid being pumped. For water, it is typically 1000 kg/m³ at standard conditions. If pumping other fluids, adjust accordingly.</li>
 
-            <li><strong>Discharge of Pump (m³/s):</strong> This refers to the flow rate of the pump in cubic meters per second. It is the volume of liquid the pump moves in a second.</li>
+<div class="note-container">
+    <h3>Note:</h3>
+    <p><strong>ISO 2002 Risk Formula</strong> is a fundamental equation in risk management that quantifies potential losses by considering both the likelihood and impact of adverse events. This formula enables organizations to prioritize risks based on their severity and probability, helping allocate resources effectively. It is widely used across industries for decision-making in safety planning, hazard assessment, and establishing risk thresholds. The approach aligns with international best practices for proactive risk mitigation and continuous improvement in safety performance.</p>
 
-            <li><strong>Total Head (m):</strong> This is the total vertical distance the fluid is being lifted or the energy required to move the fluid, including frictional losses in the system.</li>
+    <h3>Key Parameters:</h3>
+    <ul>
+        <li><strong>Probability (p)</strong> - Likelihood of an accident occurring (expressed as a value between 0 and 1, where 0 means impossible and 1 means certain)</li>
+        <li><strong>Consequence (C)</strong> - The severity of impact if the accident occurs (typically measured in monetary terms, injuries, or other quantifiable units)</li>
+    </ul>
 
-            <li><strong>Pump Efficiency (%):</strong> The efficiency of the pump is how effectively it converts mechanical power into hydraulic power. It is measured as a percentage and should be between 0% and 100%.</li>
+    <h3>Real-Life Applications:</h3>
+    <ul>
+        <li><strong>Workplace Safety</strong> - Assessing risks of machinery accidents or chemical exposures</li>
+        <li><strong>Process Industries</strong> - Evaluating potential failures in chemical plants or refineries</li>
+        <li><strong>Construction Safety</strong> - Calculating fall risks or structural collapse probabilities</li>
+        <li><strong>Transportation</strong> - Assessing accident risks in aviation, rail, or road transport</li>
+    </ul>
 
-            <li><strong>Total Brake Horsepower (BHP):</strong> This is the actual power required to drive the pump, accounting for losses due to inefficiency.
-            </li>
-        </ul>
+    <h3>Why Not in Other Calculators?</h3>
+     <ul>
+        <li>Safety incidents have clear probabilities and measurable consequences</li>
+        <li>The direct cause-effect relationship is more established in safety scenarios</li>
+        <li>Safety regulations often require quantitative risk assessments</li>
+    </ul>
+    </p>
+    <h3>Why This Formula Matters in Safety:</h3>
+    <p>This formula provides a quantitative approach to assess potential hazards, allowing safety professionals to prioritize risks based on their probability and potential consequences, leading to better resource allocation for risk mitigation.</p>
 
-        <!-- Real-Life Applications -->
-        <h3>Real-Life Applications of BHP Calculation:</h3>
-        <ul>
-            <li><strong>Industrial Pumps:</strong> Used to calculate the power required to operate water, oil, and chemical pumps in industries like manufacturing and petroleum.</li>
+    <h3>Industry Standards & Guidelines:</h3>
+    <p>This formula aligns with ISO 31000 (Risk Management), OSHA guidelines, and process safety management (PSM) standards used in high-risk industries.</p>
 
-            <li><strong>Water Treatment Plants:</strong> Ensures efficient operation by calculating the energy needed to lift and circulate water through filtration systems.</li>
+    <h3>Conclusion:</h3>
+    <p>The ISO 2002 risk formula provides a simple yet powerful tool for safety professionals to make data-driven decisions about risk mitigation. By quantifying both probability and consequence, organizations can focus their safety efforts where they will have the greatest impact, potentially saving lives and reducing financial losses.</p>
+</div>
 
-            <li><strong>HVAC Systems:</strong> Used in heating, ventilation, and air conditioning to measure the power required for circulation pumps.</li>
-
-            <li><strong>Agriculture:</strong> Helps calculate the horsepower needed for irrigation pumps to deliver water across large fields.</li>
-
-            <li><strong>Fire Protection Systems:</strong> Ensures reliable water delivery through pump systems in fire suppression and emergency services.</li>
-        </ul>
-
-        <!-- Conclusion -->
-        <h3>Conclusion:</h3>
-        <p>
-            The Total BHP Calculator is a critical tool for evaluating the energy consumption of pump systems across various industries. By understanding the relationship between the specific weight of the fluid, discharge rate, total head, and efficiency, you can accurately determine the power required. This calculation is vital for optimizing energy use, reducing operational costs, and ensuring the reliable performance of mechanical systems.
-        </p>
-        <h3>How to calculate Total Pump Delivery Head  and Pump Efficiency?</h3>
-        <p>
-          If you need more information on how to calculate the Total Pump Delivery Head  and Total Pump Delivery Head , you can refer to the following resources:
-        </p>
-        <ul class="calculation-nav">
-            <li class="calculation-item">
-                <a href="pumpdeliveryheadcalculator.html" class="calculation-link" >Total Pump Delivery Head Calculator</a>
-            </li>
-            <li class="calculation-item">
-              <a href="pumpeffiencycal.html" class="calculation-link">Pump Efficiency Calculator</a>
-            </li>
-          </ul>
-    </div>
-
-<!-- JavaScript Logic -->
 <script>
-    function calculateTotalBHP() {
-        const specificWeight = parseFloat(document.getElementById('specificWeightBHP').value);
-        const discharge = parseFloat(document.getElementById('dischargeBHP').value);
-        const totalHead = parseFloat(document.getElementById('totalHeadBHP').value);
-        const efficiency = parseFloat(document.getElementById('efficiency').value) / 100;
-        const result = document.getElementById('bhpResult');
-
-        result.innerHTML = "";
-
-        if (isNaN(specificWeight) || isNaN(discharge) || isNaN(totalHead) || isNaN(efficiency) || specificWeight <= 0 || discharge <= 0 || totalHead <= 0 || efficiency <= 0 || efficiency > 1) {
-            result.innerHTML = "❌ Please enter valid input values.";
+    function calculateRisk() {
+        // Get input values
+        const probability = parseFloat(document.getElementById('probability').value);
+        const consequence = parseFloat(document.getElementById('consequence').value);
+        const resultElement = document.getElementById('result');
+        const feedbackElement = document.getElementById('feedback');
+    
+        // Reset previous messages
+        resultElement.innerHTML = '';
+        feedbackElement.innerHTML = '';
+        feedbackElement.style.color = 'black';
+    
+        // Validate inputs
+        if (isNaN(probability) || probability < 0 || probability > 1) {
+            resultElement.innerHTML = '<strong>Probability of Accident</strong> must be between 0 and 1. A value outside this range is not a valid probability.';
             return;
         }
-
-        // Calculate Total Brake Horsepower (BHP)
-        const totalBHP = (specificWeight * discharge * totalHead) / (efficiency * 745.7);
-        const totalBHPRounded = totalBHP.toFixed(2);
-
-        result.innerHTML = `<strong>Total Brake Horsepower (BHP):</strong> ${totalBHPRounded} BHP`;
+    
+        if (isNaN(consequence) || consequence < 0) {
+            resultElement.innerHTML = '<strong>Consequence Severity</strong> must be zero or positive. Negative impact values are not meaningful in this context.';
+            return;
+        }
+    
+        // Calculate risk
+        const risk = probability * consequence;
+    
+        // Determine risk level
+        let riskLevel = 'No Risk';
+        if (risk > 0 && risk < 100) riskLevel = 'Low Risk';
+        else if (risk >= 100 && risk < 1000) riskLevel = 'Moderate Risk';
+        else if (risk >= 1000 && risk < 10000) riskLevel = 'High Risk';
+        else if (risk >= 10000) riskLevel = 'Extreme Risk';
+    
+        // Display result
+        resultElement.innerHTML = `
+            <p><strong>Calculated Risk:</strong> $${risk.toFixed(2)}</p>
+          
+        `;
+    
+        // Provide feedback
+        if (probability === 0) {
+            feedbackElement.style.color = 'blue';
+            feedbackElement.innerHTML = 'Note: With zero probability, risk is zero regardless of consequence.';
+        } else if (consequence === 0) {
+            feedbackElement.style.color = 'blue';
+            feedbackElement.innerHTML = 'Note: With zero consequence, risk is zero regardless of probability.';
+        } else if (risk > 10000) {
+            feedbackElement.style.color = 'red';
+            feedbackElement.innerHTML = '⚠️ Extreme risk: Requires immediate attention and mitigation.';
+        } else if (risk > 1000) {
+            feedbackElement.style.color = 'orange';
+            feedbackElement.innerHTML = '⚠️ High risk: Should be reviewed and controlled promptly.';
+        } else if (risk > 100) {
+            feedbackElement.style.color = 'orange';
+            feedbackElement.innerHTML = '⚠️ Moderate risk: Consider implementing control measures.';
+        } else if (risk > 0) {
+            feedbackElement.style.color = 'green';
+            feedbackElement.innerHTML = '✅ Low risk: Generally acceptable but still worth monitoring.';
+        }
     }
-</script>
+    </script>
+    
 
-
-
+    
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
-
-
-
-
 
 
 
@@ -513,5 +488,5 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 
-<!-- Mirrored from dsathemes.com/html/martex_1.1/files/project-details.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 08 Mar 2024 16:40:05 GMT -->
+<!-- Mirrored from dsathemes.com/html/martex_1.1/files/project-details.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 08 Mar 2024 16:40:05 GMT -->
 </html>

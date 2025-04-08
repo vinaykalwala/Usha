@@ -65,7 +65,7 @@
       background-color: #f5f5f5;
     }
     .calculator-container {
-      max-width: 1200px;
+      max-width: 1000px;
       margin: 20px auto;
       padding: 20px;
       background: #ffffff;
@@ -81,6 +81,7 @@
       font-size: 1.8rem;
       margin-bottom: 30px;
     }
+    
     .form-group {
       margin-bottom: 15px;
     }
@@ -152,6 +153,14 @@
     font-size: 20px;
 }
 
+.note-container ul{
+    margin: 10px;
+}
+
+.note-container{
+    margin-top: 10px;
+}
+
 .note-container p {
     margin-top: 15px;
     text-align: justify;
@@ -175,80 +184,6 @@ select {
     background-color: rgb(223, 241, 247);
 
 }
-
-.input-row {
-        display: flex;
-        justify-content: space-between;
-        gap: 10px;
-      }
-  
-      .input-row .form-group {
-        width: 48%;
-      }
-      @media (max-width: 768px) {
-    .input-row {
-        flex-direction: column;
-        gap: 5px;
-    }
-
-    .input-row .form-group {
-        width: 100%;
-    }
-}
- /* Centering the table */
- .table-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-           
-        }
-    
-        /* Table Styling */
-        .custom-table {
-            border-collapse: collapse;
-            width: 80%;
-            max-width: 600px;
-            text-align: center;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-    
-        .custom-table thead {
-            background-color: #1560bd; /* Light blue header */
-            color: white;
-        }
-    
-        .custom-table th, .custom-table td {
-            padding: 12px 16px;
-            border: 1px solid #ddd;
-        }
-    
-        .custom-table tr:nth-child(even) {
-            background-color: #f9f9f9; /* Zebra striping */
-        }
-    
-        .custom-table tr:hover {
-            background-color: #e6f7ff; /* Hover effect */
-        }
-    
-        /* Heading Style */
-        .table-heading {
-            margin-bottom: 20px;
-            color: #2c3e50;
-        }
-        
-
-        @media (max-width: 600px) {
-            .custom-table {
-        width: 90%; /* Adjusts width for mobile */
-        margin: 20px auto; /* Ensures it stays centered */
-    }
-    
-    .custom-table th, .custom-table td{
-        font-size: 14px;
-        padding: 8px;
-    }
-}
-
 </style>
 	</head>
 
@@ -268,193 +203,124 @@ select {
 <div id="header"></div>
 
 <div class="calculator-container">
-    <h2>A Body Shape Index (ABSI) Calculator</h2>
+    <h2>Scouring Velocity (V) Calculator - Schield’s Formula</h2>
 
-    <div class="input-row">
-        <!-- Sex Input -->
-        <div class="form-group">
-            <label for="sex">Gender:</label>
-            <select id="sex">
-                <option value="female">Female</option>
-                <option value="male">Male</option>
-            </select>
-        </div>
-
-        <!-- Age Input -->
-        <div class="form-group">
-            <label for="age">Age (years):</label>
-            <input type="number" id="age" placeholder="Enter your age" step="1">
-        </div>
-    </div>
-
-    <div class="input-row">
-        <!-- Height Input -->
-        <div class="form-group">
-            <label for="height">Height (cm):</label>
-            <input type="number" id="height" placeholder="Enter your height" step="0.1">
-        </div>
-
-        <!-- Weight Input -->
-        <div class="form-group">
-            <label for="weight">Weight (kg):</label>
-            <input type="number" id="weight" placeholder="Enter your weight" step="0.1">
-        </div>
-    </div>
-
-    <!-- Waist Circumference Input -->
     <div class="form-group">
-        <label for="waist">Waist Circumference (cm):</label>
-        <input type="number" id="waist" placeholder="Enter waist circumference" step="0.1">
+        <label for="specific_gravity">Specific Gravity (Ss):</label>
+        <input type="number" id="specific_gravity" placeholder="Enter Ss (e.g. 2.65)" step="any">
     </div>
 
-    <!-- Calculate Button -->
-    <button class="cal-btn" onclick="calculateABSI()">Calculate ABSI</button>
+    <div class="form-group">
+        <label for="particle_diameter">Particle Diameter (d) in meters:</label>
+        <input type="number" id="particle_diameter" placeholder="Enter d (e.g. 0.001)" step="any">
+    </div>
 
-    <!-- Result Display -->
+    <button class="cal-btn" onclick="calculateScouringVelocity()">Calculate</button>
     <div class="result" id="result"></div>
+    <div class="feedback" id="feedback"></div>
 </div>
 
 <div class="note-container">
-    <h3>What is A Body Shape Index (ABSI)?</h3>
-    <p>
-        ABSI is a measure of body shape that uses waist circumference, height, and weight to assess health risks associated with body shape. Unlike BMI, ABSI accounts for fat distribution, making it a better predictor of mortality risk.
-    </p>
+    <h3>Note:</h3>
+    <p>This calculator determines the <strong>Scouring Velocity (V)</strong> using <strong>Schield’s Formula</strong>, which is essential for designing grit chambers in wastewater treatment systems.</p>
 
-    <h3>What is ABSI z-score?</h3>
-    <p>
-        The ABSI z-score compares your ABSI to a reference population of the same age and sex. It indicates how your body shape compares to the average:
-        <ul>
-            <li><strong>Low z-score:</strong> Lower risk of health issues.</li>
-            <li><strong>Average z-score:</strong> Moderate risk.</li>
-            <li><strong>High z-score:</strong> Higher risk of premature mortality.</li>
-        </ul>
-    </p>
+    <p>It is widely used in <strong>environmental engineering, sewage treatment, and industrial water management</strong> to ensure effective removal of inorganic grit particles without disturbing organic matter.</p>
 
-    <h3>Why is ABSI Important?</h3>
-    <p>
-        ABSI is a powerful tool for assessing health risks because it considers fat distribution, which is a key factor in conditions like:
-        <ul>
-            <li>Cardiovascular disease</li>
-            <li>Type 2 diabetes</li>
-            <li>Metabolic syndrome</li>
-            <li>Premature mortality</li>
-        </ul>
-    </p>
     <h3>Explanation of Parameters:</h3>
     <ul>
-        <li><strong>Gender:</strong> Important for calculating the ABSI z-score, which is adjusted based on differences in body shape between males and females.</li>
-        <li><strong>Age (years):</strong> Used for z-score comparison against a reference population. Body shape risk changes with age.</li>
-        <li><strong>Height (cm):</strong> Affects both BMI and ABSI values. Taller individuals may distribute fat differently than shorter individuals.</li>
-        <li><strong>Weight (kg):</strong> Used in BMI calculation. Helps determine how much body mass a person has relative to their height.</li>
-        <li><strong>Waist Circumference (cm):</strong> The key input in ABSI. It reflects abdominal fat, which is a critical predictor of metabolic and cardiovascular risk.</li>
+        <li><strong>Specific Gravity (Ss):</strong> The density of grit particles relative to water (typically around 2.65).</li>
+        <li><strong>Particle Diameter (d):</strong> The size of the grit particle in meters (e.g., 0.001 m for sand-sized particles).</li>
     </ul>
-    <h3>Interpreting Your Results</h3>
-    <p>
-        Based on your ABSI z-score:
-        <ul>
-            <li><strong>z-score < -1:</strong> Low risk of premature mortality.</li>
-            <li><strong>-1 ≤ z-score ≤ 1:</strong> Average risk.</li>
-            <li><strong>1 < z-score ≤ 2:</strong> Moderate risk.</li>
-            <li><strong>2 < z-score ≤ 3:</strong> High risk.</li>
-            <li><strong>z-score > 3:</strong> Very high risk.</li>
-        </ul>
-    </p>
 
-    <h3>What Can You Do?</h3>
-    <p>
-        If your ABSI z-score indicates a high risk:
-        <ul>
-            <li><strong>Consult a Doctor:</strong> Seek professional medical advice for a comprehensive health evaluation.</li>
-            <li><strong>Adopt a Healthy Lifestyle:</strong> Focus on a balanced diet, regular exercise, and stress management.</li>
-            <li><strong>Monitor Progress:</strong> Track your waist circumference, weight, and overall health regularly.</li>
-        </ul>
-    </p>
+    <h3>Why This Calculator Belongs to the Environment Sector?</h3>
+    <p>This <strong>Scouring Velocity Calculator</strong> is categorized under the <strong>Environment sector</strong> as it helps in the proper design of <strong>grit removal systems</strong> — a critical component in <strong>wastewater treatment and pollution control</strong>. Efficient grit removal enhances treatment performance and prevents damage to downstream equipment.</p>
 
-    <h3>Disclaimer</h3>
-    <p>
-        This calculator provides estimates based on the ABSI formula and is not a substitute for professional medical advice. Always consult a healthcare provider for personalized recommendations.
-    </p>
+    <p><strong>Scouring velocity</strong> refers to the critical flow velocity at which settled grit particles may start moving again, impacting sedimentation efficiency. Controlling this velocity is key in the design of effective grit chambers.</p>
+    
+    <h3>Why is Scouring Velocity Important?</h3>
+    <p>Determining the correct scouring velocity is essential for:</p>
+    <ul>
+        <li><strong>Grit Chamber Design:</strong> Ensuring optimal removal of inorganic solids like sand, silt, and gravel.</li>
+        <li><strong>Pollution Control:</strong> Preventing grit from reaching biological treatment stages.</li>
+        <li><strong>Equipment Protection:</strong> Reducing wear and tear on pumps and mechanical units.</li>
+    </ul>
+
+    <h3>Validations:</h3>
+    <ul>
+        <li><strong>Positive Values Only:</strong> Both specific gravity (Ss) and particle diameter (d) must be positive numbers.</li>
+        <li><strong>Practical Range:</strong> Specific gravity should be greater than 1 (usually ~2.65), and particle diameter must reflect real-world grit size.</li>
+        <li><strong>Realistic Velocity Range:</strong> Output velocity should be practical for grit chamber design (typically between 0.15 m/s and 0.6 m/s).</li>
+        <li><strong>Limitations:</strong> Assumes steady-state flow and uniform particle properties. Does not account for turbulent fluctuations or variable flow conditions.</li>
+    </ul>
+
+    <h3>Real-life Applications:</h3>
+    <ul>
+        <li><strong>Wastewater Treatment Plants:</strong> Designing grit chambers to remove sand and silt before biological treatment.</li>
+        <li><strong>Industrial Waste Management:</strong> Preventing abrasive particles from damaging process equipment.</li>
+        <li><strong>Environmental Engineering:</strong> Managing sediment transport in urban drainage systems.</li>
+        <li><strong>Stormwater Treatment:</strong> Controlling sediment resuspension during heavy flows.</li>
+    </ul>
+
+    <h3>Conclusion:</h3>
+    <p>The <strong>Scouring Velocity (V) calculation</strong> is a vital tool in <strong>environmental and wastewater engineering</strong>. It ensures efficient grit removal, improves treatment efficiency, and protects infrastructure from damage caused by settled inorganic materials.</p>
 </div>
 
+
+
 <script>
-   function calculateABSI() {
-    // Get input values
-    const sex = document.getElementById('sex').value;
-    const age = parseFloat(document.getElementById('age').value);
-    const height = parseFloat(document.getElementById('height').value);
-    const weight = parseFloat(document.getElementById('weight').value);
-    const waist = parseFloat(document.getElementById('waist').value);
-    const result = document.getElementById('result');
+    function calculateScouringVelocity() {
+        const Ss = parseFloat(document.getElementById("specific_gravity").value);
+        const d = parseFloat(document.getElementById("particle_diameter").value);
+        const resultElement = document.getElementById("result");
+        const feedbackElement = document.getElementById("feedback");
 
-    // Reset previous results
-    result.innerHTML = "";
+        // Reset previous results
+        resultElement.innerHTML = "";
+        feedbackElement.innerHTML = "";
 
-    // Validate inputs
-    if (isNaN(age) || age <= 0) {
-        result.innerHTML = "❌ Please enter a valid age (must be a positive number).";
-        return;
+        // Validations
+        if (isNaN(Ss) || Ss <= 1) {
+            resultElement.innerHTML = "❌ <strong>Error:</strong> Specific gravity (Ss) must be greater than 1.";
+            return;
+        }
+        if (isNaN(d) || d <= 0) {
+            resultElement.innerHTML = "❌ <strong>Error:</strong> Particle diameter (d) must be a positive number.";
+            return;
+        }
+
+        const g = 9.81; // gravity in m/s²
+        const sqrtTerm = Math.sqrt(g * (Ss - 1) * d);
+
+        // Scouring velocity range
+        const V_min = 3 * sqrtTerm;
+        const V_max = 4.5 * sqrtTerm;
+
+        // Feedback based on velocity
+        let feedbackMessage = "";
+        let feedbackColor = "";
+
+        if (V_max < 0.15) {
+            feedbackMessage = "❌ <strong>Too Low:</strong> May fail to remove grit efficiently.";
+            feedbackColor = "red";
+        } else if (V_max >= 0.15 && V_max <= 0.5) {
+            feedbackMessage = "⚠️ <strong>Moderate:</strong> Suitable for small to medium grit chambers.";
+            feedbackColor = "orange";
+        } else {
+            feedbackMessage = "✅ <strong>Ideal:</strong> Effective for large grit removal units.";
+            feedbackColor = "green";
+        }
+
+        // Display results
+        resultElement.innerHTML = `
+            <strong>Scouring Velocity (V):</strong><br>
+            Range = <strong>${V_min.toFixed(3)} m/s</strong> to <strong>${V_max.toFixed(3)} m/s</strong><br>
+            <strong style="color: ${feedbackColor};">${feedbackMessage}</strong>
+        `;
+        resultElement.style.color = "black";
     }
-    if (isNaN(height) || height <= 0) {
-        result.innerHTML = "❌ Please enter a valid height (must be a positive number).";
-        return;
-    }
-    if (isNaN(weight) || weight <= 0) {
-        result.innerHTML = "❌ Please enter a valid weight (must be a positive number).";
-        return;
-    }
-    if (isNaN(waist) || waist <= 0) {
-        result.innerHTML = "❌ Please enter a valid waist circumference (must be a positive number).";
-        return;
-    }
-
-    // Convert height and waist circumference from cm to meters
-    const heightMeters = height / 100;
-    const waistMeters = waist / 100;
-
-    // Calculate BMI
-    const bmi = weight / (heightMeters * heightMeters);
-
-    // Calculate ABSI
-    const absi = waistMeters / (Math.pow(bmi, 2 / 3) * Math.pow(heightMeters, 1 / 2));
-
-    // Round ABSI to 5 decimal places
-    const absiRounded = parseFloat(absi.toFixed(6));
-
-    // Calculate ABSI z-score (using adjusted mean and standard deviation)
-    const absiMean = 0.0760; // Adjusted mean
-    const absiStdDev = 0.004; // Assumed standard deviation
-    const absiZScore = (absi - absiMean) / absiStdDev;
-
-    // Round z-score to 2 decimal places
-    const absiZScoreRounded = parseFloat(absiZScore.toFixed(2));
-
-    // Interpret ABSI z-score
-    let interpretation = "";
-    if (absiZScoreRounded < -1) {
-        interpretation = "Your ABSI z-score indicates a **low risk** of premature mortality.";
-    } else if (absiZScoreRounded >= -1 && absiZScoreRounded <= 1) {
-        interpretation = "Your ABSI z-score indicates an **average risk** of premature mortality.";
-    } else if (absiZScoreRounded > 1 && absiZScoreRounded <= 2) {
-        interpretation = "Your ABSI z-score indicates a **moderate risk** of premature mortality.";
-    } else if (absiZScoreRounded > 2 && absiZScoreRounded <= 3) {
-        interpretation = "Your ABSI z-score indicates a **high risk** of premature mortality.";
-    } else {
-        interpretation = "Your ABSI z-score indicates a **very high risk** of premature mortality. ❗❗❗";
-    }
-
-    // Display results
-    result.innerHTML = `
-        <strong>ABSI:</strong> ${absiRounded}<br>
-        <strong>ABSI z-score:</strong> ${absiZScoreRounded}<br>
-        <strong>Interpretation:</strong> ${interpretation}
-    `;
-}
 </script>
+
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
-
-
-
-
 
 
 
@@ -483,6 +349,7 @@ select {
         return false;
     });
     </script>
+
 <div id="footer"></div>
 <script>
     fetch("header.html").then(response => response.text()).then(data => document.getElementById("header").innerHTML = data);
@@ -591,5 +458,5 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 
-<!-- Mirrored from dsathemes.com/html/martex_1.1/files/project-details.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 08 Mar 2024 16:40:05 GMT -->
+<!-- Mirrored from dsathemes.com/html/martex_1.1/files/project-details.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 08 Mar 2024 16:40:05 GMT -->
 </html>

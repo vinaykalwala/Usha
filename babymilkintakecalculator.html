@@ -56,16 +56,15 @@
 		<link href="css/responsive.css" rel="stylesheet">
 <style>
             
-         
+            
 
-   
         body {
       font-family: Arial, sans-serif;
      
       background-color: #f5f5f5;
     }
     .calculator-container {
-      max-width: 1200px;
+      max-width: 1000px;
       margin: 20px auto;
       padding: 20px;
       background: #ffffff;
@@ -158,7 +157,6 @@
 }
 strong{
     color: #0056b3;
-    
 }
 @media (max-width: 768px) {
     .note-container {
@@ -176,27 +174,14 @@ select {
     background-color: rgb(223, 241, 247);
 
 }
-
-.input-row {
-        display: flex;
-        justify-content: space-between;
-        gap: 10px;
-      }
-  
-      .input-row .form-group {
-        width: 48%;
-      }
-      @media (max-width: 768px) {
-    .input-row {
-        flex-direction: column;
-        gap: 5px;
-    }
-
-    .input-row .form-group {
-        width: 100%;
-    }
-}
- 
+/* Centering the table */
+.table-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+           
+        }
+    
         /* Table Styling */
         .custom-table {
             border-collapse: collapse;
@@ -204,8 +189,6 @@ select {
             max-width: 600px;
             text-align: center;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            align-items: center;
-
         }
     
         .custom-table thead {
@@ -231,36 +214,17 @@ select {
         }
         
 
-        @media (max-width: 768px) {
-    .table-container h3 {
-        font-size: 1.5rem;
+        @media (max-width: 600px) {
+            .custom-table {
+        width: 90%; /* Adjusts width for mobile */
+        margin: 20px auto; /* Ensures it stays centered */
     }
-
-    .custom-table th, .custom-table td {
-        padding: 6px;
-        font-size: 0.9rem;
-    }
-}
-
-@media (max-width: 480px) {
-    .table-container h3 {
-        font-size: 1.25rem;
-    }
-
-    .custom-table th, .custom-table td {
-        padding: 4px;
-        font-size: 0.8rem;
-    }
-
-    .custom-table th {
-        white-space: nowrap; /* Prevent header text from wrapping */
-    }
-
-    .table-container {
-        overflow-x: scroll; /* Ensure smooth scrolling on very small screens */
+    
+    .custom-table th, .custom-table td{
+        font-size: 14px;
+        padding: 8px;
     }
 }
-
 </style>
 	</head>
 
@@ -274,181 +238,121 @@ select {
 
 
 
-		
+        <div id="header"></div>
+
+
 <br><br><br><br>
 
-<div id="header"></div>
+
 
 <div class="calculator-container">
-    <h2>Body Adiposity Index (BAI) Calculator</h2>
+    <h2>Baby Milk Intake Calculator</h2>
 
-   
-        <!-- Height Input -->
-        <div class="form-group">
-            <label for="height">Your Height (cm):</label>
-            <input type="number" id="height" placeholder="Enter your height" step="0.1">
-        </div>
+    <div class="form-group">
+        <label for="babyAge">Baby's Age Group:</label>
+        <select id="babyAge">
+            <option value="">Select Age Group</option>
+            <option value="0">Newborn (0 months)</option>
+            <option value="0.5">Less than 1 month</option>
+            <option value="1">1 – 3 months</option>
+            <option value="3">3 – 6 months</option>
+            <option value="6">6 – 9 months</option>
+            <option value="9">9 – 12 months</option>
+        </select>
+    </div>
 
-        <!-- Hip Circumference Input -->
-        <div class="form-group">
-            <label for="hip">Your Hip Circumference (cm):</label>
-            <input type="number" id="hip" placeholder="Enter your hip circumference" step="0.1">
-        </div>
+    <div class="form-group">
+        <label for="babyWeight">Baby's Weight (in kg):</label>
+        <input type="number" id="babyWeight" placeholder="Enter weight in kg">
+    </div>
+    <div class="form-group">
+        <label for="feedingsPerDay">Number of Feedings per Day:</label>
+        <input type="number" id="feedingsPerDay" placeholder="Enter number of feedings">
+    </div>
 
-    <!-- Calculate Button -->
-    <button class="cal-btn" onclick="calculateBAI()">Calculate BAI</button>
-
-    <!-- Result Display -->
-    <div class="result" id="result"></div>
+    <button class="cal-btn" onclick="calculateMilkIntake()">Calculate Milk Intake</button>
+    <div class="result" id="milkResult"></div>
 </div>
 
 <div class="note-container">
-    <h3>Understanding the Body Adiposity Index (BAI)</h3>
+    <h3>Note:</h3>
+    <p>This calculator helps estimate your baby's total daily milk intake and milk required per feeding based on three important inputs: <strong>age group</strong>, <strong>weight</strong>, and <strong>number of feedings per day</strong>. These are only general recommendations—please always consult your pediatrician for personalized guidance.</p>
 
-    <h3>What is Body Adiposity Index (BAI)?</h3>
-    <p>
-        The Body Adiposity Index (BAI) is a measurement used to estimate the percentage of body fat in a person's body. Unlike the Body Mass Index (BMI), which relies on body weight and height, BAI is calculated using hip circumference and height. This makes it a useful tool for assessing body composition without requiring a scale.
-    </p>
+    <h3>📌 Explanation of Parameters:</h3>
+    <ul>
+        <li><strong>Baby's Age Group:</strong> The estimated daily milk requirement depends on your baby's age bracket. Younger infants typically need more milk per kilogram of body weight.</li>
+        <li><strong>Baby's Weight (in kg):</strong> Milk intake is calculated based on your baby's body weight using age-based ml/kg/day values.</li>
+        <li><strong>Number of Feedings per Day:</strong> This divides the total daily milk into equal portions for each feeding session.</li>
+    </ul>
 
-    <p>
-        BAI is often considered a better measure of body fat for people with varying muscle mass because it focuses on physical dimensions rather than weight. This can make it particularly useful for individuals who have higher muscle density, such as athletes, or those whose weight might not accurately reflect their fat levels.
-    </p>
-
-    <h3>Why Use BAI Over BMI?</h3>
-    <p>
-        While BMI is widely used, it has limitations, especially for individuals with high muscle mass or unusual body compositions. BAI offers several advantages:
-        <ul>
-            <li><strong>No Need for Body Weight:</strong> You only need your height and hip circumference to calculate BAI, making it easy to measure without a scale.</li>
-            <li><strong>Better Body Fat Estimation:</strong> BAI provides a more accurate reflection of body fat percentage across different populations.</li>
-            <li><strong>Gender-Specific Analysis:</strong> BAI accounts for differences in body fat distribution between men and women, providing more precise interpretations.</li>
-        </ul>
-    </p>
-
-  
-    <p>
-        <strong>Units:</strong>
-        <ul>
-            <li>Height: Measured in meters (m).</li>
-            <li>Hip Circumference: Measured in centimeters (cm).Hip Circumference: Stand upright with your feet together. Wrap a measuring tape around the widest part of your hips and buttocks, keeping the tape parallel to the floor. Make sure it’s snug but not tight.</li>
-        </ul>
-    </p>
-
-   
+    <h3>📊 Age-Based Equivalence Table:</h3>
     <div class="table-container">
-        <h3>Interpreting Your BAI</h3>
-        <p>
-            Understanding your BAI value can help assess your health and potential risks associated with body fat levels. Below is a guide to interpreting your results based on gender:
-        </p>
-    <table border="1" cellpadding="8" cellspacing="0" class="custom-table">
+    <table border="1" cellpadding="10" cellspacing="0" class="custom-table">
         <thead>
             <tr>
-                <th>Gender</th>
-                <th>Underweight</th>
-                <th>Normal</th>
-                <th>Overweight</th>
-                <th>Obese</th>
+                <th>Age (Months)</th>
+                <th>Milk Requirement (ml/kg/day)</th>
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <td>Men</td>
-                <td>&lt; 8%</td>
-                <td>8% - 20%</td>
-                <td>21% - 25%</td>
-                <td>&gt; 26%</td>
-            </tr>
-            <tr>
-                <td>Women</td>
-                <td>&lt; 21%</td>
-                <td>21% - 33%</td>
-                <td>34% - 38%</td>
-                <td>&gt; 39%</td>
-            </tr>
+            <tr><td>Newborn (0 months)</td><td>60</td></tr>
+            <tr><td>Less than 1 month</td><td>180</td></tr>
+            <tr><td>1 – 3 months</td><td>150</td></tr>
+            <tr><td>3 – 6 months</td><td>120</td></tr>
+            <tr><td>6 – 9 months</td><td>100</td></tr>
+            <tr><td>9 – 12 months</td><td>90</td></tr>
         </tbody>
     </table>
-    </div>
-    <h3>Why Is Knowing Your BAI Important?</h3>
-    <p>
-        Monitoring your BAI can offer valuable insights into your overall health and help identify potential health risks associated with body fat. High body fat levels are linked to:
+</div>
+    <h3>✅ Conclusion:</h3>
+    <p>The result provided includes two key pieces of information:
         <ul>
-            <li><strong>Heart Disease:</strong> Excess fat increases the risk of heart conditions and hypertension.</li>
-            <li><strong>Diabetes:</strong> Higher fat levels may contribute to insulin resistance and type 2 diabetes.</li>
-            <li><strong>Joint Issues:</strong> Being overweight puts additional pressure on joints, increasing the likelihood of arthritis.</li>
-            <li><strong>Metabolic Syndrome:</strong> A high BAI is associated with an increased risk of metabolic syndrome—a cluster of conditions that heighten the risk of stroke and heart disease.</li>
+            <li><strong>Total Daily Milk Requirement:</strong> The estimated total amount of milk your baby may need over a 24-hour period.</li>
+            <li><strong>Milk Per Feeding:</strong> The amount of milk to give during each feeding, based on the number of feedings you entered.</li>
         </ul>
-    </p>
-
-    <h3>What Can You Do If Your BAI Is High?</h3>
-    <p>
-        If your BAI falls within the overweight or obese category, here are some steps you can take:
-        <ul>
-            <li><strong>Consult a Healthcare Professional:</strong> Always seek medical advice for an accurate assessment and personalized health plan.</li>
-            <li><strong>Adopt a Balanced Diet:</strong> Incorporate nutrient-rich foods and reduce processed items and sugary snacks.</li>
-            <li><strong>Engage in Physical Activity:</strong> Aim for regular exercise such as walking, swimming, or strength training to reduce body fat and improve fitness.</li>
-            <li><strong>Monitor Your Progress:</strong> Regularly check your BAI and other health markers to track improvements and make necessary adjustments.</li>
-        </ul>
-    </p>
-
-    <h3>Limitations of BAI</h3>
-    <p>
-        Although BAI is a helpful tool, it is not without limitations:
-        <ul>
-            <li><strong>Accuracy Variability:</strong> May be less accurate for individuals with unusual body shapes or extreme heights.</li>
-            <li><strong>Age Factors:</strong> BAI does not account for age-related changes in fat distribution.</li>
-            <li><strong>Ethnic Variations:</strong> Different ethnic groups may have varying fat distributions that BAI does not fully capture.</li>
-        </ul>
-    </p>
-
-    <h3>Disclaimer</h3>
-    <p>
-        This calculator provides an estimate of body fat percentage based on the BAI formula. It is not a substitute for professional medical advice, diagnosis, or treatment. Always consult a healthcare provider for a comprehensive health assessment.
+        Use these estimates to monitor feeding routines and ensure your baby receives adequate nutrition. Remember, every baby is different, and growth patterns vary. Consult your doctor if you have any concerns. 💙👶🍼
     </p>
 </div>
 
+
 <script>
-   function calculateBAI() {
-    // Get input values
-    const height = parseFloat(document.getElementById('height').value);
-    const hip = parseFloat(document.getElementById('hip').value);
-    const result = document.getElementById('result');
-
-    // Reset previous result
-    result.innerHTML = "";
-
-    // Validate inputs
-    if (isNaN(height) || height <= 0) {
-        result.innerHTML = "❌ Please enter a valid height (positive number).";
-        return;
-    }
-    if (isNaN(hip) || hip <= 0) {
-        result.innerHTML = "❌ Please enter a valid hip circumference (positive number).";
-        return;
+    function getAgeEquivalence(age) {
+        if (age == 0) return 60;
+        else if (age < 1) return 180;
+        else if (age == 1) return 150;
+        else if (age == 3) return 120;
+        else if (age == 6) return 100;
+        else if (age == 9) return 90;
+        else return 0; // Invalid
     }
 
-    // Convert height to meters
-    const heightMeters = height / 100;
+    function calculateMilkIntake() {
+        const age = parseFloat(document.getElementById('babyAge').value);
+        const weight = parseFloat(document.getElementById('babyWeight').value);
+        const feedings = parseFloat(document.getElementById('feedingsPerDay').value);
+        const resultDiv = document.getElementById('milkResult');
 
-    // Calculate BAI
-    const bai = (hip / Math.pow(heightMeters, 1.5)) - 18;
-    const baiRounded = parseFloat(bai.toFixed(2));
+        if (isNaN(age) || isNaN(weight) || isNaN(feedings) || weight <= 0 || feedings <= 0) {
+            resultDiv.innerText = "⚠️ Please enter all valid values.";
+            return;
+        }
 
-    // Determine BAI category and feedback
-    let feedback = "";
-    if (baiRounded < 21) {
-        feedback = "🟢 Your body fat is low. This may mean you are underweight or have very little body fat.";
-    } else if (baiRounded >= 21 && baiRounded < 33) {
-        feedback = "🔵 Your body fat is within a healthy range. Keep maintaining your current lifestyle!";
-    } else if (baiRounded >= 33 && baiRounded < 39) {
-        feedback = "🟠 Your body fat is higher than normal. Consider adopting a healthier lifestyle with regular exercise and balanced nutrition.";
-    } else {
-        feedback = "🔴 Your body fat is very high. It may be beneficial to consult a healthcare professional for personalized advice.";
+        const ageEquivalence = getAgeEquivalence(age);
+        if (ageEquivalence === 0) {
+            resultDiv.innerText = "⚠️ Age should be between 0 and 12 months.";
+            return;
+        }
+
+        const requiredMilk = ageEquivalence * weight;
+        const milkPerFeeding = requiredMilk / feedings;
+
+        resultDiv.innerHTML = `
+            <strong>Total Daily Milk Requirement:</strong> ${requiredMilk.toFixed(2)} ml<br>
+            <strong>Milk Per Feeding:</strong> ${milkPerFeeding.toFixed(2)} ml
+        `;
     }
-
-    // Display BAI result and feedback
-    result.innerHTML = `<strong>Body Adiposity Index:</strong> ${baiRounded}%<br>${feedback}`;
-}
-
 </script>
+
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
 
@@ -488,10 +392,6 @@ select {
     fetch("header.html").then(response => response.text()).then(data => document.getElementById("header").innerHTML = data);
     fetch("footer.html").then(response => response.text()).then(data => document.getElementById("footer").innerHTML = data);
 </script>
-
-
-		</div>	<!-- END PAGE CONTENT -->	
-
 
 
 

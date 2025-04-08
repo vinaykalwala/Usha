@@ -81,6 +81,28 @@
       font-size: 1.8rem;
       margin-bottom: 30px;
     }
+    
+    .reel {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.reel .form-group {
+  width: 48%;
+}
+
+@media (max-width: 768px) {
+  .reel {
+    flex-direction: column;
+    gap: 5px;
+  }
+  
+  .reel .form-group {
+    width: 100%;
+  }
+}
+
     .form-group {
       margin-bottom: 15px;
     }
@@ -152,6 +174,14 @@
     font-size: 20px;
 }
 
+.note-container ul{
+    margin: 10px;
+}
+
+.note-container{
+    margin-top: 10px;
+}
+
 .note-container p {
     margin-top: 15px;
     text-align: justify;
@@ -175,80 +205,6 @@ select {
     background-color: rgb(223, 241, 247);
 
 }
-
-.input-row {
-        display: flex;
-        justify-content: space-between;
-        gap: 10px;
-      }
-  
-      .input-row .form-group {
-        width: 48%;
-      }
-      @media (max-width: 768px) {
-    .input-row {
-        flex-direction: column;
-        gap: 5px;
-    }
-
-    .input-row .form-group {
-        width: 100%;
-    }
-}
- /* Centering the table */
- .table-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-           
-        }
-    
-        /* Table Styling */
-        .custom-table {
-            border-collapse: collapse;
-            width: 80%;
-            max-width: 600px;
-            text-align: center;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-    
-        .custom-table thead {
-            background-color: #1560bd; /* Light blue header */
-            color: white;
-        }
-    
-        .custom-table th, .custom-table td {
-            padding: 12px 16px;
-            border: 1px solid #ddd;
-        }
-    
-        .custom-table tr:nth-child(even) {
-            background-color: #f9f9f9; /* Zebra striping */
-        }
-    
-        .custom-table tr:hover {
-            background-color: #e6f7ff; /* Hover effect */
-        }
-    
-        /* Heading Style */
-        .table-heading {
-            margin-bottom: 20px;
-            color: #2c3e50;
-        }
-        
-
-        @media (max-width: 600px) {
-            .custom-table {
-        width: 90%; /* Adjusts width for mobile */
-        margin: 20px auto; /* Ensures it stays centered */
-    }
-    
-    .custom-table th, .custom-table td{
-        font-size: 14px;
-        padding: 8px;
-    }
-}
-
 </style>
 	</head>
 
@@ -268,193 +224,159 @@ select {
 <div id="header"></div>
 
 <div class="calculator-container">
-    <h2>A Body Shape Index (ABSI) Calculator</h2>
+    <h2>Oxygen Requirement O2 Calculator - Activated Sludge Process</h2>
 
-    <div class="input-row">
-        <!-- Sex Input -->
-        <div class="form-group">
-            <label for="sex">Gender:</label>
-            <select id="sex">
-                <option value="female">Female</option>
-                <option value="male">Male</option>
-            </select>
-        </div>
-
-        <!-- Age Input -->
-        <div class="form-group">
-            <label for="age">Age (years):</label>
-            <input type="number" id="age" placeholder="Enter your age" step="1">
-        </div>
-    </div>
-
-    <div class="input-row">
-        <!-- Height Input -->
-        <div class="form-group">
-            <label for="height">Height (cm):</label>
-            <input type="number" id="height" placeholder="Enter your height" step="0.1">
-        </div>
-
-        <!-- Weight Input -->
-        <div class="form-group">
-            <label for="weight">Weight (kg):</label>
-            <input type="number" id="weight" placeholder="Enter your weight" step="0.1">
-        </div>
-    </div>
-
-    <!-- Waist Circumference Input -->
+    <div class="reel">
     <div class="form-group">
-        <label for="waist">Waist Circumference (cm):</label>
-        <input type="number" id="waist" placeholder="Enter waist circumference" step="0.1">
+        <label for="Q">Flow Rate (Q) (m³/day):</label>
+        <input type="number" id="Q" placeholder="Enter Q" step="any">
     </div>
 
-    <!-- Calculate Button -->
-    <button class="cal-btn" onclick="calculateABSI()">Calculate ABSI</button>
+    <div class="form-group">
+        <label for="S0">Influent BOD S0 (mg/L):</label>
+        <input type="number" id="S0" placeholder="Enter S0" step="any">
+    </div>
+</div>
 
-    <!-- Result Display -->
+<div class="reel">
+    <div class="form-group">
+        <label for="S">Effluent BOD (S) (mg/L):</label>
+        <input type="number" id="S" placeholder="Enter S" step="any">
+    </div>
+
+    <div class="form-group">
+        <label for="Qw">Waste Sludge Flow Rate Qw (m³/day):</label>
+        <input type="number" id="Qw" placeholder="Enter Qw" step="any">
+    </div>
+</div>
+
+<div class="reel">
+    <div class="form-group">
+        <label for="Xr">Biomass Concentration Xr (mg/L):</label>
+        <input type="number" id="Xr" placeholder="Enter Xr" step="any">
+    </div>
+
+    <div class="form-group">
+        <label for="f">BOD Ratio (f):</label>
+        <input type="number" id="f" placeholder="Enter f Between (0.6 to 0.85)" step="any">
+    </div>
+</div>
+    <button class="cal-btn" onclick="calculateOxygenRequirement()">Calculate</button>
     <div class="result" id="result"></div>
+    <div class="feedback" id="feedback"></div>
 </div>
 
 <div class="note-container">
-    <h3>What is A Body Shape Index (ABSI)?</h3>
-    <p>
-        ABSI is a measure of body shape that uses waist circumference, height, and weight to assess health risks associated with body shape. Unlike BMI, ABSI accounts for fat distribution, making it a better predictor of mortality risk.
-    </p>
+    <h3>Note:</h3>
+    <p>This calculator determines the <strong>Oxygen Requirement (O₂)</strong> for the <strong>Activated Sludge Process</strong> in wastewater treatment systems.</p>
 
-    <h3>What is ABSI z-score?</h3>
-    <p>
-        The ABSI z-score compares your ABSI to a reference population of the same age and sex. It indicates how your body shape compares to the average:
-        <ul>
-            <li><strong>Low z-score:</strong> Lower risk of health issues.</li>
-            <li><strong>Average z-score:</strong> Moderate risk.</li>
-            <li><strong>High z-score:</strong> Higher risk of premature mortality.</li>
-        </ul>
-    </p>
+    <p>It is widely used in <strong>environmental engineering, sewage treatment, and industrial effluent management</strong> to ensure proper biological treatment of organic matter using microorganisms.</p>
 
-    <h3>Why is ABSI Important?</h3>
-    <p>
-        ABSI is a powerful tool for assessing health risks because it considers fat distribution, which is a key factor in conditions like:
-        <ul>
-            <li>Cardiovascular disease</li>
-            <li>Type 2 diabetes</li>
-            <li>Metabolic syndrome</li>
-            <li>Premature mortality</li>
-        </ul>
-    </p>
+    <p><strong> Activated Sludge</strong> Process is a biological wastewater treatment method that uses microorganisms (mostly bacteria) to break down and remove organic pollutants from sewage or industrial effluents</p>
+    
     <h3>Explanation of Parameters:</h3>
     <ul>
-        <li><strong>Gender:</strong> Important for calculating the ABSI z-score, which is adjusted based on differences in body shape between males and females.</li>
-        <li><strong>Age (years):</strong> Used for z-score comparison against a reference population. Body shape risk changes with age.</li>
-        <li><strong>Height (cm):</strong> Affects both BMI and ABSI values. Taller individuals may distribute fat differently than shorter individuals.</li>
-        <li><strong>Weight (kg):</strong> Used in BMI calculation. Helps determine how much body mass a person has relative to their height.</li>
-        <li><strong>Waist Circumference (cm):</strong> The key input in ABSI. It reflects abdominal fat, which is a critical predictor of metabolic and cardiovascular risk.</li>
+        <li><strong>Q:</strong> Influent flow rate (m³/day).</li>
+        <li><strong>S₀:</strong> Initial substrate (BOD) concentration (mg/L).</li>
+        <li><strong>S:</strong> Final substrate (BOD) concentration after treatment (mg/L).</li>
+        <li><strong>Qw:</strong> Waste sludge flow rate (m³/day).</li>
+        <li><strong>Xr:</strong> Biomass concentration in waste sludge (mg/L).</li>
+        <li><strong>f:</strong> Ratio of BOD₅ to ultimate BOD (typically between 0.68 and 0.85).</li>
     </ul>
-    <h3>Interpreting Your Results</h3>
-    <p>
-        Based on your ABSI z-score:
-        <ul>
-            <li><strong>z-score < -1:</strong> Low risk of premature mortality.</li>
-            <li><strong>-1 ≤ z-score ≤ 1:</strong> Average risk.</li>
-            <li><strong>1 < z-score ≤ 2:</strong> Moderate risk.</li>
-            <li><strong>2 < z-score ≤ 3:</strong> High risk.</li>
-            <li><strong>z-score > 3:</strong> Very high risk.</li>
-        </ul>
-    </p>
 
-    <h3>What Can You Do?</h3>
-    <p>
-        If your ABSI z-score indicates a high risk:
-        <ul>
-            <li><strong>Consult a Doctor:</strong> Seek professional medical advice for a comprehensive health evaluation.</li>
-            <li><strong>Adopt a Healthy Lifestyle:</strong> Focus on a balanced diet, regular exercise, and stress management.</li>
-            <li><strong>Monitor Progress:</strong> Track your waist circumference, weight, and overall health regularly.</li>
-        </ul>
-    </p>
+    <h3>Why This Calculator Belongs to the Environment Sector?</h3>
+    <p>This <strong>Oxygen Requirement Calculator</strong> is categorized under the <strong>Environment sector</strong> as it is essential for <strong>biological wastewater treatment</strong>. It helps in determining the oxygen supply needed to break down organic pollutants efficiently, ensuring environmental protection and compliance with discharge standards.</p>
 
-    <h3>Disclaimer</h3>
-    <p>
-        This calculator provides estimates based on the ABSI formula and is not a substitute for professional medical advice. Always consult a healthcare provider for personalized recommendations.
-    </p>
+    <h3>Why is Oxygen Requirement Important?</h3>
+    <p>Determining oxygen demand is vital for:</p>
+    <ul>
+        <li><strong>Wastewater Treatment Plants:</strong> Ensuring sufficient oxygen for microbial activity and effective organic matter breakdown.</li>
+        <li><strong>Pollution Control:</strong> Preventing anaerobic conditions and foul odors.</li>
+        <li><strong>Operational Efficiency:</strong> Optimizing aeration systems and minimizing energy costs.</li>
+    </ul>
+
+    <h3>Validations:</h3>
+    <ul>
+        <li><strong>All Inputs Must Be Positive:</strong> Flow rates, concentrations, and the value of f must be greater than zero.</li>
+        <li><strong>Realistic Range:</strong> The f value should typically lie between 0.68 and 0.85.</li>
+        <li><strong>Units Must Be Consistent:</strong> Ensure all inputs follow the stated units to maintain accuracy.</li>
+        <li><strong>Carbonaceous BOD Only:</strong> This formula excludes oxygen required for nitrification (ammonia removal).</li>
+    </ul>
+
+    <h3>Real-life Applications:</h3>
+    <ul>
+        <li><strong>Municipal Sewage Treatment:</strong> Aeration tank design and operation.</li>
+        <li><strong>Industrial Effluent Treatment:</strong> Biological treatment process control.</li>
+        <li><strong>Environmental Monitoring:</strong> Estimating oxygen demand for pollution load assessments.</li>
+    </ul>
+
+    <h3>Conclusion:</h3>
+    <p>The <strong>Oxygen Requirement calculation</strong> is a <strong>crucial tool in environmental biotechnology</strong>. It supports the efficient design and operation of biological wastewater treatment systems, thereby improving effluent quality and protecting natural ecosystems.</p>
 </div>
 
+
 <script>
-   function calculateABSI() {
-    // Get input values
-    const sex = document.getElementById('sex').value;
-    const age = parseFloat(document.getElementById('age').value);
-    const height = parseFloat(document.getElementById('height').value);
-    const weight = parseFloat(document.getElementById('weight').value);
-    const waist = parseFloat(document.getElementById('waist').value);
-    const result = document.getElementById('result');
+    function calculateOxygenRequirement() {
+        const Q = parseFloat(document.getElementById("Q").value);
+        const S0 = parseFloat(document.getElementById("S0").value);
+        const S = parseFloat(document.getElementById("S").value);
+        const Qw = parseFloat(document.getElementById("Qw").value);
+        const Xr = parseFloat(document.getElementById("Xr").value);
+        const f = parseFloat(document.getElementById("f").value);
 
-    // Reset previous results
-    result.innerHTML = "";
+        const resultElement = document.getElementById("result");
+        const feedbackElement = document.getElementById("feedback");
 
-    // Validate inputs
-    if (isNaN(age) || age <= 0) {
-        result.innerHTML = "❌ Please enter a valid age (must be a positive number).";
-        return;
+        // Reset previous results
+        resultElement.innerHTML = "";
+        feedbackElement.innerHTML = "";
+
+        // Validations
+        if ([Q, S0, S, Qw, Xr, f].some(v => isNaN(v) || v <= 0)) {
+            resultElement.innerHTML = "❌ <strong>Error:</strong> All values must be positive numbers.";
+            return;
+        }
+
+        if (S0 <= S) {
+            resultElement.innerHTML = "❌ <strong>Error:</strong> Influent BOD (S0) must be greater than effluent BOD (S).";
+            return;
+        }
+
+        if (f <= 0 || f > 1) {
+            resultElement.innerHTML = "❌ <strong>Error:</strong> f must be a valid ratio between 0 and 1 (e.g., 0.6 - 0.85).";
+            return;
+        }
+
+        // Oxygen requirement formula: O2 = [Q(S0 - S) - 1.42 * Qw * Xr] / f
+        const oxygenRequired = (Q * (S0 - S) - 1.42 * Qw * Xr) / f;
+
+        // Feedback Message
+        let feedbackMessage = "";
+        let feedbackColor = "black";
+
+        if (oxygenRequired < 0) {
+            feedbackMessage = "❌ <strong>Warning:</strong> Oxygen requirement is negative, check your inputs again.";
+            feedbackColor = "red";
+        } else if (oxygenRequired <= 10000) {
+            feedbackMessage = "✅ <strong>Low Oxygen Demand:</strong> Suitable for small or low-strength systems.";
+            feedbackColor = "green";
+        } else if (oxygenRequired <= 50000) {
+            feedbackMessage = "⚠️ <strong>Moderate Demand:</strong> Common in municipal wastewater plants.";
+            feedbackColor = "orange";
+        } else {
+            feedbackMessage = "❌ <strong>High Oxygen Demand:</strong> Consider process optimization or load balancing.";
+            feedbackColor = "red";
+        }
+
+        resultElement.innerHTML = `
+            <strong>Oxygen Required:</strong> ${oxygenRequired.toFixed(2)} grams/day<br>
+            <strong style="color: ${feedbackColor};">${feedbackMessage}</strong>
+        `;
+        resultElement.style.color = "black";
     }
-    if (isNaN(height) || height <= 0) {
-        result.innerHTML = "❌ Please enter a valid height (must be a positive number).";
-        return;
-    }
-    if (isNaN(weight) || weight <= 0) {
-        result.innerHTML = "❌ Please enter a valid weight (must be a positive number).";
-        return;
-    }
-    if (isNaN(waist) || waist <= 0) {
-        result.innerHTML = "❌ Please enter a valid waist circumference (must be a positive number).";
-        return;
-    }
-
-    // Convert height and waist circumference from cm to meters
-    const heightMeters = height / 100;
-    const waistMeters = waist / 100;
-
-    // Calculate BMI
-    const bmi = weight / (heightMeters * heightMeters);
-
-    // Calculate ABSI
-    const absi = waistMeters / (Math.pow(bmi, 2 / 3) * Math.pow(heightMeters, 1 / 2));
-
-    // Round ABSI to 5 decimal places
-    const absiRounded = parseFloat(absi.toFixed(6));
-
-    // Calculate ABSI z-score (using adjusted mean and standard deviation)
-    const absiMean = 0.0760; // Adjusted mean
-    const absiStdDev = 0.004; // Assumed standard deviation
-    const absiZScore = (absi - absiMean) / absiStdDev;
-
-    // Round z-score to 2 decimal places
-    const absiZScoreRounded = parseFloat(absiZScore.toFixed(2));
-
-    // Interpret ABSI z-score
-    let interpretation = "";
-    if (absiZScoreRounded < -1) {
-        interpretation = "Your ABSI z-score indicates a **low risk** of premature mortality.";
-    } else if (absiZScoreRounded >= -1 && absiZScoreRounded <= 1) {
-        interpretation = "Your ABSI z-score indicates an **average risk** of premature mortality.";
-    } else if (absiZScoreRounded > 1 && absiZScoreRounded <= 2) {
-        interpretation = "Your ABSI z-score indicates a **moderate risk** of premature mortality.";
-    } else if (absiZScoreRounded > 2 && absiZScoreRounded <= 3) {
-        interpretation = "Your ABSI z-score indicates a **high risk** of premature mortality.";
-    } else {
-        interpretation = "Your ABSI z-score indicates a **very high risk** of premature mortality. ❗❗❗";
-    }
-
-    // Display results
-    result.innerHTML = `
-        <strong>ABSI:</strong> ${absiRounded}<br>
-        <strong>ABSI z-score:</strong> ${absiZScoreRounded}<br>
-        <strong>Interpretation:</strong> ${interpretation}
-    `;
-}
 </script>
+
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
-
-
-
-
 
 
 
@@ -483,6 +405,7 @@ select {
         return false;
     });
     </script>
+
 <div id="footer"></div>
 <script>
     fetch("header.html").then(response => response.text()).then(data => document.getElementById("header").innerHTML = data);
@@ -591,5 +514,5 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 
-<!-- Mirrored from dsathemes.com/html/martex_1.1/files/project-details.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 08 Mar 2024 16:40:05 GMT -->
+<!-- Mirrored from dsathemes.com/html/martex_1.1/files/project-details.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 08 Mar 2024 16:40:05 GMT -->
 </html>
