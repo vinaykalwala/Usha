@@ -56,8 +56,9 @@
 		<link href="css/responsive.css" rel="stylesheet">
 <style>
             
-            
+         
 
+   
         body {
       font-family: Arial, sans-serif;
      
@@ -80,6 +81,27 @@
       font-size: 1.8rem;
       margin-bottom: 30px;
     }
+    
+    .reel {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.reel .form-group {
+  width: 48%;
+}
+
+@media (max-width: 768px) {
+  .reel {
+    flex-direction: column;
+    gap: 5px;
+  }
+  
+  .reel .form-group {
+    width: 100%;
+  }
+}
     .form-group {
       margin-bottom: 15px;
     }
@@ -97,6 +119,7 @@
 
     
     }
+
     .cal-btn {
       width: 100%;
       padding: 10px;
@@ -151,6 +174,14 @@
     font-size: 20px;
 }
 
+.note-container ul{
+    margin: 10px;
+}
+
+.note-container{
+    margin-top: 10px;
+}
+
 .note-container p {
     margin-top: 15px;
     text-align: justify;
@@ -163,6 +194,16 @@ strong{
         margin: 15px; 
         padding: 10px; 
     }
+}
+select {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #d3e0f0;
+    border-radius: 5px;
+    font-size: 1rem;
+    background-color: rgb(223, 241, 247);
+
 }
 </style>
 	</head>
@@ -177,95 +218,117 @@ strong{
 
 
 
-        <div id="header"></div>
-
-
+		
 <br><br><br><br>
 
-
+<div id="header"></div>
 
 <div class="calculator-container">
-    <h2>Age Shock Index (Age SI) Calculator</h2>
+    <h2>Liquid Film Coefficient (KL) Calculator</h2>
+
     <div class="form-group">
-        <label for="age">Age (years):</label>
-        <input type="number" id="age" placeholder="Enter Age">
+        <label for="diffusion_coefficient">Diffusion Coefficient (D) (m²/s):</label>
+        <input type="number" id="diffusion_coefficient" placeholder="Enter D" step="any">
     </div>
+
     <div class="form-group">
-        <label for="heartRate">Heart Rate (HR) (beats/minute):</label>
-        <input type="number" id="heartRate" placeholder="Enter Heart Rate">
+        <label for="film_thickness">Film Thickness (Y) (m):</label>
+        <input type="number" id="film_thickness" placeholder="Enter Y" step="any">
     </div>
-    <div class="form-group">
-        <label for="systolicBP">Systolic Blood Pressure (SBP) (mmHg):</label>
-        <input type="number" id="systolicBP" placeholder="Enter Systolic BP">
-    </div>
-    <button class="cal-btn" onclick="calculateAgeShockIndex()">Calculate Age Shock Index </button>
+
+    <button class="cal-btn" onclick="calculateKL()">Calculate</button>
     <div class="result" id="result"></div>
+    <div class="feedback" id="feedback"></div>
 </div>
 
 <div class="note-container">
-    <h3>What is Age Shock Index?</h3>
-    <p>
-        The <strong>Age Shock Index (Age SI)</strong> is an advanced form of the traditional shock index. It incorporates the patient’s age along with their heart rate and systolic blood pressure to help predict the severity of a patient’s condition, especially in cases of acute myocardial infarction (AMI).
-    </p>
-    <h3>📌 Explanation of Parameters:</h4>
-    <ul>
-        <li><strong>Age (years):</strong> Older individuals generally have a higher baseline risk for cardiovascular issues. This factor adds context to heart rate and blood pressure readings.</li>
-        <li><strong>Heart Rate (beats/min):</strong> A high heart rate may signal physiological stress or shock. When combined with age, it reflects how much strain the body is under.</li>
-        <li><strong>Systolic Blood Pressure (mmHg):</strong> This is the pressure in your arteries when your heart beats. Lower values may indicate poor perfusion and possible circulatory failure.</li>
-    </ul>
-    <h3>How Is It Calculated?</h3>
-    <p>
-        To calculate the Age SI, you start by multiplying the patient’s age in years by their heart rate (measured in beats per minute). This combined value reflects the patient’s physiological stress level considering both age and heart activity. Next, you divide that value by the patient’s systolic blood pressure (SBP), which indicates how much pressure the blood exerts against artery walls when the heart beats.
-    </p>
-    <p>
-        By combining these three parameters, the Age SI gives a clearer picture of how well the cardiovascular system is handling stress.
-    </p>
+    <h3>Note:</h3>
+    <p>This calculator determines the <strong>Liquid Film Coefficient (K<sub>L</sub>)</strong> using the diffusion coefficient of gas in liquid and the film thickness.</p>
 
-    <h3>Interpretation:</h3>
+    <p>It is commonly used in <strong>mass transfer analysis, aeration systems, and environmental engineering</strong> to estimate how easily a gas can diffuse through a stagnant liquid layer.</p>
+
+    <h3>Explanation of Parameters:</h3>
     <ul>
-        <li><strong>Age SI ≤ 50:</strong> ✅ Normal — Suggests a lower risk for serious cardiac events.</li>
-        <li><strong>Age SI &gt; 50:</strong> ⚠️ Elevated — Indicates a potentially higher risk of mortality and may require urgent medical attention.</li>
+        <li><strong>D (Diffusion Coefficient):</strong> Indicates how fast a gas molecule diffuses through a liquid (m²/s).</li>
+        <li><strong>Y (Film Thickness):</strong> The physical thickness of the stagnant liquid layer the gas must pass through (m).</li>
     </ul>
 
-    <h3>Why It Matters:</h3>
-    <p>
-        In fast-paced clinical environments like emergency rooms, the Age Shock Index can help healthcare professionals make quick and informed decisions. It has been shown to provide risk predictions similar to more complex tools like the GRACE score — but with much less time and effort at the bedside.
-    </p>
+    <p><strong>Liquid Film Coefficient (K<sub>L</sub>)</strong> is vital for analyzing resistance to mass transfer in processes where gases dissolve into or out of liquids.</p>
+    
+    <h3>Why is this Calculation Important?</h3>
+    <p>Knowing K<sub>L</sub> helps in:</p>
+    <ul>
+        <li><strong>Engineering Design:</strong> Selecting appropriate film thicknesses and materials for diffusion systems.</li>
+        <li><strong>Process Optimization:</strong> Understanding bottlenecks in gas absorption or desorption steps.</li>
+        <li><strong>Environmental Monitoring:</strong> Evaluating gas transfer in natural or engineered water systems.</li>
+    </ul>
+
+    <h3>Validations:</h3>
+    <ul>
+        <li><strong>Positive Inputs:</strong> Both D and Y must be positive real numbers.</li>
+        <li><strong>Realistic Values:</strong> Typical D ranges from 10⁻⁹ to 10⁻⁴ m²/s, and Y is often 0.001–0.01 m.</li>
+        <li><strong>Correct Units:</strong> Ensure D is in m²/s and Y is in meters (m).</li>
+        <li><strong>Applicable Context:</strong> Assumes steady-state conditions, constant temperature, and no turbulence.</li>
+    </ul>
+
+    <h3>Real-life Applications:</h3>
+    <ul>
+        <li><strong>Wastewater Treatment:</strong> Analyzing oxygen diffusion through liquid layers in tanks.</li>
+        <li><strong>Gas Absorbers:</strong> Designing absorber columns for industrial gas scrubbing.</li>
+        <li><strong>Aquatic Systems:</strong> Studying gas exchange in lakes, rivers, or aquariums.</li>
+        <li><strong>Environmental Engineering:</strong> Modeling pollutant transfer in water bodies.</li>
+    </ul>
+
+    <h3>Conclusion:</h3>
+    <p>The <strong>Liquid Film Coefficient provides critical insight into <strong>diffusion-based mass transfer</strong> and supports smarter designs in water treatment, gas absorption, and environmental monitoring.</p>
 </div>
 
-<script>
-    function calculateAgeShockIndex() {
-        const age = parseFloat(document.getElementById('age').value);
-        const HR = parseFloat(document.getElementById('heartRate').value);
-        const SBP = parseFloat(document.getElementById('systolicBP').value);
 
-        if (isNaN(age) || isNaN(HR) || isNaN(SBP) || age <= 0 || HR <= 0 || SBP <= 0) {
-            document.getElementById('result').innerText = "Please enter valid values for all fields.";
+<script>
+    function calculateKL() {
+        const D = parseFloat(document.getElementById("diffusion_coefficient").value);
+        const Y = parseFloat(document.getElementById("film_thickness").value);
+        const resultElement = document.getElementById("result");
+        const feedbackElement = document.getElementById("feedback");
+
+        // Reset previous results
+        resultElement.innerHTML = "";
+        feedbackElement.innerHTML = "";
+
+        // Validations
+        if (isNaN(D) || D <= 0 || isNaN(Y) || Y <= 0) {
+            resultElement.innerHTML = "❌ <strong>Error:</strong> D and Y must be positive numbers.";
             return;
         }
 
-        const ageSI = (age * HR) / SBP;
-        let interpretation = "";
+        // KL Calculation: KL = D / Y
+        const KL = D / Y;
 
-        if (ageSI > 50) {
-            interpretation = "⚠️ Elevated: Increased risk of mortality — may indicate serious cardiovascular compromise, such as acute myocardial infarction (heart attack).";
+        // Feedback based on KL value
+        let feedbackMessage = "";
+        let feedbackColor = "black";
+
+        if (KL > 0.01) {
+            feedbackMessage = "✅ <strong>High Transfer Rate:</strong> Efficient gas-liquid mass transfer.";
+            feedbackColor = "green";
+        } else if (KL >= 0.001 && KL <= 0.01) {
+            feedbackMessage = "⚠️ <strong>Moderate Transfer Rate:</strong> Acceptable but may require optimization.";
+            feedbackColor = "orange";
         } else {
-            interpretation = "✅ Normal: Suggests stable cardiovascular status with a lower risk of heart-related complications.";
+            feedbackMessage = "❌ <strong>Low Transfer Rate:</strong> Not efficient for mass transfer.";
+            feedbackColor = "red";
         }
 
-        document.getElementById('result').innerHTML = `
-            Age Shock Index: ${ageSI.toFixed(2)} <br>
-            <strong>Interpretation:</strong> ${interpretation}
+        // Display Results
+        resultElement.innerHTML = `
+            <strong>Liquid Film Coefficient (KL):</strong> ${KL.toExponential(3)} m/s<br>
+            <strong style="color: ${feedbackColor};">${feedbackMessage}</strong>
         `;
+        resultElement.style.color = "black";
     }
 </script>
 
-
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
-
-
-
-
 
 
 
@@ -294,11 +357,16 @@ strong{
         return false;
     });
     </script>
+
 <div id="footer"></div>
 <script>
     fetch("header.html").then(response => response.text()).then(data => document.getElementById("header").innerHTML = data);
     fetch("footer.html").then(response => response.text()).then(data => document.getElementById("footer").innerHTML = data);
 </script>
+
+
+		</div>	<!-- END PAGE CONTENT -->	
+
 
 
 
@@ -398,5 +466,5 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 
-<!-- Mirrored from dsathemes.com/html/martex_1.1/files/project-details.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 08 Mar 2024 16:40:05 GMT -->
+<!-- Mirrored from dsathemes.com/html/martex_1.1/files/project-details.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 08 Mar 2024 16:40:05 GMT -->
 </html>

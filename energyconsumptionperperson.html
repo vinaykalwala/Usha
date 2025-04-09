@@ -56,8 +56,9 @@
 		<link href="css/responsive.css" rel="stylesheet">
 <style>
             
-            
+         
 
+   
         body {
       font-family: Arial, sans-serif;
      
@@ -80,6 +81,7 @@
       font-size: 1.8rem;
       margin-bottom: 30px;
     }
+    
     .form-group {
       margin-bottom: 15px;
     }
@@ -151,6 +153,14 @@
     font-size: 20px;
 }
 
+.note-container ul{
+    margin: 10px;
+}
+
+.note-container{
+    margin-top: 10px;
+}
+
 .note-container p {
     margin-top: 15px;
     text-align: justify;
@@ -163,6 +173,16 @@ strong{
         margin: 15px; 
         padding: 10px; 
     }
+}
+select {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #d3e0f0;
+    border-radius: 5px;
+    font-size: 1rem;
+    background-color: rgb(223, 241, 247);
+
 }
 </style>
 	</head>
@@ -177,95 +197,130 @@ strong{
 
 
 
-        <div id="header"></div>
-
-
+		
 <br><br><br><br>
 
-
+<div id="header"></div>
 
 <div class="calculator-container">
-    <h2>Age Shock Index (Age SI) Calculator</h2>
+    <h2>Energy Consumption per Person per Year Calculator</h2>
+
     <div class="form-group">
-        <label for="age">Age (years):</label>
-        <input type="number" id="age" placeholder="Enter Age">
+        <label for="power">Power Required (kW):</label>
+        <input type="number" id="power" placeholder="Enter power in kW" step="any">
     </div>
+
     <div class="form-group">
-        <label for="heartRate">Heart Rate (HR) (beats/minute):</label>
-        <input type="number" id="heartRate" placeholder="Enter Heart Rate">
+        <label for="population">Population (number of people):</label>
+        <input type="number" id="population" placeholder="Enter population" step="1">
     </div>
-    <div class="form-group">
-        <label for="systolicBP">Systolic Blood Pressure (SBP) (mmHg):</label>
-        <input type="number" id="systolicBP" placeholder="Enter Systolic BP">
-    </div>
-    <button class="cal-btn" onclick="calculateAgeShockIndex()">Calculate Age Shock Index </button>
+
+    <button class="cal-btn" onclick="calculateEnergyPerPerson()">Calculate</button>
     <div class="result" id="result"></div>
+    <div class="feedback" id="feedback"></div>
 </div>
 
 <div class="note-container">
-    <h3>What is Age Shock Index?</h3>
-    <p>
-        The <strong>Age Shock Index (Age SI)</strong> is an advanced form of the traditional shock index. It incorporates the patient’s age along with their heart rate and systolic blood pressure to help predict the severity of a patient’s condition, especially in cases of acute myocardial infarction (AMI).
-    </p>
-    <h3>📌 Explanation of Parameters:</h4>
-    <ul>
-        <li><strong>Age (years):</strong> Older individuals generally have a higher baseline risk for cardiovascular issues. This factor adds context to heart rate and blood pressure readings.</li>
-        <li><strong>Heart Rate (beats/min):</strong> A high heart rate may signal physiological stress or shock. When combined with age, it reflects how much strain the body is under.</li>
-        <li><strong>Systolic Blood Pressure (mmHg):</strong> This is the pressure in your arteries when your heart beats. Lower values may indicate poor perfusion and possible circulatory failure.</li>
-    </ul>
-    <h3>How Is It Calculated?</h3>
-    <p>
-        To calculate the Age SI, you start by multiplying the patient’s age in years by their heart rate (measured in beats per minute). This combined value reflects the patient’s physiological stress level considering both age and heart activity. Next, you divide that value by the patient’s systolic blood pressure (SBP), which indicates how much pressure the blood exerts against artery walls when the heart beats.
-    </p>
-    <p>
-        By combining these three parameters, the Age SI gives a clearer picture of how well the cardiovascular system is handling stress.
-    </p>
+    <h3>Note:</h3>
+    <p>This calculator determines the <strong>Energy Consumption per Person per Year (kWh/year/person)</strong> based on total power usage and population size.</p>
 
-    <h3>Interpretation:</h3>
+    <p>It is widely used in <strong>environmental engineering, utility planning, and sustainability analysis</strong> to estimate per capita energy consumption in water treatment, residential systems, or industrial operations.</p>
+
+    <h3>Explanation of Parameters:</h3>
     <ul>
-        <li><strong>Age SI ≤ 50:</strong> ✅ Normal — Suggests a lower risk for serious cardiac events.</li>
-        <li><strong>Age SI &gt; 50:</strong> ⚠️ Elevated — Indicates a potentially higher risk of mortality and may require urgent medical attention.</li>
+        <li><strong>Power Required (kW):</strong> The total energy usage of a system, plant, or equipment.</li>
+        <li><strong>Population:</strong> The number of people the energy is distributed across.</li>
+        <li><strong>Time Factor:</strong> Assumes continuous operation — 24 hours/day, 365 days/year.</li>
     </ul>
 
-    <h3>Why It Matters:</h3>
-    <p>
-        In fast-paced clinical environments like emergency rooms, the Age Shock Index can help healthcare professionals make quick and informed decisions. It has been shown to provide risk predictions similar to more complex tools like the GRACE score — but with much less time and effort at the bedside.
-    </p>
+    <p><strong>Energy Consumption per Person</strong> helps quantify the environmental footprint and operational efficiency of shared systems like water treatment plants.</p>
+    
+    <h3>Why is this Calculation Important?</h3>
+    <p>Understanding per person energy use enables:</p>
+    <ul>
+        <li><strong>Performance Benchmarking:</strong> Compare efficiency across systems or communities.</li>
+        <li><strong>Sustainability Analysis:</strong> Identify high-consumption systems needing optimization.</li>
+        <li><strong>Planning and Budgeting:</strong> Forecast utility demands and energy costs.</li>
+    </ul>
+
+    <h3>Validations:</h3>
+    <ul>
+        <li><strong>Positive Values Only:</strong> Both power and population inputs must be greater than zero.</li>
+        <li><strong>Unit Consistency:</strong> Power should be in kilowatts (kW), and population must be a whole number.</li>
+        <li><strong>Assumed Conditions:</strong> Assumes system runs 24/7 for 365 days a year.</li>
+        <li><strong>Realistic Results:</strong> The output should reflect practical energy use in real-life operations.</li>
+        <li><strong>Limitations:</strong> Does not account for seasonal usage variation, intermittent operation, or energy losses.</li>
+    </ul>
+
+    <h3>Real-life Applications:</h3>
+    <ul>
+        <li><strong>Water & Wastewater Treatment:</strong> Assessing energy impact of treatment systems per resident.</li>
+        <li><strong>Community Sustainability Reports:</strong> Calculating per capita energy footprints.</li>
+        <li><strong>Industrial Design:</strong> Distributing energy cost across workforce or served population.</li>
+        <li><strong>Policy Planning:</strong> Setting efficiency targets or subsidies based on per person consumption.</li>
+    </ul>
+
+    <h3>Conclusion:</h3>
+    <p>The <strong>Energy Consumption per Person per Year</strong> formula is a valuable tool for <strong>sustainability-focused planning</strong>, system design, and environmental performance benchmarking. It promotes efficient resource use and supports data-driven environmental management.</p>
 </div>
 
-<script>
-    function calculateAgeShockIndex() {
-        const age = parseFloat(document.getElementById('age').value);
-        const HR = parseFloat(document.getElementById('heartRate').value);
-        const SBP = parseFloat(document.getElementById('systolicBP').value);
 
-        if (isNaN(age) || isNaN(HR) || isNaN(SBP) || age <= 0 || HR <= 0 || SBP <= 0) {
-            document.getElementById('result').innerText = "Please enter valid values for all fields.";
+
+
+<script>
+    function calculateEnergyPerPerson() {
+        const power = parseFloat(document.getElementById("power").value);
+        const population = parseInt(document.getElementById("population").value);
+        const resultElement = document.getElementById("result");
+        const feedbackElement = document.getElementById("feedback");
+
+        // Reset previous outputs
+        resultElement.innerHTML = "";
+        feedbackElement.innerHTML = "";
+
+        // Validations
+        if (isNaN(power) || power <= 0) {
+            resultElement.innerHTML = "❌ <strong>Error:</strong> Power must be a positive number.";
             return;
         }
 
-        const ageSI = (age * HR) / SBP;
-        let interpretation = "";
-
-        if (ageSI > 50) {
-            interpretation = "⚠️ Elevated: Increased risk of mortality — may indicate serious cardiovascular compromise, such as acute myocardial infarction (heart attack).";
-        } else {
-            interpretation = "✅ Normal: Suggests stable cardiovascular status with a lower risk of heart-related complications.";
+        if (isNaN(population) || population <= 0) {
+            resultElement.innerHTML = "❌ <strong>Error:</strong> Population must be a positive whole number.";
+            return;
         }
 
-        document.getElementById('result').innerHTML = `
-            Age Shock Index: ${ageSI.toFixed(2)} <br>
-            <strong>Interpretation:</strong> ${interpretation}
+        // Constants
+        const hoursPerDay = 24;
+        const daysPerYear = 365;
+
+        // Energy per person per year (kWh/year/person)
+        const energyPerPerson = (power * hoursPerDay * daysPerYear) / population;
+
+        // Feedback
+        let feedbackMessage = "";
+        let feedbackColor = "black";
+
+        if (energyPerPerson > 50) {
+            feedbackMessage = "✅ <strong>High Energy Consumption:</strong> Indicates heavy operational load or small population.";
+            feedbackColor = "green";
+        } else if (energyPerPerson >= 10 && energyPerPerson <= 50) {
+            feedbackMessage = "⚠️ <strong>Moderate Energy Use:</strong> Normal for municipal treatment systems.";
+            feedbackColor = "orange";
+        } else {
+            feedbackMessage = "❌ <strong>Low Energy Use:</strong> May indicate underutilization or energy inefficiency.";
+            feedbackColor = "red";
+        }
+
+        // Output result
+        resultElement.innerHTML = `
+            <strong>Energy Consumption per Person per Year:</strong> ${energyPerPerson.toFixed(2)} kWh/year/person<br>
+            <strong style="color: ${feedbackColor};">${feedbackMessage}</strong>
         `;
+        resultElement.style.color = "black";
     }
 </script>
 
-
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
-
-
-
-
 
 
 
@@ -294,11 +349,16 @@ strong{
         return false;
     });
     </script>
+
 <div id="footer"></div>
 <script>
     fetch("header.html").then(response => response.text()).then(data => document.getElementById("header").innerHTML = data);
     fetch("footer.html").then(response => response.text()).then(data => document.getElementById("footer").innerHTML = data);
 </script>
+
+
+		</div>	<!-- END PAGE CONTENT -->	
+
 
 
 
@@ -398,5 +458,5 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 
-<!-- Mirrored from dsathemes.com/html/martex_1.1/files/project-details.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 08 Mar 2024 16:40:05 GMT -->
+<!-- Mirrored from dsathemes.com/html/martex_1.1/files/project-details.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 08 Mar 2024 16:40:05 GMT -->
 </html>

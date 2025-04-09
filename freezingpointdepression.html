@@ -56,68 +56,120 @@
 		<link href="css/responsive.css" rel="stylesheet">
 <style>
             
-            
+         
 
+   
         body {
       font-family: Arial, sans-serif;
      
       background-color: #f5f5f5;
     }
     .calculator-container {
-      max-width: 1000px;
-      margin: 20px auto;
-      padding: 20px;
-      background: #ffffff;
-      border-radius: 8px;
-      border: 2px dotted #1560bd;
-
-      box-shadow: 20px 14px 8px rgba(0, 0, 0, 0.2);
-    }
-    .calculator-container h2 {
-      text-align: center;
-      margin-bottom: 20px;
-      color: #1560bd;
-      font-size: 1.8rem;
-      margin-bottom: 30px;
-    }
-    .form-group {
-      margin-bottom: 15px;
-    }
-    .form-group label {
-      display: block;
-      margin-bottom: 5px;
-      color: #333;
-    }
-    .form-group input {
-      width: 100%;
-      padding: 8px;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-      background-color: rgb(223, 241, 247);
+        max-width: 1200px;
+        margin: 20px auto;
+        padding: 20px;
+        background: #ffffff;
+        border-radius: 8px;
+        border: 2px dotted #1560bd;
+        box-shadow: 20px 14px 8px rgba(0, 0, 0, 0.2);
+      }
+      
+      .calculator-container h2 {
+        text-align: center;
+        margin-bottom: 20px;
+        color: #1560bd;
+        font-size: 1.8rem;
+      }
 
     
-    }
-    .cal-btn {
-      width: 100%;
-      padding: 10px;
-      background-color: #1560bd;
-      color: #fff;
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
-      font-size: 16px;
-    }
-    .cal-btn:hover {
-      background-color: #0056b3;
-    }
-    .result {
-      margin-top: 20px;
-      font-size: 24px;
-      color: #333;
-      text-align: center;
-      color: rgb(36, 116, 2);
+  
+      .force-per {
+        display: flex;
+        justify-content: space-between;
+        gap: 10px;
+      }
+  
+      .force-per .form-group {
+        width: 48%;
+      }
+      @media (max-width:768px){
+        .force-per {
+            flex-direction: column;
+            gap: 5px;
+        }
+        .force-per .form-group{
+            width: 100%;
+        }
+      }
+
+
+      .section {
+        display: none; 
+      }
      
-    }
+      .active {
+        display: block; 
+      }
+
+      .imerial-based {
+        display: flex;
+        justify-content: space-between;
+        gap: 10px;
+      }
+  
+      .imerial-based .form-group {
+        width: 48%;
+      }
+      @media (max-width:768px){
+        .imerial-based {
+            flex-direction: column;
+            gap: 5px;
+        }
+        .imerial-based .form-group{
+            width: 100%;
+        }
+      }
+  
+      .form-group {
+        margin-bottom: 15px;
+        
+      }
+  
+      .form-group label {
+        display: block;
+        margin-bottom: 5px;
+        color: #333;
+      }
+  
+      .form-group input {
+        width: 100%;
+        padding: 8px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        background-color: rgb(223, 241, 247);
+      }
+  
+      .cal-btn {
+        width: 100%;
+        padding: 10px;
+        background-color: #1560bd;
+        color: #fff;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 16px;
+      }
+  
+      .cal-btn:hover {
+        background-color: #0056b3;
+      }
+  
+      .result {
+        margin-top: 20px;
+        font-size: 24px;
+        color: rgb(36, 116, 2);
+        text-align: center;
+      }
     @media (max-width: 768px) {
     .calculator-container {
         margin: 20px 15px; 
@@ -146,16 +198,25 @@
 }
 
 .note-container h3 {
-    margin:15px 0;
+    margin-top: 10px;
     color: #007bff;
-    font-size: 20px;
+    font-size: 18px;
+}
+.note-container ul{
+    margin-top: 5px;
 }
 
 .note-container p {
-    margin-top: 15px;
+    margin-top: 10px;
     text-align: justify;
 }
 strong{
+    color: #0056b3;
+}
+.feedback {
+    margin-top: 20px;
+    font-size: 24px;
+    text-align: center;
     color: #0056b3;
 }
 @media (max-width: 768px) {
@@ -164,6 +225,17 @@ strong{
         padding: 10px; 
     }
 }
+select {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #d3e0f0;
+    border-radius: 5px;
+    font-size: 1rem;
+    background-color: rgb(223, 241, 247);
+
+}
+
 </style>
 	</head>
 
@@ -171,101 +243,136 @@ strong{
 
 
 	<body> 
-
-
-
-
-
-
-        <div id="header"></div>
-
-
+		
 <br><br><br><br>
+
+<div id="header"></div>
 
 
 
 <div class="calculator-container">
-    <h2>Age Shock Index (Age SI) Calculator</h2>
-    <div class="form-group">
-        <label for="age">Age (years):</label>
-        <input type="number" id="age" placeholder="Enter Age">
+    <h2>Freezing Point Depression Calculator</h2>
+
+    <div class="imerial-based">
+        <div class="form-group">
+            <label for="molality">Molality (m) of Solution (mol/kg)</label>
+            <input type="number" id="molality" placeholder="Enter solute molality" step="any" min="0">
+        </div>
+        <div class="form-group">
+            <label for="cryoscopicConstant">Cryoscopic Constant (K<sub>f</sub>) (K·kg/mol)</label>
+            <input type="number" id="cryoscopicConstant" placeholder="Enter Kf for solvent" step="any" min="0.01" value="1.86">
+        </div>
     </div>
+
     <div class="form-group">
-        <label for="heartRate">Heart Rate (HR) (beats/minute):</label>
-        <input type="number" id="heartRate" placeholder="Enter Heart Rate">
+        <label for="pureSolventFP">Pure Solvent Freezing Point (°C)</label>
+        <input type="number" id="pureSolventFP" placeholder="Enter solvent FP (e.g., 0 for water)" step="any" value="0">
     </div>
-    <div class="form-group">
-        <label for="systolicBP">Systolic Blood Pressure (SBP) (mmHg):</label>
-        <input type="number" id="systolicBP" placeholder="Enter Systolic BP">
-    </div>
-    <button class="cal-btn" onclick="calculateAgeShockIndex()">Calculate Age Shock Index </button>
+
+    <button class="cal-btn" onclick="calculateFPDepression()">Calculate Freezing Point Depression</button>
+   
+    
     <div class="result" id="result"></div>
+    <p class="feedback" id="feedback"></p>
 </div>
 
 <div class="note-container">
-    <h3>What is Age Shock Index?</h3>
-    <p>
-        The <strong>Age Shock Index (Age SI)</strong> is an advanced form of the traditional shock index. It incorporates the patient’s age along with their heart rate and systolic blood pressure to help predict the severity of a patient’s condition, especially in cases of acute myocardial infarction (AMI).
-    </p>
-    <h3>📌 Explanation of Parameters:</h4>
-    <ul>
-        <li><strong>Age (years):</strong> Older individuals generally have a higher baseline risk for cardiovascular issues. This factor adds context to heart rate and blood pressure readings.</li>
-        <li><strong>Heart Rate (beats/min):</strong> A high heart rate may signal physiological stress or shock. When combined with age, it reflects how much strain the body is under.</li>
-        <li><strong>Systolic Blood Pressure (mmHg):</strong> This is the pressure in your arteries when your heart beats. Lower values may indicate poor perfusion and possible circulatory failure.</li>
-    </ul>
-    <h3>How Is It Calculated?</h3>
-    <p>
-        To calculate the Age SI, you start by multiplying the patient’s age in years by their heart rate (measured in beats per minute). This combined value reflects the patient’s physiological stress level considering both age and heart activity. Next, you divide that value by the patient’s systolic blood pressure (SBP), which indicates how much pressure the blood exerts against artery walls when the heart beats.
-    </p>
-    <p>
-        By combining these three parameters, the Age SI gives a clearer picture of how well the cardiovascular system is handling stress.
-    </p>
+    <h3>Note:</h3>
+    <p><strong>Freezing Point Depression</strong> describes how adding solute lowers a solvent's freezing point. This colligative property depends on solute particles, not their identity. It's crucial for environmental applications like winter road safety and antifreeze formulations.</p>
 
-    <h3>Interpretation:</h3>
+    <h3>Why is This Important for Environmental Management?</h3>
+    <p>Understanding freezing point depression helps optimize de-icing operations, prevent water pipe bursts, and assess pollutant impacts on natural water bodies. It directly affects winter road maintenance strategies and ecosystem protection.</p>
+
+    <h3>Key Parameters:</h3>
     <ul>
-        <li><strong>Age SI ≤ 50:</strong> ✅ Normal — Suggests a lower risk for serious cardiac events.</li>
-        <li><strong>Age SI &gt; 50:</strong> ⚠️ Elevated — Indicates a potentially higher risk of mortality and may require urgent medical attention.</li>
+        <li><strong>Molality (m)</strong> - Moles of solute per kg of solvent (temperature-independent concentration)</li>
+        <li><strong>Cryoscopic Constant (K<sub>f</sub>)</strong> - Solvent-specific property (1.86 K·kg/mol for water)</li>
+        <li><strong>Pure Solvent FP</strong> - Reference freezing point without solute (0°C for water)</li>
     </ul>
 
-    <h3>Why It Matters:</h3>
-    <p>
-        In fast-paced clinical environments like emergency rooms, the Age Shock Index can help healthcare professionals make quick and informed decisions. It has been shown to provide risk predictions similar to more complex tools like the GRACE score — but with much less time and effort at the bedside.
-    </p>
+    <h3>Critical Environmental Applications:</h3>
+    <ul>
+        <li><strong>Road De-icing</strong> - Calculating optimal salt concentrations for winter roads</li>
+        <li><strong>Water Pipe Protection</strong> - Determining antifreeze needs for exposed plumbing</li>
+        <li><strong>Pollution Monitoring</strong> - Assessing how pollutants affect natural water freezing</li>
+        <li><strong>Ecosystem Studies</strong> - Understanding winter survival of aquatic organisms</li>
+    </ul>
+
+    <h3>Environmental Impact Considerations:</h3>
+    <ul>
+        <li><strong>Road Salt Effects</strong> - Chloride runoff damages vegetation and aquatic life</li>
+        <li><strong>Alternative Deicers</strong> - Organic compounds have different K<sub>f</sub> values and ecological impacts</li>
+        <li><strong>Climate Change</strong> - Changing freeze-thaw cycles affect de-icing requirements</li>
+    </ul>
+
+    <h3>Industry Standards & Guidelines:</h3>
+    <p>EPA recommends chloride limits of 230 mg/L for chronic exposure in freshwater. Many states require winter maintenance plans that consider freezing point depression for optimal salt use.</p>
+
+    <h3>Conclusion:</h3>
+    <p>Freezing point depression calculations help balance winter safety with environmental protection. By understanding this phenomenon, we can minimize salt usage while maintaining effective ice control, reducing ecological damage to soils and waterways.</p>
 </div>
 
 <script>
-    function calculateAgeShockIndex() {
-        const age = parseFloat(document.getElementById('age').value);
-        const HR = parseFloat(document.getElementById('heartRate').value);
-        const SBP = parseFloat(document.getElementById('systolicBP').value);
-
-        if (isNaN(age) || isNaN(HR) || isNaN(SBP) || age <= 0 || HR <= 0 || SBP <= 0) {
-            document.getElementById('result').innerText = "Please enter valid values for all fields.";
+    function calculateFPDepression() {
+        const molality = parseFloat(document.getElementById('molality').value);
+        const kf = parseFloat(document.getElementById('cryoscopicConstant').value);
+        const pureFP = parseFloat(document.getElementById('pureSolventFP').value);
+        const resultElement = document.getElementById('result');
+        const feedbackElement = document.getElementById('feedback');
+    
+        // Reset previous outputs
+        resultElement.innerHTML = '';
+        feedbackElement.innerHTML = '';
+    
+        // Input validation with reason
+        if (isNaN(molality) || molality < 0) {
+            resultElement.innerHTML = '<strong>Molality</strong> must be 0 or greater. Negative molality is not physically meaningful.';
             return;
         }
-
-        const ageSI = (age * HR) / SBP;
-        let interpretation = "";
-
-        if (ageSI > 50) {
-            interpretation = "⚠️ Elevated: Increased risk of mortality — may indicate serious cardiovascular compromise, such as acute myocardial infarction (heart attack).";
-        } else {
-            interpretation = "✅ Normal: Suggests stable cardiovascular status with a lower risk of heart-related complications.";
+    
+        if (isNaN(kf) || kf <= 0) {
+            resultElement.innerHTML = 'K<sub>f</sub> must be greater than 0. It represents how strongly a solvent freezes lower per molal concentration.';
+            return;
         }
-
-        document.getElementById('result').innerHTML = `
-            Age Shock Index: ${ageSI.toFixed(2)} <br>
-            <strong>Interpretation:</strong> ${interpretation}
+    
+        if (isNaN(pureFP)) {
+            resultElement.innerHTML = 'Please enter a valid freezing point for the pure solvent.';
+            return;
+        }
+    
+        // Calculate freezing point depression
+        const deltaTf = kf * molality;
+        const newFP = pureFP - deltaTf;
+    
+        resultElement.innerHTML = `
+            Freezing Point Depression (ΔT<sub>f</sub>) = <strong>${deltaTf.toFixed(3)} °C</strong><br>
+            New Freezing Point = <strong>${newFP.toFixed(2)} °C</strong><br>
+            Salt Concentration = <strong>${(molality * 58.44).toFixed(2)} g NaCl/kg water</strong>
         `;
+    
+        // Feedback based on practical impact
+        if (deltaTf === 0) {
+            feedbackElement.style.color = 'gray';
+            feedbackElement.innerHTML = 'No depression - pure solvent behavior.';
+        } else if (deltaTf < 1) {
+            feedbackElement.style.color = 'green';
+            feedbackElement.innerHTML = '✅ Mild depression - light winter conditions.';
+        } else if (deltaTf < 5) {
+            feedbackElement.style.color = 'orange';
+            feedbackElement.innerHTML = '⚠️ Moderate depression - typical road salt use.';
+        } else if (deltaTf < 10) {
+            feedbackElement.style.color = 'orangered';
+            feedbackElement.innerHTML = '❗ Strong depression - heavy de-icing required.';
+        } else {
+            feedbackElement.style.color = 'red';
+            feedbackElement.innerHTML = '❄️ Extreme depression - use industrial antifreeze solutions.';
+        }
     }
-</script>
+    </script>
+    
 
-
+    
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
-
-
-
-
 
 
 
@@ -299,6 +406,10 @@ strong{
     fetch("header.html").then(response => response.text()).then(data => document.getElementById("header").innerHTML = data);
     fetch("footer.html").then(response => response.text()).then(data => document.getElementById("footer").innerHTML = data);
 </script>
+
+
+		</div>	<!-- END PAGE CONTENT -->	
+
 
 
 

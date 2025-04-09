@@ -56,68 +56,120 @@
 		<link href="css/responsive.css" rel="stylesheet">
 <style>
             
-            
+         
 
+   
         body {
       font-family: Arial, sans-serif;
      
       background-color: #f5f5f5;
     }
     .calculator-container {
-      max-width: 1000px;
-      margin: 20px auto;
-      padding: 20px;
-      background: #ffffff;
-      border-radius: 8px;
-      border: 2px dotted #1560bd;
-
-      box-shadow: 20px 14px 8px rgba(0, 0, 0, 0.2);
-    }
-    .calculator-container h2 {
-      text-align: center;
-      margin-bottom: 20px;
-      color: #1560bd;
-      font-size: 1.8rem;
-      margin-bottom: 30px;
-    }
-    .form-group {
-      margin-bottom: 15px;
-    }
-    .form-group label {
-      display: block;
-      margin-bottom: 5px;
-      color: #333;
-    }
-    .form-group input {
-      width: 100%;
-      padding: 8px;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-      background-color: rgb(223, 241, 247);
+        max-width: 1200px;
+        margin: 20px auto;
+        padding: 20px;
+        background: #ffffff;
+        border-radius: 8px;
+        border: 2px dotted #1560bd;
+        box-shadow: 20px 14px 8px rgba(0, 0, 0, 0.2);
+      }
+      
+      .calculator-container h2 {
+        text-align: center;
+        margin-bottom: 20px;
+        color: #1560bd;
+        font-size: 1.8rem;
+      }
 
     
-    }
-    .cal-btn {
-      width: 100%;
-      padding: 10px;
-      background-color: #1560bd;
-      color: #fff;
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
-      font-size: 16px;
-    }
-    .cal-btn:hover {
-      background-color: #0056b3;
-    }
-    .result {
-      margin-top: 20px;
-      font-size: 24px;
-      color: #333;
-      text-align: center;
-      color: rgb(36, 116, 2);
+  
+      .force-per {
+        display: flex;
+        justify-content: space-between;
+        gap: 10px;
+      }
+  
+      .force-per .form-group {
+        width: 48%;
+      }
+      @media (max-width:768px){
+        .force-per {
+            flex-direction: column;
+            gap: 5px;
+        }
+        .force-per .form-group{
+            width: 100%;
+        }
+      }
+
+
+      .section {
+        display: none; 
+      }
      
-    }
+      .active {
+        display: block; 
+      }
+
+      .imerial-based {
+        display: flex;
+        justify-content: space-between;
+        gap: 10px;
+      }
+  
+      .imerial-based .form-group {
+        width: 48%;
+      }
+      @media (max-width:768px){
+        .imerial-based {
+            flex-direction: column;
+            gap: 5px;
+        }
+        .imerial-based .form-group{
+            width: 100%;
+        }
+      }
+  
+      .form-group {
+        margin-bottom: 15px;
+        
+      }
+  
+      .form-group label {
+        display: block;
+        margin-bottom: 5px;
+        color: #333;
+      }
+  
+      .form-group input {
+        width: 100%;
+        padding: 8px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        background-color: rgb(223, 241, 247);
+      }
+  
+      .cal-btn {
+        width: 100%;
+        padding: 10px;
+        background-color: #1560bd;
+        color: #fff;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 16px;
+      }
+  
+      .cal-btn:hover {
+        background-color: #0056b3;
+      }
+  
+      .result {
+        margin-top: 20px;
+        font-size: 24px;
+        color: rgb(36, 116, 2);
+        text-align: center;
+      }
     @media (max-width: 768px) {
     .calculator-container {
         margin: 20px 15px; 
@@ -146,16 +198,25 @@
 }
 
 .note-container h3 {
-    margin:15px 0;
+    margin-top: 10px;
     color: #007bff;
-    font-size: 20px;
+    font-size: 18px;
+}
+.note-container ul{
+    margin-top: 5px;
 }
 
 .note-container p {
-    margin-top: 15px;
+    margin-top: 10px;
     text-align: justify;
 }
 strong{
+    color: #0056b3;
+}
+.feedback {
+    margin-top: 20px;
+    font-size: 24px;
+    text-align: center;
     color: #0056b3;
 }
 @media (max-width: 768px) {
@@ -164,6 +225,17 @@ strong{
         padding: 10px; 
     }
 }
+select {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #d3e0f0;
+    border-radius: 5px;
+    font-size: 1rem;
+    background-color: rgb(223, 241, 247);
+
+}
+
 </style>
 	</head>
 
@@ -171,101 +243,134 @@ strong{
 
 
 	<body> 
-
-
-
-
-
-
-        <div id="header"></div>
-
-
+		
 <br><br><br><br>
 
+<div id="header"></div>
 
 
 <div class="calculator-container">
-    <h2>Age Shock Index (Age SI) Calculator</h2>
-    <div class="form-group">
-        <label for="age">Age (years):</label>
-        <input type="number" id="age" placeholder="Enter Age">
+    <h2>Gibbs Phase Rule Calculator</h2>
+
+    <div class="imerial-based">
+        <div class="form-group">
+            <label for="components">Number of Components (C)</label>
+            <input type="number" id="components" placeholder="Enter Components" step="1" min="1" max="10">
+        </div>
+        <div class="form-group">
+            <label for="phases">Number of Phases (P)</label>
+            <input type="number" id="phases" placeholder="Enter Phases" step="1" min="1" max="10">
+        </div>
     </div>
+
     <div class="form-group">
-        <label for="heartRate">Heart Rate (HR) (beats/minute):</label>
-        <input type="number" id="heartRate" placeholder="Enter Heart Rate">
+        <label for="constraints">Additional Constraints (if any)</label>
+        <input type="number" id="constraints" placeholder="Enter constraints (default 2)" step="1" min="0" max="5" value="2">
     </div>
-    <div class="form-group">
-        <label for="systolicBP">Systolic Blood Pressure (SBP) (mmHg):</label>
-        <input type="number" id="systolicBP" placeholder="Enter Systolic BP">
-    </div>
-    <button class="cal-btn" onclick="calculateAgeShockIndex()">Calculate Age Shock Index </button>
+
+    <button class="cal-btn" onclick="calculateDegreesOfFreedom()">Calculate Degrees of Freedom</button>
+    
     <div class="result" id="result"></div>
+    <p class="feedback" id="feedback"></p>
 </div>
 
 <div class="note-container">
-    <h3>What is Age Shock Index?</h3>
-    <p>
-        The <strong>Age Shock Index (Age SI)</strong> is an advanced form of the traditional shock index. It incorporates the patient’s age along with their heart rate and systolic blood pressure to help predict the severity of a patient’s condition, especially in cases of acute myocardial infarction (AMI).
-    </p>
-    <h3>📌 Explanation of Parameters:</h4>
-    <ul>
-        <li><strong>Age (years):</strong> Older individuals generally have a higher baseline risk for cardiovascular issues. This factor adds context to heart rate and blood pressure readings.</li>
-        <li><strong>Heart Rate (beats/min):</strong> A high heart rate may signal physiological stress or shock. When combined with age, it reflects how much strain the body is under.</li>
-        <li><strong>Systolic Blood Pressure (mmHg):</strong> This is the pressure in your arteries when your heart beats. Lower values may indicate poor perfusion and possible circulatory failure.</li>
-    </ul>
-    <h3>How Is It Calculated?</h3>
-    <p>
-        To calculate the Age SI, you start by multiplying the patient’s age in years by their heart rate (measured in beats per minute). This combined value reflects the patient’s physiological stress level considering both age and heart activity. Next, you divide that value by the patient’s systolic blood pressure (SBP), which indicates how much pressure the blood exerts against artery walls when the heart beats.
-    </p>
-    <p>
-        By combining these three parameters, the Age SI gives a clearer picture of how well the cardiovascular system is handling stress.
-    </p>
+    <h3>Note:</h3>
+    <p><strong>Gibbs Phase Rule</strong> determines the number of independent variables (degrees of freedom) in a thermodynamic system. It relates components, phases, and constraints to predict system behavior. This is fundamental for material quality control and process optimization.</p>
 
-    <h3>Interpretation:</h3>
+    <h3>Why is This Important for Quality Control?</h3>
+    <p>The phase rule helps predict stability of materials, identify pure phases, and optimize manufacturing conditions. It's essential for pharmaceutical formulation, alloy development, and chemical process control where phase behavior affects product quality.</p>
+
+    <h3>Key Parameters:</h3>
     <ul>
-        <li><strong>Age SI ≤ 50:</strong> ✅ Normal — Suggests a lower risk for serious cardiac events.</li>
-        <li><strong>Age SI &gt; 50:</strong> ⚠️ Elevated — Indicates a potentially higher risk of mortality and may require urgent medical attention.</li>
+        <li><strong>Components (C)</strong> - Chemically independent constituents (e.g., H₂O = 1, NaCl+H₂O = 2)</li>
+        <li><strong>Phases (P)</strong> - Physically distinct, homogeneous regions (solid, liquid, gas, different crystals)</li>
+        <li><strong>Constraints</strong> - Typically 2 (temperature and pressure), may reduce for special conditions</li>
     </ul>
 
-    <h3>Why It Matters:</h3>
-    <p>
-        In fast-paced clinical environments like emergency rooms, the Age Shock Index can help healthcare professionals make quick and informed decisions. It has been shown to provide risk predictions similar to more complex tools like the GRACE score — but with much less time and effort at the bedside.
-    </p>
+    <h3>Critical Quality Applications:</h3>
+    <ul>
+        <li><strong>Pharmaceuticals</strong> - Ensuring stable crystal forms of drugs</li>
+        <li><strong>Metallurgy</strong> - Predicting alloy phase diagrams for material properties</li>
+        <li><strong>Food Science</strong> - Controlling fat crystallization in chocolate</li>
+        <li><strong>Polymers</strong> - Managing plastic blends and composites</li>
+    </ul>
+
+    <h3>Quality Failure Examples:</h3>
+    <ul>
+        <li><strong>Polymorph Issues</strong> - Different crystal forms affecting drug bioavailability</li>
+        <li><strong>Phase Separation</strong> - Inconsistent product texture in foods and cosmetics</li>
+        <li><strong>Thermal Degradation</strong> - Unintended phase changes during processing</li>
+    </ul>
+
+    <h3>Industry Standards & Guidelines:</h3>
+    <p>ICH Q6A guidelines for pharmaceuticals require polymorph characterization. ASTM E1269 covers phase behavior analysis in materials science.</p>
+
+    <h3>Conclusion:</h3>
+    <p>The Gibbs Phase Rule provides a powerful framework for understanding and controlling material systems. By calculating degrees of freedom, quality professionals can predict phase behavior, avoid unstable conditions, and ensure consistent product performance.</p>
 </div>
-
 <script>
-    function calculateAgeShockIndex() {
-        const age = parseFloat(document.getElementById('age').value);
-        const HR = parseFloat(document.getElementById('heartRate').value);
-        const SBP = parseFloat(document.getElementById('systolicBP').value);
-
-        if (isNaN(age) || isNaN(HR) || isNaN(SBP) || age <= 0 || HR <= 0 || SBP <= 0) {
-            document.getElementById('result').innerText = "Please enter valid values for all fields.";
+    function calculateDegreesOfFreedom() {
+        // Get input values
+        const C = parseInt(document.getElementById('components').value);
+        const P = parseInt(document.getElementById('phases').value);
+        const constraints = parseInt(document.getElementById('constraints').value);
+    
+        const resultElement = document.getElementById('result');
+        const feedbackElement = document.getElementById('feedback');
+    
+        // Reset previous messages
+        resultElement.innerHTML = '';
+        feedbackElement.innerHTML = '';
+    
+        // Validate inputs
+        if (isNaN(C) || C < 1 || C > 10) {
+            resultElement.innerHTML = '<strong>Components (C)</strong> must be between 1 and 10. Zero components mean no chemical system.';
             return;
         }
-
-        const ageSI = (age * HR) / SBP;
-        let interpretation = "";
-
-        if (ageSI > 50) {
-            interpretation = "⚠️ Elevated: Increased risk of mortality — may indicate serious cardiovascular compromise, such as acute myocardial infarction (heart attack).";
-        } else {
-            interpretation = "✅ Normal: Suggests stable cardiovascular status with a lower risk of heart-related complications.";
+    
+        if (isNaN(P) || P < 1 || P > 10) {
+            resultElement.innerHTML = '<strong>Phases (P)</strong> must be between 1 and 10. A system must have at least one phase to exist.';
+            return;
         }
-
-        document.getElementById('result').innerHTML = `
-            Age Shock Index: ${ageSI.toFixed(2)} <br>
-            <strong>Interpretation:</strong> ${interpretation}
+    
+        if (isNaN(constraints) || constraints < 0 || constraints > 5) {
+            resultElement.innerHTML = 'Constraints must be between 0 and 5. Constraints represent known variables like temperature and pressure.';
+            return;
+        }
+    
+        // Calculate degrees of freedom
+        const F = C - P + constraints;
+        const systemType = F < 0 ? 'Invalid' :
+                          F === 0 ? 'Invariant' :
+                          F === 1 ? 'Univariant' :
+                          'Multivariant';
+    
+        // Display result
+        resultElement.innerHTML = `
+            Degrees of Freedom (F) = <strong>${F}</strong><br>
+            System Type = <strong>${systemType} System</strong><br>
+            ${F >= 0 ? `Can independently vary <strong>${F}</strong> intensive variable(s) (T, P, composition)` : ''}
         `;
+    
+        // Provide feedback
+        if (F < 0) {
+            feedbackElement.style.color = 'red';
+            feedbackElement.innerHTML = '❌ Impossible system - violates Gibbs phase rule.';
+        } else if (F === 0) {
+            feedbackElement.style.color = 'orange';
+            feedbackElement.innerHTML = '⚠️ Fixed conditions: No variable can change without losing a phase.';
+        } else if (F === 1) {
+            feedbackElement.style.color = 'green';
+            feedbackElement.innerHTML = '✅ One variable can be changed independently (e.g., T or P).';
+        } else {
+            feedbackElement.style.color = 'green';
+            feedbackElement.innerHTML = '✅ Multiple variables can be changed independently – system is flexible.';
+        }
     }
-</script>
-
-
+    </script>
+    
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
-
-
-
-
 
 
 
@@ -299,6 +404,10 @@ strong{
     fetch("header.html").then(response => response.text()).then(data => document.getElementById("header").innerHTML = data);
     fetch("footer.html").then(response => response.text()).then(data => document.getElementById("footer").innerHTML = data);
 </script>
+
+
+		</div>	<!-- END PAGE CONTENT -->	
+
 
 
 

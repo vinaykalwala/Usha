@@ -164,6 +164,17 @@ strong{
         padding: 10px; 
     }
 }
+select {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #d3e0f0;
+    border-radius: 5px;
+    font-size: 1rem;
+    background-color: rgb(223, 241, 247);
+
+}
+
 </style>
 	</head>
 
@@ -185,80 +196,121 @@ strong{
 
 
 <div class="calculator-container">
-    <h2>Age Shock Index (Age SI) Calculator</h2>
+    <h2>Alzheimer’s Life Expectancy Calculator</h2>
     <div class="form-group">
-        <label for="age">Age (years):</label>
-        <input type="number" id="age" placeholder="Enter Age">
+        <label for="alzStage">Select Alzheimer’s Stage:</label>
+        <select id="alzStage">
+            <option value="">-- Select Stage --</option>
+            <option value="1">Stage 1 – No cognitive decline</option>
+
+            <option value="2">Stage 2 – Very mild cognitive decline</option>
+            <option value="3">Stage 3 – Mild cognitive decline</option>
+            <option value="4">Stage 4 – Moderate cognitive decline</option>
+            <option value="5">Stage 5 – Moderately severe cognitive decline</option>
+            <option value="6">Stage 6 – Severe cognitive decline</option>
+            <option value="7">Stage 7 – Very severe cognitive decline</option>
+        </select>
     </div>
-    <div class="form-group">
-        <label for="heartRate">Heart Rate (HR) (beats/minute):</label>
-        <input type="number" id="heartRate" placeholder="Enter Heart Rate">
-    </div>
-    <div class="form-group">
-        <label for="systolicBP">Systolic Blood Pressure (SBP) (mmHg):</label>
-        <input type="number" id="systolicBP" placeholder="Enter Systolic BP">
-    </div>
-    <button class="cal-btn" onclick="calculateAgeShockIndex()">Calculate Age Shock Index </button>
+    <button class="cal-btn" onclick="calculateAlzheimersExpectancy()">Calculate Life Expectancy</button>
     <div class="result" id="result"></div>
 </div>
-
 <div class="note-container">
-    <h3>What is Age Shock Index?</h3>
+    <h3>Note:</h3>
     <p>
-        The <strong>Age Shock Index (Age SI)</strong> is an advanced form of the traditional shock index. It incorporates the patient’s age along with their heart rate and systolic blood pressure to help predict the severity of a patient’s condition, especially in cases of acute myocardial infarction (AMI).
-    </p>
-    <h3>📌 Explanation of Parameters:</h4>
-    <ul>
-        <li><strong>Age (years):</strong> Older individuals generally have a higher baseline risk for cardiovascular issues. This factor adds context to heart rate and blood pressure readings.</li>
-        <li><strong>Heart Rate (beats/min):</strong> A high heart rate may signal physiological stress or shock. When combined with age, it reflects how much strain the body is under.</li>
-        <li><strong>Systolic Blood Pressure (mmHg):</strong> This is the pressure in your arteries when your heart beats. Lower values may indicate poor perfusion and possible circulatory failure.</li>
-    </ul>
-    <h3>How Is It Calculated?</h3>
-    <p>
-        To calculate the Age SI, you start by multiplying the patient’s age in years by their heart rate (measured in beats per minute). This combined value reflects the patient’s physiological stress level considering both age and heart activity. Next, you divide that value by the patient’s systolic blood pressure (SBP), which indicates how much pressure the blood exerts against artery walls when the heart beats.
-    </p>
-    <p>
-        By combining these three parameters, the Age SI gives a clearer picture of how well the cardiovascular system is handling stress.
+        <strong>Alzheimer’s Disease</strong> is a progressive neurodegenerative disorder that primarily affects memory, thinking skills, and the ability to carry out everyday tasks. It advances gradually through distinct stages, each with its own set of symptoms and implications for life expectancy.
     </p>
 
-    <h3>Interpretation:</h3>
+    <h3>About the Calculator:</h3>
+    <p>
+        This Alzheimer's Life Expectancy Calculator provides estimated timelines for life expectancy and the typical duration of each stage of Alzheimer's disease. These estimates are based on statistical averages and clinical research, helping caregivers and families better prepare and plan for the journey ahead.
+    </p>
+
+    <h3>Explanation of Stages:</h3>
     <ul>
-        <li><strong>Age SI ≤ 50:</strong> ✅ Normal — Suggests a lower risk for serious cardiac events.</li>
-        <li><strong>Age SI &gt; 50:</strong> ⚠️ Elevated — Indicates a potentially higher risk of mortality and may require urgent medical attention.</li>
+        <li><strong>Stage 1 – No cognitive decline:</strong> Normal function. No noticeable symptoms of dementia.</li>
+        <li><strong>Stage 2 – Very mild cognitive decline:</strong> Minor memory issues, often considered normal aging.</li>
+        <li><strong>Stage 3 – Mild cognitive decline:</strong> Increased forgetfulness and difficulty concentrating; may interfere with daily tasks.</li>
+        <li><strong>Stage 4 – Moderate cognitive decline:</strong> Clear-cut symptoms; trouble with simple arithmetic and short-term memory.</li>
+        <li><strong>Stage 5 – Moderately severe cognitive decline:</strong> Individuals may need help with daily activities like dressing and grooming.</li>
+        <li><strong>Stage 6 – Severe cognitive decline:</strong> Memory continues to worsen; difficulty recognizing family members; assistance required for basic tasks.</li>
+        <li><strong>Stage 7 – Very severe cognitive decline:</strong> Loss of ability to respond to environment; individuals require round-the-clock care.</li>
     </ul>
 
     <h3>Why It Matters:</h3>
     <p>
-        In fast-paced clinical environments like emergency rooms, the Age Shock Index can help healthcare professionals make quick and informed decisions. It has been shown to provide risk predictions similar to more complex tools like the GRACE score — but with much less time and effort at the bedside.
+        Understanding the stage of Alzheimer's can help healthcare providers, caregivers, and families estimate life expectancy and prepare emotionally, financially, and logistically for the journey ahead.
+    </p>
+    <h3>Understanding the Results:</h3>
+    <p>
+        When you select a stage in the calculator, you’ll receive two key pieces of information:
+    </p>
+
+    <ul>
+        <li>
+            <strong>📆 Estimated Life Expectancy:</strong> This refers to the average number of years a person may live after reaching the selected stage of Alzheimer’s. It provides a general timeline based on medical research and observations. This figure varies depending on individual health, care quality, and other medical conditions.
+        </li>
+        <li>
+            <strong>⏳ Average Duration of Stage:</strong> This tells you how long a person typically remains in that specific stage before progressing to the next. Some stages may last just over a year, while earlier stages may stretch over several years.
+        </li>
+    </ul>
+
+    <h3>Conclusion:</h3>
+    <p>
+        While each person's experience with Alzheimer's is unique, this calculator offers general guidance based on the current stage. It is not a substitute for professional medical advice, but rather a helpful tool for setting expectations and encouraging early intervention and support planning.
     </p>
 </div>
 
 <script>
-    function calculateAgeShockIndex() {
-        const age = parseFloat(document.getElementById('age').value);
-        const HR = parseFloat(document.getElementById('heartRate').value);
-        const SBP = parseFloat(document.getElementById('systolicBP').value);
+function calculateAlzheimersExpectancy() {
+    const stage = document.getElementById("alzStage").value;
+    const resultDiv = document.getElementById("result");
+    let result = "";
 
-        if (isNaN(age) || isNaN(HR) || isNaN(SBP) || age <= 0 || HR <= 0 || SBP <= 0) {
-            document.getElementById('result').innerText = "Please enter valid values for all fields.";
-            return;
-        }
-
-        const ageSI = (age * HR) / SBP;
-        let interpretation = "";
-
-        if (ageSI > 50) {
-            interpretation = "⚠️ Elevated: Increased risk of mortality — may indicate serious cardiovascular compromise, such as acute myocardial infarction (heart attack).";
-        } else {
-            interpretation = "✅ Normal: Suggests stable cardiovascular status with a lower risk of heart-related complications.";
-        }
-
-        document.getElementById('result').innerHTML = `
-            Age Shock Index: ${ageSI.toFixed(2)} <br>
-            <strong>Interpretation:</strong> ${interpretation}
-        `;
+    switch (stage) {
+        case "1":
+            result = `🧠 <strong>Stage 1 – No cognitive decline</strong><br>
+                      ✅ Normal function. No memory loss or symptoms.<br>
+                      📆 Life Expectancy: <strong>Normal for age</strong><br>
+                      ⏳ Duration: Not applicable`;
+            break;
+        case "2":
+            result = `🧠 <strong>Stage 2 – Very mild cognitive decline</strong><br>
+                      📆 Estimated Life Expectancy: <strong>> 10 years</strong><br>
+                      ⏳ Average Duration of Stage: <strong>~15 years</strong>`;
+            break;
+        case "3":
+            result = `🧠 <strong>Stage 3 – Mild cognitive decline</strong><br>
+                      📆 Estimated Life Expectancy: <strong>~10 years</strong><br>
+                      ⏳ Average Duration of Stage: <strong>2–7 years</strong>`;
+            break;
+        case "4":
+            result = `🧠 <strong>Stage 4 – Moderate cognitive decline</strong><br>
+                      📆 Estimated Life Expectancy: <strong>3–8 years</strong><br>
+                      ⏳ Average Duration of Stage: <strong>~2 years</strong>`;
+            break;
+        case "5":
+            result = `🧠 <strong>Stage 5 – Moderately severe cognitive decline</strong><br>
+                      📆 Estimated Life Expectancy: <strong>1.5–6.5 years</strong><br>
+                      ⏳ Average Duration of Stage: <strong>~1.5 years</strong>`;
+            break;
+        case "6":
+            result = `🧠 <strong>Stage 6 – Severe cognitive decline</strong><br>
+                      📆 Estimated Life Expectancy: <strong>≤ 4 years</strong><br>
+                      ⏳ Average Duration of Stage: <strong>~2.5 years</strong>`;
+            break;
+        case "7":
+            result = `🧠 <strong>Stage 7 – Very severe cognitive decline</strong><br>
+                      📆 Estimated Life Expectancy: <strong>≤ 2.5 years</strong><br>
+                      ⏳ Average Duration of Stage: <strong>1.5–2.5 years</strong>`;
+            break;
+        default:
+            result = "❗ Please select a valid stage.";
     }
+
+    resultDiv.innerHTML = `<div style="background-color:rgb(223, 241, 247);">${result}</div>`;
+}
 </script>
+
 
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>

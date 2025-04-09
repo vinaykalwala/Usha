@@ -56,8 +56,9 @@
 		<link href="css/responsive.css" rel="stylesheet">
 <style>
             
-            
+         
 
+   
         body {
       font-family: Arial, sans-serif;
      
@@ -80,6 +81,7 @@
       font-size: 1.8rem;
       margin-bottom: 30px;
     }
+    
     .form-group {
       margin-bottom: 15px;
     }
@@ -151,6 +153,14 @@
     font-size: 20px;
 }
 
+.note-container ul{
+    margin: 10px;
+}
+
+.note-container{
+    margin-top: 10px;
+}
+
 .note-container p {
     margin-top: 15px;
     text-align: justify;
@@ -163,6 +173,16 @@ strong{
         margin: 15px; 
         padding: 10px; 
     }
+}
+select {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #d3e0f0;
+    border-radius: 5px;
+    font-size: 1rem;
+    background-color: rgb(223, 241, 247);
+
 }
 </style>
 	</head>
@@ -177,95 +197,120 @@ strong{
 
 
 
-        <div id="header"></div>
-
-
+		
 <br><br><br><br>
 
-
+<div id="header"></div>
 
 <div class="calculator-container">
-    <h2>Age Shock Index (Age SI) Calculator</h2>
+    <h2>Power Required (kW) Calculator</h2>
+
     <div class="form-group">
-        <label for="age">Age (years):</label>
-        <input type="number" id="age" placeholder="Enter Age">
+        <label for="oxygen_required">Oxygen Required (kg/day):</label>
+        <input type="number" id="oxygen_required" placeholder="Enter oxygen demand" step="any">
     </div>
-    <div class="form-group">
-        <label for="heartRate">Heart Rate (HR) (beats/minute):</label>
-        <input type="number" id="heartRate" placeholder="Enter Heart Rate">
-    </div>
-    <div class="form-group">
-        <label for="systolicBP">Systolic Blood Pressure (SBP) (mmHg):</label>
-        <input type="number" id="systolicBP" placeholder="Enter Systolic BP">
-    </div>
-    <button class="cal-btn" onclick="calculateAgeShockIndex()">Calculate Age Shock Index </button>
+
+    <button class="cal-btn" onclick="calculatePowerRequirement()">Calculate</button>
     <div class="result" id="result"></div>
+    <div class="feedback" id="feedback"></div>
 </div>
 
 <div class="note-container">
-    <h3>What is Age Shock Index?</h3>
-    <p>
-        The <strong>Age Shock Index (Age SI)</strong> is an advanced form of the traditional shock index. It incorporates the patient’s age along with their heart rate and systolic blood pressure to help predict the severity of a patient’s condition, especially in cases of acute myocardial infarction (AMI).
-    </p>
-    <h3>📌 Explanation of Parameters:</h4>
-    <ul>
-        <li><strong>Age (years):</strong> Older individuals generally have a higher baseline risk for cardiovascular issues. This factor adds context to heart rate and blood pressure readings.</li>
-        <li><strong>Heart Rate (beats/min):</strong> A high heart rate may signal physiological stress or shock. When combined with age, it reflects how much strain the body is under.</li>
-        <li><strong>Systolic Blood Pressure (mmHg):</strong> This is the pressure in your arteries when your heart beats. Lower values may indicate poor perfusion and possible circulatory failure.</li>
-    </ul>
-    <h3>How Is It Calculated?</h3>
-    <p>
-        To calculate the Age SI, you start by multiplying the patient’s age in years by their heart rate (measured in beats per minute). This combined value reflects the patient’s physiological stress level considering both age and heart activity. Next, you divide that value by the patient’s systolic blood pressure (SBP), which indicates how much pressure the blood exerts against artery walls when the heart beats.
-    </p>
-    <p>
-        By combining these three parameters, the Age SI gives a clearer picture of how well the cardiovascular system is handling stress.
-    </p>
+    <h3>Note:</h3>
+    <p>This calculator determines the <strong>Power Required (kW)</strong> for aeration systems used in biological treatment processes in water and wastewater treatment.</p>
 
-    <h3>Interpretation:</h3>
+    <p>It is widely applied in <strong>environmental engineering, wastewater treatment, and industrial water purification</strong> to estimate the energy demand for supplying sufficient oxygen to microorganisms.</p>
+
+    <h3>Explanation of Parameters:</h3>
     <ul>
-        <li><strong>Age SI ≤ 50:</strong> ✅ Normal — Suggests a lower risk for serious cardiac events.</li>
-        <li><strong>Age SI &gt; 50:</strong> ⚠️ Elevated — Indicates a potentially higher risk of mortality and may require urgent medical attention.</li>
+        <li><strong>Oxygen Required:</strong> The amount of oxygen needed per day to support biological treatment (kg/day).</li>
+        <li><strong>Efficiency & Standard Capacity:</strong> Assumes 70% field efficiency and 2 kg O₂/kWh standard oxygenation rate.</li>
     </ul>
 
-    <h3>Why It Matters:</h3>
-    <p>
-        In fast-paced clinical environments like emergency rooms, the Age Shock Index can help healthcare professionals make quick and informed decisions. It has been shown to provide risk predictions similar to more complex tools like the GRACE score — but with much less time and effort at the bedside.
-    </p>
+    <p><strong>Aeration</strong> introduces oxygen into wastewater to support the biological breakdown of organic matter, which is essential in modern environmental and wastewater management.</p>
+    
+    <h3>Why is Calculating Power Important?</h3>
+    <p>Accurately calculating power helps in:</p>
+    <ul>
+        <li><strong>System Design:</strong> Sizing aerators and motors efficiently.</li>
+        <li><strong>Energy Optimization:</strong> Avoiding excess energy use and reducing operational costs.</li>
+        <li><strong>Sustainable Engineering:</strong> Designing systems with lower environmental footprints.</li>
+    </ul>
+
+    <h3>Validations:</h3>
+    <ul>
+        <li><strong>Positive Values Only:</strong> Oxygen required input must be a positive number.</li>
+        <li><strong>Assumed Constants:</strong> Field efficiency is taken as 70%, and standard oxygenation capacity is 2 kg/kWh.</li>
+        <li><strong>Unit Consistency:</strong> Oxygen must be in kg/day for accurate calculation.</li>
+        <li><strong>Realistic Power:</strong> The output should reflect practical energy needs for treatment plants.</li>
+        <li><strong>Limitations:</strong> This formula assumes steady conditions and doesn't include variations in oxygen uptake or tank mixing dynamics.</li>
+    </ul>
+
+    <h3>Real-life Applications:</h3>
+    <ul>
+        <li><strong>Municipal Wastewater Treatment:</strong> Estimating power needs for aeration basins.</li>
+        <li><strong>Industrial Effluent Treatment:</strong> Designing energy-efficient systems for factories and plants.</li>
+        <li><strong>Environmental Impact Assessment:</strong> Evaluating energy requirements in sustainability reports.</li>
+        <li><strong>Cost Estimation:</strong> Predicting electricity consumption for yearly budgeting.</li>
+    </ul>
+
+    <h3>Conclusion:</h3>
+    <p>The <strong>Power Required (kW) calculation</strong> is a <strong>vital engineering tool in environmental design</strong>. It ensures efficient operation of aeration systems, lowers energy waste, and supports sustainable wastewater treatment practices.</p>
 </div>
 
-<script>
-    function calculateAgeShockIndex() {
-        const age = parseFloat(document.getElementById('age').value);
-        const HR = parseFloat(document.getElementById('heartRate').value);
-        const SBP = parseFloat(document.getElementById('systolicBP').value);
 
-        if (isNaN(age) || isNaN(HR) || isNaN(SBP) || age <= 0 || HR <= 0 || SBP <= 0) {
-            document.getElementById('result').innerText = "Please enter valid values for all fields.";
+
+<script>
+    function calculatePowerRequirement() {
+        const O2 = parseFloat(document.getElementById("oxygen_required").value);
+        const resultElement = document.getElementById("result");
+        const feedbackElement = document.getElementById("feedback");
+
+        // Constants
+        const efficiency = 0.7; // 70% of standard
+        const standardCapacity = 2; // kg O2 per kWh
+
+        // Reset previous results
+        resultElement.innerHTML = "";
+        feedbackElement.innerHTML = "";
+
+        // Validations
+        if (isNaN(O2) || O2 <= 0) {
+            resultElement.innerHTML = "❌ <strong>Error:</strong> Oxygen required must be a positive number.";
             return;
         }
 
-        const ageSI = (age * HR) / SBP;
-        let interpretation = "";
+        // Calculate Effective Oxygenation Capacity
+        const effectiveCapacity = efficiency * standardCapacity;
 
-        if (ageSI > 50) {
-            interpretation = "⚠️ Elevated: Increased risk of mortality — may indicate serious cardiovascular compromise, such as acute myocardial infarction (heart attack).";
+        // Power Required Calculation
+        const powerRequired = O2 / effectiveCapacity;
+
+        // Feedback Logic
+        let feedbackMessage = "";
+        let feedbackColor = "black";
+
+        if (powerRequired > 200) {
+            feedbackMessage = "✅ <strong>High Power Requirement:</strong> Indicates a large-scale treatment system.";
+            feedbackColor = "green";
+        } else if (powerRequired >= 50 && powerRequired <= 200) {
+            feedbackMessage = "⚠️ <strong>Moderate Power Requirement:</strong> Suitable for standard municipal treatment.";
+            feedbackColor = "orange";
         } else {
-            interpretation = "✅ Normal: Suggests stable cardiovascular status with a lower risk of heart-related complications.";
+            feedbackMessage = "❌ <strong>Low Power Requirement:</strong> May be insufficient for effective aeration.";
+            feedbackColor = "red";
         }
 
-        document.getElementById('result').innerHTML = `
-            Age Shock Index: ${ageSI.toFixed(2)} <br>
-            <strong>Interpretation:</strong> ${interpretation}
+        // Display Results
+        resultElement.innerHTML = `
+            <strong>Power Required:</strong> ${powerRequired.toFixed(2)} kW<br>
+            <strong style="color: ${feedbackColor};">${feedbackMessage}</strong>
         `;
+        resultElement.style.color = "black";
     }
 </script>
 
-
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
-
-
-
-
 
 
 
@@ -294,11 +339,16 @@ strong{
         return false;
     });
     </script>
+
 <div id="footer"></div>
 <script>
     fetch("header.html").then(response => response.text()).then(data => document.getElementById("header").innerHTML = data);
     fetch("footer.html").then(response => response.text()).then(data => document.getElementById("footer").innerHTML = data);
 </script>
+
+
+		</div>	<!-- END PAGE CONTENT -->	
+
 
 
 
@@ -398,5 +448,5 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 
-<!-- Mirrored from dsathemes.com/html/martex_1.1/files/project-details.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 08 Mar 2024 16:40:05 GMT -->
+<!-- Mirrored from dsathemes.com/html/martex_1.1/files/project-details.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 08 Mar 2024 16:40:05 GMT -->
 </html>

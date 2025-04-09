@@ -185,80 +185,78 @@ strong{
 
 
 <div class="calculator-container">
-    <h2>Age Shock Index (Age SI) Calculator</h2>
+    <h2>Stroke Volume (SV) Calculator</h2>
     <div class="form-group">
-        <label for="age">Age (years):</label>
-        <input type="number" id="age" placeholder="Enter Age">
+        <label for="cardiacOutput">Cardiac Output (CO) (L/min):</label>
+        <input type="number" id="cardiacOutput" placeholder="Enter Cardiac Output">
     </div>
     <div class="form-group">
         <label for="heartRate">Heart Rate (HR) (beats/minute):</label>
         <input type="number" id="heartRate" placeholder="Enter Heart Rate">
     </div>
-    <div class="form-group">
-        <label for="systolicBP">Systolic Blood Pressure (SBP) (mmHg):</label>
-        <input type="number" id="systolicBP" placeholder="Enter Systolic BP">
-    </div>
-    <button class="cal-btn" onclick="calculateAgeShockIndex()">Calculate Age Shock Index </button>
+    <button class="cal-btn" onclick="calculateStrokeVolume()">Calculate Stroke Volume</button>
     <div class="result" id="result"></div>
 </div>
 
 <div class="note-container">
-    <h3>What is Age Shock Index?</h3>
+    <h3>Note:</h3>
     <p>
-        The <strong>Age Shock Index (Age SI)</strong> is an advanced form of the traditional shock index. It incorporates the patient’s age along with their heart rate and systolic blood pressure to help predict the severity of a patient’s condition, especially in cases of acute myocardial infarction (AMI).
-    </p>
-    <h3>📌 Explanation of Parameters:</h4>
-    <ul>
-        <li><strong>Age (years):</strong> Older individuals generally have a higher baseline risk for cardiovascular issues. This factor adds context to heart rate and blood pressure readings.</li>
-        <li><strong>Heart Rate (beats/min):</strong> A high heart rate may signal physiological stress or shock. When combined with age, it reflects how much strain the body is under.</li>
-        <li><strong>Systolic Blood Pressure (mmHg):</strong> This is the pressure in your arteries when your heart beats. Lower values may indicate poor perfusion and possible circulatory failure.</li>
-    </ul>
-    <h3>How Is It Calculated?</h3>
-    <p>
-        To calculate the Age SI, you start by multiplying the patient’s age in years by their heart rate (measured in beats per minute). This combined value reflects the patient’s physiological stress level considering both age and heart activity. Next, you divide that value by the patient’s systolic blood pressure (SBP), which indicates how much pressure the blood exerts against artery walls when the heart beats.
-    </p>
-    <p>
-        By combining these three parameters, the Age SI gives a clearer picture of how well the cardiovascular system is handling stress.
+        <strong>Stroke Volume (SV)</strong> is a key measure of heart performance. It tells us how much blood the heart pumps with each beat. This information helps in assessing overall cardiovascular health and efficiency.
     </p>
 
-    <h3>Interpretation:</h3>
+    <h3>Understanding the Parameters:</h3>
     <ul>
-        <li><strong>Age SI ≤ 50:</strong> ✅ Normal — Suggests a lower risk for serious cardiac events.</li>
-        <li><strong>Age SI &gt; 50:</strong> ⚠️ Elevated — Indicates a potentially higher risk of mortality and may require urgent medical attention.</li>
+        <li>
+            <strong>Cardiac Output (CO):</strong> This is the total volume of blood the heart pumps in one minute. It is usually measured in **liters per minute (L/min)**. It reflects how efficiently the heart is delivering oxygen-rich blood to the body.
+        </li>
+        <li>
+            <strong>Heart Rate (HR):</strong> This is the number of heartbeats per minute, expressed in **beats per minute (bpm)**. A higher heart rate usually means the heart is working harder, such as during exercise or in stressful situations.
+        </li>
     </ul>
 
-    <h3>Why It Matters:</h3>
+    <h3>Use of the Calculator:</h3>
     <p>
-        In fast-paced clinical environments like emergency rooms, the Age Shock Index can help healthcare professionals make quick and informed decisions. It has been shown to provide risk predictions similar to more complex tools like the GRACE score — but with much less time and effort at the bedside.
+        This calculator helps estimate how much blood is ejected from the heart with each beat by combining the two values above. Healthcare professionals, fitness trainers, and researchers use this measure to evaluate how effectively the heart is functioning.
+    </p>
+
+    <h3>Interpreting the Results:</h3>
+    <ul>
+        <li><strong>Below 60 mL/beat:</strong> This may suggest the heart isn't pumping enough blood per beat. It could indicate a problem with heart function and should be reviewed by a medical professional.</li>
+        <li><strong>Between 60–120 mL/beat:</strong> This is the typical range for healthy individuals at rest. It reflects efficient and stable cardiovascular performance.</li>
+        <li><strong>Above 120 mL/beat:</strong> A high stroke volume can be observed in trained athletes or individuals under physical exertion. It often reflects a strong and healthy heart adapting to increased demand.</li>
+    </ul>
+
+    <h3>Conclusion:</h3>
+    <p>
+        Stroke Volume is a powerful indicator of cardiac health and endurance. It helps detect potential heart issues early, monitor training progress in athletes, and guide medical decisions in clinical settings. By using this calculator, you can gain insights into how well the heart is performing with each beat.
     </p>
 </div>
 
 <script>
-    function calculateAgeShockIndex() {
-        const age = parseFloat(document.getElementById('age').value);
+    function calculateStrokeVolume() {
+        const CO = parseFloat(document.getElementById('cardiacOutput').value);
         const HR = parseFloat(document.getElementById('heartRate').value);
-        const SBP = parseFloat(document.getElementById('systolicBP').value);
 
-        if (isNaN(age) || isNaN(HR) || isNaN(SBP) || age <= 0 || HR <= 0 || SBP <= 0) {
-            document.getElementById('result').innerText = "Please enter valid values for all fields.";
+        if (isNaN(CO) || isNaN(HR) || HR <= 0) {
+            document.getElementById('result').innerText = "Please enter valid numbers.";
             return;
         }
 
-        const ageSI = (age * HR) / SBP;
-        let interpretation = "";
+        const SV = (CO * 1000) / HR; // Convert CO from L/min to mL/min and divide by HR
+        let feedback = "";
 
-        if (ageSI > 50) {
-            interpretation = "⚠️ Elevated: Increased risk of mortality — may indicate serious cardiovascular compromise, such as acute myocardial infarction (heart attack).";
+        if (SV < 60) {
+            feedback = "⚠️ Low Stroke Volume: May indicate reduced cardiac output. Consider medical evaluation.";
+        } else if (SV <= 120) {
+            feedback = "✅ Normal Range: Healthy stroke volume.";
         } else {
-            interpretation = "✅ Normal: Suggests stable cardiovascular status with a lower risk of heart-related complications.";
+            feedback = "💪 High Stroke Volume: Common in athletes or during high activity levels.";
         }
 
-        document.getElementById('result').innerHTML = `
-            Age Shock Index: ${ageSI.toFixed(2)} <br>
-            <strong>Interpretation:</strong> ${interpretation}
-        `;
+        document.getElementById('result').innerHTML = `Stroke Volume (SV): ${SV.toFixed(2)} mL/beat <br> <strong>Interpretation:</strong> ${feedback}`;
     }
 </script>
+
 
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
