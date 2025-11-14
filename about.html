@@ -441,6 +441,175 @@ span{
 </div>
 </div>
 <br>
+<section class="milestones-v5">
+  <div class="milestones-container-v5">
+
+    <h2 class="milestones-title-v5">Our Milestones</h2>
+    <p class="milestones-subtext-v5">Click to view images clearly in fullscreen.</p>
+
+    <div class="milestone-row-v5">
+
+      <!-- CARD 1 -->
+      <div class="milestone-card-v5">
+        <div class="milestone-img-box-v5">
+          <img src="images/vindus_clients_images/certificate1.jpg" class="milestone-img-v5">
+        </div>
+      </div>
+
+      <!-- CARD 2 -->
+      <div class="milestone-card-v5">
+        <div class="milestone-img-box-v5">
+          <img src="images/vindus_clients_images/certificate2.jpg" class="milestone-img-v5">
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- MODAL -->
+<div id="modalV5" class="modal-v5">
+  <span class="close-v5">×</span>
+  <img id="modalImgV5" class="modal-content-v5">
+</div>
+
+<style>
+/* SECTION */
+.milestones-v5 {
+  background: #000040;
+  padding: 60px 0;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.milestones-title-v5 {
+  color: #fff;
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+.milestones-subtext-v5 {
+  color: #c4d0ff;
+  margin-bottom: 35px;
+}
+
+/* ROW */
+.milestone-row-v5 {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap; /* prevents overflow */
+}
+
+/* CARD */
+.milestone-card-v5 {
+  background: #1560bd;
+  padding: 18px;
+  border-radius: 14px;
+  width: 45%;
+  min-width: 280px; /* Ensures card scales nicely on mobile */
+  max-width: 500px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+  transition: 0.3s ease;
+}
+
+.milestone-card-v5:hover {
+  transform: translateY(-6px);
+}
+
+/* IMAGE WRAPPER */
+.milestone-img-box-v5 {
+  background: #fff;
+  border-radius: 10px;
+  padding: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 300px;       /* Desktop height */
+}
+
+.milestone-img-v5 {
+  max-height: 100%;   /* Maintain clarity */
+  max-width: 100%;    /* Prevent overflow */
+  width: auto;
+  object-fit: contain;
+  cursor: pointer;
+}
+
+/* CAPTION */
+.milestone-caption-v5 {
+  color: #ffffff;
+  margin-top: 12px;
+  font-size: 1.1rem;
+}
+
+/* FULL RESPONSIVE FIX */
+@media(max-width: 768px) {
+
+  .milestone-card-v5 {
+    width: 100%;      /* FULL WIDTH ON MOBILE */
+  }
+
+  .milestone-row-v5 {
+    gap: 20px;
+    padding: 0 10px;
+  }
+
+  .milestone-img-box-v5 {
+    height: auto;         /* AUTO HEIGHT FOR SMALL SCREENS */
+  }
+
+  .milestone-img-v5 {
+    width: 100%;          /* Fit nicely inside card */
+    height: auto;         /* No cropping */
+  }
+}
+
+/* MODAL */
+.modal-v5 {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.95);
+  justify-content: center;
+  align-items: center;
+  z-index: 99999;
+}
+
+.modal-content-v5 {
+  max-width: 95%;
+  max-height: 95%;
+  border-radius: 12px;
+}
+
+.close-v5 {
+  position: fixed;
+  top: 20px;
+  right: 30px;
+  font-size: 40px;
+  color: white;
+  cursor: pointer;
+}
+</style>
+
+<script>
+const modalV5 = document.getElementById("modalV5");
+const modalImgV5 = document.getElementById("modalImgV5");
+
+document.querySelectorAll(".milestone-img-v5").forEach(img => {
+  img.addEventListener("click", () => {
+    modalV5.style.display = "flex";
+    modalImgV5.src = img.src;
+  });
+});
+
+document.querySelector(".close-v5").onclick = () =>
+  modalV5.style.display = "none";
+
+modalV5.addEventListener("click", e => {
+  if (e.target === modalV5) modalV5.style.display = "none";
+});
+</script>
+
 
 <section id="clients" class="section-bg">
 

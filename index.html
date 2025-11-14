@@ -2070,7 +2070,238 @@ Explore 500+ QEHS And Fire Calculators</a>
 							</div>
 						
 						</section>		 -->
-						
+				
+     <section class="milestones-section">
+  <div class="milestones-container">
+
+    <!-- HEADING + CAROUSEL -->
+    <div class="heading-row">
+       <div>
+    <h2 class="milestones-title">Our Milestones</h2>
+    <p class="milestones-subtext">Use the left and right arrows to view milestone images.</p>
+  </div>
+
+      <!-- SIMPLE CAROUSEL -->
+      <div class="simple-carousel">
+        <button class="carousel-btn" id="prevBtn">❮</button>
+
+        <img id="carouselImage" 
+             src="images/vindus_clients_images/certificate1.jpg" 
+             class="carousel-single-img" />
+
+        <button class="carousel-btn" id="nextBtn">❯</button>
+      </div>
+    </div>
+
+    <!-- BOTTOM IMAGE (Only ONE) -->
+    <div class="milestones-grid">
+      <div class="milestone-item">
+        <div class="milestone-image-wrapper">
+          <img id="bottomImage"
+               src="images/vindus_clients_images/certificate1.jpg"
+               class="milestone-image">
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- FULLSCREEN MODAL -->
+<div id="imageModal" class="modal">
+  <button class="modal-back-btn">← Back</button>
+  <img class="modal-content" id="modalImage">
+</div>
+
+<style>
+/* SECTION BACKGROUND */
+.milestones-section {
+  padding: 30px 0;
+  background: #000040;
+}
+.milestones-subtext {
+  color: #d0d8ff;
+  font-size: 0.95rem;
+  margin-top: 5px;
+  opacity: 0.9;
+}
+
+/* CONTAINER */
+.milestones-container {
+  max-width: 1100px;
+  margin: auto;
+  padding: 0 15px;
+}
+
+/* HEADING + CAROUSEL LAYOUT */
+.heading-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+}
+
+.milestones-title {
+  font-size: 2rem;
+  color: #fff;
+}
+
+/* SIMPLE CAROUSEL */
+.simple-carousel {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: #1560bd;
+  padding: 8px 12px;
+  border-radius: 10px;
+}
+
+.carousel-single-img {
+  width: 150px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.carousel-btn {
+  background: #fff;
+  color: #1560bd;
+  font-size: 20px;
+  font-weight: bold;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+/* BOTTOM SINGLE IMAGE */
+.milestones-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+
+.milestone-item {
+  background: #1560bd;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.milestone-image {
+  width: 100%;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+/* FULLSCREEN MODAL */
+.modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.95);
+  justify-content: center;
+  align-items: center;
+  z-index: 99999;
+}
+
+.modal-content {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.modal-back-btn {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  background: #1560bd;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  font-size: 18px;
+  border-radius: 8px;
+  cursor: pointer;
+  z-index: 100000;
+}
+
+/* MOBILE LAYOUT */
+@media (max-width: 768px) {
+  .heading-row {
+    flex-direction: column;
+    gap: 15px;
+    text-align: center; /* Center everything on mobile */
+  }
+
+  .milestones-subtext {
+    text-align: center; /* Center the p tag text */
+  }
+
+  .milestones-title {
+    text-align: center; /* Center heading */
+  }
+}
+
+</style>
+
+<script>
+// FULLSCREEN VIEWER
+const modal = document.getElementById("imageModal");
+const modalImg = document.getElementById("modalImage");
+
+// Open fullscreen
+document.querySelectorAll(".milestone-image, .carousel-single-img").forEach(img => {
+  img.addEventListener("click", () => {
+    modal.style.display = "flex";
+    modalImg.src = img.src;
+  });
+});
+
+// Back button
+document.querySelector(".modal-back-btn").onclick = () =>
+  modal.style.display = "none";
+
+// Close on background click
+modal.addEventListener("click", e => {
+  if (e.target === modal) modal.style.display = "none";
+});
+
+
+/* ============================
+   SIMPLE CAROUSEL + SYNC
+============================ */
+const images = [
+  "images/vindus_clients_images/certificate1.jpg",
+  "images/vindus_clients_images/certificate2.jpg"
+];
+
+let index = 0;
+
+const carouselImage = document.getElementById("carouselImage");
+const bottomImage = document.getElementById("bottomImage");
+
+// UPDATE BOTH IMAGES
+function updateBoth() {
+  carouselImage.src = images[index];
+  bottomImage.src = images[index];
+}
+
+// NEXT
+document.getElementById("nextBtn").onclick = () => {
+  index = (index + 1) % images.length;
+  updateBoth();
+};
+
+// PREV
+document.getElementById("prevBtn").onclick = () => {
+  index = (index - 1 + images.length) % images.length;
+  updateBoth();
+};
+</script>
+
+                  
+<br>
+                        
  <section id="clients" class="section-bg">
 
 							<div class="container">
